@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "aula99",
+  "title": "Teste de importa\u00e7\u00e3o",
+  "subtitle": "Demonstra\u00e7\u00e3o remov\u00edvel",
+  "objectives": "Testar a biblioteca externa e a entrada de dados.",
+  "source": "M\u00f3dulo de demonstra\u00e7\u00e3o da Pythoteca. N\u00e3o faz parte do curso.",
+  "chapters": [
+    {
+      "title": "Entrada de exemplo",
+      "text": "O c\u00f3digo a seguir solicita um nome. Execute apenas quando desejar.",
+      "example": "nome = input(\"Nome: \")\nprint(\"Ol\u00e1,\", nome)"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "title": "Sauda\u00e7\u00e3o personalizada",
+      "group": "Demonstra\u00e7\u00e3o",
+      "prompt": "Leia o nome e mostre uma sauda\u00e7\u00e3o conforme a sa\u00edda esperada.",
+      "mode": "code",
+      "starter": "",
+      "hint": "Use input() e print().",
+      "solution": "nome = input(\"Nome: \")\nprint(\"Ol\u00e1,\", nome)",
+      "explanation": "input() recebe o texto. print() separa os argumentos com um espa\u00e7o.",
+      "sample_inputs": [
+        "Exemplo"
+      ],
+      "expected": "Nome: Ol\u00e1, Exemplo"
+    },
+    {
+      "id": "02",
+      "title": "Observa\u00e7\u00e3o",
+      "group": "Demonstra\u00e7\u00e3o",
+      "prompt": "Descreva a diferen\u00e7a entre ler um texto e exibir uma mensagem.",
+      "mode": "text",
+      "starter": "",
+      "hint": "Compare input() e print().",
+      "solution": "",
+      "explanation": "input() l\u00ea a entrada; print() escreve na sa\u00edda.",
+      "expected": null
+    }
+  ]
+}

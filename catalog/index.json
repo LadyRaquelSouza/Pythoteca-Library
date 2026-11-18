@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "lessons": [
+    {
+      "id": "aula99",
+      "title": "Teste de importação",
+      "subtitle": "Demonstração removível",
+      "sha256": "ec41259ba75c2b5612348fd2d29c812c1256f5a891e1c29728e1c5b2d86fbe29",
+      "bytes": 1540
+    }
+  ]
+}
