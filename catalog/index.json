@@ -2,6 +2,13 @@
   "schema_version": 1,
   "lessons": [
     {
+      "id": "aula01",
+      "title": "Introdução à lógica e ao Python",
+      "subtitle": "Lógica, algoritmos, primeiros programas e sistemas computacionais",
+      "sha256": "fe54d933bce2348cfe27d219e4837ec6b9e59e1794524acf225b59c9cdac3375",
+      "bytes": 41206
+    },
+    {
       "id": "aula99",
       "title": "Teste de importação",
       "subtitle": "Demonstração removível",
