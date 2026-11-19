@@ -1,0 +1,1526 @@
+{
+  "schema_version": 2,
+  "discipline": "arquitetura",
+  "id": "aula104",
+  "title": "Arquitetura de von Neumann",
+  "subtitle": "Programa armazenado, CPU, memória, comunicação e gargalo",
+  "objectives": "Explicar o modelo de von Neumann, distinguir dados de instruções, identificar UC, ULA e registradores, interpretar caminhos de comunicação, acompanhar a soma 8 + 5 do vídeo e compreender o gargalo e possíveis mitigações.",
+  "source": "Base acadêmica audiovisual: A Jornada de um Cálculo, Aula 02 de Arquitetura; quadros do vídeo consultados, incluindo modelo de von Neumann, elementos internos da CPU, barramentos, ciclo de instruções, tabela 8 + 5 e gargalo. Sem transcrição da narração nem do áudio complementar; texto autoral e aprofundamentos explicitamente identificados.",
+  "chapters": [
+    {
+      "title": "O problema: como o computador calcula 8 + 5?",
+      "text": "BASE AUDIOVISUAL — O vídeo A Jornada de um Cálculo começa com a operação 8 + 5 = 13 e pergunta como o computador transforma esse pedido em resultado. A apresentação introduz o modelo de von Neumann, com CPU, memória e entrada/saída.\n\nRetome os módulos anteriores: a calculadora é uma aplicação, os números são dados e a operação é definida por instruções. O equipamento precisa reconhecer a entrada, manter informações disponíveis, processar a operação e apresentar o resultado. A existência de uma soma não explica, por si só, como os componentes cooperam para realizá-la.\n\nO modelo de von Neumann fornece uma abstração útil dessa organização. Nele, a memória guarda instruções e dados; a CPU executa instruções e comunica-se com a memória e os dispositivos; entrada e saída permitem trocar informações com o exterior. O modelo explica funções, não a localização exata de cada circuito de um aparelho.\n\nAPROFUNDAMENTO — Uma arquitetura de programa armazenado permite representar instruções em memória, em vez de configurar fisicamente o computador para cada nova tarefa. Alterar o programa pode mudar o comportamento da mesma máquina sem reconstruir seus circuitos. Não confunda programa armazenado com arquivo salvo: instruções precisam estar acessíveis à execução, e podem ter sido carregadas de um meio persistente para memória de trabalho.",
+      "example": ""
+    },
+    {
+      "title": "Programa armazenado e representação",
+      "text": "BASE AUDIOVISUAL — O diagrama do vídeo associa memória a dados e instruções e apresenta a CPU como responsável pela execução. A atividade central é seguir o percurso dos valores 8 e 5 até o resultado 13.\n\nAPROFUNDAMENTO — Instruções e dados podem ser representados por padrões de bits. Seu significado depende do contexto: um padrão lido como instrução pode orientar uma operação; um padrão lido como operando pode representar um número. Isso não significa que o processador execute todos os dados que encontra. A arquitetura e o estado da execução determinam de onde as instruções são buscadas e como os valores são interpretados.\n\nUm programa pode obter um valor, somá-lo a outro e produzir um resultado. A memória compartilhada para dados e instruções é uma característica do modelo clássico de von Neumann. Isso permite organizar programas e dados em um espaço comum de armazenamento, mas também cria demanda compartilhada por acesso.\n\nA expressão programa armazenado não significa que todas as instruções e todos os dados precisam ficar permanentemente em ROM. Em sistemas comuns, um executável pode permanecer no SSD, e o sistema operacional prepara a memória necessária à execução. Estudaremos os detalhes desse gerenciamento em Sistemas Operacionais.\n\nExemplo conceitual: na memória existem instruções para carregar operandos e somá-los, além dos valores 8 e 5. A CPU não deve simplesmente somar qualquer conteúdo que apareça na memória; deve seguir o programa. Esta distinção antecede o estudo de codificação binária de instruções.",
+      "example": ""
+    },
+    {
+      "title": "Os componentes do modelo",
+      "text": "BASE AUDIOVISUAL — A apresentação identifica CPU, memória e entrada/saída. Dentro da CPU, destaca UC (Unidade de Controle), ULA (Unidade Lógica e Aritmética) e registradores.\n\nA UC coordena as operações da execução. A ULA realiza operações aritméticas e lógicas. Registradores guardam informações internamente à CPU para uso imediato. A memória mantém instruções e dados disponíveis, e os dispositivos de entrada/saída comunicam o sistema com o exterior.\n\nNão atribua à ULA as funções de todos os componentes. Uma soma pode ser realizada pela ULA, mas a obtenção de operandos, a coordenação das operações e a disponibilização do resultado envolvem outros recursos.\n\nAPROFUNDAMENTO — Em uma representação didática, a UC pode ordenar uma leitura da memória, encaminhar operandos para a ULA e selecionar o destino do resultado. Registradores oferecem acesso rápido a valores usados na execução. O resultado pode permanecer em um registrador antes de ser escrito na memória ou enviado à saída.\n\nCPUs reais possuem outros recursos e podem executar diversas operações sobrepostas. A separação em UC, ULA e registradores é adequada para a introdução, não uma descrição completa de todos os processadores. Um aparelho moderno pode integrar CPU, controladores e outros processadores no mesmo chip, preservando as distinções funcionais.",
+      "example": ""
+    },
+    {
+      "title": "Comunicação: dados, endereços e controle",
+      "text": "BASE AUDIOVISUAL — O vídeo apresenta barramentos como caminhos de dados, endereços e controle entre CPU e memória. Eles permitem encaminhar informações, indicar a localização solicitada e coordenar operações.\n\nUm endereço indica uma posição ou recurso a ser acessado. Dados são os valores ou padrões transferidos, inclusive instruções quando buscadas. Sinais de controle indicam ou coordenam operações, como leitura e escrita. Ao solicitar um valor da memória, é necessário identificar onde procurar, estabelecer a operação e transferir o conteúdo.\n\nAPROFUNDAMENTO — No esquema clássico, pode-se descrever uma leitura assim: indicar o endereço desejado, sinalizar leitura e receber o conteúdo. Numa escrita, indicar o destino, disponibilizar o dado e coordenar a gravação. É uma descrição funcional, não uma especificação de sinais elétricos ou temporização de um barramento real.\n\nEndereço e conteúdo não são a mesma coisa. Se a posição 20 guarda o número 8, 20 identifica a posição e 8 é seu conteúdo. O número 20 poderia também ser um dado em outro contexto. Os esquemas reais podem multiplexar sinais em conexões compartilhadas e usar protocolos complexos. Os três tipos de informação continuam sendo úteis para raciocinar.\n\nO módulo sobre barramentos aprofundará largura, transferência, interconexões e relações com as interfaces estudadas no módulo 102.",
+      "example": ""
+    },
+    {
+      "title": "Uma jornada conceitual de 8 + 5",
+      "text": "BASE AUDIOVISUAL — Na tabela de execução mostrada no vídeo, aparecem operações de carregar 8, carregar 5, somar, guardar em R3 e mostrar na tela. O material enfatiza que o resultado aparece em R3 depois da etapa de armazenamento indicada na simulação.\n\nAcompanhe o estado: primeiro R1 recebe 8; depois R2 recebe 5; a operação de soma produz 13; na etapa que guarda o resultado, R3 recebe 13; finalmente uma operação de saída permite apresentar o número. Não confunda o instante em que a soma é calculada com o momento em que o resultado é registrado ou apresentado.\n\nAPROFUNDAMENTO — A sequência é pseudoinstrução pedagógica. Em uma arquitetura real, uma instrução de soma pode escrever diretamente no registrador de destino, e diferentes arquiteturas oferecem formatos de instrução distintos. Não existe uma regra universal que obrigue toda CPU a executar uma instrução separada chamada “Guardar R3”.\n\nTambém não é necessário salvar 13 em SSD para exibi-lo na tela. Armazenar um resultado em registrador ou memória de trabalho não equivale à gravação persistente de um arquivo.\n\nO vídeo organiza o ciclo em busca, decodificação, execução e resultado. O próximo módulo analisará cada etapa e distinguirá esse ciclo da sequência completa de operações necessárias para resolver a soma. Nesta aula, foque nos papéis dos componentes e no fluxo de informação.",
+      "example": ""
+    },
+    {
+      "title": "O gargalo de von Neumann",
+      "text": "BASE AUDIOVISUAL — O vídeo apresenta o gargalo de von Neumann como uma limitação decorrente da via compartilhada entre CPU e memória, pela qual transitam instruções e dados. A apresentação termina propondo pensar em formas de superar esse congestionamento.\n\nUma CPU precisa obter informações para trabalhar. Se o caminho de comunicação não acompanha a demanda, pode haver espera ou disputa por recursos. A capacidade de processamento não determina sozinha a velocidade de uma tarefa. Imagine uma CPU muito rápida aguardando operandos: aumentar somente sua frequência pode não eliminar o tempo de espera.\n\nAPROFUNDAMENTO — A expressão gargalo de von Neumann também se relaciona à diferença entre a capacidade de processamento e a capacidade de fornecer instruções e dados. Latência e taxa de transferência são grandezas distintas, como vimos no módulo 103. Separar alguns caminhos de acesso, usar caches, aproveitar localidade e sobrepor certas operações pode reduzir esperas. Não significa eliminar toda limitação de memória.\n\nNa arquitetura Harvard clássica, instruções e dados utilizam memórias e caminhos separados. Em muitas máquinas modernas, a memória principal é compartilhada, mas caches de instruções e dados podem ser separados em determinados níveis. Essa combinação é frequentemente descrita como Harvard modificada, dependendo da organização. Não classifique uma máquina inteira somente pela presença de dois caches.\n\nA distinção ajuda a compreender por que os modelos históricos são abstrações e por que sistemas reais evoluem. O objetivo não é decorar qual arquitetura é “melhor”, mas reconhecer as condições, os benefícios e os compromissos de cada organização.",
+      "example": ""
+    },
+    {
+      "title": "Síntese e intercâmbio com Python",
+      "text": "APROFUNDAMENTO CUMULATIVO — Conecte os módulos 101 a 104. O hardware fornece os recursos físicos, software estabelece instruções, dados representam os valores manipulados, a memória mantém informações acessíveis e entrada/saída relaciona o sistema ao ambiente. A hierarquia de memória reduz custos e tempos de acesso em situações comuns. A comunicação permite que esses recursos cooperem.\n\nINTERCÂMBIO COM PYTHON — Já estudamos variáveis, atribuições, print e tipos de dados. Podemos representar uma soma com dois valores e um resultado, sem confundir nomes Python com registradores reais. No exemplo abaixo, r1, r2 e r3 são nomes escolhidos para representar um modelo hipotético. A linguagem não garante que cada nome corresponda a um registrador físico.\n\nO programa calcula 13 e o exibe. Isso permite discutir diferença entre estado de execução e saída. Não demonstra diretamente quais instruções de máquina foram executadas, a quantidade de ciclos, o uso da cache ou os endereços físicos. Para responder a essas perguntas seriam necessárias ferramentas e conhecimentos posteriores.\n\nPRÁTICA — Desenhe CPU, memória e E/S; dentro da CPU, identifique UC, ULA e registradores; trace os caminhos de dados, endereços e controle. Explique o percurso dos valores sem consultar a solução. Compare a representação abstrata com o programa Python. Nenhum código é exigido para concluir os exercícios deste módulo.",
+      "example": "r1 = 8\nr2 = 5\nr3 = r1 + r2\nprint(r3)"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Fundamentos",
+      "title": "Modelo",
+      "prompt": "Quais elementos centrais aparecem no modelo apresentado no vídeo?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O esquema representa processamento, memória e comunicação com o exterior.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "CPU, memória e entrada/saída"
+        },
+        {
+          "id": "b",
+          "text": "Somente CPU e monitor"
+        },
+        {
+          "id": "c",
+          "text": "Somente SSD e fonte"
+        },
+        {
+          "id": "d",
+          "text": "Apenas ULA e teclado"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "02",
+      "group": "Fundamentos",
+      "title": "Programa armazenado",
+      "prompt": "Qual ideia caracteriza o programa armazenado?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A máquina pode executar diferentes programas por meio de instruções armazenadas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cada tarefa exige reconstruir circuitos."
+        },
+        {
+          "id": "b",
+          "text": "Todo dado é executado como instrução."
+        },
+        {
+          "id": "c",
+          "text": "Todo programa precisa ser regravado fisicamente na CPU."
+        },
+        {
+          "id": "d",
+          "text": "Instruções são representadas e mantidas em memória acessível à execução."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Fundamentos",
+      "title": "Abstração",
+      "prompt": "O esquema clássico informa a posição física de cada circuito de um celular?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O modelo explica relações, não um layout físico universal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, desde que use RAM."
+        },
+        {
+          "id": "b",
+          "text": "Sim, se o processador tem ULA."
+        },
+        {
+          "id": "c",
+          "text": "Não; é um modelo funcional."
+        },
+        {
+          "id": "d",
+          "text": "Sim, para todos os aparelhos."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "04",
+      "group": "Fundamentos",
+      "title": "Memória compartilhada",
+      "prompt": "O que compartilha a memória no modelo clássico?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A memória do modelo clássico mantém tanto instruções quanto dados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas periféricos"
+        },
+        {
+          "id": "b",
+          "text": "Dados e instruções"
+        },
+        {
+          "id": "c",
+          "text": "Apenas imagens e sons"
+        },
+        {
+          "id": "d",
+          "text": "Somente energia e calor"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Fundamentos",
+      "title": "Programa e arquivo",
+      "prompt": "Programa armazenado exige que o resultado de toda operação seja salvo no SSD?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Armazenamento para execução é diferente de persistência de arquivos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; estado de execução pode ficar em memória volátil."
+        },
+        {
+          "id": "b",
+          "text": "Sim, todo cálculo gera arquivo."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se a saída for numérica."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque programas nunca usam memória."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "Representação",
+      "title": "Significado",
+      "prompt": "Um padrão de bits é necessariamente uma instrução?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O contexto de execução determina a interpretação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, qualquer bit é uma soma."
+        },
+        {
+          "id": "b",
+          "text": "Sim, se estiver na RAM."
+        },
+        {
+          "id": "c",
+          "text": "Não, porque instruções não são representáveis em bits."
+        },
+        {
+          "id": "d",
+          "text": "Não; o significado depende de como é interpretado."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Representação",
+      "title": "Operando",
+      "prompt": "Na soma 8 + 5, o que são 8 e 5?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "São os valores submetidos à operação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Instruções de escrita"
+        },
+        {
+          "id": "b",
+          "text": "Sinais de controle obrigatórios"
+        },
+        {
+          "id": "c",
+          "text": "Operandos da operação"
+        },
+        {
+          "id": "d",
+          "text": "Endereços obrigatórios da memória"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "08",
+      "group": "Representação",
+      "title": "Programa",
+      "prompt": "A mudança de um programa pode alterar a tarefa sem trocar circuitos?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A ideia de programa armazenado permite flexibilidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, mas apenas se substituir a fonte."
+        },
+        {
+          "id": "b",
+          "text": "Sim, a máquina pode executar outras instruções armazenadas."
+        },
+        {
+          "id": "c",
+          "text": "Não, toda tarefa exige outro processador."
+        },
+        {
+          "id": "d",
+          "text": "Não, dados determinam tudo sem instruções."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "Representação",
+      "title": "Endereço e valor",
+      "prompt": "Uma posição de memória de endereço 20 contém 8. Qual é o conteúdo?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Endereço identifica a posição; conteúdo é o valor guardado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "28"
+        },
+        {
+          "id": "d",
+          "text": "Nenhum valor"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "10",
+      "group": "Representação",
+      "title": "Leitura",
+      "prompt": "O processador deve interpretar todo conteúdo da RAM como código executável?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Dados e instruções não são indistintamente executados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, em ordem aleatória."
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre desde o primeiro endereço."
+        },
+        {
+          "id": "c",
+          "text": "Não, porque nunca lê RAM."
+        },
+        {
+          "id": "d",
+          "text": "Não, busca instruções conforme a execução e acessa dados conforme operações."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "Componentes",
+      "title": "UC",
+      "prompt": "Qual função central pertence à UC?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A Unidade de Controle organiza a execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fornecer energia elétrica"
+        },
+        {
+          "id": "b",
+          "text": "Exibir diretamente os pixels da tela"
+        },
+        {
+          "id": "c",
+          "text": "Coordenar operações da execução"
+        },
+        {
+          "id": "d",
+          "text": "Realizar exclusivamente armazenamento permanente"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Componentes",
+      "title": "ULA",
+      "prompt": "Qual função pertence à ULA?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A ULA manipula valores com operações aritméticas e lógicas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Substituir a memória principal"
+        },
+        {
+          "id": "b",
+          "text": "Realizar operações aritméticas e lógicas"
+        },
+        {
+          "id": "c",
+          "text": "Conservar arquivos após desligar"
+        },
+        {
+          "id": "d",
+          "text": "Administrar toda rede do computador"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "Componentes",
+      "title": "Registradores",
+      "prompt": "Onde estão os registradores descritos no esquema?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Registradores são recursos internos diretamente usados na execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Internamente à CPU"
+        },
+        {
+          "id": "b",
+          "text": "Somente no HD"
+        },
+        {
+          "id": "c",
+          "text": "Na tomada elétrica"
+        },
+        {
+          "id": "d",
+          "text": "Exclusivamente no monitor"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "Componentes",
+      "title": "Memória",
+      "prompt": "Qual papel da memória no modelo?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Memória conserva informações necessárias à execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Executar exclusivamente a alimentação elétrica"
+        },
+        {
+          "id": "b",
+          "text": "Substituir toda ULA"
+        },
+        {
+          "id": "c",
+          "text": "Apresentar toda saída ao usuário"
+        },
+        {
+          "id": "d",
+          "text": "Manter instruções e dados disponíveis"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "Componentes",
+      "title": "E/S",
+      "prompt": "O que caracteriza entrada/saída?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Entrada/saída comunica o sistema com usuários e dispositivos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Armazenamento exclusivo de instruções da UC"
+        },
+        {
+          "id": "b",
+          "text": "Fornecimento de energia à tomada"
+        },
+        {
+          "id": "c",
+          "text": "Troca de informações com o exterior do sistema"
+        },
+        {
+          "id": "d",
+          "text": "Somente soma de operandos"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "16",
+      "group": "Componentes",
+      "title": "Cooperação",
+      "prompt": "A ULA consegue realizar toda tarefa do programa isoladamente?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A execução é resultado de cooperação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, porque nunca realiza cálculos."
+        },
+        {
+          "id": "b",
+          "text": "Não; outros recursos coordenam, fornecem dados e recebem resultados."
+        },
+        {
+          "id": "c",
+          "text": "Sim, inclusive toda gravação de arquivos."
+        },
+        {
+          "id": "d",
+          "text": "Sim, porque a UC não tem função."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "17",
+      "group": "Comunicação",
+      "title": "Endereços",
+      "prompt": "Qual informação indica a posição solicitada?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O endereço identifica o destino ou origem de um acesso.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Endereço"
+        },
+        {
+          "id": "b",
+          "text": "Resultado da ULA obrigatoriamente"
+        },
+        {
+          "id": "c",
+          "text": "Frequência do clock"
+        },
+        {
+          "id": "d",
+          "text": "Capacidade total da RAM"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "18",
+      "group": "Comunicação",
+      "title": "Dados",
+      "prompt": "Qual informação representa o valor transferido?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O caminho de dados transporta conteúdos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Formato do gabinete"
+        },
+        {
+          "id": "b",
+          "text": "Quantidade de conectores"
+        },
+        {
+          "id": "c",
+          "text": "Potência da fonte"
+        },
+        {
+          "id": "d",
+          "text": "Dados"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Comunicação",
+      "title": "Controle",
+      "prompt": "Qual informação distingue solicitação de leitura de escrita?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Controle coordena o tipo de operação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cor do conector"
+        },
+        {
+          "id": "b",
+          "text": "Nome comercial da CPU"
+        },
+        {
+          "id": "c",
+          "text": "Sinal ou informação de controle"
+        },
+        {
+          "id": "d",
+          "text": "Capacidade do SSD"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "20",
+      "group": "Comunicação",
+      "title": "Leitura conceitual",
+      "prompt": "Qual conjunto de informações é necessário numa leitura de memória?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A operação precisa identificar local, ação e dado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente o resultado desejado"
+        },
+        {
+          "id": "b",
+          "text": "Endereço, indicação de leitura e conteúdo retornado"
+        },
+        {
+          "id": "c",
+          "text": "Somente potência nominal"
+        },
+        {
+          "id": "d",
+          "text": "Somente nome do programa"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Comunicação",
+      "title": "Escrita conceitual",
+      "prompt": "Que informações participam de uma escrita?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A escrita envolve localizar destino, transmitir conteúdo e coordenar operação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Destino, dado e controle de escrita"
+        },
+        {
+          "id": "b",
+          "text": "Somente endereço sem valor"
+        },
+        {
+          "id": "c",
+          "text": "Somente placa de vídeo"
+        },
+        {
+          "id": "d",
+          "text": "Somente capacidade do disco"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Comunicação",
+      "title": "Modelo físico",
+      "prompt": "Os três caminhos didáticos exigem três conjuntos de fios separados em toda máquina moderna?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A classificação funcional não exige uma implementação física específica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sem exceção."
+        },
+        {
+          "id": "b",
+          "text": "Sim, inclusive em qualquer conexão sem fio."
+        },
+        {
+          "id": "c",
+          "text": "Não, porque endereços não existem."
+        },
+        {
+          "id": "d",
+          "text": "Não; implementações podem compartilhar recursos e usar protocolos."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "23",
+      "group": "Jornada 8 + 5",
+      "title": "Valores",
+      "prompt": "Após carregar 8 em R1 e 5 em R2, antes de somar, quais são os operandos?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Os valores carregados são operandos da soma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "1 e 2"
+        },
+        {
+          "id": "b",
+          "text": "R3 e 13"
+        },
+        {
+          "id": "c",
+          "text": "8 e 5"
+        },
+        {
+          "id": "d",
+          "text": "13 e 5"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Jornada 8 + 5",
+      "title": "Resultado",
+      "prompt": "Qual resultado a ULA produz na soma do exemplo?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O exemplo trata de adição numérica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "40"
+        },
+        {
+          "id": "b",
+          "text": "13"
+        },
+        {
+          "id": "c",
+          "text": "85"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "25",
+      "group": "Jornada 8 + 5",
+      "title": "R3",
+      "prompt": "Em qual etapa da simulação do vídeo R3 passa a conter 13?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O vídeo distingue calcular e guardar o resultado no modelo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na etapa indicada como guardar R3"
+        },
+        {
+          "id": "b",
+          "text": "Antes de carregar operandos"
+        },
+        {
+          "id": "c",
+          "text": "Antes de qualquer soma"
+        },
+        {
+          "id": "d",
+          "text": "Somente após desligamento"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "26",
+      "group": "Jornada 8 + 5",
+      "title": "Saída",
+      "prompt": "O número aparece na tela somente porque existe em R3?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Guardar um valor e apresentá-lo são funções diferentes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, todo registrador é visível na tela."
+        },
+        {
+          "id": "b",
+          "text": "Sim, a ULA é a tela."
+        },
+        {
+          "id": "c",
+          "text": "Não, pois resultados nunca podem ser exibidos."
+        },
+        {
+          "id": "d",
+          "text": "Não; também é necessário realizar a operação de saída."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Jornada 8 + 5",
+      "title": "Persistência",
+      "prompt": "Guardar em R3 equivale a salvar um arquivo?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Registrador não é armazenamento persistente de arquivos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, qualquer valor permanece sem energia."
+        },
+        {
+          "id": "b",
+          "text": "Não, porque R3 não pode conter valores."
+        },
+        {
+          "id": "c",
+          "text": "Não; R3 representa registro interno usado durante execução."
+        },
+        {
+          "id": "d",
+          "text": "Sim, todo registrador é SSD."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "28",
+      "group": "Jornada 8 + 5",
+      "title": "Instruções reais",
+      "prompt": "Toda CPU exige uma instrução separada para guardar o resultado de uma soma?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A tabela é um modelo pedagógico, não uma ISA universal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, porque somas não geram resultados."
+        },
+        {
+          "id": "b",
+          "text": "Não; algumas instruções já escrevem o resultado no destino."
+        },
+        {
+          "id": "c",
+          "text": "Sim, todas seguem literalmente a tabela do vídeo."
+        },
+        {
+          "id": "d",
+          "text": "Sim, inclusive quando não há registrador."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "29",
+      "group": "Gargalo",
+      "title": "Via compartilhada",
+      "prompt": "Por que a via compartilhada pode limitar o modelo clássico?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A demanda concorrente pode provocar espera.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Dados e instruções competem por capacidade de comunicação."
+        },
+        {
+          "id": "b",
+          "text": "Memória nunca guarda instruções."
+        },
+        {
+          "id": "c",
+          "text": "A CPU não consegue somar números."
+        },
+        {
+          "id": "d",
+          "text": "Todo periférico é exclusivamente de saída."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "30",
+      "group": "Gargalo",
+      "title": "CPU rápida",
+      "prompt": "Aumentar apenas o clock sempre resolve espera por memória?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Desempenho depende de múltiplos recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sem exceção."
+        },
+        {
+          "id": "b",
+          "text": "Sim, porque RAM se torna mais rápida automaticamente."
+        },
+        {
+          "id": "c",
+          "text": "Não, porque clock não influencia processamento."
+        },
+        {
+          "id": "d",
+          "text": "Não; o caminho e a latência de acesso podem continuar limitantes."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "31",
+      "group": "Gargalo",
+      "title": "Cache",
+      "prompt": "Como cache pode ajudar?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Cache reduz certas esperas, sem eliminar todos os limites.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Tornar toda memória persistente."
+        },
+        {
+          "id": "b",
+          "text": "Garantir ausência de qualquer latência."
+        },
+        {
+          "id": "c",
+          "text": "Manter informações próximas à CPU e evitar parte dos acessos mais demorados."
+        },
+        {
+          "id": "d",
+          "text": "Eliminar a necessidade de instruções."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "32",
+      "group": "Gargalo",
+      "title": "Harvard",
+      "prompt": "Qual característica distingue a arquitetura Harvard clássica?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A separação é uma característica funcional importante.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Instruções nunca armazenadas"
+        },
+        {
+          "id": "b",
+          "text": "Memórias e caminhos separados para instruções e dados"
+        },
+        {
+          "id": "c",
+          "text": "Ausência de CPU"
+        },
+        {
+          "id": "d",
+          "text": "Uso obrigatório de SSD para registradores"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "33",
+      "group": "Gargalo",
+      "title": "Modelo moderno",
+      "prompt": "Caches de instruções e dados separadas significam obrigatoriamente memória principal separada?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Organizações modernas podem combinar ideias dos modelos clássicos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; podem coexistir com memória principal compartilhada."
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre."
+        },
+        {
+          "id": "c",
+          "text": "Sim, porque cache é SSD."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque caches não guardam instruções."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "34",
+      "group": "Gargalo",
+      "title": "Limitação",
+      "prompt": "Separar um caminho ou adicionar cache elimina todo gargalo possível?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Mitigar não equivale a eliminar todos os limites.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, torna a máquina infinitamente rápida."
+        },
+        {
+          "id": "b",
+          "text": "Sim, toda espera desaparece."
+        },
+        {
+          "id": "c",
+          "text": "Sim, sem alteração da carga."
+        },
+        {
+          "id": "d",
+          "text": "Não; continuam existindo limites de comunicação, capacidade e latência."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "35",
+      "group": "Revisão e intercâmbio",
+      "title": "Variáveis Python",
+      "prompt": "r1 = 8 garante que 8 foi colocado em um registrador físico R1?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "O modelo Python não expõe diretamente registradores físicos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sempre que estão em letras minúsculas."
+        },
+        {
+          "id": "b",
+          "text": "Não, porque Python não usa memória."
+        },
+        {
+          "id": "c",
+          "text": "Não; r1 é um nome da linguagem usado no exemplo."
+        },
+        {
+          "id": "d",
+          "text": "Sim, nomes determinam endereços físicos."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "36",
+      "group": "Revisão e intercâmbio",
+      "title": "Print",
+      "prompt": "O que print(r3) demonstra no exemplo?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "A saída textual não fornece automaticamente informações microarquiteturais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "A taxa de acertos de cache"
+        },
+        {
+          "id": "b",
+          "text": "A apresentação do valor associado ao nome r3"
+        },
+        {
+          "id": "c",
+          "text": "O endereço físico de R3"
+        },
+        {
+          "id": "d",
+          "text": "A quantidade de ciclos da soma"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "37",
+      "group": "Revisão e intercâmbio",
+      "title": "Cumulativa",
+      "prompt": "Qual recurso mantém dados em uso e normalmente perde conteúdo sem energia?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Retome volatilidade e persistência do módulo 103.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "RAM"
+        },
+        {
+          "id": "b",
+          "text": "SSD"
+        },
+        {
+          "id": "c",
+          "text": "HDD"
+        },
+        {
+          "id": "d",
+          "text": "Pen drive"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "38",
+      "group": "Revisão e intercâmbio",
+      "title": "Cumulativa",
+      "prompt": "Qual componente integra conexões físicas entre recursos num desktop?",
+      "hint": "Identifique o papel de cada elemento no modelo.",
+      "explanation": "Retome a função de integração estudada no módulo 102.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Arquivo de texto"
+        },
+        {
+          "id": "b",
+          "text": "Programa Python"
+        },
+        {
+          "id": "c",
+          "text": "Monitor simples"
+        },
+        {
+          "id": "d",
+          "text": "Placa-mãe"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "39",
+      "group": "Fundamentos",
+      "title": "Explicação do modelo",
+      "prompt": "Explique o modelo de von Neumann usando CPU, memória, entrada/saída e programa armazenado.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Quatro elementos e relação funcional.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A memória guarda instruções e dados; CPU executa instruções, comunica-se com memória e E/S; programa armazenado permite mudar tarefas por instruções mantidas em memória.",
+      "expected": null
+    },
+    {
+      "id": "40",
+      "group": "Fundamentos",
+      "title": "Flexibilidade",
+      "prompt": "Por que o programa armazenado é importante para máquinas de uso geral?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Relacionar instruções armazenadas e mudança de comportamento.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Permite executar tarefas diferentes a partir de instruções armazenadas, sem reconstruir circuitos para cada tarefa.",
+      "expected": null
+    },
+    {
+      "id": "41",
+      "group": "Fundamentos",
+      "title": "Modelo e aparelho",
+      "prompt": "Por que não se deve interpretar o diagrama de von Neumann como fotografia da placa de um computador moderno?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir abstração e implementação física.",
+      "mode": "text",
+      "starter": "",
+      "solution": "É uma abstração de funções e relações; máquinas modernas integram circuitos, controladores e interconexões diversas.",
+      "expected": null
+    },
+    {
+      "id": "42",
+      "group": "Representação",
+      "title": "Dados versus instruções",
+      "prompt": "Explique como padrões de bits podem representar tanto instruções quanto dados sem que todo dado seja executado.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Representação comum, interpretação contextual e seleção de instruções.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O significado depende do contexto e das operações; instruções são buscadas conforme o estado de execução, enquanto dados são lidos como operandos ou conteúdos.",
+      "expected": null
+    },
+    {
+      "id": "43",
+      "group": "Representação",
+      "title": "Endereço",
+      "prompt": "Uma posição 40 contém 12 e outra posição 41 contém 40. Identifique endereços e conteúdos.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir as duas posições e seus valores.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Endereços 40 e 41; conteúdos 12 e 40 respectivamente. 40 pode ser endereço em um contexto e conteúdo em outro.",
+      "expected": null
+    },
+    {
+      "id": "44",
+      "group": "Componentes",
+      "title": "UC, ULA e registradores",
+      "prompt": "Diferencie as funções dos três elementos internos destacados no vídeo.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Explicar as três funções sem trocar responsabilidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "UC coordena execução; ULA faz operações aritméticas e lógicas; registradores mantêm valores internos utilizados durante a execução.",
+      "expected": null
+    },
+    {
+      "id": "45",
+      "group": "Componentes",
+      "title": "Cooperação",
+      "prompt": "Por que não basta afirmar que a ULA calcula 8 + 5 para explicar a tarefa inteira?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Identificar pelo menos quatro funções complementares.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Operandos precisam ser obtidos, operações coordenadas, resultado armazenado e enviado à saída. UC, registradores, memória e E/S cooperam.",
+      "expected": null
+    },
+    {
+      "id": "46",
+      "group": "Componentes",
+      "title": "Diagrama",
+      "prompt": "Sem consultar a solução, desenhe ou descreva CPU, memória e E/S, incluindo UC, ULA e registradores.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Elementos, localização conceitual e relações de comunicação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CPU contém os três recursos destacados; memória mantém instruções/dados; interconexões ligam CPU, memória e E/S. E/S comunica com exterior.",
+      "expected": null
+    },
+    {
+      "id": "47",
+      "group": "Comunicação",
+      "title": "Três informações",
+      "prompt": "Compare dados, endereços e controle numa leitura de memória.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir os três papéis com exemplo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Endereço indica posição; controle coordena leitura; dados são o conteúdo retornado, que pode representar instrução ou operando.",
+      "expected": null
+    },
+    {
+      "id": "48",
+      "group": "Comunicação",
+      "title": "Escrita",
+      "prompt": "Descreva conceitualmente a escrita do valor 13 na posição 60 de memória.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Endereço correto, dado correto e controle.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Indicar endereço 60, disponibilizar dado 13 e coordenar operação de escrita. O conteúdo anterior é substituído conforme a operação.",
+      "expected": null
+    },
+    {
+      "id": "49",
+      "group": "Comunicação",
+      "title": "Leitura",
+      "prompt": "Uma posição 12 guarda 7. Descreva como solicitar seu conteúdo sem confundir endereço e dado.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Identificar 12 como endereço, 7 como conteúdo e leitura como ação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Solicitar leitura do endereço 12; memória retorna 7; endereço e conteúdo possuem papéis distintos.",
+      "expected": null
+    },
+    {
+      "id": "50",
+      "group": "Comunicação",
+      "title": "Interconexão moderna",
+      "prompt": "Por que caminhos de dados, endereços e controle não são necessariamente três conjuntos de fios separados?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir função informacional de implementação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "São papéis informacionais; protocolos e multiplexação podem compartilhar conexões físicas.",
+      "expected": null
+    },
+    {
+      "id": "51",
+      "group": "Jornada 8 + 5",
+      "title": "Tabela manual",
+      "prompt": "Reproduza o estado de R1, R2 e R3 após cada operação do vídeo: carregar 8, carregar 5, somar, guardar R3, mostrar.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Ordem e estados relevantes; diferenciar soma, armazenamento e saída.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar 8: R1=8; depois R2=5; soma produz 13 ainda sem alteração de R3 no modelo; guardar estabelece R3=13; mostrar apresenta 13. Valores anteriores não especificados não precisam ser inventados.",
+      "expected": null
+    },
+    {
+      "id": "52",
+      "group": "Jornada 8 + 5",
+      "title": "Nova soma",
+      "prompt": "Adapte o modelo didático do vídeo para calcular 6 + 9. Descreva a sequência.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Operandos, resultado 15 e ordem coerente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Carregar 6 em R1, 9 em R2, somar na ULA para obter 15, guardar 15 em R3, apresentar a saída.",
+      "expected": null
+    },
+    {
+      "id": "53",
+      "group": "Jornada 8 + 5",
+      "title": "Persistência",
+      "prompt": "Qual a diferença entre guardar 13 em R3 e gravar um arquivo contendo 13?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir registrador e arquivo persistente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O primeiro mantém resultado no estado interno da execução; o segundo requer escrita em armazenamento persistente.",
+      "expected": null
+    },
+    {
+      "id": "54",
+      "group": "Jornada 8 + 5",
+      "title": "Simplificação",
+      "prompt": "Por que a instrução separada de guardar R3 na tabela não é uma exigência de toda CPU?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Reconhecer o modelo do vídeo e a variação real.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A tabela é pedagógica; arquiteturas oferecem instruções distintas e uma soma pode escrever diretamente no registrador de destino.",
+      "expected": null
+    },
+    {
+      "id": "55",
+      "group": "Gargalo",
+      "title": "Explicação",
+      "prompt": "Explique o gargalo de von Neumann sem usar somente a palavra congestionamento.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Via compartilhada, demanda e consequência de espera.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Instruções e dados demandam acesso à memória pela via compartilhada; capacidade e latência limitam fornecimento de informações, e CPU pode esperar.",
+      "expected": null
+    },
+    {
+      "id": "56",
+      "group": "Gargalo",
+      "title": "CPU e memória",
+      "prompt": "Por que uma CPU mais rápida pode trazer pouco ganho numa tarefa limitada pelo acesso à memória?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Relacionar limitação de comunicação e desempenho.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Se a CPU já espera informações, aumentar capacidade de execução não reduz necessariamente latência ou aumenta a transferência de memória.",
+      "expected": null
+    },
+    {
+      "id": "57",
+      "group": "Gargalo",
+      "title": "Mitigação",
+      "prompt": "Cite duas formas de reduzir a limitação e explique seus mecanismos.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Dois mecanismos corretos e reconhecer que não eliminam todo limite.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Cache mantém dados/instruções úteis perto da execução; caminhos separados reduzem disputa; sobreposição pode esconder parte da espera. Duas explicações bastam.",
+      "expected": null
+    },
+    {
+      "id": "58",
+      "group": "Gargalo",
+      "title": "Comparação",
+      "prompt": "Compare von Neumann e Harvard clássicas quanto à memória e comunicação.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Compartilhamento versus separação e ressalva sobre implementações.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Von Neumann clássico utiliza memória e caminho compartilhados para instruções e dados; Harvard clássico separa memórias e caminhos. Máquinas reais podem combinar soluções.",
+      "expected": null
+    },
+    {
+      "id": "59",
+      "group": "Gargalo",
+      "title": "Caches separadas",
+      "prompt": "Explique como uma máquina pode ter caches de instruções e dados separadas e memória principal comum.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir níveis e não afirmar que toda memória é separada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Os caminhos de acesso podem ser separados em níveis próximos à CPU e convergir para memória principal compartilhada; a organização combina características dos modelos.",
+      "expected": null
+    },
+    {
+      "id": "60",
+      "group": "Revisão e intercâmbio",
+      "title": "Transferência de conhecimento",
+      "prompt": "Relacione cache e latência estudadas no módulo anterior ao gargalo.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Relacionar cache, latência, demanda e limites.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Cache pode atender acessos com menor latência e reduzir demanda de memória principal; faltas ainda exigem outros acessos, e o efeito depende da tarefa.",
+      "expected": null
+    },
+    {
+      "id": "61",
+      "group": "Revisão e intercâmbio",
+      "title": "Modelo Python",
+      "prompt": "Explique o que r1=8; r2=5; r3=r1+r2; print(r3) representa e o que não demonstra.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Predizer 13 e distinguir modelo lógico de implementação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Representa valores, soma e saída; não revela registradores físicos, instruções reais, ciclos, endereços ou cache.",
+      "expected": null
+    },
+    {
+      "id": "62",
+      "group": "Revisão e intercâmbio",
+      "title": "Diagnóstico",
+      "prompt": "Uma aplicação demora ao acessar grandes volumes de dados. Por que não é possível concluir imediatamente que falta potência de CPU?",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Hipóteses distintas e investigação fundamentada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A tarefa pode estar limitada por comunicação, latência, memória, armazenamento ou processamento; é preciso observar recursos e comportamento.",
+      "expected": null
+    },
+    {
+      "id": "63",
+      "group": "Revisão e intercâmbio",
+      "title": "Visão integrada",
+      "prompt": "Descreva um sistema de calculadora do toque na tela até a exibição de um resultado, relacionando hardware, software, dados e modelo de von Neumann.",
+      "hint": "Explique o fluxo com suas palavras. Identifique as simplificações quando necessário.",
+      "explanation": "Critérios de autocorreção: Relacionar entrada, programa, dados, CPU, memória e saída, sem exigir arquivo salvo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Toque fornece entrada; software interpreta pedido; CPU executa instruções usando memória e recursos internos; resultado é encaminhado à saída visual; hardware viabiliza as operações.",
+      "expected": null
+    }
+  ]
+}
