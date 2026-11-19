@@ -1,0 +1,1620 @@
+{
+  "schema_version": 2,
+  "discipline": "arquitetura",
+  "id": "aula105",
+  "title": "CPU e ciclo de instruções",
+  "subtitle": "Busca, decodificação, execução, registradores e rastreamento",
+  "objectives": "Explicar as quatro fases do ciclo, interpretar registradores e estado, distinguir dados, endereços e instruções, acompanhar o modelo 8 + 5 do vídeo, rastrear programas fictícios, compreender controle de fluxo e introdução a pipeline.",
+  "source": "Base acadêmica audiovisual: A Jornada de um Cálculo, Aula 02 de Arquitetura. Quadros consultados do ciclo de quatro etapas, UC/ULA/registradores e tabela da soma 8 + 5. Narração e áudio complementar não transcritos. Aprofundamentos autorais: PC, IR, MAR/MDR conceituais, ISA, modelo fictício, fluxo e pipeline.",
+  "chapters": [
+    {
+      "title": "O ciclo de instrução",
+      "text": "BASE AUDIOVISUAL\nO vídeo A Jornada de um Cálculo apresenta quatro etapas principais: busca, decodificação, execução e resultado. Na busca, a instrução é obtida da memória; na decodificação, a UC interpreta a instrução e sua operação; na execução, a ULA realiza o cálculo quando necessário; na etapa de resultado, o valor é armazenado ou encaminhado à saída. O esquema usa a operação 8 + 5 para mostrar a cooperação entre os componentes.\n\nUma instrução é uma operação elementar reconhecida pelo processador. Um programa reúne instruções organizadas para realizar uma tarefa. A sequência completa que resolve a soma no vídeo não deve ser confundida com um único ciclo de instrução: carregar os operandos, somar, guardar e apresentar são operações distintas, e cada instrução exige sua própria execução.\n\nAPROFUNDAMENTO\nUsaremos quatro fases conceituais, também conhecidas como fetch, decode, execute e write-back (quando há escrita de resultado). Nem toda instrução realiza uma operação aritmética ou produz um valor a escrever em registrador. A divisão das fases varia entre arquiteturas. Uma instrução de desvio pode alterar a próxima instrução; uma operação de escrita pode modificar a memória; uma instrução de saída pode interagir com mecanismos de E/S.\n\nO ciclo de instrução não é sinônimo de ciclo de clock. Um ciclo de clock é uma unidade temporal ligada à frequência; uma instrução pode exigir vários ciclos, ou várias instruções podem avançar em paralelo. O modelo introdutório descreve dependências lógicas, não uma temporização universal.",
+      "example": ""
+    },
+    {
+      "title": "Registradores e estado de execução",
+      "text": "BASE AUDIOVISUAL\nA apresentação destaca os registradores como áreas internas rápidas da CPU. Na tabela didática, R1 recebe 8, R2 recebe 5 e R3 recebe 13 após a operação de guardar.\n\nAPROFUNDAMENTO\nRegistradores guardam informações diretamente acessíveis à execução das instruções. Registradores de propósito geral podem conter operandos, resultados intermediários ou endereços; seu uso depende da arquitetura e do programa. Existem também registradores com funções específicas.\n\nO contador de programa (PC, Program Counter) identifica a posição associada à próxima busca de instrução em nosso modelo simplificado. O registrador de instrução (IR, Instruction Register) representa a instrução obtida para interpretação. Em CPU reais, a organização pode ser mais complexa e esses nomes não correspondem necessariamente a registradores visíveis ao programador.\n\nAlgumas representações didáticas utilizam MAR (Memory Address Register) para o endereço de memória solicitado e MDR (Memory Data Register) para o conteúdo transferido. São recursos conceituais úteis para distinguir endereço e valor. Não presuma que toda CPU moderna implementa literalmente esses registradores.\n\nEstado de execução é o conjunto de informações relevantes em determinado instante. Ao rastrear uma sequência, anote os valores conhecidos; marque como desconhecidos os valores ainda não definidos. Não substitua automaticamente um registrador desconhecido por zero. Uma instrução que escreve R1 não altera necessariamente R2; siga a semântica da operação.",
+      "example": ""
+    },
+    {
+      "title": "Busca: localizar e obter a instrução",
+      "text": "BASE AUDIOVISUAL\nNa primeira etapa apresentada no vídeo, a instrução é obtida a partir da memória.\n\nAPROFUNDAMENTO\nEm nosso modelo didático, o PC contém o endereço da próxima instrução. A CPU solicita a leitura nesse endereço, recebe o conteúdo da memória e o torna disponível à decodificação. Podemos representar o conteúdo no IR. O PC pode então avançar para a próxima posição de instrução. O avanço não é universalmente de um byte: depende do formato, tamanho e organização das instruções.\n\nPor exemplo, considere uma memória abstrata na qual cada posição lógica contém uma instrução inteira:\nposição 100: CARREGAR R1, 8\nposição 101: CARREGAR R2, 5\nposição 102: SOMAR R3, R1, R2\n\nSe PC = 100, a busca obtém a primeira instrução. O avanço simplificado passa a indicar 101. Isso não significa que 100 seja um valor operando nem que 101 seja um endereço físico do seu aparelho.\n\nUma busca pode utilizar cache, conforme a organização do processador. Caso a informação não esteja disponível no nível consultado, outro nível pode ser acessado. Retome o gargalo de von Neumann: instruções e dados precisam ser fornecidos à execução.",
+      "example": ""
+    },
+    {
+      "title": "Decodificação: interpretar a operação",
+      "text": "BASE AUDIOVISUAL\nO vídeo associa a decodificação à Unidade de Controle: identificar a instrução e a operação a realizar.\n\nAPROFUNDAMENTO\nUma instrução possui uma codificação reconhecida pela arquitetura de conjunto de instruções, ou ISA (Instruction Set Architecture). Em representações didáticas, podemos distinguir código de operação (opcode) e operandos. Em SOMAR R3, R1, R2, SOMAR identifica a operação; R1 e R2 indicam fontes; R3 indica destino. A ordem e a quantidade de operandos variam conforme a ISA.\n\nUma instrução CARREGAR R1, 8 pode, na linguagem fictícia desta aula, colocar o valor imediato 8 em R1. Já LER R1, [8] significa buscar o conteúdo da posição 8 da memória, não necessariamente o valor 8. Se memória[8] contém 21, LER entrega 21.\n\nDecodificar não é concluir a soma. É identificar quais operações e recursos serão necessários. A execução poderá ler operandos de registradores ou memória, realizar cálculo, comparar valores ou alterar o fluxo. Uma representação textual como SOMAR é um mnemônico, não a codificação binária efetivamente utilizada por toda CPU.\n\nNão precisamos memorizar opcodes reais neste módulo. O objetivo é compreender a relação entre instrução, origem, destino e ação.",
+      "example": ""
+    },
+    {
+      "title": "Execução, resultado e controle de fluxo",
+      "text": "BASE AUDIOVISUAL\nNa execução da soma, a ULA realiza o cálculo matemático. Na etapa de resultado, o valor é armazenado ou encaminhado à saída. O vídeo destaca que, em sua tabela, 13 aparece em R3 somente após a operação de armazenamento.\n\nAPROFUNDAMENTO\nVamos diferenciar dois modelos:\nModelo A (tabela do vídeo): CARREGAR 8; CARREGAR 5; SOMAR; GUARDAR R3; MOSTRAR. A soma produz um resultado intermediário, e GUARDAR estabelece R3.\nModelo B (linguagem fictícia): CARREGAR R1, 8; CARREGAR R2, 5; SOMAR R3, R1, R2; MOSTRAR R3. SOMAR produz e escreve diretamente o resultado em R3.\n\nEm ambos, a saída é 13. No modelo B, não há instrução GUARDAR separada. Em máquinas reais, instruções podem escrever em registradores ou memória, conforme sua definição; exibir um valor costuma exigir uma sequência de operações e serviços de E/S, não uma instrução de alto nível universal.\n\nAlém de operações aritméticas, uma instrução pode transferir dados, comparar valores ou desviar a execução. Neste módulo, DESVIAR 104 significa ajustar a próxima posição lógica para 104, em vez de seguir a sequência normal. Isso demonstra a função do controle de fluxo sem antecipar os detalhes de algoritmos condicionais em Python.\n\nGuardar resultado em registrador não significa gravar arquivo. Persistência exige outros mecanismos. Diferencie valor calculado, valor registrado, saída apresentada e dado persistido.",
+      "example": ""
+    },
+    {
+      "title": "Rastreamento manual: uma máquina fictícia",
+      "text": "APROFUNDAMENTO — CONVENÇÕES EXCLUSIVAS DOS EXERCÍCIOS\nUsaremos três registradores R1, R2 e R3. Todos começam desconhecidos, salvo indicação explícita. Cada posição lógica contém uma instrução inteira. Leia o programa de cima para baixo, a menos que haja desvio. Os comandos são notação pedagógica, não código Python nem assembly de uma máquina real.\n\nCARREGAR R1, 7: escreve o inteiro 7 em R1.\nCOPIAR R2, R1: escreve em R2 o valor atual de R1.\nLER R1, [20]: lê memória[20] e escreve em R1.\nESCREVER [20], R1: escreve o valor atual de R1 em memória[20].\nSOMAR R3, R1, R2: escreve a soma em R3.\nSUBTRAIR R3, R1, R2: escreve R1 menos R2 em R3.\nMOSTRAR R3: acrescenta o valor atual de R3 à saída, sem modificá-lo.\nDESVIAR 104: a próxima busca será na posição lógica 104.\nPARAR: encerra a execução do programa.\n\nExemplo:\n100 CARREGAR R1, 6\n101 CARREGAR R2, 4\n102 SOMAR R3, R1, R2\n103 COPIAR R1, R3\n104 SUBTRAIR R3, R1, R2\n105 MOSTRAR R3\n106 PARAR\n\nApós 100: R1=6, R2=?, R3=?.\nApós 101: R1=6, R2=4, R3=?.\nApós 102: R3=10.\nApós 103: R1=10.\nApós 104: R3=6.\nSaída: 6. Estado final: R1=10, R2=4, R3=6.\n\nRegistre o estado após cada instrução; não tente adivinhar valores futuros. A atribuição de um resultado a R3 não modifica R1 ou R2, salvo se a própria instrução tiver um deles como destino.",
+      "example": ""
+    },
+    {
+      "title": "Desempenho e intercâmbio com Python",
+      "text": "APROFUNDAMENTO\nUma CPU não precisa esperar a conclusão completa de uma instrução para iniciar o trabalho de outra. Pipeline é uma técnica que permite sobrepor etapas de diferentes instruções, respeitando dependências e recursos disponíveis. Imagine uma primeira instrução em execução enquanto uma segunda é decodificada e uma terceira buscada.\n\nIsso pode melhorar a quantidade de instruções concluídas por unidade de tempo, sem garantir redução equivalente na latência de cada instrução. Dependências entre resultados, desvios e espera por memória podem limitar o aproveitamento. CPUs modernas utilizam estratégias adicionais; não é necessário estudá-las em detalhe agora.\n\nINTERCÂMBIO COM PYTHON\nPodemos representar estados de uma máquina fictícia com variáveis. COPIAR R2, R1 lembra a atribuição r2 = r1 para inteiros, e SOMAR R3, R1, R2 lembra r3 = r1 + r2. Os nomes Python não são registradores físicos; o interpretador e a CPU usam mecanismos próprios. print mostra uma saída textual, não revela a quantidade de instruções executadas.\n\nRetome a Aula 02 de Python: quando r1 recebe outro inteiro, r2 não acompanha automaticamente a reatribuição. Esse princípio ajuda a rastrear a máquina fictícia, sem afirmar que as duas implementações são idênticas.\n\nA prática deste módulo consiste em interpretar instruções, acompanhar alterações do estado e distinguir execução, armazenamento e saída. Não exige condições, laços, bibliotecas ou código de máquina real.",
+      "example": "r1 = 6\nr2 = 4\nr3 = r1 + r2\nr1 = r3\nr3 = r1 - r2\nprint(r3)"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Ciclo",
+      "title": "Etapas",
+      "prompt": "Qual ordem corresponde às quatro etapas apresentadas no vídeo?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O vídeo distingue obter, interpretar, executar e tratar resultado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Busca, decodificação, execução, resultado"
+        },
+        {
+          "id": "b",
+          "text": "Execução, busca, resultado, decodificação"
+        },
+        {
+          "id": "c",
+          "text": "Resultado, execução, busca, decodificação"
+        },
+        {
+          "id": "d",
+          "text": "Decodificação, resultado, busca, execução"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "02",
+      "group": "Ciclo",
+      "title": "Busca",
+      "prompt": "Qual ação caracteriza a busca de instrução?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A busca disponibiliza a instrução para interpretação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Exibir obrigatoriamente a saída"
+        },
+        {
+          "id": "b",
+          "text": "Salvar um arquivo no SSD"
+        },
+        {
+          "id": "c",
+          "text": "Interpretar necessariamente todos os operandos"
+        },
+        {
+          "id": "d",
+          "text": "Obter a instrução a partir da memória"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Ciclo",
+      "title": "Decodificação",
+      "prompt": "Qual ação caracteriza a decodificação?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A UC identifica a ação necessária.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Desligar os registradores"
+        },
+        {
+          "id": "b",
+          "text": "Gravar qualquer arquivo"
+        },
+        {
+          "id": "c",
+          "text": "Interpretar a instrução e identificar a operação"
+        },
+        {
+          "id": "d",
+          "text": "Realizar toda soma antes de interpretar"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "04",
+      "group": "Ciclo",
+      "title": "Execução",
+      "prompt": "Qual recurso realiza a soma no esquema?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A ULA executa operações aritméticas e lógicas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "HDD"
+        },
+        {
+          "id": "b",
+          "text": "ULA"
+        },
+        {
+          "id": "c",
+          "text": "Fonte"
+        },
+        {
+          "id": "d",
+          "text": "Porta USB"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Ciclo",
+      "title": "Resultado",
+      "prompt": "Qual ação corresponde à fase de resultado?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A fase trata o efeito da instrução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Armazenar ou encaminhar o valor produzido, quando aplicável"
+        },
+        {
+          "id": "b",
+          "text": "Buscar aleatoriamente uma instrução"
+        },
+        {
+          "id": "c",
+          "text": "Repetir necessariamente a decodificação"
+        },
+        {
+          "id": "d",
+          "text": "Apagar o programa"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "Ciclo",
+      "title": "Clock",
+      "prompt": "Um ciclo de instrução equivale sempre a um único ciclo de clock?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Ciclos de clock e fases de instrução são conceitos distintos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sem exceção"
+        },
+        {
+          "id": "b",
+          "text": "Sim, se o programa usa soma"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque clock não mede tempo"
+        },
+        {
+          "id": "d",
+          "text": "Não; dependem da arquitetura e da operação"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Ciclo",
+      "title": "Sequência completa",
+      "prompt": "Carregar 8, carregar 5, somar e mostrar constituem necessariamente uma única instrução?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Uma tarefa envolve uma sequência de instruções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, pois usam dois valores"
+        },
+        {
+          "id": "b",
+          "text": "Não, porque instruções nunca produzem resultado"
+        },
+        {
+          "id": "c",
+          "text": "Não; são operações distintas no modelo"
+        },
+        {
+          "id": "d",
+          "text": "Sim, pois produzem um resultado"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "08",
+      "group": "Registradores",
+      "title": "PC",
+      "prompt": "Qual papel do contador de programa em nosso modelo?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "PC acompanha o fluxo de instruções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fornecer energia"
+        },
+        {
+          "id": "b",
+          "text": "Indicar endereço associado à próxima busca"
+        },
+        {
+          "id": "c",
+          "text": "Guardar permanentemente todos os arquivos"
+        },
+        {
+          "id": "d",
+          "text": "Calcular toda soma"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "Registradores",
+      "title": "IR",
+      "prompt": "Qual papel conceitual do IR?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "IR representa a instrução disponível à decodificação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Manter a instrução obtida para interpretação"
+        },
+        {
+          "id": "b",
+          "text": "Guardar todos os resultados do usuário"
+        },
+        {
+          "id": "c",
+          "text": "Definir capacidade de disco"
+        },
+        {
+          "id": "d",
+          "text": "Controlar temperatura"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "10",
+      "group": "Registradores",
+      "title": "MAR",
+      "prompt": "No modelo MAR/MDR, o que MAR representa?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "MAR identifica uma localização.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Conteúdo transferido obrigatoriamente"
+        },
+        {
+          "id": "b",
+          "text": "Velocidade de clock"
+        },
+        {
+          "id": "c",
+          "text": "Resultado de vídeo"
+        },
+        {
+          "id": "d",
+          "text": "Endereço da operação de memória"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "Registradores",
+      "title": "MDR",
+      "prompt": "No modelo MAR/MDR, o que MDR representa?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "MDR representa o dado que transita.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantidade de núcleos"
+        },
+        {
+          "id": "b",
+          "text": "Capacidade do SSD"
+        },
+        {
+          "id": "c",
+          "text": "Conteúdo transferido na operação de memória"
+        },
+        {
+          "id": "d",
+          "text": "Endereço da próxima instrução necessariamente"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Registradores",
+      "title": "Desconhecido",
+      "prompt": "Um registrador ainda não inicializado nos exercícios contém necessariamente zero?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Não invente estados não especificados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, mas sempre contém um"
+        },
+        {
+          "id": "b",
+          "text": "Não; seu valor está desconhecido salvo indicação"
+        },
+        {
+          "id": "c",
+          "text": "Sim, qualquer registrador começa em zero"
+        },
+        {
+          "id": "d",
+          "text": "Sim, desde que exista RAM"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "Busca",
+      "title": "Endereço",
+      "prompt": "Se PC=100 e memória[100] contém CARREGAR R1, 8, qual instrução é buscada?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "PC identifica posição de uma instrução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "CARREGAR R1, 8"
+        },
+        {
+          "id": "b",
+          "text": "O valor 100 como instrução obrigatória"
+        },
+        {
+          "id": "c",
+          "text": "CARREGAR R1, 100"
+        },
+        {
+          "id": "d",
+          "text": "MOSTRAR R3"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "Busca",
+      "title": "Avanço",
+      "prompt": "No modelo de posições 100, 101, 102, sem desvio, qual posição segue a 100?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O modelo define avanço de uma posição lógica por instrução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "102 obrigatoriamente"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "101"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "Busca",
+      "title": "Máquina real",
+      "prompt": "O PC de toda CPU avança sempre um byte após cada instrução?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O modelo de posições lógicas não é regra de codificação real.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se for soma"
+        },
+        {
+          "id": "b",
+          "text": "Não, porque PC nunca avança"
+        },
+        {
+          "id": "c",
+          "text": "Não; depende de tamanho e organização"
+        },
+        {
+          "id": "d",
+          "text": "Sim, qualquer instrução tem um byte"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "16",
+      "group": "Decodificação",
+      "title": "Opcode",
+      "prompt": "Em SOMAR R3, R1, R2, qual termo representa a operação?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O mnemônico representa a operação na linguagem fictícia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "R3"
+        },
+        {
+          "id": "b",
+          "text": "SOMAR"
+        },
+        {
+          "id": "c",
+          "text": "R1"
+        },
+        {
+          "id": "d",
+          "text": "R2"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "17",
+      "group": "Decodificação",
+      "title": "Destino",
+      "prompt": "Na mesma instrução, qual registrador é o destino?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A convenção desta aula coloca destino primeiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "R3"
+        },
+        {
+          "id": "b",
+          "text": "R1"
+        },
+        {
+          "id": "c",
+          "text": "R2"
+        },
+        {
+          "id": "d",
+          "text": "Todos necessariamente"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "18",
+      "group": "Decodificação",
+      "title": "Fontes",
+      "prompt": "Na mesma instrução, quais são as fontes?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "R1 e R2 fornecem os valores da soma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "R3 apenas"
+        },
+        {
+          "id": "b",
+          "text": "PC e IR"
+        },
+        {
+          "id": "c",
+          "text": "MAR e MDR obrigatoriamente"
+        },
+        {
+          "id": "d",
+          "text": "R1 e R2"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Decodificação",
+      "title": "Imediato",
+      "prompt": "CARREGAR R1, 8 coloca o quê em R1 na linguagem fictícia?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O comando usa um valor imediato.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O endereço físico do registrador"
+        },
+        {
+          "id": "b",
+          "text": "Uma instrução de saída"
+        },
+        {
+          "id": "c",
+          "text": "O inteiro 8"
+        },
+        {
+          "id": "d",
+          "text": "O conteúdo de memória[8]"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "20",
+      "group": "Decodificação",
+      "title": "Leitura indireta no esquema",
+      "prompt": "Se memória[8]=21, o que LER R1, [8] coloca em R1?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Colchetes representam uma posição de memória no esquema.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O próprio opcode"
+        },
+        {
+          "id": "b",
+          "text": "21"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "29"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Execução",
+      "title": "Soma",
+      "prompt": "R1=8 e R2=5. Após SOMAR R3, R1, R2, qual é R3 no modelo B?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A instrução escreve diretamente a soma no destino no modelo B.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "13"
+        },
+        {
+          "id": "b",
+          "text": "85"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "Valor desconhecido"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Execução",
+      "title": "Vídeo",
+      "prompt": "Quando aparece 13 em R3 na tabela do vídeo?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O vídeo separa cálculo e armazenamento no modelo A.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Antes de carregar R1"
+        },
+        {
+          "id": "b",
+          "text": "Antes da soma"
+        },
+        {
+          "id": "c",
+          "text": "Apenas após desligar"
+        },
+        {
+          "id": "d",
+          "text": "Depois da etapa de guardar R3"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "23",
+      "group": "Execução",
+      "title": "Preservação",
+      "prompt": "SOMAR R3, R1, R2 altera necessariamente R1?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Fontes não são modificadas pela instrução definida.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, R1 sempre vira zero"
+        },
+        {
+          "id": "b",
+          "text": "Não, mas R2 sempre vira zero"
+        },
+        {
+          "id": "c",
+          "text": "Não; R3 é o destino definido"
+        },
+        {
+          "id": "d",
+          "text": "Sim, ambos os operandos viram 13"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Execução",
+      "title": "Cópia",
+      "prompt": "R1=4; COPIAR R2, R1; CARREGAR R1, 9. Qual R2?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A cópia usa o valor de R1 naquele instante.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Desconhecido"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "13"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "25",
+      "group": "Execução",
+      "title": "Subtração",
+      "prompt": "R1=5 e R2=9. Qual R3 após SUBTRAIR R3, R1, R2?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A subtração segue a ordem das fontes na convenção.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "-4"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "14"
+        },
+        {
+          "id": "d",
+          "text": "45"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "26",
+      "group": "Execução",
+      "title": "Saída",
+      "prompt": "MOSTRAR R3 altera R3 em nosso modelo?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A operação de saída definida não modifica registrador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sempre zera R3"
+        },
+        {
+          "id": "b",
+          "text": "Sim, copia a tela para R3"
+        },
+        {
+          "id": "c",
+          "text": "Sim, soma um"
+        },
+        {
+          "id": "d",
+          "text": "Não; apenas acrescenta seu valor à saída"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Execução",
+      "title": "Escrita",
+      "prompt": "ESCREVER [20], R1 com R1=7 modifica o quê?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A escrita tem destino na posição lógica de memória.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "PC para 7 necessariamente"
+        },
+        {
+          "id": "b",
+          "text": "Todo arquivo no SSD"
+        },
+        {
+          "id": "c",
+          "text": "O conteúdo de memória[20] para 7"
+        },
+        {
+          "id": "d",
+          "text": "R1 para 20"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "28",
+      "group": "Execução",
+      "title": "Desvio",
+      "prompt": "DESVIAR 104 no modelo significa o quê?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "O desvio modifica o fluxo de instruções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Memória[104] é apagada"
+        },
+        {
+          "id": "b",
+          "text": "A próxima busca ocorre na posição 104"
+        },
+        {
+          "id": "c",
+          "text": "R1 recebe obrigatoriamente 104"
+        },
+        {
+          "id": "d",
+          "text": "O número 104 é exibido"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "29",
+      "group": "Execução",
+      "title": "Parada",
+      "prompt": "Qual comando encerra a sequência fictícia?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "PARAR é uma convenção pedagógica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "PARAR"
+        },
+        {
+          "id": "b",
+          "text": "MOSTRAR R3"
+        },
+        {
+          "id": "c",
+          "text": "COPIAR R2, R1"
+        },
+        {
+          "id": "d",
+          "text": "LER R1, [20]"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "30",
+      "group": "Desempenho",
+      "title": "Pipeline",
+      "prompt": "Qual ideia caracteriza pipeline?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Sobreposição pode aumentar vazão.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Executar somente uma instrução por minuto"
+        },
+        {
+          "id": "b",
+          "text": "Transformar toda RAM em SSD"
+        },
+        {
+          "id": "c",
+          "text": "Eliminar completamente a decodificação"
+        },
+        {
+          "id": "d",
+          "text": "Sobrepor fases de instruções diferentes"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "31",
+      "group": "Desempenho",
+      "title": "Dependência",
+      "prompt": "Uma instrução precisa do resultado da anterior. O que isso implica?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A execução deve respeitar dados ainda não disponíveis.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "É impossível executar ambas"
+        },
+        {
+          "id": "b",
+          "text": "O PC deixa de existir"
+        },
+        {
+          "id": "c",
+          "text": "A dependência pode limitar sobreposição"
+        },
+        {
+          "id": "d",
+          "text": "O resultado já está garantidamente disponível"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "32",
+      "group": "Desempenho",
+      "title": "Vazão",
+      "prompt": "Pipeline garante que toda instrução individual termine na metade do tempo?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Mais instruções por tempo não implica igual redução da latência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, porque pipeline não sobrepõe nada"
+        },
+        {
+          "id": "b",
+          "text": "Não; vazão e latência são distintas"
+        },
+        {
+          "id": "c",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "d",
+          "text": "Sim, qualquer tarefa dobra velocidade"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "33",
+      "group": "Desempenho",
+      "title": "Memória",
+      "prompt": "Qual recurso pode reduzir algumas esperas na busca?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Cache pode disponibilizar instruções rapidamente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cache de instruções"
+        },
+        {
+          "id": "b",
+          "text": "Monitor maior"
+        },
+        {
+          "id": "c",
+          "text": "Mais teclas"
+        },
+        {
+          "id": "d",
+          "text": "Gabinete mais largo"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "34",
+      "group": "Intercâmbio",
+      "title": "Python",
+      "prompt": "r3 = r1 + r2 comprova que a ULA escreveu em um registrador físico chamado R3?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A linguagem não garante esse mapeamento físico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, nomes correspondem diretamente a registradores"
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre que os valores são inteiros"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque CPU não executa Python"
+        },
+        {
+          "id": "d",
+          "text": "Não; é uma abstração de alto nível"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "35",
+      "group": "Intercâmbio",
+      "title": "Saída",
+      "prompt": "O que print(r3) permite verificar no exemplo?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "A saída não expõe automaticamente detalhes internos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Endereço físico de R3"
+        },
+        {
+          "id": "b",
+          "text": "Quantidade de faltas de cache"
+        },
+        {
+          "id": "c",
+          "text": "O valor apresentado na saída"
+        },
+        {
+          "id": "d",
+          "text": "Número exato de ciclos de clock"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "36",
+      "group": "Revisão",
+      "title": "Volatilidade",
+      "prompt": "Guardar resultado em registrador garante que sobreviva ao desligamento?",
+      "hint": "Identifique a etapa e siga o estado das informações.",
+      "explanation": "Registros internos não substituem armazenamento persistente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, todo dado é persistente"
+        },
+        {
+          "id": "b",
+          "text": "Não; é estado interno de execução"
+        },
+        {
+          "id": "c",
+          "text": "Sim, registrador é arquivo"
+        },
+        {
+          "id": "d",
+          "text": "Sim, se houver soma"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "37",
+      "group": "Ciclo",
+      "title": "Quatro fases",
+      "prompt": "Explique as quatro etapas do ciclo apresentadas no vídeo e a função geral de cada uma.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Nomear e explicar as quatro fases na ordem.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Busca obtém instrução; decodificação identifica operação; execução realiza ação; resultado armazena ou encaminha o efeito quando necessário.",
+      "expected": null
+    },
+    {
+      "id": "38",
+      "group": "Ciclo",
+      "title": "Instrução e tarefa",
+      "prompt": "Por que a operação 8 + 5 do vídeo não equivale a um único ciclo completo para toda a tarefa?",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir tarefa, sequência e ciclo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Carregar dois operandos, somar, guardar e mostrar são operações distintas; cada instrução possui sua execução, segundo o modelo.",
+      "expected": null
+    },
+    {
+      "id": "39",
+      "group": "Ciclo",
+      "title": "Clock",
+      "prompt": "Explique diferença entre ciclo de clock e ciclo de instrução.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir tempo, fases e evitar equivalência universal.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Clock mede períodos temporais; instrução passa por operações/fases que podem ocupar vários ciclos ou sobrepor-se a outras.",
+      "expected": null
+    },
+    {
+      "id": "40",
+      "group": "Registradores",
+      "title": "PC e IR",
+      "prompt": "Diferencie PC e IR no modelo didático.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Endereço versus conteúdo da instrução.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PC indica endereço associado à próxima busca; IR representa instrução obtida para interpretar.",
+      "expected": null
+    },
+    {
+      "id": "41",
+      "group": "Registradores",
+      "title": "MAR e MDR",
+      "prompt": "Uma leitura solicita endereço 20 e recebe valor 7. Relacione MAR e MDR ao exemplo.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Identificar endereço 20 e dado 7.",
+      "mode": "text",
+      "starter": "",
+      "solution": "MAR representa 20; MDR representa 7. São abstrações de endereço e conteúdo transferido.",
+      "expected": null
+    },
+    {
+      "id": "42",
+      "group": "Registradores",
+      "title": "Estado",
+      "prompt": "Por que não devemos preencher com zero todos os valores desconhecidos?",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir zero e desconhecido.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Zero é um valor específico; sem inicialização ou informação, o estado não é determinado no exercício.",
+      "expected": null
+    },
+    {
+      "id": "43",
+      "group": "Busca",
+      "title": "Trajeto",
+      "prompt": "Descreva a busca da instrução em posição 102 no modelo, incluindo PC, memória e IR.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: PC, endereço, conteúdo, IR e ressalva de fluxo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PC indica 102; solicita-se leitura; memória fornece a instrução; IR a representa para decodificação. Próxima posição segue convenção e eventuais desvios.",
+      "expected": null
+    },
+    {
+      "id": "44",
+      "group": "Decodificação",
+      "title": "Operandos",
+      "prompt": "Explique operação, fontes e destino em SOMAR R3, R1, R2.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Identificar três papéis sem generalizar formato.",
+      "mode": "text",
+      "starter": "",
+      "solution": "SOMAR é operação; R1 e R2 fontes; R3 destino. A convenção é fictícia.",
+      "expected": null
+    },
+    {
+      "id": "45",
+      "group": "Decodificação",
+      "title": "Imediato e memória",
+      "prompt": "Compare CARREGAR R1, 20 e LER R1, [20] quando memória[20]=3.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir literal e conteúdo de memória.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Primeira coloca 20; segunda lê posição 20 e coloca 3.",
+      "expected": null
+    },
+    {
+      "id": "46",
+      "group": "Execução",
+      "title": "Modelos A e B",
+      "prompt": "Compare o momento em que R3 recebe o resultado nos dois modelos.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Identificar ambos os momentos e caráter pedagógico.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A: operação separada guardar R3 após soma. B: SOMAR escreve diretamente em R3. Mesma saída, semânticas diferentes.",
+      "expected": null
+    },
+    {
+      "id": "47",
+      "group": "Execução",
+      "title": "Saída e persistência",
+      "prompt": "Por que mostrar um resultado não implica salvá-lo em arquivo?",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Separar as três funções.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A saída apresenta valor; o registrador mantém estado de execução; persistir exige gravação em meio apropriado.",
+      "expected": null
+    },
+    {
+      "id": "48",
+      "group": "Execução",
+      "title": "Controle de fluxo",
+      "prompt": "Explique como um desvio muda a sequência de buscas.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Relacionar desvio e PC.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Em vez de avançar normalmente, define a posição lógica da próxima instrução. Instruções intermediárias podem ser saltadas.",
+      "expected": null
+    },
+    {
+      "id": "49",
+      "group": "Desempenho",
+      "title": "Pipeline",
+      "prompt": "Explique a ideia de pipeline usando busca, decodificação e execução de três instruções.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Sobreposição, dependências e distinção de desempenho.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Etapas diferentes podem avançar simultaneamente em instruções distintas, respeitando dependências; melhora vazão potencial, não garante latência menor.",
+      "expected": null
+    },
+    {
+      "id": "50",
+      "group": "Desempenho",
+      "title": "Gargalo",
+      "prompt": "Como cache e dependências podem afetar pipeline?",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Relacionar acesso, espera e dependência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Cache pode reduzir esperas de fornecimento; faltas e dependências podem atrasar fases que precisam de informações ainda indisponíveis.",
+      "expected": null
+    },
+    {
+      "id": "51",
+      "group": "Intercâmbio",
+      "title": "Atribuições",
+      "prompt": "Por que copiar r1 para r2 e reatribuir r1 não altera automaticamente r2 no exemplo Python com inteiros?",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Explicar associação de nomes e imutabilidade de inteiros.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A cópia associa r2 ao objeto anteriormente referenciado; reatribuição troca o valor associado a r1, não altera o inteiro anterior.",
+      "expected": null
+    },
+    {
+      "id": "52",
+      "group": "Intercâmbio",
+      "title": "Limites",
+      "prompt": "Quais informações internas não podemos deduzir apenas de print(r3)?",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Citar três limitações e distinguir abstração de implementação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Endereços físicos, registradores reais, número de instruções, ciclos, acertos de cache, entre outras.",
+      "expected": null
+    },
+    {
+      "id": "53",
+      "group": "Rastreio de registradores",
+      "title": "Soma 8 + 5",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 8\nCARREGAR R2, 5\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 13, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (8, ?, ?). Após carregar R2: (8, 5, ?). Após somar: (8, 5, 13). MOSTRAR apresenta 13 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "54",
+      "group": "Rastreio de registradores",
+      "title": "Soma 6 + 9",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 6\nCARREGAR R2, 9\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 15, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (6, ?, ?). Após carregar R2: (6, 9, ?). Após somar: (6, 9, 15). MOSTRAR apresenta 15 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "55",
+      "group": "Rastreio de registradores",
+      "title": "Soma 12 + 7",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 12\nCARREGAR R2, 7\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 19, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (12, ?, ?). Após carregar R2: (12, 7, ?). Após somar: (12, 7, 19). MOSTRAR apresenta 19 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "56",
+      "group": "Rastreio de registradores",
+      "title": "Soma 0 + 4",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 0\nCARREGAR R2, 4\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 4, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (0, ?, ?). Após carregar R2: (0, 4, ?). Após somar: (0, 4, 4). MOSTRAR apresenta 4 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "57",
+      "group": "Rastreio de registradores",
+      "title": "Soma 15 + 3",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 15\nCARREGAR R2, 3\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 18, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (15, ?, ?). Após carregar R2: (15, 3, ?). Após somar: (15, 3, 18). MOSTRAR apresenta 18 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "58",
+      "group": "Rastreio de registradores",
+      "title": "Soma 21 + 11",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 21\nCARREGAR R2, 11\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 32, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (21, ?, ?). Após carregar R2: (21, 11, ?). Após somar: (21, 11, 32). MOSTRAR apresenta 32 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "59",
+      "group": "Rastreio de registradores",
+      "title": "Soma 9 + 9",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 9\nCARREGAR R2, 9\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 18, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (9, ?, ?). Após carregar R2: (9, 9, ?). Após somar: (9, 9, 18). MOSTRAR apresenta 18 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "60",
+      "group": "Rastreio de registradores",
+      "title": "Soma 4 + 16",
+      "prompt": "Modelo B. Todos os registradores começam desconhecidos.\nCARREGAR R1, 4\nCARREGAR R2, 16\nSOMAR R3, R1, R2\nMOSTRAR R3\nPARAR\nAnote R1, R2 e R3 após cada instrução e a saída.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estados corretos, marcar desconhecidos, resultado 20, saída e preservação das fontes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Após carregar R1: (4, ?, ?). Após carregar R2: (4, 16, ?). Após somar: (4, 16, 20). MOSTRAR apresenta 20 e não altera estado. PARAR encerra.",
+      "expected": null
+    },
+    {
+      "id": "61",
+      "group": "Rastreio de registradores",
+      "title": "Cópia e atualização 7, 2, 9",
+      "prompt": "CARREGAR R1, 7\nCARREGAR R2, 2\nSOMAR R3, R1, R2\nCOPIAR R1, R3\nCARREGAR R2, 9\nSUBTRAIR R3, R1, R2\nMOSTRAR R3\nPARAR\nRegistre a evolução e o estado final.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estado a cada instrução, cópia de 9, subtração na ordem correta e saída 0.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estados após as seis primeiras instruções: (7,?,?), (7,2,?), (7,2,9), (9,2,9), (9,9,9), (9,9,0). Saída 0.",
+      "expected": null
+    },
+    {
+      "id": "62",
+      "group": "Rastreio de registradores",
+      "title": "Cópia e atualização 3, 10, 5",
+      "prompt": "CARREGAR R1, 3\nCARREGAR R2, 10\nSOMAR R3, R1, R2\nCOPIAR R1, R3\nCARREGAR R2, 5\nSUBTRAIR R3, R1, R2\nMOSTRAR R3\nPARAR\nRegistre a evolução e o estado final.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estado a cada instrução, cópia de 13, subtração na ordem correta e saída 8.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estados após as seis primeiras instruções: (3,?,?), (3,10,?), (3,10,13), (13,10,13), (13,5,13), (13,5,8). Saída 8.",
+      "expected": null
+    },
+    {
+      "id": "63",
+      "group": "Rastreio de registradores",
+      "title": "Cópia e atualização 15, 4, 1",
+      "prompt": "CARREGAR R1, 15\nCARREGAR R2, 4\nSOMAR R3, R1, R2\nCOPIAR R1, R3\nCARREGAR R2, 1\nSUBTRAIR R3, R1, R2\nMOSTRAR R3\nPARAR\nRegistre a evolução e o estado final.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estado a cada instrução, cópia de 19, subtração na ordem correta e saída 18.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estados após as seis primeiras instruções: (15,?,?), (15,4,?), (15,4,19), (19,4,19), (19,1,19), (19,1,18). Saída 18.",
+      "expected": null
+    },
+    {
+      "id": "64",
+      "group": "Rastreio de registradores",
+      "title": "Cópia e atualização 0, 8, 6",
+      "prompt": "CARREGAR R1, 0\nCARREGAR R2, 8\nSOMAR R3, R1, R2\nCOPIAR R1, R3\nCARREGAR R2, 6\nSUBTRAIR R3, R1, R2\nMOSTRAR R3\nPARAR\nRegistre a evolução e o estado final.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estado a cada instrução, cópia de 8, subtração na ordem correta e saída 2.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estados após as seis primeiras instruções: (0,?,?), (0,8,?), (0,8,8), (8,8,8), (8,6,8), (8,6,2). Saída 2.",
+      "expected": null
+    },
+    {
+      "id": "65",
+      "group": "Rastreio de registradores",
+      "title": "Cópia e atualização 11, 11, 2",
+      "prompt": "CARREGAR R1, 11\nCARREGAR R2, 11\nSOMAR R3, R1, R2\nCOPIAR R1, R3\nCARREGAR R2, 2\nSUBTRAIR R3, R1, R2\nMOSTRAR R3\nPARAR\nRegistre a evolução e o estado final.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estado a cada instrução, cópia de 22, subtração na ordem correta e saída 20.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estados após as seis primeiras instruções: (11,?,?), (11,11,?), (11,11,22), (22,11,22), (22,2,22), (22,2,20). Saída 20.",
+      "expected": null
+    },
+    {
+      "id": "66",
+      "group": "Rastreio de registradores",
+      "title": "Cópia e atualização 20, 3, 14",
+      "prompt": "CARREGAR R1, 20\nCARREGAR R2, 3\nSOMAR R3, R1, R2\nCOPIAR R1, R3\nCARREGAR R2, 14\nSUBTRAIR R3, R1, R2\nMOSTRAR R3\nPARAR\nRegistre a evolução e o estado final.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Estado a cada instrução, cópia de 23, subtração na ordem correta e saída 9.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estados após as seis primeiras instruções: (20,?,?), (20,3,?), (20,3,23), (23,3,23), (23,14,23), (23,14,9). Saída 9.",
+      "expected": null
+    },
+    {
+      "id": "67",
+      "group": "Rastreio de memória",
+      "title": "Leitura e escrita em 20",
+      "prompt": "Memória[20]=7. Registre estado e saída:\nLER R1, [20]\nCARREGAR R2, 9\nSOMAR R3, R1, R2\nESCREVER [20], R3\nLER R1, [20]\nMOSTRAR R1\nPARAR",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir endereço e conteúdo, escrita na memória, nova leitura e resultado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "R1 lê 7; R2 recebe 9; R3 recebe 16; memória[20] passa a 16; nova leitura atualiza R1 para 16. Estado final (16,9,16), saída 16.",
+      "expected": null
+    },
+    {
+      "id": "68",
+      "group": "Rastreio de memória",
+      "title": "Leitura e escrita em 40",
+      "prompt": "Memória[40]=12. Registre estado e saída:\nLER R1, [40]\nCARREGAR R2, 3\nSOMAR R3, R1, R2\nESCREVER [40], R3\nLER R1, [40]\nMOSTRAR R1\nPARAR",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir endereço e conteúdo, escrita na memória, nova leitura e resultado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "R1 lê 12; R2 recebe 3; R3 recebe 15; memória[40] passa a 15; nova leitura atualiza R1 para 15. Estado final (15,3,15), saída 15.",
+      "expected": null
+    },
+    {
+      "id": "69",
+      "group": "Rastreio de memória",
+      "title": "Leitura e escrita em 60",
+      "prompt": "Memória[60]=0. Registre estado e saída:\nLER R1, [60]\nCARREGAR R2, 8\nSOMAR R3, R1, R2\nESCREVER [60], R3\nLER R1, [60]\nMOSTRAR R1\nPARAR",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir endereço e conteúdo, escrita na memória, nova leitura e resultado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "R1 lê 0; R2 recebe 8; R3 recebe 8; memória[60] passa a 8; nova leitura atualiza R1 para 8. Estado final (8,8,8), saída 8.",
+      "expected": null
+    },
+    {
+      "id": "70",
+      "group": "Rastreio de memória",
+      "title": "Leitura e escrita em 80",
+      "prompt": "Memória[80]=5. Registre estado e saída:\nLER R1, [80]\nCARREGAR R2, 2\nSOMAR R3, R1, R2\nESCREVER [80], R3\nLER R1, [80]\nMOSTRAR R1\nPARAR",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir endereço e conteúdo, escrita na memória, nova leitura e resultado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "R1 lê 5; R2 recebe 2; R3 recebe 7; memória[80] passa a 7; nova leitura atualiza R1 para 7. Estado final (7,2,7), saída 7.",
+      "expected": null
+    },
+    {
+      "id": "71",
+      "group": "Rastreio de controle",
+      "title": "Desvio com valor 5",
+      "prompt": "100 CARREGAR R1, 5\n101 DESVIAR 104\n102 CARREGAR R1, 12\n103 MOSTRAR R1\n104 MOSTRAR R1\n105 PARAR\nListe posições executadas, valor final e sequência de saídas.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Sequência correta, identificar instruções saltadas, não mostrar 12.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Posições 100, 101, 104 e 105. R1=5; posições 102 e 103 não executadas. Saída única 5.",
+      "expected": null
+    },
+    {
+      "id": "72",
+      "group": "Rastreio de controle",
+      "title": "Desvio com valor 9",
+      "prompt": "100 CARREGAR R1, 9\n101 DESVIAR 104\n102 CARREGAR R1, 2\n103 MOSTRAR R1\n104 MOSTRAR R1\n105 PARAR\nListe posições executadas, valor final e sequência de saídas.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Sequência correta, identificar instruções saltadas, não mostrar 2.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Posições 100, 101, 104 e 105. R1=9; posições 102 e 103 não executadas. Saída única 9.",
+      "expected": null
+    },
+    {
+      "id": "73",
+      "group": "Rastreio de controle",
+      "title": "Desvio com valor 0",
+      "prompt": "100 CARREGAR R1, 0\n101 DESVIAR 104\n102 CARREGAR R1, 7\n103 MOSTRAR R1\n104 MOSTRAR R1\n105 PARAR\nListe posições executadas, valor final e sequência de saídas.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Sequência correta, identificar instruções saltadas, não mostrar 7.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Posições 100, 101, 104 e 105. R1=0; posições 102 e 103 não executadas. Saída única 0.",
+      "expected": null
+    },
+    {
+      "id": "74",
+      "group": "Rastreio de controle",
+      "title": "Desvio com valor 14",
+      "prompt": "100 CARREGAR R1, 14\n101 DESVIAR 104\n102 CARREGAR R1, 3\n103 MOSTRAR R1\n104 MOSTRAR R1\n105 PARAR\nListe posições executadas, valor final e sequência de saídas.",
+      "hint": "Registre os valores após cada operação e justifique.",
+      "explanation": "Critérios de autocorreção: Sequência correta, identificar instruções saltadas, não mostrar 3.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Posições 100, 101, 104 e 105. R1=14; posições 102 e 103 não executadas. Saída única 14.",
+      "expected": null
+    }
+  ]
+}
