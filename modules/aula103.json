@@ -1,0 +1,1751 @@
+{
+  "schema_version": 2,
+  "discipline": "arquitetura",
+  "id": "aula103",
+  "title": "Processadores, memórias e armazenamento",
+  "subtitle": "CPU, desempenho, hierarquia de memória, persistência e unidades",
+  "objectives": "Explicar CPU e seus recursos gerais, comparar processadores com critérios, distinguir registradores, cache, RAM, ROM e armazenamento, interpretar capacidades e taxas, formular hipóteses de diagnóstico e relacionar representação de dados à programação.",
+  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 4.4–4.5, 5–7. Conteúdo original e aprofundamentos identificados. Sem transcrição audiovisual. Conexões com módulos 101 e 102 e Python 01–02.",
+  "chapters": [
+    {
+      "title": "CPU: execução e controle",
+      "text": "CONTEÚDO DO CURSO\nCPU significa Central Processing Unit, unidade central de processamento. Executa instruções de programas, realiza operações aritméticas e lógicas e participa do controle das tarefas do computador. Não trabalha isoladamente: precisa de dados, instruções, memória, energia e comunicação com outros componentes. A expressão “cérebro do computador” é uma analogia, não uma descrição literal.\n\nAo abrir um editor, o software estabelece o que deve acontecer; o sistema operacional disponibiliza recursos; a CPU executa instruções; a memória mantém informações em uso. O resultado pode ser enviado à tela ou ao armazenamento.\n\nAPROFUNDAMENTO\nUma instrução de máquina é uma operação reconhecida pelo processador, como mover um valor entre recursos internos, somar números ou alterar a sequência de execução. Uma linha de uma linguagem de alto nível pode exigir muitas instruções de máquina. Um programa Python não é executado pela CPU exatamente na forma textual que escrevemos: o ambiente de execução interpreta ou transforma o programa usando operações suportadas pela máquina.\n\nRegistradores são pequenos recursos de armazenamento internos ao processador, usados para informações que participam diretamente da execução. A unidade de controle coordena operações e a unidade lógica e aritmética realiza operações como somas e comparações. Esses elementos serão estudados com mais profundidade nos próximos módulos. Por enquanto, identifique suas funções gerais sem presumir que uma CPU moderna seja formada somente por esses três elementos.",
+      "example": ""
+    },
+    {
+      "title": "Desempenho e escolha de processadores",
+      "text": "CONTEÚDO DO CURSO\nO caderno menciona famílias Intel Core, com linhas tradicionais i3, i5, i7 e i9, e AMD Ryzen, com linhas 3, 5, 7 e 9. As denominações representam segmentos comerciais, não uma classificação universal de velocidade. Geração, modelo, quantidade de núcleos e arquitetura influenciam o desempenho. Verifique ainda compatibilidade com a placa-mãe, requisitos da tarefa e orçamento.\n\nAPROFUNDAMENTO\nUm núcleo é uma unidade capaz de executar instruções; uma CPU pode possuir vários. Programas que dividem trabalho em atividades independentes podem aproveitar múltiplos núcleos, mas um trecho estritamente sequencial não se torna automaticamente duas vezes mais rápido com o dobro de núcleos. Threads de hardware são contextos de execução suportados pelo processador e não devem ser confundidas com núcleos físicos.\n\nA frequência de clock expressa ciclos por segundo. Um clock de 3 GHz corresponde a três bilhões de ciclos por segundo, não necessariamente três bilhões de instruções concluídas. O número de instruções realizadas por ciclo varia de acordo com a arquitetura e a tarefa. A frequência pode variar durante o uso, em função da carga e de limites elétricos e térmicos.\n\nDesempenho depende também de memória, cache, armazenamento, software e paralelismo. Para comparar CPUs, procure resultados de testes representativos da tarefa desejada e considere consumo, refrigeração e compatibilidade. Não existe um processador universalmente melhor para todos os usos.",
+      "example": ""
+    },
+    {
+      "title": "Hierarquia de memória",
+      "text": "CONTEÚDO DO CURSO\nO material distingue RAM, cache, ROM ou memória não volátil de firmware e armazenamento secundário. Cada recurso possui finalidade diferente. RAM guarda temporariamente dados e instruções usados por programas; cache oferece acesso rápido a informações utilizadas pela CPU; memória não volátil associada a firmware conserva instruções relevantes ao equipamento; HDs e SSDs mantêm arquivos e programas persistentemente.\n\nAPROFUNDAMENTO\nA hierarquia de memória organiza recursos com propriedades distintas de capacidade, latência, velocidade de transferência, custo e persistência. Registradores são recursos internos diretamente utilizados pela execução. Cache normalmente possui capacidade menor que a RAM e reduz o tempo médio de acesso a dados e instruções. RAM principal possui capacidade maior, mas costuma apresentar latência superior à cache. Armazenamento secundário oferece capacidade persistente e geralmente maior latência que a RAM.\n\nLatência é o tempo de espera para uma operação; taxa de transferência é a quantidade de dados que pode ser movimentada por unidade de tempo. Um dispositivo pode oferecer alta taxa de transferência de arquivos grandes e ainda responder lentamente a pequenas solicitações dispersas.\n\nNão trate a hierarquia como uma sequência obrigatória que todo dado percorre da mesma forma. Existem diferentes caminhos de acesso e políticas de gerenciamento. O objetivo desta abstração é compreender por que combinar tecnologias diferentes é mais vantajoso que exigir que um único recurso cumpra todas as funções.",
+      "example": ""
+    },
+    {
+      "title": "RAM e memória virtual",
+      "text": "CONTEÚDO DO CURSO\nA RAM é a memória de trabalho que mantém dados e instruções necessários à execução. É volátil em condições normais: perde seu conteúdo quando a energia é interrompida. Aumentar sua capacidade pode ajudar quando há pressão de memória, mas não substitui o armazenamento de arquivos.\n\nAPROFUNDAMENTO\nRAM significa Random Access Memory, memória de acesso aleatório. O termo descreve a possibilidade de acessar posições endereçadas sem percorrer obrigatoriamente todas as posições anteriores. Em computadores comuns, a RAM principal utiliza DRAM, que precisa de atualização periódica para conservar os dados enquanto energizada. A capacidade é medida em bytes e seus múltiplos; geração, velocidade e canais também influenciam o funcionamento.\n\nO sistema operacional administra a memória disponível entre programas. Memória virtual é uma abstração que fornece espaços de endereçamento e permite mecanismos de gerenciamento e proteção. Quando necessário, páginas de memória podem ser transferidas para uma área de armazenamento (swap ou arquivo de paginação). Isso não significa que o armazenamento se transforme fisicamente em RAM. A operação tende a ser mais lenta, especialmente quando ocorrem muitas transferências.\n\nMemória utilizada não significa automaticamente problema: sistemas podem aproveitar RAM livre para cache. Investigue disponibilidade, pressão de memória, uso de swap e comportamento durante o sintoma, em vez de olhar apenas uma porcentagem isolada. O aprofundamento sobre paginação ficará para Sistemas Operacionais.",
+      "example": ""
+    },
+    {
+      "title": "Cache, ROM e firmware",
+      "text": "CONTEÚDO DO CURSO\nA cache oferece acesso rápido a informações utilizadas pelo processador. Em geral é volátil. ROM é associada a armazenamento não volátil de instruções ou firmware, conforme o equipamento.\n\nAPROFUNDAMENTO\nCaches exploram regularidades de acesso: dados usados recentemente podem voltar a ser necessários (localidade temporal); dados próximos de um endereço acessado podem ser usados em seguida (localidade espacial). Quando o dado procurado está em cache, temos um acerto; quando não está, uma falta, sendo necessário procurar em outro nível. Em muitas CPUs existem níveis L1, L2 e L3, com capacidades e latências diferentes, mas a organização varia. Cache não é espaço livre para guardar documentos de maneira permanente.\n\nROM significa Read-Only Memory. Tecnologias tradicionais de ROM são somente de leitura ou programáveis em condições específicas. Equipamentos atuais frequentemente usam memória flash regravável para armazenar firmware. Portanto, firmware descreve um tipo de software e não uma tecnologia de memória única. Um firmware de inicialização pode preparar componentes e permitir o carregamento do sistema operacional.\n\nNão confunda cache da CPU com cache de arquivos mantida pelo sistema operacional ou cache do navegador. Todas podem acelerar acessos, mas funcionam em níveis diferentes, com políticas e tecnologias distintas. Limpar cache de navegador não aumenta fisicamente a cache da CPU.",
+      "example": ""
+    },
+    {
+      "title": "Armazenamento secundário",
+      "text": "CONTEÚDO DO CURSO\nHDs usam tecnologia magnética para manter dados; SSDs empregam memória flash. Pen drives e cartões de memória são recursos de armazenamento transportáveis. A informação gravada pode permanecer após o desligamento normal. Persistente não quer dizer indestrutível: qualquer dispositivo pode falhar.\n\nAPROFUNDAMENTO\nO HDD possui partes mecânicas, incluindo pratos giratórios e cabeças de leitura e gravação. O tempo de posicionamento e rotação influencia o acesso a dados dispersos. Um SSD comum usa memória flash NAND, controladores e técnicas de gerenciamento de gravação; não depende de cabeças mecânicas. Em muitas tarefas com acessos dispersos, SSDs oferecem latência menor, mas o desempenho varia conforme dispositivo, interface, carga e outros fatores.\n\nFlash apresenta limites de ciclos de gravação. Controladores usam técnicas para distribuir desgaste e corrigir erros. Não conclua que SSDs sejam eternos ou que todo pen drive tenha desempenho equivalente a um SSD. Capacidade, durabilidade, garantia, controlador, temperatura e interface importam.\n\nRetome a Aula 102: SATA e PCIe descrevem tecnologias de comunicação; M.2 descreve formato/conexão; NVMe é protocolo de armazenamento normalmente usado sobre PCIe nesse contexto. Um SSD pode ter o formato de 2,5 polegadas e usar SATA, ou utilizar formato M.2 e interface compatível. As características não devem ser confundidas.\n\nUma cópia de segurança deve ser independente da unidade original. RAID, sincronização ou uma partição no mesmo disco não substituem necessariamente backup: falhas, exclusões acidentais e corrupção podem atingir mais de uma cópia. A estratégia deve considerar recuperação e verificação.",
+      "example": ""
+    },
+    {
+      "title": "Capacidade, unidades e interpretação",
+      "text": "APROFUNDAMENTO\nBit é uma unidade de informação com dois valores possíveis. Um byte corresponde a oito bits. Usamos b para bit e B para byte. Os múltiplos decimais usam potências de 1000: 1 kB = 1000 B, 1 MB = 1000 kB e 1 GB = 1000 MB. Os prefixos binários usam potências de 1024: 1 KiB = 1024 B, 1 MiB = 1024 KiB, 1 GiB = 1024 MiB. Não misture as convenções sem declarar qual usa.\n\nExemplo: 2 GB correspondem a 2.000.000.000 bytes; 2 GiB correspondem a 2.147.483.648 bytes. Uma unidade anunciada como 1 TB possui 1.000.000.000.000 bytes, equivalentes a aproximadamente 931,32 GiB. A diferença de representação não implica perda física dessa capacidade. Espaço ocupado por partições, metadados e outros recursos também pode fazer diferença.\n\nConexões de rede frequentemente são expressas em bits por segundo. Uma taxa teórica de 80 Mbit/s equivale a 10 MB/s em unidades decimais, antes de considerar sobrecarga, limites de outros recursos e variações reais.\n\nEsses cálculos preparam o estudo de sistemas numéricos. Neste momento, basta compreender a diferença entre unidades e praticar multiplicações e divisões. Conversões posicionais entre decimal e binário serão abordadas mais adiante com a Mesa de Conversão.",
+      "example": ""
+    },
+    {
+      "title": "Diagnóstico e integração com Python",
+      "text": "CONTEÚDO DO CURSO\nSe uma máquina apresenta lentidão com vários programas abertos, investigue CPU, RAM e armazenamento. Se não há espaço para novos arquivos, examine capacidade persistente. Se a energia acaba antes do salvamento, alterações mantidas somente em memória volátil podem desaparecer. Esses recursos cooperam, mas não são substitutos entre si.\n\nAPROFUNDAMENTO\nConsidere três situações: CPU com carga elevada durante compilação; pressão de memória e uso intenso de swap com muitas aplicações; demora na abertura de arquivos por espera do armazenamento. A primeira sugere investigar processamento, a segunda memória e a terceira armazenamento, mas nenhuma hipótese deve ser tratada como diagnóstico conclusivo sem evidências. Observe condições, compare testes equivalentes e evite mudanças destrutivas.\n\nINTERCÂMBIO COM PYTHON\nJá sabemos atribuir valores e exibir tipos. Um inventário hipotético pode representar modelo de CPU como texto, quantidade de núcleos como inteiro, frequência em GHz como float e presença de SSD como booleano. Um valor desconhecido pode ser None, sem inventar informações. A variável ram_gb representa um dado no programa, não reserva automaticamente essa quantidade de memória.\n\nQuando aprendermos operações aritméticas, calcularemos capacidades, diferenças e estimativas de transferência em Python. Quando estudarmos condições, poderemos representar critérios de diagnóstico. Neste módulo, pratique os conceitos de arquitetura independentemente da linguagem.",
+      "example": "modelo_cpu = \"CPU hipotética\"\nnucleos = 8\nram_gb = 16\nssd_presente = True\nprint(modelo_cpu, nucleos, ram_gb, ssd_presente)"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "CPU",
+      "title": "Função",
+      "prompt": "Qual função caracteriza a CPU?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "CPU executa instruções e coordena operações em conjunto com outros recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Executar instruções de programas"
+        },
+        {
+          "id": "b",
+          "text": "Guardar todos os arquivos permanentemente"
+        },
+        {
+          "id": "c",
+          "text": "Fornecer energia da tomada"
+        },
+        {
+          "id": "d",
+          "text": "Substituir todos os periféricos"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "02",
+      "group": "CPU",
+      "title": "Instruções",
+      "prompt": "Uma linha de Python equivale sempre a uma instrução de máquina?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Linguagens de alto nível são abstrações da execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sempre exatamente uma"
+        },
+        {
+          "id": "b",
+          "text": "Sim, se a linha não tiver espaços"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque Python não usa CPU"
+        },
+        {
+          "id": "d",
+          "text": "Não; pode exigir muitas instruções executadas pelo ambiente"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "CPU",
+      "title": "Registrador",
+      "prompt": "Qual descrição corresponde a registradores?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Registradores participam diretamente da execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cabos de alimentação"
+        },
+        {
+          "id": "b",
+          "text": "Arquivos de instalação"
+        },
+        {
+          "id": "c",
+          "text": "Pequenos recursos internos de armazenamento usados na execução"
+        },
+        {
+          "id": "d",
+          "text": "Discos externos de backup"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "04",
+      "group": "CPU",
+      "title": "ULA",
+      "prompt": "Qual unidade realiza operações aritméticas e lógicas?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "A unidade lógica e aritmética realiza operações como soma e comparação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Teclado"
+        },
+        {
+          "id": "b",
+          "text": "ULA"
+        },
+        {
+          "id": "c",
+          "text": "Fonte"
+        },
+        {
+          "id": "d",
+          "text": "SSD"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "CPU",
+      "title": "Controle",
+      "prompt": "Qual função geral da unidade de controle?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Controlar a execução envolve coordenar operações e recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Coordenar operações necessárias à execução"
+        },
+        {
+          "id": "b",
+          "text": "Guardar fotos sem energia"
+        },
+        {
+          "id": "c",
+          "text": "Produzir alimentação elétrica"
+        },
+        {
+          "id": "d",
+          "text": "Substituir a RAM inteira"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "Desempenho",
+      "title": "Marca",
+      "prompt": "Um i7 antigo é necessariamente mais rápido que todo i5 recente?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Segmentos comerciais não medem desempenho universal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, a denominação garante isso"
+        },
+        {
+          "id": "b",
+          "text": "Sim, porque i7 significa sete núcleos"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque i5 sempre possui mais RAM"
+        },
+        {
+          "id": "d",
+          "text": "Não; geração, modelo e tarefa importam"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Desempenho",
+      "title": "Núcleos",
+      "prompt": "Dobrar núcleos garante dobrar a velocidade de toda tarefa?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Tarefas precisam aproveitar recursos paralelos para beneficiar-se deles.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se a RAM for volátil"
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre que a CPU usa cache"
+        },
+        {
+          "id": "c",
+          "text": "Não; depende do paralelismo e de outros limites"
+        },
+        {
+          "id": "d",
+          "text": "Sim, inclusive em programas estritamente sequenciais"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "08",
+      "group": "Desempenho",
+      "title": "Clock",
+      "prompt": "O que indica frequência de 3 GHz?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Frequência mede ciclos por segundo, não desempenho total.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Três gigabytes de RAM"
+        },
+        {
+          "id": "b",
+          "text": "Três bilhões de ciclos por segundo"
+        },
+        {
+          "id": "c",
+          "text": "Três bilhões de arquivos salvos por segundo"
+        },
+        {
+          "id": "d",
+          "text": "Três bilhões de instruções necessariamente concluídas por segundo"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "Desempenho",
+      "title": "Comparação",
+      "prompt": "Qual método é mais adequado para comparar CPUs para uma tarefa específica?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Desempenho depende da tarefa e da plataforma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Consultar testes representativos, requisitos e compatibilidade"
+        },
+        {
+          "id": "b",
+          "text": "Comparar apenas o nome comercial"
+        },
+        {
+          "id": "c",
+          "text": "Comparar apenas a cor do cooler"
+        },
+        {
+          "id": "d",
+          "text": "Considerar somente capacidade do SSD"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "10",
+      "group": "Desempenho",
+      "title": "Threads",
+      "prompt": "Threads de hardware equivalem sempre a núcleos físicos?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Contextos de execução e núcleos físicos são conceitos distintos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, nunca há distinção"
+        },
+        {
+          "id": "b",
+          "text": "Sim, são módulos DIMM"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque threads são discos"
+        },
+        {
+          "id": "d",
+          "text": "Não; são contextos de execução que podem compartilhar recursos"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "Hierarquia",
+      "title": "Finalidade",
+      "prompt": "Por que utilizar uma hierarquia de memória?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Tecnologias complementares equilibram desempenho e capacidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para eliminar a necessidade de CPU"
+        },
+        {
+          "id": "b",
+          "text": "Para tornar todos os arquivos voláteis"
+        },
+        {
+          "id": "c",
+          "text": "Combinar recursos com capacidades, latências e custos diferentes"
+        },
+        {
+          "id": "d",
+          "text": "Porque toda memória precisa ser magnética"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Hierarquia",
+      "title": "Latência",
+      "prompt": "O que significa latência?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Latência mede demora para responder ou concluir uma operação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Consumo máximo da fonte"
+        },
+        {
+          "id": "b",
+          "text": "Tempo de espera de uma operação"
+        },
+        {
+          "id": "c",
+          "text": "Capacidade total de armazenamento"
+        },
+        {
+          "id": "d",
+          "text": "Quantidade de núcleos"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "Hierarquia",
+      "title": "Taxa",
+      "prompt": "O que significa taxa de transferência?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Taxa de transferência mede volume por tempo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantidade de dados movidos por unidade de tempo"
+        },
+        {
+          "id": "b",
+          "text": "Tempo desde a compra do dispositivo"
+        },
+        {
+          "id": "c",
+          "text": "Quantidade de portas SATA"
+        },
+        {
+          "id": "d",
+          "text": "Tamanho físico do gabinete"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "Hierarquia",
+      "title": "Ordem típica",
+      "prompt": "Qual conjunto tende a ter menor capacidade e acesso mais rápido?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Registradores são recursos internos pequenos, diretamente usados pelas instruções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "HD de arquivo"
+        },
+        {
+          "id": "b",
+          "text": "Cartão de memória"
+        },
+        {
+          "id": "c",
+          "text": "SSD externo"
+        },
+        {
+          "id": "d",
+          "text": "Registradores do processador"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "RAM",
+      "title": "Volatilidade",
+      "prompt": "O que acontece normalmente com RAM sem energia?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "RAM de trabalho é volátil.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Vira uma ROM"
+        },
+        {
+          "id": "b",
+          "text": "Aumenta a capacidade"
+        },
+        {
+          "id": "c",
+          "text": "Perde o conteúdo"
+        },
+        {
+          "id": "d",
+          "text": "Conserva arquivos indefinidamente"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "16",
+      "group": "RAM",
+      "title": "Capacidade",
+      "prompt": "Aumentar RAM resolve diretamente falta de espaço persistente?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Memória de trabalho não substitui espaço de arquivos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, porque RAM não guarda dado algum"
+        },
+        {
+          "id": "b",
+          "text": "Não; RAM e armazenamento têm funções diferentes"
+        },
+        {
+          "id": "c",
+          "text": "Sim, todo GB de RAM vira GB de SSD"
+        },
+        {
+          "id": "d",
+          "text": "Sim, sem alterar nenhum arquivo"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "17",
+      "group": "RAM",
+      "title": "DRAM",
+      "prompt": "Qual propriedade caracteriza DRAM?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "DRAM é uma tecnologia volátil de memória dinâmica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Necessita atualização periódica dos dados enquanto energizada"
+        },
+        {
+          "id": "b",
+          "text": "Conserva conteúdo por décadas sem energia"
+        },
+        {
+          "id": "c",
+          "text": "É uma tecnologia magnética de disco"
+        },
+        {
+          "id": "d",
+          "text": "É protocolo de rede"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "18",
+      "group": "RAM",
+      "title": "Swap",
+      "prompt": "O que é uma área de swap?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Swap usa armazenamento e não aumenta RAM física.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Novo módulo RAM físico"
+        },
+        {
+          "id": "b",
+          "text": "Cache L1 da CPU"
+        },
+        {
+          "id": "c",
+          "text": "Fonte auxiliar"
+        },
+        {
+          "id": "d",
+          "text": "Espaço de armazenamento usado pelo sistema no gerenciamento de páginas"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "RAM",
+      "title": "Uso elevado",
+      "prompt": "Muita RAM ocupada demonstra necessariamente falta de memória?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "É necessário observar disponibilidade, pressão e comportamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, significa que SSD queimou"
+        },
+        {
+          "id": "b",
+          "text": "Não, porque memória nunca é usada"
+        },
+        {
+          "id": "c",
+          "text": "Não; caches e outras utilizações podem ser normais"
+        },
+        {
+          "id": "d",
+          "text": "Sim, qualquer ocupação acima de zero é falha"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "20",
+      "group": "RAM",
+      "title": "Memória virtual",
+      "prompt": "Qual descrição é apropriada?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Memória virtual não é apenas swap.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cópia automática de todos os arquivos"
+        },
+        {
+          "id": "b",
+          "text": "Abstração de endereçamento e gerenciamento de memória"
+        },
+        {
+          "id": "c",
+          "text": "Nome alternativo de memória flash"
+        },
+        {
+          "id": "d",
+          "text": "Uma caixa de RAM externa obrigatória"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Cache e firmware",
+      "title": "Cache",
+      "prompt": "Qual finalidade da cache da CPU?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Cache mantém informações úteis próximas à execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Reduzir o tempo médio de acesso a informações utilizadas"
+        },
+        {
+          "id": "b",
+          "text": "Guardar documentos para sempre"
+        },
+        {
+          "id": "c",
+          "text": "Substituir fonte e placa-mãe"
+        },
+        {
+          "id": "d",
+          "text": "Gravar backups externos"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Cache e firmware",
+      "title": "Acerto",
+      "prompt": "O que é um acerto de cache?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Acerto permite obter informação daquele nível.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O SSD foi formatado corretamente"
+        },
+        {
+          "id": "b",
+          "text": "O usuário acertou a senha"
+        },
+        {
+          "id": "c",
+          "text": "Uma instrução foi apagada da ROM"
+        },
+        {
+          "id": "d",
+          "text": "O dado solicitado está no nível de cache consultado"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "23",
+      "group": "Cache e firmware",
+      "title": "Localidade temporal",
+      "prompt": "Qual situação exemplifica localidade temporal?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Acesso recente sugere possível reutilização.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Desligar a máquina"
+        },
+        {
+          "id": "b",
+          "text": "Trocar a fonte"
+        },
+        {
+          "id": "c",
+          "text": "Reutilizar um valor lido há pouco"
+        },
+        {
+          "id": "d",
+          "text": "Ler aleatoriamente um endereço nunca usado"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Cache e firmware",
+      "title": "Localidade espacial",
+      "prompt": "Qual situação exemplifica localidade espacial?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Proximidade de endereços pode favorecer acesso sequencial.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Aumentar a frequência da tomada"
+        },
+        {
+          "id": "b",
+          "text": "Ler posições próximas de uma posição recém-acessada"
+        },
+        {
+          "id": "c",
+          "text": "Repetir exclusivamente a mesma posição"
+        },
+        {
+          "id": "d",
+          "text": "Salvar em um disco desconectado"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "25",
+      "group": "Cache e firmware",
+      "title": "ROM",
+      "prompt": "Qual característica se associa à ROM tradicional?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "ROM tradicional conserva conteúdo sem energia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Memória não volátil de leitura"
+        },
+        {
+          "id": "b",
+          "text": "Dispositivo exclusivamente volátil"
+        },
+        {
+          "id": "c",
+          "text": "Armazenamento magnético removível"
+        },
+        {
+          "id": "d",
+          "text": "Conector de vídeo"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "26",
+      "group": "Cache e firmware",
+      "title": "Firmware atual",
+      "prompt": "Todo firmware moderno precisa estar em ROM não regravável?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Firmware é software; a tecnologia de armazenamento varia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, atualização de firmware é impossível"
+        },
+        {
+          "id": "b",
+          "text": "Sim, porque firmware é uma peça de metal"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque firmware nunca usa memória"
+        },
+        {
+          "id": "d",
+          "text": "Não; pode estar em memória flash regravável"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Cache e firmware",
+      "title": "Caches diferentes",
+      "prompt": "Limpar cache do navegador altera fisicamente a cache L1?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Cache de software e cache física da CPU são distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, transforma RAM em ROM"
+        },
+        {
+          "id": "b",
+          "text": "Sim, remove cache do processador permanentemente"
+        },
+        {
+          "id": "c",
+          "text": "Não; são mecanismos em níveis diferentes"
+        },
+        {
+          "id": "d",
+          "text": "Sim, aumenta os registradores"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "28",
+      "group": "Armazenamento",
+      "title": "HDD",
+      "prompt": "Qual tecnologia caracteriza o HDD?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "HDD utiliza pratos e cabeças de leitura/gravação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente luz de monitor"
+        },
+        {
+          "id": "b",
+          "text": "Armazenamento magnético com partes mecânicas"
+        },
+        {
+          "id": "c",
+          "text": "Registradores de CPU"
+        },
+        {
+          "id": "d",
+          "text": "Memória DRAM principal"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "29",
+      "group": "Armazenamento",
+      "title": "SSD",
+      "prompt": "Qual tecnologia é usual em SSDs modernos?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "SSDs comuns utilizam flash NAND e gerenciamento por controlador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Memória flash com controlador"
+        },
+        {
+          "id": "b",
+          "text": "Pratos magnéticos giratórios"
+        },
+        {
+          "id": "c",
+          "text": "Somente registradores"
+        },
+        {
+          "id": "d",
+          "text": "Memória DRAM volátil sem persistência"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "30",
+      "group": "Armazenamento",
+      "title": "Acesso disperso",
+      "prompt": "Por que SSDs costumam favorecer acessos dispersos?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Ausência de busca mecânica reduz latência em muitas tarefas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Porque todo SSD possui capacidade infinita"
+        },
+        {
+          "id": "b",
+          "text": "Porque não usam eletricidade"
+        },
+        {
+          "id": "c",
+          "text": "Porque substituem a CPU"
+        },
+        {
+          "id": "d",
+          "text": "Não exigem posicionar cabeças mecânicas sobre pratos"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "31",
+      "group": "Armazenamento",
+      "title": "Durabilidade",
+      "prompt": "Qual afirmação é correta sobre SSD?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Persistência não garante durabilidade ilimitada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Dispensa qualquer backup"
+        },
+        {
+          "id": "b",
+          "text": "Sempre tem a mesma velocidade de pen drive"
+        },
+        {
+          "id": "c",
+          "text": "Pode falhar e possui desgaste de gravação"
+        },
+        {
+          "id": "d",
+          "text": "É indestrutível por não ter cabeças"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "32",
+      "group": "Armazenamento",
+      "title": "Cópia",
+      "prompt": "Qual opção oferece melhor proteção contra falha do disco original?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Uma cópia independente reduz dependência da unidade original.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Aumentar brilho da tela"
+        },
+        {
+          "id": "b",
+          "text": "Backup independente e verificado em outro meio"
+        },
+        {
+          "id": "c",
+          "text": "Outra pasta no mesmo disco"
+        },
+        {
+          "id": "d",
+          "text": "Renomear o arquivo"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "33",
+      "group": "Armazenamento",
+      "title": "Interface",
+      "prompt": "M.2 garante que um SSD usa NVMe?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Retome a distinção de formato e protocolo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; M.2 descreve formato/conexão"
+        },
+        {
+          "id": "b",
+          "text": "Sim, todos os M.2 usam NVMe"
+        },
+        {
+          "id": "c",
+          "text": "Não, porque NVMe é RAM"
+        },
+        {
+          "id": "d",
+          "text": "Sim, porque M.2 significa memória de dois gigabytes"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "34",
+      "group": "Unidades",
+      "title": "Bit e byte",
+      "prompt": "Quantos bits correspondem a um byte?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Um byte contém oito bits.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "1024"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "35",
+      "group": "Unidades",
+      "title": "Decimal",
+      "prompt": "Quantos bytes correspondem a 1 kB na convenção decimal?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Prefixos decimais usam potências de 1000.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "1000000"
+        },
+        {
+          "id": "c",
+          "text": "1000"
+        },
+        {
+          "id": "d",
+          "text": "1024"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "36",
+      "group": "Unidades",
+      "title": "Binário",
+      "prompt": "Quantos bytes correspondem a 1 KiB?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Prefixos binários usam potências de 1024.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "1024"
+        },
+        {
+          "id": "c",
+          "text": "1000"
+        },
+        {
+          "id": "d",
+          "text": "128"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "37",
+      "group": "Unidades",
+      "title": "Rede",
+      "prompt": "Uma taxa teórica de 80 Mbit/s equivale a quantos MB/s decimais?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Divida a quantidade de bits por oito para obter bytes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "10 MB/s"
+        },
+        {
+          "id": "b",
+          "text": "80 MB/s"
+        },
+        {
+          "id": "c",
+          "text": "640 MB/s"
+        },
+        {
+          "id": "d",
+          "text": "8 MB/s"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "38",
+      "group": "Diagnóstico",
+      "title": "CPU ocupada",
+      "prompt": "Qual recurso investigar se compilação mantém CPU sob carga intensa?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Carga elevada sugere investigar processamento sem presumir defeito.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente resolução de tela"
+        },
+        {
+          "id": "b",
+          "text": "Apenas quantidade de cabos SATA"
+        },
+        {
+          "id": "c",
+          "text": "Apenas espaço livre de fotos"
+        },
+        {
+          "id": "d",
+          "text": "Processamento e características da tarefa"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "39",
+      "group": "Diagnóstico",
+      "title": "Pressão de memória",
+      "prompt": "Máquina fica lenta ao abrir muitos programas e usa muito swap. Qual hipótese merece investigação?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "Swap intenso pode indicar pressão, mas evidências adicionais importam.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Monitor com tamanho insuficiente"
+        },
+        {
+          "id": "b",
+          "text": "Firmware obrigatoriamente corrompido"
+        },
+        {
+          "id": "c",
+          "text": "Pressão de memória"
+        },
+        {
+          "id": "d",
+          "text": "Falha confirmada do teclado"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "40",
+      "group": "Diagnóstico",
+      "title": "Armazenamento",
+      "prompt": "Abrir arquivos é lento enquanto há espera elevada de E/S. O que investigar?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "A espera de E/S sugere olhar armazenamento e comunicação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Número de teclas"
+        },
+        {
+          "id": "b",
+          "text": "Armazenamento e caminho de acesso aos dados"
+        },
+        {
+          "id": "c",
+          "text": "Apenas marca da CPU"
+        },
+        {
+          "id": "d",
+          "text": "Somente portas de áudio"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "41",
+      "group": "Intercâmbio",
+      "title": "Variável",
+      "prompt": "ram_gb = 16 em Python reserva 16 GB de RAM?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "O dado representa uma capacidade, não uma alocação correspondente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; associa um nome ao inteiro 16"
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "c",
+          "text": "Sim, quando a CPU é Intel"
+        },
+        {
+          "id": "d",
+          "text": "Não, porque variáveis nunca usam memória"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "42",
+      "group": "Intercâmbio",
+      "title": "Desconhecido",
+      "prompt": "Qual valor pode representar capacidade ainda desconhecida?",
+      "hint": "Identifique a função e as condições do enunciado.",
+      "explanation": "None distingue ausência de informação de uma quantidade conhecida.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "0 obrigatoriamente"
+        },
+        {
+          "id": "b",
+          "text": "False obrigatoriamente"
+        },
+        {
+          "id": "c",
+          "text": "16 obrigatoriamente"
+        },
+        {
+          "id": "d",
+          "text": "None"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "43",
+      "group": "CPU",
+      "title": "Execução integrada",
+      "prompt": "Explique por que a CPU depende de outros componentes para executar um programa.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Citar instruções/dados, recursos físicos e cooperação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Precisa de instruções e dados acessíveis, memória, energia e interconexões; coopera com sistema operacional e dispositivos.",
+      "expected": null
+    },
+    {
+      "id": "44",
+      "group": "CPU",
+      "title": "Código e máquina",
+      "prompt": "Diferencie uma linha de código Python de uma instrução de máquina.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir abstração e execução física sem relação obrigatória de um para um.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Python expressa operações em alto nível; o ambiente realiza operações por instruções de máquina reconhecidas pela CPU. Uma linha pode exigir muitas instruções.",
+      "expected": null
+    },
+    {
+      "id": "45",
+      "group": "CPU",
+      "title": "Recursos internos",
+      "prompt": "Diferencie registradores, unidade de controle e ULA.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Explicar as três funções, sem tratar como descrição completa de CPU moderna.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Registradores mantêm valores internos usados na execução; controle coordena operações; ULA realiza aritmética e lógica.",
+      "expected": null
+    },
+    {
+      "id": "46",
+      "group": "Desempenho",
+      "title": "Comparação comercial",
+      "prompt": "Por que os nomes Core i3, i5, i7 ou Ryzen 3, 5 e 7 não bastam para escolher CPU?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Identificar pelo menos quatro fatores além da marca.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Segmentos não garantem desempenho entre gerações ou tarefas; modelo, arquitetura, núcleos, testes, consumo e compatibilidade importam.",
+      "expected": null
+    },
+    {
+      "id": "47",
+      "group": "Desempenho",
+      "title": "Clock e instruções",
+      "prompt": "Por que 4 GHz não significa necessariamente quatro bilhões de instruções por segundo?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Definir clock e separar ciclos de instruções concluídas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Clock mede ciclos; quantidade de instruções concluídas por ciclo varia com arquitetura, dependências e tarefa.",
+      "expected": null
+    },
+    {
+      "id": "48",
+      "group": "Desempenho",
+      "title": "Paralelismo",
+      "prompt": "Uma tarefa possui trechos que precisam acontecer em sequência. Explique por que mais núcleos podem não reduzir igualmente seu tempo.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Relacionar dependência, paralelismo e limites.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Trechos sequenciais não se dividem livremente; só partes paralelizáveis aproveitam núcleos adicionais e outros gargalos podem limitar.",
+      "expected": null
+    },
+    {
+      "id": "49",
+      "group": "Hierarquia",
+      "title": "Comparação",
+      "prompt": "Compare registradores, cache, RAM e armazenamento quanto a finalidade, capacidade e latência típica.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Identificar quatro recursos, funções e tendências relativas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Registradores e cache auxiliam execução com baixa latência e menor capacidade; RAM conserva estado de trabalho; armazenamento é persistente e geralmente mais lento.",
+      "expected": null
+    },
+    {
+      "id": "50",
+      "group": "Hierarquia",
+      "title": "Acesso",
+      "prompt": "Diferencie latência de taxa de transferência e dê um exemplo.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir grandezas e exemplo coerente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Latência é demora para atender uma solicitação; taxa é volume por tempo. Dispositivo pode transferir arquivo grande rapidamente mas demorar a iniciar acessos dispersos.",
+      "expected": null
+    },
+    {
+      "id": "51",
+      "group": "RAM",
+      "title": "Memória de trabalho",
+      "prompt": "Qual a diferença entre RAM e SSD quando editamos um documento?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Funções, volatilidade e salvamento explícito.",
+      "mode": "text",
+      "starter": "",
+      "solution": "RAM mantém informações em uso; SSD conserva versões gravadas. Sem energia, parte do estado não salvo pode desaparecer.",
+      "expected": null
+    },
+    {
+      "id": "52",
+      "group": "RAM",
+      "title": "Swap",
+      "prompt": "Explique por que swap não equivale a instalar mais módulos de RAM.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir mecanismos, meio físico e desempenho.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Swap utiliza armazenamento para gerenciamento de páginas. Pode aliviar pressão, mas apresenta latência maior e não amplia RAM física.",
+      "expected": null
+    },
+    {
+      "id": "53",
+      "group": "RAM",
+      "title": "Uso de memória",
+      "prompt": "Uma máquina mostra RAM quase toda usada. O que verificaria antes de sugerir upgrade?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Não concluir por percentual isolado; citar métricas e comportamento.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Disponibilidade, pressão, aplicações, cache, swap e relação com lentidão; comparar com uso normal.",
+      "expected": null
+    },
+    {
+      "id": "54",
+      "group": "Cache e firmware",
+      "title": "Localidade",
+      "prompt": "Explique localidade temporal e espacial com exemplos.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Definir e exemplificar ambos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Temporal: reutilizar valor recente. Espacial: acessar endereços próximos, como elementos consecutivos. Caches aproveitam padrões de acesso.",
+      "expected": null
+    },
+    {
+      "id": "55",
+      "group": "Cache e firmware",
+      "title": "Acerto e falta",
+      "prompt": "O que ocorre em termos gerais em acerto e falta de cache?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Distinguir disponibilidade e acesso a outro nível.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Acerto obtém informação do nível consultado; falta exige procurar outro nível e pode atualizar cache conforme política.",
+      "expected": null
+    },
+    {
+      "id": "56",
+      "group": "Cache e firmware",
+      "title": "ROM e firmware",
+      "prompt": "Por que firmware atual não deve ser tratado sempre como ROM imutável?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Separar software, tecnologia e persistência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Firmware é software; pode ser armazenado em flash atualizável, ao contrário da ROM tradicional somente leitura.",
+      "expected": null
+    },
+    {
+      "id": "57",
+      "group": "Armazenamento",
+      "title": "HD e SSD",
+      "prompt": "Compare HD e SSD quanto à tecnologia, acesso e risco de falha.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Tecnologia, latência e necessidade de backup.",
+      "mode": "text",
+      "starter": "",
+      "solution": "HD usa pratos magnéticos e movimento mecânico; SSD usa flash e controlador, costuma ter menor latência em muitos acessos. Ambos podem falhar.",
+      "expected": null
+    },
+    {
+      "id": "58",
+      "group": "Armazenamento",
+      "title": "Backup",
+      "prompt": "Por que uma cópia na mesma unidade não protege contra todas as falhas?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Identificar dependência do mesmo meio e propor cópia independente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Falha física ou corrupção da unidade pode atingir original e cópia. Backup independente e verificado reduz risco.",
+      "expected": null
+    },
+    {
+      "id": "59",
+      "group": "Armazenamento",
+      "title": "Compatibilidade",
+      "prompt": "Que informações verificaria antes de substituir HDD SATA por SSD?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Retomar compatibilidade e preservação de arquivos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Interface, formato físico, alimentação, suporte da placa, capacidade, espaço e proteção/migração de dados.",
+      "expected": null
+    },
+    {
+      "id": "60",
+      "group": "Unidades",
+      "title": "TB e GiB",
+      "prompt": "Por que uma unidade de 1 TB pode aparecer com cerca de 931 GiB?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Identificar convenções e mostrar cálculo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "1 TB decimal = 10^12 bytes; dividir por 1024^3 resulta em cerca de 931,32 GiB. Não significa perda física da diferença.",
+      "expected": null
+    },
+    {
+      "id": "61",
+      "group": "Unidades",
+      "title": "Bits e bytes",
+      "prompt": "Calcule quantos bits correspondem a 16 bytes e explique.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Usar fator oito e unidade correta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "16 × 8 = 128 bits.",
+      "expected": null
+    },
+    {
+      "id": "62",
+      "group": "Diagnóstico",
+      "title": "Três sintomas",
+      "prompt": "Relacione compilação com CPU saturada, swap intenso com muitas aplicações e demora de E/S a hipóteses iniciais.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Três hipóteses coerentes e cautela diagnóstica.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Investigar processamento, pressão de memória e armazenamento respectivamente; confirmar com evidências e não presumir defeito.",
+      "expected": null
+    },
+    {
+      "id": "63",
+      "group": "Diagnóstico",
+      "title": "Espaço insuficiente",
+      "prompt": "O SSD está cheio e a CPU permanece pouco utilizada. Proponha ações iniciais seguras.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Investigar armazenamento, proteger dados e evitar ação destrutiva.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Verificar capacidade e ocupação, identificar arquivos, proteger dados, avaliar limpeza/migração ou expansão. Não formatar sem backup.",
+      "expected": null
+    },
+    {
+      "id": "64",
+      "group": "Intercâmbio",
+      "title": "Inventário hipotético",
+      "prompt": "Quais tipos Python usaria para modelo da CPU, número de núcleos, frequência e presença de SSD?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Tipos coerentes e distinção de dados desconhecidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "str, int, float e bool respectivamente; None se um valor estiver desconhecido.",
+      "expected": null
+    },
+    {
+      "id": "65",
+      "group": "Intercâmbio",
+      "title": "RAM representada",
+      "prompt": "Por que uma variável chamada ram_gb não mede automaticamente a RAM disponível?",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Separar representação e coleta real de informação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O nome apenas referencia o valor atribuído. Medição depende de dados obtidos do sistema por mecanismos apropriados.",
+      "expected": null
+    },
+    {
+      "id": "66",
+      "group": "Cálculos de capacidade",
+      "title": "3 KiB em bytes",
+      "prompt": "Converta 3 KiB para bytes. Mostre a operação e identifique a convenção.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Valor 3072 bytes, fator correto e unidade final.",
+      "mode": "text",
+      "starter": "",
+      "solution": "3072 bytes. Use potências de 1024 conforme o prefixo.",
+      "expected": null
+    },
+    {
+      "id": "67",
+      "group": "Cálculos de capacidade",
+      "title": "5 MiB em bytes",
+      "prompt": "Converta 5 MiB para bytes. Mostre a operação e identifique a convenção.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Valor 5242880 bytes, fator correto e unidade final.",
+      "mode": "text",
+      "starter": "",
+      "solution": "5242880 bytes. Use potências de 1024 conforme o prefixo.",
+      "expected": null
+    },
+    {
+      "id": "68",
+      "group": "Cálculos de capacidade",
+      "title": "8 GiB em bytes",
+      "prompt": "Converta 8 GiB para bytes. Mostre a operação e identifique a convenção.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Valor 8589934592 bytes, fator correto e unidade final.",
+      "mode": "text",
+      "starter": "",
+      "solution": "8589934592 bytes. Use potências de 1024 conforme o prefixo.",
+      "expected": null
+    },
+    {
+      "id": "69",
+      "group": "Cálculos de capacidade",
+      "title": "7 kB em bytes",
+      "prompt": "Converta 7 kB para bytes. Mostre a operação e identifique a convenção.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Valor 7000 bytes, fator correto e unidade final.",
+      "mode": "text",
+      "starter": "",
+      "solution": "7000 bytes. Use potências de 1000 conforme o prefixo.",
+      "expected": null
+    },
+    {
+      "id": "70",
+      "group": "Cálculos de capacidade",
+      "title": "12 MB em bytes",
+      "prompt": "Converta 12 MB para bytes. Mostre a operação e identifique a convenção.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Valor 12000000 bytes, fator correto e unidade final.",
+      "mode": "text",
+      "starter": "",
+      "solution": "12000000 bytes. Use potências de 1000 conforme o prefixo.",
+      "expected": null
+    },
+    {
+      "id": "71",
+      "group": "Cálculos de capacidade",
+      "title": "4 GB em bytes",
+      "prompt": "Converta 4 GB para bytes. Mostre a operação e identifique a convenção.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Valor 4000000000 bytes, fator correto e unidade final.",
+      "mode": "text",
+      "starter": "",
+      "solution": "4000000000 bytes. Use potências de 1000 conforme o prefixo.",
+      "expected": null
+    },
+    {
+      "id": "72",
+      "group": "Cálculos de transferência",
+      "title": "24 Mbit/s",
+      "prompt": "Converta a taxa teórica de 24 Mbit/s para MB/s na convenção decimal, sem sobrecarga.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Dividir por oito; indicar 3 MB/s e distinguir estimativa teórica de taxa real.",
+      "mode": "text",
+      "starter": "",
+      "solution": "24 ÷ 8 = 3 MB/s.",
+      "expected": null
+    },
+    {
+      "id": "73",
+      "group": "Cálculos de transferência",
+      "title": "64 Mbit/s",
+      "prompt": "Converta a taxa teórica de 64 Mbit/s para MB/s na convenção decimal, sem sobrecarga.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Dividir por oito; indicar 8 MB/s e distinguir estimativa teórica de taxa real.",
+      "mode": "text",
+      "starter": "",
+      "solution": "64 ÷ 8 = 8 MB/s.",
+      "expected": null
+    },
+    {
+      "id": "74",
+      "group": "Cálculos de transferência",
+      "title": "120 Mbit/s",
+      "prompt": "Converta a taxa teórica de 120 Mbit/s para MB/s na convenção decimal, sem sobrecarga.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Dividir por oito; indicar 15 MB/s e distinguir estimativa teórica de taxa real.",
+      "mode": "text",
+      "starter": "",
+      "solution": "120 ÷ 8 = 15 MB/s.",
+      "expected": null
+    },
+    {
+      "id": "75",
+      "group": "Cálculos de transferência",
+      "title": "240 Mbit/s",
+      "prompt": "Converta a taxa teórica de 240 Mbit/s para MB/s na convenção decimal, sem sobrecarga.",
+      "hint": "Explique com suas palavras e mostre os cálculos quando necessário.",
+      "explanation": "Critérios de autocorreção: Dividir por oito; indicar 30 MB/s e distinguir estimativa teórica de taxa real.",
+      "mode": "text",
+      "starter": "",
+      "solution": "240 ÷ 8 = 30 MB/s.",
+      "expected": null
+    }
+  ]
+}
