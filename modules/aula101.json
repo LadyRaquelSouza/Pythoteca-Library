@@ -1,0 +1,1306 @@
+{
+  "schema_version": 2,
+  "discipline": "arquitetura",
+  "id": "aula101",
+  "title": "Introdução aos sistemas computacionais",
+  "subtitle": "Fundamentos, operações, integração e diagnóstico",
+  "objectives": "Distinguir computador e sistema computacional; reconhecer hardware, software, dados e usuários; comparar tipos de sistemas; explicar entrada, processamento, armazenamento e saída; relacionar componentes; investigar problemas introdutórios.",
+  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 1–3 e 5–7. Explicações e exercícios originais. Complementos rotulados como aprofundamento. Não inclui transcrição audiovisual.",
+  "chapters": [
+    {
+      "title": "1. Computador e sistema computacional",
+      "text": "CONTEÚDO DO CURSO\n\nA Arquitetura de Computadores investiga como os recursos de um sistema se organizam para executar tarefas. A CPU processa instruções, a memória mantém informações em uso, o armazenamento conserva dados e as interconexões permitem a comunicação. A disciplina ajuda o profissional a entender por que um programa funciona de determinada maneira e quais recursos podem limitar seu desempenho.\n\nUm computador é um equipamento programável: recebe dados, executa instruções e produz resultados. Um sistema computacional é um conjunto mais amplo, que reúne hardware, software, dados e interação com usuários ou outros sistemas. Um computador desligado continua sendo um computador; para realizar uma tarefa útil, precisa de condições de funcionamento, instruções e dados.\n\nImagine um sistema de atendimento de uma biblioteca. O computador é o equipamento; o programa de empréstimos, o cadastro de livros, a leitora de códigos, os usuários e os procedimentos de trabalho compõem o sistema. Uma falha no cadastro não implica defeito no equipamento.\n\nAPROFUNDAMENTO\n\nA palavra arquitetura pode ser usada em sentido amplo, como nesta disciplina. Em um sentido técnico mais específico, arquitetura descreve características observáveis pelo software, como as instruções oferecidas pelo processador; organização diz respeito à maneira como os componentes cooperam; implementação é a realização física dessa organização. Essas distinções serão úteis quando estudarmos as instruções e a CPU. Não é necessário dominar eletrônica digital neste momento.\n\nNa prática profissional, a pergunta central não é apenas \"qual peça é esta?\", mas \"qual função ela desempenha, como se relaciona com as demais e que evidência temos de que funciona?\".",
+      "example": ""
+    },
+    {
+      "title": "2. Hardware, software, dados e usuários",
+      "text": "CONTEÚDO DO CURSO\n\nHardware é o conjunto de componentes físicos: processador, placa-mãe, módulos de memória, teclado e monitor são exemplos. Software reúne programas e instruções, como sistemas operacionais, editores e navegadores. Dados são as informações representadas e manipuladas pelos programas. Usuários ou outros sistemas fornecem dados e comandos e utilizam os resultados.\n\nEssas quatro dimensões cooperam. Um aplicativo de cadastro pode receber um nome pelo teclado, conferir seu formato, armazenar o registro e apresentar uma confirmação. O teclado e os circuitos são hardware; o aplicativo é software; o nome é dado; a pessoa que realiza a operação é usuária. Em um processo automatizado, outro programa pode fornecer os dados, sem intervenção humana naquele momento.\n\nAPROFUNDAMENTO\n\nFirmware é software associado ao funcionamento de um equipamento, normalmente conservado em memória não volátil. Não é hardware apenas por estar incorporado ao dispositivo. Um sistema operacional administra recursos e fornece serviços aos aplicativos; drivers permitem a comunicação com dispositivos específicos. Um aplicativo não precisa conhecer todos os detalhes elétricos de cada periférico.\n\nDados e instruções podem compartilhar meios físicos de armazenamento e memória, mas têm papéis diferentes quando interpretados pelo computador. Uma fotografia não se transforma em instrução executável apenas porque está no mesmo SSD que um programa.\n\nUma falha de impressão ilustra as camadas: pode haver um arquivo inválido, uma configuração incorreta, um driver incompatível, uma conexão interrompida ou um defeito físico. Investigue onde a informação deixa de seguir o fluxo esperado, em vez de culpar automaticamente o hardware.",
+      "example": ""
+    },
+    {
+      "title": "3. Tipos de sistemas e suas finalidades",
+      "text": "CONTEÚDO DO CURSO\n\nDesktops são computadores de mesa, comuns em postos fixos de estudo e trabalho. Notebooks integram tela, teclado e bateria e priorizam mobilidade. Smartphones e tablets combinam computação, sensores, comunicação e interfaces portáteis. Servidores disponibilizam serviços e informações a outros dispositivos. Sistemas embarcados integram equipamentos voltados a funções específicas, como controles de máquinas e veículos.\n\nEssas categorias não representam uma escala universal de desempenho. Um computador de edição de mídia pode exigir muita memória e processamento gráfico; um servidor pode priorizar disponibilidade e integridade dos dados; um controlador embarcado pode precisar responder dentro de um prazo previsível com baixo consumo de energia.\n\nAPROFUNDAMENTO\n\nCliente e servidor descrevem papéis em uma comunicação. Um notebook que compartilha arquivos pode atuar como servidor naquele serviço e simultaneamente como cliente de outro. Um servidor pode ser tanto uma máquina quanto um programa que oferece determinado serviço.\n\nUm sistema embarcado não precisa estar conectado à internet nem ter teclado ou monitor. Sua interação pode ocorrer por sensores, botões, atuadores e outras interfaces. Sistemas de uso geral tendem a permitir muitas aplicações diferentes, enquanto sistemas embarcados frequentemente possuem objetivos mais delimitados.\n\nA escolha de um computador começa pela finalidade: mobilidade, orçamento, compatibilidade, consumo, capacidade de armazenamento, memória, desempenho e requisitos dos programas. Uma marca ou um número isolado não resolve todas essas questões.",
+      "example": ""
+    },
+    {
+      "title": "4. Operações fundamentais",
+      "text": "CONTEÚDO DO CURSO\n\nEntrada fornece dados e comandos ao sistema. Processamento executa instruções que transformam, comparam ou organizam dados. Armazenamento mantém informações durante a execução ou de modo persistente. Saída apresenta ou transmite resultados.\n\nO modelo é didático, não uma sequência rígida. Em uma chamada de vídeo, câmera e microfone capturam entradas continuamente, processadores tratam os sinais, regiões de memória mantêm informações temporárias, e tela e alto-falantes apresentam resultados. A rede recebe e transmite pacotes em paralelo. Não é necessário guardar uma gravação permanente para que exista armazenamento temporário.\n\nAPROFUNDAMENTO\n\nEntrada e saída dependem da fronteira do sistema observado: um pacote enviado pelo computador A é saída para A e entrada para B. Uma tela sensível ao toque reúne saída visual e entrada por toque. Um dispositivo de armazenamento pode ser escrito e lido, participando da troca de dados.\n\nNão confunda operação e componente. Processamento é uma atividade; CPU é um componente que executa instruções. Armazenamento é uma função que pode ocorrer em recursos diferentes. Uma tecla pressionada é entrada, mas o teclado não realiza sozinho toda a interpretação do comando.\n\nEm um editor de texto, digitar fornece entrada; interpretar as teclas e atualizar o documento exige processamento; a memória mantém o estado em uso; a tela mostra o resultado; salvar registra uma versão persistente. O ciclo se repete ao longo da tarefa.",
+      "example": ""
+    },
+    {
+      "title": "5. Integração dos componentes",
+      "text": "CONTEÚDO DO CURSO\n\nA CPU executa instruções, a RAM mantém dados e programas em uso, a placa-mãe integra componentes, periféricos permitem comunicação e o armazenamento persistente conserva arquivos. A fonte de alimentação fornece energia adequada ao funcionamento dos componentes internos de um desktop.\n\nUm documento visível na tela não está necessariamente salvo. A versão de trabalho pode permanecer apenas na memória volátil. Quando solicitamos o salvamento, o aplicativo e o sistema operacional organizam a gravação no armazenamento. Uma interrupção de energia pode eliminar mudanças não persistidas; mecanismos de recuperação automática podem ajudar, mas não garantem que tudo seja recuperado.\n\nAPROFUNDAMENTO\n\nA CPU não trabalha isoladamente e não precisa executar pessoalmente todas as operações de transferência ou apresentação. Controladores e outros processadores podem auxiliar. Os recursos comunicam-se por interconexões e possuem limites de capacidade, velocidade e compatibilidade. Diferentes atividades podem sobrepor-se.\n\nOs próximos módulos examinarão placa-mãe e conexões, periféricos, fontes, processadores, hierarquia de memória e dispositivos de armazenamento. Depois estudaremos von Neumann e o ciclo de instruções. Neste módulo, o objetivo é reconhecer as funções gerais, sem antecipar os detalhes de registradores ou circuitos digitais.",
+      "example": ""
+    },
+    {
+      "title": "6. Diagnóstico e intercâmbio com lógica",
+      "text": "CONTEÚDO DO CURSO\n\nA disciplina é importante para suporte, instalação, escolha de equipamentos, manutenção e programação. Um computador lento ao abrir vários programas pode apresentar pressão de memória, uso elevado da CPU ou espera pelo armazenamento. Um equipamento sem espaço para salvar arquivos exige investigar a capacidade de armazenamento livre, não necessariamente comprar mais RAM.\n\nAPROFUNDAMENTO\n\nUm diagnóstico inicial envolve descrever o sintoma, identificar quando acontece, observar os recursos utilizados, formular hipóteses e comparar resultados de testes reversíveis. Evite ações destrutivas antes de compreender o problema. Não abra uma fonte de alimentação: seus componentes podem manter tensões perigosas mesmo desconectados. Em casos de risco elétrico, interrompa o uso e procure avaliação qualificada.\n\nINTERCÂMBIO COM PYTHON E PORTUGOL\n\nA lógica de programação organiza dados, instruções e resultados. Um algoritmo que recebe dois valores e calcula a soma ilustra entrada, processamento e saída. A memória mantém os valores durante a execução; a gravação permanente é opcional.\n\nEm Python, print produz uma saída textual que o ambiente pode apresentar no terminal. Uma atribuição associa um nome a um objeto durante a execução. Isso não significa que print controle diretamente o monitor, nem que uma variável corresponda a um endereço físico fixo ou a um arquivo salvo.\n\nVocê não precisa escrever código neste módulo. A prática interdisciplinar consistirá em descrever tarefas e relacionar as operações lógicas aos recursos físicos e aos programas. Os conceitos de hardware serão retomados nos módulos de Python conforme os recursos da linguagem forem aprendidos.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Fundamentos",
+      "title": "Objeto da disciplina",
+      "prompt": "Qual pergunta é central para Arquitetura de Computadores?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A disciplina investiga organização e cooperação dos recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Como os recursos se organizam para executar tarefas?"
+        },
+        {
+          "id": "b",
+          "text": "Como memorizar preços de computadores?"
+        },
+        {
+          "id": "c",
+          "text": "Como escolher exclusivamente cores de interfaces?"
+        },
+        {
+          "id": "d",
+          "text": "Como substituir todo software por hardware?"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "02",
+      "group": "Fundamentos",
+      "title": "Sistema e equipamento",
+      "prompt": "O que amplia o conceito de computador para sistema computacional?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O equipamento integra um conjunto funcional maior.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Programas, dados e interação com usuários ou outros sistemas"
+        },
+        {
+          "id": "b",
+          "text": "Apenas o tamanho do gabinete"
+        },
+        {
+          "id": "c",
+          "text": "Somente a frequência da CPU"
+        },
+        {
+          "id": "d",
+          "text": "Apenas a quantidade de portas USB"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Fundamentos",
+      "title": "Sintoma",
+      "prompt": "Uma máquina está lenta. Qual conclusão é justificável inicialmente?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Um sintoma pode ter várias causas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "É necessário investigar tarefas e recursos."
+        },
+        {
+          "id": "b",
+          "text": "A CPU certamente está quebrada."
+        },
+        {
+          "id": "c",
+          "text": "O monitor precisa ser trocado."
+        },
+        {
+          "id": "d",
+          "text": "É obrigatório reinstalar o sistema."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "04",
+      "group": "Fundamentos",
+      "title": "Organização",
+      "prompt": "Qual descrição se refere à organização do computador?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A organização relaciona componentes e funções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Como CPU, memória e interconexões cooperam"
+        },
+        {
+          "id": "b",
+          "text": "A cor de uma janela"
+        },
+        {
+          "id": "c",
+          "text": "O conteúdo de uma fotografia"
+        },
+        {
+          "id": "d",
+          "text": "A senha de um usuário"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "05",
+      "group": "Camadas",
+      "title": "Hardware",
+      "prompt": "Qual item é hardware?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Hardware é o componente físico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Módulo de RAM"
+        },
+        {
+          "id": "b",
+          "text": "Editor de texto"
+        },
+        {
+          "id": "c",
+          "text": "Sistema operacional"
+        },
+        {
+          "id": "d",
+          "text": "Registro de um cadastro"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "Camadas",
+      "title": "Software",
+      "prompt": "Qual item é software?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Software reúne instruções e programas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Programa de edição"
+        },
+        {
+          "id": "b",
+          "text": "Soquete do processador"
+        },
+        {
+          "id": "c",
+          "text": "Cabo de alimentação"
+        },
+        {
+          "id": "d",
+          "text": "Módulo DIMM"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "07",
+      "group": "Camadas",
+      "title": "Dados",
+      "prompt": "Qual item representa um dado em um sistema de biblioteca?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O título é informação manipulada pelo sistema.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Título de um livro registrado no cadastro"
+        },
+        {
+          "id": "b",
+          "text": "Fonte de alimentação"
+        },
+        {
+          "id": "c",
+          "text": "Conector USB"
+        },
+        {
+          "id": "d",
+          "text": "Circuito do processador"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "08",
+      "group": "Camadas",
+      "title": "Firmware",
+      "prompt": "Como classificar firmware?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Firmware contém instruções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Software associado ao funcionamento do dispositivo"
+        },
+        {
+          "id": "b",
+          "text": "Apenas a placa física"
+        },
+        {
+          "id": "c",
+          "text": "Uma unidade de energia"
+        },
+        {
+          "id": "d",
+          "text": "Um periférico exclusivamente de saída"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "09",
+      "group": "Camadas",
+      "title": "Sistema operacional",
+      "prompt": "Qual função pertence ao sistema operacional?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O sistema operacional coordena recursos por software.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Administrar recursos e oferecer serviços aos programas"
+        },
+        {
+          "id": "b",
+          "text": "Substituir fisicamente módulos de RAM"
+        },
+        {
+          "id": "c",
+          "text": "Fornecer energia elétrica à CPU"
+        },
+        {
+          "id": "d",
+          "text": "Converter todo dado em peça física"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "10",
+      "group": "Camadas",
+      "title": "Papel dos dados",
+      "prompt": "Uma foto e um executável estão no mesmo SSD. O que é correto?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O significado depende da interpretação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Compartilham o meio, mas têm papéis distintos."
+        },
+        {
+          "id": "b",
+          "text": "A foto sempre vira instrução da CPU."
+        },
+        {
+          "id": "c",
+          "text": "O SSD transforma tudo em programa."
+        },
+        {
+          "id": "d",
+          "text": "Arquivos executáveis não contêm dados."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "11",
+      "group": "Tipos de sistemas",
+      "title": "Estação fixa",
+      "prompt": "Qual categoria costuma servir a um posto fixo de edição com possibilidade de expansão?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Desktops são comuns em estações fixas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Desktop"
+        },
+        {
+          "id": "b",
+          "text": "Controlador de forno"
+        },
+        {
+          "id": "c",
+          "text": "Relógio digital simples"
+        },
+        {
+          "id": "d",
+          "text": "Sensor isolado"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "12",
+      "group": "Tipos de sistemas",
+      "title": "Servidor",
+      "prompt": "O que identifica o papel de servidor?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Servidor é um papel na prestação de serviços.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Oferecer serviços ou recursos a clientes"
+        },
+        {
+          "id": "b",
+          "text": "Ter obrigatoriamente a maior frequência"
+        },
+        {
+          "id": "c",
+          "text": "Não precisar de memória"
+        },
+        {
+          "id": "d",
+          "text": "Possuir monitor grande"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "13",
+      "group": "Tipos de sistemas",
+      "title": "Embarcado",
+      "prompt": "Qual exemplo caracteriza um sistema embarcado?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O controlador integra um equipamento especializado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Controlador programável de máquina de lavar"
+        },
+        {
+          "id": "b",
+          "text": "Documento impresso"
+        },
+        {
+          "id": "c",
+          "text": "Cabo desconectado"
+        },
+        {
+          "id": "d",
+          "text": "Mesa sem eletrônica"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "Tipos de sistemas",
+      "title": "Mobilidade",
+      "prompt": "Qual característica costuma distinguir notebooks de desktops?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Notebooks são projetados para mobilidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Portabilidade e bateria"
+        },
+        {
+          "id": "b",
+          "text": "Ausência de CPU"
+        },
+        {
+          "id": "c",
+          "text": "Proibição de software"
+        },
+        {
+          "id": "d",
+          "text": "Inexistência de armazenamento"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "15",
+      "group": "Tipos de sistemas",
+      "title": "Escolha",
+      "prompt": "Qual critério deve orientar a escolha de um computador?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A finalidade determina quais características importam.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Requisitos da tarefa, recursos e compatibilidade"
+        },
+        {
+          "id": "b",
+          "text": "Somente o maior preço"
+        },
+        {
+          "id": "c",
+          "text": "Apenas a marca da CPU"
+        },
+        {
+          "id": "d",
+          "text": "Apenas a cor do gabinete"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "16",
+      "group": "Operações",
+      "title": "Teclado",
+      "prompt": "Uma tecla pressionada representa qual operação para o computador?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O comando chega ao sistema.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Entrada"
+        },
+        {
+          "id": "b",
+          "text": "Saída visual"
+        },
+        {
+          "id": "c",
+          "text": "Armazenamento persistente"
+        },
+        {
+          "id": "d",
+          "text": "Alimentação"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "17",
+      "group": "Operações",
+      "title": "Planilha",
+      "prompt": "Recalcular valores de uma planilha exemplifica principalmente qual operação?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Instruções transformam os dados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Processamento"
+        },
+        {
+          "id": "b",
+          "text": "Entrada manual"
+        },
+        {
+          "id": "c",
+          "text": "Exibição visual"
+        },
+        {
+          "id": "d",
+          "text": "Alimentação elétrica"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "18",
+      "group": "Operações",
+      "title": "Memória temporária",
+      "prompt": "Um editor mantém uma imagem ainda não salva em uso. Qual recurso mantém o estado de trabalho?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Dados em uso são mantidos em memória.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Memória de trabalho"
+        },
+        {
+          "id": "b",
+          "text": "Fonte"
+        },
+        {
+          "id": "c",
+          "text": "Teclado"
+        },
+        {
+          "id": "d",
+          "text": "Monitor desligado"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "19",
+      "group": "Operações",
+      "title": "Resultado",
+      "prompt": "Qual ação representa saída para quem utiliza o computador?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A tela apresenta resultados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Exibir um gráfico na tela"
+        },
+        {
+          "id": "b",
+          "text": "Digitar um número"
+        },
+        {
+          "id": "c",
+          "text": "Capturar som pelo microfone"
+        },
+        {
+          "id": "d",
+          "text": "Pressionar uma tecla"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "20",
+      "group": "Operações",
+      "title": "Rede",
+      "prompt": "Uma placa de rede transmite e recebe pacotes. Como classificá-la?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Os fluxos são bidirecionais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Entrada e saída"
+        },
+        {
+          "id": "b",
+          "text": "Somente entrada"
+        },
+        {
+          "id": "c",
+          "text": "Somente saída"
+        },
+        {
+          "id": "d",
+          "text": "Somente alimentação"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "21",
+      "group": "Operações",
+      "title": "Ordem",
+      "prompt": "As operações fundamentais seguem sempre uma sequência única?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "O modelo não impõe ordem rígida.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; podem repetir-se e sobrepor-se."
+        },
+        {
+          "id": "b",
+          "text": "Sim, uma vez por programa."
+        },
+        {
+          "id": "c",
+          "text": "Sim, entrada nunca sucede saída."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque armazenamento não ocorre."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Operações",
+      "title": "Perspectiva",
+      "prompt": "Um pacote vai de A para B. Como classificá-lo?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Depende da fronteira observada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Saída em A e entrada em B"
+        },
+        {
+          "id": "b",
+          "text": "Entrada necessariamente nos dois"
+        },
+        {
+          "id": "c",
+          "text": "Saída necessariamente nos dois"
+        },
+        {
+          "id": "d",
+          "text": "Armazenamento persistente nos dois"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "23",
+      "group": "Integração",
+      "title": "CPU",
+      "prompt": "Qual é a função central da CPU?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A CPU executa instruções e coopera com os demais recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Executar instruções"
+        },
+        {
+          "id": "b",
+          "text": "Guardar todos os arquivos permanentemente"
+        },
+        {
+          "id": "c",
+          "text": "Fornecer energia elétrica da rede"
+        },
+        {
+          "id": "d",
+          "text": "Exibir sozinha qualquer imagem"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "24",
+      "group": "Integração",
+      "title": "Placa-mãe",
+      "prompt": "Qual papel pertence à placa-mãe?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A placa oferece recursos de integração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Integrar e conectar componentes"
+        },
+        {
+          "id": "b",
+          "text": "Substituir aplicações"
+        },
+        {
+          "id": "c",
+          "text": "Produzir arquivos automaticamente"
+        },
+        {
+          "id": "d",
+          "text": "Executar toda função do monitor"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "25",
+      "group": "Integração",
+      "title": "RAM",
+      "prompt": "Qual afirmação descreve a RAM de trabalho usual?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Seu conteúdo normalmente se perde sem energia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Mantém dados em uso e é volátil."
+        },
+        {
+          "id": "b",
+          "text": "Preserva todos os arquivos sem energia."
+        },
+        {
+          "id": "c",
+          "text": "É exclusivamente um periférico de saída."
+        },
+        {
+          "id": "d",
+          "text": "Tem sempre a mesma função do SSD."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "26",
+      "group": "Integração",
+      "title": "Persistência",
+      "prompt": "Qual função diferencia o armazenamento persistente?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Persistência permite conservar dados gravados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Conservar dados gravados após desligamento normal"
+        },
+        {
+          "id": "b",
+          "text": "Executar todas as instruções"
+        },
+        {
+          "id": "c",
+          "text": "Exibir imagens sem tela"
+        },
+        {
+          "id": "d",
+          "text": "Converter a energia da rede"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "27",
+      "group": "Integração",
+      "title": "Fonte",
+      "prompt": "Qual função da fonte de um desktop?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A fonte converte e distribui energia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fornecer energia adequada aos componentes"
+        },
+        {
+          "id": "b",
+          "text": "Calcular fórmulas da planilha"
+        },
+        {
+          "id": "c",
+          "text": "Registrar dados de aplicativos"
+        },
+        {
+          "id": "d",
+          "text": "Substituir drivers"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "28",
+      "group": "Integração",
+      "title": "Salvar",
+      "prompt": "Uma mudança está visível na tela. O que isso comprova?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Visualização e persistência são distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Foi apresentada, mas não necessariamente salva."
+        },
+        {
+          "id": "b",
+          "text": "Existe um backup externo."
+        },
+        {
+          "id": "c",
+          "text": "O SSD está necessariamente íntegro."
+        },
+        {
+          "id": "d",
+          "text": "A RAM deixou de ser volátil."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "29",
+      "group": "Diagnóstico",
+      "title": "Disco cheio",
+      "prompt": "Qual recurso investigar se não há espaço para gravar arquivos?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Arquivos precisam de espaço no armazenamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Capacidade livre de armazenamento"
+        },
+        {
+          "id": "b",
+          "text": "Resolução do monitor"
+        },
+        {
+          "id": "c",
+          "text": "Número de teclas"
+        },
+        {
+          "id": "d",
+          "text": "Volume do alto-falante"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "30",
+      "group": "Diagnóstico",
+      "title": "Multitarefa",
+      "prompt": "Abrir vários aplicativos deixa o sistema lento. Qual abordagem é adequada?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Diagnóstico exige evidências.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Observar RAM, CPU e armazenamento durante o sintoma."
+        },
+        {
+          "id": "b",
+          "text": "Trocar a fonte sem observar nada."
+        },
+        {
+          "id": "c",
+          "text": "Comprar um monitor maior."
+        },
+        {
+          "id": "d",
+          "text": "Apagar imediatamente todos os arquivos."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "31",
+      "group": "Diagnóstico",
+      "title": "Segurança elétrica",
+      "prompt": "Qual ação é apropriada diante de suspeita de risco elétrico na fonte?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "Uma fonte pode manter tensões perigosas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Interromper o uso e buscar avaliação técnica segura."
+        },
+        {
+          "id": "b",
+          "text": "Abrir a fonte e tocar os componentes."
+        },
+        {
+          "id": "c",
+          "text": "Curto-circuitar conectores aleatoriamente."
+        },
+        {
+          "id": "d",
+          "text": "Ignorar cheiro de queimado."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "32",
+      "group": "Intercâmbio",
+      "title": "Saída textual",
+      "prompt": "Ao executar print('Olá') e ler a mensagem no terminal, o que se observa?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A mensagem é apresentada pelo ambiente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Saída textual do programa"
+        },
+        {
+          "id": "b",
+          "text": "Gravação garantida em SSD"
+        },
+        {
+          "id": "c",
+          "text": "Mudança física da CPU"
+        },
+        {
+          "id": "d",
+          "text": "Entrada pelo teclado"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "33",
+      "group": "Intercâmbio",
+      "title": "Variáveis",
+      "prompt": "Uma variável Python é necessariamente um endereço físico fixo?",
+      "hint": "Identifique o conceito antes de escolher.",
+      "explanation": "A abstração não determina um endereço físico fixo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; o nome referencia um objeto."
+        },
+        {
+          "id": "b",
+          "text": "Sim, e nunca muda."
+        },
+        {
+          "id": "c",
+          "text": "Sim, sempre no SSD."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque programas não usam memória."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "34",
+      "group": "Fundamentos",
+      "title": "Biblioteca",
+      "prompt": "Por que comprar um computador não basta para montar um sistema de empréstimos?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir equipamento e sistema; citar software, dados e interação; explicar a finalidade.",
+      "mode": "text",
+      "starter": "",
+      "solution": "São necessários software, cadastros, interfaces e interação dos usuários ou sistemas. O equipamento é apenas parte da solução.",
+      "expected": null
+    },
+    {
+      "id": "35",
+      "group": "Fundamentos",
+      "title": "Profissão",
+      "prompt": "Por que estudar arquitetura auxilia o técnico de suporte?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Diagnóstico, escolha e compatibilidade, com justificativa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Permite identificar funções, relacionar sintomas a recursos, verificar compatibilidade e escolher intervenções fundamentadas.",
+      "expected": null
+    },
+    {
+      "id": "36",
+      "group": "Camadas",
+      "title": "Cadastro inválido",
+      "prompt": "Um leitor funciona, mas o aplicativo rejeita um código ausente do cadastro. Por que trocar o leitor pode não resolver?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Separar hardware, software e dados; propor verificação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O problema pode estar nos dados ou regras do programa. Deve-se verificar a leitura e o registro antes de trocar hardware.",
+      "expected": null
+    },
+    {
+      "id": "37",
+      "group": "Camadas",
+      "title": "Firmware",
+      "prompt": "Compare firmware e aplicativo.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Reconhecer ambos como software e diferenciar finalidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ambos são software. Firmware geralmente controla funções de um dispositivo; aplicativos atendem tarefas de usuários e outros sistemas.",
+      "expected": null
+    },
+    {
+      "id": "38",
+      "group": "Camadas",
+      "title": "Impressão",
+      "prompt": "Um documento não imprime. Proponha três hipóteses em camadas diferentes.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Três hipóteses plausíveis em camadas distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Arquivo ou configuração inválida, driver incompatível, conexão interrompida ou defeito físico. Investigar o fluxo antes de trocar peças.",
+      "expected": null
+    },
+    {
+      "id": "39",
+      "group": "Tipos de sistemas",
+      "title": "Servidor doméstico",
+      "prompt": "Um notebook compartilha arquivos com outro. Pode atuar como servidor?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir papel lógico e categoria física.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sim. Oferece um serviço a um cliente naquela interação; seu formato físico não impede esse papel.",
+      "expected": null
+    },
+    {
+      "id": "40",
+      "group": "Tipos de sistemas",
+      "title": "Controlador e edição",
+      "prompt": "Compare prioridades de um controlador de temperatura e uma estação de edição de vídeo.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Identificar requisitos distintos sem hierarquia absoluta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Controlador pode priorizar resposta previsível, baixo consumo e confiabilidade; edição pode exigir processamento gráfico, memória e armazenamento.",
+      "expected": null
+    },
+    {
+      "id": "41",
+      "group": "Tipos de sistemas",
+      "title": "Escolha fundamentada",
+      "prompt": "Quais requisitos investigaria antes de escolher um computador para programação e estudo?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Relacionar requisitos concretos a recursos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ferramentas, tarefas, compatibilidade, orçamento, mobilidade, CPU, RAM e armazenamento.",
+      "expected": null
+    },
+    {
+      "id": "42",
+      "group": "Operações",
+      "title": "Videoconferência",
+      "prompt": "Descreva as quatro operações fundamentais em uma chamada de vídeo.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Identificar entrada, processamento, armazenamento e saída.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Câmera e microfone capturam, programas tratam sinais, memória mantém dados temporários, tela e alto-falantes apresentam; rede troca dados.",
+      "expected": null
+    },
+    {
+      "id": "43",
+      "group": "Operações",
+      "title": "Tela sensível ao toque",
+      "prompt": "Por que pode ser entrada e saída?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Explicar as duas direções.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Exibe informação e capta comandos através do toque.",
+      "expected": null
+    },
+    {
+      "id": "44",
+      "group": "Operações",
+      "title": "Envio de arquivo",
+      "prompt": "Descreva o fluxo de um arquivo enviado por A e gravado por B.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir fronteiras, operações e persistência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A lê e transmite como saída. B recebe como entrada, processa e grava persistentemente; pode devolver confirmação.",
+      "expected": null
+    },
+    {
+      "id": "45",
+      "group": "Operações",
+      "title": "Modelo não rígido",
+      "prompt": "Por que o modelo de entrada, processamento, armazenamento e saída não é um roteiro único?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Mencionar repetição ou simultaneidade e exemplo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Programas repetem e sobrepõem operações; novas entradas podem ocorrer enquanto resultados são apresentados e dados mantidos em memória.",
+      "expected": null
+    },
+    {
+      "id": "46",
+      "group": "Integração",
+      "title": "Documento não salvo",
+      "prompt": "Por que uma alteração visível pode desaparecer após queda de energia?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Volatilidade, diferença entre mostrar e salvar.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Pode estar apenas no estado volátil de trabalho. Visualização não é gravação. Recuperação automática pode ajudar, mas não garante tudo.",
+      "expected": null
+    },
+    {
+      "id": "47",
+      "group": "Integração",
+      "title": "CPU e RAM",
+      "prompt": "Por que uma CPU não substitui a RAM?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir processamento e memória de trabalho.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CPU executa instruções; RAM mantém dados e instruções em uso. São recursos complementares.",
+      "expected": null
+    },
+    {
+      "id": "48",
+      "group": "Integração",
+      "title": "Placa e alimentação",
+      "prompt": "Diferencie as funções da placa-mãe e da fonte.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Relacionar integração e energia.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Placa integra conexões e interfaces; fonte fornece energia adequada. Ambas contribuem de maneiras distintas.",
+      "expected": null
+    },
+    {
+      "id": "49",
+      "group": "Diagnóstico",
+      "title": "Hipótese e teste",
+      "prompt": "O computador trava apenas com muitos aplicativos abertos. Proponha investigação não destrutiva.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Observação, hipótese, teste reversível e ausência de conclusão precipitada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Reproduzir o sintoma, observar CPU, RAM e armazenamento, comparar com poucas tarefas, examinar registros antes de intervir.",
+      "expected": null
+    },
+    {
+      "id": "50",
+      "group": "Diagnóstico",
+      "title": "Falta de espaço",
+      "prompt": "Por que ampliar RAM não resolve diretamente falta de espaço para fotos?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Distinguir capacidades e propor diagnóstico.",
+      "mode": "text",
+      "starter": "",
+      "solution": "RAM é memória de trabalho, enquanto fotos precisam de armazenamento persistente. Verificar capacidade livre e proteger os dados.",
+      "expected": null
+    },
+    {
+      "id": "51",
+      "group": "Intercâmbio",
+      "title": "Soma de valores",
+      "prompt": "Descreva sem código um algoritmo que recebe dois números e exibe a soma usando o modelo das operações.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Identificar as quatro operações sem impor gravação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Entrada fornece números; processamento soma; memória conserva valores em uso; saída apresenta resultado. Persistência é opcional.",
+      "expected": null
+    },
+    {
+      "id": "52",
+      "group": "Intercâmbio",
+      "title": "Camadas da saída",
+      "prompt": "O que acontece em termos gerais quando Python exibe uma mensagem?",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Relacionar linguagem, ambiente, sistema e hardware.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O interpretador executa instruções e solicita saída ao ambiente. Terminal e sistema operacional apresentam texto usando hardware.",
+      "expected": null
+    },
+    {
+      "id": "53",
+      "group": "Intercâmbio",
+      "title": "Estado e arquivo",
+      "prompt": "Diferencie um valor atribuído em um programa de um arquivo salvo.",
+      "hint": "Responda com suas palavras e justifique.",
+      "explanation": "Critérios de autocorreção: Estado de trabalho e persistência explícita.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O valor integra o estado de execução; o arquivo é persistido explicitamente. A atribuição não salva automaticamente.",
+      "expected": null
+    }
+  ]
+}
