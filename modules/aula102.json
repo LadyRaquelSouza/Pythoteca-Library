@@ -1,0 +1,1576 @@
+{
+  "schema_version": 2,
+  "discipline": "arquitetura",
+  "id": "aula102",
+  "title": "Hardware, software e componentes",
+  "subtitle": "Placa-mãe, interfaces, formatos, periféricos, alimentação e compatibilidade",
+  "objectives": "Identificar conexões e funções da placa-mãe; distinguir soquete, chipset, DIMM, PCIe, SATA, M.2 e NVMe; reconhecer ATX, microATX e Mini-ITX; classificar periféricos; explicar alimentação e refrigeração; investigar compatibilidade com segurança.",
+  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 3.1, 4.1–4.3, 4.6–4.7 e atividades 6. Texto e exercícios originais; complementos identificados como aprofundamento. Processadores e hierarquia de memória serão aprofundados no módulo 103.",
+  "chapters": [
+    {
+      "title": "Placa-mãe e organização física",
+      "text": "CONTEÚDO DO CURSO\nA placa-mãe integra os principais componentes de um computador. Suas trilhas, conectores e circuitos permitem a comunicação e a distribuição de energia. Em um desktop típico, encontramos soquete da CPU, slots DIMM, slots PCIe, portas SATA, conectores M.2, portas externas e conectores de alimentação. A disposição depende do modelo.\n\nNão confunda a placa-mãe com o processador. A CPU executa instruções, enquanto a placa-mãe oferece condições de integração. Componentes instalados nela precisam ser compatíveis física, elétrica e logicamente.\n\nAPROFUNDAMENTO\nEm equipamentos móveis, muitos componentes podem estar soldados à placa em vez de encaixados em soquetes. Isso reduz espaço e pode limitar substituições. Um SoC (system on a chip) integra diferentes funções, como CPU, GPU e controladores, em um único chip. A presença de um SoC não elimina a necessidade de interconexões, memória e energia.\n\nUm mapa mental para reconhecer a placa: processamento perto do soquete ou chip principal; memória nos slots ou chips correspondentes; armazenamento nos conectores adequados; expansão nos slots; comunicação pelas portas; alimentação pelos conectores de energia. A aparência isolada não é identificação suficiente: consulte o modelo e o manual.",
+      "example": ""
+    },
+    {
+      "title": "Soquete, chipset e memória",
+      "text": "CONTEÚDO DO CURSO\nO soquete da CPU é o encaixe físico e elétrico do processador. O chipset oferece funções de comunicação e controle da plataforma. Os slots DIMM (Dual In-line Memory Module) recebem módulos de RAM em desktops. A compatibilidade com CPU e memória é essencial.\n\nAPROFUNDAMENTO\nO mesmo soquete não garante que qualquer processador fisicamente compatível seja suportado: a plataforma, o chipset e a versão do firmware podem impor outras restrições. Consulte a lista de CPUs suportadas pelo fabricante da placa e a versão mínima de firmware indicada. Não atualize firmware sem verificar o procedimento oficial, alimentação estável e riscos.\n\nNas plataformas atuais, parte das funções anteriormente associadas ao chipset pode estar integrada à CPU, inclusive controladores de memória. A divisão exata varia. A RAM também possui gerações, como DDR4 e DDR5, com características físicas e elétricas diferentes; não são intercambiáveis em um slot comum. Capacidade máxima, número de módulos, velocidades suportadas e configuração dos canais dependem da plataforma.\n\nUm SO-DIMM é um módulo mais compacto, comum em notebooks, mas nem todo notebook permite expansão: alguns utilizam memória soldada. Identifique o modelo antes de comprar. Nunca force um componente cujo encaixe ou orientação não corresponde ao conector.",
+      "example": ""
+    },
+    {
+      "title": "Interfaces de expansão e armazenamento",
+      "text": "CONTEÚDO DO CURSO\nPCIe (Peripheral Component Interconnect Express) é uma tecnologia de interconexão usada por placas de vídeo, rede e outros dispositivos. SATA (Serial ATA, Serial Advanced Technology Attachment) é uma interface empregada por dispositivos de armazenamento como determinados HDs, SSDs e unidades ópticas. M.2 identifica um formato e uma conexão compactos; não é uma sigla formada por palavras nem sinônimo de NVMe.\n\nAPROFUNDAMENTO\nPCIe utiliza pistas de comunicação (lanes). Designações como x1, x4 e x16 indicam quantidades de pistas em uma configuração. Um slot fisicamente x16 pode ter menos pistas eletricamente conectadas. Geração, largura do enlace e dispositivo influenciam a capacidade de transferência. Não determine desempenho apenas pelo comprimento do slot.\n\nUm SSD M.2 pode comunicar-se por SATA ou por PCIe. NVMe é um protocolo de acesso a armazenamento não volátil, normalmente sobre PCIe nesse contexto. M.2 descreve características físicas e de conexão; SATA e PCIe descrevem tecnologias de comunicação; NVMe descreve um protocolo. Um exemplo de tamanho M.2 é 2280: largura de 22 mm e comprimento de 80 mm.\n\nAntes de adquirir um SSD, verifique tipo de interface, protocolo, tamanho, chaves do conector, suporte da placa e eventuais compartilhamentos de recursos. Algumas placas desativam certas portas SATA quando um slot M.2 é ocupado; isso depende do projeto e deve ser conferido no manual. Não assuma que todo conector M.2 aceita qualquer SSD M.2.",
+      "example": ""
+    },
+    {
+      "title": "Formatos, gabinete e montagem",
+      "text": "CONTEÚDO DO CURSO\nATX possui dimensões típicas de 305 × 244 mm; microATX chega tipicamente a 244 × 244 mm; Mini-ITX mede 170 × 170 mm. O formato influencia a instalação no gabinete e a disponibilidade de espaço para conectores e expansão. Não define sozinho o desempenho nem a quantidade exata de recursos.\n\nAPROFUNDAMENTO\nGabinetes possuem pontos de fixação e espaços previstos para certos formatos. Antes de selecionar uma placa, confirme formatos aceitos, posição dos espaçadores, espaço para placas de expansão e refrigeração. Espaçadores evitam o contato indevido entre a parte inferior da placa e o gabinete. Um gabinete maior não garante compatibilidade com qualquer formato.\n\nConsidere também a altura do cooler, o comprimento de placas de expansão, o espaço para cabos e a circulação de ar. Componentes compatíveis individualmente podem não caber juntos no conjunto.\n\nPara uma inspeção física, desligue o equipamento, desconecte a alimentação e siga orientações do fabricante sobre proteção contra descarga eletrostática. Não abra a fonte. Nunca force conectores. Se houver dúvida, faça primeiro uma investigação por documentação, sem desmontagem.",
+      "example": ""
+    },
+    {
+      "title": "Periféricos, portas e dispositivos de E/S",
+      "text": "CONTEÚDO DO CURSO\nPeriféricos permitem entrada, saída ou ambas. Teclado, mouse, microfone e scanner fornecem dados; monitor, impressora e caixas de som apresentam resultados; tela sensível ao toque, placa de rede e pen drive realizam trocas bidirecionais. A classificação refere-se ao fluxo de dados em relação ao sistema.\n\nAPROFUNDAMENTO\nUm dispositivo multifuncional pode reunir funções de entrada e saída: a impressora multifuncional imprime e digitaliza. Um monitor com câmera integrada contém saída visual e entrada de vídeo. A classificação depende da função analisada, não somente da aparência do equipamento.\n\nPortas externas oferecem conexões para dispositivos. USB é uma família de padrões; USB-C é uma forma de conector. Dois conectores USB-C visualmente iguais podem oferecer velocidades, vídeo ou capacidades de alimentação diferentes. HDMI e DisplayPort transportam sinais audiovisuais; uma porta de rede Ethernet permite comunicação. Existem variações e adaptadores, mas a presença do formato físico não garante todas as funções.\n\nUm periférico pode precisar de driver para funcionar plenamente. Ao diagnosticar uma falha, teste primeiro o fluxo: alimentação, conexão, reconhecimento pelo sistema operacional, configuração e aplicativo. Um cabo ou porta com defeito pode produzir sintomas semelhantes a um problema de software.",
+      "example": ""
+    },
+    {
+      "title": "Fonte, energia e refrigeração",
+      "text": "CONTEÚDO DO CURSO\nA fonte de alimentação de um desktop converte energia da rede em níveis de tensão apropriados e distribui energia aos componentes. Potência adequada, conectores, qualidade e compatibilidade são critérios essenciais. Uma fonte inadequada pode causar instabilidade ou impedir o funcionamento.\n\nAPROFUNDAMENTO\nPotência, expressa em watts, indica a taxa de transferência de energia. A potência nominal de saída de uma fonte não é o consumo constante do computador. A eficiência relaciona a potência útil entregue à potência absorvida da rede; parte é dissipada em calor. Um selo de eficiência não comprova sozinho qualidade elétrica, proteções ou compatibilidade.\n\nConectores de alimentação da placa, CPU, placas de vídeo e armazenamento desempenham funções específicas. Nunca suponha compatibilidade pelo número de pinos ou pela aparência. Cabos de fontes modulares podem possuir pinagens diferentes entre modelos; use apenas cabos cujo fabricante confirme compatibilidade.\n\nRefrigeração remove calor, permitindo operação dentro dos limites térmicos. Dissipadores, ventoinhas e fluxo de ar contribuem para isso. Temperatura elevada pode reduzir desempenho, mas não prova sozinha defeito em um componente. Investigue as condições de funcionamento.\n\nSEGURANÇA\nNão abra uma fonte de alimentação, mesmo desligada. Capacitores podem manter energia perigosa. Não improvise testes elétricos. Se houver cheiro de queimado, faíscas ou aquecimento anormal, interrompa o uso e encaminhe para avaliação qualificada.",
+      "example": ""
+    },
+    {
+      "title": "Compatibilidade e diagnóstico integrado",
+      "text": "CONTEÚDO DO CURSO\nAo selecionar uma placa-mãe, considere o soquete, a CPU, tipos de memória aceitos, chipset, conectores, formato e alimentação. A escolha deve atender à tarefa e ao orçamento. Identificar a função de cada componente permite formular hipóteses de diagnóstico.\n\nAPROFUNDAMENTO\nUma lista de compatibilidade pode ser organizada em quatro níveis: físico (encaixe e dimensões), elétrico (alimentação e sinalização), lógico (interface, protocolo e firmware) e operacional (drivers e requisitos do sistema). Uma peça pode caber e ainda assim não funcionar. Verifique a documentação dos modelos exatos antes de comprar ou substituir.\n\nExemplo: um SSD M.2 não aparece no sistema. Investigue se o slot suporta o tipo de SSD, se o tamanho é adequado, se existe compartilhamento de recursos, se o firmware reconhece o dispositivo e se o sistema operacional o apresenta. Não inicialize nem formate uma unidade que possa conter dados importantes para testar reconhecimento.\n\nINTERCÂMBIO COM PYTHON\nUma futura atividade de cadastro de hardware pode representar modelo, formato, capacidade e tipo de interface usando strings, inteiros e booleanos. No momento, a descrição deve permanecer conceitual: um valor booleano de compatibilidade não substitui as evidências que sustentam a decisão. Mais adiante, condicionais ajudarão a modelar verificações usando dados previamente conhecidos, sem prometer detectar automaticamente qualquer componente.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Placa-mãe",
+      "title": "Integração",
+      "prompt": "Qual função central da placa-mãe?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A placa conecta recursos, não substitui suas funções.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Interligar componentes e oferecer recursos de integração"
+        },
+        {
+          "id": "b",
+          "text": "Executar todas as instruções no lugar da CPU"
+        },
+        {
+          "id": "c",
+          "text": "Guardar necessariamente todos os arquivos"
+        },
+        {
+          "id": "d",
+          "text": "Converter sozinha toda energia da rede"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "02",
+      "group": "Placa-mãe",
+      "title": "SoC",
+      "prompt": "O que caracteriza um SoC?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "SoCs integram funções e ainda dependem de memória, alimentação e conexões.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "É sempre um módulo DIMM removível"
+        },
+        {
+          "id": "b",
+          "text": "É um formato de gabinete"
+        },
+        {
+          "id": "c",
+          "text": "É uma porta SATA externa"
+        },
+        {
+          "id": "d",
+          "text": "Integra várias funções de processamento e controle em um chip"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Placa-mãe",
+      "title": "Componentes soldados",
+      "prompt": "Qual consequência pode ter a RAM soldada?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Soldagem reduz modularidade, sem mudar a função lógica da memória.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O sistema deixa de executar programas"
+        },
+        {
+          "id": "b",
+          "text": "A CPU deve usar exclusivamente SATA"
+        },
+        {
+          "id": "c",
+          "text": "A possibilidade de substituição ou ampliação fica limitada"
+        },
+        {
+          "id": "d",
+          "text": "A RAM passa a ser armazenamento persistente"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "04",
+      "group": "Placa-mãe",
+      "title": "Identificação",
+      "prompt": "Como confirmar a função de um conector desconhecido?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A documentação evita erros físicos e elétricos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Presumir que todos os conectores têm igual função"
+        },
+        {
+          "id": "b",
+          "text": "Consultar o modelo da placa e seu manual"
+        },
+        {
+          "id": "c",
+          "text": "Conectar qualquer cabo que pareça caber"
+        },
+        {
+          "id": "d",
+          "text": "Examinar apenas a cor"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "CPU e RAM",
+      "title": "Soquete",
+      "prompt": "Qual descrição corresponde ao soquete da CPU?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "O soquete integra fisicamente e eletricamente a CPU.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Encaixe físico e elétrico do processador"
+        },
+        {
+          "id": "b",
+          "text": "Formato da unidade SSD"
+        },
+        {
+          "id": "c",
+          "text": "Protocolo de arquivos"
+        },
+        {
+          "id": "d",
+          "text": "Conector de rede"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "CPU e RAM",
+      "title": "Chipset",
+      "prompt": "O que o chipset oferece?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "As funções de chipset variam com a plataforma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas o armazenamento de fotos"
+        },
+        {
+          "id": "b",
+          "text": "Exclusivamente a tela do sistema"
+        },
+        {
+          "id": "c",
+          "text": "Conversão de energia da rede"
+        },
+        {
+          "id": "d",
+          "text": "Recursos de comunicação e controle da plataforma"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "CPU e RAM",
+      "title": "Mesmo soquete",
+      "prompt": "Duas CPUs usam o mesmo soquete. Qual conclusão é válida?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Compatibilidade física não basta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ambas têm necessariamente igual desempenho"
+        },
+        {
+          "id": "b",
+          "text": "Ambas usam o mesmo consumo em toda tarefa"
+        },
+        {
+          "id": "c",
+          "text": "Ainda é necessário conferir suporte de plataforma e firmware"
+        },
+        {
+          "id": "d",
+          "text": "Ambas sempre funcionam em qualquer placa desse soquete"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "08",
+      "group": "CPU e RAM",
+      "title": "DIMM",
+      "prompt": "O que significa DIMM?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "DIMM identifica um formato de módulo de memória.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Disk Input Mode Module"
+        },
+        {
+          "id": "b",
+          "text": "Dual In-line Memory Module"
+        },
+        {
+          "id": "c",
+          "text": "Digital Internal Motherboard Mode"
+        },
+        {
+          "id": "d",
+          "text": "Direct Interface Memory Machine"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "CPU e RAM",
+      "title": "DDR",
+      "prompt": "Um módulo DDR5 pode ser instalado em um slot DDR4 comum?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "DDR4 e DDR5 não são intercambiáveis em slots convencionais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; as gerações têm diferenças físicas e elétricas"
+        },
+        {
+          "id": "b",
+          "text": "Sim, basta mudar a capacidade no firmware"
+        },
+        {
+          "id": "c",
+          "text": "Sim, desde que tenha a mesma quantidade de GB"
+        },
+        {
+          "id": "d",
+          "text": "Sim, sempre que a CPU for rápida"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "10",
+      "group": "CPU e RAM",
+      "title": "SO-DIMM",
+      "prompt": "Qual descrição corresponde a SO-DIMM?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "É comum em notebooks com memória modular.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Protocolo de SSD NVMe"
+        },
+        {
+          "id": "b",
+          "text": "Formato de fonte"
+        },
+        {
+          "id": "c",
+          "text": "Tipo de cabo HDMI"
+        },
+        {
+          "id": "d",
+          "text": "Formato compacto de módulo de memória"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "CPU e RAM",
+      "title": "Limite de memória",
+      "prompt": "Antes de aumentar a capacidade de RAM, o que verificar?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A expansão depende de limites físicos e da plataforma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente espaço livre no SSD"
+        },
+        {
+          "id": "b",
+          "text": "Apenas quantidade de portas USB"
+        },
+        {
+          "id": "c",
+          "text": "Tipo, capacidade suportada, slots disponíveis e plataforma"
+        },
+        {
+          "id": "d",
+          "text": "Somente marca do monitor"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Interfaces",
+      "title": "PCIe",
+      "prompt": "Qual dispositivo normalmente utiliza uma conexão PCIe?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "PCIe é uma tecnologia de interconexão para expansão e outros recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Teclado PS/2"
+        },
+        {
+          "id": "b",
+          "text": "Placa de expansão de vídeo"
+        },
+        {
+          "id": "c",
+          "text": "Cabo de alimentação da tomada"
+        },
+        {
+          "id": "d",
+          "text": "Dissipador passivo sem circuito"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "Interfaces",
+      "title": "SATA",
+      "prompt": "Qual é uma aplicação comum de SATA?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "SATA é uma interface de armazenamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Comunicação com determinados HDs e SSDs"
+        },
+        {
+          "id": "b",
+          "text": "Instalação física de processador"
+        },
+        {
+          "id": "c",
+          "text": "Ligação direta de um monitor HDMI"
+        },
+        {
+          "id": "d",
+          "text": "Conexão de módulo DIMM"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "Interfaces",
+      "title": "M.2",
+      "prompt": "Qual afirmação distingue M.2 e NVMe?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Diferencie características físicas de protocolos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "São necessariamente a mesma tecnologia"
+        },
+        {
+          "id": "b",
+          "text": "M.2 é tipo de memória RAM"
+        },
+        {
+          "id": "c",
+          "text": "NVMe é tamanho de gabinete"
+        },
+        {
+          "id": "d",
+          "text": "M.2 é formato/conexão; NVMe é protocolo"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "Interfaces",
+      "title": "2280",
+      "prompt": "O que 2280 costuma indicar na especificação M.2?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A designação refere-se a dimensões físicas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "22 pistas e 80 watts"
+        },
+        {
+          "id": "b",
+          "text": "Uma geração de DDR"
+        },
+        {
+          "id": "c",
+          "text": "22 mm de largura e 80 mm de comprimento"
+        },
+        {
+          "id": "d",
+          "text": "2280 GB obrigatórios"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "16",
+      "group": "Interfaces",
+      "title": "SSD M.2 SATA",
+      "prompt": "Um SSD M.2 SATA funciona em qualquer slot M.2?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A interface suportada precisa ser conferida.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; M.2 só serve para RAM"
+        },
+        {
+          "id": "b",
+          "text": "Não; o slot deve suportar a interface requerida"
+        },
+        {
+          "id": "c",
+          "text": "Sim; M.2 garante todos os protocolos"
+        },
+        {
+          "id": "d",
+          "text": "Sim; basta ter a mesma capacidade"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "17",
+      "group": "Interfaces",
+      "title": "Largura do PCIe",
+      "prompt": "Um slot PCIe fisicamente x16 pode ter somente quatro pistas conectadas?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A quantidade de pistas conectadas depende do projeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, a largura física pode diferir da elétrica"
+        },
+        {
+          "id": "b",
+          "text": "Não, comprimento determina necessariamente pistas"
+        },
+        {
+          "id": "c",
+          "text": "Somente se for uma porta SATA"
+        },
+        {
+          "id": "d",
+          "text": "Sim, mas somente sem CPU"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "18",
+      "group": "Interfaces",
+      "title": "Recursos compartilhados",
+      "prompt": "Após instalar SSD M.2, uma porta SATA deixa de funcionar. O que verificar primeiro?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Algumas placas compartilham recursos; confirme no manual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Trocar imediatamente todos os dispositivos"
+        },
+        {
+          "id": "b",
+          "text": "Aumentar resolução da tela"
+        },
+        {
+          "id": "c",
+          "text": "Apagar o SSD"
+        },
+        {
+          "id": "d",
+          "text": "Manual sobre compartilhamento de pistas e portas"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Interfaces",
+      "title": "NVMe",
+      "prompt": "No contexto de SSDs internos modernos, NVMe costuma funcionar sobre qual interconexão?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "NVMe define protocolo; PCIe oferece transporte nesse contexto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "HDMI"
+        },
+        {
+          "id": "b",
+          "text": "Porta de áudio analógica"
+        },
+        {
+          "id": "c",
+          "text": "PCIe"
+        },
+        {
+          "id": "d",
+          "text": "DIMM DDR4"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "20",
+      "group": "Formatos",
+      "title": "ATX",
+      "prompt": "Qual dimensão típica do ATX?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "ATX mede tipicamente 305 por 244 mm.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "80 × 22 cm"
+        },
+        {
+          "id": "b",
+          "text": "305 × 244 mm"
+        },
+        {
+          "id": "c",
+          "text": "170 × 170 mm"
+        },
+        {
+          "id": "d",
+          "text": "22 × 80 mm"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Formatos",
+      "title": "microATX",
+      "prompt": "Qual dimensão máxima típica do microATX?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "MicroATX pode ser menor, mas 244 mm por 244 mm é o máximo típico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "244 × 244 mm"
+        },
+        {
+          "id": "b",
+          "text": "305 × 305 mm"
+        },
+        {
+          "id": "c",
+          "text": "170 × 170 mm"
+        },
+        {
+          "id": "d",
+          "text": "22 × 80 mm"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Formatos",
+      "title": "Mini-ITX",
+      "prompt": "Qual dimensão corresponde a Mini-ITX?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Mini-ITX é um formato compacto de placa-mãe.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "305 × 244 mm"
+        },
+        {
+          "id": "b",
+          "text": "244 × 244 mm"
+        },
+        {
+          "id": "c",
+          "text": "22 × 80 mm"
+        },
+        {
+          "id": "d",
+          "text": "170 × 170 mm"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "23",
+      "group": "Formatos",
+      "title": "Desempenho",
+      "prompt": "Uma placa ATX é sempre mais rápida que uma Mini-ITX?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Formato define características físicas, não velocidade absoluta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, porque Mini-ITX não usa CPU"
+        },
+        {
+          "id": "b",
+          "text": "Não, porque ATX nunca possui expansão"
+        },
+        {
+          "id": "c",
+          "text": "Não; formato sozinho não determina desempenho"
+        },
+        {
+          "id": "d",
+          "text": "Sim, pois centímetros equivalem a frequência"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Formatos",
+      "title": "Gabinete",
+      "prompt": "Qual cuidado é adequado ao escolher gabinete?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Compatibilidade do conjunto exige dimensões e condições de montagem.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ignorar altura do cooler"
+        },
+        {
+          "id": "b",
+          "text": "Conferir formatos aceitos, fixação, espaço e refrigeração"
+        },
+        {
+          "id": "c",
+          "text": "Escolher somente pela cor"
+        },
+        {
+          "id": "d",
+          "text": "Presumir que todo gabinete grande aceita qualquer placa"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "25",
+      "group": "Formatos",
+      "title": "Espaçadores",
+      "prompt": "Qual função dos espaçadores na montagem?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "A montagem correta evita contato indevido.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ajudar a manter distância adequada entre placa e gabinete"
+        },
+        {
+          "id": "b",
+          "text": "Aumentar frequência da CPU"
+        },
+        {
+          "id": "c",
+          "text": "Substituir conectores de energia"
+        },
+        {
+          "id": "d",
+          "text": "Converter SATA em NVMe"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "26",
+      "group": "Periféricos",
+      "title": "Microfone",
+      "prompt": "Classifique o microfone pela função principal.",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Captura som e fornece dados ao sistema.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Saída"
+        },
+        {
+          "id": "b",
+          "text": "Armazenamento persistente"
+        },
+        {
+          "id": "c",
+          "text": "Conversão de energia"
+        },
+        {
+          "id": "d",
+          "text": "Entrada"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Periféricos",
+      "title": "Monitor",
+      "prompt": "Classifique um monitor simples sem sensores de entrada.",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Apresenta resultados visuais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Memória de trabalho"
+        },
+        {
+          "id": "b",
+          "text": "Alimentação principal"
+        },
+        {
+          "id": "c",
+          "text": "Saída"
+        },
+        {
+          "id": "d",
+          "text": "Entrada"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "28",
+      "group": "Periféricos",
+      "title": "Multifuncional",
+      "prompt": "Uma impressora com scanner é classificada pelo conjunto como quê?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Digitaliza dados e apresenta resultados impressos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente memória RAM"
+        },
+        {
+          "id": "b",
+          "text": "Entrada e saída"
+        },
+        {
+          "id": "c",
+          "text": "Somente entrada"
+        },
+        {
+          "id": "d",
+          "text": "Somente saída"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "29",
+      "group": "Periféricos",
+      "title": "Rede",
+      "prompt": "Por que uma placa de rede é E/S?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Os fluxos de dados ocorrem nos dois sentidos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Recebe e transmite dados"
+        },
+        {
+          "id": "b",
+          "text": "Porque possui somente saída de áudio"
+        },
+        {
+          "id": "c",
+          "text": "Porque armazena todos os programas"
+        },
+        {
+          "id": "d",
+          "text": "Porque não realiza comunicação"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "30",
+      "group": "Periféricos",
+      "title": "USB-C",
+      "prompt": "Dois conectores USB-C oferecem necessariamente os mesmos recursos?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Formato de conector não garante funcionalidades.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, formato garante qualquer velocidade"
+        },
+        {
+          "id": "b",
+          "text": "Sim, ambos são obrigatoriamente interfaces de tela"
+        },
+        {
+          "id": "c",
+          "text": "Não, pois USB-C nunca transmite dados"
+        },
+        {
+          "id": "d",
+          "text": "Não; dependem das funções e padrões implementados"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "31",
+      "group": "Periféricos",
+      "title": "Driver",
+      "prompt": "Qual é uma função de um driver?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Drivers fazem parte da camada de comunicação por software.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Converter energia da tomada"
+        },
+        {
+          "id": "b",
+          "text": "Substituir a CPU"
+        },
+        {
+          "id": "c",
+          "text": "Permitir ao sistema operacional utilizar um dispositivo"
+        },
+        {
+          "id": "d",
+          "text": "Aumentar fisicamente o tamanho do gabinete"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "32",
+      "group": "Fonte e térmica",
+      "title": "Energia",
+      "prompt": "Qual função realiza uma fonte de desktop?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Energia adequada sustenta o funcionamento dos componentes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Substitui interfaces PCIe"
+        },
+        {
+          "id": "b",
+          "text": "Converte e fornece energia elétrica apropriada"
+        },
+        {
+          "id": "c",
+          "text": "Executa o código Python"
+        },
+        {
+          "id": "d",
+          "text": "Guarda permanentemente arquivos"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "33",
+      "group": "Fonte e térmica",
+      "title": "Potência",
+      "prompt": "Uma fonte de 650 W consome sempre 650 W da tomada?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Potência nominal de saída não equivale a consumo constante.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; consumo depende da carga e eficiência"
+        },
+        {
+          "id": "b",
+          "text": "Sim, independentemente da carga"
+        },
+        {
+          "id": "c",
+          "text": "Sim, inclusive desconectada"
+        },
+        {
+          "id": "d",
+          "text": "Não, porque fontes não consomem energia"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "34",
+      "group": "Fonte e térmica",
+      "title": "Eficiência",
+      "prompt": "Qual afirmação sobre selo de eficiência é correta?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Eficiência é apenas um critério de avaliação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Garante qualquer compatibilidade de cabo"
+        },
+        {
+          "id": "b",
+          "text": "Determina o tamanho da RAM"
+        },
+        {
+          "id": "c",
+          "text": "Elimina completamente calor"
+        },
+        {
+          "id": "d",
+          "text": "Não garante sozinho qualidade elétrica e proteções"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "35",
+      "group": "Fonte e térmica",
+      "title": "Cabos modulares",
+      "prompt": "É seguro misturar cabos de fontes modulares só porque encaixam?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Pinagens podem variar entre modelos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se ambos têm a mesma cor"
+        },
+        {
+          "id": "b",
+          "text": "Sim, quando a fonte tem maior potência"
+        },
+        {
+          "id": "c",
+          "text": "Não; confirme compatibilidade exata com o fabricante"
+        },
+        {
+          "id": "d",
+          "text": "Sim, encaixe garante pinagem"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "36",
+      "group": "Fonte e térmica",
+      "title": "Calor",
+      "prompt": "Qual função de dissipadores e ventoinhas?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Refrigeração contribui para operação dentro dos limites térmicos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Converter dados em arquivos automaticamente"
+        },
+        {
+          "id": "b",
+          "text": "Auxiliar na remoção de calor"
+        },
+        {
+          "id": "c",
+          "text": "Aumentar espaço no SSD"
+        },
+        {
+          "id": "d",
+          "text": "Executar algoritmos"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "37",
+      "group": "Fonte e térmica",
+      "title": "Segurança",
+      "prompt": "Uma fonte desligada pode ser aberta sem risco?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Não abra fontes; procure avaliação qualificada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; pode conter energia perigosa mesmo desconectada"
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "c",
+          "text": "Sim, se não houver luz indicadora"
+        },
+        {
+          "id": "d",
+          "text": "Sim, se o cabo USB estiver removido"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "38",
+      "group": "Diagnóstico",
+      "title": "Compatibilidade",
+      "prompt": "Uma placa encaixa fisicamente, mas não é reconhecida. Qual conclusão?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Verifique as várias camadas de compatibilidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo encaixe implica funcionamento"
+        },
+        {
+          "id": "b",
+          "text": "É preciso apagar todos os dados"
+        },
+        {
+          "id": "c",
+          "text": "O monitor determina o protocolo"
+        },
+        {
+          "id": "d",
+          "text": "Encaixe não garante compatibilidade lógica ou elétrica"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "39",
+      "group": "Diagnóstico",
+      "title": "SSD não reconhecido",
+      "prompt": "Qual é o primeiro conjunto de verificações apropriado?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Comece com observações não destrutivas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Remover dissipador com computador ligado"
+        },
+        {
+          "id": "b",
+          "text": "Substituir CPU sem investigar"
+        },
+        {
+          "id": "c",
+          "text": "Interface, documentação, reconhecimento no firmware e sistema"
+        },
+        {
+          "id": "d",
+          "text": "Formatar imediatamente qualquer unidade"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "40",
+      "group": "Diagnóstico",
+      "title": "Intercâmbio",
+      "prompt": "Um programa registra compatível = True. Isso comprova compatibilidade física?",
+      "hint": "Identifique a função e confira as condições do enunciado.",
+      "explanation": "Representar um resultado não equivale a verificar o equipamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, desde que o texto seja exibido"
+        },
+        {
+          "id": "b",
+          "text": "Não; o valor depende da informação que o sustenta"
+        },
+        {
+          "id": "c",
+          "text": "Sim, o booleano inspeciona hardware sozinho"
+        },
+        {
+          "id": "d",
+          "text": "Sim, se estiver em Python"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "41",
+      "group": "Placa-mãe",
+      "title": "Mapa de funções",
+      "prompt": "Descreva seis regiões ou conexões de uma placa-mãe de desktop e suas funções.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Nomear seis elementos, associar corretamente cada função e não confundir placa-mãe com CPU.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Soquete CPU, DIMM, PCIe, SATA, M.2 e alimentação: respectivamente processador, RAM, expansão, armazenamento, dispositivos compactos e energia. Outros conectores válidos podem ser citados.",
+      "expected": null
+    },
+    {
+      "id": "42",
+      "group": "Placa-mãe",
+      "title": "Notebook compacto",
+      "prompt": "Por que um notebook pode ter menos opções de atualização que um desktop?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Relacionar integração física, modularidade e documentação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Integração e componentes soldados economizam espaço, mas limitam substituição. Verificar modelo e manual.",
+      "expected": null
+    },
+    {
+      "id": "43",
+      "group": "CPU e RAM",
+      "title": "CPU nova",
+      "prompt": "Uma CPU encaixa no soquete de uma placa antiga. Explique por que ainda pode não funcionar.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Distinguir encaixe de suporte lógico e mencionar firmware.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Pode não ser suportada pelo chipset/plataforma ou firmware. Verificar lista de CPUs e versão mínima antes de comprar.",
+      "expected": null
+    },
+    {
+      "id": "44",
+      "group": "CPU e RAM",
+      "title": "RAM incompatível",
+      "prompt": "Uma pessoa compra memória DDR5 porque tem mais GB, mas sua placa aceita DDR4. Explique o problema.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Identificar geração, tipo de slot, capacidade e evitar força física.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Capacidade não supera incompatibilidade de geração. DDR4 e DDR5 têm diferenças físicas e elétricas. É necessário módulo apropriado.",
+      "expected": null
+    },
+    {
+      "id": "45",
+      "group": "CPU e RAM",
+      "title": "Upgrade de notebook",
+      "prompt": "Quais informações procuraria antes de recomendar mais RAM para notebook?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Incluir modularidade, geração/formato e limites.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Modelo exato, memória soldada ou removível, tipo, capacidade máxima e slots disponíveis.",
+      "expected": null
+    },
+    {
+      "id": "46",
+      "group": "Interfaces",
+      "title": "Termos distintos",
+      "prompt": "Diferencie PCIe, SATA, M.2 e NVMe.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Distinguir os quatro conceitos sem tratar M.2 como sinônimo de NVMe.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PCIe é interconexão; SATA é interface de armazenamento; M.2 formato/conexão; NVMe protocolo de armazenamento normalmente sobre PCIe nesse contexto.",
+      "expected": null
+    },
+    {
+      "id": "47",
+      "group": "Interfaces",
+      "title": "SSD de 80 mm",
+      "prompt": "A ficha especifica M.2 2280 PCIe/NVMe. Explique três características.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Interpretar dimensões, interconexão e protocolo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "22 mm de largura, 80 mm de comprimento, comunicação PCIe e protocolo NVMe. Verificar suporte do slot.",
+      "expected": null
+    },
+    {
+      "id": "48",
+      "group": "Interfaces",
+      "title": "Dois SSDs",
+      "prompt": "Compare SSD M.2 SATA e SSD M.2 NVMe quanto à compatibilidade.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Formato comum não implica compatibilidade lógica.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ambos podem usar formato M.2, mas interfaces/protocolos diferem. O slot deve suportar o tipo, dimensões e chave correspondentes.",
+      "expected": null
+    },
+    {
+      "id": "49",
+      "group": "Interfaces",
+      "title": "Porta desativada",
+      "prompt": "Após instalar SSD M.2, o HD SATA deixa de aparecer. Proponha investigação.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Hipótese de compartilhamento, manutenção não destrutiva e verificação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Verificar manual sobre compartilhamento, portas afetadas, conexão e reconhecimento; proteger dados e não formatar.",
+      "expected": null
+    },
+    {
+      "id": "50",
+      "group": "Interfaces",
+      "title": "Slot longo",
+      "prompt": "Explique por que um conector PCIe longo não garante todas as pistas disponíveis.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Diferenciar largura física, elétrica e documentação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O tamanho físico pode ser x16 enquanto a ligação elétrica dispõe de menos pistas. Manual esclarece largura e geração.",
+      "expected": null
+    },
+    {
+      "id": "51",
+      "group": "Formatos",
+      "title": "Escolha de gabinete",
+      "prompt": "Compare ATX, microATX e Mini-ITX e cite limitações que o formato pode influenciar.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Dimensões corretas, duas consequências físicas e ressalva de desempenho.",
+      "mode": "text",
+      "starter": "",
+      "solution": "305×244, até 244×244, 170×170 mm, respectivamente; espaço, fixação, expansão e refrigeração. Não determina desempenho sozinho.",
+      "expected": null
+    },
+    {
+      "id": "52",
+      "group": "Formatos",
+      "title": "Montagem",
+      "prompt": "Por que verificar espaçadores e espaço para cooler antes de instalar a placa?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Explicar ambos os riscos sem sugerir improvisação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Evitar contato indevido com gabinete e interferência física. Confirmar instruções e dimensões.",
+      "expected": null
+    },
+    {
+      "id": "53",
+      "group": "Formatos",
+      "title": "Conjunto incompatível",
+      "prompt": "Duas peças são compatíveis eletricamente, mas não cabem juntas no gabinete. Qual nível falhou?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Identificar nível físico e relacionar ao conjunto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Compatibilidade física; dimensões e espaço do conjunto precisam ser verificados além de conector e alimentação.",
+      "expected": null
+    },
+    {
+      "id": "54",
+      "group": "Periféricos",
+      "title": "Classificação contextual",
+      "prompt": "Classifique teclado, monitor simples, pen drive e tela sensível ao toque.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Quatro classificações com pelo menos duas justificativas de fluxo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Teclado entrada; monitor saída; pen drive E/S; tela sensível ao toque E/S. Justificar direções.",
+      "expected": null
+    },
+    {
+      "id": "55",
+      "group": "Periféricos",
+      "title": "Porta USB-C",
+      "prompt": "Uma porta USB-C carrega um aparelho, mas não fornece vídeo. Por que isso é possível?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Distinguir conector e capacidades implementadas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Formato físico não garante todos os modos e recursos. Conferir implementação da porta, cabo e dispositivo.",
+      "expected": null
+    },
+    {
+      "id": "56",
+      "group": "Periféricos",
+      "title": "Impressora",
+      "prompt": "Proponha diagnóstico não destrutivo para impressora que não recebe trabalhos.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Incluir hardware, sistema e aplicativo; não concluir defeito sem evidência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Conferir alimentação e conexão, reconhecimento, driver, fila e configuração do aplicativo; testar com arquivo simples.",
+      "expected": null
+    },
+    {
+      "id": "57",
+      "group": "Fonte e térmica",
+      "title": "Energia nominal",
+      "prompt": "Explique diferença entre potência nominal de uma fonte e consumo na tomada.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Distinguir capacidade, carga e eficiência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Nominal é capacidade de saída especificada; consumo varia com carga e eficiência. Parte da energia vira calor.",
+      "expected": null
+    },
+    {
+      "id": "58",
+      "group": "Fonte e térmica",
+      "title": "Escolha de fonte",
+      "prompt": "Quais critérios além da potência nominal devem orientar a escolha?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Citar pelo menos quatro critérios e não reduzir qualidade a selo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Conectores compatíveis, qualidade, proteções, eficiência, formato, requisitos da carga e documentação.",
+      "expected": null
+    },
+    {
+      "id": "59",
+      "group": "Fonte e térmica",
+      "title": "Cabos",
+      "prompt": "Por que não devemos reaproveitar automaticamente cabos modulares de outra fonte?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Reconhecer risco elétrico e compatibilidade específica.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O conector pode parecer igual e ter pinagem diferente. Usar apenas cabos confirmados pelo fabricante.",
+      "expected": null
+    },
+    {
+      "id": "60",
+      "group": "Fonte e térmica",
+      "title": "Instabilidade",
+      "prompt": "A máquina desliga sob carga. Por que isso não prova que a fonte está defeituosa?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Múltiplas hipóteses, evidência e segurança.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Pode envolver temperatura, energia, componentes, configuração ou outras causas. Observar condições, temperaturas e avaliação segura; não abrir fonte.",
+      "expected": null
+    },
+    {
+      "id": "61",
+      "group": "Diagnóstico",
+      "title": "Quatro níveis",
+      "prompt": "Explique os quatro níveis de compatibilidade e dê um exemplo de falha em cada.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Definir os quatro níveis com exemplos coerentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Físico: não cabe; elétrico: alimentação incompatível; lógico: protocolo/firmware não suporta; operacional: driver ausente.",
+      "expected": null
+    },
+    {
+      "id": "62",
+      "group": "Diagnóstico",
+      "title": "Planejamento",
+      "prompt": "Monte uma lista de informações para verificar antes de comprar CPU, RAM e SSD para uma placa desconhecida.",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Solicitar modelo exato e verificações específicas aos três componentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Modelo e manual, soquete, lista de CPU e firmware, geração/formato/capacidade RAM, interfaces e dimensões SSD, espaço e alimentação.",
+      "expected": null
+    },
+    {
+      "id": "63",
+      "group": "Intercâmbio",
+      "title": "Inventário em Python",
+      "prompt": "Que tipos de dados usaria para registrar modelo, quantidade de slots, capacidade de RAM e suporte documentado a NVMe?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Escolher tipos coerentes e distinguir desconhecido de ausência de suporte.",
+      "mode": "text",
+      "starter": "",
+      "solution": "str para modelo; int para slots e capacidade inteira; bool para suporte, caso conhecido. Ausência de informação não deve virar False automaticamente.",
+      "expected": null
+    },
+    {
+      "id": "64",
+      "group": "Intercâmbio",
+      "title": "Limites da automação",
+      "prompt": "Por que um cadastro com campos de hardware não equivale a uma ferramenta de diagnóstico automático?",
+      "hint": "Justifique com suas palavras, indicando as verificações necessárias.",
+      "explanation": "Critérios de autocorreção: Separar representação, regras e evidências.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O cadastro representa dados fornecidos. Diagnóstico exige dados confiáveis, regras, observações e validação. Uma decisão booleana não é evidência por si.",
+      "expected": null
+    }
+  ]
+}
