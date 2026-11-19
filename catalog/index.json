@@ -9,6 +9,13 @@
       "bytes": 41206
     },
     {
+      "id": "aula02",
+      "title": "Variáveis e tipos de dados em Python",
+      "subtitle": "Atribuição, tipos fundamentais, rastreio e aplicações em informática",
+      "sha256": "c6591a89b0d554a0fa450580ebbdbc279f64eeb2447c87c0f59a4b3cee9cbe5f",
+      "bytes": 40862
+    },
+    {
       "id": "aula99",
       "title": "Teste de importação",
       "subtitle": "Demonstração removível",
