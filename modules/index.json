@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "lessons": [
+    {
+      "id": "aula101",
+      "title": "Introdução aos sistemas computacionais",
+      "subtitle": "Fundamentos, operações, integração e diagnóstico",
+      "discipline": "arquitetura",
+      "sha256": "10d1234a0738a59c61edf5f38a815f22afa025a5a0563711c6b680733ee8bebe",
+      "bytes": 48989
+    },
+    {
+      "id": "aula102",
+      "title": "Hardware, software e componentes",
+      "subtitle": "Placa-mãe, interfaces, formatos, periféricos, alimentação e compatibilidade",
+      "discipline": "arquitetura",
+      "sha256": "38ac8adf8f34bf86c047f8e9f74ca60260e6b8fac29a6c0ee0b691303c79cd5a",
+      "bytes": 59517
+    },
+    {
+      "id": "aula103",
+      "title": "Processadores, memórias e armazenamento",
+      "subtitle": "CPU, desempenho, hierarquia de memória, persistência e unidades",
+      "discipline": "arquitetura",
+      "sha256": "d8c7847383029d9d3094eb272cfb51164b8f27c45270c54abceccc2f09534f7a",
+      "bytes": 67723
+    },
+    {
+      "id": "aula104",
+      "title": "Arquitetura de von Neumann",
+      "subtitle": "Programa armazenado, CPU, memória, comunicação e gargalo",
+      "discipline": "arquitetura",
+      "sha256": "4f27410f90717862504c0f4f3813cc20dc9b342fece63847fb82b065b5ab16ca",
+      "bytes": 60287
+    },
+    {
+      "id": "aula105",
+      "title": "CPU e ciclo de instruções",
+      "subtitle": "Busca, decodificação, execução, registradores e rastreamento",
+      "discipline": "arquitetura",
+      "sha256": "cd9c8d6ec69648f5b328e83e500177d793eff8fb8beee6ca98cd294d1bda5621",
+      "bytes": 65057
+    },
+    {
+      "id": "aula106",
+      "title": "Barramentos e comunicação",
+      "subtitle": "Dados, endereços, controle, interconexões e taxas de transferência",
+      "discipline": "arquitetura",
+      "sha256": "324d840fca9017faf7613ff218dbf41ed6e9724c2b5ffd63767abcd1eade3634",
+      "bytes": 73588
+    },
+    {
+      "id": "aula107",
+      "title": "Introdução aos sistemas numéricos",
+      "subtitle": "Bases, dígitos, potências e valor posicional",
+      "discipline": "arquitetura",
+      "sha256": "bc3418e322ff46075e1e9b40b7d99be1e8100166f830badf4296b2d69240a10a",
+      "bytes": 44907
+    },
+    {
+      "id": "aula108",
+      "title": "Decimal e binário em profundidade",
+      "subtitle": "Pesos, divisões sucessivas, verificação e largura fixa",
+      "discipline": "arquitetura",
+      "sha256": "b205bc5b04cb4f94cc5783d683040c2bfdb68add66172615987d94ba2a6fd412",
+      "bytes": 96119
+    }
+  ]
+}
