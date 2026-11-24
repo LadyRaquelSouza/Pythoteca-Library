@@ -1,0 +1,1223 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula301",
+  "title": "Anatomia de um programa Java",
+  "subtitle": "Sintaxe, blocos, indentação, métodos e primeiros objetos",
+  "objectives": "Reconhecer a estrutura de programas Java 8, distinguir sintaxe de estilo, interpretar métodos e objetos e relacionar esses fundamentos ao código gerado pelo NetBeans.",
+  "source": "Módulo autoral de fundamentos complementares, compatível com Java 8. A conexão com o GUI Builder contextualiza o ambiente do curso; não representa transcrição da apostila.",
+  "chapters": [
+    {
+      "title": "Do algoritmo ao programa Java",
+      "text": "Java é uma linguagem de programação; NetBeans é uma IDE. Um algoritmo pode ser expresso em várias linguagens. O JDK fornece ferramentas de desenvolvimento, incluindo javac, que compila código-fonte em bytecode. A JVM executa esse bytecode. No Java 8, um programa simples pode ser compilado e executado pelo terminal sem NetBeans.",
+      "example": "javac Exemplo.java\njava Exemplo"
+    },
+    {
+      "title": "Uma primeira classe",
+      "text": "Uma classe reúne declarações de membros. Neste exemplo, Exemplo é uma classe pública e o arquivo deve chamar-se Exemplo.java. Java distingue maiúsculas de minúsculas. O método main é o ponto de entrada convencional de uma aplicação Java 8.",
+      "example": "public class Exemplo {\n    public static void main(String[] args) {\n        System.out.println(\"Olá!\");\n    }\n}"
+    },
+    {
+      "title": "Anatomia do main",
+      "text": "public permite acesso externo; static indica um método da classe, sem necessidade de instanciar um objeto; void indica ausência de retorno; String[] args recebe argumentos de linha de comando. O nome args é convencional, não obrigatório. A JVM inicia a aplicação pelo método main apropriado.",
+      "example": "public static void main(String[] argumentos) {\n    System.out.println(argumentos.length);\n}"
+    },
+    {
+      "title": "Blocos, chaves e indentação",
+      "text": "As chaves delimitam corpos de classes, métodos e blocos. A indentação representa visualmente o aninhamento, mas não delimita blocos em Java. Adotaremos quatro espaços por nível. Chaves de fechamento alinham-se ao início da declaração correspondente. Em Python, diferentemente de Java e Portugol Studio, o recuo delimita blocos sintáticos. Em Java, um if sem chaves controla apenas a instrução seguinte; o recuo não altera essa regra. Prefira chaves mesmo para uma única instrução.",
+      "example": "if (idade >= 18) {\n    System.out.println(\"Adulto\");\n}"
+    },
+    {
+      "title": "Sintaxe, espaços e comentários",
+      "text": "Espaços separam tokens quando necessário: int idade não equivale a intidade. Quebras de linha geralmente não encerram instruções Java. Declarações locais e chamadas usadas como instruções terminam em ponto e vírgula; corpos de métodos não exigem esse terminador. Comentários // terminam na quebra de linha; /* */ delimitam comentários de bloco. Espaços dentro de strings fazem parte do texto.",
+      "example": "int idade = 20; // idade em anos\nSystem.out.println(\"Bom dia\");"
+    },
+    {
+      "title": "Variáveis e tipos",
+      "text": "Uma variável tem tipo declarado. int representa inteiros de 32 bits, double números de ponto flutuante, boolean valores true ou false, char uma unidade UTF-16 e String referências a objetos de texto. Atribuição usa =; comparação de inteiros usa ==. Variáveis locais precisam estar definitivamente atribuídas antes da leitura.",
+      "example": "int quantidade = 3;\ndouble preco = 2.5;\ndouble total = quantidade * preco;\nSystem.out.println(total);"
+    },
+    {
+      "title": "Métodos e argumentos",
+      "text": "Métodos agrupam operações. Parâmetros são declarados na assinatura; argumentos são valores fornecidos na chamada. return devolve um resultado quando o método possui tipo de retorno não void. Um método static pode ser chamado diretamente de outro método static da mesma classe.",
+      "example": "static int dobro(int n) {\n    return n * 2;\n}"
+    },
+    {
+      "title": "Primeiro contato com objetos",
+      "text": "Uma classe define um tipo; new cria uma instância e chama um construtor. Uma variável de referência permite acessar membros acessíveis de um objeto. O ponto seleciona membros. Construtores têm o nome da classe e não declaram tipo de retorno.",
+      "example": "javax.swing.JButton botao = new javax.swing.JButton();\nbotao.setText(\"Cadastrar\");"
+    },
+    {
+      "title": "Do programa mínimo ao JFrame",
+      "text": "Um JFrame é uma janela Swing. extends declara herança. O construtor de uma classe de formulário criada pelo GUI Builder costuma chamar initComponents(), método gerado para configurar a interface. O main gerado normalmente agenda a criação da janela na fila de eventos. Não é necessário dominar threads agora. Regiões protegidas devem ser alteradas pelo editor visual quando apropriado. O arquivo .java contém o código-fonte; o .form mantém metadados do formulário usados pelo GUI Builder. Preserve ambos no projeto.",
+      "example": "public class Tela extends javax.swing.JFrame {\n    public Tela() {\n        initComponents();\n    }\n    private void initComponents() {\n        setTitle(\"Cadastro\");\n    }\n}"
+    },
+    {
+      "title": "Legibilidade e diagnóstico",
+      "text": "Nomes de classes costumam usar PascalCase; métodos e variáveis, camelCase. São convenções, não exigências gerais do compilador. Formatar código não corrige automaticamente erros sintáticos ou lógicos. No NetBeans 8.2, Alt+Shift+F é o atalho padrão de formatação. Leia mensagens do compilador e confira primeiro a estrutura dos blocos.",
+      "example": "int totalItens = 5;\n// Nome descritivo facilita a manutenção."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Do algoritmo ao programa Java",
+      "title": "Linguagem e ferramenta",
+      "prompt": "Qual é a relação entre Java e NetBeans?",
+      "hint": "Revise: Do algoritmo ao programa Java.",
+      "explanation": "A IDE auxilia o desenvolvimento, mas não é a linguagem.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "NetBeans substitui o JDK."
+        },
+        {
+          "id": "b",
+          "text": "Java é um editor visual."
+        },
+        {
+          "id": "c",
+          "text": "NetBeans é a JVM."
+        },
+        {
+          "id": "d",
+          "text": "Java é a linguagem; NetBeans é uma IDE."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "02",
+      "group": "Uma primeira classe",
+      "title": "Nome do arquivo",
+      "prompt": "Em qual arquivo deve ficar public class Exemplo?",
+      "hint": "Revise: Uma primeira classe.",
+      "explanation": "O nome da classe pública deve corresponder ao nome do arquivo fonte.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "main.java"
+        },
+        {
+          "id": "b",
+          "text": "Exemplo.class"
+        },
+        {
+          "id": "c",
+          "text": "exemplo.java"
+        },
+        {
+          "id": "d",
+          "text": "Exemplo.java"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Anatomia do main",
+      "title": "Ponto de entrada",
+      "prompt": "Qual assinatura é adequada ao ponto de entrada convencional em Java 8?",
+      "hint": "Revise: Anatomia do main.",
+      "explanation": "O método convencional é público, estático, void e recebe um vetor de String.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "public static void main(String[] args)"
+        },
+        {
+          "id": "b",
+          "text": "public static void Main(String[] args)"
+        },
+        {
+          "id": "c",
+          "text": "private static int main(String[] args)"
+        },
+        {
+          "id": "d",
+          "text": "public void main()"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "04",
+      "group": "Blocos, chaves e indentação",
+      "title": "Hierarquia",
+      "prompt": "O que delimita um bloco explícito em Java?",
+      "hint": "Revise: Blocos, chaves e indentação.",
+      "explanation": "As chaves delimitam blocos; o recuo é visual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Quatro espaços"
+        },
+        {
+          "id": "b",
+          "text": "Chaves"
+        },
+        {
+          "id": "c",
+          "text": "Ponto e vírgula"
+        },
+        {
+          "id": "d",
+          "text": "Parênteses"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Do algoritmo ao programa Java",
+      "title": "Compilação",
+      "prompt": "Qual ferramenta compila um arquivo .java?",
+      "hint": "Revise: Do algoritmo ao programa Java.",
+      "explanation": "javac é o compilador do JDK.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JFrame"
+        },
+        {
+          "id": "b",
+          "text": "java"
+        },
+        {
+          "id": "c",
+          "text": "javac"
+        },
+        {
+          "id": "d",
+          "text": "JButton"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "06",
+      "group": "Do algoritmo ao programa Java",
+      "title": "Bytecode",
+      "prompt": "Qual componente executa o bytecode Java?",
+      "hint": "Revise: Do algoritmo ao programa Java.",
+      "explanation": "A JVM executa bytecode.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Arquivo .form"
+        },
+        {
+          "id": "b",
+          "text": "JTextField"
+        },
+        {
+          "id": "c",
+          "text": "Editor visual"
+        },
+        {
+          "id": "d",
+          "text": "JVM"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Uma primeira classe",
+      "title": "Maiúsculas",
+      "prompt": "Os identificadores total e Total são equivalentes?",
+      "hint": "Revise: Uma primeira classe.",
+      "explanation": "Java é sensível à caixa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente em classes."
+        },
+        {
+          "id": "b",
+          "text": "Somente em métodos."
+        },
+        {
+          "id": "c",
+          "text": "Sim, sempre."
+        },
+        {
+          "id": "d",
+          "text": "Não, Java distingue maiúsculas de minúsculas."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "08",
+      "group": "Anatomia do main",
+      "title": "Retorno",
+      "prompt": "O que void informa sobre um método?",
+      "hint": "Revise: Anatomia do main.",
+      "explanation": "void descreve o tipo de retorno.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "É necessariamente privado."
+        },
+        {
+          "id": "b",
+          "text": "Não executa instruções."
+        },
+        {
+          "id": "c",
+          "text": "Não recebe argumentos."
+        },
+        {
+          "id": "d",
+          "text": "Não devolve um valor."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "09",
+      "group": "Anatomia do main",
+      "title": "Argumentos do main",
+      "prompt": "O que representa String[] args?",
+      "hint": "Revise: Anatomia do main.",
+      "explanation": "Os colchetes indicam um tipo de vetor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma janela."
+        },
+        {
+          "id": "b",
+          "text": "Um número inteiro."
+        },
+        {
+          "id": "c",
+          "text": "Uma única string."
+        },
+        {
+          "id": "d",
+          "text": "Um vetor de referências a strings."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "10",
+      "group": "Anatomia do main",
+      "title": "Nome do parâmetro",
+      "prompt": "Trocar args por argumentos na declaração do main, sem outras referências ao nome, causa erro?",
+      "hint": "Revise: Anatomia do main.",
+      "explanation": "O nome do parâmetro é livre, respeitando as regras de identificadores.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, args é palavra reservada."
+        },
+        {
+          "id": "b",
+          "text": "Não."
+        },
+        {
+          "id": "c",
+          "text": "Sim, String não admite parâmetros."
+        },
+        {
+          "id": "d",
+          "text": "Sim, main exige esse nome."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "11",
+      "group": "Blocos, chaves e indentação",
+      "title": "Recuo",
+      "prompt": "Um bloco Java corretamente delimitado perde os recuos. O que acontece?",
+      "hint": "Revise: Blocos, chaves e indentação.",
+      "explanation": "Indentação não define blocos em Java.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O método passa a ser privado."
+        },
+        {
+          "id": "b",
+          "text": "O bloco deixa de existir."
+        },
+        {
+          "id": "c",
+          "text": "A estrutura sintática permanece, se os tokens não mudarem."
+        },
+        {
+          "id": "d",
+          "text": "As chaves tornam-se comentários."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Blocos, chaves e indentação",
+      "title": "Comparação com Python",
+      "prompt": "Qual linguagem utiliza indentação para delimitar blocos?",
+      "hint": "Revise: Blocos, chaves e indentação.",
+      "explanation": "Python usa recuos sintaticamente significativos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Todas as três"
+        },
+        {
+          "id": "b",
+          "text": "Portugol Studio"
+        },
+        {
+          "id": "c",
+          "text": "Java"
+        },
+        {
+          "id": "d",
+          "text": "Python"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "13",
+      "group": "Blocos, chaves e indentação",
+      "title": "Fechamento",
+      "prompt": "Ao fechar um bloco aninhado, qual recuo convencional usar?",
+      "hint": "Revise: Blocos, chaves e indentação.",
+      "explanation": "Alinhar a chave de fechamento à estrutura que abriu o bloco facilita a leitura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O mesmo recuo da instrução interna."
+        },
+        {
+          "id": "b",
+          "text": "Um nível maior que o conteúdo."
+        },
+        {
+          "id": "c",
+          "text": "Sempre zero."
+        },
+        {
+          "id": "d",
+          "text": "O nível da abertura correspondente."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "14",
+      "group": "Sintaxe, espaços e comentários",
+      "title": "Separação de tokens",
+      "prompt": "Por que intidade não substitui int idade?",
+      "hint": "Revise: Sintaxe, espaços e comentários.",
+      "explanation": "Espaços podem separar tokens.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O tipo int só existe em comentários."
+        },
+        {
+          "id": "b",
+          "text": "Toda variável deve ter maiúscula."
+        },
+        {
+          "id": "c",
+          "text": "Java exige exatamente quatro espaços."
+        },
+        {
+          "id": "d",
+          "text": "É um identificador único, não dois tokens."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "Sintaxe, espaços e comentários",
+      "title": "Texto literal",
+      "prompt": "Qual é a diferença entre \"ab\" e \"a b\"?",
+      "hint": "Revise: Sintaxe, espaços e comentários.",
+      "explanation": "Espaços dentro de strings são conteúdo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "A segunda é comentário."
+        },
+        {
+          "id": "b",
+          "text": "A primeira é char."
+        },
+        {
+          "id": "c",
+          "text": "Nenhuma."
+        },
+        {
+          "id": "d",
+          "text": "A segunda string contém um espaço adicional."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "16",
+      "group": "Sintaxe, espaços e comentários",
+      "title": "Comentário de linha",
+      "prompt": "Quando termina um comentário iniciado por //?",
+      "hint": "Revise: Sintaxe, espaços e comentários.",
+      "explanation": "O comentário de linha se estende até o fim da linha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na quebra de linha ou fim do arquivo."
+        },
+        {
+          "id": "b",
+          "text": "No ponto e vírgula."
+        },
+        {
+          "id": "c",
+          "text": "Na próxima chave."
+        },
+        {
+          "id": "d",
+          "text": "No primeiro espaço."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "17",
+      "group": "Sintaxe, espaços e comentários",
+      "title": "Terminador",
+      "prompt": "Qual instrução local está corretamente terminada?",
+      "hint": "Revise: Sintaxe, espaços e comentários.",
+      "explanation": "Uma declaração local exige ponto e vírgula.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int n = 3,"
+        },
+        {
+          "id": "b",
+          "text": "int n = 3:"
+        },
+        {
+          "id": "c",
+          "text": "int n = 3;"
+        },
+        {
+          "id": "d",
+          "text": "int n = 3"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Variáveis e tipos",
+      "title": "Inteiro",
+      "prompt": "Qual tipo é adequado para uma contagem pequena de itens?",
+      "hint": "Revise: Variáveis e tipos.",
+      "explanation": "int representa números inteiros.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "void"
+        },
+        {
+          "id": "b",
+          "text": "JFrame"
+        },
+        {
+          "id": "c",
+          "text": "boolean"
+        },
+        {
+          "id": "d",
+          "text": "int"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Variáveis e tipos",
+      "title": "Lógico",
+      "prompt": "Qual declaração é válida?",
+      "hint": "Revise: Variáveis e tipos.",
+      "explanation": "Java usa true e false como literais booleanos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "boolean ativo = verdadeiro;"
+        },
+        {
+          "id": "b",
+          "text": "boolean ativo = 1;"
+        },
+        {
+          "id": "c",
+          "text": "boolean ativo = \"true\";"
+        },
+        {
+          "id": "d",
+          "text": "boolean ativo = true;"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "20",
+      "group": "Variáveis e tipos",
+      "title": "Atribuição",
+      "prompt": "Qual operador atribui um valor a uma variável?",
+      "hint": "Revise: Variáveis e tipos.",
+      "explanation": "O operador = realiza atribuição.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "<="
+        },
+        {
+          "id": "b",
+          "text": "!="
+        },
+        {
+          "id": "c",
+          "text": "=="
+        },
+        {
+          "id": "d",
+          "text": "="
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "21",
+      "group": "Variáveis e tipos",
+      "title": "Cálculo",
+      "prompt": "Qual é o resultado de 3 * 2.5?",
+      "hint": "Revise: Variáveis e tipos.",
+      "explanation": "A operação envolve double e produz 7.5.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "8.5"
+        },
+        {
+          "id": "b",
+          "text": "7"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "7.5"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "22",
+      "group": "Variáveis e tipos",
+      "title": "Inicialização",
+      "prompt": "Uma variável local int n; pode ser lida imediatamente?",
+      "hint": "Revise: Variáveis e tipos.",
+      "explanation": "Variáveis locais não recebem automaticamente um valor padrão utilizável.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, precisa estar definitivamente atribuída."
+        },
+        {
+          "id": "b",
+          "text": "Sim, vale null."
+        },
+        {
+          "id": "c",
+          "text": "Sim, sempre vale um."
+        },
+        {
+          "id": "d",
+          "text": "Sim, sempre vale zero."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "23",
+      "group": "Métodos e argumentos",
+      "title": "Parâmetro",
+      "prompt": "Em static int dobro(int n), o que é n?",
+      "hint": "Revise: Métodos e argumentos.",
+      "explanation": "n é declarado na assinatura como parâmetro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Classe"
+        },
+        {
+          "id": "b",
+          "text": "Parâmetro"
+        },
+        {
+          "id": "c",
+          "text": "Pacote"
+        },
+        {
+          "id": "d",
+          "text": "Argumento de uma chamada específica"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "24",
+      "group": "Métodos e argumentos",
+      "title": "Chamada",
+      "prompt": "Em dobro(5), o que é 5?",
+      "hint": "Revise: Métodos e argumentos.",
+      "explanation": "O argumento é fornecido na chamada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Modificador"
+        },
+        {
+          "id": "b",
+          "text": "Nome do método"
+        },
+        {
+          "id": "c",
+          "text": "Tipo de retorno"
+        },
+        {
+          "id": "d",
+          "text": "Argumento"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "25",
+      "group": "Métodos e argumentos",
+      "title": "Rastreamento",
+      "prompt": "Se dobro retorna n * 2, quanto vale dobro(7)?",
+      "hint": "Revise: Métodos e argumentos.",
+      "explanation": "Substitua n por 7 e multiplique por 2.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "49"
+        },
+        {
+          "id": "b",
+          "text": "9"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "14"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "26",
+      "group": "Primeiro contato com objetos",
+      "title": "Instanciação",
+      "prompt": "Qual expressão cria um JButton?",
+      "hint": "Revise: Primeiro contato com objetos.",
+      "explanation": "new cria uma instância.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "class JButton"
+        },
+        {
+          "id": "b",
+          "text": "JButton.setText()"
+        },
+        {
+          "id": "c",
+          "text": "javax.swing.JButton"
+        },
+        {
+          "id": "d",
+          "text": "new javax.swing.JButton()"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Primeiro contato com objetos",
+      "title": "Construtor",
+      "prompt": "Qual declaração pode ser um construtor da classe Tela?",
+      "hint": "Revise: Primeiro contato com objetos.",
+      "explanation": "O construtor tem o nome da classe e não declara retorno.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "public janela() {}"
+        },
+        {
+          "id": "b",
+          "text": "public int Tela() {}"
+        },
+        {
+          "id": "c",
+          "text": "public void Tela() {}"
+        },
+        {
+          "id": "d",
+          "text": "public Tela() {}"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "28",
+      "group": "Primeiro contato com objetos",
+      "title": "Chamada de membro",
+      "prompt": "Considerando javax.swing.JButton botao = new javax.swing.JButton();, o que representa botao na chamada botao.setText(\"OK\")?",
+      "hint": "Revise: Primeiro contato com objetos.",
+      "explanation": "A referência identifica o objeto receptor da chamada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma palavra reservada."
+        },
+        {
+          "id": "b",
+          "text": "O tipo de retorno."
+        },
+        {
+          "id": "c",
+          "text": "O argumento textual."
+        },
+        {
+          "id": "d",
+          "text": "Uma referência usada para acessar o objeto."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "29",
+      "group": "Do programa mínimo ao JFrame",
+      "title": "Herança",
+      "prompt": "O que indica extends JFrame?",
+      "hint": "Revise: Do programa mínimo ao JFrame.",
+      "explanation": "extends estabelece herança de classe.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "A classe importa um pacote."
+        },
+        {
+          "id": "b",
+          "text": "A classe declara JFrame como superclasse."
+        },
+        {
+          "id": "c",
+          "text": "A classe cria uma variável local."
+        },
+        {
+          "id": "d",
+          "text": "A classe chama main."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "30",
+      "group": "Do programa mínimo ao JFrame",
+      "title": "Inicialização gráfica",
+      "prompt": "Qual é a função habitual de initComponents() em um formulário NetBeans?",
+      "hint": "Revise: Do programa mínimo ao JFrame.",
+      "explanation": "O GUI Builder gera esse método para montar a interface.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Receber argumentos do terminal."
+        },
+        {
+          "id": "b",
+          "text": "Compilar todo o projeto."
+        },
+        {
+          "id": "c",
+          "text": "Criar e configurar componentes da interface."
+        },
+        {
+          "id": "d",
+          "text": "Substituir a JVM."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "31",
+      "group": "Do programa mínimo ao JFrame",
+      "title": "Região protegida",
+      "prompt": "Como alterar preferencialmente propriedades de componentes gerados pelo GUI Builder?",
+      "hint": "Revise: Do programa mínimo ao JFrame.",
+      "explanation": "O editor visual mantém o código gerado e o formulário sincronizados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Renomeando a JVM."
+        },
+        {
+          "id": "b",
+          "text": "Removendo todas as chaves."
+        },
+        {
+          "id": "c",
+          "text": "Editando o bytecode."
+        },
+        {
+          "id": "d",
+          "text": "Pelo editor visual e suas propriedades."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "32",
+      "group": "Legibilidade e diagnóstico",
+      "title": "Nomenclatura",
+      "prompt": "Qual nome segue camelCase para variável?",
+      "hint": "Revise: Legibilidade e diagnóstico.",
+      "explanation": "camelCase começa com minúscula e destaca palavras seguintes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "TOTALITENS"
+        },
+        {
+          "id": "b",
+          "text": "total_itens"
+        },
+        {
+          "id": "c",
+          "text": "TotalItens"
+        },
+        {
+          "id": "d",
+          "text": "totalItens"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "33",
+      "group": "Legibilidade e diagnóstico",
+      "title": "Formatação",
+      "prompt": "Formatar automaticamente um código garante que sua lógica está correta?",
+      "hint": "Revise: Legibilidade e diagnóstico.",
+      "explanation": "Formatação melhora apresentação, não comprova comportamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se houver comentários."
+        },
+        {
+          "id": "b",
+          "text": "Sim, se usar NetBeans."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se houver quatro espaços."
+        },
+        {
+          "id": "d",
+          "text": "Não."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "34",
+      "group": "Blocos, chaves e indentação",
+      "title": "Reformatar",
+      "prompt": "Reorganize com quatro espaços por nível: public class A { public static void main(String[] args) { if (true) { System.out.println(\"OK\"); } } }",
+      "solution": "public class A {\n    public static void main(String[] args) {\n        if (true) {\n            System.out.println(\"OK\");\n        }\n    }\n}",
+      "explanation": "Os três níveis representam classe, método e condição.",
+      "hint": "Revise: Blocos, chaves e indentação.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "35",
+      "group": "Sintaxe, espaços e comentários",
+      "title": "Diagnóstico sintático",
+      "prompt": "Identifique o erro em int idade = 20 seguido de System.out.println(idade); em outra linha.",
+      "solution": "Falta o ponto e vírgula após 20.",
+      "explanation": "A quebra de linha não substitui o terminador.",
+      "hint": "Revise: Sintaxe, espaços e comentários.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Blocos, chaves e indentação",
+      "title": "Blocos e comportamento",
+      "prompt": "Em if (false) { System.out.println(\"A\"); } System.out.println(\"B\"); qual é a saída?",
+      "solution": "B",
+      "explanation": "A segunda chamada está fora do bloco condicional.",
+      "hint": "Revise: Blocos, chaves e indentação.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Anatomia do main",
+      "title": "Explicar main",
+      "prompt": "Explique static e void na assinatura do main.",
+      "solution": "static indica método da classe; void indica ausência de valor retornado.",
+      "explanation": "São características independentes.",
+      "hint": "Revise: Anatomia do main.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Métodos e argumentos",
+      "title": "Método simples",
+      "prompt": "Escreva um método static que receba dois inteiros e retorne a soma.",
+      "solution": "static int soma(int a, int b) {\n    return a + b;\n}",
+      "explanation": "O método recebe dois parâmetros e retorna um int.",
+      "hint": "Revise: Métodos e argumentos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Primeiro contato com objetos",
+      "title": "Objeto e método",
+      "prompt": "Explique new javax.swing.JButton() e botao.setText(\"Salvar\").",
+      "solution": "A primeira expressão cria um botão; a segunda altera o texto do objeto referenciado por botao.",
+      "explanation": "Criação e configuração são operações distintas.",
+      "hint": "Revise: Primeiro contato com objetos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Do programa mínimo ao JFrame",
+      "title": "Construtor e formulário",
+      "prompt": "Por que o construtor de um JFrame gerado costuma chamar initComponents()?",
+      "solution": "Para inicializar e configurar a interface durante a criação da janela.",
+      "explanation": "O construtor delega a montagem ao método gerado.",
+      "hint": "Revise: Do programa mínimo ao JFrame.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Legibilidade e diagnóstico",
+      "title": "Estilo versus sintaxe",
+      "prompt": "Classifique: nome de classe pública igual ao arquivo, quatro espaços por nível, ponto e vírgula em declaração local.",
+      "solution": "Nome do arquivo e ponto e vírgula: regras. Quatro espaços: convenção.",
+      "explanation": "Regras sintáticas e de compilação não são equivalentes a preferências de estilo.",
+      "hint": "Revise: Legibilidade e diagnóstico.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
