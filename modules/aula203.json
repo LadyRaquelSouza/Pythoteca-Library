@@ -5,7 +5,7 @@
   "title": "Soma de dois números e processamento de dados",
   "subtitle": "Entrada, processamento, saída, atribuição e operações aritméticas",
   "objectives": "Identificar entrada, processamento e saída; declarar e ler inteiros; calcular e armazenar uma soma; rastrear e testar programas; explorar outras operações como aprofundamento.",
-  "source": "Base acadêmica: Aula_3_Soma_de_Dois_Numeros_Portugol_Webstudio_Widescreen.pdf, dez slides examinados visualmente. Slides 2–9: declaração, leitura, soma, atribuição, saída e programa completo; slide 10: estoque e inscrições. Exemplos e exercícios autorais; demais operações, precedência e testes de fronteira são aprofundamentos. Código não executado nesta etapa.",
+  "source": "Base acadêmica: Aula_3_Soma_de_Dois_Numeros_Portugol_Webstudio_Widescreen.pdf, dez slides examinados visualmente. Slides 2–9: declaração, leitura, soma, atribuição, saída e programa completo; slide 10: estoque e inscrições. Exemplos e exercícios autorais; demais operações, precedência e testes de fronteira são aprofundamentos. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados.",
   "chapters": [
     {
       "title": "1. Entrada, processamento e saída",
@@ -636,6 +636,71 @@
       "mode": "text",
       "starter": "",
       "solution": "real media = (n1 + n2) / 2.0",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional",
+      "title": "Troco",
+      "prompt": "Uma compra custa 37.50 e o cliente paga 50. Calcule o troco.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "50 - 37.50 = 12.50",
+      "explanation": "Subtraia o preço do pagamento.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional",
+      "title": "Consumo médio",
+      "prompt": "Um veículo percorre 360 km com 30 litros. Calcule km/L.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "360 / 30.0 = 12 km/L",
+      "explanation": "Divida distância por litros positivos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional",
+      "title": "Tempo de leitura",
+      "prompt": "Um livro tem 150 páginas e cada página leva 3 minutos. Calcule minutos e horas.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "150 * 3 = 450 minutos; 450 / 60.0 = 7.5 horas.",
+      "explanation": "Multiplique e converta unidades.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional",
+      "title": "Velocidade média",
+      "prompt": "Uma viagem de 210 km dura 3.5 horas. Calcule a velocidade média.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "210 / 3.5 = 60 km/h",
+      "explanation": "Divida distância por tempo positivo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional",
+      "title": "Orçamento de evento",
+      "prompt": "Para 12 pessoas, alimentação custa 25 por pessoa, bebidas 8 por pessoa e decoração 90. Calcule o total.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "12 * 25 + 12 * 8 + 90 = 486.",
+      "explanation": "Some custos variáveis e fixos.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
