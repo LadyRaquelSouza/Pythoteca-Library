@@ -1,0 +1,555 @@
+{
+  "schema_version": 2,
+  "discipline": "portugol",
+  "id": "aula205",
+  "title": "Estrutura escolha/caso",
+  "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
+  "objectives": "Interpretar escolha/caso; usar pare e caso contrario; distinguir valores discretos de intervalos; elaborar menus e testar alternativas.",
+  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa.",
+  "chapters": [
+    {
+      "title": "1. Seleção múltipla",
+      "text": "CURSO: escolha/caso compara uma variável com valores fixos e executa o caso correspondente. É especialmente útil para menus. APROFUNDAMENTO: não é necessário limitar se/senao a duas condições; cadeias de senao se também podem ter muitas alternativas. Escolha a estrutura conforme a natureza da decisão.",
+      "example": "escolha (opcao)\n{\n    caso 1:\n        escreva(\"Abrir\")\n        pare\n    caso contrario:\n        escreva(\"Inválida\")\n}"
+    },
+    {
+      "title": "2. Anatomia da estrutura",
+      "text": "CURSO: escolha recebe o valor analisado; caso define uma alternativa; pare impede a continuação nos casos seguintes; caso contrario trata valores não previstos. Os rótulos precisam ser compatíveis com o tipo da variável.",
+      "example": "inteiro opcao = 2\nescolha (opcao)\n{\n    caso 1:\n        escreva(\"Cadastro\")\n        pare\n    caso 2:\n        escreva(\"Consulta\")\n        pare\n    caso contrario:\n        escreva(\"Inválida\")\n}"
+    },
+    {
+      "title": "3. Fluxo e papel de pare",
+      "text": "CURSO: esquecer pare pode executar instruções do caso seguinte. APROFUNDAMENTO: pare sai da estrutura escolha, não necessariamente do programa inteiro. Uma instrução depois da chave final ainda pode executar.",
+      "example": "escolha (opcao)\n{\n    caso 1:\n        escreva(\"A\")\n        pare\n    caso 2:\n        escreva(\"B\")\n        pare\n}\nescreva(\"Fim\")"
+    },
+    {
+      "title": "4. Menu completo",
+      "text": "CURSO: a apostila e o arquivo .por apresentam menus com opções numeradas, leitura e seleção. O arquivo escolar mostra mensagens de consulta de boletim, horário e matrícula, sem realizar consultas reais. O exemplo autoral usa um menu de biblioteca.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        inteiro opcao\n        escreva(\"1 - Buscar livro\\n2 - Ver empréstimos\\n3 - Sair\\n\")\n        leia(opcao)\n        escolha (opcao)\n        {\n            caso 1:\n                escreva(\"Busca selecionada\")\n                pare\n            caso 2:\n                escreva(\"Empréstimos selecionados\")\n                pare\n            caso 3:\n                escreva(\"Saindo\")\n                pare\n            caso contrario:\n                escreva(\"Opção inválida\")\n        }\n    }\n}"
+    },
+    {
+      "title": "5. Valores discretos e intervalos",
+      "text": "CURSO: a apostila associa números de 1 a 5 aos dias úteis. APROFUNDAMENTO: escolha é adequada para valores específicos; se/senao é mais natural para faixas de notas ou preços. O caso contrario trata valores inteiros sem correspondência, não garante tratamento de entrada de tipo incorreto.",
+      "example": "escolha (dia)\n{\n    caso 1:\n        escreva(\"Segunda-feira\")\n        pare\n    caso 2:\n        escreva(\"Terça-feira\")\n        pare\n    caso contrario:\n        escreva(\"Outro valor\")\n}"
+    },
+    {
+      "title": "6. Erros comuns e testes",
+      "text": "CURSO: ausência de pare, ausência de caso contrario e incompatibilidade de valores são erros destacados. APROFUNDAMENTO: teste cada alternativa e valores fora do menu. Sem repetição, o menu é apresentado uma única vez. A palavra Sair é apenas uma mensagem neste exemplo; menus repetidos exigem estruturas de repetição, assunto posterior.",
+      "example": "Menu de 1 a 3: testar 1, 2, 3, 0 e 4."
+    },
+    {
+      "title": "7. Construção e interpretação",
+      "text": "CURSO: os desafios finais envolvem cantina e sistema escolar. APROFUNDAMENTO: planeje opções, mensagens, tratamento padrão e testes antes de escrever o código. A Pythoteca permite rastreamento manual; execute os exemplos no Portugol Studio ou Webstudio. Em Python, a comparação futura incluirá if/elif e match/case, sem presumir equivalência exata.",
+      "example": "Menu autoral de oficina: 1 = Inscrição; 2 = Calendário; 3 = Materiais; demais = opção inválida."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais",
+      "title": "Seleção múltipla",
+      "prompt": "Qual estrutura é adequada para menu com opções fixas 1, 2 e 3?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Escolha compara valores discretos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "leia"
+        },
+        {
+          "id": "b",
+          "text": "escolha/caso"
+        },
+        {
+          "id": "c",
+          "text": "escreva"
+        },
+        {
+          "id": "d",
+          "text": "Declaração real"
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais",
+      "title": "Caso correspondente",
+      "prompt": "Se opcao = 2 e os casos 1 e 2 exibem Cadastro e Consulta respectivamente, ambos com pare, qual saída?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "O caso 2 corresponde à entrada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cadastro"
+        },
+        {
+          "id": "b",
+          "text": "Inválida"
+        },
+        {
+          "id": "c",
+          "text": "Consulta"
+        },
+        {
+          "id": "d",
+          "text": "CadastroConsulta"
+        }
+      ],
+      "answer": "c",
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais",
+      "title": "Função de pare",
+      "prompt": "O que pare faz dentro de escolha?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Evita executar casos seguintes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Lê outra opção"
+        },
+        {
+          "id": "b",
+          "text": "Reinicia o programa"
+        },
+        {
+          "id": "c",
+          "text": "Declara uma variável"
+        },
+        {
+          "id": "d",
+          "text": "Encerra a seleção"
+        }
+      ],
+      "answer": "d",
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais",
+      "title": "Menu simples",
+      "prompt": "Escreva uma seleção para opcao inteira já lida: 1 mostra Agenda, 2 mostra Contatos, demais mostram Inválida.",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "Inclua pare e tratamento padrão.",
+      "mode": "text",
+      "starter": "",
+      "solution": "escolha (opcao)\n{\n    caso 1:\n        escreva(\"Agenda\")\n        pare\n    caso 2:\n        escreva(\"Contatos\")\n        pare\n    caso contrario:\n        escreva(\"Inválida\")\n}",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Revisão opcional",
+      "title": "Valor padrão",
+      "prompt": "Qual cláusula trata opção sem correspondência?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Caso contrário trata valores não previstos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso contrario"
+        },
+        {
+          "id": "b",
+          "text": "pare"
+        },
+        {
+          "id": "c",
+          "text": "leia"
+        },
+        {
+          "id": "d",
+          "text": "funcao"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional",
+      "title": "Tipo da opção",
+      "prompt": "Qual tipo é adequado para menu numerado de 1 a 3?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Inteiro representa as opções numéricas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "logico"
+        },
+        {
+          "id": "b",
+          "text": "inteiro"
+        },
+        {
+          "id": "c",
+          "text": "cadeia obrigatoriamente"
+        },
+        {
+          "id": "d",
+          "text": "real obrigatoriamente"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional",
+      "title": "Sintaxe",
+      "prompt": "Qual rótulo está correto?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "O rótulo termina com dois-pontos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso = 1"
+        },
+        {
+          "id": "b",
+          "text": "caso(1)"
+        },
+        {
+          "id": "c",
+          "text": "caso 1:"
+        },
+        {
+          "id": "d",
+          "text": "caso 1;"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional",
+      "title": "Sem pare",
+      "prompt": "Se caso 1 escreve A sem pare e caso 2 escreve B com pare, o que pode ocorrer ao escolher 1?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "A execução pode continuar no caso seguinte.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas B"
+        },
+        {
+          "id": "b",
+          "text": "Nenhuma saída"
+        },
+        {
+          "id": "c",
+          "text": "Erro obrigatório"
+        },
+        {
+          "id": "d",
+          "text": "AB"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional",
+      "title": "Após escolha",
+      "prompt": "Depois de um pare em escolha, uma instrução fora da estrutura pode executar?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Pare encerra a seleção, não todo o programa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Somente se opção for zero"
+        },
+        {
+          "id": "d",
+          "text": "Somente se não houver caso"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional",
+      "title": "Intervalos",
+      "prompt": "Qual estrutura é mais natural para classificar notas por faixas?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Comparações relacionais representam intervalos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escolha com cada nota possível"
+        },
+        {
+          "id": "b",
+          "text": "se/senao se"
+        },
+        {
+          "id": "c",
+          "text": "leia"
+        },
+        {
+          "id": "d",
+          "text": "escreva"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional",
+      "title": "Dias úteis",
+      "prompt": "No mapeamento 1 segunda, 2 terça, 3 quarta, 4 quinta, 5 sexta, qual dia corresponde a 4?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "O valor 4 corresponde à quinta-feira.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Terça"
+        },
+        {
+          "id": "b",
+          "text": "Sexta"
+        },
+        {
+          "id": "c",
+          "text": "Quinta"
+        },
+        {
+          "id": "d",
+          "text": "Quarta"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional",
+      "title": "Opção fora do menu",
+      "prompt": "Menu 1 a 3 com caso contrario: entrada 7 executa qual cláusula?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Nenhum caso numerado corresponde.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso 1"
+        },
+        {
+          "id": "b",
+          "text": "caso 2"
+        },
+        {
+          "id": "c",
+          "text": "caso 3"
+        },
+        {
+          "id": "d",
+          "text": "caso contrario"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional",
+      "title": "Menu sem repetição",
+      "prompt": "Após executar uma seleção sem laço, o menu aparece automaticamente outra vez?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Repetição exige outra estrutura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não"
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "c",
+          "text": "Somente no caso 1"
+        },
+        {
+          "id": "d",
+          "text": "Somente no caso contrario"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional",
+      "title": "Consulta simulada",
+      "prompt": "Um caso apenas escreve Consultar boletim. Ele realmente consulta um banco de dados?",
+      "hint": "Rastreie a opção e o fluxo da seleção.",
+      "explanation": "Uma mensagem não implementa a consulta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Somente se opção 1"
+        },
+        {
+          "id": "d",
+          "text": "Depende de pare"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional",
+      "title": "Testes de menu",
+      "prompt": "Proponha cinco entradas para testar um menu com opções 1, 2 e 3.",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "Teste todas as alternativas e valores inválidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "1, 2, 3, 0, 4.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional",
+      "title": "Corrigir fluxo",
+      "prompt": "Caso 1 escreve A e não tem pare; caso 2 escreve B. Como impedir a execução de B ao escolher 1?",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "Pare interrompe a continuação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Inserir pare depois de escreva(\"A\") no caso 1.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional",
+      "title": "Escolha ou condição",
+      "prompt": "Explique por que tarifas por duração são mais naturais com se/senao se.",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "Operadores relacionais expressam limites.",
+      "mode": "text",
+      "starter": "",
+      "solution": "As tarifas dependem de intervalos, não de poucos valores fixos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional",
+      "title": "Entrada inválida",
+      "prompt": "Explique a diferença entre digitar 9 em menu inteiro de 1 a 3 e digitar texto.",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "Caso contrario não substitui validação de tipo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "9 é inteiro sem caso correspondente; texto pode falhar na leitura antes de escolha.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional",
+      "title": "Menu de oficina",
+      "prompt": "Escreva um programa completo para menu 1 inscrição, 2 calendário, demais inválida.",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "Verifique estrutura, entrada, casos e saída.",
+      "mode": "text",
+      "starter": "",
+      "solution": "programa\n{\n    funcao inicio()\n    {\n        inteiro opcao\n        escreva(\"1 - Inscrição\\n2 - Calendário\\n\")\n        leia(opcao)\n        escolha (opcao)\n        {\n            caso 1:\n                escreva(\"Inscrição\")\n                pare\n            caso 2:\n                escreva(\"Calendário\")\n                pare\n            caso contrario:\n                escreva(\"Inválida\")\n        }\n    }\n}",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional",
+      "title": "Rastreamento final",
+      "prompt": "Um menu escreve A no caso 1, B no caso 2, ambos com pare, e X no caso contrario. Depois da seleção escreve Fim. Indique as saídas para 1, 2 e 8.",
+      "hint": "Identifique os casos, as saídas e o tratamento padrão.",
+      "explanation": "A instrução posterior à seleção executa em todos os caminhos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "1: AFim; 2: BFim; 8: XFim.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

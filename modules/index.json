@@ -96,6 +96,14 @@
       "discipline": "portugol",
       "sha256": "a5dab99715b02892a469dc7fbd9e1423e3963a97031f961d1a5144e1dd7a58b3",
       "bytes": 20684
+    },
+    {
+      "id": "aula205",
+      "title": "Estrutura escolha/caso",
+      "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
+      "discipline": "portugol",
+      "sha256": "b6ce4e1ef538c416f7e6e1d26a3cc5df1e238bff12e60db4a08da0fb47be18ea",
+      "bytes": 18943
     }
   ]
 }
