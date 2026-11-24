@@ -1,0 +1,1123 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula302",
+  "title": "NetBeans, projetos e execução",
+  "subtitle": "IDE 8.2, organização de fontes, compilação e diagnóstico",
+  "objectives": "Compreender as ferramentas do NetBeans, criar e organizar projetos Java, selecionar a classe principal e distinguir construção, execução e testes.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf, seis páginas, texto e visão geral das imagens consultados. Conteúdo curricular concentrado nas páginas 1–3, com conexão à página 4. Fundamentos complementares e correção técnica identificados nos capítulos; Swing, eventos e JOptionPane serão aprofundados em módulos posteriores.",
+  "chapters": [
+    {
+      "title": "O ambiente integrado",
+      "text": "[CURRICULAR] IDE significa Integrated Development Environment (Ambiente de Desenvolvimento Integrado). A apostila apresenta editor, compilador, depurador, gerenciador de projetos e execução. A ferramenta auxilia a criação de sistemas de cadastro, vendas, estoque e aplicações desktop. [FUNDAMENTOS] Uma IDE integra ferramentas; não é uma linguagem nem substitui o conhecimento de Java.",
+      "example": "Java: linguagem\nNetBeans: ambiente de desenvolvimento"
+    },
+    {
+      "title": "JDK, compilador e JVM",
+      "text": "[FUNDAMENTOS] No ambiente Java 8, o JDK fornece javac e ferramentas de execução. O compilador transforma fontes .java em bytecode .class; a JVM executa o bytecode. O NetBeans coordena essas ferramentas. A configuração da plataforma Java determina qual JDK será usado pelo projeto.",
+      "example": "javac Exemplo.java\njava Exemplo"
+    },
+    {
+      "title": "Criar um projeto",
+      "text": "[CURRICULAR] A apostila orienta criar uma Aplicação Java pelo botão Novo Projeto, nomear o projeto e depois adicionar um formulário JFrame. O exemplo utiliza CadastroAlunos e TelaCadastro. [FUNDAMENTOS] Projeto é uma unidade de organização e construção, não apenas um arquivo. A opção de criar uma classe principal pode ser desmarcada quando se pretende definir outra entrada.",
+      "example": "Projeto: CadastroAlunos\nClasse de formulário: TelaCadastro"
+    },
+    {
+      "title": "Pacotes e arquivos",
+      "text": "[FUNDAMENTOS] Um pacote organiza classes e evita colisões de nomes. Em um projeto Java padrão do NetBeans, os fontes ficam normalmente em src; a pasta de saída depende da configuração de construção. A declaração package deve corresponder à organização do pacote. Formulários do editor visual possuem código .java e metadados .form. Preserve ambos.",
+      "example": "package cadastro;\n\npublic class Aluno {\n}"
+    },
+    {
+      "title": "Classe principal",
+      "text": "[CURRICULAR] A apostila mostra duas classes com indicador de execução e orienta remover a classe inicial para usar TelaCadastro. [CORREÇÃO TÉCNICA] Um projeto pode conter várias classes com main. A configuração de execução escolhe uma classe principal; não é obrigatório excluir as demais. Em Arquivo > Propriedades do Projeto, consulte a configuração de execução (Run/Executar). Só remova uma classe se ela for realmente desnecessária.",
+      "example": "public class Inicio {\n    public static void main(String[] args) {\n        System.out.println(\"Início\");\n    }\n}"
+    },
+    {
+      "title": "Construir e executar",
+      "text": "[FUNDAMENTOS] Construir verifica e compila os fontes necessários e pode gerar um JAR. Executar inicia a aplicação configurada. No NetBeans 8.2, F6 normalmente executa o projeto e Shift+F6 executa o arquivo selecionado quando suportado. Salvar não equivale a compilar. O painel Saída apresenta mensagens de construção e execução.",
+      "example": "BUILD SUCCESSFUL\n// Mensagem ilustrativa de construção, não código Java."
+    },
+    {
+      "title": "Painéis e editor visual",
+      "text": "[CURRICULAR] A apostila apresenta barra de ferramentas, painel Projetos e editor visual Swing. A aba Código-Fonte mostra Java; a aba Design/Projeto permite montar a interface. A paleta oferece componentes; as propriedades permitem configurá-los. [FUNDAMENTOS] O editor visual atualiza código gerado, incluindo initComponents(). Não confunda o nome de uma variável com o texto visível de um componente.",
+      "example": "javax.swing.JButton botao = new javax.swing.JButton();\nbotao.setText(\"Cadastrar\");"
+    },
+    {
+      "title": "Diagnóstico e manutenção",
+      "text": "[FUNDAMENTOS] Erros de compilação impedem uma construção válida; erros de execução surgem durante a execução; erros lógicos produzem comportamento incorreto mesmo quando o programa executa. Leia a primeira mensagem relevante, confira arquivo e linha, e teste novamente. Alt+Shift+F é o atalho padrão de formatação Java no NetBeans 8.2. Formatação não corrige lógica. O depurador permite pausar e examinar valores.",
+      "example": "int quantidade = 3;\nint preco = 5;\nSystem.out.println(quantidade * preco);"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "O ambiente integrado",
+      "title": "IDE",
+      "prompt": "O que significa IDE?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A sigla designa um ambiente que integra ferramentas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Instalador de Desenvolvimento Estático"
+        },
+        {
+          "id": "b",
+          "text": "Interpretador de Dados Externos"
+        },
+        {
+          "id": "c",
+          "text": "Interface de Dados Executáveis"
+        },
+        {
+          "id": "d",
+          "text": "Ambiente de Desenvolvimento Integrado"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "02",
+      "group": "O ambiente integrado",
+      "title": "Editor",
+      "prompt": "Qual recurso permite escrever e alterar código-fonte?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O editor é destinado à edição dos fontes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Gerenciador de dependências"
+        },
+        {
+          "id": "b",
+          "text": "JVM"
+        },
+        {
+          "id": "c",
+          "text": "Depurador"
+        },
+        {
+          "id": "d",
+          "text": "Editor de código"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "O ambiente integrado",
+      "title": "Depuração",
+      "prompt": "Qual recurso ajuda a pausar a execução e examinar variáveis?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O depurador permite investigar o estado do programa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Editor de propriedades"
+        },
+        {
+          "id": "b",
+          "text": "Compilador"
+        },
+        {
+          "id": "c",
+          "text": "Paleta"
+        },
+        {
+          "id": "d",
+          "text": "Depurador"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "04",
+      "group": "O ambiente integrado",
+      "title": "Projetos",
+      "prompt": "Qual recurso organiza arquivos e classes?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O gerenciador apresenta a estrutura do projeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JOptionPane"
+        },
+        {
+          "id": "b",
+          "text": "JVM"
+        },
+        {
+          "id": "c",
+          "text": "Gerenciador de projetos"
+        },
+        {
+          "id": "d",
+          "text": "Compilador"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "05",
+      "group": "O ambiente integrado",
+      "title": "Aplicações",
+      "prompt": "Qual exemplo corresponde a uma aplicação desktop?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Uma aplicação desktop é executada no computador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Bytecode isolado sem execução"
+        },
+        {
+          "id": "b",
+          "text": "Arquivo de texto sem programa"
+        },
+        {
+          "id": "c",
+          "text": "Cadastro local com janela Swing"
+        },
+        {
+          "id": "d",
+          "text": "Imagem estática de um formulário"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "06",
+      "group": "JDK, compilador e JVM",
+      "title": "JDK",
+      "prompt": "Qual conjunto fornece javac?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "javac faz parte das ferramentas do JDK.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JFrame"
+        },
+        {
+          "id": "b",
+          "text": "JDK"
+        },
+        {
+          "id": "c",
+          "text": "Arquivo .form"
+        },
+        {
+          "id": "d",
+          "text": "JAR de uma aplicação"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "07",
+      "group": "JDK, compilador e JVM",
+      "title": "Compilação",
+      "prompt": "Qual é o produto usual da compilação de um fonte Java?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "javac gera bytecode.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Bytecode em arquivo .class"
+        },
+        {
+          "id": "b",
+          "text": "Imagem da janela"
+        },
+        {
+          "id": "c",
+          "text": "Código Python"
+        },
+        {
+          "id": "d",
+          "text": "Arquivo .form"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "08",
+      "group": "JDK, compilador e JVM",
+      "title": "Execução",
+      "prompt": "Qual componente executa bytecode?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A JVM executa as instruções do bytecode.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Gerenciador de projetos"
+        },
+        {
+          "id": "b",
+          "text": "Editor de fontes"
+        },
+        {
+          "id": "c",
+          "text": "Paleta Swing"
+        },
+        {
+          "id": "d",
+          "text": "JVM"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "09",
+      "group": "JDK, compilador e JVM",
+      "title": "Plataforma",
+      "prompt": "Por que conferir a plataforma Java do projeto?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A plataforma influencia compilação e compatibilidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para definir o tamanho da janela."
+        },
+        {
+          "id": "b",
+          "text": "Para alterar o nome de uma variável."
+        },
+        {
+          "id": "c",
+          "text": "Para escolher o texto de um botão."
+        },
+        {
+          "id": "d",
+          "text": "Para saber qual JDK será utilizado."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "10",
+      "group": "Criar um projeto",
+      "title": "Projeto",
+      "prompt": "Qual sequência corresponde à criação descrita na apostila?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O formulário é adicionado ao projeto criado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Criar arquivo .class manualmente, abrir paleta."
+        },
+        {
+          "id": "b",
+          "text": "Compilar antes de criar projeto, adicionar JFrame."
+        },
+        {
+          "id": "c",
+          "text": "Adicionar JFrame, excluir projeto, nomear."
+        },
+        {
+          "id": "d",
+          "text": "Novo Projeto, Aplicação Java, nomear, adicionar JFrame."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "Criar um projeto",
+      "title": "Organização",
+      "prompt": "Um projeto Java pode reunir o quê?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Projetos agrupam fontes, configurações e recursos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente um formulário."
+        },
+        {
+          "id": "b",
+          "text": "Somente arquivos .class."
+        },
+        {
+          "id": "c",
+          "text": "Somente uma classe."
+        },
+        {
+          "id": "d",
+          "text": "Várias classes e recursos."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "12",
+      "group": "Criar um projeto",
+      "title": "Classe inicial",
+      "prompt": "Se a opção de criar classe principal for desmarcada, o que ocorre?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A opção controla a geração inicial, não as regras de execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "A JVM é removida."
+        },
+        {
+          "id": "b",
+          "text": "O Java deixa de exigir entrada para execução."
+        },
+        {
+          "id": "c",
+          "text": "O projeto pode ser criado sem aquela classe inicial."
+        },
+        {
+          "id": "d",
+          "text": "O projeto não pode receber classes."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "13",
+      "group": "Pacotes e arquivos",
+      "title": "Pacote",
+      "prompt": "Qual a função de um pacote?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Pacotes organizam nomes de tipos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Executar a aplicação."
+        },
+        {
+          "id": "b",
+          "text": "Organizar classes em espaços de nomes."
+        },
+        {
+          "id": "c",
+          "text": "Substituir o compilador."
+        },
+        {
+          "id": "d",
+          "text": "Definir o texto de um botão."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Pacotes e arquivos",
+      "title": "Fonte",
+      "prompt": "Qual extensão identifica código-fonte Java?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O fonte Java utiliza .java.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": ".java"
+        },
+        {
+          "id": "b",
+          "text": ".jar"
+        },
+        {
+          "id": "c",
+          "text": ".form"
+        },
+        {
+          "id": "d",
+          "text": ".class"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "15",
+      "group": "Pacotes e arquivos",
+      "title": "Formulário",
+      "prompt": "Qual arquivo mantém metadados do GUI Builder?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O .form permite ao editor visual manter o formulário.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": ".form"
+        },
+        {
+          "id": "b",
+          "text": ".log"
+        },
+        {
+          "id": "c",
+          "text": ".jar"
+        },
+        {
+          "id": "d",
+          "text": ".class"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "16",
+      "group": "Pacotes e arquivos",
+      "title": "Preservação",
+      "prompt": "Ao copiar um formulário editável para outro projeto, quais arquivos devem ser preservados?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O código e os metadados são necessários para manter a edição visual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas uma captura de tela."
+        },
+        {
+          "id": "b",
+          "text": "Apenas o .form."
+        },
+        {
+          "id": "c",
+          "text": "Apenas o .class."
+        },
+        {
+          "id": "d",
+          "text": "O .java e o .form correspondentes."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "17",
+      "group": "Classe principal",
+      "title": "Classe principal",
+      "prompt": "Um projeto pode ter duas classes com main válido?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Várias entradas possíveis não impedem a compilação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não; cada projeto admite uma classe."
+        },
+        {
+          "id": "b",
+          "text": "Sim, mas apenas em Python."
+        },
+        {
+          "id": "c",
+          "text": "Não; o compilador rejeita sempre."
+        },
+        {
+          "id": "d",
+          "text": "Sim; a configuração escolhe a entrada."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "18",
+      "group": "Classe principal",
+      "title": "Configuração",
+      "prompt": "Onde consultar a classe principal configurada?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A entrada é uma configuração de execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Editor de cores."
+        },
+        {
+          "id": "b",
+          "text": "Propriedade text do JLabel."
+        },
+        {
+          "id": "c",
+          "text": "Paleta de componentes."
+        },
+        {
+          "id": "d",
+          "text": "Propriedades do Projeto, configuração de execução."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Classe principal",
+      "title": "Exclusão",
+      "prompt": "É obrigatório excluir uma classe inicial ao criar um JFrame com main?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A classe principal pode ser selecionada sem apagar outras.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se houver pacote."
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre."
+        },
+        {
+          "id": "c",
+          "text": "Não; só exclua se for desnecessária."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se houver JButton."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "20",
+      "group": "Construir e executar",
+      "title": "Salvar",
+      "prompt": "Salvar o fonte garante compilação bem-sucedida?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Salvar grava alterações; compilar verifica o código.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se o arquivo tiver extensão .java."
+        },
+        {
+          "id": "b",
+          "text": "Sim, se a IDE estiver aberta."
+        },
+        {
+          "id": "c",
+          "text": "Não."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se houver main."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "21",
+      "group": "Construir e executar",
+      "title": "Executar projeto",
+      "prompt": "Qual atalho padrão normalmente executa o projeto no NetBeans 8.2?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "F6 normalmente executa o projeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Shift+F6"
+        },
+        {
+          "id": "b",
+          "text": "F6"
+        },
+        {
+          "id": "c",
+          "text": "Ctrl+S"
+        },
+        {
+          "id": "d",
+          "text": "Alt+Shift+F"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "22",
+      "group": "Construir e executar",
+      "title": "Executar arquivo",
+      "prompt": "Qual atalho normalmente executa o arquivo selecionado quando suportado?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Executar arquivo é diferente de executar projeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Shift+F6"
+        },
+        {
+          "id": "b",
+          "text": "Alt+Shift+F"
+        },
+        {
+          "id": "c",
+          "text": "Ctrl+S"
+        },
+        {
+          "id": "d",
+          "text": "F6"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "23",
+      "group": "Construir e executar",
+      "title": "Construção",
+      "prompt": "BUILD SUCCESSFUL comprova que a lógica está correta?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Construção bem-sucedida não substitui testes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, comprova requisitos do usuário."
+        },
+        {
+          "id": "b",
+          "text": "Sim, comprova ausência de exceções futuras."
+        },
+        {
+          "id": "c",
+          "text": "Sim, comprova todos os resultados."
+        },
+        {
+          "id": "d",
+          "text": "Não, informa sucesso da construção."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "24",
+      "group": "Painéis e editor visual",
+      "title": "Design",
+      "prompt": "Qual aba permite montar visualmente um formulário?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O editor visual permite configurar componentes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Depuração"
+        },
+        {
+          "id": "b",
+          "text": "Saída"
+        },
+        {
+          "id": "c",
+          "text": "Código-Fonte"
+        },
+        {
+          "id": "d",
+          "text": "Design/Projeto"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "25",
+      "group": "Painéis e editor visual",
+      "title": "Código",
+      "prompt": "Onde consultar initComponents()?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O método pertence ao fonte Java.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "No arquivo .class aberto como texto."
+        },
+        {
+          "id": "b",
+          "text": "No painel de saída."
+        },
+        {
+          "id": "c",
+          "text": "Na paleta."
+        },
+        {
+          "id": "d",
+          "text": "Na aba Código-Fonte do formulário."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "26",
+      "group": "Painéis e editor visual",
+      "title": "Paleta",
+      "prompt": "Qual painel oferece componentes para adicionar à janela?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A paleta reúne componentes gráficos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Terminal"
+        },
+        {
+          "id": "b",
+          "text": "Depurador"
+        },
+        {
+          "id": "c",
+          "text": "Saída"
+        },
+        {
+          "id": "d",
+          "text": "Paleta"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Painéis e editor visual",
+      "title": "Nome e texto",
+      "prompt": "Alterar setText(\"Salvar\") renomeia a variável botao?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "Texto exibido e identificador são propriedades distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim; muda o pacote."
+        },
+        {
+          "id": "b",
+          "text": "Sim; muda o identificador para Salvar."
+        },
+        {
+          "id": "c",
+          "text": "Não; altera o texto visível."
+        },
+        {
+          "id": "d",
+          "text": "Não; altera a classe principal."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "28",
+      "group": "Diagnóstico e manutenção",
+      "title": "Erro sintático",
+      "prompt": "Falta de ponto e vírgula em declaração local é normalmente detectada quando?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O compilador verifica a sintaxe.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente após clicar em um botão."
+        },
+        {
+          "id": "b",
+          "text": "Na compilação."
+        },
+        {
+          "id": "c",
+          "text": "Somente ao instalar o JDK."
+        },
+        {
+          "id": "d",
+          "text": "Somente ao fechar a janela."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "29",
+      "group": "Diagnóstico e manutenção",
+      "title": "Erro lógico",
+      "prompt": "Um cálculo usa soma quando deveria multiplicar e executa normalmente. Qual o problema?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "O programa executa, mas não atende ao requisito.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Erro lógico."
+        },
+        {
+          "id": "b",
+          "text": "Erro de pacote."
+        },
+        {
+          "id": "c",
+          "text": "Erro de sintaxe."
+        },
+        {
+          "id": "d",
+          "text": "Erro de instalação."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "30",
+      "group": "Diagnóstico e manutenção",
+      "title": "Formatação",
+      "prompt": "Qual atalho padrão formata o código Java no NetBeans 8.2?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A formatação reorganiza a apresentação do fonte.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Alt+Shift+F"
+        },
+        {
+          "id": "b",
+          "text": "Ctrl+S"
+        },
+        {
+          "id": "c",
+          "text": "Shift+F6"
+        },
+        {
+          "id": "d",
+          "text": "F6"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "31",
+      "group": "Diagnóstico e manutenção",
+      "title": "Investigação",
+      "prompt": "Qual ação é adequada após mensagem de compilação?",
+      "hint": "Considere a função da ferramenta ou estrutura mencionada.",
+      "explanation": "A mensagem ajuda a localizar o problema.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ignorar e considerar o teste aprovado."
+        },
+        {
+          "id": "b",
+          "text": "Alterar a cor da janela."
+        },
+        {
+          "id": "c",
+          "text": "Excluir todo o projeto."
+        },
+        {
+          "id": "d",
+          "text": "Ler a mensagem e conferir arquivo e linha."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "32",
+      "group": "JDK, compilador e JVM",
+      "title": "Caminho do programa",
+      "prompt": "Descreva o caminho do fonte até a execução.",
+      "solution": "Fonte .java → javac → bytecode .class → JVM.",
+      "explanation": "O NetBeans coordena ferramentas do JDK.",
+      "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Classe principal",
+      "title": "Duas entradas",
+      "prompt": "CadastroAlunos e TelaCadastro têm main. Como iniciar TelaCadastro sem excluir CadastroAlunos?",
+      "solution": "Configure TelaCadastro como classe principal nas propriedades de execução.",
+      "explanation": "A escolha da entrada não exige exclusão de fontes.",
+      "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Pacotes e arquivos",
+      "title": "Backup",
+      "prompt": "Quais arquivos preservar para continuar editando um JFrame visualmente?",
+      "solution": "Os fontes .java, os metadados .form e as configurações e recursos necessários do projeto.",
+      "explanation": "Copiar apenas bytecode não preserva a edição.",
+      "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Construir e executar",
+      "title": "Teste",
+      "prompt": "Explique por que construir e testar são ações diferentes.",
+      "solution": "Construir verifica e compila; testar verifica o comportamento em situações concretas.",
+      "explanation": "Compilação não comprova requisitos.",
+      "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Painéis e editor visual",
+      "title": "Interface e lógica",
+      "prompt": "Explique a diferença entre alterar o texto de um botão no editor visual e programar seu clique.",
+      "solution": "A primeira ação configura aparência; a segunda define comportamento no evento.",
+      "explanation": "O GUI Builder gera configuração, mas a lógica precisa ser implementada.",
+      "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Diagnóstico e manutenção",
+      "title": "Diagnóstico",
+      "prompt": "Um programa compila, mas calcula 3 + 5 em vez de 3 * 5. Identifique e corrija.",
+      "solution": "Erro lógico: substituir + por *; resultado esperado 15.",
+      "explanation": "O operador errado pode ser sintaticamente válido.",
+      "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
