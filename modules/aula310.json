@@ -1,0 +1,899 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula310",
+  "title": "Cores e propriedades visuais",
+  "subtitle": "Color, fundo, texto e contraste",
+  "objectives": "Distinguir foreground, background e text, utilizar constantes Color e compreender estado visual, contraste e reutilização de métodos.",
+  "source": "Previa_Cor.pdf (https://drive.google.com/file/d/1SsbCzM6rKI_-Ptc3jgtBmSTW76DDAybp/view) e Cor_Favorita.pdf (https://drive.google.com/file/d/1ypkpJR-yuP7QKBcgUhkgJsokIIaW7sN5/view). Texto recuperado e consultado; imagens não examinadas. Fundamentos e aprofundamentos autorais Java 8 identificados.",
+  "chapters": [
+    {
+      "title": "A classe Color",
+      "text": "[CURRICULAR] As duas atividades usam java.awt.Color. O import permite escrever Color em vez do nome qualificado. Color é uma classe da AWT utilizada também por componentes Swing. [FUNDAMENTOS] Suas constantes são referências a objetos Color; não são textos nem comandos.",
+      "example": "import java.awt.Color;\n// Coloque o import antes da declaração da classe."
+    },
+    {
+      "title": "Prévia de Cor",
+      "text": "[CURRICULAR, Previa_Cor.pdf] O projeto Previa_Cor e o JFrame telaPrincipal utilizam pnlFundo. O evento do botão AZUL altera o fundo do painel. setBackground é um método que recebe um objeto Color, não uma propriedade atribuída diretamente.",
+      "example": "pnlFundo.setBackground(Color.blue);"
+    },
+    {
+      "title": "Contraste do título",
+      "text": "[CURRICULAR, Previa_Cor.pdf] Preto exige título branco e branco exige título preto para preservar a leitura. [FUNDAMENTOS] Se outros botões não restaurarem a cor do título, ela pode permanecer da ação anterior. Planeje cada evento considerando o estado deixado por qualquer clique precedente.",
+      "example": "// Evento PRETO\npnlFundo.setBackground(Color.black);\nlblTitulo.setForeground(Color.white);\n// Evento BRANCO (outro método)\npnlFundo.setBackground(Color.white);\nlblTitulo.setForeground(Color.black);"
+    },
+    {
+      "title": "Cor Favorita",
+      "text": "[CURRICULAR, Cor_Favorita.pdf] No projeto Cor_Favorita, JFrame telaPrincipal, o botão VERMELHO altera a cor do texto de lblCorFavorita e substitui o texto temporário ??? pelo nome da cor. São duas alterações independentes no mesmo evento.",
+      "example": "lblCorFavorita.setForeground(Color.red);\nlblCorFavorita.setText(\"Vermelho\");"
+    },
+    {
+      "title": "Constantes disponíveis",
+      "text": "[CURRICULAR, Cor_Favorita.pdf] A apostila lista black (preto), blue (azul), cyan (ciano), darkGray (cinza escuro), gray (cinza), green (verde), lightGray (cinza claro), magenta, orange (laranja), pink (rosa), red (vermelho), white (branco) e yellow (amarelo). Java distingue maiúsculas de minúsculas. [FUNDAMENTOS] Color.RED também existe como constante equivalente a Color.red.",
+      "example": "lblCorFavorita.setForeground(Color.magenta);\nlblCorFavorita.setText(\"Magenta\");"
+    },
+    {
+      "title": "Estado e propriedades",
+      "text": "[FUNDAMENTOS] Cada clique altera propriedades do mesmo objeto existente. O texto, a cor do conteúdo e a cor do fundo são independentes. getForeground e getBackground consultam cores; getText consulta o texto. Um JLabel normalmente não é opaco; para pintar seu fundo, pode ser necessário setOpaque(true).",
+      "example": "lblCorFavorita.setOpaque(true);\nlblCorFavorita.setBackground(Color.white);\nlblCorFavorita.setForeground(Color.blue);"
+    },
+    {
+      "title": "Cores personalizadas",
+      "text": "[APROFUNDAMENTO] O construtor Color(int r, int g, int b) recebe três intensidades inteiras de 0 a 255. RGB significa vermelho, verde e azul. Fora da faixa, esse construtor lança IllegalArgumentException. O objeto pode ser reutilizado em vários componentes. Este assunto complementa as constantes da apostila.",
+      "example": "Color violeta = new Color(128, 0, 255);\npnlFundo.setBackground(violeta);"
+    },
+    {
+      "title": "Reutilização e testes",
+      "text": "[FUNDAMENTOS] Um método auxiliar pode reunir as duas alterações de uma atividade e reduzir repetição. Declare-o no corpo do JFrame, fora dos outros métodos e das regiões protegidas. Chame-o no evento de cada botão. Teste sequências de cliques, legibilidade e correspondência entre nome e cor. Não dependa exclusivamente da cor para transmitir informação.",
+      "example": "private void mostrarCor(Color cor, String nome) {\n    lblCorFavorita.setForeground(cor);\n    lblCorFavorita.setText(nome);\n}\n// Dentro do evento VERMELHO:\n// mostrarCor(Color.red, \"Vermelho\");"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "A classe Color",
+      "title": "Import",
+      "prompt": "Qual import permite usar Color sem qualificar o pacote?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Color pertence a java.awt.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "import javax.swing.Color;"
+        },
+        {
+          "id": "b",
+          "text": "import java.lang.Color;"
+        },
+        {
+          "id": "c",
+          "text": "import java.awt.Color;"
+        },
+        {
+          "id": "d",
+          "text": "import java.awt.color;"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "A classe Color",
+      "title": "Tipo",
+      "prompt": "Qual é o tipo de Color.blue?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "É uma referência a um objeto Color.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color"
+        },
+        {
+          "id": "b",
+          "text": "String"
+        },
+        {
+          "id": "c",
+          "text": "int"
+        },
+        {
+          "id": "d",
+          "text": "boolean"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Prévia de Cor",
+      "title": "Fundo",
+      "prompt": "Qual comando altera o fundo de pnlFundo para azul?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "setBackground altera a propriedade de fundo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "pnlFundo.setForeground(Color.blue);"
+        },
+        {
+          "id": "b",
+          "text": "pnlFundo.setText(\"Azul\");"
+        },
+        {
+          "id": "c",
+          "text": "pnlFundo.getBackground();"
+        },
+        {
+          "id": "d",
+          "text": "pnlFundo.setBackground(Color.blue);"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "04",
+      "group": "Prévia de Cor",
+      "title": "Argumento",
+      "prompt": "Qual argumento é adequado para setBackground?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "O método espera Color.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"Color.blue\""
+        },
+        {
+          "id": "b",
+          "text": "Color.blue"
+        },
+        {
+          "id": "c",
+          "text": "\"Azul\""
+        },
+        {
+          "id": "d",
+          "text": "true"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Contraste do título",
+      "title": "Preto",
+      "prompt": "Qual cor de título a apostila usa sobre fundo preto?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "O branco contrasta com preto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color.black"
+        },
+        {
+          "id": "b",
+          "text": "Color.white"
+        },
+        {
+          "id": "c",
+          "text": "Color.darkGray"
+        },
+        {
+          "id": "d",
+          "text": "Color.blue"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "06",
+      "group": "Contraste do título",
+      "title": "Branco",
+      "prompt": "Qual cor de título a apostila usa sobre fundo branco?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "O preto contrasta com branco.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color.white"
+        },
+        {
+          "id": "b",
+          "text": "Color.lightGray"
+        },
+        {
+          "id": "c",
+          "text": "Color.yellow"
+        },
+        {
+          "id": "d",
+          "text": "Color.black"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Contraste do título",
+      "title": "Sequência",
+      "prompt": "Após PRETO, um botão muda apenas o fundo para branco. Qual cor do título permanece?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "A propriedade foreground não foi alterada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Branca"
+        },
+        {
+          "id": "b",
+          "text": "Preta"
+        },
+        {
+          "id": "c",
+          "text": "Azul"
+        },
+        {
+          "id": "d",
+          "text": "A cor inicial automaticamente"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "08",
+      "group": "Cor Favorita",
+      "title": "Texto colorido",
+      "prompt": "Qual método muda a cor do texto do rótulo?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Foreground é a cor do conteúdo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "setBackground"
+        },
+        {
+          "id": "b",
+          "text": "setText"
+        },
+        {
+          "id": "c",
+          "text": "setForeground"
+        },
+        {
+          "id": "d",
+          "text": "getForeground"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "09",
+      "group": "Cor Favorita",
+      "title": "Conteúdo",
+      "prompt": "Qual comando substitui ??? por Vermelho?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "setText modifica o conteúdo textual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "lblCorFavorita.setForeground(Color.red);"
+        },
+        {
+          "id": "b",
+          "text": "lblCorFavorita.setBackground(Color.red);"
+        },
+        {
+          "id": "c",
+          "text": "lblCorFavorita.getText();"
+        },
+        {
+          "id": "d",
+          "text": "lblCorFavorita.setText(\"Vermelho\");"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "10",
+      "group": "Cor Favorita",
+      "title": "Duas alterações",
+      "prompt": "Se executar apenas setForeground(Color.red), o que ocorre com ????",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "As propriedades são independentes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Vira Vermelho automaticamente."
+        },
+        {
+          "id": "b",
+          "text": "Permanece como texto, agora com a cor alterada."
+        },
+        {
+          "id": "c",
+          "text": "É apagado."
+        },
+        {
+          "id": "d",
+          "text": "Vira Color.red."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "11",
+      "group": "Constantes disponíveis",
+      "title": "Ciano",
+      "prompt": "Qual constante representa ciano?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "cyan é a constante indicada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color.blue"
+        },
+        {
+          "id": "b",
+          "text": "Color.green"
+        },
+        {
+          "id": "c",
+          "text": "Color.cyan"
+        },
+        {
+          "id": "d",
+          "text": "Color.magenta"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Constantes disponíveis",
+      "title": "Cinza escuro",
+      "prompt": "Qual constante representa cinza escuro?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Observe a grafia camelCase.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color.darkGray"
+        },
+        {
+          "id": "b",
+          "text": "Color.lightGray"
+        },
+        {
+          "id": "c",
+          "text": "Color.gray"
+        },
+        {
+          "id": "d",
+          "text": "Color.black"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "13",
+      "group": "Constantes disponíveis",
+      "title": "Grafia",
+      "prompt": "Qual constante está escrita corretamente?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Java distingue maiúsculas e minúsculas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color.lightGray"
+        },
+        {
+          "id": "b",
+          "text": "Color.lightgray"
+        },
+        {
+          "id": "c",
+          "text": "Color.LightGray"
+        },
+        {
+          "id": "d",
+          "text": "Color.light_gray"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "Constantes disponíveis",
+      "title": "Equivalência",
+      "prompt": "Qual constante equivale a Color.red?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "A classe também fornece a constante RED.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Color.Red"
+        },
+        {
+          "id": "b",
+          "text": "Color.red()"
+        },
+        {
+          "id": "c",
+          "text": "Color.RED"
+        },
+        {
+          "id": "d",
+          "text": "\"red\""
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "15",
+      "group": "Estado e propriedades",
+      "title": "Consulta",
+      "prompt": "Qual método consulta a cor de fundo?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "O getter consulta a propriedade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "setBackground()"
+        },
+        {
+          "id": "b",
+          "text": "getBackground()"
+        },
+        {
+          "id": "c",
+          "text": "getForeground()"
+        },
+        {
+          "id": "d",
+          "text": "getText()"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "16",
+      "group": "Estado e propriedades",
+      "title": "Opacidade",
+      "prompt": "Qual configuração permite ao JLabel pintar seu próprio fundo?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "A opacidade é relevante para a pintura do fundo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "setOpaque(false)"
+        },
+        {
+          "id": "b",
+          "text": "setEditable(true)"
+        },
+        {
+          "id": "c",
+          "text": "setText(\"\")"
+        },
+        {
+          "id": "d",
+          "text": "setOpaque(true)"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "17",
+      "group": "Estado e propriedades",
+      "title": "Estado",
+      "prompt": "O que ocorre com o texto ao chamar setBackground?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Fundo e texto são propriedades distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "É substituído pelo nome da cor."
+        },
+        {
+          "id": "b",
+          "text": "É apagado."
+        },
+        {
+          "id": "c",
+          "text": "Permanece inalterado."
+        },
+        {
+          "id": "d",
+          "text": "É convertido em Color."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Cores personalizadas",
+      "title": "RGB",
+      "prompt": "Qual construção representa vermelho puro?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "A primeira intensidade é vermelha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "new Color(0, 255, 0)"
+        },
+        {
+          "id": "b",
+          "text": "new Color(0, 0, 255)"
+        },
+        {
+          "id": "c",
+          "text": "new Color(255, 255, 255)"
+        },
+        {
+          "id": "d",
+          "text": "new Color(255, 0, 0)"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Cores personalizadas",
+      "title": "Limite",
+      "prompt": "Qual é o maior valor inteiro permitido em cada canal RGB desse construtor?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Cada canal inteiro está entre 0 e 255.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "255"
+        },
+        {
+          "id": "b",
+          "text": "256"
+        },
+        {
+          "id": "c",
+          "text": "100"
+        },
+        {
+          "id": "d",
+          "text": "1024"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "20",
+      "group": "Cores personalizadas",
+      "title": "Erro",
+      "prompt": "Qual exceção new Color(256, 0, 0) lança?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "O argumento está fora da faixa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "NumberFormatException"
+        },
+        {
+          "id": "b",
+          "text": "IllegalArgumentException"
+        },
+        {
+          "id": "c",
+          "text": "NullPointerException"
+        },
+        {
+          "id": "d",
+          "text": "ArithmeticException"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Reutilização e testes",
+      "title": "Método auxiliar",
+      "prompt": "Onde declarar mostrarCor como método de instância?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Java não permite declarar um método comum dentro de outro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Dentro do corpo de actionPerformed."
+        },
+        {
+          "id": "b",
+          "text": "Dentro do import."
+        },
+        {
+          "id": "c",
+          "text": "Na propriedade text."
+        },
+        {
+          "id": "d",
+          "text": "No corpo da classe, fora de outros métodos."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "22",
+      "group": "Reutilização e testes",
+      "title": "Argumentos",
+      "prompt": "Qual chamada corresponde à assinatura mostrarCor(Color cor, String nome)?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Os argumentos devem corresponder aos tipos e à ordem.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "mostrarCor(Color.red, \"Vermelho\");"
+        },
+        {
+          "id": "b",
+          "text": "mostrarCor(\"Vermelho\", Color.red);"
+        },
+        {
+          "id": "c",
+          "text": "mostrarCor(Color.red);"
+        },
+        {
+          "id": "d",
+          "text": "mostrarCor(\"Vermelho\", \"red\");"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "23",
+      "group": "Reutilização e testes",
+      "title": "Teste",
+      "prompt": "Qual teste detecta cor de título herdada de clique anterior?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Sequências de ações revelam dependência de estado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Abrir o projeto sem executar."
+        },
+        {
+          "id": "b",
+          "text": "Conferir apenas o nome do arquivo."
+        },
+        {
+          "id": "c",
+          "text": "Clicar Preto e depois Branco, conferindo o contraste."
+        },
+        {
+          "id": "d",
+          "text": "Clicar somente uma vez em Azul."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Reutilização e testes",
+      "title": "Acessibilidade",
+      "prompt": "Qual prática evita depender apenas da percepção de cor?",
+      "hint": "Observe a propriedade que o método altera e o tipo de argumento.",
+      "explanation": "Texto fornece uma indicação adicional.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Remover todos os rótulos."
+        },
+        {
+          "id": "b",
+          "text": "Mostrar também o nome da cor em texto."
+        },
+        {
+          "id": "c",
+          "text": "Usar apenas fundo colorido."
+        },
+        {
+          "id": "d",
+          "text": "Ocultar o texto após cada clique."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "25",
+      "group": "Prévia de Cor",
+      "title": "Fundo azul",
+      "prompt": "Escreva o comando do botão AZUL.",
+      "solution": "pnlFundo.setBackground(Color.blue);",
+      "explanation": "O painel recebe a cor de fundo.",
+      "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Contraste do título",
+      "title": "Fundo preto",
+      "prompt": "Escreva os dois comandos do botão PRETO.",
+      "solution": "pnlFundo.setBackground(Color.black);\nlblTitulo.setForeground(Color.white);",
+      "explanation": "O título permanece legível.",
+      "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Cor Favorita",
+      "title": "Cor favorita",
+      "prompt": "Adapte o evento VERMELHO para LARANJA.",
+      "solution": "lblCorFavorita.setForeground(Color.orange);\nlblCorFavorita.setText(\"Laranja\");",
+      "explanation": "Atualize cor e conteúdo.",
+      "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Estado e propriedades",
+      "title": "Diagnóstico",
+      "prompt": "Por que mudar apenas o fundo do JLabel pode não produzir a aparência esperada?",
+      "solution": "O JLabel normalmente não é opaco; setOpaque(true) permite pintar seu fundo.",
+      "explanation": "A pintura depende da opacidade.",
+      "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Cores personalizadas",
+      "title": "RGB",
+      "prompt": "Crie um objeto Color com canais 30, 60 e 90.",
+      "solution": "Color cor = new Color(30, 60, 90);",
+      "explanation": "Os três valores estão na faixa válida.",
+      "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Reutilização e testes",
+      "title": "Reutilizar",
+      "prompt": "Chame mostrarCor para a opção Rosa.",
+      "solution": "mostrarCor(Color.pink, \"Rosa\");",
+      "explanation": "Passe o objeto Color e o nome textual.",
+      "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
