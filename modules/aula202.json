@@ -1,0 +1,491 @@
+{
+  "schema_version": 2,
+  "discipline": "portugol",
+  "id": "aula202",
+  "title": "Variáveis e entrada de dados",
+  "subtitle": "Tipos, declarações, leitura, saída e rastreamento",
+  "objectives": "Escolher tipos de dados; declarar variáveis; distinguir entrada e saída; interpretar valores literais e armazenados; rastrear leituras e elaborar um cadastro simples.",
+  "source": "Base acadêmica: Aula_2_Variaveis_Entrada_Dados_Widescreen-1.pdf, nove slides examinados visualmente em 23/11/2026. Slides 2–9: variáveis, cinco tipos, leia e escreva, declaração, cadastro e saída. Exemplos e exercícios autorais; aprofundamentos identificados. Estrutura programa restaurada nos exemplos completos; sintaxe não executada nesta etapa.",
+  "chapters": [
+    {
+      "title": "1. Variáveis: nome, tipo e valor",
+      "text": "A apostila apresenta variáveis como espaços de memória que guardam informações utilizadas durante a execução. Pense no nome como uma referência ao dado, no tipo como a categoria de valores permitidos e no valor como a informação atual.\n\nAPROFUNDAMENTO: uma variável não é o próprio texto de seu nome. Duas variáveis do mesmo tipo podem guardar valores diferentes. Guardar dados durante a execução não equivale a salvar um arquivo permanente.",
+      "example": "cadeia cidade = \"Niterói\"\ninteiro quantidade = 3"
+    },
+    {
+      "title": "2. Os cinco tipos básicos",
+      "text": "A apostila distingue cadeia (texto), inteiro (número sem parte fracionária), real (número que admite parte fracionária), caracter (um caractere) e logico (verdadeiro ou falso).\n\nAPROFUNDAMENTO: escolha o tipo pelo significado e pelas operações necessárias. Um CEP é melhor representado por texto, pois zeros iniciais importam. Um número inteiro também pode ser negativo. Um real pode representar valores inteiros, mas sua representação computacional tem precisão limitada. No código Portugol, use aspas duplas para cadeia e simples para caracter; a tabela ilustrada da apostila não distingue essas aspas.",
+      "example": "cadeia cep = \"01234-567\"\ninteiro saldo = -2\nreal comprimento = 2.75\ncaracter turno = 'N'\nlogico matriculado = verdadeiro"
+    },
+    {
+      "title": "3. Declarar antes de utilizar",
+      "text": "A declaração informa o tipo e o identificador antes de usar a variável em leia(). A apostila declara cinco variáveis para um cadastro.\n\nAPROFUNDAMENTO: use nomes significativos, sem espaços, e evite palavras reservadas. Uma declaração pode incluir um valor inicial. Não dependa de valores iniciais implícitos: atribua ou leia um valor antes de utilizá-lo. Os exemplos a seguir usam declarações dentro de inicio() e não exigem ponto e vírgula.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        cadeia produto\n        inteiro unidades\n        real peso\n    }\n}"
+    },
+    {
+      "title": "4. Entrada de dados com leia()",
+      "text": "O comando leia() recebe o valor digitado e o guarda na variável indicada. A apostila combina uma pergunta exibida com escreva() e a leitura da resposta.\n\nAPROFUNDAMENTO: a pergunta não realiza a leitura. O tipo declarado determina a categoria de dado esperada. Uma leitura incompatível pode produzir erro; o comportamento específico depende do ambiente. A validação de valores será aprofundada em aulas posteriores.",
+      "example": "escreva(\"Quantidade de livros: \")\nleia(unidades)\n// unidades deve ter sido declarada como inteiro"
+    },
+    {
+      "title": "5. Saída: texto literal e valor armazenado",
+      "text": "A apostila utiliza escreva() para exibir mensagens e valores de variáveis, inclusive combinados na mesma chamada. A sequência \\n representa uma quebra de linha.\n\nAPROFUNDAMENTO: escreva(\"cidade\") mostra a palavra cidade; escreva(cidade) mostra o valor armazenado. Vírgulas separam os argumentos, mas não inserem automaticamente espaços entre eles.",
+      "example": "cadeia cidade = \"Recife\"\nescreva(\"Cidade: \", cidade, \"\\n\")\n// Saída: Cidade: Recife"
+    },
+    {
+      "title": "6. Rastreamento e alteração de valores",
+      "text": "A sequência de perguntas e leituras da apostila permite acompanhar o estado das variáveis durante a execução.\n\nAPROFUNDAMENTO: rastrear significa registrar os valores após cada instrução relevante. Uma segunda leitura na mesma variável substitui seu valor anterior. A ordem das leituras deve corresponder à ordem das perguntas.",
+      "example": "inteiro quantidade\nleia(quantidade) // entrada 4\nescreva(quantidade, \"\\n\")\nleia(quantidade) // entrada 9\nescreva(quantidade)\n// Saídas: 4 e 9"
+    },
+    {
+      "title": "7. Cadastro completo e interpretação",
+      "text": "O último slide reúne declaração, entrada e saída em um cadastro com cinco tipos. O exemplo autoral abaixo aplica o mesmo princípio a uma inscrição em oficina. Inclui o bloco programa, ausente na imagem final da apostila.\n\nNa Pythoteca, faça o rastreamento manual; a execução real deve ocorrer no Portugol Studio ou Webstudio. O exemplo não valida regras de negócio. A futura aula Python abordará os tipos próprios da linguagem e a conversão de entradas, sem presumir equivalência literal.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        cadeia participante\n        inteiro idade\n        real distancia\n        caracter turma\n        logico inscrito\n        escreva(\"Participante: \")\n        leia(participante)\n        escreva(\"Idade: \")\n        leia(idade)\n        escreva(\"Distância em km: \")\n        leia(distancia)\n        escreva(\"Turma (A ou B): \")\n        leia(turma)\n        escreva(\"Inscrito (verdadeiro ou falso): \")\n        leia(inscrito)\n        escreva(\"\\nParticipante: \", participante, \"\\nIdade: \", idade, \"\\nDistância: \", distancia, \" km\\nTurma: \", turma, \"\\nInscrito: \", inscrito, \"\\n\")\n    }\n}"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais",
+      "title": "Escolha de tipos",
+      "prompt": "Qual sequência de tipos representa nome, quantidade de livros, altura, inicial e matrícula ativa?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "Cada tipo corresponde à categoria de informação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "cadeia, inteiro, real, caracter, logico"
+        },
+        {
+          "id": "b",
+          "text": "caracter, real, inteiro, cadeia, logico"
+        },
+        {
+          "id": "c",
+          "text": "cadeia, inteiro, inteiro, cadeia, real"
+        },
+        {
+          "id": "d",
+          "text": "inteiro, cadeia, real, logico, caracter"
+        }
+      ],
+      "answer": "a",
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais",
+      "title": "Declaração",
+      "prompt": "Qual declaração permite ler uma quantidade inteira na variável unidades?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "A declaração informa tipo e nome antes da leitura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "leia(unidades)"
+        },
+        {
+          "id": "b",
+          "text": "cadeia unidades"
+        },
+        {
+          "id": "c",
+          "text": "inteiro unidades"
+        },
+        {
+          "id": "d",
+          "text": "escreva(unidades)"
+        }
+      ],
+      "answer": "c",
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais",
+      "title": "Entrada e saída",
+      "prompt": "Qual instrução armazena a resposta digitada em cidade?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "leia recebe a entrada e guarda o valor na variável.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escreva(cidade)"
+        },
+        {
+          "id": "b",
+          "text": "leia(cidade)"
+        },
+        {
+          "id": "c",
+          "text": "escreva(\"cidade\")"
+        },
+        {
+          "id": "d",
+          "text": "cadeia cidade"
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais",
+      "title": "Rastreamento de cadastro",
+      "prompt": "Considere cadeia nome, inteiro idade, leia(nome), leia(idade), escreva(nome, \" tem \", idade, \" anos\"). Entradas: Lia e 19. Indique os valores e a saída.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "A ordem das leituras associa cada entrada à variável correspondente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "nome = \"Lia\"; idade = 19; saída: Lia tem 19 anos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Revisão opcional",
+      "title": "Nome e valor",
+      "prompt": "Se cadeia cidade = \"Natal\", o que escreva(\"cidade\") exibe?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "Aspas delimitam texto literal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Natal"
+        },
+        {
+          "id": "b",
+          "text": "cidade"
+        },
+        {
+          "id": "c",
+          "text": "cadeia"
+        },
+        {
+          "id": "d",
+          "text": "Um erro"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional",
+      "title": "Tipo de CEP",
+      "prompt": "Qual tipo preserva o zero inicial de um CEP?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "CEP é identificador textual, não quantidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "inteiro"
+        },
+        {
+          "id": "b",
+          "text": "real"
+        },
+        {
+          "id": "c",
+          "text": "logico"
+        },
+        {
+          "id": "d",
+          "text": "cadeia"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional",
+      "title": "Número negativo",
+      "prompt": "Qual valor é compatível com inteiro?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "Inteiros incluem negativos, zero e positivos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "-7"
+        },
+        {
+          "id": "b",
+          "text": "2.5"
+        },
+        {
+          "id": "c",
+          "text": "\"sete\""
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional",
+      "title": "Caractere",
+      "prompt": "Qual literal representa um caracter no Portugol Studio?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "Aspas simples delimitam um caractere.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"AB\""
+        },
+        {
+          "id": "b",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "c",
+          "text": "'A'"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional",
+      "title": "Valor lógico",
+      "prompt": "Qual valor pertence ao tipo logico?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "falso sem aspas é valor lógico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"falso\""
+        },
+        {
+          "id": "b",
+          "text": "0.5"
+        },
+        {
+          "id": "c",
+          "text": "'F'"
+        },
+        {
+          "id": "d",
+          "text": "falso"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional",
+      "title": "Tipo real",
+      "prompt": "Qual tipo é adequado à distância 3.75 km?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "real admite parte fracionária.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "real"
+        },
+        {
+          "id": "b",
+          "text": "inteiro"
+        },
+        {
+          "id": "c",
+          "text": "caracter"
+        },
+        {
+          "id": "d",
+          "text": "logico"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional",
+      "title": "Sobrescrita",
+      "prompt": "Duas leituras em inteiro n recebem 2 e 8. Qual valor fica em n?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "A segunda leitura substitui o valor anterior.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "28"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional",
+      "title": "Separação de argumentos",
+      "prompt": "Se inteiro n = 5, qual saída de escreva(\"Total:\", n)?",
+      "hint": "Identifique o conceito e compare as alternativas.",
+      "explanation": "A vírgula separa argumentos, sem inserir espaço.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Total: 5"
+        },
+        {
+          "id": "b",
+          "text": "Total:n"
+        },
+        {
+          "id": "c",
+          "text": "Total:5"
+        },
+        {
+          "id": "d",
+          "text": "5Total:"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional",
+      "title": "Corrigir declaração",
+      "prompt": "O trecho leia(peso) aparece antes de qualquer declaração de peso. Corrija para receber 1.75.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "Declare o tipo real antes da leitura.",
+      "mode": "text",
+      "starter": "",
+      "solution": "real peso\nleia(peso)",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional",
+      "title": "Pergunta sem leitura",
+      "prompt": "Explique por que escreva(\"Qual seu nome?\") não guarda a resposta.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "Distinguir saída de entrada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "escreva apenas apresenta a pergunta; declare cadeia nome e use leia(nome) para receber a resposta.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional",
+      "title": "Duas linhas",
+      "prompt": "Escreva comandos para exibir Oficina e Turma A em linhas diferentes.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "A sequência \\n produz quebra de linha.",
+      "mode": "text",
+      "starter": "",
+      "solution": "escreva(\"Oficina\\n\")\nescreva(\"Turma A\")",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional",
+      "title": "Identificadores claros",
+      "prompt": "Proponha declarações para título de livro, número de páginas e disponibilidade.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "Os nomes e tipos devem corresponder aos dados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "cadeia titulo\ninteiro paginas\nlogico disponivel",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional",
+      "title": "Troca de ordem",
+      "prompt": "Um programa pergunta idade, lê nome, pergunta nome e lê idade. Explique o problema.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "A ordem e o tipo das leituras precisam corresponder às entradas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "As variáveis de destino não correspondem às perguntas; leia(idade) deve seguir a pergunta de idade e leia(nome) a de nome.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional",
+      "title": "Cadastro autoral",
+      "prompt": "Escreva um programa completo que leia o nome de um jogo e a quantidade de jogadores e exiba os dois valores.",
+      "hint": "Rastreie as instruções ou escreva sua resposta antes de consultar a solução.",
+      "explanation": "Verifique estrutura, declarações, perguntas, leituras e saída.",
+      "mode": "text",
+      "starter": "",
+      "solution": "programa\n{\n    funcao inicio()\n    {\n        cadeia jogo\n        inteiro jogadores\n        escreva(\"Jogo: \")\n        leia(jogo)\n        escreva(\"Jogadores: \")\n        leia(jogadores)\n        escreva(jogo, \": \", jogadores, \" jogadores\")\n    }\n}",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
