@@ -1,0 +1,1140 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula307",
+  "title": "Tipos, conversões e tratamento de dados",
+  "subtitle": "Entradas, validação, exceções e formatação",
+  "objectives": "Distinguir tipos, converter entradas, comparar textos, validar dados e tratar falhas em aplicações Java 8.",
+  "source": "Módulo autoral de fundamentos complementares Java 8, articulado aos módulos 301–306. Não representa transcrição nem conteúdo atribuído às apostilas.",
+  "chapters": [
+    {
+      "title": "Tipos primitivos e referências",
+      "text": "Java possui oito tipos primitivos: byte, short, int, long, float, double, char e boolean. String é uma classe, não um primitivo. Variáveis de referência podem conter null; variáveis primitivas não. O tipo determina quais operações são permitidas.",
+      "example": "int idade = 20;\nString nome = \"Ana\";\nboolean ativo = true;"
+    },
+    {
+      "title": "Classes envoltórias",
+      "text": "Integer, Double e Boolean são exemplos de wrappers. Permitem representar valores primitivos como objetos. Autoboxing e unboxing convertem automaticamente entre o primitivo e seu wrapper correspondente. Desempacotar uma referência null lança NullPointerException.",
+      "example": "Integer numero = 10;\nint valor = numero;"
+    },
+    {
+      "title": "Conversões numéricas",
+      "text": "Conversões de ampliação podem ocorrer implicitamente, como int para double. Algumas perdem precisão, como long para double. Conversões de estreitamento exigem cast em situações comuns. Converter double para int descarta a parte fracionária em direção a zero, dentro da faixa representável.",
+      "example": "int quantidade = 7;\ndouble valor = quantidade;\nint parte = (int) 3.9;"
+    },
+    {
+      "title": "Texto e operações",
+      "text": "O operador + soma números ou concatena quando um operando é String. A avaliação de operadores + consecutivos ocorre da esquerda para a direita. Parênteses permitem calcular antes de concatenar.",
+      "example": "String a = \"10\";\nString b = \"20\";\nSystem.out.println(a + b); // 1020\nSystem.out.println(10 + 20); // 30\nSystem.out.println(\"Total: \" + (10 + 20));"
+    },
+    {
+      "title": "Conversão de entradas",
+      "text": "getText e a versão simples de showInputDialog retornam String. Integer.parseInt converte texto inteiro decimal em int; Double.parseDouble converte texto em double. Cast não interpreta texto. parseInt rejeita valores fora da faixa de int e espaços não removidos. parseDouble aceita ponto decimal e também formas especiais como NaN e Infinity.",
+      "example": "String entrada = \" 25 \";\nint idade = Integer.parseInt(entrada.trim());\ndouble preco = Double.parseDouble(\"12.50\");"
+    },
+    {
+      "title": "Comparação de strings",
+      "text": "equals compara o conteúdo de strings; == compara identidade de referências quando ambos os operandos são referências String. O compartilhamento de literais pode mascarar erros de comparação. equalsIgnoreCase ignora diferenças de maiúsculas e minúsculas, mas não espaços nem acentos. Uma constante não nula como receptora evita chamar equals sobre null.",
+      "example": "String resposta = \"sim\";\nif (\"sim\".equalsIgnoreCase(resposta)) {\n    System.out.println(\"Confirmado\");\n}"
+    },
+    {
+      "title": "Validação de entrada",
+      "text": "Separe cancelamento, ausência de conteúdo, formato e regras de negócio. null indica ausência de referência; isEmpty verifica comprimento zero; trim remove caracteres nas extremidades até U+0020. Uma idade negativa pode ser um inteiro válido, mas inadequado à aplicação. Use curto-circuito para evitar operações sobre null.",
+      "example": "if (entrada == null || entrada.trim().isEmpty()) {\n    System.out.println(\"Entrada ausente\");\n}"
+    },
+    {
+      "title": "Exceções e recuperação",
+      "text": "try delimita operações que podem lançar exceções; catch trata tipos específicos. NumberFormatException indica falha na interpretação numérica. Não use catch genérico para ocultar qualquer erro. Após uma conversão inválida, informe o usuário e evite prosseguir com dados incorretos.",
+      "example": "try {\n    int idade = Integer.parseInt(entrada.trim());\n    System.out.println(idade);\n} catch (NumberFormatException e) {\n    System.out.println(\"Informe um inteiro válido\");\n}\n// Pressupõe entrada não nula."
+    },
+    {
+      "title": "Decimais e formatação",
+      "text": "double representa números em ponto flutuante binário e pode apresentar aproximações. A formatação altera a apresentação, não o valor armazenado. Locale controla convenções de saída. Para valores monetários exatos, BigDecimal criado a partir de texto decimal é uma alternativa; regras de arredondamento devem ser explícitas quando necessárias.",
+      "example": "double valor = 12.5;\nString texto = String.format(new java.util.Locale(\"pt\", \"BR\"), \"%.2f\", valor);\njava.math.BigDecimal preco = new java.math.BigDecimal(\"12.50\");"
+    },
+    {
+      "title": "Integração com Swing",
+      "text": "Em um método de evento de JFrame, leia a entrada, trate cancelamento ou vazio, converta, valide o domínio e só então calcule ou exiba. O exemplo usa idade não negativa e retorno antecipado para impedir execução indevida. Os trechos anteriores pressupõem variáveis declaradas no contexto indicado.",
+      "example": "String entrada = javax.swing.JOptionPane.showInputDialog(this, \"Idade:\");\nif (entrada == null) return;\ntry {\n    int idade = Integer.parseInt(entrada.trim());\n    if (idade < 0) {\n        javax.swing.JOptionPane.showMessageDialog(this, \"Idade inválida\");\n        return;\n    }\n    javax.swing.JOptionPane.showMessageDialog(this, \"Idade: \" + idade);\n} catch (NumberFormatException e) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Informe um inteiro válido\");\n}"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Tipos primitivos e referências",
+      "title": "Tipo de texto",
+      "prompt": "Qual tipo representa texto em Java?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "String representa uma sequência de caracteres.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "char"
+        },
+        {
+          "id": "b",
+          "text": "int"
+        },
+        {
+          "id": "c",
+          "text": "boolean"
+        },
+        {
+          "id": "d",
+          "text": "String"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "02",
+      "group": "Tipos primitivos e referências",
+      "title": "Ausência",
+      "prompt": "Qual declaração é válida?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Referências podem conter null.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int idade = null;"
+        },
+        {
+          "id": "b",
+          "text": "boolean ativo = null;"
+        },
+        {
+          "id": "c",
+          "text": "double preco = null;"
+        },
+        {
+          "id": "d",
+          "text": "String nome = null;"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Tipos primitivos e referências",
+      "title": "Caractere",
+      "prompt": "Qual literal representa um char?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Aspas simples delimitam literais char.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "'A'"
+        },
+        {
+          "id": "b",
+          "text": "\"A\""
+        },
+        {
+          "id": "c",
+          "text": "\"AB\""
+        },
+        {
+          "id": "d",
+          "text": "true"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "04",
+      "group": "Classes envoltórias",
+      "title": "Wrapper",
+      "prompt": "Qual wrapper corresponde a int?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Integer envolve valores int.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Integer"
+        },
+        {
+          "id": "b",
+          "text": "Double"
+        },
+        {
+          "id": "c",
+          "text": "Long"
+        },
+        {
+          "id": "d",
+          "text": "Number"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "05",
+      "group": "Classes envoltórias",
+      "title": "Autoboxing",
+      "prompt": "O que ocorre em Integer n = 5;?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O valor primitivo é convertido em wrapper.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Conversão de String para int."
+        },
+        {
+          "id": "b",
+          "text": "Autoboxing de int para Integer."
+        },
+        {
+          "id": "c",
+          "text": "Cast de double para int."
+        },
+        {
+          "id": "d",
+          "text": "Unboxing de Integer para int."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "06",
+      "group": "Classes envoltórias",
+      "title": "Unboxing",
+      "prompt": "Integer n = null; int x = n; produz o quê?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O desempacotamento exige objeto não nulo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "x igual a zero"
+        },
+        {
+          "id": "b",
+          "text": "NullPointerException"
+        },
+        {
+          "id": "c",
+          "text": "NumberFormatException"
+        },
+        {
+          "id": "d",
+          "text": "x igual a null"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "07",
+      "group": "Conversões numéricas",
+      "title": "Ampliação",
+      "prompt": "Qual atribuição é válida sem cast?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "int pode ser ampliado para double.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int n = 7.5;"
+        },
+        {
+          "id": "b",
+          "text": "short s = 40000;"
+        },
+        {
+          "id": "c",
+          "text": "double d = 7;"
+        },
+        {
+          "id": "d",
+          "text": "int n = \"7\";"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "08",
+      "group": "Conversões numéricas",
+      "title": "Estreitamento",
+      "prompt": "Qual resultado de (int) 3.9?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O cast descarta a fração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "3.9"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "09",
+      "group": "Conversões numéricas",
+      "title": "Negativos",
+      "prompt": "Qual resultado de (int) -3.9?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O truncamento ocorre em direção a zero.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "-4"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "-3.9"
+        },
+        {
+          "id": "d",
+          "text": "-3"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "10",
+      "group": "Texto e operações",
+      "title": "Concatenação",
+      "prompt": "Qual resultado de \"10\" + \"20\"?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Dois textos são concatenados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "30"
+        },
+        {
+          "id": "b",
+          "text": "\"30\""
+        },
+        {
+          "id": "c",
+          "text": "Erro de compilação"
+        },
+        {
+          "id": "d",
+          "text": "\"1020\""
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "Texto e operações",
+      "title": "Ordem",
+      "prompt": "Qual resultado de \"Total: \" + 10 + 20?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "A concatenação começa no primeiro +.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"Total: 1020\""
+        },
+        {
+          "id": "b",
+          "text": "\"Total: 30\""
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "Erro de compilação"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "12",
+      "group": "Texto e operações",
+      "title": "Parênteses",
+      "prompt": "Qual expressão produz \"Total: 30\"?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Os parênteses priorizam a soma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"Total: \" + (10 + 20)"
+        },
+        {
+          "id": "b",
+          "text": "\"Total: \" + 10 + 20"
+        },
+        {
+          "id": "c",
+          "text": "\"Total: \" + \"10\" + \"20\""
+        },
+        {
+          "id": "d",
+          "text": "\"Total: \" + (10 * 20)"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "13",
+      "group": "Conversão de entradas",
+      "title": "Inteiro",
+      "prompt": "Qual chamada interpreta \"25\" como int?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "parseInt interpreta o texto decimal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "(int) \"25\""
+        },
+        {
+          "id": "b",
+          "text": "Integer.parseInt(\"25\")"
+        },
+        {
+          "id": "c",
+          "text": "Integer.toString(25)"
+        },
+        {
+          "id": "d",
+          "text": "\"25\".length()"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Conversão de entradas",
+      "title": "Formato",
+      "prompt": "Qual entrada é rejeitada por Integer.parseInt?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "A representação decimal fracionária não é inteira.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"25\""
+        },
+        {
+          "id": "b",
+          "text": "\"2.5\""
+        },
+        {
+          "id": "c",
+          "text": "\"-25\""
+        },
+        {
+          "id": "d",
+          "text": "\"+25\""
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "15",
+      "group": "Conversão de entradas",
+      "title": "Faixa",
+      "prompt": "O que ocorre com Integer.parseInt(\"2147483648\")?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O valor excede Integer.MAX_VALUE.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Retorna 2147483648 como int"
+        },
+        {
+          "id": "b",
+          "text": "Retorna -2147483648"
+        },
+        {
+          "id": "c",
+          "text": "NumberFormatException"
+        },
+        {
+          "id": "d",
+          "text": "Retorna long automaticamente"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "16",
+      "group": "Conversão de entradas",
+      "title": "Decimal",
+      "prompt": "Qual chamada interpreta 12,5 usando ponto decimal?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "parseDouble não usa vírgula decimal localizada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Double.parseDouble(\"12,5\")"
+        },
+        {
+          "id": "b",
+          "text": "Integer.parseInt(\"12.5\")"
+        },
+        {
+          "id": "c",
+          "text": "Double.parseDouble(\"12.5\")"
+        },
+        {
+          "id": "d",
+          "text": "(double) \"12.5\""
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "17",
+      "group": "Comparação de strings",
+      "title": "Conteúdo",
+      "prompt": "Qual expressão compara conteúdo de duas strings não nulas?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "equals compara conteúdo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "a == b"
+        },
+        {
+          "id": "b",
+          "text": "a = b"
+        },
+        {
+          "id": "c",
+          "text": "a != b"
+        },
+        {
+          "id": "d",
+          "text": "a.equals(b)"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "18",
+      "group": "Comparação de strings",
+      "title": "Identidade",
+      "prompt": "String a = new String(\"x\"); String b = new String(\"x\"); qual resultado de a == b?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "São objetos distintos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "true"
+        },
+        {
+          "id": "b",
+          "text": "null"
+        },
+        {
+          "id": "c",
+          "text": "Erro de compilação"
+        },
+        {
+          "id": "d",
+          "text": "false"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "Comparação de strings",
+      "title": "Comparação segura",
+      "prompt": "Qual teste é seguro mesmo se resposta for null?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "A receptora literal não é nula.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"sim\".equals(resposta)"
+        },
+        {
+          "id": "b",
+          "text": "resposta.equals(\"sim\")"
+        },
+        {
+          "id": "c",
+          "text": "resposta.trim().equals(\"sim\")"
+        },
+        {
+          "id": "d",
+          "text": "resposta.isEmpty()"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "20",
+      "group": "Validação de entrada",
+      "title": "Cancelamento",
+      "prompt": "Qual teste deve preceder trim em entrada possivelmente nula?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Primeiro verifique a referência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "entrada == null"
+        },
+        {
+          "id": "b",
+          "text": "entrada.isEmpty()"
+        },
+        {
+          "id": "c",
+          "text": "entrada.length() == 0"
+        },
+        {
+          "id": "d",
+          "text": "entrada.trim().isEmpty()"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "21",
+      "group": "Validação de entrada",
+      "title": "Espaços",
+      "prompt": "Qual resultado de \"   \".trim().isEmpty()?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Após trim não restam caracteres.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "false"
+        },
+        {
+          "id": "b",
+          "text": "true"
+        },
+        {
+          "id": "c",
+          "text": "null"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "22",
+      "group": "Validação de entrada",
+      "title": "Domínio",
+      "prompt": "A entrada \"-5\" para idade não negativa falha em qual etapa?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "-5 é inteiro válido, mas idade inválida.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Conversão para int"
+        },
+        {
+          "id": "b",
+          "text": "Validação da regra de negócio"
+        },
+        {
+          "id": "c",
+          "text": "Compilação"
+        },
+        {
+          "id": "d",
+          "text": "Verificação de null"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "23",
+      "group": "Exceções e recuperação",
+      "title": "Exceção",
+      "prompt": "Qual exceção parseInt(\"abc\") lança?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O texto não representa inteiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "ArithmeticException"
+        },
+        {
+          "id": "b",
+          "text": "IndexOutOfBoundsException"
+        },
+        {
+          "id": "c",
+          "text": "NumberFormatException"
+        },
+        {
+          "id": "d",
+          "text": "ClassCastException"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Exceções e recuperação",
+      "title": "Tratamento",
+      "prompt": "Qual catch trata especificamente conversão numérica inválida?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O tipo corresponde à falha esperada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "catch (ArithmeticException e)"
+        },
+        {
+          "id": "b",
+          "text": "catch (IOException e)"
+        },
+        {
+          "id": "c",
+          "text": "catch (NumberFormatException e)"
+        },
+        {
+          "id": "d",
+          "text": "catch (Error e)"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "25",
+      "group": "Exceções e recuperação",
+      "title": "Fluxo",
+      "prompt": "Após uma conversão inválida tratada, o que é adequado?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "A recuperação deve preservar a validade dos dados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Usar zero silenciosamente em qualquer situação."
+        },
+        {
+          "id": "b",
+          "text": "Ignorar a exceção e afirmar sucesso."
+        },
+        {
+          "id": "c",
+          "text": "Repetir a mesma conversão sem alterar a entrada."
+        },
+        {
+          "id": "d",
+          "text": "Informar o erro e não usar um valor fictício como entrada válida."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "26",
+      "group": "Decimais e formatação",
+      "title": "Formatação",
+      "prompt": "String.format com %.2f retorna qual tipo?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Formatação produz texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "double"
+        },
+        {
+          "id": "b",
+          "text": "int"
+        },
+        {
+          "id": "c",
+          "text": "BigDecimal"
+        },
+        {
+          "id": "d",
+          "text": "String"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Decimais e formatação",
+      "title": "Precisão",
+      "prompt": "Qual construção evita introduzir a aproximação binária de 0.1 na criação de BigDecimal?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O construtor textual preserva o decimal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "new BigDecimal(\"0.1\")"
+        },
+        {
+          "id": "b",
+          "text": "new BigDecimal(0.1)"
+        },
+        {
+          "id": "c",
+          "text": "(BigDecimal) 0.1"
+        },
+        {
+          "id": "d",
+          "text": "Double.parseDouble(\"0.1\")"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "28",
+      "group": "Decimais e formatação",
+      "title": "Valor especial",
+      "prompt": "Qual resultado de Double.parseDouble(\"NaN\")?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "NaN é aceito; validação de domínio pode rejeitá-lo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Um double NaN"
+        },
+        {
+          "id": "b",
+          "text": "NumberFormatException"
+        },
+        {
+          "id": "c",
+          "text": "0.0"
+        },
+        {
+          "id": "d",
+          "text": "null"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "29",
+      "group": "Integração com Swing",
+      "title": "Ordem",
+      "prompt": "Qual sequência é adequada para entrada numérica cancelável?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "Cada etapa depende da anterior.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Converter, usar, verificar null, validar."
+        },
+        {
+          "id": "b",
+          "text": "Verificar null, converter, validar domínio, usar."
+        },
+        {
+          "id": "c",
+          "text": "Usar, converter, validar, verificar null."
+        },
+        {
+          "id": "d",
+          "text": "Validar domínio numérico antes de ler a entrada."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "30",
+      "group": "Integração com Swing",
+      "title": "Retorno antecipado",
+      "prompt": "Em um método void de evento, o que return; faz?",
+      "hint": "Observe os tipos e a ordem das operações.",
+      "explanation": "O retorno impede executar instruções seguintes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fecha necessariamente o JFrame."
+        },
+        {
+          "id": "b",
+          "text": "Encerra a execução daquele método."
+        },
+        {
+          "id": "c",
+          "text": "Encerra a JVM."
+        },
+        {
+          "id": "d",
+          "text": "Reinicia o evento."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "31",
+      "group": "Tipos primitivos e referências",
+      "title": "Classificar tipos",
+      "prompt": "Classifique int, String, boolean e Integer em primitivos ou referências.",
+      "solution": "int e boolean são primitivos; String e Integer são tipos por referência.",
+      "explanation": "Wrappers são classes.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Conversões numéricas",
+      "title": "Rastrear cast",
+      "prompt": "Qual valor de n após int n = (int) 8.99;?",
+      "solution": "8",
+      "explanation": "A fração é descartada.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Texto e operações",
+      "title": "Corrigir concatenação",
+      "prompt": "Corrija \"Soma: \" + 4 + 6 para mostrar Soma: 10.",
+      "solution": "\"Soma: \" + (4 + 6)",
+      "explanation": "Calcule antes de concatenar.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Conversão de entradas",
+      "title": "Converter campo",
+      "prompt": "Leia jTextField1 e converta seu conteúdo em int, supondo entrada válida.",
+      "solution": "int n = Integer.parseInt(jTextField1.getText().trim());",
+      "explanation": "getText retorna String.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Comparação de strings",
+      "title": "Comparar texto",
+      "prompt": "Corrija resposta == \"sim\" para comparar conteúdo com segurança diante de null.",
+      "solution": "\"sim\".equals(resposta)",
+      "explanation": "A literal é receptora não nula.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Validação de entrada",
+      "title": "Separar validações",
+      "prompt": "Explique a diferença entre entrada vazia, formato inválido e valor fora do domínio usando idade.",
+      "solution": "Vazia: nenhum texto útil; formato inválido: abc; domínio inválido: -5 quando idade deve ser não negativa.",
+      "explanation": "São falhas distintas.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Exceções e recuperação",
+      "title": "Tratar conversão",
+      "prompt": "Escreva try/catch para converter entrada não nula em int e informar erro de formato.",
+      "solution": "try {\n    int n = Integer.parseInt(entrada.trim());\n    System.out.println(n);\n} catch (NumberFormatException e) {\n    System.out.println(\"Inteiro inválido\");\n}",
+      "explanation": "Trate a exceção específica.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Decimais e formatação",
+      "title": "Decimal localizado",
+      "prompt": "Explique por que formatar 12.5 como 12,50 não transforma o double em outro valor numérico.",
+      "solution": "A formatação produz uma String de apresentação; o double original permanece igual.",
+      "explanation": "Representação e valor são distintos.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Integração com Swing",
+      "title": "Plano de testes",
+      "prompt": "Proponha entradas para testar idade cancelável, vazia, inválida, negativa e válida.",
+      "solution": "Cancelar, \"\", \"abc\", \"-1\" e \"20\". Apenas 20 deve ser aceito neste conjunto.",
+      "explanation": "Inclua caminhos de falha e sucesso.",
+      "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
