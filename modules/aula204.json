@@ -1,0 +1,669 @@
+{
+  "schema_version": 2,
+  "discipline": "portugol",
+  "id": "aula204",
+  "title": "Estruturas de seleção",
+  "subtitle": "Condições, operadores relacionais e decisões encadeadas",
+  "objectives": "Interpretar condições; distinguir atribuição de comparação; utilizar se, senao e senao se; rastrear decisões; testar limites e explorar condições compostas.",
+  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa.",
+  "chapters": [
+    {
+      "title": "1. Condições e fluxo de execução",
+      "text": "CURSO: uma estrutura de seleção avalia uma condição verdadeira ou falsa para decidir quais instruções executar. O mesmo programa pode produzir respostas diferentes conforme a entrada. A apostila exemplifica acesso a um evento conforme a idade.",
+      "example": "idade >= 18"
+    },
+    {
+      "title": "2. Operadores relacionais",
+      "text": "CURSO: == compara igualdade; != compara diferença; > e < comparam grandeza; >= e <= incluem igualdade. Cada comparação produz um valor lógico. Não confunda = (atribuição) com == (comparação).",
+      "example": "inteiro idade = 18\nlogico permitido = idade >= 18\n// permitido = verdadeiro"
+    },
+    {
+      "title": "3. Seleção simples",
+      "text": "CURSO: o bloco se executa somente quando a condição é verdadeira. Se falsa, o programa pula o bloco e continua após ele.",
+      "example": "se (idade >= 18)\n{\n    escreva(\"Entrada liberada\")\n}\nescreva(\"\\nFim da consulta\")"
+    },
+    {
+      "title": "4. Seleção composta",
+      "text": "CURSO: se e senao oferecem duas alternativas mutuamente exclusivas. Apenas um dos blocos executa. O senao não precisa repetir a condição.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        inteiro idade\n        escreva(\"Idade: \")\n        leia(idade)\n        se (idade >= 18)\n        {\n            escreva(\"Acesso permitido\")\n        }\n        senao\n        {\n            escreva(\"Acesso negado\")\n        }\n    }\n}"
+    },
+    {
+      "title": "5. Seleção encadeada",
+      "text": "CURSO: senao se permite testar condições em sequência. O exemplo escolar da apostila classifica nota >= 7 como aprovação, nota >= 5 como recuperação e as demais como reprovação. A primeira condição verdadeira determina o bloco executado.\n\nAPROFUNDAMENTO: testar nota >= 5 antes de nota >= 7 classificaria indevidamente notas altas como recuperação. O exemplo pressupõe notas válidas.",
+      "example": "se (nota >= 7)\n{\n    escreva(\"Aprovado\")\n}\nsenao se (nota >= 5)\n{\n    escreva(\"Recuperação\")\n}\nsenao\n{\n    escreva(\"Reprovado\")\n}"
+    },
+    {
+      "title": "6. Operadores lógicos",
+      "text": "APROFUNDAMENTO AUTORAL: e exige ambas as condições verdadeiras; ou exige pelo menos uma; nao inverte um valor lógico. Use parênteses para tornar agrupamentos claros. Em Portugol, não escreva 0 <= nota <= 10; compare separadamente.",
+      "example": "se (nota >= 0 e nota <= 10)\n{\n    escreva(\"Nota válida\")\n}"
+    },
+    {
+      "title": "7. Limites e testes",
+      "text": "CURSO: a apostila testa idades 20 e 16, estoque positivo e zero, e notas 8, 6 e 3.\n\nAPROFUNDAMENTO: teste também os limites exatos. Para idade >= 18, teste 17, 18 e 19. Para notas, teste 5 e 7 e valores imediatamente abaixo. Separe entradas inválidas de resultados legítimos.",
+      "example": "se (nota < 0 ou nota > 10)\n{\n    escreva(\"Nota inválida\")\n}\nsenao se (nota >= 7)\n{\n    escreva(\"Aprovado\")\n}\nsenao se (nota >= 5)\n{\n    escreva(\"Recuperação\")\n}\nsenao\n{\n    escreva(\"Reprovado\")\n}"
+    },
+    {
+      "title": "8. Aplicação: reajuste salarial",
+      "text": "APROFUNDAMENTO AUTORAL: receba salário real e aplique aumento de 10% somente quando for positivo e inferior a 2500. Multiplicar por 1.10 equivale a somar 10% do valor original. A regra é um exercício, não uma orientação trabalhista. Rastreie 2499, 2500 e 2501. Execute externamente no Portugol Studio ou Webstudio; a Pythoteca não executa Portugol.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        real salario\n        leia(salario)\n        se (salario <= 0)\n        {\n            escreva(\"Valor inválido\")\n        }\n        senao se (salario < 2500)\n        {\n            salario = salario * 1.10\n            escreva(\"Novo salário: \", salario)\n        }\n        senao\n        {\n            escreva(\"Sem reajuste\")\n        }\n    }\n}"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais",
+      "title": "Comparação",
+      "prompt": "Qual operador compara igualdade?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "== compara; = atribui.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": "=="
+        },
+        {
+          "id": "c",
+          "text": "!="
+        },
+        {
+          "id": "d",
+          "text": "<="
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais",
+      "title": "Seleção simples",
+      "prompt": "Se idade = 17, o bloco se (idade >= 18) executa?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "17 não satisfaz >= 18.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Sempre duas vezes"
+        },
+        {
+          "id": "d",
+          "text": "Depende do senao"
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais",
+      "title": "Seleção composta",
+      "prompt": "Para idade = 18, se (idade >= 18) exibe Permitido e senao exibe Negado. Qual saída?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "O limite 18 está incluído.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Negado"
+        },
+        {
+          "id": "b",
+          "text": "Ambas"
+        },
+        {
+          "id": "c",
+          "text": "Permitido"
+        },
+        {
+          "id": "d",
+          "text": "Nenhuma"
+        }
+      ],
+      "answer": "c",
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais",
+      "title": "Classificação encadeada",
+      "prompt": "Escreva uma seleção para nota válida: aprovado a partir de 7, recuperação a partir de 5 e reprovado abaixo de 5.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "A ordem decrescente evita capturar notas altas na recuperação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "se (nota >= 7) { escreva(\"Aprovado\") }\nsenao se (nota >= 5) { escreva(\"Recuperação\") }\nsenao { escreva(\"Reprovado\") }",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Revisão opcional",
+      "title": "Diferença",
+      "prompt": "Qual comparação é verdadeira?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "4 e 5 são diferentes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "4 != 4"
+        },
+        {
+          "id": "b",
+          "text": "4 > 5"
+        },
+        {
+          "id": "c",
+          "text": "4 != 5"
+        },
+        {
+          "id": "d",
+          "text": "4 == 5"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional",
+      "title": "Limite inclusivo",
+      "prompt": "Qual expressão inclui 10?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "Maior ou igual inclui igualdade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "x > 10"
+        },
+        {
+          "id": "b",
+          "text": "x >= 10"
+        },
+        {
+          "id": "c",
+          "text": "x < 10"
+        },
+        {
+          "id": "d",
+          "text": "x != 10"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional",
+      "title": "Menor ou igual",
+      "prompt": "Quanto vale 3 <= 3?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "A igualdade satisfaz <=.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "falso"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional",
+      "title": "Após o bloco",
+      "prompt": "se (falso) { escreva(\"A\") } seguido de escreva(\"B\"). Qual saída?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "A instrução posterior está fora do bloco.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "B"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "AB"
+        },
+        {
+          "id": "d",
+          "text": "Nenhuma"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional",
+      "title": "Dois caminhos",
+      "prompt": "Quantos blocos de um se/senao executam por avaliação?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "A condição é verdadeira ou falsa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Zero sempre"
+        },
+        {
+          "id": "b",
+          "text": "Dois"
+        },
+        {
+          "id": "c",
+          "text": "Um"
+        },
+        {
+          "id": "d",
+          "text": "Três"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional",
+      "title": "Nota sete",
+      "prompt": "Na classificação da apostila, nota 7 é:",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "O primeiro limite inclui 7.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Recuperação"
+        },
+        {
+          "id": "b",
+          "text": "Aprovado"
+        },
+        {
+          "id": "c",
+          "text": "Reprovado"
+        },
+        {
+          "id": "d",
+          "text": "Inválida"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional",
+      "title": "Nota cinco",
+      "prompt": "Na classificação da apostila, nota 5 é:",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "O segundo limite inclui 5.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Aprovado"
+        },
+        {
+          "id": "b",
+          "text": "Reprovado"
+        },
+        {
+          "id": "c",
+          "text": "Inválida"
+        },
+        {
+          "id": "d",
+          "text": "Recuperação"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional",
+      "title": "Ordem incorreta",
+      "prompt": "Se nota >= 5 for testada antes de senao se nota >= 7, onde nota 9 entra?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "A primeira condição verdadeira encerra a cadeia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Primeiro bloco"
+        },
+        {
+          "id": "b",
+          "text": "Segundo bloco"
+        },
+        {
+          "id": "c",
+          "text": "Senao"
+        },
+        {
+          "id": "d",
+          "text": "Nenhum"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional",
+      "title": "Estoque",
+      "prompt": "Para quantidade = 0, se (quantidade > 0) indica disponível; senao indica esgotado. Qual saída?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "Zero não é maior que zero.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Disponível"
+        },
+        {
+          "id": "b",
+          "text": "Esgotado"
+        },
+        {
+          "id": "c",
+          "text": "Ambas"
+        },
+        {
+          "id": "d",
+          "text": "Nenhuma"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional",
+      "title": "Controle de estoque",
+      "prompt": "Escreva uma seleção para quantidade não negativa: disponível quando positiva, esgotado quando zero.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "O enunciado pressupõe quantidade não negativa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "se (quantidade > 0) { escreva(\"Disponível\") }\nsenao { escreva(\"Esgotado\") }",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional",
+      "title": "Testes de idade",
+      "prompt": "Proponha três testes para idade >= 18, incluindo o limite.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "Testar os vizinhos do limite detecta erros de comparação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "17: falso; 18: verdadeiro; 19: verdadeiro.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional",
+      "title": "Atribuição ou comparação",
+      "prompt": "Explique a diferença entre idade = 18 e idade == 18.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "São operações diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A primeira atribui 18; a segunda compara o valor atual com 18 e produz um lógico.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional",
+      "title": "Conjunção",
+      "prompt": "Para nota = 11, qual resultado de nota >= 0 e nota <= 10?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "A segunda condição é falsa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "b",
+          "text": "11"
+        },
+        {
+          "id": "c",
+          "text": "falso"
+        },
+        {
+          "id": "d",
+          "text": "10"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional",
+      "title": "Disjunção",
+      "prompt": "Para nota = -1, nota < 0 ou nota > 10 é:",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "Uma condição verdadeira basta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "b",
+          "text": "falso"
+        },
+        {
+          "id": "c",
+          "text": "-1"
+        },
+        {
+          "id": "d",
+          "text": "10"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional",
+      "title": "Negação",
+      "prompt": "Qual resultado de nao verdadeiro?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "A negação inverte o valor lógico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "b",
+          "text": "falso"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "Texto"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional",
+      "title": "Reajuste no limite",
+      "prompt": "Se o aumento exige salário < 2500, salário 2500 recebe aumento?",
+      "hint": "Avalie a condição com os valores informados.",
+      "explanation": "O limite é exclusivo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, 10%"
+        },
+        {
+          "id": "b",
+          "text": "Sim, 1%"
+        },
+        {
+          "id": "c",
+          "text": "Sim, 100%"
+        },
+        {
+          "id": "d",
+          "text": "Não"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional",
+      "title": "Calcular aumento",
+      "prompt": "Salário 2000 recebe 10% de aumento. Qual novo valor e expressão?",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "Multiplicar por 1.10 preserva o valor original e acrescenta 10%.",
+      "mode": "text",
+      "starter": "",
+      "solution": "salario = salario * 1.10; novo valor 2200.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional",
+      "title": "Validar nota",
+      "prompt": "Escreva uma condição que detecte nota fora de 0 a 10.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "Qualquer uma das violações torna a condição verdadeira.",
+      "mode": "text",
+      "starter": "",
+      "solution": "nota < 0 ou nota > 10",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional",
+      "title": "Intervalo de estacionamento",
+      "prompt": "Para tempo inteiro positivo em minutos, até 60 custa 8, até 180 custa 15, acima custa 25. Escreva a seleção.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "A segunda condição só é avaliada se tempo > 60.",
+      "mode": "text",
+      "starter": "",
+      "solution": "se (tempo <= 60) { valor = 8 }\nsenao se (tempo <= 180) { valor = 15 }\nsenao { valor = 25 }",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional",
+      "title": "Testar estacionamento",
+      "prompt": "Para as regras anteriores, indique valores a pagar em 60, 61, 180 e 181 minutos.",
+      "hint": "Rastreie as condições na ordem em que aparecem.",
+      "explanation": "Os limites inclusivos pertencem à faixa anterior.",
+      "mode": "text",
+      "starter": "",
+      "solution": "60: 8; 61: 15; 180: 15; 181: 25.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
