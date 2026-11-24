@@ -1,0 +1,1063 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula309",
+  "title": "JComboBox e aplicações práticas",
+  "subtitle": "Concatenação, soma, seleção e propriedades",
+  "objectives": "Construir o raciocínio dos eventos de junção e soma, distinguir propriedades Swing e manipular modelos e seleções de JComboBox.",
+  "source": "Atividade 1.pdf (https://drive.google.com/file/d/1AG9X5pu-MGjjpiHv1sa7mZJ1bXPNQQG4/view), dois slides; Aula 3 _ JComo=bobox e Alterando o nome dos objetos_atividade_2.pdf (https://drive.google.com/file/d/16jFmjcQWmnhXtLIYWKdMfk-raZS0hmh7/view), nove slides. Todos os onze slides examinados visualmente. Complementos Java 8 identificados.",
+  "chapters": [
+    {
+      "title": "Juntando nome e sobrenome",
+      "text": "[CURRICULAR, Atividade 1, slides 1–2] No formulário TelaCadastro, dois JTextField recebem nome e sobrenome; um terceiro apresenta o resultado. O botão Juntar concatena os textos após trim, inserindo um espaço entre eles. O código fica no evento gerado.",
+      "example": "String nome = jTextField1.getText().trim();\nString sobrenome = jTextField2.getText().trim();\njTextField3.setText(nome + \" \" + sobrenome);"
+    },
+    {
+      "title": "Resultado não editável",
+      "text": "[CURRICULAR, Atividade 1, slide 2] Configure editable=false e mantenha enabled=true no campo de resultado. [FUNDAMENTOS] Um campo não editável continua podendo receber texto por código; desabilitar o componente é uma operação diferente.",
+      "example": "jTextField3.setEditable(false);\njTextField3.setEnabled(true);"
+    },
+    {
+      "title": "Montagem da soma",
+      "text": "[CURRICULAR, Aula 3, slides 1–3] O formulário Soma Número utiliza três campos, dois botões e rótulos. O slide 1 indica três JLabel, mas o slide 2 inclui quatro (título, Número 1, Número 2, Resultado). Use os rótulos necessários. Os nomes sugeridos são txtNumero1, txtNumero2, txtResultado, btnSomar e btnLimpar. text não é o identificador Java.",
+      "example": "txtResultado.setEditable(false); // melhoria complementar"
+    },
+    {
+      "title": "Do texto à soma",
+      "text": "[CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. [FUNDAMENTOS] A soma de int pode transbordar; Math.addExact detecta esse caso em Java 8.",
+      "example": "int numero1 = Integer.parseInt(txtNumero1.getText());\nint numero2 = Integer.parseInt(txtNumero2.getText());\nint resultado = numero1 + numero2;\ntxtResultado.setText(String.valueOf(resultado));"
+    },
+    {
+      "title": "Limpar e testar a soma",
+      "text": "[CURRICULAR, Aula 3, slides 5–6] Limpe os três campos e solicite foco no primeiro. Execute com F6 se o projeto estiver configurado. Testes sugeridos: 5+8=13, 10+20=30, 100+50=150. [FUNDAMENTOS] Teste também texto inválido e valores negativos; o tratamento da aula 307 pode ser aplicado.",
+      "example": "txtNumero1.setText(\"\");\ntxtNumero2.setText(\"\");\ntxtResultado.setText(\"\");\ntxtNumero1.requestFocus();"
+    },
+    {
+      "title": "Modelo do JComboBox",
+      "text": "[CURRICULAR, Aula 3, slide 7] O combo oferece uma lista de opções. No Design, selecione o componente, abra Propriedades e edite model/Modelo. A apostila também mostra criação por código com array de cursos. [FUNDAMENTOS] JComboBox<String> usa um parâmetro de tipo para os itens; getSelectedItem ainda retorna Object.",
+      "example": "String[] cursos = {\"Informática\", \"Administração\", \"Enfermagem\"};\njavax.swing.JComboBox<String> cbCurso = new javax.swing.JComboBox<>(cursos);"
+    },
+    {
+      "title": "Itens e índices",
+      "text": "[CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. [FUNDAMENTOS] O primeiro índice é zero; -1 representa ausência de seleção. Não acesse toString sobre null. Os exemplos seguintes pressupõem cbCurso declarado.",
+      "example": "cbCurso.addItem(\"Design\");\ncbCurso.removeItem(\"Design\");\nif (cbCurso.getItemCount() > 0) cbCurso.setSelectedIndex(0);\nObject item = cbCurso.getSelectedItem();"
+    },
+    {
+      "title": "Eventos de seleção",
+      "text": "[CURRICULAR, Aula 3, slide 7] A apostila apresenta addActionListener e uma expressão lambda, disponível em Java 8. O listener pode reagir à seleção; mudanças por código também podem disparar eventos. O botão Mostrar seleção pode consultar o item atual. [FUNDAMENTOS] O exemplo autoral pressupõe cbCurso e btnMostrar declarados em método de instância do JFrame.",
+      "example": "btnMostrar.addActionListener(e -> {\n    Object item = cbCurso.getSelectedItem();\n    if (item != null) {\n        javax.swing.JOptionPane.showMessageDialog(this, \"Curso escolhido: \" + item);\n    }\n});"
+    },
+    {
+      "title": "Propriedades e identificação",
+      "text": "[CURRICULAR, Aula 3, slide 8] Alterar Nome da Variável pelo menu de contexto muda o identificador no código. text é texto visível, model contém itens, title é título do JFrame, toolTipText fornece dica e name é propriedade interna distinta do identificador. Exemplos: jComboBox1 para cbCurso, jLabel1 para lblCurso e jButton1 para btnMostrar.",
+      "example": "cbCurso.setToolTipText(\"Selecione um curso\");\ncbCurso.setName(\"curso\");"
+    },
+    {
+      "title": "Revisão dos objetos",
+      "text": "[CURRICULAR, Aula 3, slide 9] O quadro de cadastro identifica JFrame, JLabel, JTextField, JFormattedTextField, JComboBox, JSpinner, JRadioButton, ButtonGroup, JCheckBox, JTextArea, JScrollPane e JButton. [FUNDAMENTOS] JScrollPane oferece área rolável; não substitui o JTextArea que contém o texto. Os exemplos são fragmentos, não programas completos.",
+      "example": "javax.swing.JTextArea area = new javax.swing.JTextArea(5, 20);\njavax.swing.JScrollPane rolagem = new javax.swing.JScrollPane(area);"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Juntando nome e sobrenome",
+      "title": "Junção",
+      "prompt": "Com nome Ana e sobrenome Lima, qual resultado da junção com um espaço?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Ana Lima. [CURRICULAR, Atividade 1, slides 1–2] No formulário TelaCadastro, dois JTextField recebem nome e sobrenome; um terceiro apresenta o resultado. O botão Juntar concatena os textos após trim, inserindo um espaço entre eles. O código fica no evento gerado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "AnaLima"
+        },
+        {
+          "id": "b",
+          "text": "Ana Lima"
+        },
+        {
+          "id": "c",
+          "text": "Lima Ana"
+        },
+        {
+          "id": "d",
+          "text": "Ana + Lima"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Juntando nome e sobrenome",
+      "title": "Leitura",
+      "prompt": "Qual método recupera texto digitado?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: getText(). [CURRICULAR, Atividade 1, slides 1–2] No formulário TelaCadastro, dois JTextField recebem nome e sobrenome; um terceiro apresenta o resultado. O botão Juntar concatena os textos após trim, inserindo um espaço entre eles. O código fica no evento gerado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "setText()"
+        },
+        {
+          "id": "b",
+          "text": "getSelectedItem()"
+        },
+        {
+          "id": "c",
+          "text": "getValue()"
+        },
+        {
+          "id": "d",
+          "text": "getText()"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Juntando nome e sobrenome",
+      "title": "Espaços",
+      "prompt": "O que trim faz em \" Ana \"?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Retorna \"Ana\". [CURRICULAR, Atividade 1, slides 1–2] No formulário TelaCadastro, dois JTextField recebem nome e sobrenome; um terceiro apresenta o resultado. O botão Juntar concatena os textos após trim, inserindo um espaço entre eles. O código fica no evento gerado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Retorna \"Ana\""
+        },
+        {
+          "id": "b",
+          "text": "Retorna \" Ana \""
+        },
+        {
+          "id": "c",
+          "text": "Retorna \"ana\""
+        },
+        {
+          "id": "d",
+          "text": "Retorna \"\""
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "04",
+      "group": "Resultado não editável",
+      "title": "Edição",
+      "prompt": "Qual configuração impede digitação no resultado sem desabilitar o campo?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: editable=false, enabled=true. [CURRICULAR, Atividade 1, slide 2] Configure editable=false e mantenha enabled=true no campo de resultado. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "editable=true, enabled=false"
+        },
+        {
+          "id": "b",
+          "text": "editable=true, enabled=true"
+        },
+        {
+          "id": "c",
+          "text": "editable=false, enabled=true"
+        },
+        {
+          "id": "d",
+          "text": "editable=false, enabled=false"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "05",
+      "group": "Resultado não editável",
+      "title": "Escrita",
+      "prompt": "setText pode atualizar um JTextField não editável?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Sim, por código.. [CURRICULAR, Atividade 1, slide 2] Configure editable=false e mantenha enabled=true no campo de resultado. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, nunca."
+        },
+        {
+          "id": "b",
+          "text": "Somente após setEnabled(false)."
+        },
+        {
+          "id": "c",
+          "text": "Sim, por código."
+        },
+        {
+          "id": "d",
+          "text": "Somente com getText()."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "06",
+      "group": "Montagem da soma",
+      "title": "Identificador",
+      "prompt": "Qual nome sugerido para o campo do resultado da soma?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: txtResultado. [CURRICULAR, Aula 3, slides 1–3] O formulário Soma Número utiliza três campos, dois botões e rótulos. O slide 1 indica três JLabel, mas o slide 2 inclui quatro (título, Número 1, Número 2, Resultado). Use os rótulos necessários. Os nomes sugeridos são txtNumero1, txtNumero2, txtResultado, btnSomar e btnLimpar. text não é o identificador Java.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "txtResultado"
+        },
+        {
+          "id": "b",
+          "text": "btnSomar"
+        },
+        {
+          "id": "c",
+          "text": "lblTitulo"
+        },
+        {
+          "id": "d",
+          "text": "txtNumero1"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "07",
+      "group": "Montagem da soma",
+      "title": "Rótulos",
+      "prompt": "Por que há quatro rótulos no segundo slide?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: O título também é um JLabel.. [CURRICULAR, Aula 3, slides 1–3] O formulário Soma Número utiliza três campos, dois botões e rótulos. O slide 1 indica três JLabel, mas o slide 2 inclui quatro (título, Número 1, Número 2, Resultado). Use os rótulos necessários. Os nomes sugeridos são txtNumero1, txtNumero2, txtResultado, btnSomar e btnLimpar. text não é o identificador Java.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O resultado é um JButton."
+        },
+        {
+          "id": "b",
+          "text": "O título é um JComboBox."
+        },
+        {
+          "id": "c",
+          "text": "Cada número exige dois campos."
+        },
+        {
+          "id": "d",
+          "text": "O título também é um JLabel."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "08",
+      "group": "Do texto à soma",
+      "title": "Conversão",
+      "prompt": "Qual método interpreta o texto como inteiro?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Integer.parseInt. [CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "String.valueOf"
+        },
+        {
+          "id": "b",
+          "text": "Integer.parseInt"
+        },
+        {
+          "id": "c",
+          "text": "setText"
+        },
+        {
+          "id": "d",
+          "text": "getSelectedItem"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "Do texto à soma",
+      "title": "Saída",
+      "prompt": "Qual chamada apresenta resultado int em txtResultado?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: txtResultado.setText(String.valueOf(resultado)). [CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "txtResultado.setText(String.valueOf(resultado))"
+        },
+        {
+          "id": "b",
+          "text": "txtResultado.setText(resultado)"
+        },
+        {
+          "id": "c",
+          "text": "txtResultado.getText(resultado)"
+        },
+        {
+          "id": "d",
+          "text": "Integer.parseInt(resultado)"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "10",
+      "group": "Do texto à soma",
+      "title": "Rastreamento",
+      "prompt": "Com entradas 5 e 8, qual resultado da soma numérica?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: 13. [CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "58"
+        },
+        {
+          "id": "b",
+          "text": "85"
+        },
+        {
+          "id": "c",
+          "text": "13"
+        },
+        {
+          "id": "d",
+          "text": "40"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "11",
+      "group": "Do texto à soma",
+      "title": "Erro",
+      "prompt": "Qual exceção ocorre ao converter \"abc\" com parseInt?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: NumberFormatException. [CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ArithmeticException"
+        },
+        {
+          "id": "b",
+          "text": "NumberFormatException"
+        },
+        {
+          "id": "c",
+          "text": "ClassCastException"
+        },
+        {
+          "id": "d",
+          "text": "IOException"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "12",
+      "group": "Limpar e testar a soma",
+      "title": "Limpeza",
+      "prompt": "Quais campos devem ser limpos?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Os dois números e o resultado.. [CURRICULAR, Aula 3, slides 5–6] Limpe os três campos e solicite foco no primeiro. Execute com F6 se o projeto estiver configurado. Testes sugeridos: 5+8=13, 10+20=30, 100+50=150. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas o resultado."
+        },
+        {
+          "id": "b",
+          "text": "Apenas o primeiro número."
+        },
+        {
+          "id": "c",
+          "text": "Apenas os rótulos."
+        },
+        {
+          "id": "d",
+          "text": "Os dois números e o resultado."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "13",
+      "group": "Limpar e testar a soma",
+      "title": "Foco",
+      "prompt": "Qual chamada solicita foco no primeiro campo segundo a apostila?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: txtNumero1.requestFocus(). [CURRICULAR, Aula 3, slides 5–6] Limpe os três campos e solicite foco no primeiro. Execute com F6 se o projeto estiver configurado. Testes sugeridos: 5+8=13, 10+20=30, 100+50=150. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "txtNumero1.getText()"
+        },
+        {
+          "id": "b",
+          "text": "txtResultado.requestFocus()"
+        },
+        {
+          "id": "c",
+          "text": "txtNumero1.requestFocus()"
+        },
+        {
+          "id": "d",
+          "text": "btnSomar.setText(\"\")"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "14",
+      "group": "Modelo do JComboBox",
+      "title": "Modelo",
+      "prompt": "Qual propriedade permite cadastrar itens no Design?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: model. [CURRICULAR, Aula 3, slide 7] O combo oferece uma lista de opções. No Design, selecione o componente, abra Propriedades e edite model/Modelo. A apostila também mostra criação por código com array de cursos. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "text"
+        },
+        {
+          "id": "b",
+          "text": "model"
+        },
+        {
+          "id": "c",
+          "text": "title"
+        },
+        {
+          "id": "d",
+          "text": "name"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "15",
+      "group": "Modelo do JComboBox",
+      "title": "Tipo",
+      "prompt": "Qual declaração cria combo de strings a partir de cursos?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: new JComboBox<String>(cursos). [CURRICULAR, Aula 3, slide 7] O combo oferece uma lista de opções. No Design, selecione o componente, abra Propriedades e edite model/Modelo. A apostila também mostra criação por código com array de cursos. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "new JComboBox<String>(cursos)"
+        },
+        {
+          "id": "b",
+          "text": "new JTextField(cursos)"
+        },
+        {
+          "id": "c",
+          "text": "new JButton(cursos)"
+        },
+        {
+          "id": "d",
+          "text": "new ButtonGroup(cursos)"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "16",
+      "group": "Itens e índices",
+      "title": "Adicionar",
+      "prompt": "Qual método acrescenta um item?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: addItem. [CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "setSelectedIndex"
+        },
+        {
+          "id": "b",
+          "text": "getSelectedItem"
+        },
+        {
+          "id": "c",
+          "text": "removeItem"
+        },
+        {
+          "id": "d",
+          "text": "addItem"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "17",
+      "group": "Itens e índices",
+      "title": "Remover",
+      "prompt": "Qual método esvazia a lista?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: removeAllItems(). [CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "removeItem(0)"
+        },
+        {
+          "id": "b",
+          "text": "removeAllItems()"
+        },
+        {
+          "id": "c",
+          "text": "setSelectedIndex(-1)"
+        },
+        {
+          "id": "d",
+          "text": "setSelectedItem(null)"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "18",
+      "group": "Itens e índices",
+      "title": "Índice",
+      "prompt": "Qual índice seleciona o primeiro item de combo não vazio?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: 0. [CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "-1"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "getItemCount()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "19",
+      "group": "Itens e índices",
+      "title": "Ausência",
+      "prompt": "Qual índice indica nenhuma seleção?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: -1. [CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "getItemCount()"
+        },
+        {
+          "id": "d",
+          "text": "-1"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "20",
+      "group": "Itens e índices",
+      "title": "Item",
+      "prompt": "Qual tipo declarado de retorno de getSelectedItem()?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Object. [CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Object"
+        },
+        {
+          "id": "b",
+          "text": "int"
+        },
+        {
+          "id": "c",
+          "text": "boolean"
+        },
+        {
+          "id": "d",
+          "text": "void"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "21",
+      "group": "Eventos de seleção",
+      "title": "Evento",
+      "prompt": "Qual método registra um ouvinte de ação?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: addActionListener. [CURRICULAR, Aula 3, slide 7] A apostila apresenta addActionListener e uma expressão lambda, disponível em Java 8. O listener pode reagir à seleção; mudanças por código também podem disparar eventos. O botão Mostrar seleção pode consultar o item atual. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getSelectedItem"
+        },
+        {
+          "id": "b",
+          "text": "setToolTipText"
+        },
+        {
+          "id": "c",
+          "text": "removeAllItems"
+        },
+        {
+          "id": "d",
+          "text": "addActionListener"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "22",
+      "group": "Eventos de seleção",
+      "title": "Lambda",
+      "prompt": "Em e -> { ... }, o que e representa no listener de ação?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: O argumento do evento.. [CURRICULAR, Aula 3, slide 7] A apostila apresenta addActionListener e uma expressão lambda, disponível em Java 8. O listener pode reagir à seleção; mudanças por código também podem disparar eventos. O botão Mostrar seleção pode consultar o item atual. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O índice do item."
+        },
+        {
+          "id": "b",
+          "text": "O argumento do evento."
+        },
+        {
+          "id": "c",
+          "text": "O texto do botão."
+        },
+        {
+          "id": "d",
+          "text": "O JFrame."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "23",
+      "group": "Eventos de seleção",
+      "title": "Segurança",
+      "prompt": "Antes de item.toString(), qual condição evita acesso a null?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: item != null. [CURRICULAR, Aula 3, slide 7] A apostila apresenta addActionListener e uma expressão lambda, disponível em Java 8. O listener pode reagir à seleção; mudanças por código também podem disparar eventos. O botão Mostrar seleção pode consultar o item atual. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "item == null"
+        },
+        {
+          "id": "b",
+          "text": "item.equals(null)"
+        },
+        {
+          "id": "c",
+          "text": "item != null"
+        },
+        {
+          "id": "d",
+          "text": "item.toString().isEmpty()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Propriedades e identificação",
+      "title": "Dica",
+      "prompt": "Qual propriedade fornece dica ao passar o mouse?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: toolTipText. [CURRICULAR, Aula 3, slide 8] Alterar Nome da Variável pelo menu de contexto muda o identificador no código. text é texto visível, model contém itens, title é título do JFrame, toolTipText fornece dica e name é propriedade interna distinta do identificador. Exemplos: jComboBox1 para cbCurso, jLabel1 para lblCurso e jButton1 para btnMostrar.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "toolTipText"
+        },
+        {
+          "id": "b",
+          "text": "title"
+        },
+        {
+          "id": "c",
+          "text": "model"
+        },
+        {
+          "id": "d",
+          "text": "name"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "25",
+      "group": "Propriedades e identificação",
+      "title": "Título",
+      "prompt": "Qual propriedade define título do JFrame?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: title. [CURRICULAR, Aula 3, slide 8] Alterar Nome da Variável pelo menu de contexto muda o identificador no código. text é texto visível, model contém itens, title é título do JFrame, toolTipText fornece dica e name é propriedade interna distinta do identificador. Exemplos: jComboBox1 para cbCurso, jLabel1 para lblCurso e jButton1 para btnMostrar.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "text"
+        },
+        {
+          "id": "b",
+          "text": "title"
+        },
+        {
+          "id": "c",
+          "text": "model"
+        },
+        {
+          "id": "d",
+          "text": "editable"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "26",
+      "group": "Propriedades e identificação",
+      "title": "Nome interno",
+      "prompt": "A propriedade name equivale ao nome da variável Java?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: Não, são distintos.. [CURRICULAR, Aula 3, slide 8] Alterar Nome da Variável pelo menu de contexto muda o identificador no código. text é texto visível, model contém itens, title é título do JFrame, toolTipText fornece dica e name é propriedade interna distinta do identificador. Exemplos: jComboBox1 para cbCurso, jLabel1 para lblCurso e jButton1 para btnMostrar.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, são distintos."
+        },
+        {
+          "id": "b",
+          "text": "Sim, sempre."
+        },
+        {
+          "id": "c",
+          "text": "Sim, apenas em JComboBox."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se enabled=true."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "27",
+      "group": "Revisão dos objetos",
+      "title": "Rolagem",
+      "prompt": "Qual componente oferece área rolável para JTextArea?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: JScrollPane. [CURRICULAR, Aula 3, slide 9] O quadro de cadastro identifica JFrame, JLabel, JTextField, JFormattedTextField, JComboBox, JSpinner, JRadioButton, ButtonGroup, JCheckBox, JTextArea, JScrollPane e JButton. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ButtonGroup"
+        },
+        {
+          "id": "b",
+          "text": "JSpinner"
+        },
+        {
+          "id": "c",
+          "text": "JScrollPane"
+        },
+        {
+          "id": "d",
+          "text": "JLabel"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "28",
+      "group": "Revisão dos objetos",
+      "title": "Escolhas",
+      "prompt": "Qual componente agrupa escolhas exclusivas?",
+      "hint": "Consulte o capítulo correspondente e observe o comportamento do componente.",
+      "explanation": "Resposta: ButtonGroup. [CURRICULAR, Aula 3, slide 9] O quadro de cadastro identifica JFrame, JLabel, JTextField, JFormattedTextField, JComboBox, JSpinner, JRadioButton, ButtonGroup, JCheckBox, JTextArea, JScrollPane e JButton. ",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JScrollPane"
+        },
+        {
+          "id": "b",
+          "text": "JTextArea"
+        },
+        {
+          "id": "c",
+          "text": "JFormattedTextField"
+        },
+        {
+          "id": "d",
+          "text": "ButtonGroup"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "29",
+      "group": "Juntando nome e sobrenome",
+      "title": "Concatenar",
+      "prompt": "Escreva a expressão que une nome e sobrenome com espaço.",
+      "solution": "nome + \" \" + sobrenome",
+      "explanation": "nome + \" \" + sobrenome",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Resultado não editável",
+      "title": "Proteger saída",
+      "prompt": "Configure txtResultado para impedir edição sem desabilitar.",
+      "solution": "txtResultado.setEditable(false);\ntxtResultado.setEnabled(true);",
+      "explanation": "txtResultado.setEditable(false);\ntxtResultado.setEnabled(true);",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Do texto à soma",
+      "title": "Somar",
+      "prompt": "Escreva o trecho de soma dos dois campos e apresentação do resultado, supondo entradas válidas.",
+      "solution": "int a = Integer.parseInt(txtNumero1.getText());\nint b = Integer.parseInt(txtNumero2.getText());\ntxtResultado.setText(String.valueOf(a + b));",
+      "explanation": "int a = Integer.parseInt(txtNumero1.getText());\nint b = Integer.parseInt(txtNumero2.getText());\ntxtResultado.setText(String.valueOf(a + b));",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Limpar e testar a soma",
+      "title": "Testes",
+      "prompt": "Proponha três testes de soma, incluindo negativo e formato inválido.",
+      "solution": "5+8=13; -5+2=-3; abc e 2 devem provocar falha de conversão no exemplo original.",
+      "explanation": "5+8=13; -5+2=-3; abc e 2 devem provocar falha de conversão no exemplo original.",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Itens e índices",
+      "title": "Lista vazia",
+      "prompt": "Explique por que não chamar setSelectedIndex(0) após removeAllItems().",
+      "solution": "Não existe item no índice zero; verifique getItemCount() antes de selecionar.",
+      "explanation": "Não existe item no índice zero; verifique getItemCount() antes de selecionar.",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Eventos de seleção",
+      "title": "Seleção segura",
+      "prompt": "Leia o item e exiba seu texto apenas se não for null.",
+      "solution": "Object item = cbCurso.getSelectedItem();\nif (item != null) javax.swing.JOptionPane.showMessageDialog(this, item.toString());",
+      "explanation": "Object item = cbCurso.getSelectedItem();\nif (item != null) javax.swing.JOptionPane.showMessageDialog(this, item.toString());",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Propriedades e identificação",
+      "title": "Propriedades",
+      "prompt": "Diferencie nome da variável, name e text.",
+      "solution": "Identificador Java, propriedade interna do componente e texto visível, respectivamente.",
+      "explanation": "Identificador Java, propriedade interna do componente e texto visível, respectivamente.",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão dos objetos",
+      "title": "Rolagem",
+      "prompt": "Explique a relação entre JScrollPane e JTextArea.",
+      "solution": "JTextArea contém texto; JScrollPane oferece visualização rolável.",
+      "explanation": "JTextArea contém texto; JScrollPane oferece visualização rolável.",
+      "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
