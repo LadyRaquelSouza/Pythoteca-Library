@@ -86,24 +86,24 @@
       "title": "Soma de dois números e processamento de dados",
       "subtitle": "Entrada, processamento, saída, atribuição e operações aritméticas",
       "discipline": "portugol",
-      "sha256": "0ebd1a7a8feaac0322f40e4f51834a18a83e5b17e3130970b928b13be9f936bd",
-      "bytes": 20657
+      "sha256": "f6061eb84aecd8e8459d79158b8a4499876d4b2721418e04204eef3dfab40197",
+      "bytes": 23052
     },
     {
       "id": "aula204",
       "title": "Estruturas de seleção",
       "subtitle": "Condições, operadores relacionais e decisões encadeadas",
       "discipline": "portugol",
-      "sha256": "a5dab99715b02892a469dc7fbd9e1423e3963a97031f961d1a5144e1dd7a58b3",
-      "bytes": 20684
+      "sha256": "6a8e0c78d01a48946b752616a0e5584d9457cca19a51c3c2bc7d2862672f2c87",
+      "bytes": 22480
     },
     {
       "id": "aula205",
       "title": "Estrutura escolha/caso",
       "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
       "discipline": "portugol",
-      "sha256": "b6ce4e1ef538c416f7e6e1d26a3cc5df1e238bff12e60db4a08da0fb47be18ea",
-      "bytes": 18943
+      "sha256": "369def721f369582a8b9b08263183d92b69b38a6f0cf7eeb5e4a85e8fdd77a39",
+      "bytes": 19757
     }
   ]
 }
