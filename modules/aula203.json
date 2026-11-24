@@ -1,0 +1,643 @@
+{
+  "schema_version": 2,
+  "discipline": "portugol",
+  "id": "aula203",
+  "title": "Soma de dois números e processamento de dados",
+  "subtitle": "Entrada, processamento, saída, atribuição e operações aritméticas",
+  "objectives": "Identificar entrada, processamento e saída; declarar e ler inteiros; calcular e armazenar uma soma; rastrear e testar programas; explorar outras operações como aprofundamento.",
+  "source": "Base acadêmica: Aula_3_Soma_de_Dois_Numeros_Portugol_Webstudio_Widescreen.pdf, dez slides examinados visualmente. Slides 2–9: declaração, leitura, soma, atribuição, saída e programa completo; slide 10: estoque e inscrições. Exemplos e exercícios autorais; demais operações, precedência e testes de fronteira são aprofundamentos. Código não executado nesta etapa.",
+  "chapters": [
+    {
+      "title": "1. Entrada, processamento e saída",
+      "text": "CONTEÚDO DO CURSO\nA terceira apostila apresenta um programa que recebe dois inteiros, calcula sua soma e mostra o resultado. Entrada é o recebimento dos dados; processamento é a operação que transforma os dados; saída é a apresentação do resultado. O programa deve funcionar com diferentes pares de inteiros representáveis, não apenas com os números do exemplo.\n\nAPROFUNDAMENTO\nO mesmo modelo serve para problemas que não envolvem soma. Identifique primeiro o resultado desejado e depois os dados necessários.",
+      "example": "Entrada: 7 e 15\nProcessamento: 7 + 15\nSaída: 22"
+    },
+    {
+      "title": "2. Preparar as variáveis",
+      "text": "CONTEÚDO DO CURSO\nA apostila usa numero1, numero2 e soma, todos do tipo inteiro. As duas primeiras variáveis recebem os dados; a terceira guarda o resultado. Podemos declarar variáveis do mesmo tipo separadas por vírgulas.\n\nAPROFUNDAMENTO\nO nome soma descreve a finalidade da variável, não executa uma operação automaticamente.",
+      "example": "inteiro numero1, numero2, soma"
+    },
+    {
+      "title": "3. Receber os valores",
+      "text": "CONTEÚDO DO CURSO\nCada pergunta é exibida com escreva() e seguida de leia() para guardar a resposta na variável correspondente. A soma só deve ser calculada depois de receber os dois valores.",
+      "example": "escreva(\"Primeiro valor: \")\nleia(numero1)\nescreva(\"Segundo valor: \")\nleia(numero2)"
+    },
+    {
+      "title": "4. Adição e atribuição",
+      "text": "CONTEÚDO DO CURSO\nO operador + realiza a adição. O sinal = atribui à variável à esquerda o resultado da expressão à direita. Em soma = numero1 + numero2, primeiro são consultados os valores das duas variáveis e calculada a adição; depois o resultado é armazenado em soma.\n\nAPROFUNDAMENTO\nA atribuição não estabelece uma igualdade matemática permanente. Se numero1 mudar depois, soma não é recalculada automaticamente.",
+      "example": "numero1 = 6\nnumero2 = 11\nsoma = numero1 + numero2\nnumero1 = 20\n// soma continua 17"
+    },
+    {
+      "title": "5. Mostrar o resultado",
+      "text": "CONTEÚDO DO CURSO\nO comando escreva() apresenta o resultado e pode combinar texto com variáveis. A sequência \\n encerra a linha. Não confunda o nome da variável entre aspas com seu valor.\n\nAPROFUNDAMENTO\nA saída deve deixar claro o significado do número apresentado.",
+      "example": "escreva(\"Total de unidades: \", soma, \"\\n\")"
+    },
+    {
+      "title": "6. Programa completo e testes",
+      "text": "CONTEÚDO DO CURSO\nA apostila reúne declaração, duas leituras, soma e saída, e propõe executar com valores diferentes. O exemplo autoral abaixo segue a mesma estrutura.\n\nAPROFUNDAMENTO\nTeste positivos, zero e negativos quando o problema permitir. Para quantidades de estoque, números negativos podem ser inválidos no contexto, mesmo que sejam inteiros válidos. A validação será estudada posteriormente. Não há interpretador Portugol na Pythoteca; execute externamente.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        inteiro primeiro, segundo, total\n        escreva(\"Primeiro inteiro: \")\n        leia(primeiro)\n        escreva(\"Segundo inteiro: \")\n        leia(segundo)\n        total = primeiro + segundo\n        escreva(\"Total: \", total, \"\\n\")\n    }\n}"
+    },
+    {
+      "title": "7. Outras operações e precedência",
+      "text": "APROFUNDAMENTO AUTORAL\nAlém de +, Portugol utiliza - para subtração, * para multiplicação, / para divisão e % para resto da divisão inteira. Multiplicação, divisão e resto têm precedência sobre adição e subtração; parênteses permitem explicitar outra ordem. Divisão entre inteiros em Portugol Studio produz quociente inteiro; para obter resultado fracionário, use pelo menos um operando real. Não divida por zero. O comportamento de divisão em Python será estudado separadamente.\n\nExemplos de expressões: 2 + 3 * 4 resulta em 14; (2 + 3) * 4 resulta em 20; 17 % 5 resulta em 2.",
+      "example": "inteiro total = 2 + 3 * 4\nreal media = (7 + 8) / 2.0\n// total = 14; media = 7.5"
+    },
+    {
+      "title": "8. Aplicações e rastreamento",
+      "text": "CONTEÚDO DO CURSO\nOs desafios da apostila aplicam a soma a estoque de materiais e inscrições em dois turnos. Ambos recebem duas quantidades e exibem o total.\n\nAPROFUNDAMENTO\nPara elaborar uma solução semelhante, escolha nomes que representem o problema, rastreie os valores e compare a saída com um cálculo manual. Um resultado correto em um único teste não garante que o programa funcione em todos os casos.",
+      "example": "Exemplo autoral: uma biblioteca recebe 13 livros de uma doação e 21 de outra. Entrada: 13, 21. Processamento: 13 + 21. Saída: 34 livros."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais",
+      "title": "Etapas do cálculo",
+      "prompt": "Qual sequência descreve um programa de soma?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Os dados precisam estar disponíveis antes do cálculo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ler, somar, mostrar"
+        },
+        {
+          "id": "b",
+          "text": "Somar, mostrar, ler"
+        },
+        {
+          "id": "c",
+          "text": "Mostrar, ler, somar"
+        },
+        {
+          "id": "d",
+          "text": "Ler, mostrar, somar"
+        }
+      ],
+      "answer": "a",
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais",
+      "title": "Atribuição",
+      "prompt": "Em total = a + b, qual é o papel de =?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "A expressão à direita é avaliada e atribuída à variável.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Comparar valores"
+        },
+        {
+          "id": "b",
+          "text": "Guardar o resultado em total"
+        },
+        {
+          "id": "c",
+          "text": "Somar novamente"
+        },
+        {
+          "id": "d",
+          "text": "Exibir o resultado"
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais",
+      "title": "Rastreamento",
+      "prompt": "a = 14, b = 9, total = a + b. Qual é total?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "14 + 9 = 23.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "149"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "23"
+        },
+        {
+          "id": "d",
+          "text": "126"
+        }
+      ],
+      "answer": "c",
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais",
+      "title": "Programa de soma",
+      "prompt": "Escreva um programa completo que leia duas quantidades inteiras e mostre o total.",
+      "hint": "Resolva manualmente antes de conferir.",
+      "explanation": "Verifique declaração, leituras, atribuição e saída.",
+      "mode": "text",
+      "starter": "",
+      "solution": "programa\n{\n    funcao inicio()\n    {\n        inteiro a, b, total\n        escreva(\"Primeira quantidade: \")\n        leia(a)\n        escreva(\"Segunda quantidade: \")\n        leia(b)\n        total = a + b\n        escreva(\"Total: \", total)\n    }\n}",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Revisão opcional",
+      "title": "Variáveis",
+      "prompt": "Qual declaração é adequada para três quantidades inteiras?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "O tipo inteiro representa quantidades sem fração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "cadeia a, b, total"
+        },
+        {
+          "id": "b",
+          "text": "inteiro a, b, total"
+        },
+        {
+          "id": "c",
+          "text": "logico a, b, total"
+        },
+        {
+          "id": "d",
+          "text": "leia(a, b, total)"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional",
+      "title": "Zero",
+      "prompt": "Qual a soma de 0 e 17?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Zero é elemento neutro da adição.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "170"
+        },
+        {
+          "id": "c",
+          "text": "17"
+        },
+        {
+          "id": "d",
+          "text": "1"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional",
+      "title": "Negativos",
+      "prompt": "Qual a soma de -8 e 3?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Somar 3 a -8 resulta em -5.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "-11"
+        },
+        {
+          "id": "b",
+          "text": "11"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "-5"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional",
+      "title": "Valor armazenado",
+      "prompt": "a = 2; b = 5; total = a + b; a = 10. Qual é total?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "A atribuição anterior não é recalculada automaticamente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional",
+      "title": "Saída literal",
+      "prompt": "Se total = 19, o que escreva(\"total\") exibe?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Aspas indicam texto literal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "19"
+        },
+        {
+          "id": "b",
+          "text": "total"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "Erro"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional",
+      "title": "Saída formatada",
+      "prompt": "Se total = 19, o que escreva(\"Total: \", total) exibe?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "O espaço está no texto literal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Total: total"
+        },
+        {
+          "id": "b",
+          "text": "19Total"
+        },
+        {
+          "id": "c",
+          "text": "Total: 19"
+        },
+        {
+          "id": "d",
+          "text": "Total:19"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional",
+      "title": "Ordem de leitura",
+      "prompt": "Para calcular a soma de dois valores digitados, quando calcular?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Ambos os operandos devem estar disponíveis.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Antes das leituras"
+        },
+        {
+          "id": "b",
+          "text": "Após apenas a primeira leitura"
+        },
+        {
+          "id": "c",
+          "text": "Antes de declarar"
+        },
+        {
+          "id": "d",
+          "text": "Após as duas leituras"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional",
+      "title": "Estoque de livros",
+      "prompt": "Uma biblioteca recebe 18 livros pela manhã e 27 à tarde. Identifique entrada, processamento e saída.",
+      "hint": "Resolva manualmente antes de conferir.",
+      "explanation": "O total reúne as duas quantidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Entrada: 18 e 27. Processamento: 18 + 27. Saída: 45 livros.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional",
+      "title": "Inscrições",
+      "prompt": "Uma oficina tem 32 inscritos em um turno e 24 em outro. Escreva a expressão para obter o total usando manha e tarde.",
+      "hint": "Resolva manualmente antes de conferir.",
+      "explanation": "A expressão soma as duas variáveis.",
+      "mode": "text",
+      "starter": "",
+      "solution": "total = manha + tarde // 56",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional",
+      "title": "Corrigir ordem",
+      "prompt": "O programa calcula total = a + b antes de leia(a) e leia(b). Como corrigir?",
+      "hint": "Resolva manualmente antes de conferir.",
+      "explanation": "O cálculo deve usar os valores recebidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Mover total = a + b para depois das duas leituras.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional",
+      "title": "Casos de teste",
+      "prompt": "Proponha três pares de inteiros e seus resultados para testar a soma.",
+      "hint": "Resolva manualmente antes de conferir.",
+      "explanation": "Testes variados ajudam a identificar falhas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Exemplo: 4 e 7 → 11; 0 e 5 → 5; -3 e 3 → 0.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional",
+      "title": "Subtração (aprofundamento)",
+      "prompt": "Qual expressão calcula o saldo de 25 unidades após retirar 8?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Subtração representa a retirada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "25 + 8"
+        },
+        {
+          "id": "b",
+          "text": "25 * 8"
+        },
+        {
+          "id": "c",
+          "text": "25 - 8"
+        },
+        {
+          "id": "d",
+          "text": "8 - 25"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional",
+      "title": "Multiplicação (aprofundamento)",
+      "prompt": "Quanto resulta 6 * 4?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Seis grupos de quatro totalizam 24.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "24"
+        },
+        {
+          "id": "c",
+          "text": "64"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional",
+      "title": "Precedência (aprofundamento)",
+      "prompt": "Quanto resulta 3 + 2 * 5?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Multiplicação precede adição.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "13"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "10"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional",
+      "title": "Parênteses (aprofundamento)",
+      "prompt": "Quanto resulta (3 + 2) * 5?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Os parênteses determinam a soma primeiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "13"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional",
+      "title": "Resto (aprofundamento)",
+      "prompt": "Quanto resulta 19 % 4?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "19 = 4 * 4 + 3.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "4.75"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional",
+      "title": "Divisão real (aprofundamento)",
+      "prompt": "Qual expressão permite calcular 7 dividido por 2 com resultado fracionário?",
+      "hint": "Identifique os dados e rastreie a operação.",
+      "explanation": "Um operando real permite divisão real.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "7 / 2.0"
+        },
+        {
+          "id": "b",
+          "text": "7 % 2"
+        },
+        {
+          "id": "c",
+          "text": "7 * 2"
+        },
+        {
+          "id": "d",
+          "text": "7 - 2"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional",
+      "title": "Média (aprofundamento)",
+      "prompt": "Escreva uma expressão que calcule a média real de dois inteiros n1 e n2.",
+      "hint": "Resolva manualmente antes de conferir.",
+      "explanation": "Os parênteses agrupam a soma e 2.0 permite resultado fracionário.",
+      "mode": "text",
+      "starter": "",
+      "solution": "real media = (n1 + n2) / 2.0",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

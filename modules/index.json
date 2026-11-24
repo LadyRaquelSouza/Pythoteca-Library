@@ -80,6 +80,14 @@
       "discipline": "portugol",
       "sha256": "dc277dd8967831032e3591114bd247eac0e4d758acfaeab3b2b5ac2b8ed5abce",
       "bytes": 18568
+    },
+    {
+      "id": "aula203",
+      "title": "Soma de dois números e processamento de dados",
+      "subtitle": "Entrada, processamento, saída, atribuição e operações aritméticas",
+      "discipline": "portugol",
+      "sha256": "0ebd1a7a8feaac0322f40e4f51834a18a83e5b17e3130970b928b13be9f936bd",
+      "bytes": 20657
     }
   ]
 }
