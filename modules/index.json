@@ -64,6 +64,14 @@
       "discipline": "arquitetura",
       "sha256": "b205bc5b04cb4f94cc5783d683040c2bfdb68add66172615987d94ba2a6fd412",
       "bytes": 96119
+    },
+    {
+      "id": "aula201",
+      "title": "Introdução à lógica de programação",
+      "subtitle": "Algoritmos, sequência de passos e primeiro contato com Portugol",
+      "discipline": "portugol",
+      "sha256": "9b70aedcc1c9553944c77e7e2c63760cc2a0a1e63006f22b6eeda86b993208f1",
+      "bytes": 16971
     }
   ]
 }
