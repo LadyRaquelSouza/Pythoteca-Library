@@ -104,6 +104,14 @@
       "discipline": "portugol",
       "sha256": "276a1549c02ede4a5a89e70be725d3ebe72b0e222b48252db0334435d0f224c6",
       "bytes": 49707
+    },
+    {
+      "id": "aula301",
+      "title": "Anatomia de um programa Java",
+      "subtitle": "Sintaxe, blocos, indentação, métodos e primeiros objetos",
+      "discipline": "java",
+      "sha256": "334bc83ac4fa5004419b6f11589232a40c94f6c0f03b6105227bf04d2ebba363",
+      "bytes": 36372
     }
   ]
 }
