@@ -1,0 +1,1090 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula304",
+  "title": "JFrame e componentes Swing",
+  "subtitle": "Janelas, componentes, propriedades e código gerado",
+  "objectives": "Reconhecer componentes Swing, interpretar sua instanciação e configuração, compreender initComponents e distinguir layout de comportamento.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf (https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view), texto consultado nesta etapa: Adicionando objetos a tela; Como e onde o NetBeans gera o código dos componentes Swing; O que é Swing. Capítulos distinguem conteúdo curricular de fundamentos autorais. Imagens não inspecionadas nesta etapa. Exemplos complementares Java 8.",
+  "chapters": [
+    {
+      "title": "Swing e JFC",
+      "text": "[CURRICULAR] Swing é uma biblioteca de componentes gráficos incluída no Java SE e integrante das Java Foundation Classes (JFC). Permite criar aplicações com janelas, botões, menus, tabelas e campos de preenchimento. [FUNDAMENTOS] Swing utiliza a infraestrutura AWT; seus componentes não dependem do NetBeans para existir.",
+      "example": "import javax.swing.JFrame;"
+    },
+    {
+      "title": "JFrame e contêineres",
+      "text": "[FUNDAMENTOS] JFrame representa uma janela de nível superior. Seu content pane recebe os componentes da interface. JPanel é um contêiner útil para agrupar componentes. Criar uma janela não significa torná-la visível. setVisible(true) solicita sua exibição; pack() dimensiona a janela segundo os tamanhos preferidos dos componentes.",
+      "example": "JFrame janela = new JFrame(\"Cadastro\");\njanela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n// Configurar componentes antes de pack e setVisible."
+    },
+    {
+      "title": "Rótulos, campos e botões",
+      "text": "[CURRICULAR] JLabel apresenta um rótulo, JTextField oferece um campo de digitação e JButton representa um botão. O NetBeans gera instruções de criação quando esses componentes são adicionados ao formulário. [FUNDAMENTOS] Um campo de texto de uma linha guarda texto, mesmo quando o usuário digita algarismos.",
+      "example": "JLabel rotulo = new JLabel(\"Nome:\");\nJTextField campo = new JTextField(15);\nJButton botao = new JButton(\"Cadastrar\");"
+    },
+    {
+      "title": "Propriedades e identificadores",
+      "text": "[CURRICULAR] Alterar propriedades visuais no GUI Builder atualiza o código correspondente. setText define o texto exibido. [FUNDAMENTOS] O identificador jButton1 é um nome Java, enquanto Cadastrar é texto apresentado ao usuário. Renomear a variável e alterar a propriedade text são operações diferentes. getText lê o texto de componentes que oferecem esse método.",
+      "example": "jButton1.setText(\"Cadastrar\");\nString nome = jTextField1.getText();"
+    },
+    {
+      "title": "Instanciação e campos",
+      "text": "[CURRICULAR] A apostila exemplifica a criação dos componentes com new javax.swing.JLabel(), new javax.swing.JTextField() e new javax.swing.JButton(). [FUNDAMENTOS] Declarar um campo de referência não cria o componente. A atribuição após new guarda a referência. Um campo pode ser utilizado em diferentes métodos da janela.",
+      "example": "private javax.swing.JButton jButton1;\n// Dentro de initComponents():\njButton1 = new javax.swing.JButton();\njButton1.setText(\"Cadastrar\");"
+    },
+    {
+      "title": "O método initComponents",
+      "text": "[CURRICULAR] Abra TelaCadastro.java no painel Projetos, selecione Código-Fonte e localize initComponents(). O construtor chama esse método para inicializar e configurar a interface. O código gerado aparece em região protegida. [FUNDAMENTOS] initComponents não é palavra reservada de Java; é um nome de método adotado pelo gerador.",
+      "example": "public TelaCadastro() {\n    initComponents();\n}"
+    },
+    {
+      "title": "Gerenciadores de layout",
+      "text": "[CURRICULAR] A apostila informa que o código real normalmente utiliza GroupLayout. [FUNDAMENTOS] Um gerenciador de layout organiza componentes no contêiner. GroupLayout descreve grupos horizontais e verticais; FlowLayout organiza componentes em sequência; BorderLayout usa regiões. Não é necessário escrever GroupLayout manualmente para utilizar o GUI Builder.",
+      "example": "JPanel painel = new JPanel(new java.awt.FlowLayout());\npainel.add(new JLabel(\"Nome:\"));\npainel.add(new JTextField(15));"
+    },
+    {
+      "title": "Editor visual e código protegido",
+      "text": "[CURRICULAR] O NetBeans gera aparência e organização dos componentes; o programador implementa o comportamento. [FUNDAMENTOS] Use Design e Propriedades para alterações gerenciadas pelo editor visual. Preserve .java e .form. Não force edição de regiões protegidas: o gerador pode sobrescrever alterações. O código de eventos será estudado na próxima aula.",
+      "example": "// Configuração visual:\njButton1.setText(\"Limpar\");\n// Comportamento do clique: será definido no evento."
+    },
+    {
+      "title": "Uma janela completa para leitura",
+      "text": "[FUNDAMENTOS] Este exemplo autoral Java 8 não reproduz o código gerado. Mostra uma janela, três componentes, um painel, layout e exibição. invokeLater agenda a criação na thread de eventos Swing; sua estrutura será aprofundada posteriormente. O botão ainda não possui comportamento de cadastro.",
+      "example": "import javax.swing.*;\nimport java.awt.FlowLayout;\n\npublic class Tela {\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(new Runnable() {\n            public void run() {\n                JFrame janela = new JFrame(\"Cadastro\");\n                janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n                JPanel painel = new JPanel(new FlowLayout());\n                painel.add(new JLabel(\"Nome:\"));\n                painel.add(new JTextField(15));\n                painel.add(new JButton(\"Cadastrar\"));\n                janela.setContentPane(painel);\n                janela.pack();\n                janela.setVisible(true);\n            }\n        });\n    }\n}"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Swing e JFC",
+      "title": "Biblioteca",
+      "prompt": "Swing integra qual conjunto?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "Swing integra as JFC na plataforma Java SE.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JDBC"
+        },
+        {
+          "id": "b",
+          "text": "Java Foundation Classes (JFC)"
+        },
+        {
+          "id": "c",
+          "text": "JDK apenas como compilador"
+        },
+        {
+          "id": "d",
+          "text": "NetBeans GUI Builder exclusivamente"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Swing e JFC",
+      "title": "Independência",
+      "prompt": "Uma aplicação Swing precisa do NetBeans instalado para executar?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "A IDE auxilia a criação, não é requisito de execução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, o NetBeans renderiza os botões."
+        },
+        {
+          "id": "b",
+          "text": "Sim, o arquivo .form é interpretado pela IDE durante execução."
+        },
+        {
+          "id": "c",
+          "text": "Não, porque Swing dispensa Java."
+        },
+        {
+          "id": "d",
+          "text": "Não, precisa de ambiente Java compatível e dependências necessárias."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "JFrame e contêineres",
+      "title": "Janela",
+      "prompt": "Qual classe representa uma janela de nível superior?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "JFrame representa a janela.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "JFrame"
+        },
+        {
+          "id": "b",
+          "text": "JPanel"
+        },
+        {
+          "id": "c",
+          "text": "JLabel"
+        },
+        {
+          "id": "d",
+          "text": "JTextField"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "04",
+      "group": "JFrame e contêineres",
+      "title": "Agrupamento",
+      "prompt": "Qual componente é apropriado para agrupar outros componentes dentro de uma janela?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "JPanel é um contêiner.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JLabel"
+        },
+        {
+          "id": "b",
+          "text": "JTextField"
+        },
+        {
+          "id": "c",
+          "text": "JPanel"
+        },
+        {
+          "id": "d",
+          "text": "JButton"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "05",
+      "group": "JFrame e contêineres",
+      "title": "Exibição",
+      "prompt": "Qual chamada solicita tornar a janela visível?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "setVisible controla visibilidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "janela.pack()"
+        },
+        {
+          "id": "b",
+          "text": "janela.setTitle(\"Cadastro\")"
+        },
+        {
+          "id": "c",
+          "text": "new JFrame()"
+        },
+        {
+          "id": "d",
+          "text": "janela.setVisible(true)"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "06",
+      "group": "JFrame e contêineres",
+      "title": "Dimensionamento",
+      "prompt": "Qual método dimensiona a janela segundo os tamanhos preferidos de seus componentes?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "pack calcula o tamanho adequado ao conteúdo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getText()"
+        },
+        {
+          "id": "b",
+          "text": "pack()"
+        },
+        {
+          "id": "c",
+          "text": "setVisible()"
+        },
+        {
+          "id": "d",
+          "text": "setTitle()"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "07",
+      "group": "Rótulos, campos e botões",
+      "title": "Rótulo",
+      "prompt": "Qual componente apresenta o texto Nome: ao lado de um campo?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "JLabel apresenta um rótulo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JTextField"
+        },
+        {
+          "id": "b",
+          "text": "JButton"
+        },
+        {
+          "id": "c",
+          "text": "JLabel"
+        },
+        {
+          "id": "d",
+          "text": "JFrame"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "08",
+      "group": "Rótulos, campos e botões",
+      "title": "Entrada",
+      "prompt": "Qual componente permite digitar texto em uma linha?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "JTextField é um campo de texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "JTextField"
+        },
+        {
+          "id": "b",
+          "text": "JLabel"
+        },
+        {
+          "id": "c",
+          "text": "JPanel"
+        },
+        {
+          "id": "d",
+          "text": "JFrame"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "09",
+      "group": "Rótulos, campos e botões",
+      "title": "Ação",
+      "prompt": "Qual componente representa um botão acionável?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "JButton representa um botão.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JLabel"
+        },
+        {
+          "id": "b",
+          "text": "JButton"
+        },
+        {
+          "id": "c",
+          "text": "JPanel"
+        },
+        {
+          "id": "d",
+          "text": "JTextField"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "10",
+      "group": "Rótulos, campos e botões",
+      "title": "Texto numérico",
+      "prompt": "O usuário digita 25 em um JTextField. Qual tipo getText retorna?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "O campo retorna texto; conversão numérica é separada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int"
+        },
+        {
+          "id": "b",
+          "text": "double"
+        },
+        {
+          "id": "c",
+          "text": "boolean"
+        },
+        {
+          "id": "d",
+          "text": "String"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "11",
+      "group": "Propriedades e identificadores",
+      "title": "Propriedade text",
+      "prompt": "Qual chamada altera o texto visível de jButton1?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "setText modifica a propriedade textual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "jButton1.setText(\"Salvar\")"
+        },
+        {
+          "id": "b",
+          "text": "jButton1.getText()"
+        },
+        {
+          "id": "c",
+          "text": "new JLabel(\"Salvar\")"
+        },
+        {
+          "id": "d",
+          "text": "jButton1.setVisible(true)"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "12",
+      "group": "Propriedades e identificadores",
+      "title": "Identificador",
+      "prompt": "Depois de jButton1.setText(\"Salvar\"), qual nome de variável continua válido?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "A propriedade não renomeia o identificador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Salvar"
+        },
+        {
+          "id": "b",
+          "text": "JButton1"
+        },
+        {
+          "id": "c",
+          "text": "jButton1"
+        },
+        {
+          "id": "d",
+          "text": "setText"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "13",
+      "group": "Propriedades e identificadores",
+      "title": "Leitura",
+      "prompt": "Qual chamada lê o conteúdo de jTextField1?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "getText devolve o texto atual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "jTextField1.setText(\"\")"
+        },
+        {
+          "id": "b",
+          "text": "jTextField1.setVisible(true)"
+        },
+        {
+          "id": "c",
+          "text": "new JTextField()"
+        },
+        {
+          "id": "d",
+          "text": "jTextField1.getText()"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "14",
+      "group": "Propriedades e identificadores",
+      "title": "Limpeza",
+      "prompt": "Qual chamada esvazia o conteúdo do campo?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "A string vazia não contém caracteres; um espaço é diferente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "jTextField1.getText()"
+        },
+        {
+          "id": "b",
+          "text": "jTextField1.setText(\"\")"
+        },
+        {
+          "id": "c",
+          "text": "jTextField1.setVisible(false)"
+        },
+        {
+          "id": "d",
+          "text": "jTextField1.setText(\" \")"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "15",
+      "group": "Instanciação e campos",
+      "title": "Declaração",
+      "prompt": "O que private javax.swing.JButton jButton1; declara?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "A declaração não cria a instância.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Um botão já instanciado."
+        },
+        {
+          "id": "b",
+          "text": "Um construtor de JButton."
+        },
+        {
+          "id": "c",
+          "text": "Um campo de referência privado."
+        },
+        {
+          "id": "d",
+          "text": "Um método de evento."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "16",
+      "group": "Instanciação e campos",
+      "title": "Criação",
+      "prompt": "Qual instrução atribui um novo botão ao campo jButton1?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "new cria o objeto e a atribuição guarda a referência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "jButton1 = new javax.swing.JButton();"
+        },
+        {
+          "id": "b",
+          "text": "jButton1.setText(\"Novo\");"
+        },
+        {
+          "id": "c",
+          "text": "private javax.swing.JButton jButton1;"
+        },
+        {
+          "id": "d",
+          "text": "jButton1 = null;"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "17",
+      "group": "Instanciação e campos",
+      "title": "Ordem",
+      "prompt": "Se um campo JButton ainda contém null, o que ocorre ao chamar setText nele?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "É necessário um objeto receptor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O botão é criado automaticamente."
+        },
+        {
+          "id": "b",
+          "text": "NullPointerException"
+        },
+        {
+          "id": "c",
+          "text": "O texto é armazenado para uso futuro."
+        },
+        {
+          "id": "d",
+          "text": "A chamada é ignorada."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "18",
+      "group": "O método initComponents",
+      "title": "Localização",
+      "prompt": "Onde a apostila orienta procurar initComponents()?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "O método está no fonte do formulário.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na aba Saída."
+        },
+        {
+          "id": "b",
+          "text": "No painel de instalação do JDK."
+        },
+        {
+          "id": "c",
+          "text": "No arquivo .class."
+        },
+        {
+          "id": "d",
+          "text": "Na aba Código-Fonte de TelaCadastro.java."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "19",
+      "group": "O método initComponents",
+      "title": "Construtor",
+      "prompt": "Qual parte normalmente chama initComponents()?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "O construtor inicializa a interface.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "O construtor da janela."
+        },
+        {
+          "id": "b",
+          "text": "O compilador javac diretamente."
+        },
+        {
+          "id": "c",
+          "text": "O método getText de JLabel."
+        },
+        {
+          "id": "d",
+          "text": "O arquivo .form em execução."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "20",
+      "group": "O método initComponents",
+      "title": "Nome do método",
+      "prompt": "initComponents é palavra reservada Java?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "É uma convenção do gerador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, como class."
+        },
+        {
+          "id": "b",
+          "text": "Sim, como new."
+        },
+        {
+          "id": "c",
+          "text": "Não, é um identificador de método."
+        },
+        {
+          "id": "d",
+          "text": "Sim, como private."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "21",
+      "group": "Gerenciadores de layout",
+      "title": "Layout",
+      "prompt": "Qual gerenciador a apostila associa normalmente ao código gerado?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "O texto curricular menciona GroupLayout.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "FlowLayout"
+        },
+        {
+          "id": "b",
+          "text": "BorderLayout"
+        },
+        {
+          "id": "c",
+          "text": "GridLayout"
+        },
+        {
+          "id": "d",
+          "text": "GroupLayout"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "22",
+      "group": "Gerenciadores de layout",
+      "title": "Organização",
+      "prompt": "Qual a responsabilidade de um gerenciador de layout?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "Layout trata organização visual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Validar dados do cadastro."
+        },
+        {
+          "id": "b",
+          "text": "Organizar posição e tamanho dos componentes."
+        },
+        {
+          "id": "c",
+          "text": "Converter texto em inteiro."
+        },
+        {
+          "id": "d",
+          "text": "Executar consultas ao banco."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "23",
+      "group": "Gerenciadores de layout",
+      "title": "Grupos",
+      "prompt": "GroupLayout descreve grupos em quais dimensões?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "Os dois eixos são organizados separadamente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente horizontal."
+        },
+        {
+          "id": "b",
+          "text": "Somente vertical."
+        },
+        {
+          "id": "c",
+          "text": "Horizontal e vertical."
+        },
+        {
+          "id": "d",
+          "text": "Apenas profundidade."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Editor visual e código protegido",
+      "title": "Região protegida",
+      "prompt": "Qual caminho é preferível para alterar o texto de um botão gerado?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "O editor visual mantém os metadados sincronizados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Design e Propriedades."
+        },
+        {
+          "id": "b",
+          "text": "Editar o .class."
+        },
+        {
+          "id": "c",
+          "text": "Forçar alteração do bloco protegido."
+        },
+        {
+          "id": "d",
+          "text": "Apagar o .form."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "25",
+      "group": "Editor visual e código protegido",
+      "title": "Responsabilidade",
+      "prompt": "Adicionar um botão Cadastrar visualmente implementa o cadastro?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "A aparência não implementa a regra de negócio.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, pelo nome do botão."
+        },
+        {
+          "id": "b",
+          "text": "Não, ainda é necessário definir seu comportamento."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se o formulário tiver JFrame."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se houver JLabel."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "26",
+      "group": "Editor visual e código protegido",
+      "title": "Arquivos",
+      "prompt": "Quais arquivos preservar para manter a edição visual do formulário?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "Fonte e metadados sustentam a edição.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente .class."
+        },
+        {
+          "id": "b",
+          "text": "Somente .jar."
+        },
+        {
+          "id": "c",
+          "text": "Somente .form."
+        },
+        {
+          "id": "d",
+          "text": "O .java e o .form correspondentes."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Uma janela completa para leitura",
+      "title": "Leitura",
+      "prompt": "No exemplo completo, painel.add(new JLabel(\"Nome:\")) faz o quê?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "O painel recebe o componente criado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cria um rótulo e o adiciona ao painel."
+        },
+        {
+          "id": "b",
+          "text": "Cria uma janela independente."
+        },
+        {
+          "id": "c",
+          "text": "Lê texto digitado."
+        },
+        {
+          "id": "d",
+          "text": "Define um evento de clique."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "28",
+      "group": "Uma janela completa para leitura",
+      "title": "Conteúdo",
+      "prompt": "Qual chamada instala o painel como conteúdo da janela?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "setContentPane define o contêiner de conteúdo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "janela.setTitle(\"Cadastro\")"
+        },
+        {
+          "id": "b",
+          "text": "painel.setVisible(false)"
+        },
+        {
+          "id": "c",
+          "text": "janela.setContentPane(painel)"
+        },
+        {
+          "id": "d",
+          "text": "janela.pack()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "29",
+      "group": "Uma janela completa para leitura",
+      "title": "Fila de eventos",
+      "prompt": "Qual a finalidade introdutória de SwingUtilities.invokeLater no exemplo?",
+      "hint": "Identifique a responsabilidade do componente ou método citado.",
+      "explanation": "Swing deve ser manipulado na thread de eventos, salvo exceções documentadas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Compilar o fonte."
+        },
+        {
+          "id": "b",
+          "text": "Converter texto em número."
+        },
+        {
+          "id": "c",
+          "text": "Salvar o formulário .form."
+        },
+        {
+          "id": "d",
+          "text": "Agendar a criação da interface na thread de eventos."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "30",
+      "group": "Rótulos, campos e botões",
+      "title": "Escolher componentes",
+      "prompt": "Um cadastro precisa de rótulo Nome, entrada de nome e botão Cadastrar. Escolha as três classes.",
+      "solution": "JLabel, JTextField e JButton, respectivamente.",
+      "explanation": "Cada componente tem uma responsabilidade visual.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Propriedades e identificadores",
+      "title": "Alterar texto",
+      "prompt": "Escreva uma instrução para mudar o texto do botão btnSalvar para Confirmar.",
+      "solution": "btnSalvar.setText(\"Confirmar\");",
+      "explanation": "O identificador permanece btnSalvar.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Instanciação e campos",
+      "title": "Declarar e criar",
+      "prompt": "Explique a diferença entre JButton botao; e botao = new JButton();.",
+      "solution": "A primeira declara uma referência; a segunda cria um objeto e atribui sua referência.",
+      "explanation": "Declaração e instanciação são distintas.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "O método initComponents",
+      "title": "Rastrear inicialização",
+      "prompt": "Explique o caminho entre new TelaCadastro() e a configuração dos componentes.",
+      "solution": "A criação chama o construtor, que chama initComponents(), que cria e configura os componentes.",
+      "explanation": "O construtor delega a montagem.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Gerenciadores de layout",
+      "title": "Organizar layout",
+      "prompt": "Por que não basta criar três componentes para garantir que apareçam organizados em uma janela?",
+      "solution": "Eles precisam ser adicionados a um contêiner e organizados por um layout adequado.",
+      "explanation": "Instanciação não determina posicionamento.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Editor visual e código protegido",
+      "title": "Código protegido",
+      "prompt": "Você quer mudar o texto de um botão criado pelo GUI Builder. Descreva a operação preferível.",
+      "solution": "Abra Design, selecione o botão e altere a propriedade text.",
+      "explanation": "O gerador atualiza o código correspondente.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Uma janela completa para leitura",
+      "title": "Janela sem ação",
+      "prompt": "Por que o botão do exemplo completo não cadastra ninguém?",
+      "solution": "Não há tratamento de evento nem lógica de cadastro implementada.",
+      "explanation": "A criação do componente não define comportamento.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Uma janela completa para leitura",
+      "title": "Ordem de montagem",
+      "prompt": "Ordene: exibir janela, criar painel, adicionar componentes ao painel, instalar painel na janela, dimensionar.",
+      "solution": "Criar painel; adicionar componentes; instalar painel; dimensionar; exibir.",
+      "explanation": "A montagem precede a exibição inicial.",
+      "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
