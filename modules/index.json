@@ -112,6 +112,14 @@
       "discipline": "java",
       "sha256": "334bc83ac4fa5004419b6f11589232a40c94f6c0f03b6105227bf04d2ebba363",
       "bytes": 36372
+    },
+    {
+      "id": "aula302",
+      "title": "NetBeans, projetos e execução",
+      "subtitle": "IDE 8.2, organização de fontes, compilação e diagnóstico",
+      "discipline": "java",
+      "sha256": "4edae4915b9f10e72f5bf5e74f88b4cf9563c0669b9fcce66a18d5dca7fe3d75",
+      "bytes": 33812
     }
   ]
 }
