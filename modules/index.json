@@ -128,6 +128,14 @@
       "discipline": "java",
       "sha256": "ff3c7674dde49af8bf47fd68a1f204f6edae3e4bbd75ddcb3aa858edc5ebd329",
       "bytes": 35793
+    },
+    {
+      "id": "aula304",
+      "title": "JFrame e componentes Swing",
+      "subtitle": "Janelas, componentes, propriedades e código gerado",
+      "discipline": "java",
+      "sha256": "45c3e4e00fcce8a50d62ccf66a4d8520a4d2f764e2dd56bbeea0d8963b442399",
+      "bytes": 34616
     }
   ]
 }
