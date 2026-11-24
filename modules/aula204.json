@@ -5,7 +5,7 @@
   "title": "Estruturas de seleção",
   "subtitle": "Condições, operadores relacionais e decisões encadeadas",
   "objectives": "Interpretar condições; distinguir atribuição de comparação; utilizar se, senao e senao se; rastrear decisões; testar limites e explorar condições compostas.",
-  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados.",
+  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com comparação de seleções independentes, agrupamento lógico e testes de fronteira.",
   "chapters": [
     {
       "title": "1. Condições e fluxo de execução",
@@ -699,6 +699,1512 @@
       "hint": "Identifique as entradas, regras e saída.",
       "solution": "se (consumo <= 8) { escreva(\"Baixo\") }\nsenao se (consumo <= 18) { escreva(\"Moderado\") }\nsenao { escreva(\"Alto\") }",
       "explanation": "Pressupondo consumo não negativo, a ordem separa as faixas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional",
+      "title": "Condição",
+      "prompt": "Qual tipo de resultado uma comparação produz?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Comparações produzem verdadeiro ou falso.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Um texto"
+        },
+        {
+          "id": "b",
+          "text": "Um número real obrigatório"
+        },
+        {
+          "id": "c",
+          "text": "Uma instrução de leitura"
+        },
+        {
+          "id": "d",
+          "text": "Um valor lógico"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Revisão opcional",
+      "title": "Diferença",
+      "prompt": "Qual operador verifica se dois valores são diferentes?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "!= compara desigualdade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "!="
+        },
+        {
+          "id": "b",
+          "text": "=="
+        },
+        {
+          "id": "c",
+          "text": "="
+        },
+        {
+          "id": "d",
+          "text": "<="
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Revisão opcional",
+      "title": "Atribuição",
+      "prompt": "Qual operador atribui um valor a uma variável?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Atribuição não é comparação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "!="
+        },
+        {
+          "id": "b",
+          "text": "="
+        },
+        {
+          "id": "c",
+          "text": "=="
+        },
+        {
+          "id": "d",
+          "text": ">="
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Revisão opcional",
+      "title": "Limite exclusivo",
+      "prompt": "Qual condição exige idade estritamente superior a 18?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "O operador > exclui a igualdade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "idade == 18"
+        },
+        {
+          "id": "b",
+          "text": "idade <= 18"
+        },
+        {
+          "id": "c",
+          "text": "idade > 18"
+        },
+        {
+          "id": "d",
+          "text": "idade >= 18"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Revisão opcional",
+      "title": "Limite inferior",
+      "prompt": "Qual condição aceita valores menores ou iguais a 100?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "<= inclui o limite.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n < 100"
+        },
+        {
+          "id": "b",
+          "text": "n > 100"
+        },
+        {
+          "id": "c",
+          "text": "n == 100"
+        },
+        {
+          "id": "d",
+          "text": "n <= 100"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Revisão opcional",
+      "title": "Comparação negativa",
+      "prompt": "Qual é o resultado de -4 > -2?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Na reta numérica, -4 é menor que -2.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "falso"
+        },
+        {
+          "id": "b",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "c",
+          "text": "-2"
+        },
+        {
+          "id": "d",
+          "text": "-4"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Revisão opcional",
+      "title": "Igualdade numérica",
+      "prompt": "Qual resultado de 8 != 8?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Os operandos são iguais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "0.8"
+        },
+        {
+          "id": "b",
+          "text": "falso"
+        },
+        {
+          "id": "c",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional",
+      "title": "Valor lógico armazenado",
+      "prompt": "inteiro n = 6; logico ok = n > 3. Qual valor de ok?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "A comparação é verdadeira.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "d",
+          "text": "falso"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional",
+      "title": "Estado lógico",
+      "prompt": "n = 6; ok = n > 3; n = 1. Sem recalcular ok, qual seu valor?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "A atribuição guarda o resultado naquele momento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "falso"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional",
+      "title": "Seleção simples",
+      "prompt": "se (falso) { escreva(\"X\") }. O que acontece com o bloco?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "A condição falsa impede a execução do bloco.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "É ignorado"
+        },
+        {
+          "id": "b",
+          "text": "Executa uma vez"
+        },
+        {
+          "id": "c",
+          "text": "Executa duas vezes"
+        },
+        {
+          "id": "d",
+          "text": "Repete indefinidamente"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional",
+      "title": "Continuação",
+      "prompt": "se (verdadeiro) { escreva(\"A\") } seguido de escreva(\"C\"). Qual saída?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Após o bloco, o fluxo continua.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "CA"
+        },
+        {
+          "id": "b",
+          "text": "AC"
+        },
+        {
+          "id": "c",
+          "text": "A"
+        },
+        {
+          "id": "d",
+          "text": "C"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Revisão opcional",
+      "title": "Seleção composta",
+      "prompt": "se (falso) { escreva(\"A\") } senao { escreva(\"B\") }. Qual saída?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "O senao executa quando a condição é falsa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "Nenhuma"
+        },
+        {
+          "id": "c",
+          "text": "B"
+        },
+        {
+          "id": "d",
+          "text": "A"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Revisão opcional",
+      "title": "Condição do senao",
+      "prompt": "O senao de uma seleção composta precisa de uma condição própria?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "O senao corresponde à alternativa restante.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "b",
+          "text": "Só para inteiros"
+        },
+        {
+          "id": "c",
+          "text": "Só para reais"
+        },
+        {
+          "id": "d",
+          "text": "Não"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional",
+      "title": "Blocos independentes",
+      "prompt": "n = 8; se (n > 0) { escreva(\"A\") } se (n > 5) { escreva(\"B\") }. Qual saída?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Dois se independentes podem executar.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "B"
+        },
+        {
+          "id": "d",
+          "text": "Nenhuma"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "42",
+      "group": "Revisão opcional",
+      "title": "Cadeia exclusiva",
+      "prompt": "n = 8; se (n > 0) { escreva(\"A\") } senao se (n > 5) { escreva(\"B\") }. Qual saída?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "A primeira condição verdadeira encerra a cadeia.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Nenhuma"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "AB"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "43",
+      "group": "Revisão opcional",
+      "title": "Ordem de faixas",
+      "prompt": "Para classificar valores >= 100 como alto e >= 50 como médio, qual teste deve vir primeiro?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "A faixa mais restritiva deve preceder a mais abrangente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n >= 0"
+        },
+        {
+          "id": "b",
+          "text": "n <= 100"
+        },
+        {
+          "id": "c",
+          "text": "n >= 100"
+        },
+        {
+          "id": "d",
+          "text": "n >= 50"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "44",
+      "group": "Revisão opcional",
+      "title": "Nota abaixo do limite",
+      "prompt": "Na classificação 7/5 da aula, nota 4.99 recebe qual classificação?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "4.99 é menor que 5.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Recuperação"
+        },
+        {
+          "id": "b",
+          "text": "Aprovado"
+        },
+        {
+          "id": "c",
+          "text": "Nota inválida"
+        },
+        {
+          "id": "d",
+          "text": "Reprovado"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "45",
+      "group": "Revisão opcional",
+      "title": "Nota intermediária",
+      "prompt": "Na classificação 7/5, nota 6.99 recebe qual classificação?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Está entre 5 inclusive e 7 exclusive.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Recuperação"
+        },
+        {
+          "id": "b",
+          "text": "Aprovado"
+        },
+        {
+          "id": "c",
+          "text": "Reprovado"
+        },
+        {
+          "id": "d",
+          "text": "Nota inválida"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "46",
+      "group": "Revisão opcional",
+      "title": "Validação prévia",
+      "prompt": "Na versão que valida notas antes de classificar, nota 12 produz qual saída?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "O teste de validade antecede a classificação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Reprovado"
+        },
+        {
+          "id": "b",
+          "text": "Nota inválida"
+        },
+        {
+          "id": "c",
+          "text": "Aprovado"
+        },
+        {
+          "id": "d",
+          "text": "Recuperação"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "47",
+      "group": "Revisão opcional",
+      "title": "Conjunção",
+      "prompt": "Qual resultado de verdadeiro e falso?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "e exige ambas verdadeiras.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "1.5"
+        },
+        {
+          "id": "b",
+          "text": "Indefinido"
+        },
+        {
+          "id": "c",
+          "text": "falso"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "48",
+      "group": "Revisão opcional",
+      "title": "Conjunção verdadeira",
+      "prompt": "Qual resultado de verdadeiro e verdadeiro?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Ambas as condições são verdadeiras.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "falso"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "Indefinido"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "49",
+      "group": "Revisão opcional",
+      "title": "Disjunção",
+      "prompt": "Qual resultado de falso ou verdadeiro?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "ou exige pelo menos uma verdadeira.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "b",
+          "text": "falso"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "Indefinido"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "50",
+      "group": "Revisão opcional",
+      "title": "Disjunção inclusiva",
+      "prompt": "Qual resultado de verdadeiro ou verdadeiro?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "ou também aceita ambas verdadeiras.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Indefinido"
+        },
+        {
+          "id": "b",
+          "text": "verdadeiro"
+        },
+        {
+          "id": "c",
+          "text": "falso"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "51",
+      "group": "Revisão opcional",
+      "title": "Disjunção falsa",
+      "prompt": "Qual resultado de falso ou falso?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Nenhuma condição é verdadeira.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "Indefinido"
+        },
+        {
+          "id": "c",
+          "text": "falso"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "52",
+      "group": "Revisão opcional",
+      "title": "Negação",
+      "prompt": "Qual resultado de nao falso?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "nao inverte o valor lógico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "falso"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "Indefinido"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "53",
+      "group": "Revisão opcional",
+      "title": "Intervalo fechado",
+      "prompt": "Qual condição aceita n entre 1 e 10, incluindo ambos?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Ambos os limites devem ser respeitados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n >= 1 e n <= 10"
+        },
+        {
+          "id": "b",
+          "text": "n >= 1 ou n <= 10"
+        },
+        {
+          "id": "c",
+          "text": "n > 1 e n < 10"
+        },
+        {
+          "id": "d",
+          "text": "n == 1 e n == 10"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "54",
+      "group": "Revisão opcional",
+      "title": "Intervalo aberto",
+      "prompt": "Qual condição aceita n estritamente entre 1 e 10?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Os extremos são excluídos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n == 1 ou n == 10"
+        },
+        {
+          "id": "b",
+          "text": "n > 1 e n < 10"
+        },
+        {
+          "id": "c",
+          "text": "n >= 1 e n <= 10"
+        },
+        {
+          "id": "d",
+          "text": "n > 1 ou n < 10"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "55",
+      "group": "Revisão opcional",
+      "title": "Fora do intervalo",
+      "prompt": "Qual condição detecta n fora do intervalo fechado de 1 a 10?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Basta ultrapassar um dos limites.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n >= 1 e n <= 10"
+        },
+        {
+          "id": "b",
+          "text": "n == 1 ou n == 10"
+        },
+        {
+          "id": "c",
+          "text": "n < 1 ou n > 10"
+        },
+        {
+          "id": "d",
+          "text": "n < 1 e n > 10"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "56",
+      "group": "Revisão opcional",
+      "title": "Condição impossível",
+      "prompt": "Qual condição nunca é verdadeira para um inteiro n?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Um número não pode satisfazer simultaneamente essas desigualdades.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n < 0 ou n > 10"
+        },
+        {
+          "id": "b",
+          "text": "n >= 0 e n <= 10"
+        },
+        {
+          "id": "c",
+          "text": "n == 0"
+        },
+        {
+          "id": "d",
+          "text": "n < 0 e n > 10"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "57",
+      "group": "Revisão opcional",
+      "title": "Condição abrangente",
+      "prompt": "Qual condição é verdadeira para qualquer inteiro n?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "As alternativas cobrem todos os inteiros.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n < 5 ou n >= 5"
+        },
+        {
+          "id": "b",
+          "text": "n < 5 e n >= 5"
+        },
+        {
+          "id": "c",
+          "text": "n == 5"
+        },
+        {
+          "id": "d",
+          "text": "n > 5"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "58",
+      "group": "Revisão opcional",
+      "title": "Negar comparação",
+      "prompt": "Qual condição equivale a nao (n >= 10)?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Negar >= produz <.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n == 10"
+        },
+        {
+          "id": "b",
+          "text": "n < 10"
+        },
+        {
+          "id": "c",
+          "text": "n <= 10"
+        },
+        {
+          "id": "d",
+          "text": "n > 10"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "59",
+      "group": "Revisão opcional",
+      "title": "Agrupamento lógico",
+      "prompt": "Com a = verdadeiro, b = falso e c = falso, qual resultado de (a ou b) e c?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "O grupo a ou b é verdadeiro, mas c é falso.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "a"
+        },
+        {
+          "id": "b",
+          "text": "Indefinido"
+        },
+        {
+          "id": "c",
+          "text": "falso"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "60",
+      "group": "Revisão opcional",
+      "title": "Agrupamento alternativo",
+      "prompt": "Com os mesmos valores a = verdadeiro, b = falso e c = falso, qual resultado de a ou (b e c)?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "b e c é falso, mas a é verdadeiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "falso"
+        },
+        {
+          "id": "b",
+          "text": "c"
+        },
+        {
+          "id": "c",
+          "text": "Indefinido"
+        },
+        {
+          "id": "d",
+          "text": "verdadeiro"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "61",
+      "group": "Revisão opcional",
+      "title": "Acesso combinado",
+      "prompt": "Acesso exige idade >= 18 e cadastro ativo. Pessoa de 20 anos com cadastro inativo tem acesso?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Ambas as exigências precisam ser atendidas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não"
+        },
+        {
+          "id": "b",
+          "text": "Sim"
+        },
+        {
+          "id": "c",
+          "text": "Depende apenas da idade"
+        },
+        {
+          "id": "d",
+          "text": "Sempre que idade for positiva"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "62",
+      "group": "Revisão opcional",
+      "title": "Alternativas de acesso",
+      "prompt": "Entrada exige convite ou ingresso. Pessoa com ambos pode entrar?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "ou é inclusivo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só sem ingresso"
+        },
+        {
+          "id": "b",
+          "text": "Sim"
+        },
+        {
+          "id": "c",
+          "text": "Não"
+        },
+        {
+          "id": "d",
+          "text": "Só com convite"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "63",
+      "group": "Revisão opcional",
+      "title": "Frete no limite",
+      "prompt": "Frete grátis quando compra >= 180. Compra de 180 recebe frete grátis?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": ">= inclui 180.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só acima de 180"
+        },
+        {
+          "id": "b",
+          "text": "Só abaixo de 180"
+        },
+        {
+          "id": "c",
+          "text": "Sim"
+        },
+        {
+          "id": "d",
+          "text": "Não"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "64",
+      "group": "Revisão opcional",
+      "title": "Salário inválido",
+      "prompt": "Na versão da aula que valida salário <= 0, qual saída para salário 0?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "A validação ocorre primeiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Novo salário: 0"
+        },
+        {
+          "id": "b",
+          "text": "Sem reajuste"
+        },
+        {
+          "id": "c",
+          "text": "Aumento de 10%"
+        },
+        {
+          "id": "d",
+          "text": "Valor inválido"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "65",
+      "group": "Revisão opcional",
+      "title": "Reajuste abaixo",
+      "prompt": "Na regra da aula, salário 1000 positivo recebe qual valor após aumento?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "1000 * 1.10 = 1100.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "1100"
+        },
+        {
+          "id": "b",
+          "text": "100"
+        },
+        {
+          "id": "c",
+          "text": "1010"
+        },
+        {
+          "id": "d",
+          "text": "900"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "66",
+      "group": "Revisão opcional",
+      "title": "Reajuste acima",
+      "prompt": "Na regra da aula, salário 3000 recebe qual tratamento?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Não é inferior a 2500.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Desconto de 10%"
+        },
+        {
+          "id": "b",
+          "text": "Sem reajuste"
+        },
+        {
+          "id": "c",
+          "text": "Aumento de 10%"
+        },
+        {
+          "id": "d",
+          "text": "Valor inválido"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "67",
+      "group": "Revisão opcional",
+      "title": "Teste de fronteira",
+      "prompt": "Qual conjunto testa melhor a fronteira inteira n > 30?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Testa abaixo, no limite e acima.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "40, 50, 60"
+        },
+        {
+          "id": "b",
+          "text": "30, 30, 30"
+        },
+        {
+          "id": "c",
+          "text": "29, 30, 31"
+        },
+        {
+          "id": "d",
+          "text": "1, 2, 3"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "68",
+      "group": "Revisão opcional",
+      "title": "Faixas sem lacuna",
+      "prompt": "Para inteiros, qual par de condições cobre todos os valores sem sobreposição?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Uma faixa termina em 10 e a outra começa acima.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "n < 10 e n > 10 (como alternativas)"
+        },
+        {
+          "id": "b",
+          "text": "n <= 10 e n >= 10 (como alternativas)"
+        },
+        {
+          "id": "c",
+          "text": "n == 0 e n == 1 (como alternativas)"
+        },
+        {
+          "id": "d",
+          "text": "n <= 10 e n > 10 (como alternativas)"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "69",
+      "group": "Revisão opcional",
+      "title": "Validade e classificação",
+      "prompt": "Por que testar validade antes de classificar uma nota?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Uma comparação de faixa pode aceitar entradas inválidas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para não classificar entradas fora do domínio como legítimas"
+        },
+        {
+          "id": "b",
+          "text": "Para eliminar todas as variáveis"
+        },
+        {
+          "id": "c",
+          "text": "Para impedir qualquer saída"
+        },
+        {
+          "id": "d",
+          "text": "Para substituir leia()"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "70",
+      "group": "Revisão opcional",
+      "title": "Seleção e repetição",
+      "prompt": "Uma seleção simples repete automaticamente seu bloco enquanto a condição for verdadeira?",
+      "hint": "Avalie as condições e acompanhe o fluxo.",
+      "explanation": "Seleção decide; repetição é outra estrutura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só se houver senao"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Sim"
+        },
+        {
+          "id": "d",
+          "text": "Só se houver escreva"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "71",
+      "group": "Revisão opcional",
+      "title": "Rastreamento simples",
+      "prompt": "n = 2; se (n > 3) { escreva(\"A\") } escreva(\"B\"). Explique a saída.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "B; o bloco A é ignorado.",
+      "explanation": "A condição é falsa e o fluxo continua.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "72",
+      "group": "Revisão opcional",
+      "title": "Rastreamento composto",
+      "prompt": "n = 4; se (n >= 4) { escreva(\"X\") } senao { escreva(\"Y\") } escreva(\"Z\"). Qual saída?",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "XZ",
+      "explanation": "O limite é incluído e Z está fora da seleção.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "73",
+      "group": "Revisão opcional",
+      "title": "Comparação de estruturas",
+      "prompt": "Explique a diferença entre dois se independentes e se seguido de senao se.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "Os dois se podem executar; na cadeia, só a primeira alternativa verdadeira executa.",
+      "explanation": "A exclusividade depende da estrutura.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "74",
+      "group": "Revisão opcional",
+      "title": "Ordem incorreta",
+      "prompt": "Uma cadeia testa nota >= 5 antes de nota >= 7. Explique o resultado para nota 8 e a correção.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "Recuperação; teste >= 7 primeiro.",
+      "explanation": "A primeira condição verdadeira prevalece.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "75",
+      "group": "Revisão opcional",
+      "title": "Intervalo",
+      "prompt": "Explique por que n >= 0 ou n <= 10 não valida o intervalo de 0 a 10.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "Qualquer número satisfaz pelo menos uma condição. Use e.",
+      "explanation": "As duas restrições precisam valer juntas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "76",
+      "group": "Revisão opcional",
+      "title": "Negação",
+      "prompt": "Reescreva nao (idade < 18) sem nao.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "idade >= 18",
+      "explanation": "A negação inclui o limite.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "77",
+      "group": "Revisão opcional",
+      "title": "Fronteiras",
+      "prompt": "Para uma faixa válida de 0 a 10, proponha seis testes próximos aos limites usando inteiros.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "-1, 0, 1, 9, 10, 11.",
+      "explanation": "Cobrem extremos e vizinhos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "78",
+      "group": "Revisão opcional",
+      "title": "Desconto composto",
+      "prompt": "Uma regra exige estudante ativo e idade menor que 25. Explique o resultado para estudante ativo de 25 anos.",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "Não recebe desconto, pois idade < 25 é falsa.",
+      "explanation": "A conjunção exige ambos os critérios.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "79",
+      "group": "Revisão opcional",
+      "title": "Diagnóstico de sobreposição",
+      "prompt": "Duas condições independentes n <= 10 e n >= 10 classificam n = 10. Qual problema?",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "Ambas executam; ajuste os limites ou use uma cadeia conforme a regra.",
+      "explanation": "O limite está nas duas faixas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "80",
+      "group": "Revisão opcional",
+      "title": "Reajuste e estado",
+      "prompt": "salario = 2000; se (salario < 2500) { salario = salario * 1.10 } escreva(salario). Qual valor numérico sai?",
+      "hint": "Explique a condição, o limite e o fluxo resultante.",
+      "solution": "2200",
+      "explanation": "A atribuição altera o salário antes da saída.",
       "mode": "text",
       "starter": "",
       "expected": null,

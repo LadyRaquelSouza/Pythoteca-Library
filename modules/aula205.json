@@ -5,7 +5,7 @@
   "title": "Estrutura escolha/caso",
   "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
   "objectives": "Interpretar escolha/caso; usar pare e caso contrario; distinguir valores discretos de intervalos; elaborar menus e testar alternativas.",
-  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados.",
+  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos sete capítulos, com rastreamento de casos, diagnóstico de menus e critérios de seleção.",
   "chapters": [
     {
       "title": "1. Seleção múltipla",
@@ -559,6 +559,1121 @@
       "hint": "Identifique as entradas, regras e saída.",
       "solution": "escolha (opcao)\n{\n caso 1:\n escreva(\"100 Mbps, R$ 70\")\n pare\n caso 2:\n escreva(\"300 Mbps, R$ 100\")\n pare\n caso 3:\n escreva(\"600 Mbps, R$ 140\")\n pare\n caso contrario:\n escreva(\"Inválida\")\n}",
       "explanation": "Use casos fixos e pare.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional",
+      "title": "Natureza da seleção",
+      "prompt": "O que escolha compara com os rótulos dos casos?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A seleção usa o valor da expressão analisada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O nome do arquivo"
+        },
+        {
+          "id": "b",
+          "text": "O valor selecionado"
+        },
+        {
+          "id": "c",
+          "text": "A posição do cursor"
+        },
+        {
+          "id": "d",
+          "text": "O número de linhas"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional",
+      "title": "Rótulo",
+      "prompt": "Qual rótulo representa a opção inteira 3?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O rótulo usa um valor específico seguido de dois-pontos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso >= 3:"
+        },
+        {
+          "id": "b",
+          "text": "caso 3"
+        },
+        {
+          "id": "c",
+          "text": "caso 3:"
+        },
+        {
+          "id": "d",
+          "text": "caso = 3:"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional",
+      "title": "Compatibilidade",
+      "prompt": "Para uma opção inteira, qual rótulo usa tipo compatível?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O rótulo inteiro corresponde ao tipo da opção.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso \"quatro\":"
+        },
+        {
+          "id": "b",
+          "text": "caso 'Q':"
+        },
+        {
+          "id": "c",
+          "text": "caso verdadeiro:"
+        },
+        {
+          "id": "d",
+          "text": "caso 4:"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional",
+      "title": "Correspondência",
+      "prompt": "Um menu possui casos 10, 20 e 30. A entrada 20 seleciona inicialmente qual caso?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A seleção procura o valor correspondente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "Todos"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional",
+      "title": "Valores não consecutivos",
+      "prompt": "Os casos inteiros precisam necessariamente ser 1, 2, 3 em sequência?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Valores discretos podem ser não consecutivos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só quando há caso contrario"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Sim"
+        },
+        {
+          "id": "d",
+          "text": "Só quando há pare"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional",
+      "title": "Ordem dos rótulos",
+      "prompt": "Casos 3, 1 e 2 têm pare. Para opção 1, qual caso executa?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A correspondência depende do valor, não da ordem numérica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "Todos"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional",
+      "title": "Caso padrão",
+      "prompt": "Menu com casos 1 e 2 e caso contrario. Para opção 0, qual alternativa é selecionada?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Não existe rótulo 0.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso 1"
+        },
+        {
+          "id": "b",
+          "text": "caso 2"
+        },
+        {
+          "id": "c",
+          "text": "Ambos os casos numerados"
+        },
+        {
+          "id": "d",
+          "text": "caso contrario"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Revisão opcional",
+      "title": "Sem padrão",
+      "prompt": "Menu com casos 1 e 2, ambos com pare, sem caso contrario. Para opção 9, o que ocorre?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Não há correspondência nem alternativa padrão.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Nenhum bloco de caso executa"
+        },
+        {
+          "id": "b",
+          "text": "Executa caso 1"
+        },
+        {
+          "id": "c",
+          "text": "Executa caso 2"
+        },
+        {
+          "id": "d",
+          "text": "Repete a leitura automaticamente"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Revisão opcional",
+      "title": "Papel do pare",
+      "prompt": "Qual comando impede a continuação para o próximo caso após executar o atual?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "pare encerra a execução da estrutura escolha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso"
+        },
+        {
+          "id": "b",
+          "text": "pare"
+        },
+        {
+          "id": "c",
+          "text": "leia"
+        },
+        {
+          "id": "d",
+          "text": "escreva"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Revisão opcional",
+      "title": "Fluxo após seleção",
+      "prompt": "Após sair de escolha por pare, onde continua o fluxo?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "pare não encerra necessariamente o programa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na leitura anterior"
+        },
+        {
+          "id": "b",
+          "text": "No início do programa obrigatoriamente"
+        },
+        {
+          "id": "c",
+          "text": "Na instrução seguinte à estrutura, se houver"
+        },
+        {
+          "id": "d",
+          "text": "No primeiro caso"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Revisão opcional",
+      "title": "Rastreamento A",
+      "prompt": "Caso 1 escreve A e tem pare; caso 2 escreve B e tem pare. Opção 1. Qual saída?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O pare impede executar B.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "B"
+        },
+        {
+          "id": "b",
+          "text": "AB"
+        },
+        {
+          "id": "c",
+          "text": "Nenhuma"
+        },
+        {
+          "id": "d",
+          "text": "A"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Revisão opcional",
+      "title": "Rastreamento B",
+      "prompt": "Caso 1 escreve A e tem pare; caso 2 escreve B e tem pare. Opção 2. Qual saída?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O fluxo começa no caso correspondente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "B"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "AB"
+        },
+        {
+          "id": "d",
+          "text": "BA"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Revisão opcional",
+      "title": "Continuação de casos",
+      "prompt": "Caso 1 escreve A sem pare; caso 2 escreve B com pare. Opção 1. Qual saída esperada?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Sem pare, o fluxo pode continuar no caso seguinte.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "BA"
+        },
+        {
+          "id": "b",
+          "text": "AB"
+        },
+        {
+          "id": "c",
+          "text": "A"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional",
+      "title": "Continuação seletiva",
+      "prompt": "Caso 1 escreve A sem pare; caso 2 escreve B com pare; caso 3 escreve C com pare. Opção 1. Qual saída?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O pare do caso 2 interrompe a continuação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "BC"
+        },
+        {
+          "id": "c",
+          "text": "AB"
+        },
+        {
+          "id": "d",
+          "text": "ABC"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional",
+      "title": "Entrada direta",
+      "prompt": "Caso 1 escreve A sem pare; caso 2 escreve B com pare. Opção 2. Qual saída?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A execução começa no caso 2, não no anterior.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "BA"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional",
+      "title": "Saída posterior",
+      "prompt": "Caso 1 escreve A com pare. Após escolha, escreva(\"Z\"). Opção 1. Qual saída?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A instrução posterior ainda executa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AZ"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "Z"
+        },
+        {
+          "id": "d",
+          "text": "ZA"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional",
+      "title": "Padrão e saída",
+      "prompt": "Caso contrario escreve X. Após escolha, escreva(\"Z\"). Entrada sem correspondência. Qual saída?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O fluxo continua após o caso padrão.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "ZX"
+        },
+        {
+          "id": "b",
+          "text": "XZ"
+        },
+        {
+          "id": "c",
+          "text": "X"
+        },
+        {
+          "id": "d",
+          "text": "Z"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Revisão opcional",
+      "title": "Menu e leitura",
+      "prompt": "Qual comando guarda a opção digitada em opcao?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "leia recebe a entrada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso opcao:"
+        },
+        {
+          "id": "b",
+          "text": "pare"
+        },
+        {
+          "id": "c",
+          "text": "leia(opcao)"
+        },
+        {
+          "id": "d",
+          "text": "escreva(opcao)"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Revisão opcional",
+      "title": "Menu visual",
+      "prompt": "Exibir 1 - Cadastro e 2 - Consulta cria automaticamente os casos?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "As mensagens não definem a lógica de seleção.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Só no Webstudio"
+        },
+        {
+          "id": "c",
+          "text": "Só para dois casos"
+        },
+        {
+          "id": "d",
+          "text": "Não"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional",
+      "title": "Correspondência visual",
+      "prompt": "O menu anuncia 1 - Agenda, mas caso 1 escreve Contatos. Qual problema?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Há inconsistência entre interface e comportamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "A ação não corresponde ao rótulo anunciado"
+        },
+        {
+          "id": "b",
+          "text": "O número 1 é inválido"
+        },
+        {
+          "id": "c",
+          "text": "pare não funciona"
+        },
+        {
+          "id": "d",
+          "text": "leia não aceita inteiros"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "42",
+      "group": "Revisão opcional",
+      "title": "Consulta simulada",
+      "prompt": "Um caso executa somente escreva(\"Buscando livro\"). O que se pode concluir?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A mensagem não implementa a operação anunciada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cria um registro permanente"
+        },
+        {
+          "id": "b",
+          "text": "Exibe uma mensagem, sem comprovar busca real"
+        },
+        {
+          "id": "c",
+          "text": "Consulta automaticamente um banco"
+        },
+        {
+          "id": "d",
+          "text": "Abre obrigatoriamente um arquivo"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "43",
+      "group": "Revisão opcional",
+      "title": "Sair",
+      "prompt": "Um caso escreve Saindo e executa pare. Isso encerra necessariamente o programa?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "pare sai de escolha; outras instruções podem seguir.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só se a opção for 3"
+        },
+        {
+          "id": "b",
+          "text": "Só se o menu tiver três casos"
+        },
+        {
+          "id": "c",
+          "text": "Não"
+        },
+        {
+          "id": "d",
+          "text": "Sim"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "44",
+      "group": "Revisão opcional",
+      "title": "Repetição",
+      "prompt": "Qual recurso seria necessário para reapresentar automaticamente um menu após cada seleção?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Escolha não repete o menu por si só.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Mais um escreva dentro de cada caso apenas"
+        },
+        {
+          "id": "b",
+          "text": "Renomear opcao"
+        },
+        {
+          "id": "c",
+          "text": "Trocar inteiro por real"
+        },
+        {
+          "id": "d",
+          "text": "Uma estrutura de repetição"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "45",
+      "group": "Revisão opcional",
+      "title": "Escolha de estrutura",
+      "prompt": "Qual problema é mais natural para escolha/caso?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Códigos discretos correspondem a rótulos específicos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Mapear códigos fixos de serviços"
+        },
+        {
+          "id": "b",
+          "text": "Classificar temperatura por intervalos"
+        },
+        {
+          "id": "c",
+          "text": "Verificar idade mínima"
+        },
+        {
+          "id": "d",
+          "text": "Validar nota entre 0 e 10"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "46",
+      "group": "Revisão opcional",
+      "title": "Intervalos",
+      "prompt": "Qual estrutura é mais natural para classificar consumo em faixas?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Comparações relacionais representam intervalos diretamente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escreva"
+        },
+        {
+          "id": "b",
+          "text": "se/senao se"
+        },
+        {
+          "id": "c",
+          "text": "escolha com um único caso"
+        },
+        {
+          "id": "d",
+          "text": "leia"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "47",
+      "group": "Revisão opcional",
+      "title": "Condição composta",
+      "prompt": "Para verificar idade >= 18 e cadastro ativo, qual estrutura é mais direta?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A regra combina duas condições.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caso contrario isolado"
+        },
+        {
+          "id": "b",
+          "text": "pare"
+        },
+        {
+          "id": "c",
+          "text": "se com condição composta"
+        },
+        {
+          "id": "d",
+          "text": "escolha com caso 18"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "48",
+      "group": "Revisão opcional",
+      "title": "Teste de opção",
+      "prompt": "Menu com casos 2, 4 e 6. Qual conjunto cobre todos os casos e uma opção inválida?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Inclui cada alternativa e um valor sem correspondência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "1, 3, 5, 7"
+        },
+        {
+          "id": "b",
+          "text": "2, 2, 2, 2"
+        },
+        {
+          "id": "c",
+          "text": "4, 6, 8, 10"
+        },
+        {
+          "id": "d",
+          "text": "2, 4, 6, 5"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "49",
+      "group": "Revisão opcional",
+      "title": "Teste de continuação",
+      "prompt": "Qual teste revela a ausência de pare no caso 1 seguido do caso 2?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A entrada 1 percorre o caminho afetado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Escolher 1 e conferir se a mensagem de 2 aparece"
+        },
+        {
+          "id": "b",
+          "text": "Escolher apenas 2"
+        },
+        {
+          "id": "c",
+          "text": "Fechar o editor"
+        },
+        {
+          "id": "d",
+          "text": "Alterar o título do menu"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "50",
+      "group": "Revisão opcional",
+      "title": "Tipo e domínio",
+      "prompt": "Para menu inteiro de 1 a 3, qual entrada tem tipo correto mas está fora das opções?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "8 é inteiro, mas não corresponde aos casos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"menu\""
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "\"oito\""
+        },
+        {
+          "id": "d",
+          "text": "\"A\""
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "51",
+      "group": "Revisão opcional",
+      "title": "Entrada incompatível",
+      "prompt": "Digitar texto em leia(opcao), sendo opcao inteiro, é necessariamente tratado por caso contrario?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "O erro de leitura pode ocorrer antes da seleção.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só se houver pare"
+        },
+        {
+          "id": "b",
+          "text": "Só se o texto tiver uma letra"
+        },
+        {
+          "id": "c",
+          "text": "Não"
+        },
+        {
+          "id": "d",
+          "text": "Sim"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "52",
+      "group": "Revisão opcional",
+      "title": "Alternativa equivalente",
+      "prompt": "Um menu de opções fixas pode ser implementado com se/senao se?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "Uma cadeia de comparações de igualdade também pode representar o menu.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não"
+        },
+        {
+          "id": "b",
+          "text": "Só sem saída"
+        },
+        {
+          "id": "c",
+          "text": "Só com números negativos"
+        },
+        {
+          "id": "d",
+          "text": "Sim"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "53",
+      "group": "Revisão opcional",
+      "title": "Estado da variável",
+      "prompt": "opcao = 2; caso 2 apenas escreve B e executa pare. Qual valor de opcao após a seleção?",
+      "hint": "Localize o caso correspondente e acompanhe o fluxo até o pare.",
+      "explanation": "A seleção não altera a variável automaticamente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "54",
+      "group": "Revisão opcional",
+      "title": "Rastreamento completo",
+      "prompt": "Caso 1 escreve A sem pare; caso 2 escreve B com pare; caso contrario escreve X. Após escolha escreve Z. Indique as saídas para 1, 2 e 9.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "1: ABZ; 2: BZ; 9: XZ.",
+      "explanation": "A correspondência define o início; pare encerra a seleção.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "55",
+      "group": "Revisão opcional",
+      "title": "Diagnóstico de menu",
+      "prompt": "O menu anuncia 1 - Cadastro e 2 - Consulta, mas os casos exibem as mensagens invertidas. Explique a correção.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "Associe Cadastro ao caso 1 e Consulta ao caso 2.",
+      "explanation": "O comportamento deve corresponder às opções anunciadas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "56",
+      "group": "Revisão opcional",
+      "title": "Ausência de padrão",
+      "prompt": "Explique o efeito de omitir caso contrario em um menu com casos 1 e 2 quando a entrada é 7.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "Nenhum caso corresponde; sem alternativa padrão, a seleção termina sem mensagem de erro.",
+      "explanation": "O caso padrão permite informar a opção inválida.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "57",
+      "group": "Revisão opcional",
+      "title": "Comparação de estruturas",
+      "prompt": "Explique por que escolha/caso é adequada para códigos 10, 20 e 30, mas se/senao se é mais natural para faixas de preço.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "Os códigos são valores discretos; as faixas exigem desigualdades e limites.",
+      "explanation": "A natureza da regra orienta a estrutura.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "58",
+      "group": "Revisão opcional",
+      "title": "Teste de cobertura",
+      "prompt": "Proponha testes para um menu com opções 1, 3 e 5, incluindo valores inteiros inválidos.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "1, 3, 5, 0, 2 e 6.",
+      "explanation": "Cada caso e valores fora do conjunto devem ser testados.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "59",
+      "group": "Revisão opcional",
+      "title": "Leitura e seleção",
+      "prompt": "Diferencie digitar 4 e digitar abc em um menu inteiro com opções 1 a 3.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "4 pode ser lido como inteiro e tratado pelo caso contrario; abc pode falhar na leitura antes de escolha.",
+      "explanation": "Compatibilidade de tipo e domínio são diferentes.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "60",
+      "group": "Revisão opcional",
+      "title": "Limites da simulação",
+      "prompt": "Um menu escolar exibe Consultar matrícula e executa pare. Explique o que falta para uma consulta real.",
+      "hint": "Explique a correspondência, o fluxo e o resultado.",
+      "solution": "Implementar acesso aos dados, localizar a matrícula e apresentar o resultado.",
+      "explanation": "A mensagem apenas simula a ação.",
       "mode": "text",
       "starter": "",
       "expected": null,

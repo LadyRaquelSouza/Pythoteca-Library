@@ -5,7 +5,7 @@
   "title": "Introdução à lógica de programação",
   "subtitle": "Algoritmos, sequência de passos e primeiro contato com Portugol",
   "objectives": "Compreender lógica e algoritmo; explicar a importância da ordem dos passos; identificar editor, execução e saída; reconhecer programa, inicio() e escreva(); prever mensagens e interpretar alterações simples.",
-  "source": "Base acadêmica: apostila ilustrada Aula_1_Logica_Programacao_Portugol_Webstudio_Widescreen-1.pdf, nove slides, consultados visualmente em 23/11/2026. Slides 2–9: objetivos, lógica, algoritmo, sequência, interface do Portugol Webstudio, primeiro teste e atividades. Texto, exemplos adicionais e exercícios originais. O material utiliza Portugol Webstudio; não equiparar sua interface à do Portugol Studio. Exercícios marcados Revisão opcional não são pré-requisitos de avanço.",
+  "source": "Base acadêmica: apostila ilustrada Aula_1_Logica_Programacao_Portugol_Webstudio_Widescreen-1.pdf, nove slides, consultados visualmente em 23/11/2026. Slides 2–9: objetivos, lógica, algoritmo, sequência, interface do Portugol Webstudio, primeiro teste e atividades. Texto, exemplos adicionais e exercícios originais. O material utiliza Portugol Webstudio; não equiparar sua interface à do Portugol Studio. Exercícios marcados Revisão opcional não são pré-requisitos de avanço. Expansão autoral de revisão teórica baseada nos seis capítulos existentes; inclui aprofundamentos de leitura de literais, delimitadores e sequência de saída.",
   "chapters": [
     {
       "title": "1. O que é lógica?",
@@ -344,6 +344,1108 @@
       "mode": "text",
       "starter": "",
       "solution": "São ambientes distintos e podem ter interfaces, menus e atalhos diferentes, embora compartilhem conceitos de edição, execução e saída.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional",
+      "title": "Lógica",
+      "prompt": "Qual é o primeiro passo ao resolver um problema?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Compreender o objetivo orienta a solução.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Compreender o objetivo"
+        },
+        {
+          "id": "b",
+          "text": "Escolher uma cor para o editor"
+        },
+        {
+          "id": "c",
+          "text": "Executar código inexistente"
+        },
+        {
+          "id": "d",
+          "text": "Memorizar todos os comandos"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional",
+      "title": "Objetivo",
+      "prompt": "Qual descrição apresenta um objetivo verificável?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Uma saída específica permite conferir o resultado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fazer algo legal"
+        },
+        {
+          "id": "b",
+          "text": "Exibir a mensagem Bom dia"
+        },
+        {
+          "id": "c",
+          "text": "Melhorar tudo"
+        },
+        {
+          "id": "d",
+          "text": "Usar o computador"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional",
+      "title": "Independência",
+      "prompt": "A lógica de uma solução depende obrigatoriamente de Portugol?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A lógica pode ser expressa em diferentes linguagens.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Só em programas curtos"
+        },
+        {
+          "id": "c",
+          "text": "Não"
+        },
+        {
+          "id": "d",
+          "text": "Só quando há saída"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional",
+      "title": "Algoritmo cotidiano",
+      "prompt": "Qual exemplo representa uma sequência de ações?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A sequência descreve ações ordenadas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma cor"
+        },
+        {
+          "id": "b",
+          "text": "Um nome isolado"
+        },
+        {
+          "id": "c",
+          "text": "Um número isolado"
+        },
+        {
+          "id": "d",
+          "text": "Abrir, ler e fechar um arquivo"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional",
+      "title": "Clareza",
+      "prompt": "Qual instrução é menos ambígua?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A ação e seu objeto estão definidos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Salvar o arquivo atual"
+        },
+        {
+          "id": "b",
+          "text": "Resolver tudo"
+        },
+        {
+          "id": "c",
+          "text": "Arrumar aquilo"
+        },
+        {
+          "id": "d",
+          "text": "Fazer direito"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional",
+      "title": "Dependência",
+      "prompt": "Para conferir o conteúdo de um arquivo fechado, qual ação normalmente precede a leitura?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A leitura depende de acesso ao conteúdo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apagar o arquivo"
+        },
+        {
+          "id": "b",
+          "text": "Abrir o arquivo"
+        },
+        {
+          "id": "c",
+          "text": "Fechar o editor"
+        },
+        {
+          "id": "d",
+          "text": "Alterar o resultado"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional",
+      "title": "Sequência",
+      "prompt": "Para comparar duas versões de uma mensagem, qual sequência é adequada?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "As duas execuções fornecem resultados comparáveis.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Editar, apagar, esquecer"
+        },
+        {
+          "id": "b",
+          "text": "Comparar antes de executar"
+        },
+        {
+          "id": "c",
+          "text": "Executar original, editar, executar novamente, comparar"
+        },
+        {
+          "id": "d",
+          "text": "Fechar o programa antes de ler"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional",
+      "title": "Editor",
+      "prompt": "Onde se altera uma instrução?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "O editor contém o código.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na saída"
+        },
+        {
+          "id": "b",
+          "text": "No título da janela"
+        },
+        {
+          "id": "c",
+          "text": "Na mensagem exibida"
+        },
+        {
+          "id": "d",
+          "text": "Na área de edição"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional",
+      "title": "Execução",
+      "prompt": "O que significa executar um programa?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Executar é realizar as instruções conforme a linguagem.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Solicitar que suas instruções sejam realizadas"
+        },
+        {
+          "id": "b",
+          "text": "Apenas ler seu título"
+        },
+        {
+          "id": "c",
+          "text": "Renomear o arquivo"
+        },
+        {
+          "id": "d",
+          "text": "Escrever um comentário"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional",
+      "title": "Comentários",
+      "prompt": "Qual é a finalidade de // explicar a mensagem?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Comentários são destinados à leitura humana.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Exibir texto automaticamente"
+        },
+        {
+          "id": "b",
+          "text": "Documentar o código"
+        },
+        {
+          "id": "c",
+          "text": "Iniciar o programa"
+        },
+        {
+          "id": "d",
+          "text": "Encerrar a função"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional",
+      "title": "Aspas",
+      "prompt": "Em escreva(\"Teste\"), o que as aspas delimitam?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "O conteúdo entre aspas é texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O bloco programa"
+        },
+        {
+          "id": "b",
+          "text": "Uma função"
+        },
+        {
+          "id": "c",
+          "text": "O texto literal"
+        },
+        {
+          "id": "d",
+          "text": "Um comentário"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional",
+      "title": "Chaves",
+      "prompt": "No primeiro programa, as chaves delimitam o quê?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "As chaves delimitam os blocos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O texto exibido"
+        },
+        {
+          "id": "b",
+          "text": "A numeração de linhas"
+        },
+        {
+          "id": "c",
+          "text": "A área de saída"
+        },
+        {
+          "id": "d",
+          "text": "Blocos de código"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional",
+      "title": "Saída literal",
+      "prompt": "Qual saída de escreva(\"2 + 3\")?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Entre aspas, a expressão é texto literal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2 + 3"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "23"
+        },
+        {
+          "id": "d",
+          "text": "Nenhuma"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional",
+      "title": "Espaços",
+      "prompt": "Qual saída de escreva(\"A B\")?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "O espaço faz parte do texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "A B"
+        },
+        {
+          "id": "c",
+          "text": "A+B"
+        },
+        {
+          "id": "d",
+          "text": "B A"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional",
+      "title": "Maiúsculas",
+      "prompt": "Qual saída de escreva(\"aula\")?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A mensagem preserva as letras fornecidas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AULA"
+        },
+        {
+          "id": "b",
+          "text": "Aula"
+        },
+        {
+          "id": "c",
+          "text": "aula"
+        },
+        {
+          "id": "d",
+          "text": "\"aula\""
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional",
+      "title": "Pontuação",
+      "prompt": "Qual saída de escreva(\"Fim!\")?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A pontuação interna integra a mensagem.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fim"
+        },
+        {
+          "id": "b",
+          "text": "!Fim"
+        },
+        {
+          "id": "c",
+          "text": "Fim?"
+        },
+        {
+          "id": "d",
+          "text": "Fim!"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Revisão opcional",
+      "title": "Dois comandos",
+      "prompt": "Qual saída de escreva(\"A\") seguido de escreva(\"B\")?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Os comandos executam em sequência sem separador automático.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "BA"
+        },
+        {
+          "id": "c",
+          "text": "A B"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Revisão opcional",
+      "title": "Ordem invertida",
+      "prompt": "Qual saída de escreva(\"B\") seguido de escreva(\"A\")?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A ordem dos comandos determina a ordem das mensagens.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "BA"
+        },
+        {
+          "id": "c",
+          "text": "A"
+        },
+        {
+          "id": "d",
+          "text": "B A"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Revisão opcional",
+      "title": "Quebra de linha",
+      "prompt": "Em escreva(\"A\\nB\"), o que representa \\n?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A sequência de escape representa nova linha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma letra n comum"
+        },
+        {
+          "id": "b",
+          "text": "Uma multiplicação"
+        },
+        {
+          "id": "c",
+          "text": "Uma quebra de linha"
+        },
+        {
+          "id": "d",
+          "text": "Uma função"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Revisão opcional",
+      "title": "Comentário e saída",
+      "prompt": "Um comentário // escreva(\"A\") precede escreva(\"B\"). Qual saída?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "O comando comentado não executa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "AB"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "Nenhuma"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Revisão opcional",
+      "title": "Localização",
+      "prompt": "Onde começa a execução do exemplo introdutório?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "inicio() é o ponto de entrada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na função inicio()"
+        },
+        {
+          "id": "b",
+          "text": "No comentário inicial"
+        },
+        {
+          "id": "c",
+          "text": "Na área de saída"
+        },
+        {
+          "id": "d",
+          "text": "Na última chave"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Revisão opcional",
+      "title": "Alteração mínima",
+      "prompt": "Para trocar a mensagem Olá por Tchau, qual alteração basta?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A estrutura pode permanecer intacta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Remover programa"
+        },
+        {
+          "id": "b",
+          "text": "Trocar o texto dentro das aspas"
+        },
+        {
+          "id": "c",
+          "text": "Remover inicio()"
+        },
+        {
+          "id": "d",
+          "text": "Alterar todas as chaves"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional",
+      "title": "Salvar e executar",
+      "prompt": "Salvar um arquivo garante que o programa foi executado?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Salvar e executar são ações distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "b",
+          "text": "Só se houver comentário"
+        },
+        {
+          "id": "c",
+          "text": "Não"
+        },
+        {
+          "id": "d",
+          "text": "Só se a mensagem for curta"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional",
+      "title": "Saída e arquivo",
+      "prompt": "escreva(\"Olá\") salva automaticamente um arquivo de texto?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A saída comum não implica gravação em arquivo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Só no Webstudio"
+        },
+        {
+          "id": "c",
+          "text": "Só no Studio"
+        },
+        {
+          "id": "d",
+          "text": "Não"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional",
+      "title": "Ambientes",
+      "prompt": "Qual aspecto é compartilhado conceitualmente por Studio e Webstudio?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "As funções básicas são comuns, não necessariamente a interface.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Editar código e observar execução"
+        },
+        {
+          "id": "b",
+          "text": "Posição exata de todos os botões"
+        },
+        {
+          "id": "c",
+          "text": "Todos os atalhos"
+        },
+        {
+          "id": "d",
+          "text": "Aparência idêntica"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional",
+      "title": "Teste",
+      "prompt": "Qual procedimento ajuda a verificar uma previsão?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A comparação revela divergências.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ignorar a saída"
+        },
+        {
+          "id": "b",
+          "text": "Comparar a saída observada com a esperada"
+        },
+        {
+          "id": "c",
+          "text": "Alterar o objetivo após cada execução"
+        },
+        {
+          "id": "d",
+          "text": "Apagar comentários"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Revisão opcional",
+      "title": "Erro lógico",
+      "prompt": "Um programa executa e mostra uma mensagem diferente da solicitada. Qual conclusão é adequada?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Executar sem falha não garante atender ao objetivo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Está correto porque executou"
+        },
+        {
+          "id": "b",
+          "text": "O computador necessariamente quebrou"
+        },
+        {
+          "id": "c",
+          "text": "A solução precisa ser conferida"
+        },
+        {
+          "id": "d",
+          "text": "Não há como investigar"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Revisão opcional",
+      "title": "Sintaxe",
+      "prompt": "Qual trecho apresenta aspas fechadas corretamente?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "O texto e os parênteses estão delimitados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escreva(\"Oi)"
+        },
+        {
+          "id": "b",
+          "text": "escreva(Oi\")"
+        },
+        {
+          "id": "c",
+          "text": "escreva(\"Oi)\""
+        },
+        {
+          "id": "d",
+          "text": "escreva(\"Oi\")"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional",
+      "title": "Delimitadores",
+      "prompt": "Qual trecho tem parênteses completos?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "O comando tem um par de parênteses.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escreva(\"Oi\")"
+        },
+        {
+          "id": "b",
+          "text": "escreva(\"Oi\""
+        },
+        {
+          "id": "c",
+          "text": "escreva \"Oi\")"
+        },
+        {
+          "id": "d",
+          "text": "escreva(\"Oi\"))"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "42",
+      "group": "Revisão opcional",
+      "title": "Linha numerada",
+      "prompt": "A numeração exibida na margem do editor é normalmente parte do código?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A margem auxilia a localização de linhas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Só na primeira linha"
+        },
+        {
+          "id": "d",
+          "text": "Só em comentários"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "43",
+      "group": "Revisão opcional",
+      "title": "Resultado",
+      "prompt": "Qual afirmação é correta sobre um algoritmo?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "A descrição da solução precede sua implementação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sempre precisa de computador"
+        },
+        {
+          "id": "b",
+          "text": "Sempre usa escreva"
+        },
+        {
+          "id": "c",
+          "text": "Pode ser descrito antes de ser programado"
+        },
+        {
+          "id": "d",
+          "text": "É sinônimo de editor"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "44",
+      "group": "Revisão opcional",
+      "title": "Revisão",
+      "prompt": "Qual situação indica uma instrução vaga?",
+      "hint": "Retome os conceitos da aula e observe a ordem das instruções.",
+      "explanation": "Não especifica ações verificáveis.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Abrir o arquivo aula.por"
+        },
+        {
+          "id": "b",
+          "text": "Exibir a palavra Fim"
+        },
+        {
+          "id": "c",
+          "text": "Executar o programa atual"
+        },
+        {
+          "id": "d",
+          "text": "Fazer o necessário"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "45",
+      "group": "Revisão opcional",
+      "title": "Código e resultado",
+      "prompt": "Explique por que uma mensagem no editor não é necessariamente a saída do programa.",
+      "hint": "Explique a relação entre objetivo, código e execução.",
+      "solution": "O editor contém instruções e comentários; a saída resulta da execução.",
+      "explanation": "Código e resultado têm funções distintas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "46",
+      "group": "Revisão opcional",
+      "title": "Previsão",
+      "prompt": "Preveja a saída de escreva(\"Sol\") seguido de escreva(\"Lua\").",
+      "hint": "Explique a relação entre objetivo, código e execução.",
+      "solution": "SolLua",
+      "explanation": "Não há separador automático.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "47",
+      "group": "Revisão opcional",
+      "title": "Dependências",
+      "prompt": "Explique por que editar depois de executar não altera retroativamente a saída anterior.",
+      "hint": "Explique a relação entre objetivo, código e execução.",
+      "solution": "A execução anterior utilizou o código que existia naquele momento.",
+      "explanation": "É preciso executar a versão modificada.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "48",
+      "group": "Revisão opcional",
+      "title": "Diagnóstico",
+      "prompt": "O objetivo é exibir Boa tarde, mas o código contém escreva(\"Bom dia\"). Identifique o problema.",
+      "hint": "Explique a relação entre objetivo, código e execução.",
+      "solution": "O texto literal não corresponde ao objetivo.",
+      "explanation": "A sintaxe pode estar correta apesar do resultado inadequado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "49",
+      "group": "Revisão opcional",
+      "title": "Comentários",
+      "prompt": "Explique por que comentar um comando pode alterar o resultado.",
+      "hint": "Explique a relação entre objetivo, código e execução.",
+      "solution": "O comando comentado deixa de ser executado.",
+      "explanation": "Comentários não são instruções executáveis.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "50",
+      "group": "Revisão opcional",
+      "title": "Algoritmo e implementação",
+      "prompt": "Diferencie a descrição de uma sequência em linguagem natural de sua implementação em Portugol.",
+      "hint": "Explique a relação entre objetivo, código e execução.",
+      "solution": "A descrição expressa os passos; a implementação usa a sintaxe da linguagem.",
+      "explanation": "Uma solução lógica pode ter várias implementações.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
