@@ -5,7 +5,7 @@
   "title": "Variáveis e entrada de dados",
   "subtitle": "Tipos, declarações, leitura, saída e rastreamento",
   "objectives": "Escolher tipos de dados; declarar variáveis; distinguir entrada e saída; interpretar valores literais e armazenados; rastrear leituras e elaborar um cadastro simples.",
-  "source": "Base acadêmica: Aula_2_Variaveis_Entrada_Dados_Widescreen-1.pdf, nove slides examinados visualmente em 23/11/2026. Slides 2–9: variáveis, cinco tipos, leia e escreva, declaração, cadastro e saída. Exemplos e exercícios autorais; aprofundamentos identificados. Estrutura programa restaurada nos exemplos completos; sintaxe não executada nesta etapa.",
+  "source": "Base acadêmica: Aula_2_Variaveis_Entrada_Dados_Widescreen-1.pdf, nove slides examinados visualmente em 23/11/2026. Slides 2–9: variáveis, cinco tipos, leia e escreva, declaração, cadastro e saída. Exemplos e exercícios autorais; aprofundamentos identificados. Estrutura programa restaurada nos exemplos completos; sintaxe não executada nesta etapa. Expansão autoral de revisão teórica baseada nos sete capítulos existentes, incluindo atribuição, cópia de valores e diagnóstico de tipos.",
   "chapters": [
     {
       "title": "1. Variáveis: nome, tipo e valor",
@@ -484,6 +484,1217 @@
       "mode": "text",
       "starter": "",
       "solution": "programa\n{\n    funcao inicio()\n    {\n        cadeia jogo\n        inteiro jogadores\n        escreva(\"Jogo: \")\n        leia(jogo)\n        escreva(\"Jogadores: \")\n        leia(jogadores)\n        escreva(jogo, \": \", jogadores, \" jogadores\")\n    }\n}",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional",
+      "title": "Nome e valor",
+      "prompt": "Em inteiro pontos = 8, qual é o identificador?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "pontos identifica a variável.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "inteiro"
+        },
+        {
+          "id": "b",
+          "text": "pontos"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "="
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional",
+      "title": "Tipo declarado",
+      "prompt": "Em real peso = 2.5, qual é o tipo?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "real indica a categoria numérica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "peso"
+        },
+        {
+          "id": "b",
+          "text": "2.5"
+        },
+        {
+          "id": "c",
+          "text": "real"
+        },
+        {
+          "id": "d",
+          "text": "cadeia"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional",
+      "title": "Valor inicial",
+      "prompt": "Em cadeia bairro = \"Centro\", qual é o valor inicial?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Centro é o texto armazenado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "bairro"
+        },
+        {
+          "id": "b",
+          "text": "cadeia"
+        },
+        {
+          "id": "c",
+          "text": "="
+        },
+        {
+          "id": "d",
+          "text": "Centro"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional",
+      "title": "Inteiro negativo",
+      "prompt": "Qual declaração representa uma temperatura inteira negativa?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Inteiros incluem negativos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "inteiro temp = -4"
+        },
+        {
+          "id": "b",
+          "text": "cadeia temp = -4"
+        },
+        {
+          "id": "c",
+          "text": "caracter temp = -4"
+        },
+        {
+          "id": "d",
+          "text": "logico temp = -4"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional",
+      "title": "Zero",
+      "prompt": "Qual afirmação sobre inteiro é correta?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Zero pertence aos inteiros.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Só admite positivos"
+        },
+        {
+          "id": "b",
+          "text": "Admite zero"
+        },
+        {
+          "id": "c",
+          "text": "Só admite valores pares"
+        },
+        {
+          "id": "d",
+          "text": "Admite qualquer fração"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional",
+      "title": "Identificador numérico",
+      "prompt": "Um código de cliente 00042 não será usado em cálculos. Qual tipo preserva sua forma?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Texto preserva zeros iniciais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "real"
+        },
+        {
+          "id": "b",
+          "text": "logico"
+        },
+        {
+          "id": "c",
+          "text": "cadeia"
+        },
+        {
+          "id": "d",
+          "text": "inteiro"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional",
+      "title": "Número textual",
+      "prompt": "Qual literal é cadeia?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Aspas duplas delimitam texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "42"
+        },
+        {
+          "id": "b",
+          "text": "4.2"
+        },
+        {
+          "id": "c",
+          "text": "'A'"
+        },
+        {
+          "id": "d",
+          "text": "\"42\""
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional",
+      "title": "Caractere",
+      "prompt": "Qual declaração representa uma única letra?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Aspas simples delimitam um caracter.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caracter letra = 'Z'"
+        },
+        {
+          "id": "b",
+          "text": "inteiro letra = 'Z'"
+        },
+        {
+          "id": "c",
+          "text": "logico letra = 'Z'"
+        },
+        {
+          "id": "d",
+          "text": "real letra = 'Z'"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional",
+      "title": "Texto longo",
+      "prompt": "Qual tipo representa um endereço completo?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Endereços são textos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "caracter"
+        },
+        {
+          "id": "b",
+          "text": "cadeia"
+        },
+        {
+          "id": "c",
+          "text": "inteiro"
+        },
+        {
+          "id": "d",
+          "text": "logico"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional",
+      "title": "Estado binário",
+      "prompt": "Qual tipo representa uma resposta verdadeira ou falsa?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "logico representa dois estados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "real"
+        },
+        {
+          "id": "b",
+          "text": "cadeia"
+        },
+        {
+          "id": "c",
+          "text": "logico"
+        },
+        {
+          "id": "d",
+          "text": "caracter"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Revisão opcional",
+      "title": "Literal lógico",
+      "prompt": "Qual declaração usa um valor lógico sem aspas?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "falso é literal lógico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "cadeia ativo = \"verdadeiro\""
+        },
+        {
+          "id": "b",
+          "text": "inteiro ativo = 1"
+        },
+        {
+          "id": "c",
+          "text": "caracter ativo = 'V'"
+        },
+        {
+          "id": "d",
+          "text": "logico ativo = falso"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Revisão opcional",
+      "title": "Medida",
+      "prompt": "Qual tipo permite representar 0.125 metro?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "real admite parte fracionária.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "real"
+        },
+        {
+          "id": "b",
+          "text": "inteiro"
+        },
+        {
+          "id": "c",
+          "text": "caracter"
+        },
+        {
+          "id": "d",
+          "text": "logico"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Revisão opcional",
+      "title": "Precisão",
+      "prompt": "Qual afirmação sobre real é adequada?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "A representação de reais tem precisão finita.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Representa toda fração exatamente"
+        },
+        {
+          "id": "b",
+          "text": "Tem precisão computacional limitada"
+        },
+        {
+          "id": "c",
+          "text": "Só admite negativos"
+        },
+        {
+          "id": "d",
+          "text": "É sempre texto"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Revisão opcional",
+      "title": "Nome significativo",
+      "prompt": "Qual nome descreve melhor a quantidade de livros?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "O nome comunica a finalidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "x"
+        },
+        {
+          "id": "b",
+          "text": "a"
+        },
+        {
+          "id": "c",
+          "text": "quantidade_livros"
+        },
+        {
+          "id": "d",
+          "text": "coisa"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Revisão opcional",
+      "title": "Espaço no nome",
+      "prompt": "Qual identificador contém um espaço inadequado?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Identificadores não contêm espaços.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "total"
+        },
+        {
+          "id": "b",
+          "text": "idade"
+        },
+        {
+          "id": "c",
+          "text": "peso_liquido"
+        },
+        {
+          "id": "d",
+          "text": "peso liquido"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Revisão opcional",
+      "title": "Declaração",
+      "prompt": "Qual trecho declara uma variável sem valor explícito?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Tipo e identificador formam a declaração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "inteiro vagas"
+        },
+        {
+          "id": "b",
+          "text": "leia(vagas)"
+        },
+        {
+          "id": "c",
+          "text": "escreva(vagas)"
+        },
+        {
+          "id": "d",
+          "text": "vagas = 3"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional",
+      "title": "Inicialização",
+      "prompt": "Qual trecho declara e inicializa uma variável?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "A declaração inclui o valor inicial.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "leia(n)"
+        },
+        {
+          "id": "b",
+          "text": "inteiro n = 3"
+        },
+        {
+          "id": "c",
+          "text": "escreva(n)"
+        },
+        {
+          "id": "d",
+          "text": "n = 3"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional",
+      "title": "Atribuição",
+      "prompt": "Após inteiro n = 3 e n = 7, qual valor fica em n?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "A nova atribuição substitui o valor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "37"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional",
+      "title": "Variáveis independentes",
+      "prompt": "inteiro a = 2 e inteiro b = 9. Se a = 5, qual valor de b?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Alterar a não altera b.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "14"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional",
+      "title": "Cópia de valor",
+      "prompt": "inteiro a = 4; inteiro b = a; a = 6. Qual valor de b?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "b recebe o valor de a naquele momento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Revisão opcional",
+      "title": "Entrada",
+      "prompt": "Qual comando solicita a leitura para uma variável já declarada?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "leia recebe a entrada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escreva(nome)"
+        },
+        {
+          "id": "b",
+          "text": "leia(nome)"
+        },
+        {
+          "id": "c",
+          "text": "cadeia nome"
+        },
+        {
+          "id": "d",
+          "text": "nome = \"Ana\""
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Revisão opcional",
+      "title": "Pergunta",
+      "prompt": "Qual trecho apenas mostra uma solicitação?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "escreva não recebe entrada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "leia(idade)"
+        },
+        {
+          "id": "b",
+          "text": "inteiro idade"
+        },
+        {
+          "id": "c",
+          "text": "escreva(\"Idade: \")"
+        },
+        {
+          "id": "d",
+          "text": "idade = 18"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional",
+      "title": "Destino da leitura",
+      "prompt": "Se leia(cidade) recebe Manaus, onde fica o valor?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "O argumento identifica o destino.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "No nome do programa"
+        },
+        {
+          "id": "b",
+          "text": "Na variável idade"
+        },
+        {
+          "id": "c",
+          "text": "No comentário"
+        },
+        {
+          "id": "d",
+          "text": "Na variável cidade"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "42",
+      "group": "Revisão opcional",
+      "title": "Leitura incompatível",
+      "prompt": "Uma variável inteiro recebe uma tentativa de entrada textual. O que é adequado afirmar?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "O tipo esperado é inteiro; o ambiente determina o tratamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Pode ocorrer erro de leitura"
+        },
+        {
+          "id": "b",
+          "text": "Sempre vira zero"
+        },
+        {
+          "id": "c",
+          "text": "Sempre vira cadeia"
+        },
+        {
+          "id": "d",
+          "text": "Sempre vira verdadeiro"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "43",
+      "group": "Revisão opcional",
+      "title": "Literal e variável",
+      "prompt": "cadeia fruta = \"uva\". Qual saída de escreva(fruta)?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Sem aspas, usa-se o valor armazenado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "fruta"
+        },
+        {
+          "id": "b",
+          "text": "uva"
+        },
+        {
+          "id": "c",
+          "text": "cadeia"
+        },
+        {
+          "id": "d",
+          "text": "\"fruta\""
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "44",
+      "group": "Revisão opcional",
+      "title": "Argumentos",
+      "prompt": "inteiro vagas = 6. Qual saída de escreva(\"Vagas: \", vagas)?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "O texto e o valor são exibidos em sequência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Vagas:vagas"
+        },
+        {
+          "id": "b",
+          "text": "6Vagas:"
+        },
+        {
+          "id": "c",
+          "text": "Vagas: 6"
+        },
+        {
+          "id": "d",
+          "text": "Vagas: vagas"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "45",
+      "group": "Revisão opcional",
+      "title": "Separador",
+      "prompt": "cadeia a = \"Sol\"; cadeia b = \"Lua\". Qual saída de escreva(a, b)?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Vírgulas não acrescentam espaços.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sol Lua"
+        },
+        {
+          "id": "b",
+          "text": "a b"
+        },
+        {
+          "id": "c",
+          "text": "LuaSol"
+        },
+        {
+          "id": "d",
+          "text": "SolLua"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "46",
+      "group": "Revisão opcional",
+      "title": "Quebra de linha",
+      "prompt": "Qual argumento textual insere nova linha?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "\\n representa uma quebra de linha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"\\n\""
+        },
+        {
+          "id": "b",
+          "text": "\"n\""
+        },
+        {
+          "id": "c",
+          "text": "\"/n\""
+        },
+        {
+          "id": "d",
+          "text": "\"linha\""
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "47",
+      "group": "Revisão opcional",
+      "title": "Ordem das leituras",
+      "prompt": "leia(a) e leia(b) recebem 10 e 20, respectivamente. Qual valor de b?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "A segunda entrada é destinada a b.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "48",
+      "group": "Revisão opcional",
+      "title": "Saída anterior",
+      "prompt": "n recebe 4, é exibido e depois recebe 8. O que ocorreu com a saída anterior?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "A atribuição não altera retroativamente a saída.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Mudou para 8"
+        },
+        {
+          "id": "b",
+          "text": "Foi apagada pela atribuição"
+        },
+        {
+          "id": "c",
+          "text": "Continuou mostrando 4"
+        },
+        {
+          "id": "d",
+          "text": "Mostrou 12"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "49",
+      "group": "Revisão opcional",
+      "title": "Persistência",
+      "prompt": "Declarar uma variável garante que o dado será salvo após fechar o programa?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Variáveis não equivalem a armazenamento permanente.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Só se for cadeia"
+        },
+        {
+          "id": "c",
+          "text": "Só se for inteiro"
+        },
+        {
+          "id": "d",
+          "text": "Não"
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "50",
+      "group": "Revisão opcional",
+      "title": "Cadastro",
+      "prompt": "Qual par de tipos é adequado a nome de aluno e número de faltas?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Nome é texto; faltas são contagem.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "cadeia e inteiro"
+        },
+        {
+          "id": "b",
+          "text": "inteiro e cadeia"
+        },
+        {
+          "id": "c",
+          "text": "real e logico"
+        },
+        {
+          "id": "d",
+          "text": "caracter e real"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "51",
+      "group": "Revisão opcional",
+      "title": "Tipo versus regra",
+      "prompt": "Declarar inteiro idade impede automaticamente idades negativas?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "A regra de negócio exige validação adicional.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim"
+        },
+        {
+          "id": "b",
+          "text": "Não"
+        },
+        {
+          "id": "c",
+          "text": "Só no Webstudio"
+        },
+        {
+          "id": "d",
+          "text": "Só no Studio"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "52",
+      "group": "Revisão opcional",
+      "title": "Valor e significado",
+      "prompt": "Qual par tem o mesmo tipo, mas significados distintos?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "Ambas as contagens podem ser inteiros.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "nome e idade"
+        },
+        {
+          "id": "b",
+          "text": "altura e matriculado"
+        },
+        {
+          "id": "c",
+          "text": "quantidade de livros e número de faltas"
+        },
+        {
+          "id": "d",
+          "text": "turno e endereço"
+        }
+      ],
+      "answer": "c",
+      "required": false
+    },
+    {
+      "id": "53",
+      "group": "Revisão opcional",
+      "title": "Texto e caractere",
+      "prompt": "Qual valor não cabe em um único caracter?",
+      "hint": "Identifique o tipo, o valor e o efeito de cada instrução.",
+      "explanation": "AB contém dois caracteres.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "'A'"
+        },
+        {
+          "id": "b",
+          "text": "'7'"
+        },
+        {
+          "id": "c",
+          "text": "'?'"
+        },
+        {
+          "id": "d",
+          "text": "\"AB\""
+        }
+      ],
+      "answer": "d",
+      "required": false
+    },
+    {
+      "id": "54",
+      "group": "Revisão opcional",
+      "title": "Rastreamento de atribuições",
+      "prompt": "inteiro a = 2; inteiro b = a; a = 9; escreva(a, \" \", b). Indique a saída.",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "9 2",
+      "explanation": "A atribuição a b copia o valor anterior de a.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "55",
+      "group": "Revisão opcional",
+      "title": "Escolha de tipos",
+      "prompt": "Justifique usar cadeia para telefone, mesmo que contenha apenas dígitos.",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "Telefone é identificador, não quantidade; pode conter zeros iniciais e símbolos.",
+      "explanation": "O significado orienta o tipo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "56",
+      "group": "Revisão opcional",
+      "title": "Diagnóstico de declaração",
+      "prompt": "O trecho leia(altura) usa uma variável não declarada. Qual declaração deve precedê-lo para receber 1.68?",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "real altura",
+      "explanation": "A declaração informa tipo e nome.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "57",
+      "group": "Revisão opcional",
+      "title": "Diagnóstico de aspas",
+      "prompt": "Explique o erro conceitual em escreva(\"saldo\") quando se deseja mostrar o valor de saldo.",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "As aspas tornam saldo texto literal; use escreva(saldo).",
+      "explanation": "A referência à variável não usa aspas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "58",
+      "group": "Revisão opcional",
+      "title": "Ordem de entrada",
+      "prompt": "Um cadastro pergunta cidade e lê idade. Depois pergunta idade e lê cidade. Explique a correção.",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "Leia cidade após a pergunta de cidade e idade após a pergunta de idade.",
+      "explanation": "Cada pergunta deve corresponder ao destino e ao tipo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "59",
+      "group": "Revisão opcional",
+      "title": "Estado e saída",
+      "prompt": "inteiro n = 1; escreva(n); n = 5; escreva(n). Indique o estado final e a saída.",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "Estado final: n = 5. Saída: 15.",
+      "explanation": "A saída registra as duas exibições sem separador.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "60",
+      "group": "Revisão opcional",
+      "title": "Validação futura",
+      "prompt": "Por que declarar real peso não basta para garantir que o peso informado seja positivo?",
+      "hint": "Rastreie os valores e explique a regra envolvida.",
+      "solution": "O tipo real admite valores negativos e zero; positividade é uma regra adicional.",
+      "explanation": "Tipo e validade de negócio são conceitos distintos.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
