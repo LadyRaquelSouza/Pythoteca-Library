@@ -168,6 +168,14 @@
       "discipline": "java",
       "sha256": "9aab034697ddc7ba3bc90ca828a131eeb638d5c72d80912b8ce24af3662d4049",
       "bytes": 35071
+    },
+    {
+      "id": "aula309",
+      "title": "JComboBox e aplicações práticas",
+      "subtitle": "Concatenação, soma, seleção e propriedades",
+      "discipline": "java",
+      "sha256": "d96c41f1448d36402a40d1f71145b1e3ff0851d041dc4904aaca6ed55d337917",
+      "bytes": 38968
     }
   ]
 }
