@@ -160,6 +160,14 @@
       "discipline": "java",
       "sha256": "3b1c3302528af04f6a1eef8f10d148a9a7e703dec9077f819c3e7e54ebdc727f",
       "bytes": 33691
+    },
+    {
+      "id": "aula308",
+      "title": "Cadastro de alunos e componentes Swing",
+      "subtitle": "Leitura de campos, escolhas e eventos integrados",
+      "discipline": "java",
+      "sha256": "9aab034697ddc7ba3bc90ca828a131eeb638d5c72d80912b8ce24af3662d4049",
+      "bytes": 35071
     }
   ]
 }
