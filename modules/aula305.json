@@ -1,0 +1,1026 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula305",
+  "title": "Eventos e código gerado",
+  "subtitle": "ActionListener, métodos de tratamento e EDT",
+  "objectives": "Interpretar o registro e despacho de eventos, compreender classes anônimas e implementar conceitualmente os comportamentos Cadastrar e Limpar.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf, texto consultado na etapa anterior: geração de código e exemplos Cadastrar e Limpar. https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view. Fundamentos de interfaces, ouvintes, classes anônimas, Override e EDT são complementares; exemplos autorais Java 8, não transcrições de imagens.",
+  "chapters": [
+    {
+      "title": "Programação orientada a eventos",
+      "text": "[FUNDAMENTOS] Em uma interface gráfica, a inicialização prepara componentes e registra ouvintes. Depois, o sistema despacha eventos conforme as interações. Cada método de tratamento ainda executa suas instruções sequencialmente. Um botão pode ser acionado pelo teclado, não apenas pelo mouse.",
+      "example": "// Dentro de um método de tratamento:\nSystem.out.println(\"Botão acionado\");"
+    },
+    {
+      "title": "ActionEvent e ActionListener",
+      "text": "[FUNDAMENTOS] ActionEvent representa um evento de ação. ActionListener é uma interface que declara actionPerformed(ActionEvent e). addActionListener registra um objeto ouvinte no componente; não executa imediatamente o tratamento. O componente notifica seus ouvintes quando uma ação ocorre.",
+      "example": "botao.addActionListener(ouvinte);"
+    },
+    {
+      "title": "Interfaces e classes anônimas",
+      "text": "[FUNDAMENTOS] Uma interface estabelece um contrato de métodos. A expressão new ActionListener() { ... } cria uma instância de uma classe anônima que implementa ActionListener. Não instancia diretamente a interface. O corpo entre chaves define a implementação exigida.",
+      "example": "java.awt.event.ActionListener ouvinte =\n    new java.awt.event.ActionListener() {\n        public void actionPerformed(java.awt.event.ActionEvent e) {\n            System.out.println(\"Acionado\");\n        }\n    };"
+    },
+    {
+      "title": "Override e parâmetros",
+      "text": "[FUNDAMENTOS] @Override é uma anotação que solicita ao compilador verificar se o método sobrescreve ou implementa um método de supertipo. Não é palavra reservada nem modificador de acesso. O parâmetro evt recebe o evento; seu nome pode variar. getSource() permite consultar a origem do evento.",
+      "example": "@Override\npublic void actionPerformed(java.awt.event.ActionEvent evt) {\n    System.out.println(evt.getSource());\n}"
+    },
+    {
+      "title": "O código gerado pelo NetBeans",
+      "text": "[CURRICULAR] A apostila orienta inserir as instruções nos métodos de evento gerados, não nas regiões protegidas de montagem. [FUNDAMENTOS] O trecho ilustrativo registra um ouvinte e delega a execução a um método da janela. O nome do método de tratamento é uma convenção, não uma exigência da linguagem.",
+      "example": "jButton1.addActionListener(new java.awt.event.ActionListener() {\n    @Override\n    public void actionPerformed(java.awt.event.ActionEvent evt) {\n        jButton1ActionPerformed(evt);\n    }\n});"
+    },
+    {
+      "title": "Botão Cadastrar",
+      "text": "[CURRICULAR] O resultado esperado da apostila é exibir o nome informado. [FUNDAMENTOS] O exemplo autoral abaixo usa getText para obter o texto no momento da ação e JOptionPane para exibi-lo. Exibir um nome não significa persistir um cadastro. A próxima aula aprofundará caixas de diálogo.",
+      "example": "private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {\n    String nome = jTextField1.getText();\n    javax.swing.JOptionPane.showMessageDialog(this, nome);\n}"
+    },
+    {
+      "title": "Botão Limpar",
+      "text": "[CURRICULAR] A apostila orienta dar dois cliques no botão Limpar no editor visual e inserir as chamadas abaixo no método de evento. setText com string vazia remove o conteúdo; requestFocusInWindow solicita foco para nova digitação. [FUNDAMENTOS] A solicitação de foco não garante sucesso: depende do estado da janela e do componente.",
+      "example": "jTextField1.setText(\"\");\njTextField1.requestFocusInWindow();"
+    },
+    {
+      "title": "Event Dispatch Thread",
+      "text": "[FUNDAMENTOS] A EDT é a thread que processa eventos e realiza a maior parte das operações de interface Swing. SwingUtilities.invokeLater agenda uma tarefa nessa thread. Tratamentos demorados podem bloquear a interface; tarefas longas podem usar SwingWorker, assunto de aprofundamento. Não use Thread.sleep em um tratamento para simular espera responsiva.",
+      "example": "javax.swing.SwingUtilities.invokeLater(new Runnable() {\n    @Override\n    public void run() {\n        new TelaCadastro().setVisible(true);\n    }\n});"
+    },
+    {
+      "title": "Diagnóstico e integração",
+      "text": "[FUNDAMENTOS] Se o botão aparece mas não realiza a ação esperada, verifique o registro do ouvinte, o método chamado, o componente consultado e as mensagens de erro. Teste com entradas diferentes e repita ações. Os trechos anteriores pressupõem os campos e métodos de uma classe JFrame; não são programas independentes. Preserve o código protegido do GUI Builder.",
+      "example": "// Dentro do tratamento, para diagnóstico:\nSystem.out.println(\"Evento recebido: \" + evt.getActionCommand());"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Programação orientada a eventos",
+      "title": "Modelo de execução",
+      "prompt": "Quando o usuário aciona um botão, o que normalmente inicia o tratamento?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O evento é entregue aos ouvintes registrados.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma nova compilação"
+        },
+        {
+          "id": "b",
+          "text": "A recriação obrigatória da janela"
+        },
+        {
+          "id": "c",
+          "text": "O despacho de um evento"
+        },
+        {
+          "id": "d",
+          "text": "A leitura do arquivo .form"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "Programação orientada a eventos",
+      "title": "Acionamento",
+      "prompt": "Um JButton pode disparar uma ação pelo teclado?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A ação não se limita ao mouse.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, conforme o foco e as associações de teclas."
+        },
+        {
+          "id": "b",
+          "text": "Não, somente por clique físico."
+        },
+        {
+          "id": "c",
+          "text": "Somente se não houver ActionListener."
+        },
+        {
+          "id": "d",
+          "text": "Somente após recompilar."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Programação orientada a eventos",
+      "title": "Sequência",
+      "prompt": "Dentro de um tratamento, duas instruções consecutivas normalmente seguem qual ordem?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O modelo de eventos não elimina execução sequencial.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "A ordem alfabética dos métodos."
+        },
+        {
+          "id": "b",
+          "text": "A ordem de criação dos componentes."
+        },
+        {
+          "id": "c",
+          "text": "A ordem inversa."
+        },
+        {
+          "id": "d",
+          "text": "A ordem escrita, salvo desvios ou exceções."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "04",
+      "group": "ActionEvent e ActionListener",
+      "title": "Evento",
+      "prompt": "Qual tipo representa um evento de ação?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "ActionEvent transporta informações da ação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ActionListener"
+        },
+        {
+          "id": "b",
+          "text": "ActionEvent"
+        },
+        {
+          "id": "c",
+          "text": "JButton"
+        },
+        {
+          "id": "d",
+          "text": "Runnable"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "ActionEvent e ActionListener",
+      "title": "Contrato",
+      "prompt": "Qual interface declara actionPerformed?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "ActionListener define o contrato do ouvinte.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ActionListener"
+        },
+        {
+          "id": "b",
+          "text": "Runnable"
+        },
+        {
+          "id": "c",
+          "text": "ActionEvent"
+        },
+        {
+          "id": "d",
+          "text": "JFrame"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "ActionEvent e ActionListener",
+      "title": "Registro",
+      "prompt": "O que addActionListener faz?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "Registro e despacho são operações distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Executa imediatamente actionPerformed."
+        },
+        {
+          "id": "b",
+          "text": "Cria outro botão."
+        },
+        {
+          "id": "c",
+          "text": "Registra um ouvinte."
+        },
+        {
+          "id": "d",
+          "text": "Remove o evento da fila."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "07",
+      "group": "Interfaces e classes anônimas",
+      "title": "Classe anônima",
+      "prompt": "O que new ActionListener() { ... } cria?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O corpo implementa o contrato.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma instância direta da interface sem implementação."
+        },
+        {
+          "id": "b",
+          "text": "Uma instância de classe anônima que implementa a interface."
+        },
+        {
+          "id": "c",
+          "text": "Uma classe JFrame."
+        },
+        {
+          "id": "d",
+          "text": "Um método estático."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "08",
+      "group": "Interfaces e classes anônimas",
+      "title": "Implementação",
+      "prompt": "Qual método deve ser implementado por um ActionListener concreto?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A assinatura deve corresponder ao contrato.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "public void run()"
+        },
+        {
+          "id": "b",
+          "text": "public ActionEvent getText()"
+        },
+        {
+          "id": "c",
+          "text": "private void actionPerformed()"
+        },
+        {
+          "id": "d",
+          "text": "public void actionPerformed(ActionEvent e)"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "09",
+      "group": "Interfaces e classes anônimas",
+      "title": "Visibilidade",
+      "prompt": "Por que actionPerformed da implementação deve ser public?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "Não se pode reduzir a visibilidade do método implementado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo método Java deve ser público."
+        },
+        {
+          "id": "b",
+          "text": "Classes anônimas não aceitam outros modificadores."
+        },
+        {
+          "id": "c",
+          "text": "O método da interface é público."
+        },
+        {
+          "id": "d",
+          "text": "O parâmetro exige public."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "10",
+      "group": "Override e parâmetros",
+      "title": "Anotação",
+      "prompt": "Qual a função de @Override?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A anotação permite detectar erros de assinatura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Verificar a correspondência com método de supertipo."
+        },
+        {
+          "id": "b",
+          "text": "Registrar o ouvinte."
+        },
+        {
+          "id": "c",
+          "text": "Executar o método duas vezes."
+        },
+        {
+          "id": "d",
+          "text": "Tornar o método estático."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "11",
+      "group": "Override e parâmetros",
+      "title": "Parâmetro",
+      "prompt": "O nome evt pode ser trocado por evento, mantendo tipo e usos coerentes?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O nome do parâmetro não integra a assinatura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, evt é palavra reservada."
+        },
+        {
+          "id": "b",
+          "text": "Somente se o método for static."
+        },
+        {
+          "id": "c",
+          "text": "Somente se o evento for nulo."
+        },
+        {
+          "id": "d",
+          "text": "Sim."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "12",
+      "group": "Override e parâmetros",
+      "title": "Origem",
+      "prompt": "Qual método do evento consulta sua origem?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "getSource retorna a origem do evento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getText()"
+        },
+        {
+          "id": "b",
+          "text": "getSource()"
+        },
+        {
+          "id": "c",
+          "text": "setText()"
+        },
+        {
+          "id": "d",
+          "text": "addActionListener()"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "O código gerado pelo NetBeans",
+      "title": "Delegação",
+      "prompt": "No ouvinte gerado, jButton1ActionPerformed(evt) representa o quê?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O ouvinte delega o comportamento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma chamada ao método de tratamento da janela."
+        },
+        {
+          "id": "b",
+          "text": "A criação de um JButton."
+        },
+        {
+          "id": "c",
+          "text": "Uma declaração de interface."
+        },
+        {
+          "id": "d",
+          "text": "A alteração da propriedade text."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "14",
+      "group": "O código gerado pelo NetBeans",
+      "title": "Local de edição",
+      "prompt": "Onde inserir a lógica do botão conforme a apostila?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O método de evento recebe a lógica autoral.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na declaração do campo JButton."
+        },
+        {
+          "id": "b",
+          "text": "No arquivo .class."
+        },
+        {
+          "id": "c",
+          "text": "No corpo editável do método de evento correspondente."
+        },
+        {
+          "id": "d",
+          "text": "Forçando edição do layout protegido."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "15",
+      "group": "O código gerado pelo NetBeans",
+      "title": "Convenção",
+      "prompt": "jButton1ActionPerformed é uma palavra reservada?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "O nome é uma convenção do gerador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, equivale a main."
+        },
+        {
+          "id": "b",
+          "text": "Não, é um identificador de método."
+        },
+        {
+          "id": "c",
+          "text": "Sim, equivale a new."
+        },
+        {
+          "id": "d",
+          "text": "Sim, é um tipo primitivo."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "16",
+      "group": "Botão Cadastrar",
+      "title": "Leitura atual",
+      "prompt": "Por que chamar getText dentro do tratamento de Cadastrar?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A leitura deve refletir a entrada atual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para obter apenas o texto inicial."
+        },
+        {
+          "id": "b",
+          "text": "Para registrar o ouvinte."
+        },
+        {
+          "id": "c",
+          "text": "Para limpar o campo."
+        },
+        {
+          "id": "d",
+          "text": "Para obter o texto no momento da ação."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "17",
+      "group": "Botão Cadastrar",
+      "title": "Tipo",
+      "prompt": "Qual o tipo de nome em String nome = jTextField1.getText();?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "getText retorna texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ActionEvent"
+        },
+        {
+          "id": "b",
+          "text": "JTextField"
+        },
+        {
+          "id": "c",
+          "text": "String"
+        },
+        {
+          "id": "d",
+          "text": "int"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Botão Cadastrar",
+      "title": "Persistência",
+      "prompt": "Exibir o nome em uma caixa de diálogo garante que foi salvo em arquivo?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "Salvar dados requer lógica adicional.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, exibição e persistência são distintas."
+        },
+        {
+          "id": "b",
+          "text": "Sim, JOptionPane salva automaticamente."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se o botão se chama Cadastrar."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se o nome for String."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "19",
+      "group": "Botão Limpar",
+      "title": "Limpar",
+      "prompt": "Qual instrução esvazia o campo?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "String vazia não contém caracteres.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "jTextField1.setText(\" \");"
+        },
+        {
+          "id": "b",
+          "text": "jTextField1.getText();"
+        },
+        {
+          "id": "c",
+          "text": "jTextField1.requestFocusInWindow();"
+        },
+        {
+          "id": "d",
+          "text": "jTextField1.setText(\"\");"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "20",
+      "group": "Botão Limpar",
+      "title": "Foco",
+      "prompt": "O que requestFocusInWindow solicita?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A chamada solicita foco, sem garantia absoluta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Exclusão do texto."
+        },
+        {
+          "id": "b",
+          "text": "Foco de entrada para o componente."
+        },
+        {
+          "id": "c",
+          "text": "Criação de outra janela."
+        },
+        {
+          "id": "d",
+          "text": "Fechamento da aplicação."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Botão Limpar",
+      "title": "Ordem",
+      "prompt": "Após setText(\"\") e requestFocusInWindow(), qual resultado é esperado?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "As duas chamadas têm funções complementares.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Campo vazio e solicitação de foco."
+        },
+        {
+          "id": "b",
+          "text": "Campo invisível e janela fechada."
+        },
+        {
+          "id": "c",
+          "text": "Campo preenchido com espaço."
+        },
+        {
+          "id": "d",
+          "text": "Novo JTextField criado."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Event Dispatch Thread",
+      "title": "EDT",
+      "prompt": "Qual é a responsabilidade da EDT?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A EDT sustenta a interação gráfica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Compilar Java."
+        },
+        {
+          "id": "b",
+          "text": "Armazenar arquivos .form."
+        },
+        {
+          "id": "c",
+          "text": "Despachar eventos e executar a maior parte das operações Swing."
+        },
+        {
+          "id": "d",
+          "text": "Converter String em int."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "23",
+      "group": "Event Dispatch Thread",
+      "title": "Agendamento",
+      "prompt": "O que invokeLater faz?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A tarefa é colocada na fila de eventos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Bloqueia até terminar a tarefa."
+        },
+        {
+          "id": "b",
+          "text": "Agenda uma tarefa na EDT."
+        },
+        {
+          "id": "c",
+          "text": "Cria obrigatoriamente uma nova thread para cada botão."
+        },
+        {
+          "id": "d",
+          "text": "Compila a classe Runnable."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "24",
+      "group": "Event Dispatch Thread",
+      "title": "Responsividade",
+      "prompt": "Por que evitar uma operação demorada dentro de actionPerformed?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A EDT precisa permanecer disponível.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "O Java proíbe qualquer laço no método."
+        },
+        {
+          "id": "b",
+          "text": "O botão perde seu tipo."
+        },
+        {
+          "id": "c",
+          "text": "O compilador remove o método."
+        },
+        {
+          "id": "d",
+          "text": "Pode bloquear o processamento de outros eventos."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "25",
+      "group": "Diagnóstico e integração",
+      "title": "Diagnóstico",
+      "prompt": "Um botão está visível, mas não executa a ação esperada. O que verificar primeiro?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "A ligação entre evento e comportamento é essencial.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente a cor do botão."
+        },
+        {
+          "id": "b",
+          "text": "Somente o nome do projeto."
+        },
+        {
+          "id": "c",
+          "text": "O registro do ouvinte e o tratamento associado."
+        },
+        {
+          "id": "d",
+          "text": "A exclusão de todos os campos."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "26",
+      "group": "Diagnóstico e integração",
+      "title": "Teste",
+      "prompt": "Qual teste ajuda a verificar se Limpar funciona repetidamente?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "Testes de comportamento exigem interações.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Digitar textos diferentes e acionar Limpar após cada entrada."
+        },
+        {
+          "id": "b",
+          "text": "Compilar uma vez sem executar."
+        },
+        {
+          "id": "c",
+          "text": "Mudar a cor do JFrame."
+        },
+        {
+          "id": "d",
+          "text": "Renomear a classe sem executar."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "27",
+      "group": "Diagnóstico e integração",
+      "title": "Proteção",
+      "prompt": "O que fazer se for necessário mudar a associação de um evento gerenciado?",
+      "hint": "Distinga o evento, o ouvinte e o comportamento.",
+      "explanation": "Preserve a consistência entre metadados e fonte.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Editar o bytecode diretamente."
+        },
+        {
+          "id": "b",
+          "text": "Apagar o arquivo .form."
+        },
+        {
+          "id": "c",
+          "text": "Remover todos os ouvintes sem verificar."
+        },
+        {
+          "id": "d",
+          "text": "Usar os recursos de eventos do GUI Builder."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "28",
+      "group": "Programação orientada a eventos",
+      "title": "Fluxo de ação",
+      "prompt": "Descreva o caminho entre acionar um botão e executar a lógica.",
+      "solution": "A ação produz um evento, entregue ao ouvinte registrado, que executa actionPerformed e eventualmente delega a outro método.",
+      "explanation": "O tratamento depende do registro prévio.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Interfaces e classes anônimas",
+      "title": "Ler classe anônima",
+      "prompt": "Explique new ActionListener() { public void actionPerformed(ActionEvent e) { } }.",
+      "solution": "Cria um objeto de classe anônima que implementa ActionListener com um tratamento vazio.",
+      "explanation": "A interface fornece o contrato.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Override e parâmetros",
+      "title": "Diagnosticar assinatura",
+      "prompt": "Corrija public void actionPerformed() em uma implementação de ActionListener.",
+      "solution": "public void actionPerformed(java.awt.event.ActionEvent e) { }",
+      "explanation": "O parâmetro faz parte da assinatura exigida.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "O código gerado pelo NetBeans",
+      "title": "Separar responsabilidades",
+      "prompt": "Explique por que o ouvinte chama jButton1ActionPerformed(evt).",
+      "solution": "Para delegar o tratamento ao método da janela, cujo corpo pode conter a lógica autoral.",
+      "explanation": "Registro e lógica ficam separados.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Botão Cadastrar",
+      "title": "Exibir entrada",
+      "prompt": "Dentro do tratamento de Cadastrar, leia o campo jTextField1 e exiba o texto.",
+      "solution": "String nome = jTextField1.getText();\njavax.swing.JOptionPane.showMessageDialog(this, nome);",
+      "explanation": "Exemplo autoral no contexto de JFrame.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Botão Limpar",
+      "title": "Limpeza e foco",
+      "prompt": "Escreva as duas instruções da apostila para Limpar.",
+      "solution": "jTextField1.setText(\"\");\njTextField1.requestFocusInWindow();",
+      "explanation": "Limpa o conteúdo e solicita foco.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Event Dispatch Thread",
+      "title": "Interface congelada",
+      "prompt": "Explique por que uma tarefa de dez segundos na EDT pode impedir novos cliques de serem processados.",
+      "solution": "A EDT fica ocupada com a tarefa e não consegue despachar outros eventos até retornar.",
+      "explanation": "Tarefas longas exigem estratégia de execução em segundo plano.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Diagnóstico e integração",
+      "title": "Plano de teste",
+      "prompt": "Proponha um teste manual para Cadastrar e Limpar.",
+      "solution": "Digite Ana, acione Cadastrar e confira a mensagem. Feche a mensagem, acione Limpar e confira o campo vazio. Repita com outro nome e observe o foco.",
+      "explanation": "Testes verificam estado e comportamento.",
+      "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
