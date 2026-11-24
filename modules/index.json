@@ -176,6 +176,14 @@
       "discipline": "java",
       "sha256": "d96c41f1448d36402a40d1f71145b1e3ff0851d041dc4904aaca6ed55d337917",
       "bytes": 38968
+    },
+    {
+      "id": "aula310",
+      "title": "Cores e propriedades visuais",
+      "subtitle": "Color, fundo, texto e contraste",
+      "discipline": "java",
+      "sha256": "8d6e8a3cd88dbcf043cfe9fbd9c4d40d21de7317b20cae27dc5abc954afed899",
+      "bytes": 26551
     }
   ]
 }
