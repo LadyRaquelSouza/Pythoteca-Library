@@ -1,0 +1,1172 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula306",
+  "title": "JOptionPane e caixas de diálogo",
+  "subtitle": "Mensagens, entradas, confirmações e opções",
+  "objectives": "Interpretar os quatro métodos principais, constantes e retornos, tratar cancelamentos e aplicar validação e confirmação em formulários Swing.",
+  "source": "Aula 2 - JOptionPane.pdf, dez slides examinados visualmente nesta etapa, https://drive.google.com/file/d/1Bzmx7wOOCKt9L8310hXt6tpJeIHUIfXU/view. Capítulos seguem a ordem dos slides; exemplos autorais Java 8 e fundamentos complementares identificados.",
+  "chapters": [
+    {
+      "title": "Visão geral do JOptionPane",
+      "text": "[CURRICULAR, slide 1] JOptionPane pertence a javax.swing e oferece métodos estáticos para informar, alertar, perguntar, receber dados e oferecer opções. [FUNDAMENTOS] Uma chamada estática usa o nome da classe; não exige criar um JOptionPane explicitamente. Os exemplos a seguir são trechos para métodos de uma janela JFrame, salvo indicação contrária.",
+      "example": "import javax.swing.JOptionPane;"
+    },
+    {
+      "title": "Mensagens",
+      "text": "[CURRICULAR, slide 2] showMessageDialog exibe uma mensagem e retorna void. A sobrecarga com quatro argumentos recebe componente pai, mensagem, título e tipo de mensagem. this pode representar a janela atual em um método de instância; null é uma alternativa quando não há componente pai.",
+      "example": "JOptionPane.showMessageDialog(this, \"Cadastro realizado!\", \"Cadastro\", JOptionPane.INFORMATION_MESSAGE);"
+    },
+    {
+      "title": "Entrada de dados",
+      "text": "[CURRICULAR, slide 3] showInputDialog solicita entrada. A versão simples retorna String; a versão com opções de seleção retorna Object. Cancelar ou fechar pode retornar null. [FUNDAMENTOS] Teste null antes de chamar métodos como trim; uma string vazia não é null. A conversão numérica será aprofundada na aula 307.",
+      "example": "String nome = JOptionPane.showInputDialog(this, \"Digite o nome:\");\nif (nome != null && !nome.trim().isEmpty()) {\n    System.out.println(nome.trim());\n}"
+    },
+    {
+      "title": "Confirmações",
+      "text": "[CURRICULAR, slide 4] showConfirmDialog retorna int e permite escolher conjuntos de botões, como YES_NO_OPTION, YES_NO_CANCEL_OPTION e OK_CANCEL_OPTION. Compare a resposta com a constante adequada. Fechar a janela não equivale a confirmar.",
+      "example": "int resposta = JOptionPane.showConfirmDialog(this, \"Limpar dados?\", \"Confirmação\", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);\nif (resposta == JOptionPane.YES_OPTION) {\n    jTextField1.setText(\"\");\n}"
+    },
+    {
+      "title": "Opções personalizadas",
+      "text": "[CURRICULAR, slide 5] showOptionDialog permite definir mensagem, título, tipo de opção, tipo de mensagem, ícone, opções e valor inicial, além do componente pai. Retorna o índice da opção selecionada, começando em zero, ou CLOSED_OPTION quando fechado.",
+      "example": "Object[] opcoes = {\"Salvar\", \"Editar\", \"Cancelar\"};\nint escolha = JOptionPane.showOptionDialog(this, \"Escolha uma operação\", \"Cadastro\", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);"
+    },
+    {
+      "title": "Tipos de mensagem",
+      "text": "[CURRICULAR, slide 6] INFORMATION_MESSAGE informa; WARNING_MESSAGE alerta; ERROR_MESSAGE sinaliza erro; QUESTION_MESSAGE apresenta pergunta; PLAIN_MESSAGE não solicita ícone padrão. A aparência varia conforme o Look and Feel. [FUNDAMENTOS] O tipo de mensagem não determina sozinho os botões nem valida dados.",
+      "example": "JOptionPane.showMessageDialog(this, \"Informe o nome\", \"Atenção\", JOptionPane.WARNING_MESSAGE);"
+    },
+    {
+      "title": "Botões e valores de retorno",
+      "text": "[CURRICULAR, slide 7] YES_OPTION e OK_OPTION valem 0; NO_OPTION vale 1; CANCEL_OPTION vale 2; CLOSED_OPTION vale -1. Use constantes simbólicas e considere o conjunto de botões utilizado. DEFAULT_OPTION não é uma resposta do usuário. [FUNDAMENTOS] Um botão personalizado chamado Cancelar retorna seu índice, não necessariamente CANCEL_OPTION.",
+      "example": "if (resposta == JOptionPane.CLOSED_OPTION) {\n    // A janela foi fechada.\n}"
+    },
+    {
+      "title": "Diálogos internos",
+      "text": "[CURRICULAR, slide 8] showInternalMessageDialog, showInternalInputDialog, showInternalConfirmDialog e showInternalOptionDialog são versões para interfaces com JDesktopPane e JInternalFrame. O componente pai permite localizar o ambiente interno. [FUNDAMENTOS] Não são necessários em todo JFrame; use quando a arquitetura da interface for interna.",
+      "example": "JOptionPane.showInternalMessageDialog(desktopPane, \"Operação realizada\", \"Mensagem\", JOptionPane.INFORMATION_MESSAGE);"
+    },
+    {
+      "title": "Aplicação: Cadastrar",
+      "text": "[CURRICULAR, slide 9] O formulário contém nome e curso. O exemplo da apostila usa getText().trim(), isEmpty(), getSelectedIndex() e getSelectedItem() para validar a entrada e exibir o resultado. O índice zero representa a opção inicial de seleção naquele formulário. [FUNDAMENTOS] A regra depende da configuração do JComboBox; não é universal. O exemplo autoral pressupõe um combo não editável com opção inicial no índice zero e cursos não nulos.",
+      "example": "String nome = jTextField1.getText().trim();\nif (nome.isEmpty() || jComboBox1.getSelectedIndex() <= 0) {\n    JOptionPane.showMessageDialog(this, \"Informe nome e curso\", \"Atenção\", JOptionPane.WARNING_MESSAGE);\n} else {\n    String curso = jComboBox1.getSelectedItem().toString();\n    JOptionPane.showMessageDialog(this, \"Aluno: \" + nome + \"\\nCurso: \" + curso, \"Cadastro\", JOptionPane.INFORMATION_MESSAGE);\n}"
+    },
+    {
+      "title": "Aplicação: Limpar",
+      "text": "[CURRICULAR, slide 10] Antes de apagar os dados, solicite confirmação. Somente YES_OPTION autoriza limpar campos e restaurar o índice inicial do combo. requestFocusInWindow solicita foco. [FUNDAMENTOS] O exemplo pressupõe que o combo possui um item no índice zero; cancelar, negar ou fechar preserva os dados.",
+      "example": "int resposta = JOptionPane.showConfirmDialog(this, \"Deseja limpar os dados?\", \"Confirmação\", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);\nif (resposta == JOptionPane.YES_OPTION) {\n    jTextField1.setText(\"\");\n    jComboBox1.setSelectedIndex(0);\n    jTextField1.requestFocusInWindow();\n}"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Visão geral do JOptionPane",
+      "title": "Método estático",
+      "prompt": "Como chamar o método estático de mensagem?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "A classe oferece métodos estáticos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "new JOptionPane.showMessageDialog()"
+        },
+        {
+          "id": "b",
+          "text": "JFrame.showMessageDialog(this, \"Olá\")"
+        },
+        {
+          "id": "c",
+          "text": "JOptionPane.showMessageDialog(this, \"Olá\")"
+        },
+        {
+          "id": "d",
+          "text": "JOptionPane.getText()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "Visão geral do JOptionPane",
+      "title": "Finalidade",
+      "prompt": "Qual método solicita uma confirmação?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "Confirmação usa um diálogo de decisão.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "showConfirmDialog"
+        },
+        {
+          "id": "b",
+          "text": "showMessageDialog"
+        },
+        {
+          "id": "c",
+          "text": "showInputDialog"
+        },
+        {
+          "id": "d",
+          "text": "setText"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Mensagens",
+      "title": "Retorno",
+      "prompt": "Qual retorno de showMessageDialog?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O método exibe mensagem sem devolver valor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "String"
+        },
+        {
+          "id": "b",
+          "text": "void"
+        },
+        {
+          "id": "c",
+          "text": "int"
+        },
+        {
+          "id": "d",
+          "text": "boolean"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "04",
+      "group": "Mensagens",
+      "title": "Parâmetros",
+      "prompt": "Na versão de quatro argumentos, qual é o terceiro?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "A ordem é pai, mensagem, título, tipo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Componente pai"
+        },
+        {
+          "id": "b",
+          "text": "Tipo de mensagem"
+        },
+        {
+          "id": "c",
+          "text": "Mensagem"
+        },
+        {
+          "id": "d",
+          "text": "Título"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "05",
+      "group": "Mensagens",
+      "title": "Pai",
+      "prompt": "Em método de instância de JFrame, this pode representar o quê?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "this referencia o objeto atual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O texto digitado"
+        },
+        {
+          "id": "b",
+          "text": "A janela atual"
+        },
+        {
+          "id": "c",
+          "text": "A constante de retorno"
+        },
+        {
+          "id": "d",
+          "text": "A classe JOptionPane"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "06",
+      "group": "Entrada de dados",
+      "title": "Entrada",
+      "prompt": "Qual retorno da versão simples de showInputDialog?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O valor digitado é texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int"
+        },
+        {
+          "id": "b",
+          "text": "void"
+        },
+        {
+          "id": "c",
+          "text": "String"
+        },
+        {
+          "id": "d",
+          "text": "JTextField"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "07",
+      "group": "Entrada de dados",
+      "title": "Cancelamento",
+      "prompt": "Qual retorno ao cancelar a entrada simples?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "Cancelamento devolve null.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "String vazia obrigatoriamente"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "CANCEL_OPTION"
+        },
+        {
+          "id": "d",
+          "text": "null"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "08",
+      "group": "Entrada de dados",
+      "title": "Curto-circuito",
+      "prompt": "Qual teste evita chamar trim em null?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "&& avalia o lado direito somente se o esquerdo for verdadeiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "nome != null && !nome.trim().isEmpty()"
+        },
+        {
+          "id": "b",
+          "text": "!nome.trim().isEmpty() && nome != null"
+        },
+        {
+          "id": "c",
+          "text": "nome.trim() != null"
+        },
+        {
+          "id": "d",
+          "text": "nome != \"\""
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "09",
+      "group": "Entrada de dados",
+      "title": "Seleção",
+      "prompt": "Qual retorno declarado da sobrecarga de entrada com opções de seleção?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "A opção selecionada pode ser um objeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int"
+        },
+        {
+          "id": "b",
+          "text": "void"
+        },
+        {
+          "id": "c",
+          "text": "Object"
+        },
+        {
+          "id": "d",
+          "text": "boolean"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "10",
+      "group": "Confirmações",
+      "title": "Confirmação",
+      "prompt": "Qual retorno de showConfirmDialog?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O inteiro identifica a resposta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int"
+        },
+        {
+          "id": "b",
+          "text": "String"
+        },
+        {
+          "id": "c",
+          "text": "void"
+        },
+        {
+          "id": "d",
+          "text": "JButton"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "11",
+      "group": "Confirmações",
+      "title": "Botões",
+      "prompt": "Qual constante oferece Sim, Não e Cancelar?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O tipo de opção determina o conjunto de botões.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "YES_NO_OPTION"
+        },
+        {
+          "id": "b",
+          "text": "YES_NO_CANCEL_OPTION"
+        },
+        {
+          "id": "c",
+          "text": "OK_CANCEL_OPTION"
+        },
+        {
+          "id": "d",
+          "text": "QUESTION_MESSAGE"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "12",
+      "group": "Confirmações",
+      "title": "Decisão",
+      "prompt": "Qual condição autoriza limpar somente após Sim?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "A confirmação positiva deve ser explícita.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "resposta != JOptionPane.NO_OPTION"
+        },
+        {
+          "id": "b",
+          "text": "resposta == JOptionPane.CLOSED_OPTION"
+        },
+        {
+          "id": "c",
+          "text": "resposta >= 0"
+        },
+        {
+          "id": "d",
+          "text": "resposta == JOptionPane.YES_OPTION"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "13",
+      "group": "Opções personalizadas",
+      "title": "Personalização",
+      "prompt": "Qual método permite fornecer um array de botões personalizados?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "showOptionDialog aceita opções personalizadas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "showMessageDialog"
+        },
+        {
+          "id": "b",
+          "text": "showOptionDialog"
+        },
+        {
+          "id": "c",
+          "text": "showConfirmDialog"
+        },
+        {
+          "id": "d",
+          "text": "getText"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Opções personalizadas",
+      "title": "Índice",
+      "prompt": "Com opções Salvar, Editar, Cancelar, qual índice retorna Editar?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "Os índices começam em zero.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "-1"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "15",
+      "group": "Opções personalizadas",
+      "title": "Fechamento",
+      "prompt": "Qual retorno quando o diálogo de opções é fechado sem escolha?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O retorno inteiro de fechamento é -1.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "YES_OPTION"
+        },
+        {
+          "id": "b",
+          "text": "Índice zero"
+        },
+        {
+          "id": "c",
+          "text": "null"
+        },
+        {
+          "id": "d",
+          "text": "CLOSED_OPTION"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "16",
+      "group": "Opções personalizadas",
+      "title": "Ícone",
+      "prompt": "No parâmetro icon, null indica o quê?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "null não fornece ícone personalizado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Usar o comportamento padrão de ícone conforme o tipo de mensagem."
+        },
+        {
+          "id": "b",
+          "text": "Fechar a janela."
+        },
+        {
+          "id": "c",
+          "text": "Cancelar automaticamente."
+        },
+        {
+          "id": "d",
+          "text": "Eliminar todas as opções."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "17",
+      "group": "Tipos de mensagem",
+      "title": "Informação",
+      "prompt": "Qual tipo é apropriado para comunicar sucesso?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O tipo informativo é adequado ao sucesso.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ERROR_MESSAGE"
+        },
+        {
+          "id": "b",
+          "text": "WARNING_MESSAGE"
+        },
+        {
+          "id": "c",
+          "text": "INFORMATION_MESSAGE"
+        },
+        {
+          "id": "d",
+          "text": "YES_NO_OPTION"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Tipos de mensagem",
+      "title": "Aviso",
+      "prompt": "Qual tipo sinaliza uma situação que exige atenção?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "Aviso é diferente de resposta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "WARNING_MESSAGE"
+        },
+        {
+          "id": "b",
+          "text": "PLAIN_MESSAGE"
+        },
+        {
+          "id": "c",
+          "text": "YES_OPTION"
+        },
+        {
+          "id": "d",
+          "text": "OK_CANCEL_OPTION"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "19",
+      "group": "Tipos de mensagem",
+      "title": "Erro",
+      "prompt": "Qual tipo sinaliza falha?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "ERROR_MESSAGE representa erro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "QUESTION_MESSAGE"
+        },
+        {
+          "id": "b",
+          "text": "ERROR_MESSAGE"
+        },
+        {
+          "id": "c",
+          "text": "DEFAULT_OPTION"
+        },
+        {
+          "id": "d",
+          "text": "CANCEL_OPTION"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "20",
+      "group": "Tipos de mensagem",
+      "title": "Sem ícone padrão",
+      "prompt": "Qual tipo não solicita ícone padrão?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "PLAIN_MESSAGE é neutro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "INFORMATION_MESSAGE"
+        },
+        {
+          "id": "b",
+          "text": "QUESTION_MESSAGE"
+        },
+        {
+          "id": "c",
+          "text": "WARNING_MESSAGE"
+        },
+        {
+          "id": "d",
+          "text": "PLAIN_MESSAGE"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "21",
+      "group": "Botões e valores de retorno",
+      "title": "Constantes",
+      "prompt": "Qual par possui valor numérico 0?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O contexto dos botões diferencia Sim de OK.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "NO_OPTION e CANCEL_OPTION"
+        },
+        {
+          "id": "b",
+          "text": "YES_OPTION e OK_OPTION"
+        },
+        {
+          "id": "c",
+          "text": "CLOSED_OPTION e NO_OPTION"
+        },
+        {
+          "id": "d",
+          "text": "CANCEL_OPTION e CLOSED_OPTION"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "22",
+      "group": "Botões e valores de retorno",
+      "title": "Não",
+      "prompt": "Qual valor de NO_OPTION?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "NO_OPTION vale 1.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "-1"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "23",
+      "group": "Botões e valores de retorno",
+      "title": "Cancelar",
+      "prompt": "Qual valor de CANCEL_OPTION?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "CANCEL_OPTION vale 2.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "-1"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "24",
+      "group": "Botões e valores de retorno",
+      "title": "Fechar",
+      "prompt": "Qual valor de CLOSED_OPTION?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "Fechar não confirma a ação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "-1"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "25",
+      "group": "Diálogos internos",
+      "title": "Interno",
+      "prompt": "Qual método exibe mensagem em ambiente de janelas internas?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "A versão interna de mensagem é showInternalMessageDialog.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "showMessageDialog"
+        },
+        {
+          "id": "b",
+          "text": "showInternalInputDialog"
+        },
+        {
+          "id": "c",
+          "text": "showInternalMessageDialog"
+        },
+        {
+          "id": "d",
+          "text": "showInternalConfirmDialog"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "26",
+      "group": "Diálogos internos",
+      "title": "Contêiner",
+      "prompt": "Qual componente organiza JInternalFrame em uma área de trabalho?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "JDesktopPane é apropriado a interfaces MDI.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JDesktopPane"
+        },
+        {
+          "id": "b",
+          "text": "JTextField"
+        },
+        {
+          "id": "c",
+          "text": "JLabel"
+        },
+        {
+          "id": "d",
+          "text": "JButton"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "27",
+      "group": "Aplicação: Cadastrar",
+      "title": "Validação",
+      "prompt": "Se nome contém somente espaços, o que nome.trim().isEmpty() retorna?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "trim remove espaços comuns nas extremidades.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "false"
+        },
+        {
+          "id": "b",
+          "text": "true"
+        },
+        {
+          "id": "c",
+          "text": "null"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "28",
+      "group": "Aplicação: Cadastrar",
+      "title": "Seleção inicial",
+      "prompt": "No formulário com opção inicial Selecione no índice zero, qual condição detecta ausência de curso válido, incluindo nenhuma seleção?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O índice zero é reservado neste formulário; -1 indica ausência de seleção.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getSelectedIndex() > 0"
+        },
+        {
+          "id": "b",
+          "text": "getSelectedIndex() == 1"
+        },
+        {
+          "id": "c",
+          "text": "getSelectedIndex() >= 0"
+        },
+        {
+          "id": "d",
+          "text": "getSelectedIndex() <= 0"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "29",
+      "group": "Aplicação: Cadastrar",
+      "title": "Item",
+      "prompt": "Qual método consulta o objeto selecionado no combo?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "Item e índice são informações distintas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getSelectedIndex()"
+        },
+        {
+          "id": "b",
+          "text": "getSelectedItem()"
+        },
+        {
+          "id": "c",
+          "text": "setSelectedIndex(0)"
+        },
+        {
+          "id": "d",
+          "text": "getText()"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "30",
+      "group": "Aplicação: Limpar",
+      "title": "Limpeza",
+      "prompt": "Qual chamada restaura a opção inicial de um combo não vazio?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O índice zero seleciona o primeiro item.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "jComboBox1.getSelectedIndex()"
+        },
+        {
+          "id": "b",
+          "text": "jComboBox1.getSelectedItem()"
+        },
+        {
+          "id": "c",
+          "text": "jComboBox1.setSelectedIndex(0)"
+        },
+        {
+          "id": "d",
+          "text": "jTextField1.setText(\"\")"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "31",
+      "group": "Aplicação: Limpar",
+      "title": "Preservação",
+      "prompt": "Se a resposta é NO_OPTION, o que ocorre no exemplo de Limpar?",
+      "hint": "Observe a assinatura, o retorno e o contexto da chamada.",
+      "explanation": "O bloco só executa após YES_OPTION.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "O campo é apagado."
+        },
+        {
+          "id": "b",
+          "text": "O combo retorna ao índice zero."
+        },
+        {
+          "id": "c",
+          "text": "A janela é fechada automaticamente."
+        },
+        {
+          "id": "d",
+          "text": "Os dados permanecem."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "32",
+      "group": "Mensagens",
+      "title": "Mensagem de aviso",
+      "prompt": "Escreva uma mensagem de aviso com título Atenção e texto Informe o nome.",
+      "solution": "JOptionPane.showMessageDialog(this, \"Informe o nome\", \"Atenção\", JOptionPane.WARNING_MESSAGE);",
+      "explanation": "Trecho em método de instância de JFrame, com import.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Entrada de dados",
+      "title": "Cancelar sem erro",
+      "prompt": "Explique por que testar null antes de trim.",
+      "solution": "Cancelar pode devolver null; chamar trim sobre null lança NullPointerException.",
+      "explanation": "A ordem do teste importa.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Confirmações",
+      "title": "Confirmação segura",
+      "prompt": "Escreva uma condição que execute limpar() apenas após Sim.",
+      "solution": "if (resposta == JOptionPane.YES_OPTION) {\n    limpar();\n}",
+      "explanation": "Pressupõe resposta e método limpar declarados.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Opções personalizadas",
+      "title": "Índices",
+      "prompt": "Com opções A, B, C, explique os retornos ao escolher C e ao fechar.",
+      "solution": "2 e CLOSED_OPTION (-1), respectivamente.",
+      "explanation": "O índice começa em zero.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Tipos de mensagem",
+      "title": "Escolher tipo",
+      "prompt": "Indique tipos para sucesso, falha e alerta.",
+      "solution": "INFORMATION_MESSAGE, ERROR_MESSAGE e WARNING_MESSAGE.",
+      "explanation": "O tipo comunica a finalidade.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Botões e valores de retorno",
+      "title": "Botões versus resposta",
+      "prompt": "Diferencie YES_NO_OPTION de YES_OPTION.",
+      "solution": "O primeiro configura os botões; o segundo representa a resposta Sim.",
+      "explanation": "Configuração e retorno têm papéis diferentes.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Diálogos internos",
+      "title": "Ambiente interno",
+      "prompt": "Quando escolher showInternalMessageDialog?",
+      "solution": "Em uma interface com janelas internas, quando o diálogo deve integrar o ambiente interno.",
+      "explanation": "O componente pai deve pertencer ao ambiente adequado.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Aplicação: Cadastrar",
+      "title": "Rastrear validação",
+      "prompt": "Nome Ana e índice zero no formulário da apostila: qual ramo executa?",
+      "solution": "O ramo de aviso, pois o curso ainda não foi selecionado.",
+      "explanation": "O operador || torna suficiente uma condição inválida.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Aplicação: Limpar",
+      "title": "Teste de limpeza",
+      "prompt": "Proponha três testes para confirmar que Limpar não apaga dados indevidamente.",
+      "solution": "Preencher campos e testar Sim, Não e fechamento. Apenas Sim deve limpar e restaurar o combo.",
+      "explanation": "Teste cada resposta separadamente.",
+      "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
