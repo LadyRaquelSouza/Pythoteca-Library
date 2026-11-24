@@ -152,6 +152,14 @@
       "discipline": "java",
       "sha256": "020d9da3ceb03f3c12cc42e0a8b59b5c70741e3db42b187ab55a5405e22949d0",
       "bytes": 35239
+    },
+    {
+      "id": "aula307",
+      "title": "Tipos, conversões e tratamento de dados",
+      "subtitle": "Entradas, validação, exceções e formatação",
+      "discipline": "java",
+      "sha256": "3b1c3302528af04f6a1eef8f10d148a9a7e703dec9077f819c3e7e54ebdc727f",
+      "bytes": 33691
     }
   ]
 }
