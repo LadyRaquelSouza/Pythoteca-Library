@@ -5,7 +5,7 @@
   "title": "Estruturas de seleção",
   "subtitle": "Condições, operadores relacionais e decisões encadeadas",
   "objectives": "Interpretar condições; distinguir atribuição de comparação; utilizar se, senao e senao se; rastrear decisões; testar limites e explorar condições compostas.",
-  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa.",
+  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados.",
   "chapters": [
     {
       "title": "1. Condições e fluxo de execução",
@@ -662,6 +662,45 @@
       "mode": "text",
       "starter": "",
       "solution": "60: 8; 61: 15; 180: 15; 181: 25.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional",
+      "title": "Desconto por idade",
+      "prompt": "Uma exposição oferece 40% de desconto a menores de 12 ou pessoas com 65 anos ou mais. Escreva a condição e calcule o preço de ingresso de 30 para idade 65.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "idade < 12 ou idade >= 65; 30 * 0.60 = 18.",
+      "explanation": "Use ou e inclua o limite de 65.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional",
+      "title": "Frete",
+      "prompt": "Uma loja cobra 18 de frete para compras abaixo de 180; a partir de 180 o frete é grátis. Determine o total para 179 e 180.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "179 + 18 = 197; 180 + 0 = 180.",
+      "explanation": "Teste o limite inclusivo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional",
+      "title": "Consumo de água",
+      "prompt": "Classifique consumo até 8 como baixo, acima de 8 até 18 como moderado e acima de 18 como alto. Escreva a seleção.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "se (consumo <= 8) { escreva(\"Baixo\") }\nsenao se (consumo <= 18) { escreva(\"Moderado\") }\nsenao { escreva(\"Alto\") }",
+      "explanation": "Pressupondo consumo não negativo, a ordem separa as faixas.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
