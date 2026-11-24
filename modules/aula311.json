@@ -1,0 +1,980 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula311",
+  "title": "Lista de Compras",
+  "subtitle": "Acumuladores, formatação e estado da interface",
+  "objectives": "Integrar leitura, conversão, subtotal, acumulador, formatação, append, doClick e setEnabled; diagnosticar reinicialização e validar entradas.",
+  "source": "8-Lista_de_Compras.pdf (https://drive.google.com/file/d/1hNSuKASKISDOmwOwmC3G1nJsb5bVyL8J/view), texto recuperado e consultado; imagens não examinadas. Fundamentos, correção do acumulador e aprofundamento Java 8 identificados.",
+  "chapters": [
+    {
+      "title": "Estrutura da lista",
+      "text": "[CURRICULAR] O projeto Lista_de_Compras usa telaPrincipal, txtProduto, txtQuantidade, txtPreco, txaListaCompras e botões para adicionar, limpar produto, limpar lista e calcular total. O evento de adicionar lê entradas, calcula subtotal, acumula e acrescenta uma linha. Os exemplos são fragmentos para o JFrame, não programas completos.",
+      "example": "String produto = txtProduto.getText();\nint quantidade = Integer.parseInt(txtQuantidade.getText());\ndouble preco = Double.parseDouble(txtPreco.getText());"
+    },
+    {
+      "title": "Conversões e subtotal",
+      "text": "[CURRICULAR] A quantidade é int, o preço e subtotal são double. Multiplicar quantidade pelo preço produz o subtotal. [FUNDAMENTOS] O exemplo original pressupõe texto numérico válido, com ponto decimal para parseDouble. Valide antes de alterar a lista.",
+      "example": "double totalProduto = quantidade * preco;"
+    },
+    {
+      "title": "Acumulador e duração",
+      "text": "[CURRICULAR] A apostila soma totalProduto a total. [FUNDAMENTOS] O trecho não mostra a declaração de total. Para conservar o valor entre cliques de uma mesma janela, uma solução é declarar um campo de instância inicializado a zero no corpo da classe, fora dos eventos. Uma variável local inicializada a zero em cada clique não conserva o total.",
+      "example": "// Campo da classe:\nprivate double total = 0.0;\n// Dentro do evento de adicionar:\n// total += totalProduto;"
+    },
+    {
+      "title": "Formatação e linha",
+      "text": "[CURRICULAR] String.format(\"%.2f\", totalProduto) formata o subtotal com duas casas decimais. A descrição reúne quantidade, produto e subtotal, terminando em quebra de linha. [FUNDAMENTOS] O separador decimal depende do Locale; formatar não altera o valor armazenado nem garante precisão monetária.",
+      "example": "String linha = quantidade + \" x \" + produto + \" - R$ \"\n    + String.format(\"%.2f\", totalProduto) + \"\\n\";"
+    },
+    {
+      "title": "Acrescentar ao JTextArea",
+      "text": "[CURRICULAR] append acrescenta a linha à lista existente. [FUNDAMENTOS] setText substitui todo o conteúdo. A área de texto apresenta uma representação da compra, não é por si só uma estrutura de dados persistente.",
+      "example": "txaListaCompras.append(linha);"
+    },
+    {
+      "title": "Limpar produto e doClick",
+      "text": "[CURRICULAR] O botão Limpar Produto esvazia os três campos e solicita foco em txtProduto. O evento de adicionar chama btnLimparProduto.doClick() para acionar o botão. [FUNDAMENTOS] Um método auxiliar compartilhado é alternativa que não depende do estado habilitado do botão.",
+      "example": "txtProduto.setText(\"\");\ntxtQuantidade.setText(\"\");\ntxtPreco.setText(\"\");\ntxtProduto.requestFocus();\n// No evento de adicionar, após append:\n// btnLimparProduto.doClick();"
+    },
+    {
+      "title": "Calcular total e habilitação",
+      "text": "[CURRICULAR] Calcular Total acrescenta separador e total formatado, depois desabilita btnCalcularTotal para evitar repetição pelo usuário. setEnabled(true) habilita e false desabilita. [FUNDAMENTOS] O total já foi acumulado durante a adição; o botão apresenta o valor. A desabilitação não impede chamadas diretas a métodos.",
+      "example": "txaListaCompras.append(\"--------------------\\n\");\ntxaListaCompras.append(\"Total das Compras: R$ \" + String.format(\"%.2f\", total));\nbtnCalcularTotal.setEnabled(false);"
+    },
+    {
+      "title": "Limpar lista e reinicializar",
+      "text": "[CURRICULAR] O evento Limpar Lista apaga txaListaCompras, solicita foco e habilita Calcular Total. [CORREÇÃO COMPLEMENTAR] O trecho fornecido não zera total. Acrescente total = 0.0 para reiniciar o acumulador. Limpar produto não deve zerar o total.",
+      "example": "txaListaCompras.setText(\"\");\ntotal = 0.0;\ntxtProduto.requestFocus();\nbtnCalcularTotal.setEnabled(true);"
+    },
+    {
+      "title": "Validação e ciclo de uso",
+      "text": "[FUNDAMENTOS] Valide nome, quantidade positiva e preço finito não negativo antes de acumular. Capture NumberFormatException. Se o usuário adicionar após exibir o total, a apresentação anterior fica desatualizada; uma política possível é desabilitar Adicionar ao finalizar e reabilitar ao limpar lista. Isso é proposta autoral, não exigência da apostila.",
+      "example": "if (produto.trim().isEmpty() || quantidade <= 0 || !Double.isFinite(preco) || preco < 0) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Dados inválidos\");\n    return;\n}"
+    },
+    {
+      "title": "Dinheiro e testes integrados",
+      "text": "[APROFUNDAMENTO] double é adequado ao exercício curricular, mas não representa exatamente todos os decimais. BigDecimal criado a partir de texto é alternativa para dinheiro. Teste duas adições, limpeza de produto, finalização, limpeza de lista e nova compra. Verifique que o total novo não inclui compras antigas.",
+      "example": "java.math.BigDecimal precoExato = new java.math.BigDecimal(\"2.50\");\njava.math.BigDecimal subtotal = precoExato.multiply(java.math.BigDecimal.valueOf(3));"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Estrutura da lista",
+      "title": "Entrada",
+      "prompt": "Qual componente recebe o nome do produto?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "O campo de produto recebe o nome.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "txaListaCompras"
+        },
+        {
+          "id": "b",
+          "text": "txtPreco"
+        },
+        {
+          "id": "c",
+          "text": "txtProduto"
+        },
+        {
+          "id": "d",
+          "text": "btnLimparProduto"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "Estrutura da lista",
+      "title": "Quantidade",
+      "prompt": "Qual tipo a apostila usa para quantidade?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A quantidade é inteira.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int"
+        },
+        {
+          "id": "b",
+          "text": "double"
+        },
+        {
+          "id": "c",
+          "text": "String"
+        },
+        {
+          "id": "d",
+          "text": "boolean"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Conversões e subtotal",
+      "title": "Subtotal",
+      "prompt": "Qual expressão calcula subtotal?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "Multiplique quantidade por preço unitário.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "quantidade + preco"
+        },
+        {
+          "id": "b",
+          "text": "total + preco"
+        },
+        {
+          "id": "c",
+          "text": "preco / quantidade"
+        },
+        {
+          "id": "d",
+          "text": "quantidade * preco"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "04",
+      "group": "Conversões e subtotal",
+      "title": "Conversão",
+      "prompt": "Qual método converte o preço textual em double?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "parseDouble interpreta o texto numérico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Integer.parseInt"
+        },
+        {
+          "id": "b",
+          "text": "Double.parseDouble"
+        },
+        {
+          "id": "c",
+          "text": "String.format"
+        },
+        {
+          "id": "d",
+          "text": "Double.toString"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Conversões e subtotal",
+      "title": "Formato",
+      "prompt": "Qual entrada parseDouble aceita como decimal comum?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "parseDouble usa ponto decimal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"2.50\""
+        },
+        {
+          "id": "b",
+          "text": "\"2,50\""
+        },
+        {
+          "id": "c",
+          "text": "\"R$ 2.50\""
+        },
+        {
+          "id": "d",
+          "text": "\"dois\""
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "Acumulador e duração",
+      "title": "Acumulação",
+      "prompt": "Com total 12 e subtotal 8, qual novo total?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "Some ao total anterior.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        },
+        {
+          "id": "d",
+          "text": "96"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "07",
+      "group": "Acumulador e duração",
+      "title": "Escopo",
+      "prompt": "Onde declarar total para conservar valor entre cliques da mesma janela?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "O campo pertence à instância.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Variável local inicializada em cada clique"
+        },
+        {
+          "id": "b",
+          "text": "Campo de instância do JFrame"
+        },
+        {
+          "id": "c",
+          "text": "Parâmetro de setText"
+        },
+        {
+          "id": "d",
+          "text": "Import"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "08",
+      "group": "Acumulador e duração",
+      "title": "Operador",
+      "prompt": "Qual expressão equivale a total = totalProduto + total para double?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "+= atualiza o acumulador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "total = totalProduto"
+        },
+        {
+          "id": "b",
+          "text": "total *= totalProduto"
+        },
+        {
+          "id": "c",
+          "text": "totalProduto += total"
+        },
+        {
+          "id": "d",
+          "text": "total += totalProduto"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "09",
+      "group": "Formatação e linha",
+      "title": "Formatação",
+      "prompt": "Qual especificador apresenta duas casas decimais?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A precisão .2 limita a apresentação a duas casas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "%2d"
+        },
+        {
+          "id": "b",
+          "text": "%s"
+        },
+        {
+          "id": "c",
+          "text": "%.2f"
+        },
+        {
+          "id": "d",
+          "text": "%f2"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "10",
+      "group": "Formatação e linha",
+      "title": "Valor",
+      "prompt": "String.format altera o double original?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "Formatação produz texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, muda o valor armazenado."
+        },
+        {
+          "id": "b",
+          "text": "Não, retorna uma String."
+        },
+        {
+          "id": "c",
+          "text": "Sim, converte a variável em int."
+        },
+        {
+          "id": "d",
+          "text": "Sim, zera a variável."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "11",
+      "group": "Formatação e linha",
+      "title": "Linha",
+      "prompt": "Qual escape encerra a linha de produto?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A quebra de linha separa registros visuais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\\n"
+        },
+        {
+          "id": "b",
+          "text": "\\t"
+        },
+        {
+          "id": "c",
+          "text": "\\r\\t"
+        },
+        {
+          "id": "d",
+          "text": "\\\""
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "12",
+      "group": "Acrescentar ao JTextArea",
+      "title": "Lista",
+      "prompt": "Qual método acrescenta texto sem substituir o anterior?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "append acrescenta ao documento textual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "setText"
+        },
+        {
+          "id": "b",
+          "text": "getText"
+        },
+        {
+          "id": "c",
+          "text": "setEnabled"
+        },
+        {
+          "id": "d",
+          "text": "append"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "13",
+      "group": "Acrescentar ao JTextArea",
+      "title": "Substituição",
+      "prompt": "O que setText(\"\") faz na área de lista?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "Limpar a representação não altera o acumulador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Zera automaticamente total."
+        },
+        {
+          "id": "b",
+          "text": "Remove o texto exibido."
+        },
+        {
+          "id": "c",
+          "text": "Remove o JFrame."
+        },
+        {
+          "id": "d",
+          "text": "Desabilita o botão."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Limpar produto e doClick",
+      "title": "Reuso",
+      "prompt": "Qual chamada aciona programaticamente o botão Limpar Produto habilitado?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "doClick simula a ação do botão.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "btnLimparProduto.getText()"
+        },
+        {
+          "id": "b",
+          "text": "btnLimparProduto.setEnabled(true)"
+        },
+        {
+          "id": "c",
+          "text": "btnLimparProduto.doClick()"
+        },
+        {
+          "id": "d",
+          "text": "btnLimparProduto.requestFocus()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "15",
+      "group": "Limpar produto e doClick",
+      "title": "Limpeza",
+      "prompt": "Quais campos Limpar Produto esvazia?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A apostila limpa os três campos de entrada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas produto e preço"
+        },
+        {
+          "id": "b",
+          "text": "A lista e o total"
+        },
+        {
+          "id": "c",
+          "text": "Apenas quantidade"
+        },
+        {
+          "id": "d",
+          "text": "Produto, quantidade e preço"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "16",
+      "group": "Calcular total e habilitação",
+      "title": "Finalização",
+      "prompt": "Qual efeito de btnCalcularTotal.setEnabled(false)?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "O componente fica desabilitado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Impede interação normal com o botão."
+        },
+        {
+          "id": "b",
+          "text": "Apaga o texto do botão."
+        },
+        {
+          "id": "c",
+          "text": "Zera total."
+        },
+        {
+          "id": "d",
+          "text": "Oculta a janela."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "17",
+      "group": "Calcular total e habilitação",
+      "title": "Cálculo",
+      "prompt": "Quando o total é acumulado no código curricular?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "O evento de total apresenta o acumulador.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Somente ao clicar Calcular Total."
+        },
+        {
+          "id": "b",
+          "text": "Ao limpar produto."
+        },
+        {
+          "id": "c",
+          "text": "Ao adicionar cada produto."
+        },
+        {
+          "id": "d",
+          "text": "Ao abrir a janela."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Limpar lista e reinicializar",
+      "title": "Reinício",
+      "prompt": "Qual instrução falta no trecho de Limpar Lista para reiniciar o total?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "É necessário reinicializar o estado numérico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "total = 0.0;"
+        },
+        {
+          "id": "b",
+          "text": "totalProduto = total;"
+        },
+        {
+          "id": "c",
+          "text": "total += 0;"
+        },
+        {
+          "id": "d",
+          "text": "txaListaCompras.append(\"0\");"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "19",
+      "group": "Limpar lista e reinicializar",
+      "title": "Habilitar",
+      "prompt": "Qual chamada restaura o botão Calcular Total?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "true habilita.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "btnCalcularTotal.setEnabled(false)"
+        },
+        {
+          "id": "b",
+          "text": "btnCalcularTotal.setEnabled(true)"
+        },
+        {
+          "id": "c",
+          "text": "btnCalcularTotal.setText(\"\")"
+        },
+        {
+          "id": "d",
+          "text": "btnCalcularTotal.doClick()"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "20",
+      "group": "Limpar lista e reinicializar",
+      "title": "Rastreamento",
+      "prompt": "Total 15, lista limpa sem zerar total, nova compra de 4: qual acumulado?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "O valor antigo permanece no campo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "19"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "21",
+      "group": "Validação e ciclo de uso",
+      "title": "Validação",
+      "prompt": "Em que momento validar entradas?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "Evite alterações parciais com dados inválidos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Antes de acumular e acrescentar a linha."
+        },
+        {
+          "id": "b",
+          "text": "Depois de atualizar total e lista."
+        },
+        {
+          "id": "c",
+          "text": "Apenas ao limpar."
+        },
+        {
+          "id": "d",
+          "text": "Apenas após fechar a janela."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "22",
+      "group": "Validação e ciclo de uso",
+      "title": "Quantidade",
+      "prompt": "Qual condição rejeita quantidade zero e negativa?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A condição inclui zero e negativos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "quantidade < 0"
+        },
+        {
+          "id": "b",
+          "text": "quantidade == 0"
+        },
+        {
+          "id": "c",
+          "text": "quantidade > 0"
+        },
+        {
+          "id": "d",
+          "text": "quantidade <= 0"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "23",
+      "group": "Validação e ciclo de uso",
+      "title": "Estado",
+      "prompt": "O que pode ocorrer ao adicionar após exibir o total?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A apresentação anterior não se atualiza sozinha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O texto anterior se recalcula automaticamente."
+        },
+        {
+          "id": "b",
+          "text": "O acumulador sempre zera."
+        },
+        {
+          "id": "c",
+          "text": "O total exibido anteriormente fica desatualizado."
+        },
+        {
+          "id": "d",
+          "text": "O JFrame fecha."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Dinheiro e testes integrados",
+      "title": "Precisão",
+      "prompt": "Qual classe é alternativa para cálculos decimais monetários?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "BigDecimal permite aritmética decimal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "StringBuilder"
+        },
+        {
+          "id": "b",
+          "text": "BigDecimal"
+        },
+        {
+          "id": "c",
+          "text": "JTextArea"
+        },
+        {
+          "id": "d",
+          "text": "ButtonGroup"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "25",
+      "group": "Dinheiro e testes integrados",
+      "title": "Teste",
+      "prompt": "Qual sequência detecta falha de reinicialização?",
+      "hint": "Rastreie o estado e o efeito de cada instrução.",
+      "explanation": "A sequência verifica estado entre listas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Abrir e fechar sem adicionar."
+        },
+        {
+          "id": "b",
+          "text": "Limpar produto antes de digitar."
+        },
+        {
+          "id": "c",
+          "text": "Adicionar, limpar lista, adicionar e conferir total."
+        },
+        {
+          "id": "d",
+          "text": "Conferir apenas a cor do botão."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "26",
+      "group": "Conversões e subtotal",
+      "title": "Subtotal",
+      "prompt": "Calcule o subtotal de 3 unidades a R$ 2,50.",
+      "solution": "7,50",
+      "explanation": "7,50",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Acumulador e duração",
+      "title": "Rastrear",
+      "prompt": "Partindo de zero, acumule subtotais 7,50 e 12,00.",
+      "solution": "total passa a 7,50 e depois 19,50.",
+      "explanation": "total passa a 7,50 e depois 19,50.",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Formatação e linha",
+      "title": "Montar linha",
+      "prompt": "Monte a expressão de linha usando quantidade, produto e totalProduto.",
+      "solution": "String linha = quantidade + \" x \" + produto + \" - R$ \" + String.format(\"%.2f\", totalProduto) + \"\\n\";",
+      "explanation": "String linha = quantidade + \" x \" + produto + \" - R$ \" + String.format(\"%.2f\", totalProduto) + \"\\n\";",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Acrescentar ao JTextArea",
+      "title": "Acrescentar",
+      "prompt": "Acrescente linha à área de texto.",
+      "solution": "txaListaCompras.append(linha);",
+      "explanation": "txaListaCompras.append(linha);",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Limpar produto e doClick",
+      "title": "Reutilização",
+      "prompt": "Explique por que a apostila usa doClick após adicionar.",
+      "solution": "Para executar a ação de limpeza já definida no botão, evitando repetir instruções.",
+      "explanation": "Para executar a ação de limpeza já definida no botão, evitando repetir instruções.",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Calcular total e habilitação",
+      "title": "Finalizar",
+      "prompt": "Explique por que o botão Calcular Total é desabilitado.",
+      "solution": "Para evitar acrescentar repetidamente a apresentação do total por cliques.",
+      "explanation": "Para evitar acrescentar repetidamente a apresentação do total por cliques.",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Limpar lista e reinicializar",
+      "title": "Corrigir",
+      "prompt": "Escreva o evento Limpar Lista com reinicialização do acumulador.",
+      "solution": "txaListaCompras.setText(\"\");\ntotal = 0.0;\ntxtProduto.requestFocus();\nbtnCalcularTotal.setEnabled(true);",
+      "explanation": "txaListaCompras.setText(\"\");\ntotal = 0.0;\ntxtProduto.requestFocus();\nbtnCalcularTotal.setEnabled(true);",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Validação e ciclo de uso",
+      "title": "Testar entrada",
+      "prompt": "Proponha três entradas inválidas.",
+      "solution": "Nome vazio, quantidade zero, preço não numérico.",
+      "explanation": "Nome vazio, quantidade zero, preço não numérico.",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Dinheiro e testes integrados",
+      "title": "Teste integrado",
+      "prompt": "Descreva teste que confirme reinício do acumulador.",
+      "solution": "Adicione subtotal 10, limpe lista, adicione subtotal 3 e finalize; total esperado 3.",
+      "explanation": "Adicione subtotal 10, limpe lista, adicione subtotal 3 e finalize; total esperado 3.",
+      "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

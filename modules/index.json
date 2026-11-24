@@ -184,6 +184,14 @@
       "discipline": "java",
       "sha256": "8d6e8a3cd88dbcf043cfe9fbd9c4d40d21de7317b20cae27dc5abc954afed899",
       "bytes": 26551
+    },
+    {
+      "id": "aula311",
+      "title": "Lista de Compras",
+      "subtitle": "Acumuladores, formatação e estado da interface",
+      "discipline": "java",
+      "sha256": "e9a832dd9ce6323adc80dcc2a24f60dd03de2a3825350cc45b3746accc1910a5",
+      "bytes": 30021
     }
   ]
 }
