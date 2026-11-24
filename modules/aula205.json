@@ -5,7 +5,7 @@
   "title": "Estrutura escolha/caso",
   "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
   "objectives": "Interpretar escolha/caso; usar pare e caso contrario; distinguir valores discretos de intervalos; elaborar menus e testar alternativas.",
-  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa.",
+  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados.",
   "chapters": [
     {
       "title": "1. Seleção múltipla",
@@ -548,6 +548,19 @@
       "mode": "text",
       "starter": "",
       "solution": "1: AFim; 2: BFim; 8: XFim.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional",
+      "title": "Planos de internet",
+      "prompt": "Crie uma seleção para 1: 100 Mbps por 70 reais; 2: 300 Mbps por 100 reais; 3: 600 Mbps por 140 reais; demais: inválida.",
+      "hint": "Identifique as entradas, regras e saída.",
+      "solution": "escolha (opcao)\n{\n caso 1:\n escreva(\"100 Mbps, R$ 70\")\n pare\n caso 2:\n escreva(\"300 Mbps, R$ 100\")\n pare\n caso 3:\n escreva(\"600 Mbps, R$ 140\")\n pare\n caso contrario:\n escreva(\"Inválida\")\n}",
+      "explanation": "Use casos fixos e pare.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
