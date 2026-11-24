@@ -136,6 +136,14 @@
       "discipline": "java",
       "sha256": "45c3e4e00fcce8a50d62ccf66a4d8520a4d2f764e2dd56bbeea0d8963b442399",
       "bytes": 34616
+    },
+    {
+      "id": "aula305",
+      "title": "Eventos e código gerado",
+      "subtitle": "ActionListener, métodos de tratamento e EDT",
+      "discipline": "java",
+      "sha256": "3243ef6299430125916380a1437bd4128d5af5d8afa24cf683a5e79c3f4900b9",
+      "bytes": 32487
     }
   ]
 }
