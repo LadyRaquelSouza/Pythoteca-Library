@@ -120,6 +120,14 @@
       "discipline": "java",
       "sha256": "4edae4915b9f10e72f5bf5e74f88b4cf9563c0669b9fcce66a18d5dca7fe3d75",
       "bytes": 33812
+    },
+    {
+      "id": "aula303",
+      "title": "Classes, objetos e métodos",
+      "subtitle": "Referências, construtores, escopo e encapsulamento",
+      "discipline": "java",
+      "sha256": "ff3c7674dde49af8bf47fd68a1f204f6edae3e4bbd75ddcb3aa858edc5ebd329",
+      "bytes": 35793
     }
   ]
 }

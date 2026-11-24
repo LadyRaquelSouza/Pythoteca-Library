@@ -1,0 +1,1121 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula303",
+  "title": "Classes, objetos e métodos",
+  "subtitle": "Referências, construtores, escopo e encapsulamento",
+  "objectives": "Compreender classes e instâncias, rastrear referências, interpretar construtores e métodos e reconhecer esses conceitos em componentes Swing.",
+  "source": "Módulo autoral de fundamentos complementares em Java 8. Exemplos Swing ilustrativos, não transcritos da apostila nem do GUI Builder.",
+  "chapters": [
+    {
+      "title": "Classes e instâncias",
+      "text": "Uma classe declara um tipo, seus campos e métodos. Uma instância é um objeto concreto desse tipo. Duas instâncias podem ter estados diferentes mesmo compartilhando a definição da classe. Nos exemplos seguintes, cada trecho deve ser colocado no contexto indicado; declarações de métodos ficam no corpo da classe e instruções de teste dentro de um método.",
+      "example": "class Aluno {\n    String nome;\n    int idade;\n}"
+    },
+    {
+      "title": "Estado e referências",
+      "text": "Uma variável de tipo de classe armazena uma referência, não uma cópia integral do objeto. new cria uma instância. Atribuir uma referência a outra variável não duplica a instância. null representa ausência de referência; acessar um membro de instância por uma referência nula causa NullPointerException.",
+      "example": "Aluno a = new Aluno();\na.nome = \"Lia\";\nAluno b = a;\nb.nome = \"Ana\";\nSystem.out.println(a.nome); // Ana"
+    },
+    {
+      "title": "Construtores e this",
+      "text": "Um construtor inicializa a instância. Tem o nome da classe e não declara retorno. this representa o objeto atual em um contexto de instância; permite distinguir um campo de um parâmetro homônimo. Se nenhuma declaração de construtor existir, o compilador fornece um construtor padrão sem parâmetros.",
+      "example": "class Aluno {\n    String nome;\n    Aluno(String nome) {\n        this.nome = nome;\n    }\n}"
+    },
+    {
+      "title": "Métodos e retorno",
+      "text": "Métodos descrevem operações. Parâmetros recebem valores dos argumentos; Java passa argumentos por valor, inclusive valores de referência. Métodos void não retornam valores. Métodos com retorno int, String ou outro tipo devem devolver um valor compatível nos caminhos que terminam normalmente.",
+      "example": "class Produto {\n    int preco;\n    int total(int quantidade) {\n        return preco * quantidade;\n    }\n}"
+    },
+    {
+      "title": "Membros estáticos e de instância",
+      "text": "Campos de instância pertencem a cada objeto. Um campo static pertence à classe, compartilhado pelas instâncias daquele tipo. Métodos static não possuem this e não acessam diretamente campos de instância sem uma referência. main é um exemplo de método estático.",
+      "example": "class Contador {\n    static int criados;\n    int valor;\n    Contador() {\n        criados++;\n    }\n}"
+    },
+    {
+      "title": "Escopo e duração",
+      "text": "Uma variável local declarada em um bloco é acessível a partir da declaração até o fim de seu escopo. Parâmetros estão disponíveis no corpo do método. Campos são membros da classe, sujeitos a regras de acesso. Campos int recebem zero por padrão; variáveis locais precisam ser definitivamente atribuídas antes da leitura.",
+      "example": "void testar() {\n    if (true) {\n        int numero = 10;\n        System.out.println(numero);\n    }\n    // numero não está em escopo aqui.\n}"
+    },
+    {
+      "title": "Encapsulamento",
+      "text": "Encapsular envolve controlar o acesso ao estado e preservar regras do objeto. private restringe acesso ao membro; public permite acesso onde a classe também é acessível. Métodos de acesso podem validar valores. Nem todo campo precisa de getter e setter.",
+      "example": "class Estoque {\n    private int quantidade;\n    public int getQuantidade() {\n        return quantidade;\n    }\n    public void adicionar(int n) {\n        if (n > 0) {\n            quantidade += n;\n        }\n    }\n}"
+    },
+    {
+      "title": "Pacotes, import e nomes",
+      "text": "package declara o pacote da classe. import permite usar nomes simples de tipos acessíveis sem escrever o nome qualificado em cada referência. Não cria objetos nem copia código. java.lang é importado implicitamente. Imports ficam após package e antes das declarações de tipos.",
+      "example": "import javax.swing.JButton;\n\nclass Exemplo {\n    JButton botao = new JButton(\"Salvar\");\n}"
+    },
+    {
+      "title": "Objetos Swing",
+      "text": "JButton, JLabel e JTextField são classes Swing. Uma variável de referência permite acessar o componente. setText altera o texto; getText retorna texto. Um método de configuração não é necessariamente um evento. Em um formulário real, manipulações Swing devem ocorrer na thread de eventos; estudaremos esse mecanismo depois.",
+      "example": "JTextField campo = new JTextField();\ncampo.setText(\"Ana\");\nString nome = campo.getText();"
+    },
+    {
+      "title": "Lendo um formulário",
+      "text": "Uma classe que extends JFrame herda funcionalidades da janela. Seu construtor pode chamar initComponents para configurar componentes. Campos guardam referências usadas por outros métodos. O exemplo é uma miniatura autoral, não uma reprodução do GUI Builder. O código real inclui layout e outras configurações.",
+      "example": "class Tela extends javax.swing.JFrame {\n    private javax.swing.JButton botao;\n    Tela() {\n        initComponents();\n    }\n    private void initComponents() {\n        botao = new javax.swing.JButton(\"Salvar\");\n        add(botao);\n        pack();\n    }\n}"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Classes e instâncias",
+      "title": "Tipo e instância",
+      "prompt": "Em Aluno a = new Aluno();, qual elemento é o tipo declarado?",
+      "hint": "Classes e instâncias: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Aluno é o nome do tipo de classe.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "a"
+        },
+        {
+          "id": "b",
+          "text": "new"
+        },
+        {
+          "id": "c",
+          "text": "Aluno"
+        },
+        {
+          "id": "d",
+          "text": "()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "Classes e instâncias",
+      "title": "Estados independentes",
+      "prompt": "Dois objetos Aluno criados por chamadas distintas de new precisam ter o mesmo nome?",
+      "hint": "Classes e instâncias: identifique o papel de cada elemento antes de responder.",
+      "explanation": "A definição é comum; o estado de instância pode variar.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, cada instância pode ter seu estado."
+        },
+        {
+          "id": "b",
+          "text": "Sim, campos de instância são compartilhados."
+        },
+        {
+          "id": "c",
+          "text": "Sim, porque possuem a mesma classe."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque pertencem a tipos diferentes."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Estado e referências",
+      "title": "Referência compartilhada",
+      "prompt": "Aluno a = new Aluno(); Aluno b = a; Quantos objetos Aluno foram criados?",
+      "hint": "Estado e referências: identifique o papel de cada elemento antes de responder.",
+      "explanation": "A atribuição copia a referência, não o objeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Dois"
+        },
+        {
+          "id": "b",
+          "text": "Zero"
+        },
+        {
+          "id": "c",
+          "text": "Três"
+        },
+        {
+          "id": "d",
+          "text": "Um"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "04",
+      "group": "Estado e referências",
+      "title": "Alteração compartilhada",
+      "prompt": "a.nome = \"Lia\"; b = a; b.nome = \"Ana\"; Qual é a.nome?",
+      "hint": "Estado e referências: identifique o papel de cada elemento antes de responder.",
+      "explanation": "As duas referências apontam para a mesma instância.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Lia"
+        },
+        {
+          "id": "b",
+          "text": "Ana"
+        },
+        {
+          "id": "c",
+          "text": "null"
+        },
+        {
+          "id": "d",
+          "text": "Uma cópia independente de Lia"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Estado e referências",
+      "title": "Referência nula",
+      "prompt": "Aluno a = null; O que acontece ao executar a.nome = \"Ana\";?",
+      "hint": "Estado e referências: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Não existe objeto receptor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Um objeto é criado automaticamente."
+        },
+        {
+          "id": "b",
+          "text": "NullPointerException"
+        },
+        {
+          "id": "c",
+          "text": "A atribuição é ignorada."
+        },
+        {
+          "id": "d",
+          "text": "O nome vira null."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "06",
+      "group": "Construtores e this",
+      "title": "Construtor",
+      "prompt": "Qual declaração é um construtor de Aluno?",
+      "hint": "Construtores e this: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Construtores não declaram tipo de retorno.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "void Aluno(String nome) {}"
+        },
+        {
+          "id": "b",
+          "text": "String Aluno() { return \"\"; }"
+        },
+        {
+          "id": "c",
+          "text": "Aluno criar() { return null; }"
+        },
+        {
+          "id": "d",
+          "text": "Aluno(String nome) {}"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Construtores e this",
+      "title": "this",
+      "prompt": "Em this.nome = nome;, qual elemento representa o campo do objeto atual?",
+      "hint": "Construtores e this: identifique o papel de cada elemento antes de responder.",
+      "explanation": "this seleciona o campo da instância atual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "this.nome"
+        },
+        {
+          "id": "b",
+          "text": "nome à direita"
+        },
+        {
+          "id": "c",
+          "text": "O sinal ="
+        },
+        {
+          "id": "d",
+          "text": "O parâmetro isolado"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "08",
+      "group": "Construtores e this",
+      "title": "Construtor padrão",
+      "prompt": "Uma classe declara apenas Aluno(String nome). new Aluno() é válido?",
+      "hint": "Construtores e this: identifique o papel de cada elemento antes de responder.",
+      "explanation": "O construtor padrão só é fornecido se nenhum construtor for declarado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, o compilador sempre gera um construtor sem argumentos."
+        },
+        {
+          "id": "b",
+          "text": "Sim, String recebe automaticamente texto vazio."
+        },
+        {
+          "id": "c",
+          "text": "Não, não há construtor sem argumentos declarado ou gerado."
+        },
+        {
+          "id": "d",
+          "text": "Sim, new ignora parâmetros."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "09",
+      "group": "Métodos e retorno",
+      "title": "Retorno",
+      "prompt": "Qual assinatura declara retorno inteiro?",
+      "hint": "Métodos e retorno: identifique o papel de cada elemento antes de responder.",
+      "explanation": "int antes do nome indica retorno inteiro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "void total(int n)"
+        },
+        {
+          "id": "b",
+          "text": "Produto(int n)"
+        },
+        {
+          "id": "c",
+          "text": "int total(int n)"
+        },
+        {
+          "id": "d",
+          "text": "static void total()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "10",
+      "group": "Métodos e retorno",
+      "title": "Argumentos",
+      "prompt": "Em total(4), qual é o argumento?",
+      "hint": "Métodos e retorno: identifique o papel de cada elemento antes de responder.",
+      "explanation": "O valor fornecido na chamada é o argumento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "total"
+        },
+        {
+          "id": "c",
+          "text": "int"
+        },
+        {
+          "id": "d",
+          "text": "return"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "11",
+      "group": "Métodos e retorno",
+      "title": "Rastreamento",
+      "prompt": "Se preco = 6 e total(n) retorna preco * n, quanto vale total(4)?",
+      "hint": "Métodos e retorno: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Multiplique o campo pelo argumento.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "12",
+      "group": "Métodos e retorno",
+      "title": "Passagem por valor",
+      "prompt": "Um método recebe int n e altera n para 9. A variável int original do chamador muda automaticamente?",
+      "hint": "Métodos e retorno: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Java passa argumentos por valor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, todo parâmetro é referência."
+        },
+        {
+          "id": "b",
+          "text": "Não, o parâmetro recebe uma cópia do valor."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se o método for public."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque parâmetros são constantes."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "Membros estáticos e de instância",
+      "title": "Campo estático",
+      "prompt": "Qual campo é compartilhado pelas instâncias de Contador?",
+      "hint": "Membros estáticos e de instância: identifique o papel de cada elemento antes de responder.",
+      "explanation": "static vincula o campo à classe.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "int valor;"
+        },
+        {
+          "id": "b",
+          "text": "static int criados;"
+        },
+        {
+          "id": "c",
+          "text": "int n declarado dentro de um método"
+        },
+        {
+          "id": "d",
+          "text": "Parâmetro int n"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Membros estáticos e de instância",
+      "title": "Método estático",
+      "prompt": "Um método static pode usar this diretamente?",
+      "hint": "Membros estáticos e de instância: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Não há objeto atual implícito em contexto estático.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se for public."
+        },
+        {
+          "id": "b",
+          "text": "Sim, se retornar void."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se houver construtor."
+        },
+        {
+          "id": "d",
+          "text": "Não."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "Membros estáticos e de instância",
+      "title": "Contagem",
+      "prompt": "Com criados inicialmente zero e incremento no construtor, duas chamadas de new Contador() resultam em criados igual a quê?",
+      "hint": "Membros estáticos e de instância: identifique o papel de cada elemento antes de responder.",
+      "explanation": "O contador estático é compartilhado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "Um valor diferente para cada instância"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "16",
+      "group": "Escopo e duração",
+      "title": "Escopo",
+      "prompt": "Uma variável declarada dentro de um if pode ser lida diretamente após a chave de fechamento?",
+      "hint": "Escopo e duração: identifique o papel de cada elemento antes de responder.",
+      "explanation": "O bloco delimita o escopo da variável local.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, se o if for verdadeiro."
+        },
+        {
+          "id": "b",
+          "text": "Sim, se for int."
+        },
+        {
+          "id": "c",
+          "text": "Não, está fora do escopo."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se a indentação for removida."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "17",
+      "group": "Escopo e duração",
+      "title": "Valor inicial",
+      "prompt": "Um campo int sem inicializador recebe qual valor padrão?",
+      "hint": "Escopo e duração: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Campos int são inicializados com zero.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "null"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "Nenhum valor definido"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Escopo e duração",
+      "title": "Variável local",
+      "prompt": "int n; System.out.println(n); dentro de um método compila?",
+      "hint": "Escopo e duração: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Variáveis locais exigem atribuição antes da leitura.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, n não foi definitivamente atribuído."
+        },
+        {
+          "id": "b",
+          "text": "Sim, imprime zero."
+        },
+        {
+          "id": "c",
+          "text": "Sim, imprime null."
+        },
+        {
+          "id": "d",
+          "text": "Sim, imprime um valor aleatório."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "19",
+      "group": "Encapsulamento",
+      "title": "Acesso",
+      "prompt": "Qual modificador restringe o acesso direto a um campo de uma classe por código de outra classe independente?",
+      "hint": "Encapsulamento: identifique o papel de cada elemento antes de responder.",
+      "explanation": "private restringe acesso ao membro.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "public"
+        },
+        {
+          "id": "b",
+          "text": "static"
+        },
+        {
+          "id": "c",
+          "text": "void"
+        },
+        {
+          "id": "d",
+          "text": "private"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "20",
+      "group": "Encapsulamento",
+      "title": "Validação",
+      "prompt": "Estoque.adicionar aceita apenas n > 0. O que ocorre com adicionar(-3)?",
+      "hint": "Encapsulamento: identifique o papel de cada elemento antes de responder.",
+      "explanation": "A condição impede a alteração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "A quantidade diminui três."
+        },
+        {
+          "id": "b",
+          "text": "A quantidade permanece inalterada."
+        },
+        {
+          "id": "c",
+          "text": "A quantidade vira zero."
+        },
+        {
+          "id": "d",
+          "text": "O método necessariamente lança exceção."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "21",
+      "group": "Encapsulamento",
+      "title": "Encapsulamento",
+      "prompt": "Por que não oferecer um setter irrestrito para todo campo?",
+      "hint": "Encapsulamento: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Métodos devem preservar invariantes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo setter é proibido em Java."
+        },
+        {
+          "id": "b",
+          "text": "Pode permitir estados que violam regras do objeto."
+        },
+        {
+          "id": "c",
+          "text": "Campos private não podem ser alterados nem internamente."
+        },
+        {
+          "id": "d",
+          "text": "Getters tornam objetos estáticos."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "22",
+      "group": "Pacotes, import e nomes",
+      "title": "Importação",
+      "prompt": "O que faz import javax.swing.JButton;?",
+      "hint": "Pacotes, import e nomes: identifique o papel de cada elemento antes de responder.",
+      "explanation": "import facilita resolução de nomes.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Cria um botão."
+        },
+        {
+          "id": "b",
+          "text": "Executa o construtor."
+        },
+        {
+          "id": "c",
+          "text": "Copia a classe para o projeto."
+        },
+        {
+          "id": "d",
+          "text": "Permite referenciar JButton pelo nome simples."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "23",
+      "group": "Pacotes, import e nomes",
+      "title": "Nome qualificado",
+      "prompt": "Sem import de JButton, qual expressão pode criar o componente?",
+      "hint": "Pacotes, import e nomes: identifique o papel de cada elemento antes de responder.",
+      "explanation": "O nome totalmente qualificado identifica a classe.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "new javax.swing.JButton()"
+        },
+        {
+          "id": "b",
+          "text": "new swing.JButton()"
+        },
+        {
+          "id": "c",
+          "text": "import JButton()"
+        },
+        {
+          "id": "d",
+          "text": "javax.swing.JButton sem new"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "24",
+      "group": "Objetos Swing",
+      "title": "Texto do botão",
+      "prompt": "O que botao.setText(\"Salvar\") modifica?",
+      "hint": "Objetos Swing: identifique o papel de cada elemento antes de responder.",
+      "explanation": "setText configura o texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "O nome da variável botao."
+        },
+        {
+          "id": "b",
+          "text": "A classe JButton."
+        },
+        {
+          "id": "c",
+          "text": "O texto exibido pelo botão."
+        },
+        {
+          "id": "d",
+          "text": "A ação de clique."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "25",
+      "group": "Objetos Swing",
+      "title": "Leitura",
+      "prompt": "Qual chamada retorna o texto de um JTextField campo?",
+      "hint": "Objetos Swing: identifique o papel de cada elemento antes de responder.",
+      "explanation": "getText retorna o conteúdo textual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "campo.setText()"
+        },
+        {
+          "id": "b",
+          "text": "new campo()"
+        },
+        {
+          "id": "c",
+          "text": "campo.getText()"
+        },
+        {
+          "id": "d",
+          "text": "campo.text()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "26",
+      "group": "Objetos Swing",
+      "title": "Evento",
+      "prompt": "Chamar setText equivale a programar o comportamento de um clique?",
+      "hint": "Objetos Swing: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Configuração e tratamento de eventos são distintos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, são operações diferentes."
+        },
+        {
+          "id": "b",
+          "text": "Sim, todo método configura eventos."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se o texto for Salvar."
+        },
+        {
+          "id": "d",
+          "text": "Não, porque JButton não possui métodos."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "27",
+      "group": "Lendo um formulário",
+      "title": "Herança",
+      "prompt": "O que extends javax.swing.JFrame declara?",
+      "hint": "Lendo um formulário: identifique o papel de cada elemento antes de responder.",
+      "explanation": "extends estabelece herança.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JFrame como parâmetro."
+        },
+        {
+          "id": "b",
+          "text": "JFrame como variável local."
+        },
+        {
+          "id": "c",
+          "text": "JFrame como pacote."
+        },
+        {
+          "id": "d",
+          "text": "JFrame como superclasse."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "28",
+      "group": "Lendo um formulário",
+      "title": "Inicialização",
+      "prompt": "Por que Tela() chama initComponents()?",
+      "hint": "Lendo um formulário: identifique o papel de cada elemento antes de responder.",
+      "explanation": "O construtor delega a configuração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para executar javac."
+        },
+        {
+          "id": "b",
+          "text": "Para configurar componentes ao construir a janela."
+        },
+        {
+          "id": "c",
+          "text": "Para renomear o projeto."
+        },
+        {
+          "id": "d",
+          "text": "Para substituir main."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "29",
+      "group": "Lendo um formulário",
+      "title": "Campo do formulário",
+      "prompt": "Por que botao pode ser um campo da classe Tela em vez de variável local de initComponents?",
+      "hint": "Lendo um formulário: identifique o papel de cada elemento antes de responder.",
+      "explanation": "Campos permitem compartilhar a referência entre métodos da instância.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Porque variáveis locais não podem referenciar JButton."
+        },
+        {
+          "id": "b",
+          "text": "Para permitir acesso por outros métodos de instância da classe."
+        },
+        {
+          "id": "c",
+          "text": "Porque new só funciona em campos."
+        },
+        {
+          "id": "d",
+          "text": "Porque todo componente precisa ser static."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "30",
+      "group": "Classes e instâncias",
+      "title": "Modelar uma classe",
+      "prompt": "Declare uma classe Livro com campos titulo e paginas.",
+      "solution": "class Livro {\n    String titulo;\n    int paginas;\n}",
+      "explanation": "Os campos representam estado de cada livro.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Estado e referências",
+      "title": "Instâncias distintas",
+      "prompt": "Crie dois objetos Livro e atribua títulos diferentes.",
+      "solution": "Livro a = new Livro();\nLivro b = new Livro();\na.titulo = \"A\";\nb.titulo = \"B\";",
+      "explanation": "Duas chamadas de new criam instâncias distintas.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Construtores e this",
+      "title": "Construtor de Livro",
+      "prompt": "Declare Livro com um campo titulo e um construtor que o inicialize.",
+      "solution": "class Livro {\n    String titulo;\n    Livro(String titulo) {\n        this.titulo = titulo;\n    }\n}",
+      "explanation": "this distingue campo e parâmetro.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Métodos e retorno",
+      "title": "Método de cálculo",
+      "prompt": "Declare um método de instância int dobro(int n) que devolva o dobro.",
+      "solution": "int dobro(int n) {\n    return n * 2;\n}",
+      "explanation": "O retorno é um inteiro.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Membros estáticos e de instância",
+      "title": "Estado compartilhado",
+      "prompt": "Explique a diferença entre static int criados e int valor.",
+      "solution": "criados pertence à classe; valor pertence a cada instância.",
+      "explanation": "Campos estáticos e de instância têm armazenamento distinto.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Escopo e duração",
+      "title": "Corrigir escopo",
+      "prompt": "Corrija: if (true) { int n = 3; } System.out.println(n);",
+      "solution": "int n = 0;\nif (true) {\n    n = 3;\n}\nSystem.out.println(n);",
+      "explanation": "A declaração externa mantém n em escopo.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Encapsulamento",
+      "title": "Proteger saldo",
+      "prompt": "Explique por que um método depositar pode rejeitar valores negativos.",
+      "solution": "Para impedir que uma operação de depósito reduza indevidamente o saldo.",
+      "explanation": "Encapsulamento protege regras do domínio.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Pacotes, import e nomes",
+      "title": "Simplificar nomes",
+      "prompt": "Reescreva javax.swing.JButton b = new javax.swing.JButton(); usando import. Indique onde fica o import.",
+      "solution": "import javax.swing.JButton; // antes da classe\n// dentro de um método:\nJButton b = new JButton();",
+      "explanation": "Importação e instrução ficam em contextos diferentes.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Objetos Swing",
+      "title": "Interpretar chamada",
+      "prompt": "Explique cada parte de campo.setText(\"Ana\");.",
+      "solution": "campo é a referência receptora; setText é o método; \"Ana\" é o argumento; ; termina a instrução.",
+      "explanation": "A chamada modifica o componente.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Lendo um formulário",
+      "title": "Ler código gerado",
+      "prompt": "Explique private javax.swing.JButton botao; e botao = new javax.swing.JButton();.",
+      "solution": "A primeira declara um campo de referência privado; a segunda cria uma instância e atribui sua referência ao campo.",
+      "explanation": "Declarar e instanciar são operações distintas.",
+      "hint": "Identifique o tipo, o estado e a operação envolvidos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
