@@ -88,6 +88,14 @@
       "discipline": "portugol",
       "sha256": "0ebd1a7a8feaac0322f40e4f51834a18a83e5b17e3130970b928b13be9f936bd",
       "bytes": 20657
+    },
+    {
+      "id": "aula204",
+      "title": "Estruturas de seleção",
+      "subtitle": "Condições, operadores relacionais e decisões encadeadas",
+      "discipline": "portugol",
+      "sha256": "a5dab99715b02892a469dc7fbd9e1423e3963a97031f961d1a5144e1dd7a58b3",
+      "bytes": 20684
     }
   ]
 }
