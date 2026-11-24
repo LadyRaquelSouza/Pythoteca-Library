@@ -1,0 +1,351 @@
+{
+  "schema_version": 2,
+  "discipline": "portugol",
+  "id": "aula201",
+  "title": "Introdução à lógica de programação",
+  "subtitle": "Algoritmos, sequência de passos e primeiro contato com Portugol",
+  "objectives": "Compreender lógica e algoritmo; explicar a importância da ordem dos passos; identificar editor, execução e saída; reconhecer programa, inicio() e escreva(); prever mensagens e interpretar alterações simples.",
+  "source": "Base acadêmica: apostila ilustrada Aula_1_Logica_Programacao_Portugol_Webstudio_Widescreen-1.pdf, nove slides, consultados visualmente em 23/11/2026. Slides 2–9: objetivos, lógica, algoritmo, sequência, interface do Portugol Webstudio, primeiro teste e atividades. Texto, exemplos adicionais e exercícios originais. O material utiliza Portugol Webstudio; não equiparar sua interface à do Portugol Studio. Exercícios marcados Revisão opcional não são pré-requisitos de avanço.",
+  "chapters": [
+    {
+      "title": "1. O que é lógica?",
+      "text": "CONTEÚDO DO CURSO\n\nLógica é a maneira de organizar o pensamento e as ideias para resolver um problema. Na programação, isso significa identificar o que precisa ser feito, em que ordem e qual resultado esperamos obter. Antes de escrever comandos, precisamos compreender a tarefa.\n\nConsidere a execução de um programa já pronto: primeiro observamos a tela, depois identificamos onde está o código, executamos e lemos a saída. Essa sequência ajuda a entender o que aconteceu. A lógica não depende de uma linguagem específica.\n\nAPROFUNDAMENTO\n\nUma solução lógica precisa ser coerente com o objetivo. Nem toda sequência de ações resolve o problema, e uma sequência correta para uma tarefa pode ser inadequada para outra. Ao analisar uma solução, pergunte: qual é o objetivo, quais informações são necessárias e como saberemos se deu certo?",
+      "example": "Exemplo: antes de executar um programa, localizar o botão de execução e a área de saída evita confundir o código escrito com o resultado produzido."
+    },
+    {
+      "title": "2. O que é um algoritmo?",
+      "text": "CONTEÚDO DO CURSO\n\nAlgoritmo é uma sequência de passos para realizar uma tarefa. A apostila apresenta uma sequência que começa em “Início”, percorre passos intermediários e chega ao “Fim”. Receitas e rotinas de trabalho ajudam a visualizar essa ideia.\n\nUm algoritmo não precisa ser inicialmente escrito em uma linguagem de programação. Podemos descrever passos em linguagem natural e, posteriormente, expressá-los em comandos.\n\nAPROFUNDAMENTO\n\nA descrição deve ser suficientemente clara para quem vai executá-la. “Preparar tudo” é vago; “abrir o arquivo, conferir o conteúdo e salvar” é mais verificável. Um algoritmo pode incluir decisões e repetições, que serão estudadas em aulas posteriores. Por enquanto, concentre-se na sequência.",
+      "example": "Algoritmo cotidiano: 1. Abrir o editor. 2. Localizar o programa. 3. Executá-lo. 4. Observar a saída."
+    },
+    {
+      "title": "3. Por que a ordem dos passos importa?",
+      "text": "CONTEÚDO DO CURSO\n\nA ordem das ações pode mudar o resultado. A apostila contrasta uma sequência de observação, execução e interpretação com uma sequência desorganizada em que a pessoa tenta compreender o resultado antes de verificar o programa.\n\nPara analisar uma execução, convém observar o código, executar e conferir a saída. Se a saída não for a esperada, volte ao código e investigue a diferença.\n\nAPROFUNDAMENTO\n\nA ordem é especialmente importante quando um passo depende de outro. Nem todas as tarefas exigem a mesma sequência, mas dependências precisam ser respeitadas. Distinguir ordem de execução de ordem de leitura será útil quando estudarmos decisões e repetições.",
+      "example": "Se uma atividade pede alterar uma mensagem e comparar o resultado, é necessário editar o código antes de executar a versão modificada."
+    },
+    {
+      "title": "4. Conhecendo o ambiente de Portugol",
+      "text": "CONTEÚDO DO CURSO\n\nA apresentação utiliza o Portugol Webstudio para mostrar um editor de código, linhas numeradas, comentários, botão de execução e área de saída. A área de edição contém as instruções; a área de saída mostra mensagens produzidas quando o programa é executado.\n\nComentários ajudam a explicar o código para quem o lê. Eles não são mensagens exibidas automaticamente na saída. O botão executar inicia a execução do programa, e o resultado deve ser conferido na área correspondente.\n\nNOTA SOBRE O AMBIENTE\n\nO material da professora demonstra o Portugol Webstudio. O Portugol Studio, utilizado nos estudos, possui interface própria. Não pressuponha que botões, menus e atalhos sejam idênticos. O importante nesta aula é reconhecer as funções do editor, da execução e da saída.",
+      "example": "Observe em qualquer editor: onde o código é escrito? Como iniciar a execução? Onde aparece a saída?"
+    },
+    {
+      "title": "5. Primeiro programa: estrutura e saída",
+      "text": "CONTEÚDO DO CURSO\n\nNo exemplo da apostila, um programa simples contém comentários, o bloco programa, a função inicio() e um comando escreva(). O bloco programa delimita a estrutura principal. A função inicio() indica onde começa a execução das instruções do exemplo. O comando escreva() apresenta uma mensagem na saída.\n\nLeia o código de fora para dentro: identifique o programa, encontre inicio(), observe o comando e preveja a mensagem exibida. A atividade proposta pela professora pede reconhecer esses elementos e, depois, personalizar o texto da mensagem.\n\nAPROFUNDAMENTO\n\nUma mensagem entre aspas é um valor textual. Alterar o conteúdo entre as aspas muda o que será exibido, sem exigir alteração da estrutura do programa. O comando de saída não salva automaticamente o texto em um arquivo.\n\nINTERCÂMBIO FUTURO COM PYTHON\n\nA ideia de produzir uma saída será retomada em uma aula própria de Python, com sua sintaxe, seus exemplos e prática executável. Não é necessário conhecer Python para concluir esta aula.",
+      "example": "programa\n{\n    funcao inicio()\n    {\n        escreva(\"Olá, mundo!\")\n    }\n}\n\nResultado esperado: Olá, mundo!"
+    },
+    {
+      "title": "6. Interpretar, testar e explicar",
+      "text": "CONTEÚDO DO CURSO\n\nA primeira atividade da apostila pede identificar comentários, programa, função inicio(), comando escreva() e saída. A segunda sugere modificar as mensagens para incluir informações próprias e comparar o resultado.\n\nNa Pythoteca, sem interpretador de Portugol, podemos fazer a parte conceitual: ler o código, localizar seus elementos, prever a saída e explicar o efeito de uma alteração. Para executar o código de fato, use um ambiente externo de Portugol.\n\nAPROFUNDAMENTO\n\nPrever a saída antes de executar é um hábito útil: a comparação entre previsão e resultado ajuda a localizar equívocos. Nesta etapa, não é preciso memorizar todos os comandos de Portugol. O objetivo é entender a relação entre código, execução e saída.",
+      "example": "Se escreva(\"Bom dia!\") for substituído por escreva(\"Boa noite!\"), a mensagem esperada na saída muda para Boa noite!"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Revisão opcional",
+      "title": "Conceito de lógica",
+      "prompt": "Na aula, lógica é apresentada principalmente como:",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "Lógica organiza o raciocínio para alcançar um objetivo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Organizar ideias para resolver problemas"
+        },
+        {
+          "id": "b",
+          "text": "Decorar comandos de uma linguagem"
+        },
+        {
+          "id": "c",
+          "text": "Apenas instalar um editor"
+        },
+        {
+          "id": "d",
+          "text": "A velocidade de um computador"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "02",
+      "group": "Essenciais",
+      "title": "Algoritmo",
+      "prompt": "Qual descrição corresponde a um algoritmo?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "Um algoritmo descreve passos; não depende de uma linguagem específica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma imagem do computador"
+        },
+        {
+          "id": "b",
+          "text": "Uma sequência de passos para realizar uma tarefa"
+        },
+        {
+          "id": "c",
+          "text": "Qualquer mensagem de erro"
+        },
+        {
+          "id": "d",
+          "text": "Somente um programa em Python"
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais",
+      "title": "Dependência entre passos",
+      "prompt": "Para comparar a saída após mudar uma mensagem, qual ação precisa acontecer antes da nova execução?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "É preciso modificar o código para que a execução seguinte reflita a alteração.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Fechar a área de saída"
+        },
+        {
+          "id": "b",
+          "text": "Alterar a mensagem no código"
+        },
+        {
+          "id": "c",
+          "text": "Apagar o programa inteiro"
+        },
+        {
+          "id": "d",
+          "text": "Ignorar o resultado anterior"
+        }
+      ],
+      "answer": "b",
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Revisão opcional",
+      "title": "Área de saída",
+      "prompt": "Em qual parte do ambiente esperamos ver a mensagem produzida por escreva()?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "O editor contém o código; a área de saída apresenta as mensagens produzidas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Na área de saída"
+        },
+        {
+          "id": "b",
+          "text": "Somente nos comentários"
+        },
+        {
+          "id": "c",
+          "text": "No título do arquivo"
+        },
+        {
+          "id": "d",
+          "text": "Na numeração das linhas"
+        }
+      ],
+      "answer": "a",
+      "required": false
+    },
+    {
+      "id": "05",
+      "group": "Revisão opcional",
+      "title": "Comentários",
+      "prompt": "Qual é a função principal de um comentário neste exemplo?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "Comentários documentam o código e não produzem, por si só, saída textual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Mostrar automaticamente uma mensagem na saída"
+        },
+        {
+          "id": "b",
+          "text": "Explicar o código para quem o lê"
+        },
+        {
+          "id": "c",
+          "text": "Substituir a função inicio()"
+        },
+        {
+          "id": "d",
+          "text": "Executar o programa"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional",
+      "title": "Início da execução",
+      "prompt": "No programa introdutório da apostila, qual função contém as instruções executadas inicialmente?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "A função inicio() é o ponto inicial do exemplo apresentado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "escreva()"
+        },
+        {
+          "id": "b",
+          "text": "inicio()"
+        },
+        {
+          "id": "c",
+          "text": "comentario()"
+        },
+        {
+          "id": "d",
+          "text": "saida()"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Essenciais",
+      "title": "Previsão da saída",
+      "prompt": "O que será exibido pelo comando escreva(\"Bom estudo!\")?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "O comando apresenta o texto informado entre aspas.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "O texto Bom estudo!"
+        },
+        {
+          "id": "b",
+          "text": "A palavra escreva"
+        },
+        {
+          "id": "c",
+          "text": "O nome da função inicio"
+        },
+        {
+          "id": "d",
+          "text": "Nenhuma mensagem"
+        }
+      ],
+      "answer": "a",
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais",
+      "title": "Estrutura do primeiro programa",
+      "prompt": "Explique a função de programa, inicio() e escreva() no exemplo introdutório.",
+      "hint": "Responda com suas palavras antes de consultar a solução.",
+      "explanation": "Critérios de autocorreção: identificar os três elementos e seus papéis sem confundir código e resultado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "programa delimita a estrutura principal; inicio() contém o ponto de entrada do exemplo; escreva() exibe a mensagem na saída.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional",
+      "title": "Algoritmo cotidiano",
+      "prompt": "Escreva quatro passos claros para abrir um programa, executá-lo e conferir o resultado.",
+      "hint": "Responda com suas palavras antes de consultar a solução.",
+      "explanation": "Critérios de autocorreção: sequência coerente, passos verificáveis e resultado observável.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Uma resposta possível: abrir o editor; localizar ou digitar o programa; executá-lo; observar e interpretar a saída.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional",
+      "title": "Alteração de mensagem",
+      "prompt": "Se o código exibe “Olá, mundo!”, explique como mudá-lo para exibir “Olá, turma!” sem alterar sua estrutura.",
+      "hint": "Responda com suas palavras antes de consultar a solução.",
+      "explanation": "Critérios de autocorreção: alteração localizada da mensagem e preservação da estrutura.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Substituir apenas o texto entre aspas no comando escreva(), mantendo os blocos programa e inicio().",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional",
+      "title": "Código e saída",
+      "prompt": "Qual afirmação distingue corretamente código e saída?",
+      "hint": "Releia o conceito e compare as alternativas.",
+      "explanation": "O programa contém instruções; a saída apresenta os resultados produzidos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "Código e saída são sempre idênticos"
+        },
+        {
+          "id": "b",
+          "text": "Código são instruções; saída é o resultado apresentado durante a execução"
+        },
+        {
+          "id": "c",
+          "text": "A saída contém somente comentários"
+        },
+        {
+          "id": "d",
+          "text": "O editor é sempre a saída"
+        }
+      ],
+      "answer": "b",
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional",
+      "title": "Webstudio e Studio",
+      "prompt": "Por que não devemos presumir que os botões do Portugol Webstudio e do Portugol Studio estão no mesmo lugar?",
+      "hint": "Responda com suas palavras antes de consultar a solução.",
+      "explanation": "Critérios de autocorreção: distinguir ambiente de conceitos e evitar afirmar equivalência visual.",
+      "mode": "text",
+      "starter": "",
+      "solution": "São ambientes distintos e podem ter interfaces, menus e atalhos diferentes, embora compartilhem conceitos de edição, execução e saída.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
