@@ -1,0 +1,1140 @@
+{
+  "schema_version": 2,
+  "discipline": "java",
+  "id": "aula308",
+  "title": "Cadastro de alunos e componentes Swing",
+  "subtitle": "Leitura de campos, escolhas e eventos integrados",
+  "objectives": "Interpretar componentes do cadastro, recuperar dados, distinguir escolhas exclusivas e independentes, restaurar campos e compreender os limites do botão Salvar.",
+  "source": "Aula_3_Java_Desktop_Cadastro_Aluno.pdf (https://drive.google.com/file/d/1KFyT2I0q3m797bAGlwpWQMsywBgicigC/view), texto das 19 páginas consultado; ilustrações não inspecionadas nesta etapa. Fundamentos e exemplos adaptados identificados. Outros dois PDFs recuperados, mas não utilizados como fonte deste módulo.",
+  "chapters": [
+    {
+      "title": "Formulário de cadastro",
+      "text": "[CURRICULAR, pp. 1–4] O cadastro reúne campos de identificação, curso, idade, turno, interesses e observações. O GUI Builder monta a interface; os eventos Exibir Dados, Limpar e Salvar definem o comportamento. Salvar nesta atividade não persiste dados.",
+      "example": "// Dentro do evento de um botão:\nString nome = txtNome.getText();"
+    },
+    {
+      "title": "Nomes e propriedades",
+      "text": "[CURRICULAR, pp. 4–5] A propriedade text controla o texto visível; Alterar Nome da Variável identifica o objeto no código. A apostila utiliza txtNome, fmtCpf, fmtTelefone, cmbCurso, spnIdade, grpTurno e prefixos rdb, chk e btn. [FUNDAMENTOS] Prefixos são convenções, não requisitos da linguagem.",
+      "example": "String nome = txtNome.getText().trim();"
+    },
+    {
+      "title": "Campos de texto e máscaras",
+      "text": "[CURRICULAR, pp. 5–6, 17] getText lê o texto de JTextField, JFormattedTextField e JTextArea. Campos formatados podem manter caracteres de máscara após setText(\"\"). [FUNDAMENTOS] Uma máscara não garante que CPF ou telefone seja válido; identificadores devem permanecer texto, inclusive para preservar zeros iniciais.",
+      "example": "String cpf = fmtCpf.getText();\nString telefone = fmtTelefone.getText();\nString observacoes = txtObservacoes.getText();"
+    },
+    {
+      "title": "Curso e idade",
+      "text": "[CURRICULAR, p. 6] getSelectedItem recupera o item escolhido no combo; getValue recupera o valor do spinner. A apostila converte a idade por toString e parseInt, com modelo inteiro. [FUNDAMENTOS] getSelectedItem pode retornar null; a chamada toString exige item não nulo. Os exemplos pressupõem seleção e modelo inteiro válidos.",
+      "example": "String curso = cmbCurso.getSelectedItem().toString();\nint idade = Integer.parseInt(spnIdade.getValue().toString());"
+    },
+    {
+      "title": "Turno e ButtonGroup",
+      "text": "[CURRICULAR, pp. 6–7] Os botões de rádio do turno pertencem ao grpTurno, permitindo no máximo uma escolha. A cadeia if/else if identifica a seleção. Se nenhuma estiver marcada, permanece o texto inicial. ButtonGroup não é um painel visual.",
+      "example": "String turno = \"Não informado\";\nif (rdbManha.isSelected()) {\n    turno = \"Manhã\";\n} else if (rdbTarde.isSelected()) {\n    turno = \"Tarde\";\n} else if (rdbNoite.isSelected()) {\n    turno = \"Noite\";\n}"
+    },
+    {
+      "title": "Interesses independentes",
+      "text": "[CURRICULAR, p. 7] Cada JCheckBox representa uma escolha independente. Use condições if separadas para acumular todos os interesses. Uma cadeia else if impediria incluir escolhas posteriores quando a primeira condição fosse verdadeira.",
+      "example": "String interesses = \"\";\nif (chkEsportes.isSelected()) interesses += \"Esportes \";\nif (chkMusica.isSelected()) interesses += \"Música \";\nif (chkTecnologia.isSelected()) interesses += \"Tecnologia \";"
+    },
+    {
+      "title": "Exibir Dados",
+      "text": "[CURRICULAR, pp. 15–16] O evento lê os componentes e concatena seus valores em uma mensagem com quebras de linha. O import javax.swing.JOptionPane fica depois de package, se houver, e antes da classe. [FUNDAMENTOS] O trecho autoral reduzido pressupõe componentes declarados no JFrame; o resumo completo inclui também CPF, telefone, idade, turno, interesses e observações.",
+      "example": "String nome = txtNome.getText().trim();\nString curso = cmbCurso.getSelectedItem().toString();\njavax.swing.JOptionPane.showMessageDialog(this, \"Nome: \" + nome + \"\\nCurso: \" + curso);"
+    },
+    {
+      "title": "Limpar e restaurar",
+      "text": "[CURRICULAR, pp. 16–17] Limpar restaura os valores iniciais: textos vazios, primeiro curso, idade 18, turno sem seleção e interesses desmarcados. O combo deve ter pelo menos um item e o modelo do spinner deve aceitar 18. A apostila usa requestFocus; [FUNDAMENTOS] requestFocusInWindow é uma alternativa normalmente preferível dentro da janela ativa, sem garantia de sucesso.",
+      "example": "txtNome.setText(\"\");\nfmtCpf.setText(\"\");\nfmtTelefone.setText(\"\");\ncmbCurso.setSelectedIndex(0);\nspnIdade.setValue(18);\ngrpTurno.clearSelection();\nchkEsportes.setSelected(false);\nchkMusica.setSelected(false);\nchkTecnologia.setSelected(false);\ntxtObservacoes.setText(\"\");\ntxtNome.requestFocusInWindow();"
+    },
+    {
+      "title": "Salvar não é persistir",
+      "text": "[CURRICULAR, pp. 7, 12, 17] O botão Salvar apenas apresenta uma mensagem de sucesso nesta atividade. Não escreve arquivo, planilha ou banco de dados. [FUNDAMENTOS] Em uma aplicação real, a mensagem de sucesso deve ocorrer após a operação de persistência bem-sucedida.",
+      "example": "javax.swing.JOptionPane.showMessageDialog(this, \"Cadastro concluído com sucesso!\");"
+    },
+    {
+      "title": "Validação e testes",
+      "text": "[CURRICULAR, pp. 17–19] Teste Exibir Dados, Limpar e Salvar; confira nomes e eventos. O desafio final propõe impedir nome vazio. [FUNDAMENTOS] O exemplo autoral usa retorno antecipado no método void de evento. Teste também nenhuma seleção de turno e múltiplos interesses.",
+      "example": "if (txtNome.getText().trim().isEmpty()) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Informe o nome\");\n    return;\n}\n// Continue a leitura dos demais campos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Formulário de cadastro",
+      "title": "Ambiente",
+      "prompt": "Qual componente representa a janela principal?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "JFrame é a janela do formulário.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "JLabel"
+        },
+        {
+          "id": "b",
+          "text": "JTextArea"
+        },
+        {
+          "id": "c",
+          "text": "JFrame"
+        },
+        {
+          "id": "d",
+          "text": "ButtonGroup"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "Formulário de cadastro",
+      "title": "Evento",
+      "prompt": "Onde inserir a lógica de Exibir Dados?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O evento é o local indicado pela apostila.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "No corpo editável do evento do botão."
+        },
+        {
+          "id": "b",
+          "text": "Na propriedade text do botão."
+        },
+        {
+          "id": "c",
+          "text": "No nome da variável."
+        },
+        {
+          "id": "d",
+          "text": "Em qualquer trecho protegido de initComponents."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "03",
+      "group": "Nomes e propriedades",
+      "title": "Nome e texto",
+      "prompt": "Um botão mostra Salvar e se chama btnSalvar. Qual identificador usar no código?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O nome da variável identifica o objeto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Salvar"
+        },
+        {
+          "id": "b",
+          "text": "JButton Salvar"
+        },
+        {
+          "id": "c",
+          "text": "text"
+        },
+        {
+          "id": "d",
+          "text": "btnSalvar"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "04",
+      "group": "Nomes e propriedades",
+      "title": "Convenção",
+      "prompt": "O prefixo txt em txtNome é obrigatório em Java?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "A linguagem não exige esse prefixo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, para todo JTextField."
+        },
+        {
+          "id": "b",
+          "text": "Não, é uma convenção de nomenclatura."
+        },
+        {
+          "id": "c",
+          "text": "Sim, para todo objeto Swing."
+        },
+        {
+          "id": "d",
+          "text": "Sim, para chamar getText."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Campos de texto e máscaras",
+      "title": "Leitura",
+      "prompt": "Qual retorno de txtNome.getText()?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O método retorna texto.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "String"
+        },
+        {
+          "id": "b",
+          "text": "int"
+        },
+        {
+          "id": "c",
+          "text": "JTextField"
+        },
+        {
+          "id": "d",
+          "text": "boolean"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "06",
+      "group": "Campos de texto e máscaras",
+      "title": "Máscara",
+      "prompt": "Uma máscara de CPF garante validade do CPF?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Validação semântica exige regras adicionais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, verifica automaticamente os dígitos verificadores."
+        },
+        {
+          "id": "b",
+          "text": "Sim, consulta um cadastro externo."
+        },
+        {
+          "id": "c",
+          "text": "Não, controla a apresentação e entrada conforme configuração."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se getText não for vazio."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "07",
+      "group": "Campos de texto e máscaras",
+      "title": "Zeros",
+      "prompt": "Por que manter CPF como String?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "CPF é identificador, não quantidade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para somar CPFs."
+        },
+        {
+          "id": "b",
+          "text": "Para preservar a representação, inclusive zeros iniciais."
+        },
+        {
+          "id": "c",
+          "text": "Para usar divisão inteira."
+        },
+        {
+          "id": "d",
+          "text": "Para eliminar a máscara automaticamente."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "08",
+      "group": "Campos de texto e máscaras",
+      "title": "Observações",
+      "prompt": "Qual método lê JTextArea?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "JTextArea fornece conteúdo textual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getValue()"
+        },
+        {
+          "id": "b",
+          "text": "getSelectedItem()"
+        },
+        {
+          "id": "c",
+          "text": "isSelected()"
+        },
+        {
+          "id": "d",
+          "text": "getText()"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "09",
+      "group": "Curso e idade",
+      "title": "Curso",
+      "prompt": "Qual método recupera o item selecionado?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Item e índice são distintos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "getSelectedIndex()"
+        },
+        {
+          "id": "b",
+          "text": "setSelectedIndex(0)"
+        },
+        {
+          "id": "c",
+          "text": "getValue()"
+        },
+        {
+          "id": "d",
+          "text": "getSelectedItem()"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "10",
+      "group": "Curso e idade",
+      "title": "Idade",
+      "prompt": "Qual método lê o valor do JSpinner?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O spinner possui um modelo de valores.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "getValue()"
+        },
+        {
+          "id": "b",
+          "text": "getText()"
+        },
+        {
+          "id": "c",
+          "text": "getSelectedItem()"
+        },
+        {
+          "id": "d",
+          "text": "isSelected()"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "11",
+      "group": "Curso e idade",
+      "title": "Ausência",
+      "prompt": "Qual risco em cmbCurso.getSelectedItem().toString() sem seleção?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "getSelectedItem pode retornar null.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Retorno obrigatório de string vazia"
+        },
+        {
+          "id": "b",
+          "text": "Conversão automática para zero"
+        },
+        {
+          "id": "c",
+          "text": "NullPointerException"
+        },
+        {
+          "id": "d",
+          "text": "Seleção automática do primeiro item"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Curso e idade",
+      "title": "Conversão",
+      "prompt": "Por que a apostila usa parseInt após toString no spinner?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O modelo deve fornecer valores inteiros.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para transformar o spinner em JTextField."
+        },
+        {
+          "id": "b",
+          "text": "Para obter um int a partir da representação textual do valor."
+        },
+        {
+          "id": "c",
+          "text": "Para configurar o modelo."
+        },
+        {
+          "id": "d",
+          "text": "Para selecionar o curso."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "13",
+      "group": "Turno e ButtonGroup",
+      "title": "Grupo",
+      "prompt": "Qual objeto limita os turnos a uma escolha por vez?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Agrupar os rádios estabelece exclusividade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "JPanel"
+        },
+        {
+          "id": "b",
+          "text": "ButtonGroup"
+        },
+        {
+          "id": "c",
+          "text": "JTextArea"
+        },
+        {
+          "id": "d",
+          "text": "JSpinner"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Turno e ButtonGroup",
+      "title": "Estado",
+      "prompt": "Qual retorno de rdbManha.isSelected()?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O método indica se está selecionado.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "String"
+        },
+        {
+          "id": "b",
+          "text": "int"
+        },
+        {
+          "id": "c",
+          "text": "JRadioButton"
+        },
+        {
+          "id": "d",
+          "text": "boolean"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "15",
+      "group": "Turno e ButtonGroup",
+      "title": "Sem turno",
+      "prompt": "Qual valor inicial permanece se nenhum turno estiver marcado?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Nenhum ramo altera a variável.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não informado"
+        },
+        {
+          "id": "b",
+          "text": "Manhã"
+        },
+        {
+          "id": "c",
+          "text": "Noite"
+        },
+        {
+          "id": "d",
+          "text": "null"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "16",
+      "group": "Turno e ButtonGroup",
+      "title": "Desmarcar",
+      "prompt": "Qual método remove a seleção do grupo?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "clearSelection limpa a escolha do grupo.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "grpTurno.setText(\"\")"
+        },
+        {
+          "id": "b",
+          "text": "grpTurno.setSelectedIndex(0)"
+        },
+        {
+          "id": "c",
+          "text": "grpTurno.clearSelection()"
+        },
+        {
+          "id": "d",
+          "text": "grpTurno.getValue()"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "17",
+      "group": "Interesses independentes",
+      "title": "Independência",
+      "prompt": "Qual estrutura permite incluir todos os interesses marcados?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Cada condição precisa ser avaliada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma cadeia exclusiva if/else if."
+        },
+        {
+          "id": "b",
+          "text": "Um único else sem condição."
+        },
+        {
+          "id": "c",
+          "text": "Um if independente para cada caixa."
+        },
+        {
+          "id": "d",
+          "text": "Um ButtonGroup para todos os interesses."
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "18",
+      "group": "Interesses independentes",
+      "title": "Acumulação",
+      "prompt": "O que interesses += \"Música \" faz?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "+= concatena quando a variável é String.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Substitui sempre o conteúdo anterior."
+        },
+        {
+          "id": "b",
+          "text": "Concatena o texto ao conteúdo anterior."
+        },
+        {
+          "id": "c",
+          "text": "Converte o texto em int."
+        },
+        {
+          "id": "d",
+          "text": "Desmarca a caixa."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "19",
+      "group": "Interesses independentes",
+      "title": "Rastreamento",
+      "prompt": "Esportes e Tecnologia marcados, Música desmarcada: quais nomes são acumulados?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Os if independentes incluem ambos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apenas Esportes"
+        },
+        {
+          "id": "b",
+          "text": "Apenas Tecnologia"
+        },
+        {
+          "id": "c",
+          "text": "Todos os três"
+        },
+        {
+          "id": "d",
+          "text": "Esportes e Tecnologia"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "20",
+      "group": "Exibir Dados",
+      "title": "Resumo",
+      "prompt": "Qual sequência de escape insere quebra de linha em String Java?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "\\n representa nova linha.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\\n"
+        },
+        {
+          "id": "b",
+          "text": "\\t"
+        },
+        {
+          "id": "c",
+          "text": "/n"
+        },
+        {
+          "id": "d",
+          "text": "\\r\\t"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "21",
+      "group": "Exibir Dados",
+      "title": "Import",
+      "prompt": "Onde inserir import javax.swing.JOptionPane?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Imports ficam na seção inicial da unidade de compilação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Dentro de actionPerformed."
+        },
+        {
+          "id": "b",
+          "text": "Depois de package, se houver, antes da classe."
+        },
+        {
+          "id": "c",
+          "text": "Dentro de initComponents."
+        },
+        {
+          "id": "d",
+          "text": "Depois da última chave da classe."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "22",
+      "group": "Exibir Dados",
+      "title": "Resultado",
+      "prompt": "Exibir Dados grava os valores em arquivo?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "Exibir não é persistir.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, apresenta o resumo."
+        },
+        {
+          "id": "b",
+          "text": "Sim, automaticamente."
+        },
+        {
+          "id": "c",
+          "text": "Sim, se todos os campos estiverem preenchidos."
+        },
+        {
+          "id": "d",
+          "text": "Sim, se houver import JOptionPane."
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "23",
+      "group": "Limpar e restaurar",
+      "title": "Restaurar curso",
+      "prompt": "Qual chamada volta ao primeiro item de combo não vazio?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O primeiro índice é zero.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "cmbCurso.getSelectedIndex()"
+        },
+        {
+          "id": "b",
+          "text": "cmbCurso.getSelectedItem()"
+        },
+        {
+          "id": "c",
+          "text": "cmbCurso.setSelectedIndex(0)"
+        },
+        {
+          "id": "d",
+          "text": "cmbCurso.setSelectedIndex(1)"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "24",
+      "group": "Limpar e restaurar",
+      "title": "Restaurar idade",
+      "prompt": "Qual chamada restaura a idade prevista na apostila?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O valor inicial previsto é 18.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "spnIdade.setValue(0)"
+        },
+        {
+          "id": "b",
+          "text": "spnIdade.getValue()"
+        },
+        {
+          "id": "c",
+          "text": "spnIdade.setText(\"18\")"
+        },
+        {
+          "id": "d",
+          "text": "spnIdade.setValue(18)"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "25",
+      "group": "Limpar e restaurar",
+      "title": "Interesses",
+      "prompt": "Qual chamada desmarca Esportes?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O estado selecionado é alterado para falso.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "chkEsportes.setSelected(false)"
+        },
+        {
+          "id": "b",
+          "text": "chkEsportes.isSelected()"
+        },
+        {
+          "id": "c",
+          "text": "chkEsportes.setSelected(true)"
+        },
+        {
+          "id": "d",
+          "text": "chkEsportes.setText(\"\")"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "26",
+      "group": "Limpar e restaurar",
+      "title": "Máscara após limpeza",
+      "prompt": "O campo formatado pode continuar mostrando caracteres de máscara após setText(\"\")?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "A máscara pode preservar caracteres de apresentação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Não, sempre fica visualmente vazio."
+        },
+        {
+          "id": "b",
+          "text": "Apenas se for JTextArea."
+        },
+        {
+          "id": "c",
+          "text": "Apenas se o botão estiver desabilitado."
+        },
+        {
+          "id": "d",
+          "text": "Sim."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "27",
+      "group": "Salvar não é persistir",
+      "title": "Salvar",
+      "prompt": "Qual efeito do botão Salvar da atividade?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "A apostila explicita que não há persistência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Gravar em banco de dados."
+        },
+        {
+          "id": "b",
+          "text": "Mostrar mensagem de confirmação."
+        },
+        {
+          "id": "c",
+          "text": "Criar planilha."
+        },
+        {
+          "id": "d",
+          "text": "Serializar automaticamente o JFrame."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "28",
+      "group": "Validação e testes",
+      "title": "Nome vazio",
+      "prompt": "Qual teste detecta nome vazio ou composto apenas de espaços comuns?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "trim seguido de isEmpty verifica ausência de conteúdo útil.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "txtNome.getText() == null"
+        },
+        {
+          "id": "b",
+          "text": "txtNome.isSelected()"
+        },
+        {
+          "id": "c",
+          "text": "txtNome.getText().trim().isEmpty()"
+        },
+        {
+          "id": "d",
+          "text": "txtNome.getText().length() > 0"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "29",
+      "group": "Validação e testes",
+      "title": "Retorno",
+      "prompt": "Por que usar return após aviso de nome inválido em evento void?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "O retorno encerra o método atual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Para encerrar a JVM."
+        },
+        {
+          "id": "b",
+          "text": "Para fechar necessariamente a janela."
+        },
+        {
+          "id": "c",
+          "text": "Para limpar automaticamente todos os campos."
+        },
+        {
+          "id": "d",
+          "text": "Para impedir que o restante do evento execute."
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "30",
+      "group": "Validação e testes",
+      "title": "Teste",
+      "prompt": "Qual teste verifica exclusividade dos turnos?",
+      "hint": "Relacione o componente ao método e ao comportamento esperado.",
+      "explanation": "A troca de turno deve preservar exclusividade.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Marcar dois interesses."
+        },
+        {
+          "id": "b",
+          "text": "Selecionar Manhã e depois Noite e verificar que Manhã foi desmarcada."
+        },
+        {
+          "id": "c",
+          "text": "Apagar o nome."
+        },
+        {
+          "id": "d",
+          "text": "Exibir mensagem de sucesso."
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "31",
+      "group": "Nomes e propriedades",
+      "title": "Identificadores",
+      "prompt": "Explique a diferença entre text e nome da variável.",
+      "solution": "text define o texto visível; o nome da variável identifica o componente no código.",
+      "explanation": "São propriedades com finalidades distintas.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Campos de texto e máscaras",
+      "title": "Leitura",
+      "prompt": "Leia CPF e observações em variáveis String.",
+      "solution": "String cpf = fmtCpf.getText();\nString observacoes = txtObservacoes.getText();",
+      "explanation": "Ambos fornecem texto.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Curso e idade",
+      "title": "Idade",
+      "prompt": "Reproduza a conversão de idade prevista na apostila.",
+      "solution": "int idade = Integer.parseInt(spnIdade.getValue().toString());",
+      "explanation": "Pressupõe modelo inteiro.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Turno e ButtonGroup",
+      "title": "Turno",
+      "prompt": "Explique por que agrupar os três rádios.",
+      "solution": "Para permitir no máximo um turno selecionado de cada vez.",
+      "explanation": "ButtonGroup controla exclusividade.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Interesses independentes",
+      "title": "Interesses",
+      "prompt": "Por que usar if separados para as caixas de interesses?",
+      "solution": "Porque várias podem estar marcadas e todas devem ser verificadas.",
+      "explanation": "else if excluiria ramos posteriores.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Exibir Dados",
+      "title": "Resumo",
+      "prompt": "Exiba nome e curso em duas linhas, supondo variáveis já declaradas.",
+      "solution": "javax.swing.JOptionPane.showMessageDialog(this, \"Nome: \" + nome + \"\\nCurso: \" + curso);",
+      "explanation": "Trecho para método de instância do JFrame.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Limpar e restaurar",
+      "title": "Limpeza",
+      "prompt": "Restaure curso, idade e turno conforme a apostila.",
+      "solution": "cmbCurso.setSelectedIndex(0);\nspnIdade.setValue(18);\ngrpTurno.clearSelection();",
+      "explanation": "Pressupõe modelos configurados.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Salvar não é persistir",
+      "title": "Persistência",
+      "prompt": "Diferencie mensagem de sucesso e gravação efetiva.",
+      "solution": "A mensagem informa; gravação exige operação adicional em armazenamento.",
+      "explanation": "O exercício não implementa persistência.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Validação e testes",
+      "title": "Validação",
+      "prompt": "Impeça Exibir Dados de continuar com nome vazio.",
+      "solution": "if (txtNome.getText().trim().isEmpty()) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Informe o nome\");\n    return;\n}",
+      "explanation": "Trecho para evento void.",
+      "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
