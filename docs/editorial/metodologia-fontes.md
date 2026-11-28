@@ -127,3 +127,8 @@ Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER
 ### Arquitetura — apresentação A01, fechamento visual
 
 28/11/2026: 31 páginas sem camada textual, renderizadas em oito conjuntos (até quatro slides) e examinadas integralmente. Gabaritos nos slides 25, 27, 29 e 31: A102 esclarece que a placa-mãe (1) é usada duas vezes na associação de funções, enquanto 4 é placa de vídeo; não há correspondência biunívoca. Slide 15: NGFF é denominação histórica de M.2, não expansão de uma sigla M.2; caderno p. 5 corrobora distinção. A103 contextualiza segmentos comerciais (slide 17) e gabaritos de diagnóstico (29 e 31), distinguindo resposta acadêmica de investigação profissional. A101–103 metadados atualizados. Nenhum exercício ou capítulo novo; nenhum original republicado. Próxima fonte: vídeo Sistemas Computacionais (A01), com amostragem de quadros e transcrição privada. CI caderno A01 46113191098 aprovada.
+
+
+### Arquitetura — vídeo Sistemas Computacionais (A01)
+
+28/11/2026: áudio completo de 335,203 s reconhecido offline em seis trechos de até 60 s (Whisper Base, beam 1, VAD, 90 segmentos, 950 palavras estimadas por espaços); 12 quadros amostrados a cada 30 s, examinados. Transcrição, TXT, SRT e manifesto de hashes mantidos localmente fora do repositório; não revisados palavra a palavra. A101 reforça distinção entre código, instruções de máquina e sinais físicos, processamento especializado e diagnóstico não conclusivo; A103 ressalva persistência versus garantia de conservação. A102 somente metadados. Nenhum exercício novo: objetivos já cobertos; pendência de seleção de essenciais preservada. CI anterior 46113399366 aprovada. Próxima fonte: podcast Por que seu computador caro trava. Nenhum original ou transcrição publicados.
