@@ -118,3 +118,12 @@ Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER
 ### Arquitetura — inventário A01/A02 e fechamento do caderno A01
 
 28/11/2026: inventário atualizado no Drive: A01 possui caderno, apresentação, vídeo Sistemas Computacionais e podcast Por que seu computador caro trava; A02 possui vídeo A Jornada de um Cálculo e podcast Como a CPU calcula oito mais cinco. Caderno A01: dez páginas examinadas em cinco pares, texto integral reconsultado; módulos 101–103 já cobrem objetivos, formatos, conexões e diagnóstico. Na p. 8, marcador 2 aponta para cooler sobre CPU; marcador 4 aponta para placa de expansão instalada, aparentemente gráfica, enquanto a função de instalar placas corresponde ao slot. A102 explicita distinções visuais e acrescenta exercício autoral opcional; metadados 101–103 atualizados. Nenhuma figura original publicada. Próxima fonte: apresentação A01, seguida das quatro mídias audiovisuais, uma por ciclo. CI A04 46113034708 aprovada.
+
+
+### Pendência editorial — exercícios essenciais no percurso guiado
+
+28/11/2026: módulos 101–103 possuem 193 exercícios e nenhum marcado required=true. A estudante confirmou que a observação deve ficar registrada. Antes de encerrar a revisão global do percurso, avaliar uma seleção pequena e representativa de exercícios essenciais por objetivo, preservando a maioria como revisão opcional e evitando obrigatoriedade artificial. Verificar a mesma configuração nos demais módulos e compatibilidade com o leitor/percurso guiado. Nenhuma alteração de obrigatoriedade nesta etapa; não confundir ausência de required=true com ausência de práticas.
+
+### Arquitetura — apresentação A01, fechamento visual
+
+28/11/2026: 31 páginas sem camada textual, renderizadas em oito conjuntos (até quatro slides) e examinadas integralmente. Gabaritos nos slides 25, 27, 29 e 31: A102 esclarece que a placa-mãe (1) é usada duas vezes na associação de funções, enquanto 4 é placa de vídeo; não há correspondência biunívoca. Slide 15: NGFF é denominação histórica de M.2, não expansão de uma sigla M.2; caderno p. 5 corrobora distinção. A103 contextualiza segmentos comerciais (slide 17) e gabaritos de diagnóstico (29 e 31), distinguindo resposta acadêmica de investigação profissional. A101–103 metadados atualizados. Nenhum exercício ou capítulo novo; nenhum original republicado. Próxima fonte: vídeo Sistemas Computacionais (A01), com amostragem de quadros e transcrição privada. CI caderno A01 46113191098 aprovada.
