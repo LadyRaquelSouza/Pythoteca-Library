@@ -5,7 +5,7 @@
   "title": "Referências, revisão, colaboração e acessibilidade",
   "subtitle": "Sumários, índices, citações, correção e estrutura acessível",
   "objectives": "Reconhecer recursos de Referências e Revisão; distinguir campos automáticos e elementos manuais; interpretar correção, alterações, comentários e acessibilidade.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Sumário e índice remissivo",
@@ -24,12 +24,12 @@
     },
     {
       "title": "4. Ortografia, gramática e idioma",
-      "text": "CONTEÚDO DO CURSO — Bradesco, aula 4\n\nAs ferramentas de revisão detectam possíveis problemas com base em dicionários, regras e idioma configurado. Uma palavra marcada pode estar correta, como nome próprio ou termo técnico. Uma frase sem marcas pode conter erro de sentido. O usuário decide se aceita sugestão, ignora ou adiciona termo ao dicionário.\n\nO manual 2016 descreve Alt+F7 para acessar correção contextual e recursos de sinônimos e contagem de palavras. F7 é atalho tradicional para iniciar verificação ortográfica/gramatical no desktop, apresentado aqui como complemento; disponibilidade e interface variam. Dicionário de sinônimos auxilia vocabulário, mas termos próximos não são intercambiáveis em todo contexto.\n\nConfigure o idioma do trecho correto, especialmente em documentos multilíngues. Contagem de palavras, caracteres e páginas mede aspectos diferentes.",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 4\n\nAs ferramentas de revisão detectam possíveis problemas com base em dicionários, regras e idioma configurado. Uma palavra marcada pode estar correta, como nome próprio ou termo técnico. Uma frase sem marcas pode conter erro de sentido. O usuário decide se aceita sugestão, ignora ou adiciona termo ao dicionário.\n\nO manual 2016 descreve Alt+F7 para acessar correção contextual e recursos de sinônimos e contagem de palavras. F7 é atalho tradicional para iniciar verificação ortográfica/gramatical no desktop, apresentado aqui como complemento; disponibilidade e interface variam. Dicionário de sinônimos auxilia vocabulário, mas termos próximos não são intercambiáveis em todo contexto.\n\nConfigure o idioma do trecho correto, especialmente em documentos multilíngues. Contagem de palavras, caracteres e páginas mede aspectos diferentes.\n\n[Bradesco, pp. 45–48] Shift+F10 abre o menu de contexto, inclusive para sinônimos. Alt, V, N, O é a sequência indicada para Contar Palavras, que informa páginas, palavras, caracteres com e sem espaços, parágrafos e linhas. O manual descreve vermelho para ortografia e verde para gramática; cores variam conforme edição. Revisão automática não dispensa leitura final.",
       "example": ""
     },
     {
       "title": "5. Comentários, alterações e comparação",
-      "text": "COMPLEMENTO AUTORAL ORIENTADO PELO SUMÁRIO DE FERNANDO\n\nComentário registra observação associada a trecho sem necessariamente modificar seu conteúdo. Controle de alterações registra edições para revisão, permitindo aceitar ou rejeitar cada mudança. Ocultar marcações na visualização não significa aceitar ou remover alterações. Comparar documentos identifica diferenças entre versões; não é sinônimo de ativar controle de alterações para edições futuras.\n\nAntes de distribuir versão final, examine comentários, alterações pendentes e metadados. Aceitar todas as mudanças sem ler pode consolidar erros. Uma cópia destinada ao público pode exigir remoção de informações de revisão conforme a finalidade. Preserve o original quando precisar do histórico.",
+      "text": "CONTEÚDO DO CURSO — Bradesco, pp. 45–46; complemento autoral\n\nComentário registra observação associada a trecho sem necessariamente modificar seu conteúdo. Controle de alterações registra edições para revisão, permitindo aceitar ou rejeitar cada mudança. Ocultar marcações na visualização não significa aceitar ou remover alterações. Comparar documentos identifica diferenças entre versões; não é sinônimo de ativar controle de alterações para edições futuras.\n\nAntes de distribuir versão final, examine comentários, alterações pendentes e metadados. Aceitar todas as mudanças sem ler pode consolidar erros. Uma cópia destinada ao público pode exigir remoção de informações de revisão conforme a finalidade. Preserve o original quando precisar do histórico.\n\nO grupo Comparar também permite combinar versões revisadas por diferentes autores. A combinação não elimina a necessidade de revisar conflitos. Comentários podem ser incluídos ou excluídos da impressão conforme configuração.",
       "example": ""
     },
     {
@@ -272,6 +272,19 @@
       "solution": "Ctrl+L e Ctrl+U.",
       "expected": null,
       "required": true
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — aplicação",
+      "title": "Contagem e contexto",
+      "prompt": "Quais estatísticas aparecem em Contar Palavras e quais sequências a apostila registra para abrir esse diálogo e o menu contextual?",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "As estatísticas e a revisão ortográfica são recursos distintos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Páginas, palavras, caracteres com e sem espaços, parágrafos e linhas; Alt V N O e Shift+F10.",
+      "expected": null,
+      "required": false
     }
   ]
 }

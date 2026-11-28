@@ -5,7 +5,7 @@
   "title": "Fundamentos do Word e gerenciamento de documentos",
   "subtitle": "Interface, formatos, comandos de arquivo e atalhos localizados",
   "objectives": "Reconhecer interfaces clássicas e modernas; distinguir comandos de arquivo; fixar atalhos do manual Word 2016 PT-BR; interpretar divergências sem misturar configurações.",
-  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–31: texto e renderizações de todas as 19 páginas conferidos em 28/11/2026. As demais seções e as outras apostilas aguardam conferência visual.",
+  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local. Relato da estudante: comando rand apresentado pela professora em aula; lorem é complemento.",
   "chapters": [
     {
       "title": "1. Word, Office e versões",
@@ -36,6 +36,11 @@
       "title": "6. Atalhos nativos e tecnologia assistiva",
       "text": "CONTEÚDO DO CURSO\n\nO manual da Fundação Bradesco foi adaptado para pessoas com deficiência visual e inclui Virtual Vision. Comandos de leitura do teclado numérico, como Ctrl+vírgula numérica para ler o texto e Ctrl+9 numérico para anunciar posição, são documentados no contexto desse leitor de tela. Não são atalhos universais de edição do Word.\n\nTab e Shift+Tab percorrem controles em direções opostas; Enter confirma ações conforme o foco; Esc pode cancelar ou sair de menus. A navegação por teclado depende do foco. Distinguir comando do Windows, comando do Word e comando do leitor de tela evita confusões. O foco desta revisão é a terminologia das apostilas e a recuperação ativa dos atalhos do Word; prática equivalente em outro editor não é exigida.\n\n[CONFERÊNCIA, pp. 29–31] O Virtual Vision documentado fornece avisos de mudança de página, entrada/saída de tabela e posição da célula quando a automação está ativa. O manual também alerta para possíveis custos de desempenho ao obter detalhes de formatação. No contexto desse leitor: Num 0 anuncia título; Ctrl+Num 0 abre seu painel; Num 5 anuncia caractere, Ctrl+Num 5 palavra, Alt+Num 5 linha; Num 8 duas vezes detalha formatação; Ctrl+Num 1 lê cabeçalho e Alt+Num 1 rodapé. Não confunda Ctrl+Num 1 com Ctrl+1 da fileira superior, que formata espaçamento no Word. São referências de acessibilidade da edição estudada, não exigência de instalar ou dominar o leitor para a avaliação do curso técnico.",
       "example": ""
+    },
+    {
+      "title": "7. Gerar texto de exemplo",
+      "text": "CONTEÚDO RELATADO DA AULA PRESENCIAL\n\nNo Word desktop, digite =rand(3,5) no início de um parágrafo vazio e pressione Enter. O primeiro argumento indica quantidade de parágrafos; o segundo controla a quantidade de texto de cada parágrafo (frequentemente sentenças, chamado de linhas em documentação Microsoft). Não garante cinco linhas visuais: largura, fonte e layout afetam as quebras. =rand() usa valores padrão. A expansão depende das opções de AutoCorreção e da edição do Word.\n\nCOMPLEMENTO: =lorem(3,5) gera texto de preenchimento em pseudolatim. São recursos para experimentar formatação, não fórmulas de cálculo. Não é exigida prática equivalente no Writer.",
+      "example": "=rand(3,5)\nPressione Enter."
     }
   ],
   "exercises": [
@@ -368,6 +373,19 @@
       "starter": "",
       "expected": null,
       "required": false
+    },
+    {
+      "id": "22",
+      "group": "Essenciais — revisão Bradesco",
+      "title": "Texto de exemplo",
+      "prompt": "Qual comando gera quatro parágrafos de texto de exemplo com segundo parâmetro igual a três? O que fazer depois de digitá-lo?",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "O segundo parâmetro não determina o número de linhas visíveis.",
+      "mode": "text",
+      "starter": "",
+      "solution": "=rand(4,3), seguido de Enter em um parágrafo vazio.",
+      "expected": null,
+      "required": true
     }
   ]
 }

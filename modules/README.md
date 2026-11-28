@@ -33,6 +33,8 @@ A verificação automatizada usa os bytes reais dos arquivos. O índice legado e
 
 503–505: estilos, listas, tabelas, referências, revisão, acessibilidade, correspondências e gerenciamento documental. Revisão cumulativa de atalhos baseada em Bradesco 2016 PT-BR, confirmação docente pendente. Tópicos conhecidos apenas pelo sumário de Fernando são identificados como complementos autorais; figuras e páginas sem extração continuam pendentes. Cinco módulos publicados, sem práticas obrigatórias em Writer.
 
+Consolidação Bradesco: pp. 13–76 conferidas textualmente; revisão visual registrada nas etapas anteriores. Lacunas de atalhos, listas, estilos, revisão, carta comercial e atividades cumulativas incorporadas aos módulos 501–505. Relato de aula presencial sobre =rand() identificado separadamente. IDs anteriores preservados; exercícios adicionais de prática opcionais. Aprofundamento de Elias e Fernando permanece pendente.
+
 ## Sistemas Operacionais
 
 401–403: Windows 11, interface, janelas, arquivos, pastas, atalhos, captura, aparência, tela e áudio. Base nas quatro imagens Área de Trabalho — Partes 01–04, inspecionadas visualmente em 28/11/2026. Revisão de todos os 25 atalhos da Parte 03; divergência com Word localizado e ressalvas para Print Screen e exclusões explicitadas. Práticas em Windows opcionais; sem exigência de instalação ou prática equivalente em Linux. Complementos conceituais identificados.

@@ -5,21 +5,21 @@
   "title": "Estilos, listas, tabelas e elementos visuais",
   "subtitle": "Estrutura documental, temas, objetos e formatação consistente",
   "objectives": "Distinguir estilos e formatação direta; reconhecer listas e tabelas estruturadas; identificar recursos de Inserir e Design; retomar atalhos de formatação.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Estilos e formatação direta",
-      "text": "CONTEÚDO DO CURSO — Bradesco, aula 6\n\nUm estilo reúne propriedades de formatação reutilizáveis. Estilos de parágrafo podem definir fonte, alinhamento, espaçamento e nível de estrutura; estilos de caractere atuam sobre trechos. A formatação direta modifica propriedades localmente, sem necessariamente alterar o estilo. Aplicar negrito e fonte grande a um título não o torna automaticamente um título estrutural.\n\nTítulo 1, Título 2 e Título 3 expressam hierarquia. Alterar a definição de um estilo permite atualizar os parágrafos que o utilizam, respeitando eventuais substituições diretas. O grupo Estilos fica na Página Inicial. Ctrl+Espaço remove formatação direta de caracteres no padrão estudado; não é comando para remover toda estrutura do documento.",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 6\n\nUm estilo reúne propriedades de formatação reutilizáveis. Estilos de parágrafo podem definir fonte, alinhamento, espaçamento e nível de estrutura; estilos de caractere atuam sobre trechos. A formatação direta modifica propriedades localmente, sem necessariamente alterar o estilo. Aplicar negrito e fonte grande a um título não o torna automaticamente um título estrutural.\n\nTítulo 1, Título 2 e Título 3 expressam hierarquia. Alterar a definição de um estilo permite atualizar os parágrafos que o utilizam, respeitando eventuais substituições diretas. O grupo Estilos fica na Página Inicial. Ctrl+Espaço remove formatação direta de caracteres no padrão estudado; não é comando para remover toda estrutura do documento.\n\n[Bradesco, pp. 59–61] Alt, C, I, E acessa o painel Estilos; Ctrl+Shift+U é indicado para aplicar estilo existente. Crie um estilo nomeado a partir de propriedades desejadas e aplique a outros trechos; F4 pode repetir a última ação compatível. Limpar Tudo é descrito no painel; não confunda retirar estilo aplicado com excluir sua definição. O termo índice usado na p. 59 refere-se ao recurso de sumário quando baseado em títulos.",
       "example": "Título 1: Relatório\nTítulo 2: Metodologia\nTítulo 2: Resultados"
     },
     {
       "title": "2. Temas, modelos e bordas",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nA guia Design reúne temas, cores, fontes, espaçamento e recursos de plano de fundo. Um tema coordena escolhas visuais; um estilo define propriedades reutilizáveis; um modelo fornece uma base para novos documentos, podendo conter estilos, conteúdo inicial e configurações. Não são sinônimos.\n\nBorda delimita texto, parágrafo, célula ou página conforme o objeto selecionado; sombreamento preenche a área. Destaque de texto, sombreamento de parágrafo e cor da página possuem escopos distintos. O manual Bradesco, aula 5, aborda bordas e sombreamento; Fernando lista recursos da guia Design.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nA guia Design reúne temas, cores, fontes, espaçamento e recursos de plano de fundo. Um tema coordena escolhas visuais; um estilo define propriedades reutilizáveis; um modelo fornece uma base para novos documentos, podendo conter estilos, conteúdo inicial e configurações. Não são sinônimos.\n\nBorda delimita texto, parágrafo, célula ou página conforme o objeto selecionado; sombreamento preenche a área. Destaque de texto, sombreamento de parágrafo e cor da página possuem escopos distintos. O manual Bradesco, aula 5, aborda bordas e sombreamento; Fernando lista recursos da guia Design.\n\n[Bradesco, pp. 55–58] Alt, C, F, B acessa Bordas; Alt, D, B acessa Bordas da Página na interface descrita. Escolha abrangência (texto, parágrafo ou página), estilo, cor e largura da linha. Confira a seleção e a prévia.",
       "example": ""
     },
     {
       "title": "3. Marcadores, numeração e listas multinível",
-      "text": "CONTEÚDO DO CURSO — Bradesco, aula 5\n\nMarcadores representam itens sem ordem numérica obrigatória; numeração indica sequência; listas multinível representam hierarquia. Use os recursos de lista do grupo Parágrafo, em vez de digitar símbolos e números manualmente. Inserir ou excluir itens permite atualizar a numeração automaticamente. Reiniciar ou continuar numeração é uma decisão estrutural.\n\nListas multinível podem se associar a estilos de títulos para numeração de capítulos. Não confunda nível de lista com simples recuo visual. Uma lista de requisitos sem ordem pode usar marcadores; um procedimento sequencial pode usar numeração.",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 5\n\nMarcadores representam itens sem ordem numérica obrigatória; numeração indica sequência; listas multinível representam hierarquia. Use os recursos de lista do grupo Parágrafo, em vez de digitar símbolos e números manualmente. Inserir ou excluir itens permite atualizar a numeração automaticamente. Reiniciar ou continuar numeração é uma decisão estrutural.\n\nListas multinível podem se associar a estilos de títulos para numeração de capítulos. Não confunda nível de lista com simples recuo visual. Uma lista de requisitos sem ordem pode usar marcadores; um procedimento sequencial pode usar numeração.\n\n[Bradesco, pp. 51–54] Com listas automáticas habilitadas, iniciar parágrafo por 1. ou a) seguido de espaço pode gerar numeração; asterisco e espaço pode iniciar marcador. Enter continua; Enter em item vazio encerra. Dicas de tecla do manual: Alt, C, G, M para marcadores; Alt, C, D, N para numeração; Alt, C, S, S para classificar. Classificar reorganiza itens em ordem crescente ou decrescente; a numeração automática acompanha a lista.\n\nINTERCÂMBIO: ordenar os itens de uma lista aproxima-se de ordenar registros em Modelagem de Dados e elementos em programação; não implica alterar os valores originais.",
       "example": ""
     },
     {
@@ -259,6 +259,45 @@
       "solution": "Ctrl+N, Ctrl+E, Ctrl+B.",
       "expected": null,
       "required": true
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — revisão Bradesco",
+      "title": "Estilos pelo teclado",
+      "prompt": "Que comandos o manual apresenta para painel de estilos, aplicação de estilo e repetição de ação?",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "As dicas de tecla dependem da interface.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Alt, C, I, E; Ctrl+Shift+U; F4.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — aplicação",
+      "title": "Ordenação",
+      "prompt": "Uma lista numerada contém Zebra, Abacate, Manga. Como fica após classificação alfabética crescente?",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "A numeração é recalculada, não é parte fixa do nome.",
+      "mode": "text",
+      "starter": "",
+      "solution": "1. Abacate; 2. Manga; 3. Zebra.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional — aplicação",
+      "title": "Bordas e listas",
+      "prompt": "Quais caminhos a apostila indica para marcadores, numeração, classificar, bordas e bordas de página?",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "São sequências de dicas de tecla, não teclas simultâneas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Alt C GM; Alt C DN; Alt C SS; Alt C FB; Alt D B.",
+      "expected": null,
+      "required": false
     }
   ]
 }

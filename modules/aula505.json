@@ -5,11 +5,11 @@
   "title": "Correspondências, proteção e gerenciamento documental",
   "subtitle": "Mala direta, cartas, impressão, exportação e revisão cumulativa",
   "objectives": "Compreender mala direta e seus componentes; reconhecer proteção e limites; preparar distribuição e impressão; consolidar atalhos e terminologia das fontes.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Cartas e correspondências",
-      "text": "CONTEÚDO DO CURSO — Bradesco, aula 7\n\nUma carta comercial organiza remetente, destinatário, local e data, assunto ou referência, saudação, corpo, encerramento e assinatura conforme finalidade e convenção. A forma não substitui conteúdo claro. Use alinhamento, espaçamento e estilos coerentes em vez de espaços repetidos.\n\nO manual 2016 usa Ctrl+J para justificar, Ctrl+G para alinhar à direita, Ctrl+E para centralizar e Ctrl+N para negrito em seu exercício de carta. A posição de cada elemento depende da norma ou modelo solicitado. Não é necessário produzir nova carta para comprovar habilidade de digitação.",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 7\n\nUma carta comercial organiza remetente, destinatário, local e data, assunto ou referência, saudação, corpo, encerramento e assinatura conforme finalidade e convenção. A forma não substitui conteúdo claro. Use alinhamento, espaçamento e estilos coerentes em vez de espaços repetidos.\n\nO manual 2016 usa Ctrl+J para justificar, Ctrl+G para alinhar à direita, Ctrl+E para centralizar e Ctrl+N para negrito em seu exercício de carta. A posição de cada elemento depende da norma ou modelo solicitado. Não é necessário produzir nova carta para comprovar habilidade de digitação.\n\n[Bradesco, pp. 62–68] No modelo acadêmico, justificar o corpo, usar recuo de primeira linha de 1 cm, alinhar local/data à direita, pôr referência em negrito e centralizar os dados do remetente em negrito. Confira se a carta curta cabe adequadamente em uma página. Isso é o modelo da apostila, não uma norma universal; prefira espaçamento de parágrafo a linhas vazias repetidas quando possível.",
       "example": ""
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "title": "6. Revisão cumulativa orientada pelas apostilas",
-      "text": "SÍNTESE AUTORAL\n\nPadrão provisório Bradesco Word 2016 PT-BR: Ctrl+O novo; Ctrl+A abrir; Ctrl+B salvar; F12 salvar como; Ctrl+P imprimir; Ctrl+T selecionar tudo; Ctrl+N negrito; Ctrl+I itálico; Ctrl+S sublinhado; Ctrl+D Fonte; Ctrl+L localizar; Ctrl+U substituir; Ctrl+Z desfazer; Ctrl+R refazer; Ctrl+E centralizar; Ctrl+G direita; Ctrl+J justificar; Ctrl+1 simples; Ctrl+2 duplo; Ctrl+5 1,5 linha; Shift+F3 capitalização.\n\nFernando registra Ctrl+S para salvar; Elias indica Ctrl+F para Fonte. Não sabemos a configuração exata de cada autor. Versão, idioma, plataforma e personalização podem influir. A referência de prova será ajustada após orientação docente. Até lá, responder questões essenciais segundo a fonte explicitada.\n\nRevisão sugerida: primeiro tente recuperar o comando sem consultar tabela; depois confira. Concentre nova revisão nos pares que confundiu. Não é necessário executar cada tarefa no Writer.",
+      "text": "SÍNTESE AUTORAL\n\nPadrão provisório Bradesco Word 2016 PT-BR: Ctrl+O novo; Ctrl+A abrir; Ctrl+B salvar; F12 salvar como; Ctrl+P imprimir; Ctrl+T selecionar tudo; Ctrl+N negrito; Ctrl+I itálico; Ctrl+S sublinhado; Ctrl+D Fonte; Ctrl+L localizar; Ctrl+U substituir; Ctrl+Z desfazer; Ctrl+R refazer; Ctrl+Q esquerda; Ctrl+E centralizar; Ctrl+G direita; Ctrl+J justificar; Ctrl+1 simples; Ctrl+2 duplo; Ctrl+5 1,5 linha; Shift+F3 capitalização.\n\nFernando registra Ctrl+S para salvar; Elias indica Ctrl+F para Fonte. Não sabemos a configuração exata de cada autor. Versão, idioma, plataforma e personalização podem influir. A referência de prova será ajustada após orientação docente. Até lá, responder questões essenciais segundo a fonte explicitada.\n\nRevisão sugerida: primeiro tente recuperar o comando sem consultar tabela; depois confira. Concentre nova revisão nos pares que confundiu. Não é necessário executar cada tarefa no Writer.\n\n[Bradesco, pp. 73–75] Revisão integrada: estilo de título, fonte, alinhamento, recuo, espaçamento, sinônimos, localizar/substituir, bordas e margens. Pode ser planejada sem executar ou praticada no Word quando disponível. Use texto próprio ou texto de exemplo gerado por rand (relato da aula presencial).",
       "example": ""
     }
   ],
@@ -322,6 +322,32 @@
       "mode": "text",
       "starter": "",
       "solution": "Criar original editável; aplicar estilos; inserir tabela/legenda; revisar conteúdo e acessibilidade; atualizar campos; exportar e conferir PDF.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional — aplicação",
+      "title": "Carta comercial integrada",
+      "prompt": "Planeje uma carta curta de solicitação de orçamento conforme o modelo Bradesco. Indique a formatação e os atalhos principais.",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "Prática opcional baseada no modelo acadêmico.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Corpo justificado Ctrl+J, primeira linha 1 cm pelo diálogo Parágrafo, data à direita Ctrl+G, referência em negrito Ctrl+N, remetente centralizado Ctrl+E e em negrito; revisar, salvar Ctrl+B e conferir impressão Ctrl+P.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional — aplicação",
+      "title": "Desafio cumulativo",
+      "prompt": "Planeje ou execute no Word: gere quatro parágrafos com rand; acrescente título e assinatura; aplique Título 1, borda ao título, corpo justificado com recuo de 1,5 cm e espaçamento 1,5, margens superior/esquerda 3 cm e inferior/direita 2 cm; localize a assinatura e substitua uma expressão; revise e salve.",
+      "hint": "Recupere os conceitos antes de consultar a resposta.",
+      "explanation": "Exercício original inspirado na revisão final das pp. 73–75, sem execução obrigatória.",
+      "mode": "text",
+      "starter": "",
+      "solution": "=rand(4,3) e Enter; aplicar estilo, borda e margens pelos grupos correspondentes; Ctrl+J, Ctrl+5, Ctrl+L, Ctrl+U, Ctrl+B no padrão Bradesco. Conferir o resultado.",
       "expected": null,
       "required": false
     }
