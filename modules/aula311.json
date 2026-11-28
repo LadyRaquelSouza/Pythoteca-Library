@@ -5,11 +5,11 @@
   "title": "Lista de Compras",
   "subtitle": "Acumuladores, formatação e estado da interface",
   "objectives": "Integrar leitura, conversão, subtotal, acumulador, formatação, append, doClick e setEnabled; diagnosticar reinicialização e validar entradas.",
-  "source": "8-Lista_de_Compras.pdf (https://drive.google.com/file/d/1hNSuKASKISDOmwOwmC3G1nJsb5bVyL8J/view), texto recuperado e consultado; imagens não examinadas. Fundamentos, correção do acumulador e aprofundamento Java 8 identificados.",
+  "source": "8-Lista_de_Compras.pdf (https://drive.google.com/file/d/1hNSuKASKISDOmwOwmC3G1nJsb5bVyL8J/view), texto recuperado e consultado; duas páginas renderizadas e inspecionadas integralmente em 28/11/2026. Fundamentos, correção do acumulador e aprofundamento Java 8 identificados.",
   "chapters": [
     {
       "title": "Estrutura da lista",
-      "text": "[CURRICULAR] O projeto Lista_de_Compras usa telaPrincipal, txtProduto, txtQuantidade, txtPreco, txaListaCompras e botões para adicionar, limpar produto, limpar lista e calcular total. O evento de adicionar lê entradas, calcula subtotal, acumula e acrescenta uma linha. Os exemplos são fragmentos para o JFrame, não programas completos.",
+      "text": "[CURRICULAR] O projeto Lista_de_Compras usa telaPrincipal, txtProduto, txtQuantidade, txtPreco, txaListaCompras e botões para adicionar, limpar produto, limpar lista e calcular total. O evento de adicionar lê entradas, calcula subtotal, acumula e acrescenta uma linha. Os exemplos são fragmentos para o JFrame, não programas completos.\n\n[CONFERÊNCIA VISUAL, p. 1] A árvore identifica pnlFundo, lblTitulo, os três campos, jScrollPane1, btnAdicional, btnLimparProduto, btnLimparLista, btnSair, btnCalcularTotal e lblCarrinho. O nome btnAdicional é o mostrado na árvore; confirme o identificador no projeto antes de usar código. O botão Sair aparece na interface, mas seu evento não é fornecido. A figura não mostra a declaração de total nem comprova execução. O JTextArea deve permanecer separado do JScrollPane que o envolve. Como extensão autoral, configure a área de resultado não editável para evitar divergência entre texto digitado manualmente e acumulador.",
       "example": "String produto = txtProduto.getText();\nint quantidade = Integer.parseInt(txtQuantidade.getText());\ndouble preco = Double.parseDouble(txtPreco.getText());"
     },
     {
@@ -19,12 +19,12 @@
     },
     {
       "title": "Acumulador e duração",
-      "text": "[CURRICULAR] A apostila soma totalProduto a total. [FUNDAMENTOS] O trecho não mostra a declaração de total. Para conservar o valor entre cliques de uma mesma janela, uma solução é declarar um campo de instância inicializado a zero no corpo da classe, fora dos eventos. Uma variável local inicializada a zero em cada clique não conserva o total.",
+      "text": "[CURRICULAR] A apostila soma totalProduto a total. [FUNDAMENTOS] O trecho não mostra a declaração de total. Para conservar o valor entre cliques de uma mesma janela, uma solução é declarar um campo de instância inicializado a zero no corpo da classe, fora dos eventos. Uma variável local inicializada a zero em cada clique não conserva o total.\n\n[INTERCÂMBIO COM PORTUGOL E A303] Um acumulador é uma variável atualizada com base no valor anterior, como total = total + subtotal. A diferença aqui é a duração entre eventos: total deve pertencer à instância da janela, enquanto subtotal pode ser local ao evento. Não confunda campo de instância com variável static compartilhada por todas as janelas.",
       "example": "// Campo da classe:\nprivate double total = 0.0;\n// Dentro do evento de adicionar:\n// total += totalProduto;"
     },
     {
       "title": "Formatação e linha",
-      "text": "[CURRICULAR] String.format(\"%.2f\", totalProduto) formata o subtotal com duas casas decimais. A descrição reúne quantidade, produto e subtotal, terminando em quebra de linha. [FUNDAMENTOS] O separador decimal depende do Locale; formatar não altera o valor armazenado nem garante precisão monetária.",
+      "text": "[CURRICULAR] String.format(\"%.2f\", totalProduto) formata o subtotal com duas casas decimais. A descrição reúne quantidade, produto e subtotal, terminando em quebra de linha. [FUNDAMENTOS] O separador decimal depende do Locale; formatar não altera o valor armazenado nem garante precisão monetária.\n\n[CONFERÊNCIA, p. 2] A explicação de %.2f trata da apresentação de duas casas decimais, com arredondamento e zeros finais. Para uma saída brasileira previsível, use String.format(new java.util.Locale(\"pt\", \"BR\"), \"%.2f\", total). Isso não muda o formato de entrada aceito por Double.parseDouble. Em valores finitos, a apresentação arredondada não é o valor interno.",
       "example": "String linha = quantidade + \" x \" + produto + \" - R$ \"\n    + String.format(\"%.2f\", totalProduto) + \"\\n\";"
     },
     {
@@ -39,7 +39,7 @@
     },
     {
       "title": "Calcular total e habilitação",
-      "text": "[CURRICULAR] Calcular Total acrescenta separador e total formatado, depois desabilita btnCalcularTotal para evitar repetição pelo usuário. setEnabled(true) habilita e false desabilita. [FUNDAMENTOS] O total já foi acumulado durante a adição; o botão apresenta o valor. A desabilitação não impede chamadas diretas a métodos.",
+      "text": "[CURRICULAR] Calcular Total acrescenta separador e total formatado, depois desabilita btnCalcularTotal para evitar repetição pelo usuário. setEnabled(true) habilita e false desabilita. [FUNDAMENTOS] O total já foi acumulado durante a adição; o botão apresenta o valor. A desabilitação não impede chamadas diretas a métodos.\n\n[CONFERÊNCIA, p. 2] O resumo final não termina com quebra de linha. Se Adicionar continuar habilitado, uma nova linha poderá ficar colada ao resumo anterior, além de desatualizar o valor mostrado. Desabilitar somente Calcular Total não resolve essa inconsistência. Uma política autoral de finalização é bloquear Adicionar após apresentar o total e restaurá-lo junto com Calcular Total ao limpar a lista; outra é manter a lista aberta e atualizar o resumo separadamente.",
       "example": "txaListaCompras.append(\"--------------------\\n\");\ntxaListaCompras.append(\"Total das Compras: R$ \" + String.format(\"%.2f\", total));\nbtnCalcularTotal.setEnabled(false);"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "title": "Validação e ciclo de uso",
-      "text": "[FUNDAMENTOS] Valide nome, quantidade positiva e preço finito não negativo antes de acumular. Capture NumberFormatException. Se o usuário adicionar após exibir o total, a apresentação anterior fica desatualizada; uma política possível é desabilitar Adicionar ao finalizar e reabilitar ao limpar lista. Isso é proposta autoral, não exigência da apostila.",
+      "text": "[FUNDAMENTOS] Valide nome, quantidade positiva e preço finito não negativo antes de acumular. Capture NumberFormatException. Se o usuário adicionar após exibir o total, a apresentação anterior fica desatualizada; uma política possível é desabilitar Adicionar ao finalizar e reabilitar ao limpar lista. Isso é proposta autoral, não exigência da apostila.\n\n[APROFUNDAMENTO AUTORAL] Mesmo com preço finito e quantidade positiva, o produto ou a soma acumulada podem exceder a faixa de double e produzir infinito. Em uma versão robusta, calcule subtotal e novo total em variáveis temporárias, verifique Double.isFinite em ambos e somente depois atualize o acumulador e o texto. Isso é extensão, não requisito da atividade. A lista da apostila é uma representação em memória, sem armazenamento permanente.",
       "example": "if (produto.trim().isEmpty() || quantidade <= 0 || !Double.isFinite(preco) || preco < 0) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Dados inválidos\");\n    return;\n}"
     },
     {
@@ -971,6 +971,19 @@
       "solution": "Adicione subtotal 10, limpe lista, adicione subtotal 3 e finalize; total esperado 3.",
       "explanation": "Adicione subtotal 10, limpe lista, adicione subtotal 3 e finalize; total esperado 3.",
       "hint": "Consulte o capítulo e acompanhe os valores.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional — Estado e integração",
+      "title": "Dois ciclos de compra",
+      "prompt": "Uma lista começa vazia. Adicione 2 unidades a 3.50 e 3 unidades a 4.00; apresente o total, limpe a lista e adicione 1 unidade a 5.00. Compare o resultado da segunda compra com e sem reinicialização do acumulador. Proponha uma política para impedir adições após a finalização e restaurar os botões.",
+      "hint": "Rastreie separadamente o texto, o total numérico e o estado dos botões.",
+      "solution": "Subtotais 7 e 12, primeiro total 19. Sem reinicialização, segundo total 24; com reinicialização, 5. Ao finalizar, desabilite Adicionar e Calcular Total; ao limpar lista, zere o acumulador, apague o texto e habilite ambos.",
+      "explanation": "A limpeza da interface não reinicializa automaticamente o estado interno.",
       "mode": "text",
       "starter": "",
       "expected": null,

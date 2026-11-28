@@ -250,3 +250,8 @@ Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER
 ### Java — atividade Cor Favorita
 
 28/11/2026: Cor_Favorita.pdf (163.375 bytes), página única, texto integral e renderização visual conferidos. A310: seis botões de cores na árvore, pnlFundo, jLabel1, pnlEscolha, lblCorFavorita, btnFinalizar; fonte fornece evento Vermelho e 13 constantes, não código Finalizar. Complementos autorais sobre distinção entre método e propriedade, consistência entre texto e primeiro plano, contraste, reutilização de método e conexão A109. Exercício opcional 32 acrescentado; essenciais preservados. Sem execução Java nem publicação de imagens ou PDF original. CI anterior 46119942459 aprovada. Próxima fonte individual: 8-Lista_de_Compras.pdf.
+
+
+### Java — Lista de Compras
+
+28/11/2026: 8-Lista_de_Compras.pdf (182.360 bytes), duas páginas, texto integral e renderizações inspecionadas. A311 já cobre quatro eventos, acumulador, append, formatação e doClick, incluindo correção autoral de total não zerado. Figura p. 1 confirma árvore, btnAdicional e btnSair sem código fornecido. P. 2 confirma ausência de quebra de linha no resumo e desabilitação apenas do botão Calcular Total. Complementos autorais: estado entre eventos, campo de instância versus static, Locale versus conversão, ciclo de finalização, validação de resultados finitos e área de saída não editável. Exercício opcional 35, essenciais preservados. Nenhum código executado, nenhum original republicado. CI anterior 46120091339 aprovada. Oito fontes de Java revisadas; próxima etapa: conferência visual dos materiais de Word/TI, preservando prioridades editoriais já registradas.
