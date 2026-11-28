@@ -5,7 +5,7 @@
   "title": "Estrutura escolha/caso",
   "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
   "objectives": "Interpretar escolha/caso; usar pare e caso contrario; distinguir valores discretos de intervalos; elaborar menus e testar alternativas.",
-  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos sete capítulos, com rastreamento de casos, diagnóstico de menus e critérios de seleção. Reinspeção visual integral do PDF A05 em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Ressalvas sobre critérios de seleção, fragmentos de código, pare e caso contrario; exemplos autorais. Arquivo .por reconsultado integralmente em 28/11/2026 (929 bytes), análise estática concluída; sem teste em interpretador. Sem execução de Portugol. Atividades_Portugol.pdf (01–10) reexaminado integralmente em 28/11/2026, dez páginas sem camada textual, cinco pares renderizados. Exercícios correspondentes ampliados de cálculo/fragmento para construção de programa, com parâmetros autorais diferenciados dos acadêmicos. Sem execução de Portugol.",
+  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos sete capítulos, com rastreamento de casos, diagnóstico de menus e critérios de seleção. Reinspeção visual integral do PDF A05 em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Ressalvas sobre critérios de seleção, fragmentos de código, pare e caso contrario; exemplos autorais. Arquivo .por reconsultado integralmente em 28/11/2026 (929 bytes), análise estática concluída; sem teste em interpretador. Sem execução de Portugol. Atividades_Portugol.pdf (01–10) reexaminado integralmente em 28/11/2026, dez páginas sem camada textual, cinco pares renderizados. Exercícios correspondentes ampliados de cálculo/fragmento para construção de programa, com parâmetros autorais diferenciados dos acadêmicos. Sem execução de Portugol. Atividades_Portugol_11_a_15.pdf: texto integral das cinco atividades consultado em 28/11/2026; conceitos de seleção combinada, critérios compostos e processamento condicional incorporados como complementos autorais. Revisão visual e execução não realizadas nesta etapa.",
   "chapters": [
     {
       "title": "1. Seleção múltipla",
@@ -41,6 +41,11 @@
       "title": "7. Construção e interpretação",
       "text": "CURSO: os desafios finais envolvem cantina e sistema escolar. APROFUNDAMENTO: planeje opções, mensagens, tratamento padrão e testes antes de escrever o código. A Pythoteca permite rastreamento manual; execute os exemplos no Portugol Studio ou Webstudio. Em Python, a comparação futura incluirá if/elif e match/case, sem presumir equivalência exata.\n\nCONFERÊNCIA VISUAL — As duas propostas do slide 10 exigem selecionar um item de cantina ou uma opção escolar e comunicar a seleção, com tratamento de valores não previstos. Não exigem pagamento, consulta real, banco de dados ou repetição automática. A atividade escolar em .por será analisada separadamente. Os exercícios atuais já cobrem construção, rastreamento e validação de menus; nenhuma duplicação necessária.\n\nLISTA ACADÊMICA 10 — O objetivo é anunciar três opções antes de ler e apresentar nome, velocidade e mensalidade do plano escolhido, com tratamento de opção inválida. Não requer cálculo ou contratação. A lista aceita escolha/caso ou se/senao. Os planos acadêmicos são Básico (50 Mbps, R$ 69,90), Intermediário (200 Mbps, R$ 99,90) e Premium (500 Mbps, R$ 139,90). O exercício 21 usa planos autorais distintos para praticar o mesmo objetivo.",
       "example": "Menu autoral de oficina: 1 = Inscrição; 2 = Calendário; 3 = Materiais; demais = opção inválida."
+    },
+    {
+      "title": "8. Combinar seleção múltipla e processamento condicional",
+      "text": "CONEXÃO COM A LISTA ACADÊMICA 12–15 — Um menu pode selecionar uma fórmula ou definir um parâmetro usado depois. Na conversão de unidades (12), cada opção define um fator e unidade de saída: metros para centímetros, quilogramas para gramas ou litros para mililitros. Na reposição (13), a opção define material e estoque mínimo; uma comparação posterior decide se há necessidade de reposição. Na energia (15), a opção define equipamento e potência; o cálculo mensal usa potência em watts × horas diárias × 30 / 1000, resultando em kWh, e uma seleção posterior classifica o consumo. É uma estimativa que pressupõe potência e tempo de uso constantes; não equivale a uma medição nem a previsão da conta.\n\nAPROFUNDAMENTO AUTORAL — Trate opções inválidas antes de utilizar os parâmetros selecionados. Uma forma de organizar é inicializar logico valido = verdadeiro; no caso contrario, atribuir falso e apresentar erro; depois da estrutura escolha, executar cálculos e classificações apenas dentro de se (valido). Assim, uma opção inexistente não produz resultado enganoso com parâmetros ausentes. Outra organização possível é realizar todo o processamento dentro dos casos, embora possa repetir código. A seleção do parâmetro e a decisão sobre o resultado são etapas distintas. Não confunda pare com encerramento do programa inteiro.\n\nINTERCÂMBIO COM ARQUITETURA — Potência (W) mede taxa de transferência de energia; energia (kWh) mede quantidade acumulada. A regra acadêmica usa 30 dias e classifica como elevado a partir de 10 kWh. O limiar é didático, não universal. Relacione ao módulo 102 sem presumir que a potência nominal de uma fonte seja o consumo do computador.",
+      "example": "// Fragmento autoral: opcao já lida\ninteiro limite\nlogico valido = verdadeiro\nescolha (opcao)\n{\n    caso 1:\n        limite = 12\n        pare\n    caso 2:\n        limite = 20\n        pare\n    caso contrario:\n        valido = falso\n        escreva(\"Opção inválida\")\n}\nse (valido)\n{\n    escreva(\"Limite selecionado: \", limite)\n}\n// Nenhum limite é apresentado para opção inválida."
     }
   ],
   "exercises": [
@@ -1674,6 +1679,45 @@
       "hint": "Explique a correspondência, o fluxo e o resultado.",
       "solution": "Implementar acesso aos dados, localizar a matrícula e apresentar o resultado.",
       "explanation": "A mensagem apenas simula a ação.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "61",
+      "group": "Revisão opcional — Aplicações integradas",
+      "title": "Conversões por menu",
+      "prompt": "Projete um conversor opcional de quilômetros para metros, minutos para segundos e horas para minutos. Leia opção e valor real não negativo; apresente o resultado com unidade ou opção inválida. Teste opção 1 com 2.5, opção 2 com 3.5 e opção 4.",
+      "hint": "Cada caso pode definir fator e unidade; proteja o cálculo posterior.",
+      "solution": "2500 m; 210 s; opção inválida sem cálculo. Fatores 1000, 60 e 60; selecione unidade correspondente.",
+      "explanation": "Um fator escolhido não basta: a unidade e validade também importam.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "62",
+      "group": "Revisão opcional — Aplicações integradas",
+      "title": "Limite selecionado",
+      "prompt": "Um laboratório usa limites mínimos 12, 20 e 6 para três tipos de insumo. Planeje um programa que leia tipo e quantidade, defina limite por escolha/caso e informe necessidade de reposição apenas para tipos válidos. Teste tipo 2 com 19 e 20, e tipo 4 com 0.",
+      "hint": "Uma variável lógica pode impedir a comparação após opção inválida.",
+      "solution": "Repor, suficiente, inválida. Defina limite em cada caso; marque opção inválida; compare quantidade < limite apenas quando válido.",
+      "explanation": "A segunda seleção depende de um parâmetro definido pela primeira.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "63",
+      "group": "Revisão opcional — Aplicações integradas",
+      "title": "Energia estimada",
+      "prompt": "Um laboratório possui dispositivos de 40, 60 e 100 W. Projete uma seleção que leia opção e horas diárias não negativas, estime energia para 30 dias e classifique como alta a partir de 12 kWh. Teste dispositivo 3 com 4 h e dispositivo 1 com 2 h, além de opção inválida.",
+      "hint": "Potência em W multiplicada por horas e dividida por 1000 resulta em kWh.",
+      "solution": "12 kWh, alta; 2.4 kWh, controlada; opção inválida sem cálculo. Selecione potência, calcule e classifique somente se a opção for válida.",
+      "explanation": "Integra seleção múltipla, cálculo real, unidades e seleção composta.",
       "mode": "text",
       "starter": "",
       "expected": null,

@@ -5,7 +5,7 @@
   "title": "Estruturas de seleção",
   "subtitle": "Condições, operadores relacionais e decisões encadeadas",
   "objectives": "Interpretar condições; distinguir atribuição de comparação; utilizar se, senao e senao se; rastrear decisões; testar limites e explorar condições compostas.",
-  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com comparação de seleções independentes, agrupamento lógico e testes de fronteira. Reinspeção visual integral em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Confirmados operadores relacionais, seleção simples, composta e encadeada, testes e atividades. Ressalvas de leitura dos diagramas e estrutura do fragmento nos slides 2, 5–7; aprofundamentos autorais de fluxo, condições e domínio. Sem execução de código nesta revisão. Atividades_Portugol.pdf (01–10) reexaminado integralmente em 28/11/2026, dez páginas sem camada textual, cinco pares renderizados. Exercícios correspondentes ampliados de cálculo/fragmento para construção de programa, com parâmetros autorais diferenciados dos acadêmicos. Sem execução de Portugol.",
+  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com comparação de seleções independentes, agrupamento lógico e testes de fronteira. Reinspeção visual integral em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Confirmados operadores relacionais, seleção simples, composta e encadeada, testes e atividades. Ressalvas de leitura dos diagramas e estrutura do fragmento nos slides 2, 5–7; aprofundamentos autorais de fluxo, condições e domínio. Sem execução de código nesta revisão. Atividades_Portugol.pdf (01–10) reexaminado integralmente em 28/11/2026, dez páginas sem camada textual, cinco pares renderizados. Exercícios correspondentes ampliados de cálculo/fragmento para construção de programa, com parâmetros autorais diferenciados dos acadêmicos. Sem execução de Portugol. Atividades_Portugol_11_a_15.pdf: texto integral das cinco atividades consultado em 28/11/2026; conceitos de seleção combinada, critérios compostos e processamento condicional incorporados como complementos autorais. Revisão visual e execução não realizadas nesta etapa.",
   "chapters": [
     {
       "title": "1. Condições e fluxo de execução",
@@ -34,7 +34,7 @@
     },
     {
       "title": "6. Operadores lógicos",
-      "text": "APROFUNDAMENTO AUTORAL: e exige ambas as condições verdadeiras; ou exige pelo menos uma; nao inverte um valor lógico. Use parênteses para tornar agrupamentos claros. Em Portugol, não escreva 0 <= nota <= 10; compare separadamente.",
+      "text": "APROFUNDAMENTO AUTORAL: e exige ambas as condições verdadeiras; ou exige pelo menos uma; nao inverte um valor lógico. Use parênteses para tornar agrupamentos claros. Em Portugol, não escreva 0 <= nota <= 10; compare separadamente.\n\nCONEXÃO COM A LISTA ACADÊMICA 14 — Uma seleção encadeada pode combinar dois critérios em cada alternativa. No problema acadêmico, bolsa integral exige nota >= 8 e frequência >= 80; parcial exige nota >= 6 e frequência >= 75, após excluir a integral. Falhar na primeira condição não significa falhar em ambos os critérios: nota 9 com frequência 77 satisfaz a segunda condição. A ordem evita que a regra menos exigente capture candidatos da primeira. O domínio informado é nota de 0 a 10 e frequência de 0 a 100; a validação explícita desses limites é uma extensão autoral.",
       "example": "se (nota >= 0 e nota <= 10)\n{\n    escreva(\"Nota válida\")\n}"
     },
     {
@@ -44,7 +44,7 @@
     },
     {
       "title": "8. Aplicação: reajuste salarial",
-      "text": "APROFUNDAMENTO AUTORAL: receba salário real e aplique aumento de 10% somente quando for positivo e inferior a 2500. Multiplicar por 1.10 equivale a somar 10% do valor original. A regra é um exercício, não uma orientação trabalhista. Rastreie 2499, 2500 e 2501. Execute externamente no Portugol Studio ou Webstudio; a Pythoteca não executa Portugol.",
+      "text": "APROFUNDAMENTO AUTORAL: receba salário real e aplique aumento de 10% somente quando for positivo e inferior a 2500. Multiplicar por 1.10 equivale a somar 10% do valor original. A regra é um exercício, não uma orientação trabalhista. Rastreie 2499, 2500 e 2501. Execute externamente no Portugol Studio ou Webstudio; a Pythoteca não executa Portugol.\n\nCONEXÃO COM A LISTA ACADÊMICA 11 — A comissão compara duas variáveis (vendas e meta), e não uma variável com um limite fixo. O percentual pode ser definido em cada caminho e aplicado uma única vez após a seleção. A regra acadêmica utiliza 7% quando vendas >= meta e 5% nos demais casos; os valores dos exercícios autorais podem diferir. Exiba valores de entrada, percentual e comissão. Multiplicar por 0.07 calcula somente a comissão; multiplicar por 1.07 acrescentaria a comissão ao valor vendido.",
       "example": "programa\n{\n    funcao inicio()\n    {\n        real salario\n        leia(salario)\n        se (salario <= 0)\n        {\n            escreva(\"Valor inválido\")\n        }\n        senao se (salario < 2500)\n        {\n            salario = salario * 1.10\n            escreva(\"Novo salário: \", salario)\n        }\n        senao\n        {\n            escreva(\"Sem reajuste\")\n        }\n    }\n}"
     }
   ],
@@ -2205,6 +2205,32 @@
       "hint": "Explique a condição, o limite e o fluxo resultante.",
       "solution": "2200",
       "explanation": "A atribuição altera o salário antes da saída.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "81",
+      "group": "Revisão opcional — Aplicações integradas",
+      "title": "Meta variável",
+      "prompt": "Uma oficina paga bônus de 8% sobre a produção faturada quando o faturamento atinge uma meta informada, e 4% caso contrário. Proponha a estrutura de um programa que leia faturamento e meta e apresente percentual e bônus. Teste 1200/1500, 1500/1500 e 1800/1500.",
+      "hint": "Escolha o percentual primeiro; calcule o bônus depois.",
+      "solution": "Percentuais 4%, 8%, 8%; bônus 48, 120, 144. Leia dois reais; compare faturamento >= meta; atribua o fator e multiplique.",
+      "explanation": "A comparação entre variáveis e o cálculo após a seleção reduzem repetição.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "82",
+      "group": "Revisão opcional — Aplicações integradas",
+      "title": "Dois critérios, uma classificação",
+      "prompt": "Uma oficina oferece certificado avançado com nota >= 9 e presença >= 90; certificado básico com nota >= 7 e presença >= 75, se não alcançar o avançado; demais sem certificado. Classifique (9,85), (8,95), (9,90) e (6,100). Escreva a ordem das condições.",
+      "hint": "A primeira regra é mais exigente nos dois critérios.",
+      "solution": "Básico, básico, avançado, sem certificado. Teste primeiro nota >= 9 e presença >= 90, depois nota >= 7 e presença >= 75, depois senao.",
+      "explanation": "Falhar em uma conjunção não implica que ambas as comparações sejam falsas.",
       "mode": "text",
       "starter": "",
       "expected": null,

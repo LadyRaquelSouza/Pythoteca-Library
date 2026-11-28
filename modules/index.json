@@ -102,16 +102,16 @@
       "title": "Estruturas de seleção",
       "subtitle": "Condições, operadores relacionais e decisões encadeadas",
       "discipline": "portugol",
-      "sha256": "0e156114ccfc4453e44f1476721b8b34842aeff9f12c30ffaf170d98f607807c",
-      "bytes": 64718
+      "sha256": "06cd3ba8298db5c3d345a1af6dd836d9e307f7ab070f03b03b29e2794300050a",
+      "bytes": 67801
     },
     {
       "id": "aula205",
       "title": "Estrutura escolha/caso",
       "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
       "discipline": "portugol",
-      "sha256": "c335228ce72531e59034819647b5e3593bd629c2af5060aeb149f8fcb917b15b",
-      "bytes": 55599
+      "sha256": "e0df2b98277d55da1b45870df640a208fe10eef1def193587d11e1d31aa9cddf",
+      "bytes": 60683
     },
     {
       "id": "aula301",
