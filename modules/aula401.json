@@ -1,0 +1,277 @@
+{
+  "schema_version": 2,
+  "discipline": "sistemas_operacionais",
+  "id": "aula401",
+  "title": "Windows 11: área de trabalho e navegação",
+  "subtitle": "Interface, aplicativos, pesquisa, janelas e recursos do sistema",
+  "objectives": "Identificar componentes mostrados na Parte 01; distinguir sistema operacional, interface e aplicativos; recuperar atalhos de navegação e segurança.",
+  "source": "Material acadêmico: Aula Prática de Windows 11, Área de Trabalho — Partes 01, 02, 03 e 04 (quatro imagens PNG do curso). Inspeção visual integral das quatro imagens em 28/11/2026: textos, diagramas de interface, tabelas de atalhos e práticas guiadas. Complementos técnicos e exercícios autorais explicitados. Não houve execução em Windows nesta etapa.",
+  "chapters": [
+    {
+      "title": "1. Sistema operacional e interface",
+      "text": "CONTEÚDO DO CURSO — Parte 01; complemento conceitual\n\nWindows 11 é um sistema operacional que fornece serviços para aplicativos, gerencia recursos do computador e oferece uma interface gráfica. A área de trabalho é parte dessa interface, não o sistema inteiro. Explorador de Arquivos, Configurações, navegador e Bloco de Notas têm funções diferentes.\n\nO material mostra uma representação didática da tela. A posição e aparência dos ícones podem variar conforme configuração e atualização. Reconheça a função do componente, não apenas sua posição.",
+      "example": ""
+    },
+    {
+      "title": "2. Componentes da tela",
+      "text": "CONTEÚDO DO CURSO — Parte 01\n\nÁrea de Trabalho: superfície principal com papel de parede e possíveis arquivos, pastas e atalhos. Menu Iniciar: acesso a aplicativos, pesquisa e opções. Barra de Tarefas: aplicativos fixados e em execução, além de componentes do sistema. Pesquisa: ajuda a localizar programas, arquivos, pastas e configurações. Explorador de Arquivos: navegação e organização de arquivos e pastas. Configurações: opções do sistema. Relógio e notificações: data, hora e avisos.\n\nUm ícone fixado não significa necessariamente que o aplicativo está aberto. A Lixeira permite recuperar certos itens excluídos; Este Computador apresenta unidades e locais. A pasta Documentos é um local de organização, não um tipo de arquivo.",
+      "example": ""
+    },
+    {
+      "title": "3. Abrir programas e localizar arquivos",
+      "text": "CONTEÚDO DO CURSO — Partes 01 e 03\n\nPressione a tecla Windows para abrir Iniciar. Use pesquisa para localizar um aplicativo pelo nome; use Explorador para navegar por pastas e unidades. Windows+E abre Explorador; Windows+I abre Configurações. A pesquisa depende do escopo e da indexação, portanto não localizar um arquivo por pesquisa não prova que ele não existe.\n\nPara conectar-se à internet, é preciso conexão de rede e serviço disponível; o navegador é um aplicativo que utiliza essa conexão. O sistema possibilita comunicação e uso simultâneo de programas, mas cada serviço pode depender de configuração e permissões.",
+      "example": ""
+    },
+    {
+      "title": "4. Janelas e multitarefa",
+      "text": "CONTEÚDO DO CURSO — Partes 01, 02 e 03\n\nMinimizar retira a janela da área visível sem necessariamente encerrar o aplicativo. Maximizar amplia a janela; restaurar retorna a outro tamanho; fechar encerra a janela ativa, podendo solicitar salvamento. Alt+Tab alterna entre janelas; Windows+Tab abre Visão de Tarefas; Windows+D mostra ou oculta a área de trabalho. Alt+F4 fecha a janela ativa, conforme contexto.\n\nSnap Layouts organiza janelas em regiões da tela. No material, o procedimento consiste em posicionar o mouse sobre Maximizar e escolher um layout. Windows+Z é um complemento para abrir layouts em instalações compatíveis. Não confunda organização de janelas com alteração da resolução.",
+      "example": ""
+    },
+    {
+      "title": "5. Acesso rápido e bloqueio",
+      "text": "CONTEÚDO DO CURSO — Parte 03\n\nWindows+A abre Configurações rápidas; Windows+N abre central de notificações; Windows+L bloqueia a sessão. Bloquear não equivale a desligar o computador: aplicativos podem continuar em execução e o retorno exige autenticação conforme configuração. Use bloqueio ao se afastar de computador compartilhado.\n\nO material associa atalhos a produtividade, organização e estudo. O foco é conhecer as ações e seu contexto, não reproduzir a aparência da imagem. No KDE Plasma existem recursos análogos, mas não se presume que as mesmas teclas sejam configuradas.",
+      "example": ""
+    },
+    {
+      "title": "6. Revisão guiada",
+      "text": "PRÁTICA AUTORAL OPCIONAL — inspirada nas Partes 01 e 03\n\nIdentifique mentalmente a ferramenta adequada para abrir aplicativo, procurar arquivo, alterar configuração, alternar janelas e bloquear sessão. Se tiver acesso autorizado a Windows 11, teste em sessão própria sem alterar configurações de terceiros. Não é necessário instalar Windows ou reproduzir exercícios no Linux. O material acadêmico pode ser revisado por descrição e recuperação dos atalhos.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Interface",
+      "title": "Componentes",
+      "prompt": "Diferencie menu Iniciar, barra de tarefas e área de trabalho.",
+      "hint": "Pense em acesso, janelas e superfície.",
+      "explanation": "Componentes diferentes da interface.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Iniciar abre aplicativos e opções; barra reúne acessos e janelas; área de trabalho é a superfície principal.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Interface",
+      "title": "Explorador",
+      "prompt": "Qual aplicativo organiza arquivos e pastas?",
+      "hint": "Não é Configurações.",
+      "explanation": "Gerencia navegação por locais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Explorador de Arquivos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Revisão opcional — Interface",
+      "title": "Fixado",
+      "prompt": "Ícone fixado na barra significa programa em execução?",
+      "hint": "Acesso rápido não é estado.",
+      "explanation": "Observe indicadores de execução.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; pode ser apenas acesso fixado.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "04",
+      "group": "Revisão opcional — Interface",
+      "title": "Pesquisa",
+      "prompt": "Pesquisa não encontrou um arquivo. Isso prova que não existe?",
+      "hint": "Escopo e indexação.",
+      "explanation": "Pesquisa tem limitações.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; verificar local e escopo.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Atalhos",
+      "title": "Iniciar",
+      "prompt": "Qual tecla abre Iniciar?",
+      "hint": "Logotipo do sistema.",
+      "explanation": "Atalho da Parte 03.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Atalhos",
+      "title": "Explorador",
+      "prompt": "Qual combinação abre Explorador?",
+      "hint": "Windows e uma letra.",
+      "explanation": "Atalho da Parte 03.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+E.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Atalhos",
+      "title": "Configurações",
+      "prompt": "O que Windows+I abre?",
+      "hint": "Opções do sistema.",
+      "explanation": "Não confunda com rápidas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Configurações.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Atalhos",
+      "title": "Rápidas",
+      "prompt": "Qual combinação abre Configurações rápidas?",
+      "hint": "Windows e A.",
+      "explanation": "Diferente de Windows+I.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+A.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Atalhos",
+      "title": "Notificações",
+      "prompt": "Qual combinação abre central de notificações?",
+      "hint": "Windows e N.",
+      "explanation": "Parte 03.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+N.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Atalhos",
+      "title": "Bloquear",
+      "prompt": "Qual combinação bloqueia a sessão?",
+      "hint": "Windows e L.",
+      "explanation": "Não encerra necessariamente os programas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+L.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Janelas",
+      "title": "Alternar",
+      "prompt": "Qual combinação alterna janelas abertas?",
+      "hint": "Alt.",
+      "explanation": "Diferente da Visão de Tarefas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Alt+Tab.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Janelas",
+      "title": "Visão",
+      "prompt": "O que Windows+Tab abre?",
+      "hint": "Visão geral.",
+      "explanation": "Permite visualizar janelas e áreas de trabalho virtuais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Visão de Tarefas.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Janelas",
+      "title": "Área de trabalho",
+      "prompt": "Qual combinação mostra ou oculta a área de trabalho?",
+      "hint": "D.",
+      "explanation": "Não apaga arquivos nem encerra aplicativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+D.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Essenciais — Janelas",
+      "title": "Fechar",
+      "prompt": "Qual atalho fecha a janela ativa segundo o material?",
+      "hint": "Tecla de função.",
+      "explanation": "Pode solicitar salvamento.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Alt+F4.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Janelas",
+      "title": "Minimizar",
+      "prompt": "Minimizar equivale a encerrar programa?",
+      "hint": "Visibilidade versus execução.",
+      "explanation": "Estado e aparência são distintos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; janela pode continuar aberta em segundo plano.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Janelas",
+      "title": "Snap",
+      "prompt": "Como abrir Snap Layouts pelo mouse conforme a Parte 02?",
+      "hint": "Botão de maximizar.",
+      "explanation": "Organiza regiões da tela.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Posicionar mouse sobre Maximizar e escolher layout.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Segurança",
+      "title": "Bloqueio",
+      "prompt": "Bloquear e desligar são a mesma operação?",
+      "hint": "Sessão e energia.",
+      "explanation": "Não use desligamento para simular bloqueio.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; bloquear protege acesso à sessão, desligar encerra funcionamento normal.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Revisão",
+      "title": "Sequência",
+      "prompt": "Abra Explorador, Configurações e bloqueie a sessão. Liste os atalhos sem executar.",
+      "hint": "E, I, L.",
+      "explanation": "Recuperação cumulativa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+E, Windows+I, Windows+L.",
+      "expected": null,
+      "required": true
+    }
+  ]
+}

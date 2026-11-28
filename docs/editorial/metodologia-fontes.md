@@ -31,3 +31,9 @@ Examinar imagens e outras mídias disponíveis durante a produção. Registrar l
 ## Integração
 
 Antes de publicar, verificar consistência de conceitos, exemplos, exercícios, metadados, hashes e IDs. Confirmar o resultado da CI oficial quando disponível. A aprovação estrutural não substitui revisão pedagógica nem validação do leitor do aplicativo.
+
+## Atualização de cobertura — 28/11/2026
+
+Sistemas Operacionais: quatro imagens PNG Área de Trabalho, Partes 01–04, obtidas e examinadas visualmente por inteiro. Textos, representações de tela, tabela de 25 atalhos e práticas identificados. Módulos 401–403 cobrem o material. Imagens originais não republicadas. Não houve execução em Windows; ressalvas técnicas documentadas (Print Screen configurável, exclusões e atalhos dependentes de contexto).
+
+Tecnologia da Informação: três apostilas de Word consultadas por texto; extração de Fernando Borges Vale parcial, tópicos conhecidos pelo sumário identificados como complementos autorais. Figuras pendentes. Padrão de atalhos Bradesco 2016 PT-BR provisório até confirmação docente.

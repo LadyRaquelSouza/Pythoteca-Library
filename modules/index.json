@@ -202,6 +202,30 @@
       "bytes": 30021
     },
     {
+      "id": "aula401",
+      "title": "Windows 11: área de trabalho e navegação",
+      "subtitle": "Interface, aplicativos, pesquisa, janelas e recursos do sistema",
+      "discipline": "sistemas_operacionais",
+      "sha256": "adb66e168d4dd56a6650d7e732abcdfefb3da02b19fadaf25f2954e9c903897b",
+      "bytes": 12440
+    },
+    {
+      "id": "aula402",
+      "title": "Arquivos, pastas, atalhos e captura de tela",
+      "subtitle": "Organização, operações de arquivos e comandos convencionais do Windows",
+      "discipline": "sistemas_operacionais",
+      "sha256": "c77ca5e27d6fd9910962da69d5f206c91ead3ad81cb4ee80bfedc585744d86d8",
+      "bytes": 14500
+    },
+    {
+      "id": "aula403",
+      "title": "Personalização, tela e áudio no Windows 11",
+      "subtitle": "Aparência, escala, resolução, dispositivos e diagnóstico básico",
+      "discipline": "sistemas_operacionais",
+      "sha256": "c4e75c0e01386387e18d621fcb58af4a49b28267efe7741304aef612361e825d",
+      "bytes": 13796
+    },
+    {
       "id": "aula501",
       "title": "Fundamentos do Word e gerenciamento de documentos",
       "subtitle": "Interface, formatos, comandos de arquivo e atalhos localizados",

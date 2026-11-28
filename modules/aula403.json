@@ -1,0 +1,290 @@
+{
+  "schema_version": 2,
+  "discipline": "sistemas_operacionais",
+  "id": "aula403",
+  "title": "Personalização, tela e áudio no Windows 11",
+  "subtitle": "Aparência, escala, resolução, dispositivos e diagnóstico básico",
+  "objectives": "Reconhecer caminhos e opções das Partes 02 e 04; distinguir escala e resolução, entrada e saída de áudio; aplicar diagnóstico conceitual; revisar atalhos úteis.",
+  "source": "Material acadêmico: Aula Prática de Windows 11, Área de Trabalho — Partes 01, 02, 03 e 04 (quatro imagens PNG do curso). Inspeção visual integral das quatro imagens em 28/11/2026: textos, diagramas de interface, tabelas de atalhos e práticas guiadas. Complementos técnicos e exercícios autorais explicitados. Não houve execução em Windows nesta etapa.",
+  "chapters": [
+    {
+      "title": "1. Personalização da aparência",
+      "text": "CONTEÚDO DO CURSO — Partes 02 e 04\n\nConfigurações > Personalização reúne Plano de fundo, Cores, Temas e Tela de bloqueio. Plano de fundo altera imagem da área de trabalho; cores definem aspectos da aparência do sistema; tema combina opções visuais; tela de bloqueio é apresentada quando a sessão está bloqueada, conforme configuração. Barra de tarefas e Iniciar também podem ser personalizados.\n\nO material sugere alterar ícones da área de trabalho pelo menu de contexto Exibir > ícones pequenos, médios ou grandes. Não confunda aumentar ícones com alterar resolução. A aparência pode depender de políticas, ativação, edição e atualização.",
+      "example": ""
+    },
+    {
+      "title": "2. Escala e resolução",
+      "text": "CONTEÚDO DO CURSO — Parte 02; aprofundamento técnico\n\nConfigurações > Sistema > Tela reúne ajustes de escala e resolução. Resolução é a dimensão em pixels da imagem configurada para a tela, por exemplo 1920×1080. Escala altera o tamanho aparente de elementos da interface em relação aos pixels disponíveis, por exemplo 125%. Uma tela pode manter resolução recomendada e usar escala maior para legibilidade.\n\nAumentar escala não aumenta quantidade física de pixels. Reduzir resolução pode prejudicar nitidez em telas de resolução nativa fixa. Em vários monitores, verifique qual está selecionado antes de alterar. Não confunda escala do sistema com zoom de um documento. Snap Layouts organiza janelas, não muda pixels ou escala.",
+      "example": ""
+    },
+    {
+      "title": "3. Som: volume e saída",
+      "text": "CONTEÚDO DO CURSO — Parte 04\n\nO ícone de som da barra de tarefas permite ajustar volume conforme interface. Saída de áudio é o dispositivo que reproduz som, como alto-falantes, fones ou monitor com áudio. Selecionar saída correta é importante quando há vários dispositivos. Configurações > Sistema > Som reúne opções de áudio.\n\nVolume geral controla nível de saída; silenciar pode impedir reprodução mesmo com aplicativo aberto. A representação do material mostra alto-falantes Realtek e fones Bluetooth como exemplos, não requisitos do Windows. A lista real depende de hardware e conexão.",
+      "example": ""
+    },
+    {
+      "title": "4. Entrada, mixer e sons do sistema",
+      "text": "CONTEÚDO DO CURSO — Parte 04\n\nEntrada de áudio recebe sinal, por exemplo microfone. Selecione e teste o dispositivo correto em Configurações > Sistema > Som. Um microfone pode captar mesmo que os alto-falantes estejam silenciados; entrada e saída são fluxos distintos. Permissões de microfone e seleção dentro do aplicativo também podem afetar funcionamento (complemento).\n\nMixer de volume permite ajustar áudio por aplicativo, conforme recursos disponíveis. Sons do sistema são alertas e eventos do Windows. Alterar volume geral não é o mesmo que silenciar um aplicativo isolado. O material apresenta opções ilustrativas; nomes e caminhos exatos podem variar.",
+      "example": ""
+    },
+    {
+      "title": "5. Diagnóstico por hipóteses",
+      "text": "APROFUNDAMENTO AUTORAL — a partir da dica da Parte 04\n\nSe um aplicativo não emite som, verifique se ele está reproduzindo, se o volume do aplicativo está silenciado, se o volume geral está adequado e se a saída selecionada corresponde ao dispositivo desejado. Se nenhum aplicativo emite som, teste uma fonte conhecida e verifique conexão e dispositivo. Não conclua imediatamente que o alto-falante está danificado.\n\nSe o microfone não funciona, verifique entrada selecionada, nível de entrada/teste, conexão, permissões e dispositivo escolhido no aplicativo. Mude uma variável por vez para identificar causa. Não reinstale drivers sem evidência. O princípio de investigar fluxo de áudio também se aplica a outros sistemas, mas não é necessário praticar em Linux.",
+      "example": ""
+    },
+    {
+      "title": "6. Revisão de interface e prática opcional",
+      "text": "PRÁTICA OPCIONAL — baseada na Parte 04\n\nO material solicita mudar fundo, cor, tema e tela de bloqueio; variar volume; selecionar saída; testar microfone; abrir mixer e identificar aplicativos. Para revisão escrita, descreva qual categoria atende cada tarefa e qual efeito esperado. Em computador compartilhado, não altere preferências alheias sem permissão. Teste áudio em volume confortável.\n\nAtalhos úteis: Windows+I para Configurações, Windows+A para rápidas e Windows+L para bloqueio. Retome também Windows+E para arquivos e Windows+Shift+S para captura, sem exigir execução. Esta trilha cobre as quatro imagens disponíveis; fundamentos internos de processos, memória e sistemas de arquivos poderão ser aprofundados quando houver novo material.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Aparência",
+      "title": "Fundo",
+      "prompt": "Qual caminho indicado para alterar papel de parede?",
+      "hint": "Categoria Personalização.",
+      "explanation": "Parte 04.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Configurações > Personalização > Plano de fundo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Aparência",
+      "title": "Cores",
+      "prompt": "Em qual categoria o material coloca Cores e Temas?",
+      "hint": "Não é Sistema > Som.",
+      "explanation": "Parte 04.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Personalização.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Aparência",
+      "title": "Bloqueio",
+      "prompt": "Tela de bloqueio e papel de parede da área de trabalho são a mesma configuração?",
+      "hint": "Contextos diferentes.",
+      "explanation": "Bloqueio protege sessão.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; são opções distintas em Personalização.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Revisão opcional — Aparência",
+      "title": "Ícones",
+      "prompt": "Qual caminho de contexto altera tamanho de ícones na área de trabalho?",
+      "hint": "Exibir.",
+      "explanation": "Parte 02.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Botão direito na área de trabalho > Exibir > tamanho de ícones.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Tela",
+      "title": "Resolução",
+      "prompt": "O que representa 1920×1080?",
+      "hint": "Dimensões da imagem.",
+      "explanation": "Não é escala percentual.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Largura e altura em pixels da resolução configurada.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Tela",
+      "title": "Escala",
+      "prompt": "A escala de 125% altera fisicamente a quantidade de pixels da tela?",
+      "hint": "Tamanho aparente.",
+      "explanation": "Resolução e escala são independentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; altera tamanho aparente da interface.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Tela",
+      "title": "Caminho",
+      "prompt": "Onde o material indica ajustar escala e resolução?",
+      "hint": "Sistema.",
+      "explanation": "Parte 02.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Configurações > Sistema > Tela.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional — Tela",
+      "title": "Snap",
+      "prompt": "Snap Layouts altera resolução?",
+      "hint": "Organização de janelas.",
+      "explanation": "Não confundir layout e configuração de monitor.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; distribui janelas pela tela.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Som",
+      "title": "Saída",
+      "prompt": "Fone de ouvido que reproduz áudio é entrada ou saída?",
+      "hint": "Direção do sinal.",
+      "explanation": "Reproduz som ao usuário.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Saída.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Som",
+      "title": "Entrada",
+      "prompt": "Microfone é entrada ou saída?",
+      "hint": "Direção do sinal.",
+      "explanation": "Recebe sinal de áudio.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Entrada.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Som",
+      "title": "Caminho",
+      "prompt": "Onde selecionar e testar microfone segundo material?",
+      "hint": "Sistema > Som.",
+      "explanation": "Parte 04.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Configurações > Sistema > Som.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Som",
+      "title": "Mixer",
+      "prompt": "Qual recurso ajusta volume por aplicativo?",
+      "hint": "Não é apenas volume geral.",
+      "explanation": "Permite níveis específicos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Mixer de volume.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional — Som",
+      "title": "Alertas",
+      "prompt": "Alterar sons de alerta do sistema equivale a mudar microfone?",
+      "hint": "Eventos versus entrada.",
+      "explanation": "Funções diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; sons do sistema configuram alertas, microfone é entrada.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Essenciais — Diagnóstico",
+      "title": "Sem áudio",
+      "prompt": "Fones Bluetooth conectados mas som sai nos alto-falantes. Qual hipótese verificar primeiro?",
+      "hint": "Dispositivo selecionado.",
+      "explanation": "O dispositivo pode estar funcionando normalmente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Saída de áudio selecionada no sistema e aplicativo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — Diagnóstico",
+      "title": "Um aplicativo",
+      "prompt": "Som funciona em outros aplicativos, mas não em um. O que verificar?",
+      "hint": "Escopo do problema.",
+      "explanation": "Investigue diferença específica.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Volume/mudo e saída do aplicativo, além da reprodução.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Diagnóstico",
+      "title": "Microfone",
+      "prompt": "Microfone aparece mas aplicativo não capta. Cite duas verificações.",
+      "hint": "Entrada e permissões.",
+      "explanation": "Não presumir falha física.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Selecionar entrada correta e verificar permissões/seleção no aplicativo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Essenciais — Revisão",
+      "title": "Atalhos",
+      "prompt": "Quais atalhos abrem Configurações, rápidas e bloqueiam?",
+      "hint": "I, A, L.",
+      "explanation": "Recuperação cumulativa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Windows+I, Windows+A, Windows+L.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional — Revisão",
+      "title": "Prática",
+      "prompt": "Descreva como testar troca de saída sem alterar arquivos.",
+      "hint": "Som e dispositivo.",
+      "explanation": "Prática opcional com acesso autorizado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Abrir Configurações > Sistema > Som, selecionar saída desejada, testar som em volume confortável e restaurar se necessário.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Revisão",
+      "title": "Diagnóstico",
+      "prompt": "Qual vantagem de mudar uma configuração por vez?",
+      "hint": "Identificar causa.",
+      "explanation": "Método investigativo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Permite relacionar efeito observado à mudança e reverter com segurança.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
