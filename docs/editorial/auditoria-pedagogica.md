@@ -63,3 +63,8 @@ Nos módulos 101–106, os exercícios originais omitiam required e os acréscim
 Após a intervenção: Arquitetura 690 exercícios, 94 essenciais, 596 opcionais. Biblioteca: 1.878 exercícios, 464 essenciais, 1.414 restantes. A auditoria posterior verificará carga, qualidade e distribuição dos essenciais sem impor percentual uniforme. Não foi testado o comportamento do leitor com a mudança de required; a migração do progresso não deve exigir repetir aulas anteriormente concluídas sem política explícita.
 
 Decisão da estudante: preservar nesta fase os essenciais de Lógica e Java. A revisão definitiva desses essenciais deverá incluir atividades práticas de construção, depuração, rastreamento e testes de programas quando os respectivos executores/compiladores estiverem implementados e validados no aplicativo. Não aumentar questões teóricas obrigatórias apenas para equilibrar contagens. Práticas de papel e atividades opcionais não substituem a futura avaliação executável. O banco transversal novo deverá considerar competências já apresentadas, sem depender de runtime ainda indisponível. Nenhum executor implementado por este commit.
+
+
+## Proposta de percurso guiado — verificação inicial
+
+A proposta de sete etapas, sequência completa e matriz de dependências está em [percurso-guiado.md](percurso-guiado.md). Conferência programática contra manifesto: 45 aulas únicas, ordem interna preservada, dependências propostas e conexões recomendadas sem inversões. Preferência editorial por blocos intercalados. Ainda não é conclusão oficial; revisar após auditoria dos exercícios e definição das revisões generalizadas. Nenhum módulo ou exercício alterado neste commit.
