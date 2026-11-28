@@ -5,11 +5,11 @@
   "title": "JOptionPane e caixas de diálogo",
   "subtitle": "Mensagens, entradas, confirmações e opções",
   "objectives": "Interpretar os quatro métodos principais, constantes e retornos, tratar cancelamentos e aplicar validação e confirmação em formulários Swing.",
-  "source": "Aula 2 - JOptionPane.pdf, dez slides examinados visualmente nesta etapa, https://drive.google.com/file/d/1Bzmx7wOOCKt9L8310hXt6tpJeIHUIfXU/view. Capítulos seguem a ordem dos slides; exemplos autorais Java 8 e fundamentos complementares identificados. A Aula 1 - Apostila de NetBeans.pdf, p. 6, também apresenta os quatro métodos e os cinco tipos de mensagem; infográfico reconsultado em 28/11/2026.",
+  "source": "Aula 2 - JOptionPane.pdf, dez slides examinados visualmente nesta etapa, https://drive.google.com/file/d/1Bzmx7wOOCKt9L8310hXt6tpJeIHUIfXU/view. Capítulos seguem a ordem dos slides; exemplos autorais Java 8 e fundamentos complementares identificados. A Aula 1 - Apostila de NetBeans.pdf, p. 6, também apresenta os quatro métodos e os cinco tipos de mensagem; infográfico reconsultado em 28/11/2026. Reinspeção visual integral de Aula 2 em 28/11/2026: dez slides sem camada textual, renderizados em cinco pares. Ressalvas dos slides 3, 6–10 e complementos autorais de parâmetros, retornos e testes. Sem execução Java.",
   "chapters": [
     {
       "title": "Visão geral do JOptionPane",
-      "text": "[CURRICULAR, slide 1] JOptionPane pertence a javax.swing e oferece métodos estáticos para informar, alertar, perguntar, receber dados e oferecer opções. [FUNDAMENTOS] Uma chamada estática usa o nome da classe; não exige criar um JOptionPane explicitamente. Os exemplos a seguir são trechos para métodos de uma janela JFrame, salvo indicação contrária.",
+      "text": "[CURRICULAR, slide 1] JOptionPane pertence a javax.swing e oferece métodos estáticos para informar, alertar, perguntar, receber dados e oferecer opções. [FUNDAMENTOS] Uma chamada estática usa o nome da classe; não exige criar um JOptionPane explicitamente. Os exemplos a seguir são trechos para métodos de uma janela JFrame, salvo indicação contrária.\n\n[CONFERÊNCIA VISUAL, slide 1] O exemplo em main usa null como componente pai. JOptionPane não exige um JFrame previamente construído nem o NetBeans para funcionar; pertence à biblioteca Swing.",
       "example": "import javax.swing.JOptionPane;"
     },
     {
@@ -19,7 +19,7 @@
     },
     {
       "title": "Entrada de dados",
-      "text": "[CURRICULAR, slide 3] showInputDialog solicita entrada. A versão simples retorna String; a versão com opções de seleção retorna Object. Cancelar ou fechar pode retornar null. [FUNDAMENTOS] Teste null antes de chamar métodos como trim; uma string vazia não é null. A conversão numérica será aprofundada na aula 307.",
+      "text": "[CURRICULAR, slide 3] showInputDialog solicita entrada. A versão simples retorna String; a versão com opções de seleção retorna Object. Cancelar ou fechar pode retornar null. [FUNDAMENTOS] Teste null antes de chamar métodos como trim; uma string vazia não é null. A conversão numérica será aprofundada na aula 307.\n\n[CONFERÊNCIA VISUAL, slide 3] O exemplo pequeno no editor mostra this dentro de main estático, o que não compila: this só existe em contexto de instância. Em main, use null ou uma referência explícita a um componente pai. Nos métodos de evento de uma instância JFrame, this pode representar a janela. O exemplo de seleção predefinida usa Object[] com elementos String e cast para String; esse cast é adequado nesse contexto específico, não para qualquer array de objetos. Cancelamento retorna null mesmo após cast para String. O argumento cursos[0] pressupõe array não vazio. Distinguir null de texto vazio permite tratar cancelamento separadamente.",
       "example": "String nome = JOptionPane.showInputDialog(this, \"Digite o nome:\");\nif (nome != null && !nome.trim().isEmpty()) {\n    System.out.println(nome.trim());\n}"
     },
     {
@@ -29,32 +29,32 @@
     },
     {
       "title": "Opções personalizadas",
-      "text": "[CURRICULAR, slide 5] showOptionDialog permite definir mensagem, título, tipo de opção, tipo de mensagem, ícone, opções e valor inicial, além do componente pai. Retorna o índice da opção selecionada, começando em zero, ou CLOSED_OPTION quando fechado.",
+      "text": "[CURRICULAR, slide 5] showOptionDialog permite definir mensagem, título, tipo de opção, tipo de mensagem, ícone, opções e valor inicial, além do componente pai. Retorna o índice da opção selecionada, começando em zero, ou CLOSED_OPTION quando fechado.\n\n[CONFERÊNCIA VISUAL, slide 5] A lista de parâmetros da figura não inclui parentComponent, mas o código mostra os oito argumentos na ordem correta: pai, mensagem, título, optionType, messageType, icon, options e initialValue. Quando há opções personalizadas, são elas que determinam os botões; o valor inicial normalmente é um dos elementos do array. Não confunda a escolha de um objeto em showInputDialog com o índice retornado por showOptionDialog.",
       "example": "Object[] opcoes = {\"Salvar\", \"Editar\", \"Cancelar\"};\nint escolha = JOptionPane.showOptionDialog(this, \"Escolha uma operação\", \"Cadastro\", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);"
     },
     {
       "title": "Tipos de mensagem",
-      "text": "[CURRICULAR, slide 6] INFORMATION_MESSAGE informa; WARNING_MESSAGE alerta; ERROR_MESSAGE sinaliza erro; QUESTION_MESSAGE apresenta pergunta; PLAIN_MESSAGE não solicita ícone padrão. A aparência varia conforme o Look and Feel. [FUNDAMENTOS] O tipo de mensagem não determina sozinho os botões nem valida dados.\n\n[CONFERÊNCIA VISUAL, Aula 1, p. 6] O infográfico usa showMessageDialog para ilustrar inclusive QUESTION_MESSAGE e WARNING_MESSAGE. Apesar da frase sugerir uma decisão, uma caixa de mensagem com botão OK não coleta confirmação. Para decidir se deve prosseguir ou excluir, use showConfirmDialog e trate seu retorno; o ícone QUESTION_MESSAGE sozinho não transforma a chamada em pergunta com resposta. A própria figura observa que os ícones mudam conforme o Look and Feel.",
+      "text": "[CURRICULAR, slide 6] INFORMATION_MESSAGE informa; WARNING_MESSAGE alerta; ERROR_MESSAGE sinaliza erro; QUESTION_MESSAGE apresenta pergunta; PLAIN_MESSAGE não solicita ícone padrão. A aparência varia conforme o Look and Feel. [FUNDAMENTOS] O tipo de mensagem não determina sozinho os botões nem valida dados.\n\n[CONFERÊNCIA VISUAL, Aula 1, p. 6] O infográfico usa showMessageDialog para ilustrar inclusive QUESTION_MESSAGE e WARNING_MESSAGE. Apesar da frase sugerir uma decisão, uma caixa de mensagem com botão OK não coleta confirmação. Para decidir se deve prosseguir ou excluir, use showConfirmDialog e trate seu retorno; o ícone QUESTION_MESSAGE sozinho não transforma a chamada em pergunta com resposta. A própria figura observa que os ícones mudam conforme o Look and Feel.\n\n[CONFERÊNCIA VISUAL, slide 6] Os exemplos com WARNING_MESSAGE e QUESTION_MESSAGE usam showMessageDialog e exibem apenas OK. Apesar das frases interrogativas, não retornam Sim ou Não. Para receber uma decisão, use o método de confirmação ou opções apropriado.",
       "example": "JOptionPane.showMessageDialog(this, \"Informe o nome\", \"Atenção\", JOptionPane.WARNING_MESSAGE);"
     },
     {
       "title": "Botões e valores de retorno",
-      "text": "[CURRICULAR, slide 7] YES_OPTION e OK_OPTION valem 0; NO_OPTION vale 1; CANCEL_OPTION vale 2; CLOSED_OPTION vale -1. Use constantes simbólicas e considere o conjunto de botões utilizado. DEFAULT_OPTION não é uma resposta do usuário. [FUNDAMENTOS] Um botão personalizado chamado Cancelar retorna seu índice, não necessariamente CANCEL_OPTION.",
+      "text": "[CURRICULAR, slide 7] YES_OPTION e OK_OPTION valem 0; NO_OPTION vale 1; CANCEL_OPTION vale 2; CLOSED_OPTION vale -1. Use constantes simbólicas e considere o conjunto de botões utilizado. DEFAULT_OPTION não é uma resposta do usuário. [FUNDAMENTOS] Um botão personalizado chamado Cancelar retorna seu índice, não necessariamente CANCEL_OPTION.\n\n[CONFERÊNCIA VISUAL, slide 7] O código ilustrado escolhe YES_NO_OPTION, mas contém um ramo CANCEL_OPTION. Esse ramo não é alcançado por um botão Cancelar nesse conjunto de botões; para oferecer esse botão, escolha YES_NO_CANCEL_OPTION. Fechar a janela continua sendo uma possibilidade distinta. O valor zero deve ser interpretado de acordo com o método e conjunto de botões, não como sinônimo universal de confirmação. DEFAULT_OPTION configura botões; não é uma resposta. Use títulos claros e teste os retornos efetivamente possíveis.",
       "example": "if (resposta == JOptionPane.CLOSED_OPTION) {\n    // A janela foi fechada.\n}"
     },
     {
       "title": "Diálogos internos",
-      "text": "[CURRICULAR, slide 8] showInternalMessageDialog, showInternalInputDialog, showInternalConfirmDialog e showInternalOptionDialog são versões para interfaces com JDesktopPane e JInternalFrame. O componente pai permite localizar o ambiente interno. [FUNDAMENTOS] Não são necessários em todo JFrame; use quando a arquitetura da interface for interna.",
+      "text": "[CURRICULAR, slide 8] showInternalMessageDialog, showInternalInputDialog, showInternalConfirmDialog e showInternalOptionDialog são versões para interfaces com JDesktopPane e JInternalFrame. O componente pai permite localizar o ambiente interno. [FUNDAMENTOS] Não são necessários em todo JFrame; use quando a arquitetura da interface for interna.\n\n[CONFERÊNCIA VISUAL, slide 8] A figura apresenta JDesktopPane e JInternalFrame como ambiente MDI (Multiple Document Interface). O exemplo fornece diretamente o desktop pane como pai; a assinatura dos métodos internos aceita Component, não exige exclusivamente JDesktopPane. O contexto deve permitir localizar o ambiente de janelas internas. Não confunda a janela principal com uma janela interna.",
       "example": "JOptionPane.showInternalMessageDialog(desktopPane, \"Operação realizada\", \"Mensagem\", JOptionPane.INFORMATION_MESSAGE);"
     },
     {
       "title": "Aplicação: Cadastrar",
-      "text": "[CURRICULAR, slide 9] O formulário contém nome e curso. O exemplo da apostila usa getText().trim(), isEmpty(), getSelectedIndex() e getSelectedItem() para validar a entrada e exibir o resultado. O índice zero representa a opção inicial de seleção naquele formulário. [FUNDAMENTOS] A regra depende da configuração do JComboBox; não é universal. O exemplo autoral pressupõe um combo não editável com opção inicial no índice zero e cursos não nulos.",
+      "text": "[CURRICULAR, slide 9] O formulário contém nome e curso. O exemplo da apostila usa getText().trim(), isEmpty(), getSelectedIndex() e getSelectedItem() para validar a entrada e exibir o resultado. O índice zero representa a opção inicial de seleção naquele formulário. [FUNDAMENTOS] A regra depende da configuração do JComboBox; não é universal. O exemplo autoral pressupõe um combo não editável com opção inicial no índice zero e cursos não nulos.\n\n[CONFERÊNCIA VISUAL, slide 9] A condição acadêmica usa nome.isEmpty() || jComboBox1.getSelectedIndex() == 0. A versão autoral usa <= 0 para também detectar índice -1 (nenhuma seleção). Isso pressupõe combo não editável, com opção inicial de instrução no índice zero. || significa ou lógico com curto-circuito: quando o nome está vazio, não é necessário avaliar a segunda condição para concluir que os dados são inválidos. getText obtém texto; trim remove caracteres nas extremidades segundo sua regra; são operações distintas. A mensagem de cadastro não persiste dados.",
       "example": "String nome = jTextField1.getText().trim();\nif (nome.isEmpty() || jComboBox1.getSelectedIndex() <= 0) {\n    JOptionPane.showMessageDialog(this, \"Informe nome e curso\", \"Atenção\", JOptionPane.WARNING_MESSAGE);\n} else {\n    String curso = jComboBox1.getSelectedItem().toString();\n    JOptionPane.showMessageDialog(this, \"Aluno: \" + nome + \"\\nCurso: \" + curso, \"Cadastro\", JOptionPane.INFORMATION_MESSAGE);\n}"
     },
     {
       "title": "Aplicação: Limpar",
-      "text": "[CURRICULAR, slide 10] Antes de apagar os dados, solicite confirmação. Somente YES_OPTION autoriza limpar campos e restaurar o índice inicial do combo. requestFocusInWindow solicita foco. [FUNDAMENTOS] O exemplo pressupõe que o combo possui um item no índice zero; cancelar, negar ou fechar preserva os dados.",
+      "text": "[CURRICULAR, slide 10] Antes de apagar os dados, solicite confirmação. Somente YES_OPTION autoriza limpar campos e restaurar o índice inicial do combo. requestFocusInWindow solicita foco. [FUNDAMENTOS] O exemplo pressupõe que o combo possui um item no índice zero; cancelar, negar ou fechar preserva os dados.\n\n[CONFERÊNCIA VISUAL, slide 10] A interface ilustrada inclui Nome, Curso e Idade, porém o código limpa apenas o campo de nome e o combo. Não se pode garantir a limpeza de Idade a partir desse trecho, ainda que a imagem final mostre o campo vazio. Em um formulário que possua idade, inclua explicitamente a limpeza do componente correspondente dentro do ramo de confirmação, usando seu identificador real. O exemplo autoral deste capítulo pressupõe apenas nome e curso. Teste todos os campos preenchidos antes de clicar em Limpar, e confirme que Não e fechamento preservam todos os valores. Em YES_NO_OPTION não existe botão Cancelar.",
       "example": "int resposta = JOptionPane.showConfirmDialog(this, \"Deseja limpar os dados?\", \"Confirmação\", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);\nif (resposta == JOptionPane.YES_OPTION) {\n    jTextField1.setText(\"\");\n    jComboBox1.setSelectedIndex(0);\n    jTextField1.requestFocusInWindow();\n}"
     }
   ],
@@ -1163,6 +1163,32 @@
       "solution": "Preencher campos e testar Sim, Não e fechamento. Apenas Sim deve limpar e restaurar o combo.",
       "explanation": "Teste cada resposta separadamente.",
       "hint": "Relacione o comportamento ao valor retornado.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional — Diagnóstico de diálogos",
+      "title": "Botão inexistente",
+      "prompt": "Um diálogo YES_NO_OPTION trata YES_OPTION, NO_OPTION, CANCEL_OPTION e CLOSED_OPTION. Quais respostas podem ocorrer pela interface e qual mudança oferece Cancelar?",
+      "hint": "Compare o conjunto de botões com os retornos.",
+      "solution": "Sim, Não ou fechamento; para oferecer Cancelar, use YES_NO_CANCEL_OPTION.",
+      "explanation": "O conjunto de opções limita os botões disponíveis.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "42",
+      "group": "Revisão opcional — Diagnóstico de diálogos",
+      "title": "Limpeza incompleta",
+      "prompt": "Uma janela tem campos nome e idade e um combo de curso. O evento Limpar confirmado apaga apenas nome e restaura o combo. Preveja o estado da idade e descreva a correção e testes.",
+      "hint": "Uma mensagem não altera automaticamente os componentes.",
+      "solution": "Idade permanece. Inclua setText(\"\") no campo de idade dentro do ramo confirmado; teste Sim, Não e fechar com todos os campos preenchidos.",
+      "explanation": "Verifique cada alteração de estado, não só a aparência final.",
       "mode": "text",
       "starter": "",
       "expected": null,

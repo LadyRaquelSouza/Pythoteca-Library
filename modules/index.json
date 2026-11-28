@@ -158,16 +158,16 @@
       "title": "JOptionPane e caixas de diálogo",
       "subtitle": "Mensagens, entradas, confirmações e opções",
       "discipline": "java",
-      "sha256": "69966e1402a6e17304e0eac80e4b48994ae68d1dffb5d882b27d5360c3404269",
-      "bytes": 35873
+      "sha256": "21cd93d3d32d173df72679772af8857103cfcbdc4890b81b5029134d640a276f",
+      "bytes": 41319
     },
     {
       "id": "aula307",
       "title": "Tipos, conversões e tratamento de dados",
       "subtitle": "Entradas, validação, exceções e formatação",
       "discipline": "java",
-      "sha256": "3b1c3302528af04f6a1eef8f10d148a9a7e703dec9077f819c3e7e54ebdc727f",
-      "bytes": 33691
+      "sha256": "65db069a3267c8f0534599956de5eead91f3a056ef10053735fae70b8ac44671",
+      "bytes": 35203
     },
     {
       "id": "aula308",

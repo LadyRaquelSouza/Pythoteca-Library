@@ -5,7 +5,7 @@
   "title": "Tipos, conversões e tratamento de dados",
   "subtitle": "Entradas, validação, exceções e formatação",
   "objectives": "Distinguir tipos, converter entradas, comparar textos, validar dados e tratar falhas em aplicações Java 8.",
-  "source": "Módulo autoral de fundamentos complementares Java 8, articulado aos módulos 301–306. Não representa transcrição nem conteúdo atribuído às apostilas.",
+  "source": "Módulo autoral de fundamentos complementares Java 8, articulado aos módulos 301–306. Não representa transcrição nem conteúdo atribuído às apostilas. Complementos autorais articulados à revisão visual da Aula 2 - JOptionPane.pdf em 28/11/2026, especialmente slide 3 e slide 9.",
   "chapters": [
     {
       "title": "Tipos primitivos e referências",
@@ -39,7 +39,7 @@
     },
     {
       "title": "Validação de entrada",
-      "text": "Separe cancelamento, ausência de conteúdo, formato e regras de negócio. null indica ausência de referência; isEmpty verifica comprimento zero; trim remove caracteres nas extremidades até U+0020. Uma idade negativa pode ser um inteiro válido, mas inadequado à aplicação. Use curto-circuito para evitar operações sobre null.",
+      "text": "Separe cancelamento, ausência de conteúdo, formato e regras de negócio. null indica ausência de referência; isEmpty verifica comprimento zero; trim remove caracteres nas extremidades até U+0020. Uma idade negativa pode ser um inteiro válido, mas inadequado à aplicação. Use curto-circuito para evitar operações sobre null.\n\n[INTERCÂMBIO COM PORTUGOL] Em Java, && corresponde ao e lógico, || ao ou lógico e ! à negação nao. Os operadores && e || têm curto-circuito. Em entrada != null && !entrada.trim().isEmpty(), a primeira comparação impede a chamada sobre null; inverter a ordem pode causar NullPointerException. A expressão valida presença de conteúdo, não formato numérico nem regra de negócio. A versão simples do diálogo fornece texto, ao contrário da leitura de uma variável numérica previamente declarada no Portugol. Em Java, == e != com referências String comparam identidade, não conteúdo; para conteúdo use equals.",
       "example": "if (entrada == null || entrada.trim().isEmpty()) {\n    System.out.println(\"Entrada ausente\");\n}"
     },
     {
@@ -1131,6 +1131,19 @@
       "solution": "Cancelar, \"\", \"abc\", \"-1\" e \"20\". Apenas 20 deve ser aceito neste conjunto.",
       "explanation": "Inclua caminhos de falha e sucesso.",
       "hint": "Separe interpretação, validação e uso.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Revisão opcional — Diagnóstico de diálogos",
+      "title": "Ordem das verificações",
+      "prompt": "Compare entrada != null && !entrada.trim().isEmpty() com !entrada.trim().isEmpty() && entrada != null para entrada null, vazia e \"  Ana \". Qual é segura e por quê?",
+      "hint": "&& não avalia o lado direito quando o esquerdo é falso.",
+      "solution": "A primeira é segura: false, false, true. A segunda lança NullPointerException para null e retorna false e true nos demais casos.",
+      "explanation": "A ordem de avaliação importa quando uma expressão depende da validade de outra.",
       "mode": "text",
       "starter": "",
       "expected": null,
