@@ -5,7 +5,7 @@
   "title": "Entidades associativas e transformação entre modelos",
   "subtitle": "Mapeamento ER-relacional, identificação e preservação de regras",
   "objectives": "Transformar entidades, atributos e relacionamentos em estruturas relacionais; distinguir alternativas de mapeamento; preservar identidade, cardinalidade e integridade; testar se a transformação mantém os fatos.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Figuras dos PDFs não examinadas nesta etapa. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Figuras dos demais PDFs ainda pendentes de inspeção. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. Demais PDFs ainda pendentes de revisão visual completa.",
   "chapters": [
     {
       "title": "1. Transformar não é copiar caixas",
@@ -29,7 +29,7 @@
     },
     {
       "title": "5. Relacionamentos N:M e entidade associativa",
-      "text": "CONTEÚDO DO CURSO\n\nPESSOA pode participar de muitos PROJETOS e um projeto pode receber muitas pessoas. Para representar essa relação em um banco relacional, crie PARTICIPACAO com referências aos dois participantes. Cada linha registra um vínculo específico. A data de entrada e a função desempenhada podem pertencer à associação.\n\nSe há no máximo uma participação por pessoa e projeto, a combinação (id_pessoa,id_projeto) pode ser PK. Se a mesma pessoa pode sair e retornar, o par não identifica cada período. Nesse caso, id_participacao ou outra identificação validada distingue os eventos; outras restrições podem impedir dois vínculos ativos simultâneos.\n\nUma entidade associativa no modelo conceitual pode representar um relacionamento que precisa participar de outra associação, como CONSULTA relacionada a medicamentos prescritos. No modelo lógico, uma relação associativa também resolve a representação de N:M. Esses usos são relacionados, mas não idênticos: nem todo N:M precisa ser desenhado como entidade no conceitual.",
+      "text": "CONTEÚDO DO CURSO\n\nPESSOA pode participar de muitos PROJETOS e um projeto pode receber muitas pessoas. Para representar essa relação em um banco relacional, crie PARTICIPACAO com referências aos dois participantes. Cada linha registra um vínculo específico. A data de entrada e a função desempenhada podem pertencer à associação.\n\nSe há no máximo uma participação por pessoa e projeto, a combinação (id_pessoa,id_projeto) pode ser PK. Se a mesma pessoa pode sair e retornar, o par não identifica cada período. Nesse caso, id_participacao ou outra identificação validada distingue os eventos; outras restrições podem impedir dois vínculos ativos simultâneos.\n\nUma entidade associativa no modelo conceitual pode representar um relacionamento que precisa participar de outra associação, como CONSULTA relacionada a medicamentos prescritos. No modelo lógico, uma relação associativa também resolve a representação de N:M. Esses usos são relacionados, mas não idênticos: nem todo N:M precisa ser desenhado como entidade no conceitual.\n\nCONFERÊNCIA COM A APOSTILA — Figuras 35–37, pp. 29–30: CONSULTA pode ser representada como relacionamento promovido a entidade associativa (retângulo envolvendo losango), ou como entidade ligada a exatamente um médico e um paciente. MEDICAMENTO se associa à consulta específica, não apenas às pessoas envolvidas. Para conservar consultas repetidas, mantenha a identificação temporal prevista no exemplo ou um identificador próprio com as restrições de negócio correspondentes. A equivalência das duas representações depende de preservar identidade, fatos e cardinalidades; não resulta apenas da troca de símbolos.",
       "example": "PESSOA(id,nome)\nPROJETO(id,titulo)\nPARTICIPACAO(id_pessoa,id_projeto,funcao,data_inicio)\nPK(id_pessoa,id_projeto), duas FKs obrigatórias, se o par for único."
     },
     {
@@ -48,7 +48,12 @@
       "example": "PEDIDO(id,data)\nPRODUTO(id,descricao,preco_atual)\nITEM_PEDIDO(id_pedido,numero_item,id_produto,quantidade,preco_cobrado)\nPK(id_pedido,numero_item); FKs para PEDIDO e PRODUTO; quantidade positiva."
     },
     {
-      "title": "9. Roteiro de trabalho",
+      "title": "9. Escolher entre tabela própria, referência e fusão",
+      "text": "CONTEÚDO DO CURSO — leitura da tabela 17 (p. 31) e explicação autoral.\n\nA apostila compara três alternativas: criar tabela própria para a associação, acrescentar coluna de referência a uma relação existente ou fundir relações. Sua legenda distingue V (preferida), ± (possível de primeira opção), # (possível de segunda opção) e X (não indicada). Essas marcas expressam preferências da síntese didática, não uma prova de impossibilidade matemática.\n\nPara 1:1 com ambas as participações opcionais, a apostila prefere adicionar coluna; tabela própria é alternativa. Exemplo autoral: ARMARIO(id, id_pessoa) com FK opcional e unicidade do vínculo, ou ATRIBUICAO(id_armario,id_pessoa) com duas FKs obrigatórias, uma PK e unicidade da outra. Fusão simples não é indicada porque ocorrências podem existir independentemente. Com participação obrigatória em um lado, a apostila favorece fusão em 1:1; ainda é preciso avaliar identidade, ciclo de vida e preservação das ocorrências sem vínculo. Quando ambos os lados são obrigatórios, a fusão pode ser mais natural, mas separar relações também é possível mediante restrições adequadas.\n\nPara 1:N, a preferência é referência no lado N, com nulidade conforme a participação. Uma tabela própria pode ser alternativa, desde que limite a um o número de associações por ocorrência do lado N. Para N:M, a síntese prefere tabela própria: cada vínculo é um fato, não uma lista dentro de uma célula. Os mínimos do lado referenciado e limites específicos de quantidade podem exigir validações adicionais.\n\nA escolha não deve ser feita somente pelo número de tabelas. Compare fatos preservados, chaves, restrições, atributos de vínculo, ausência de dados, histórico e necessidades de manutenção. Não confunda recomendação da apostila com exigência universal de SQL.",
+      "example": "1:1 opcional — referência única e anulável ou tabela de associação com duas referências únicas.\n1:N — FK no lado N; NOT NULL quando obrigatório.\nN:M — tabela associativa, com identificação apropriada ao fato."
+    },
+    {
+      "title": "10. Roteiro de trabalho",
       "text": "SÍNTESE AUTORAL\n\nComece pelo MER validado. Transforme entidades e atributos; mapeie associações de acordo com suas regras; examine chaves candidatas e alternativas; documente referências, nulidade e unicidade; preserve identificação dependente e restrições de especialização; analise dependências funcionais; teste estados válidos e inválidos.\n\nO resultado é um esquema lógico acompanhado de regras que orientará a implementação física. A próxima aula trata da normalização, uma forma sistemática de investigar dependências e redundâncias. A normalização não substitui o levantamento de requisitos: depende deles.",
       "example": ""
     }
@@ -330,6 +335,32 @@
       "mode": "text",
       "starter": "",
       "solution": "Não; validar no ato de publicação ou outro mecanismo apropriado.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional — Transformação",
+      "title": "Escolher uma alternativa",
+      "prompt": "Um laboratório possui sensores e cada sensor pode estar associado a no máximo um terminal; cada terminal pode ter no máximo um sensor. Ambos podem existir sem vínculo. Compare uma FK única e anulável com uma tabela de associação. O que precisa ser garantido?",
+      "hint": "Preserve as ocorrências independentes e os máximos nos dois sentidos.",
+      "solution": "FK anulável com unicidade para vínculos não nulos, ou tabela de associação com duas FKs obrigatórias, PK em uma e UNIQUE na outra. Ambas preservam 1:1 opcional; não fundir automaticamente os cadastros.",
+      "explanation": "A alternativa preferida não é a única possível; a preservação das regras determina a validade.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional — Identificação de eventos",
+      "title": "Consulta e prescrição",
+      "prompt": "Uma clínica registra consultas repetidas entre o mesmo profissional e paciente, e medicamentos por consulta. Explique por que associar medicamento apenas ao paciente não é suficiente. Proponha identificação da consulta.",
+      "hint": "Identifique o evento antes de associar seus itens.",
+      "solution": "CONSULTA com ID próprio ou combinação profissional/paciente/data/hora garantidamente única; PRESCRICAO_ITEM referencia a consulta e medicamento, com identidade conforme repetição permitida. A associação direta ao paciente perde a consulta e seu contexto.",
+      "explanation": "O vínculo precisa preservar o evento específico, não apenas seus participantes.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }

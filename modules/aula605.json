@@ -5,7 +5,7 @@
   "title": "Cardinalidade e participação",
   "subtitle": "Mínimos, máximos, relações 1:1, 1:N e N:M, convenções de leitura",
   "objectives": "Interpretar cardinalidade nos dois sentidos; distinguir mínimo e máximo; representar regras em ER e UML; diagnosticar ambiguidades e validar casos-limite.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras originais e vídeo não examinados. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras dos demais PDFs ainda pendentes de inspeção. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. Demais PDFs ainda pendentes de revisão visual completa.",
   "chapters": [
     {
       "title": "1. A pergunta certa em cada direção",
@@ -14,7 +14,7 @@
     },
     {
       "title": "2. Mínimo e máximo",
-      "text": "CONTEÚDO DO CURSO\n\nO mínimo indica a menor quantidade permitida; 0 permite ausência de vínculo, 1 exige pelo menos um. O máximo indica o maior número permitido; 1 restringe a uma ocorrência, N ou * representa muitos sem limite numérico específico no modelo.\n\n0..1 significa opcional e no máximo um; 1..1, exatamente um; 0..N, nenhum ou vários; 1..N, pelo menos um. A expressão 'pode ter vários' não informa necessariamente se pode ter nenhum. Pergunte pelo mínimo.\n\nAPROFUNDAMENTO\n\nPodem existir limites específicos, como 2..5 participantes. UML permite multiplicidades numéricas; uma notação ER didática pode exigir anotação complementar. Um limite máximo não é uma quantidade que precisa ser atingida.",
+      "text": "CONTEÚDO DO CURSO\n\nO mínimo indica a menor quantidade permitida; 0 permite ausência de vínculo, 1 exige pelo menos um. O máximo indica o maior número permitido; 1 restringe a uma ocorrência, N ou * representa muitos sem limite numérico específico no modelo.\n\n0..1 significa opcional e no máximo um; 1..1, exatamente um; 0..N, nenhum ou vários; 1..N, pelo menos um. A expressão 'pode ter vários' não informa necessariamente se pode ter nenhum. Pergunte pelo mínimo.\n\nAPROFUNDAMENTO\n\nPodem existir limites específicos, como 2..5 participantes. UML permite multiplicidades numéricas; uma notação ER didática pode exigir anotação complementar. Um limite máximo não é uma quantidade que precisa ser atingida.\n\nCONFERÊNCIA COM A APOSTILA — Figura 5, p. 18: um departamento pode reunir até 120 empregados, e um empregado pode estar lotado em no máximo um departamento. Na convenção de extremidades adotada, 120 fica junto de EMPREGADO e 1 junto de DEPARTAMENTO. A classificação 1:N abstrai esse limite específico; não o elimina da regra de negócio. A figura informa máximos, não mínimos. Uma FK para departamento pode impedir referência inexistente, mas não garante, por si só, que o total de empregados por departamento seja menor ou igual a 120. Essa restrição exige validação adicional, inclusive quando operações concorrentes podem alterar a contagem.",
       "example": "Uma equipe precisa de 2 a 5 integrantes: mínimo 2, máximo 5. Não basta dizer N."
     },
     {
@@ -344,6 +344,19 @@
       "mode": "text",
       "starter": "",
       "solution": "contagem_ativa <= 3; antes de adicionar uma ativa, contagem_ativa < 3 se não houver concorrência.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional — Limites específicos",
+      "title": "Capacidade de um setor",
+      "prompt": "Um setor admite no máximo 12 técnicos; cada técnico pertence a no máximo um setor. Escreva os máximos por direção e classifique o relacionamento. É possível concluir que todo técnico está lotado?",
+      "hint": "Separe máximo de mínimo.",
+      "solution": "SETOR→TECNICO: máximo 12; TECNICO→SETOR: máximo 1. Classificação 1:N. Não: os mínimos não foram informados.",
+      "explanation": "N abstrai o limite 12; a restrição numérica continua válida.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
