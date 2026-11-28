@@ -5,7 +5,7 @@
   "title": "Fundamentos do Word e gerenciamento de documentos",
   "subtitle": "Interface, formatos, comandos de arquivo e atalhos localizados",
   "objectives": "Reconhecer interfaces clássicas e modernas; distinguir comandos de arquivo; fixar atalhos do manual Word 2016 PT-BR; interpretar divergências sem misturar configurações.",
-  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local. Relato da estudante: comando rand apresentado pela professora em aula; lorem é complemento.",
+  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras de Fernando não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local. Relato da estudante: comando rand apresentado pela professora em aula; lorem é complemento.",
   "chapters": [
     {
       "title": "1. Word, Office e versões",
@@ -14,7 +14,7 @@
     },
     {
       "title": "2. Interface e navegação",
-      "text": "CONTEÚDO DO CURSO\n\nBarra de título identifica documento e aplicativo; barra de acesso rápido reúne comandos frequentes; faixa de opções agrupa comandos em guias e grupos. Guia Arquivo abre a área Backstage, que reúne informações, abertura, salvamento, impressão e opções. Barra de status informa propriedades do documento e do contexto de edição; régua auxilia no controle de recuos e tabulações; zoom modifica a visualização, não o tamanho impresso da fonte.\n\nNo manual 2016: Alt, depois A abre Arquivo; Alt, depois C abre Página Inicial; Alt, depois T abre Inserir; Alt, depois D abre Design. Outras guias: Layout (Alt, Q, 2), Referências (Alt, S), Correspondências (Alt, O), Revisão (Alt, V), Exibir (Alt, K). São sequências de dicas de tecla da interface descrita, não combinações universais. Pressionar Alt exibe as dicas disponíveis. Ctrl+F1 alterna a exibição da faixa.\n\nApostila clássica: menus Arquivo, Editar, Exibir, Formatar e barras Padrão/Formatação. O conceito do comando permanece; a localização muda.\n\n[CONFERÊNCIA, pp. 15–20] Diferencie guia (categoria de tarefas), grupo (comandos relacionados), comando (controle de ação ou entrada) e iniciador de caixa de diálogo (pequeno controle que oferece opções adicionais do grupo). A barra de acesso rápido é personalizável. O manual documenta Alt+Espaço para menu de controle, Alt+F5 para restaurar, Ctrl+F10 para maximizar e comandos Windows+setas para gerenciar janelas. Ctrl+Esc abre Iniciar no Windows. Não confunda comandos do sistema com os de edição do Word. A contagem de Tab/Enter das instruções depende do foco e da instalação.",
+      "text": "CONTEÚDO DO CURSO\n\nBarra de título identifica documento e aplicativo; barra de acesso rápido reúne comandos frequentes; faixa de opções agrupa comandos em guias e grupos. Guia Arquivo abre a área Backstage, que reúne informações, abertura, salvamento, impressão e opções. Barra de status informa propriedades do documento e do contexto de edição; régua auxilia no controle de recuos e tabulações; zoom modifica a visualização, não o tamanho impresso da fonte.\n\nNo manual 2016: Alt, depois A abre Arquivo; Alt, depois C abre Página Inicial; Alt, depois T abre Inserir; Alt, depois D abre Design. Outras guias: Layout (Alt, Q, 2), Referências (Alt, S), Correspondências (Alt, O), Revisão (Alt, V), Exibir (Alt, K). São sequências de dicas de tecla da interface descrita, não combinações universais. Pressionar Alt exibe as dicas disponíveis. Ctrl+F1 alterna a exibição da faixa.\n\nApostila clássica: menus Arquivo, Editar, Exibir, Formatar e barras Padrão/Formatação. O conceito do comando permanece; a localização muda.\n\n[CONFERÊNCIA, pp. 15–20] Diferencie guia (categoria de tarefas), grupo (comandos relacionados), comando (controle de ação ou entrada) e iniciador de caixa de diálogo (pequeno controle que oferece opções adicionais do grupo). A barra de acesso rápido é personalizável. O manual documenta Alt+Espaço para menu de controle, Alt+F5 para restaurar, Ctrl+F10 para maximizar e comandos Windows+setas para gerenciar janelas. Ctrl+Esc abre Iniciar no Windows. Não confunda comandos do sistema com os de edição do Word. A contagem de Tab/Enter das instruções depende do foco e da instalação.\n\n[Elias, pp. 4–14] Interface clássica: menu Arquivo, Editar, Exibir, Inserir, Formatar, Ferramentas, Tabela, Janela e Ajuda; barras Padrão, Formatação, Tabelas e Bordas e Desenho. Na interface moderna, comandos equivalentes se distribuem por guias e grupos. No manual antigo, Ctrl+F1 abre painel de tarefas, Alt+X abre Exibir; no Bradesco, Ctrl+F1 alterna a faixa de opções. Não deduza o comportamento de um atalho sem conhecer versão, idioma e contexto. F1 abre ajuda; os personagens do Assistente do Office são históricos. As dicas de ferramentas surgem ao manter o ponteiro sobre um botão.",
       "example": ""
     },
     {
@@ -29,7 +29,7 @@
     },
     {
       "title": "5. Exibição, impressão e recuperação",
-      "text": "CONTEÚDO DO CURSO\n\nLayout de impressão mostra a organização em páginas; modo de leitura prioriza conforto; layout Web adapta a apresentação à janela; estrutura de tópicos facilita trabalhar com hierarquia; rascunho simplifica a visualização. Os nomes e disponibilidade variam entre edições. Zoom não modifica margens ou tamanho real do papel.\n\nA prévia de impressão permite conferir papel, margens, orientação, páginas e escala. Ctrl+P abre a área de impressão no manual 2016. Salvar em PDF é diferente de imprimir fisicamente. Recuperação automática pode ajudar após falha, mas não garante recuperação de todo conteúdo não salvo nem substitui salvamentos e cópias. O manual apresenta recuperação de documentos não salvos; não use um arquivo importante para testar perda intencional.\n\n[CONFERÊNCIA, pp. 23–26] O manual distingue enviar cópia anexada, compartilhar link de um arquivo acessível e enviar PDF/XPS. Anexos são cópias independentes; links dependem de permissões e disponibilidade. PDF não garante impossibilidade de edição. A integração por Outlook e fax descrita é histórica e depende de configuração. Ctrl+Enter para enviar e F9 para atualizar são comandos no contexto do Outlook citado, não atalhos de edição Word. Ctrl+P abre opções de impressão, nas quais se podem selecionar páginas e cópias.\n\n[RESSALVA DE SEGURANÇA, p. 24] A apostila orienta desativar globalmente o Modo de Exibição Protegido. Não siga essa recomendação como prática padrão: mantenha a proteção e só habilite edição de arquivo específico quando a origem e o conteúdo forem confiáveis. Habilitar edição não implica habilitar macros. A recuperação automática não garante que todo arquivo descartado possa ser recuperado.",
+      "text": "CONTEÚDO DO CURSO\n\nLayout de impressão mostra a organização em páginas; modo de leitura prioriza conforto; layout Web adapta a apresentação à janela; estrutura de tópicos facilita trabalhar com hierarquia; rascunho simplifica a visualização. Os nomes e disponibilidade variam entre edições. Zoom não modifica margens ou tamanho real do papel.\n\nA prévia de impressão permite conferir papel, margens, orientação, páginas e escala. Ctrl+P abre a área de impressão no manual 2016. Salvar em PDF é diferente de imprimir fisicamente. Recuperação automática pode ajudar após falha, mas não garante recuperação de todo conteúdo não salvo nem substitui salvamentos e cópias. O manual apresenta recuperação de documentos não salvos; não use um arquivo importante para testar perda intencional.\n\n[CONFERÊNCIA, pp. 23–26] O manual distingue enviar cópia anexada, compartilhar link de um arquivo acessível e enviar PDF/XPS. Anexos são cópias independentes; links dependem de permissões e disponibilidade. PDF não garante impossibilidade de edição. A integração por Outlook e fax descrita é histórica e depende de configuração. Ctrl+Enter para enviar e F9 para atualizar são comandos no contexto do Outlook citado, não atalhos de edição Word. Ctrl+P abre opções de impressão, nas quais se podem selecionar páginas e cópias.\n\n[RESSALVA DE SEGURANÇA, p. 24] A apostila orienta desativar globalmente o Modo de Exibição Protegido. Não siga essa recomendação como prática padrão: mantenha a proteção e só habilite edição de arquivo específico quando a origem e o conteúdo forem confiáveis. Habilitar edição não implica habilitar macros. A recuperação automática não garante que todo arquivo descartado possa ser recuperado.\n\n[Elias, pp. 6–9, 26–30, 35, 50] Modos Normal, Web, Impressão, Estrutura de Tópicos e Leitura têm objetivos diferentes; no modo Leitura, quebras visuais podem não coincidir com as impressas. Dividir a janela permite visualizar dois trechos do mesmo arquivo, não cria outra cópia. Na barra de status clássica, GRA indicava gravação de macro, ALT alterações controladas, EST seleção estendida e SE modo sobrescrever. Os indicadores modernos variam. Mostrar/Ocultar (¶) revela marcas como espaços, tabulações e fins de parágrafo, sem inserir esses símbolos no texto. AutoRecuperação registra informações em intervalos configuráveis, mas não substitui salvar. INTERCÂMBIO com SO: rolagem modifica a região visível; mover o ponto de inserção modifica a posição de edição.",
       "example": ""
     },
     {
@@ -386,6 +386,32 @@
       "solution": "=rand(4,3), seguido de Enter em um parágrafo vazio.",
       "expected": null,
       "required": true
+    },
+    {
+      "id": "23",
+      "group": "Essenciais — revisão Elias",
+      "title": "Interface clássica",
+      "prompt": "Associe as barras Padrão, Formatação e Desenho aos seus objetivos e explique a divergência de Ctrl+F1 entre Elias e Bradesco.",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Conhecer a organização por versão evita memorizar equivalências incorretas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Padrão: ações comuns; Formatação: aparência e parágrafo; Desenho: objetos gráficos. Elias: painel de tarefas; Bradesco: faixa de opções.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional — aplicação",
+      "title": "Janela dividida",
+      "prompt": "Dividir a janela em dois painéis cria dois documentos independentes?",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Distinguir visualização e arquivo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, ambos mostram partes do mesmo documento.",
+      "expected": null,
+      "required": false
     }
   ]
 }

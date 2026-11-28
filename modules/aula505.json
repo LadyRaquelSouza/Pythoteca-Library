@@ -5,7 +5,7 @@
   "title": "Correspondências, proteção e gerenciamento documental",
   "subtitle": "Mala direta, cartas, impressão, exportação e revisão cumulativa",
   "objectives": "Compreender mala direta e seus componentes; reconhecer proteção e limites; preparar distribuição e impressão; consolidar atalhos e terminologia das fontes.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras de Fernando não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Cartas e correspondências",
@@ -19,17 +19,17 @@
     },
     {
       "title": "3. Envelopes, etiquetas e impressão",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nEnvelope contém endereço de destinatário e, quando apropriado, remetente. Etiquetas repetem layout em regiões de folha, podendo usar mala direta. Confirme tamanho físico, orientação de alimentação e margens da impressora. A apostila Fernando lista esses recursos na guia Correspondências, sem procedimento completo recuperado nesta etapa.\n\nCtrl+P abre impressão no manual 2016. A prévia permite verificar páginas, orientação, tamanho de papel, intervalos, cópias, frente e verso quando suportado. Zoom de edição não determina escala de impressão. Imprimir páginas 2–4 é diferente de imprimir três cópias do documento inteiro. Exportar para PDF permite revisar o resultado sem consumir papel.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nEnvelope contém endereço de destinatário e, quando apropriado, remetente. Etiquetas repetem layout em regiões de folha, podendo usar mala direta. Confirme tamanho físico, orientação de alimentação e margens da impressora. A apostila Fernando lista esses recursos na guia Correspondências, sem procedimento completo recuperado nesta etapa.\n\nCtrl+P abre impressão no manual 2016. A prévia permite verificar páginas, orientação, tamanho de papel, intervalos, cópias, frente e verso quando suportado. Zoom de edição não determina escala de impressão. Imprimir páginas 2–4 é diferente de imprimir três cópias do documento inteiro. Exportar para PDF permite revisar o resultado sem consumir papel.\n\n[Elias, pp. 52–53] Impressão rápida usa configurações atuais sem abrir o diálogo completo. Agrupar imprime conjuntos completos (1,2,3; 1,2,3); sem agrupamento imprime páginas repetidas (1,1; 2,2; 3,3). O manual clássico indica 3;6 para páginas descontínuas e 5-8 para intervalo contínuo. O separador aceito pode variar com versão/localização; confira a indicação do próprio diálogo antes de imprimir.",
       "example": ""
     },
     {
       "title": "4. Proteção e segurança",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nRestringir edição limita alterações permitidas, mas não equivale necessariamente a criptografar conteúdo. Senha de abertura com criptografia protege acesso ao arquivo quando corretamente aplicada; senha para modificação ou restrição de edição possui finalidade diferente. Marcar como final é um aviso de estado, não garantia forte de segurança. A apostila antiga aborda proteção; opções exatas variam entre versões.\n\nNão habilite macros ou conteúdo ativo de origem desconhecida. Antes de distribuir um documento, examine comentários, alterações, propriedades e informações ocultas. Uma cópia pode ser preparada para distribuição sem remover dados do original de trabalho. Senhas esquecidas podem impedir recuperação; mantenha controle seguro das credenciais.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nRestringir edição limita alterações permitidas, mas não equivale necessariamente a criptografar conteúdo. Senha de abertura com criptografia protege acesso ao arquivo quando corretamente aplicada; senha para modificação ou restrição de edição possui finalidade diferente. Marcar como final é um aviso de estado, não garantia forte de segurança. A apostila antiga aborda proteção; opções exatas variam entre versões.\n\nNão habilite macros ou conteúdo ativo de origem desconhecida. Antes de distribuir um documento, examine comentários, alterações, propriedades e informações ocultas. Uma cópia pode ser preparada para distribuição sem remover dados do original de trabalho. Senhas esquecidas podem impedir recuperação; mantenha controle seguro das credenciais.\n\n[Elias, pp. 50–52] O caminho clássico Salvar Como > Ferramentas > Opções de Segurança distingue senha de abertura e de modificação. Somente leitura recomendada é aviso, não proteção forte. O limite de 15 caracteres citado é histórico e não deve ser aplicado a versões modernas. COMPLEMENTO DE SEGURANÇA: prefira senhas longas e únicas, armazenadas em gerenciador seguro; formatos antigos podem usar proteção fraca.",
       "example": ""
     },
     {
       "title": "5. Exportar, compatibilidade e versões",
-      "text": "COMPLEMENTO PROFISSIONAL\n\nSalvar em DOCX conserva estrutura editável; exportar PDF gera arquivo para leitura e distribuição. Compare a paginação, fontes, tabelas, links e campos no resultado. PDF não é garantia automática de impossibilidade de edição nem de acessibilidade. Ao usar outro formato, confirme compatibilidade antes de substituir original.\n\nOrganize versões com nomes significativos ou controle de histórico. Diferencie cópia de segurança de sincronização: uma exclusão sincronizada pode propagar-se. Não confie exclusivamente em recuperação automática. O manual apresenta envio por email com Outlook; a disponibilidade depende de configuração, aplicativo e conta. Um comando de envio de email não é atalho universal do Word.",
+      "text": "COMPLEMENTO PROFISSIONAL\n\nSalvar em DOCX conserva estrutura editável; exportar PDF gera arquivo para leitura e distribuição. Compare a paginação, fontes, tabelas, links e campos no resultado. PDF não é garantia automática de impossibilidade de edição nem de acessibilidade. Ao usar outro formato, confirme compatibilidade antes de substituir original.\n\nOrganize versões com nomes significativos ou controle de histórico. Diferencie cópia de segurança de sincronização: uma exclusão sincronizada pode propagar-se. Não confie exclusivamente em recuperação automática. O manual apresenta envio por email com Outlook; a disponibilidade depende de configuração, aplicativo e conta. Um comando de envio de email não é atalho universal do Word.\n\n[Elias, p. 50] Configurar AutoRecuperação em intervalos menores pode reduzir perda de alterações em falhas, mas não garante recuperar toda edição. Diferencie AutoRecuperação local, AutoSave quando disponível e salvamento explícito.",
       "example": ""
     },
     {
@@ -348,6 +348,32 @@
       "mode": "text",
       "starter": "",
       "solution": "=rand(4,3) e Enter; aplicar estilo, borda e margens pelos grupos correspondentes; Ctrl+J, Ctrl+5, Ctrl+L, Ctrl+U, Ctrl+B no padrão Bradesco. Conferir o resultado.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Essenciais — revisão Elias",
+      "title": "Agrupar impressão",
+      "prompt": "Escreva a ordem de páginas para duas cópias de um documento de três páginas, agrupadas e não agrupadas.",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Agrupar define sequência de saída, não número de cópias.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Agrupadas: 1,2,3,1,2,3. Não agrupadas: 1,1,2,2,3,3.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional — aplicação",
+      "title": "Segurança histórica",
+      "prompt": "O manual antigo informa limite de 15 caracteres. Isso deve ser tratado como limite universal do Word atual? A opção somente leitura recomendada protege confidencialidade?",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Proteção de acesso e restrição de edição são distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não para ambas. O limite depende da versão/formato; somente leitura recomendada é aviso.",
       "expected": null,
       "required": false
     }

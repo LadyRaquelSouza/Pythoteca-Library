@@ -5,7 +5,7 @@
   "title": "Estilos, listas, tabelas e elementos visuais",
   "subtitle": "Estrutura documental, temas, objetos e formatação consistente",
   "objectives": "Distinguir estilos e formatação direta; reconhecer listas e tabelas estruturadas; identificar recursos de Inserir e Design; retomar atalhos de formatação.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras de Fernando não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Estilos e formatação direta",
@@ -24,12 +24,12 @@
     },
     {
       "title": "4. Tabelas",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nUma tabela organiza informações em linhas, colunas e células. Inserir tabela é diferente de alinhar texto com espaços ou tabulações. Mesclar células une regiões; dividir células separa uma região; inserir ou excluir linha altera a estrutura. Bordas podem ser invisíveis mesmo quando a tabela existe; linhas de grade auxiliares podem aparecer apenas na tela.\n\nAjuste largura, altura, alinhamento e repetição de cabeçalho quando apropriado. Uma tabela para dados deve ter cabeçalhos claros e evitar mesclagens desnecessárias que dificultem leitura. Tabelas do Word podem ter fórmulas simples, mas não substituem uma planilha para cálculos extensos.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nUma tabela organiza informações em linhas, colunas e células. Inserir tabela é diferente de alinhar texto com espaços ou tabulações. Mesclar células une regiões; dividir células separa uma região; inserir ou excluir linha altera a estrutura. Bordas podem ser invisíveis mesmo quando a tabela existe; linhas de grade auxiliares podem aparecer apenas na tela.\n\nAjuste largura, altura, alinhamento e repetição de cabeçalho quando apropriado. Uma tabela para dados deve ter cabeçalhos claros e evitar mesclagens desnecessárias que dificultem leitura. Tabelas do Word podem ter fórmulas simples, mas não substituem uma planilha para cálculos extensos.\n\n[Elias, pp. 14–17] Na interface clássica, Tabela > Inserir > Tabela e a barra Tabelas e Bordas permitem desenhar células, alterar bordas e sombreamento, mesclar/dividir e usar apagador. Apagar divisões internas pode modificar a estrutura das células; ocultar a borda é operação diferente. Distribuir linhas uniformemente iguala alturas; distribuir colunas iguala larguras. Alinhamento vertical superior/central/inferior e direção do texto atuam dentro de células. Autoformatação oferece modelos predefinidos; AutoSoma calcula valores (complemento moderno: fórmulas como =SUM(ABOVE) podem exigir atualização). Ao classificar uma tabela, preserve cabeçalho e relação entre células da mesma linha. INTERCÂMBIO: linhas de tabela podem representar registros e colunas atributos, mas tabela Word não é um banco relacional.",
       "example": ""
     },
     {
       "title": "5. Imagens, formas e gráficos",
-      "text": "CONTEÚDO DO CURSO — Fernando, guia Inserir; complemento técnico\n\nImagens ilustram conteúdo; formas representam elementos gráficos; SmartArt organiza relações e processos; gráficos representam dados; WordArt aplica efeitos decorativos a texto. Caixa de texto permite posicionar conteúdo em objeto próprio. Não use um gráfico decorativo quando uma tabela comunicar melhor o fato.\n\nUma imagem alinhada com o texto comporta-se como elemento na linha; outras opções de disposição permitem que o texto contorne o objeto. Âncora vincula um objeto flutuante a um parágrafo. Recortar modifica a região exibida, enquanto redimensionar altera dimensões. Preserve proporções quando necessário. Texto alternativo descreve informação relevante para acessibilidade.",
+      "text": "CONTEÚDO DO CURSO — Fernando, guia Inserir; complemento técnico\n\nImagens ilustram conteúdo; formas representam elementos gráficos; SmartArt organiza relações e processos; gráficos representam dados; WordArt aplica efeitos decorativos a texto. Caixa de texto permite posicionar conteúdo em objeto próprio. Não use um gráfico decorativo quando uma tabela comunicar melhor o fato.\n\nUma imagem alinhada com o texto comporta-se como elemento na linha; outras opções de disposição permitem que o texto contorne o objeto. Âncora vincula um objeto flutuante a um parágrafo. Recortar modifica a região exibida, enquanto redimensionar altera dimensões. Preserve proporções quando necessário. Texto alternativo descreve informação relevante para acessibilidade.\n\n[Elias, pp. 17–21] A barra Desenho clássica reúne AutoFormas, linhas, setas, retângulos, elipses, caixas de texto, diagramas, organogramas, ClipArt e WordArt. Agrupar trata vários objetos como conjunto; ordenar altera a sobreposição; girar altera ângulo; inverter espelha; distribuir ajusta espaçamento entre objetos. WordArt clássico usa galeria, edição de texto, preenchimento, contorno, forma, espaçamento e disposição do texto. A faixa moderna oferece comandos semelhantes, com nomes e galerias variáveis. INTERCÂMBIO com Arquitetura: imagens bitmap representam pixels; formas vetoriais descrevem geometria, sem implicar que todos os objetos WordArt sejam armazenados do mesmo modo.",
       "example": ""
     },
     {
@@ -296,6 +296,45 @@
       "mode": "text",
       "starter": "",
       "solution": "Alt C GM; Alt C DN; Alt C SS; Alt C FB; Alt D B.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Essenciais — revisão Elias",
+      "title": "Distribuição e células",
+      "prompt": "Como igualar larguras de colunas sem mesclar células? E como centralizar texto verticalmente?",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Não confundir dimensão da célula com alinhamento de seu conteúdo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Distribuir colunas uniformemente; alinhamento vertical central.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional — aplicação",
+      "title": "Objetos gráficos",
+      "prompt": "Diferencie agrupar, ordenar, girar e inverter.",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Escolher a operação pela mudança desejada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Agrupar reúne; ordenar muda sobreposição; girar muda ângulo; inverter espelha.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional — aplicação",
+      "title": "Classificação tabular",
+      "prompt": "Uma tabela possui nome e preço. Por que ordenar somente os nomes separadamente dos preços é perigoso?",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Intercâmbio com Modelagem de Dados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Pode associar preços aos itens errados; preservar linhas como registros.",
       "expected": null,
       "required": false
     }

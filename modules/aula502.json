@@ -5,37 +5,47 @@
   "title": "Edição, formatação e configuração de páginas",
   "subtitle": "Seleção, revisão de atalhos, fontes, parágrafos e layout",
   "objectives": "Fixar comandos de edição e formatação do Word 2016 PT-BR; distinguir propriedades de caractere, parágrafo e página; identificar erros e diferenças entre fontes.",
-  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. As demais apostilas ainda aguardam aprofundamento visual. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras de Fernando não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Navegar, selecionar e apagar",
-      "text": "REVISÃO ACADÊMICA — MANUAL 2016 PT-BR\n\nSetas movem cursor; Ctrl+setas esquerda/direita desloca por palavras; Home/End deslocam ao início/fim da linha; Ctrl+Home/End ao início/fim do documento. Shift acrescentado a movimentos compatíveis estende a seleção: Shift+End até o fim da linha, Ctrl+Shift+Home até início do documento, Ctrl+Shift+seta seleciona por palavras. Ctrl+T seleciona todo o documento no padrão do manual.\n\nBackspace apaga à esquerda; Delete à direita. Ctrl+Backspace apaga por palavra à esquerda, Ctrl+Delete à direita. Com texto selecionado, apagar ou digitar substitui a seleção. Ctrl+T não é o mesmo que Ctrl+A nesse padrão localizado.\n\n[Bradesco, pp. 32–33] Page Up e Page Down deslocam aproximadamente uma tela; a quantidade de linhas depende da janela, do zoom e do layout. Shift+Home seleciona até o início da linha; Shift+setas estende a seleção na direção correspondente.",
+      "text": "REVISÃO ACADÊMICA — MANUAL 2016 PT-BR\n\nSetas movem cursor; Ctrl+setas esquerda/direita desloca por palavras; Home/End deslocam ao início/fim da linha; Ctrl+Home/End ao início/fim do documento. Shift acrescentado a movimentos compatíveis estende a seleção: Shift+End até o fim da linha, Ctrl+Shift+Home até início do documento, Ctrl+Shift+seta seleciona por palavras. Ctrl+T seleciona todo o documento no padrão do manual.\n\nBackspace apaga à esquerda; Delete à direita. Ctrl+Backspace apaga por palavra à esquerda, Ctrl+Delete à direita. Com texto selecionado, apagar ou digitar substitui a seleção. Ctrl+T não é o mesmo que Ctrl+A nesse padrão localizado.\n\n[Bradesco, pp. 32–33] Page Up e Page Down deslocam aproximadamente uma tela; a quantidade de linhas depende da janela, do zoom e do layout. Shift+Home seleciona até o início da linha; Shift+setas estende a seleção na direção correspondente.\n\n[Elias, pp. 35–37] Ctrl+setas verticais navega por parágrafos; Shift+Page Up/Down estende seleção por tela. Ctrl+Shift+setas verticais seleciona por parágrafos, embora Elias descreva linhas. No mouse, duplo clique seleciona palavra; triplo clique no texto seleciona parágrafo; Ctrl+clique pode selecionar sentença; na margem esquerda, clique seleciona linha, duplo clique parágrafo e triplo clique documento, conforme interface clássica. Digitar sobre seleção normalmente a substitui.",
       "example": ""
     },
     {
       "title": "2. Área de transferência e edição",
-      "text": "CONTEÚDO DO CURSO\n\nCtrl+X recorta, Ctrl+C copia e Ctrl+V cola. Recortar remove o trecho selecionado e o coloca na área de transferência; copiar mantém o original; colar insere conteúdo no destino. Ctrl+Z desfaz; Ctrl+R refaz segundo o manual 2016 PT-BR. Em Word internacional, Ctrl+Y normalmente refaz/repite e Ctrl+R alinha à direita. Não confunda os padrões.\n\nCtrl+L localiza; Ctrl+U substitui segundo Fundação Bradesco, aula 8. Substituir todas as ocorrências exige verificar o contexto: alterar uma sequência curta pode modificar palavras não pretendidas. Use a prévia ou substituição individual quando necessário. A apostila também cita Ctrl+Alt+G para ir a um ponto específico; a p. 71 esclarece o caminho indireto: Ctrl+U seguido de Alt+P para acessar Ir para.\n\n[CONFERÊNCIA, pp. 27–28] A p. 27 indica Alt+X como atalho para recortar, mas a p. 28 confirma Ctrl+X; adote Ctrl+X para recortar. Alt+X não é equivalente: no Word pode converter código hexadecimal Unicode e caractere. Ctrl+End vai ao fim do documento, não necessariamente ao fim do parágrafo atual, como sugere uma passagem. Selecionar com Shift+End abrange até o fim da linha, que pode não corresponder a uma frase inteira.\n\n[Bradesco, pp. 69–71] Ir para permite navegar por página, seção ou linha. Página Inicial > Edição > Selecionar permite selecionar objetos ou texto com formatação semelhante. A capitalização da substituição pode depender das opções de pesquisa; não suponha que sempre será preservada. Confira ocorrências e resultados.",
+      "text": "CONTEÚDO DO CURSO\n\nCtrl+X recorta, Ctrl+C copia e Ctrl+V cola. Recortar remove o trecho selecionado e o coloca na área de transferência; copiar mantém o original; colar insere conteúdo no destino. Ctrl+Z desfaz; Ctrl+R refaz segundo o manual 2016 PT-BR. Em Word internacional, Ctrl+Y normalmente refaz/repite e Ctrl+R alinha à direita. Não confunda os padrões.\n\nCtrl+L localiza; Ctrl+U substitui segundo Fundação Bradesco, aula 8. Substituir todas as ocorrências exige verificar o contexto: alterar uma sequência curta pode modificar palavras não pretendidas. Use a prévia ou substituição individual quando necessário. A apostila também cita Ctrl+Alt+G para ir a um ponto específico; a p. 71 esclarece o caminho indireto: Ctrl+U seguido de Alt+P para acessar Ir para.\n\n[CONFERÊNCIA, pp. 27–28] A p. 27 indica Alt+X como atalho para recortar, mas a p. 28 confirma Ctrl+X; adote Ctrl+X para recortar. Alt+X não é equivalente: no Word pode converter código hexadecimal Unicode e caractere. Ctrl+End vai ao fim do documento, não necessariamente ao fim do parágrafo atual, como sugere uma passagem. Selecionar com Shift+End abrange até o fim da linha, que pode não corresponder a uma frase inteira.\n\n[Bradesco, pp. 69–71] Ir para permite navegar por página, seção ou linha. Página Inicial > Edição > Selecionar permite selecionar objetos ou texto com formatação semelhante. A capitalização da substituição pode depender das opções de pesquisa; não suponha que sempre será preservada. Confira ocorrências e resultados.\n\n[Elias, pp. 37–39] Arrastar texto selecionado pode movê-lo; Ctrl durante o arraste pode copiar, conforme configuração. A afirmação de um único item na área de transferência descreve o modelo simples histórico. O histórico do Windows 11 e a área de transferência do Office podem armazenar múltiplos itens. INTERCÂMBIO: distinguir memória temporária, histórico e armazenamento persistente (SO).",
       "example": ""
     },
     {
       "title": "3. Caracteres e efeitos",
-      "text": "CONTEÚDO DO CURSO — MANUAL 2016 PT-BR\n\nCtrl+N negrito; Ctrl+I itálico; Ctrl+S sublinhado. Ctrl+D abre diálogo Fonte; Ctrl+Shift+F permite acessar configuração de fonte conforme contexto. Ctrl+Shift+W sublinha palavras sem espaços; Ctrl+Shift+D aplica sublinhado duplo; Ctrl+= subscrito; Ctrl+Shift++ sobrescrito; Shift+F3 alterna capitalização; Ctrl+Shift+A aplica efeito de maiúsculas. Ctrl+Espaço remove formatação direta de caracteres, retornando à definida pelo estilo; não redefine automaticamente margens ou parágrafos.\n\nCtrl+Shift+> e Ctrl+Shift+< aumentam/reduzem o tamanho pelos incrementos disponíveis, não necessariamente sempre dois pontos como afirma o manual. Tachado, versalete e outros efeitos podem ser selecionados no diálogo Fonte. Fonte, tamanho, cor e efeitos são propriedades de caracteres. Negrito não é sinônimo de cor preta.\n\nDIVERGÊNCIA: a apostila clássica de Elias indica Ctrl+F para abrir Fonte; o manual 2016 indica Ctrl+D. A causa precisa da diferença não foi confirmada. Use a referência explicitada na questão.\n\n[Bradesco, pp. 34–38] Ctrl+] aumenta a fonte em um ponto; Ctrl+[ diminui em um ponto. Tachado duplo usa duas linhas; versalete exibe minúsculas em forma de maiúsculas reduzidas. Realce, cor da fonte e sombreamento não são a mesma propriedade. Tamanho padrão depende do modelo. Fonte branca e fontes de símbolos não protegem informação confidencial. Ctrl+T seleciona texto, não altera permanentemente o fundo. Contraste deve atender às necessidades de leitura.",
+      "text": "CONTEÚDO DO CURSO — MANUAL 2016 PT-BR\n\nCtrl+N negrito; Ctrl+I itálico; Ctrl+S sublinhado. Ctrl+D abre diálogo Fonte; Ctrl+Shift+F permite acessar configuração de fonte conforme contexto. Ctrl+Shift+W sublinha palavras sem espaços; Ctrl+Shift+D aplica sublinhado duplo; Ctrl+= subscrito; Ctrl+Shift++ sobrescrito; Shift+F3 alterna capitalização; Ctrl+Shift+A aplica efeito de maiúsculas. Ctrl+Espaço remove formatação direta de caracteres, retornando à definida pelo estilo; não redefine automaticamente margens ou parágrafos.\n\nCtrl+Shift+> e Ctrl+Shift+< aumentam/reduzem o tamanho pelos incrementos disponíveis, não necessariamente sempre dois pontos como afirma o manual. Tachado, versalete e outros efeitos podem ser selecionados no diálogo Fonte. Fonte, tamanho, cor e efeitos são propriedades de caracteres. Negrito não é sinônimo de cor preta.\n\nDIVERGÊNCIA: a apostila clássica de Elias indica Ctrl+F para abrir Fonte; o manual 2016 indica Ctrl+D. A causa precisa da diferença não foi confirmada. Use a referência explicitada na questão.\n\n[Bradesco, pp. 34–38] Ctrl+] aumenta a fonte em um ponto; Ctrl+[ diminui em um ponto. Tachado duplo usa duas linhas; versalete exibe minúsculas em forma de maiúsculas reduzidas. Realce, cor da fonte e sombreamento não são a mesma propriedade. Tamanho padrão depende do modelo. Fonte branca e fontes de símbolos não protegem informação confidencial. Ctrl+T seleciona texto, não altera permanentemente o fundo. Contraste deve atender às necessidades de leitura.\n\n[Elias, pp. 39–43] O diálogo Fonte da interface clássica inclui efeitos como sombra, contorno, relevo, baixo-relevo e oculto; animações de texto são históricas. Texto oculto permanece no arquivo, e a exibição e impressão dependem de opções. Não serve para proteger segredos. Ctrl+F é a indicação de Elias para Fonte, enquanto Bradesco usa Ctrl+D; não generalize a divergência.",
       "example": ""
     },
     {
       "title": "4. Parágrafos, alinhamento e espaçamento",
-      "text": "CONTEÚDO DO CURSO\n\nAlinhamento atua sobre parágrafos: à esquerda, centralizado, à direita ou justificado. No manual 2016: Ctrl+E centraliza, Ctrl+G alinha à direita, Ctrl+J justifica. A posição do cursor dentro do parágrafo permite aplicar propriedades ao parágrafo; não é preciso selecionar cada letra. Recuos deslocam limites do texto relativamente às margens; primeira linha e deslocamento francês são configurações específicas.\n\nCtrl+1: espaçamento simples; Ctrl+2: duplo; Ctrl+5: 1,5 linha. O manual chama 1,5 de centímetros em uma passagem: tecnicamente são múltiplos da altura de linha, não uma medida fixa em centímetros. Espaço antes/depois do parágrafo é outra propriedade. Enter cria parágrafo; Shift+Enter insere quebra de linha manual dentro do parágrafo (complemento). A quebra automática ocorre pela largura disponível.\n\nTabulação organiza posições horizontais mediante marcas de tabulação, não uma quantidade fixa de espaços. A régua pode exibir marcas de recuo e tabulação. Não use várias barras de espaço para simular alinhamento.\n\n[Bradesco, pp. 39–43] Ctrl+Q alinha à esquerda no padrão localizado. Alt, C, P, A abre o diálogo Parágrafo na interface documentada; recuo de primeira linha em centímetros não equivale a espaçamento entre linhas. O espaçamento padrão depende do modelo.",
+      "text": "CONTEÚDO DO CURSO\n\nAlinhamento atua sobre parágrafos: à esquerda, centralizado, à direita ou justificado. No manual 2016: Ctrl+E centraliza, Ctrl+G alinha à direita, Ctrl+J justifica. A posição do cursor dentro do parágrafo permite aplicar propriedades ao parágrafo; não é preciso selecionar cada letra. Recuos deslocam limites do texto relativamente às margens; primeira linha e deslocamento francês são configurações específicas.\n\nCtrl+1: espaçamento simples; Ctrl+2: duplo; Ctrl+5: 1,5 linha. O manual chama 1,5 de centímetros em uma passagem: tecnicamente são múltiplos da altura de linha, não uma medida fixa em centímetros. Espaço antes/depois do parágrafo é outra propriedade. Enter cria parágrafo; Shift+Enter insere quebra de linha manual dentro do parágrafo (complemento). A quebra automática ocorre pela largura disponível.\n\nTabulação organiza posições horizontais mediante marcas de tabulação, não uma quantidade fixa de espaços. A régua pode exibir marcas de recuo e tabulação. Não use várias barras de espaço para simular alinhamento.\n\n[Bradesco, pp. 39–43] Ctrl+Q alinha à esquerda no padrão localizado. Alt, C, P, A abre o diálogo Parágrafo na interface documentada; recuo de primeira linha em centímetros não equivale a espaçamento entre linhas. O espaçamento padrão depende do modelo.\n\n[Elias, pp. 24–25, 47–48] Recuo negativo desloca texto em direção à margem externa; recuo deslocado mantém a primeira linha mais à esquerda que as seguintes. Espaçamento antes/depois atua entre parágrafos. Entre linhas: simples, 1,5, duplo, Pelo menos (mínimo adaptável), Exatamente (fixo em pontos, podendo cortar elementos altos) e Múltiplos (fator como 1,2). Alinhamento vertical na página é distinto do alinhamento horizontal de parágrafos.",
       "example": ""
     },
     {
       "title": "5. Margens, papel e estrutura",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nMargem é distância entre limite da página e área de texto; recuo é relativo à área de texto do parágrafo. Orientação retrato ou paisagem modifica disposição; tamanho do papel define dimensões. No Word 2016, Layout reúne configuração de página; versões antigas usam opções em Arquivo/Configurar página.\n\nQuebra de página inicia nova página sem preencher o restante com parágrafos vazios; Ctrl+Enter é o atalho desktop usual (complemento). Quebra de seção permite configurações diferentes de margens, orientação, colunas, cabeçalhos e numeração entre partes. Cabeçalho e rodapé pertencem à região de página; número de página deve preferencialmente usar campo automático. Alterar o layout de uma seção pode depender de vínculos entre cabeçalhos e rodapés.\n\nA fonte Fernando lista esses recursos na interface de faixa e no sumário. As figuras e procedimentos das páginas com extração indisponível não foram examinados; as distinções técnicas adicionais são complementares.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nMargem é distância entre limite da página e área de texto; recuo é relativo à área de texto do parágrafo. Orientação retrato ou paisagem modifica disposição; tamanho do papel define dimensões. No Word 2016, Layout reúne configuração de página; versões antigas usam opções em Arquivo/Configurar página.\n\nQuebra de página inicia nova página sem preencher o restante com parágrafos vazios; Ctrl+Enter é o atalho desktop usual (complemento). Quebra de seção permite configurações diferentes de margens, orientação, colunas, cabeçalhos e numeração entre partes. Cabeçalho e rodapé pertencem à região de página; número de página deve preferencialmente usar campo automático. Alterar o layout de uma seção pode depender de vínculos entre cabeçalhos e rodapés.\n\nA fonte Fernando lista esses recursos na interface de faixa e no sumário. As figuras e procedimentos das páginas com extração indisponível não foram examinados; as distinções técnicas adicionais são complementares.\n\n[Elias, pp. 30–31] Medianiz acrescenta espaço para encadernação. Configurar Página no menu Arquivo clássico reúne Margens, Papel e Layout; na faixa moderna, procure Layout. A abrangência da configuração pode ser documento ou seção; cabeçalho e rodapé têm distâncias próprias da borda do papel.",
       "example": ""
     },
     {
       "title": "6. Copiar formato e revisar sem confundir efeitos",
-      "text": "CONTEÚDO DO CURSO\n\nO manual 2016 apresenta Ctrl+Shift+C para copiar formatação e Ctrl+Shift+V para aplicá-la. Isso é diferente de copiar conteúdo com Ctrl+C/Ctrl+V. Em edições mais recentes, atalhos de colagem podem ter sido alterados; não generalize o comportamento sem verificar configuração. Pincel de formatação também transfere propriedades visuais.\n\nUma seleção com aparência igual pode esconder estilos diferentes. A próxima aula distinguirá estilos e formatação direta. Para revisão, fixe primeiro os comandos de arquivo, seleção, fonte, alinhamento e espaçamento, pois são os grupos com maior interferência entre aplicativos. Não é necessário realizar práticas repetitivas de digitação.",
+      "text": "CONTEÚDO DO CURSO\n\nO manual 2016 apresenta Ctrl+Shift+C para copiar formatação e Ctrl+Shift+V para aplicá-la. Isso é diferente de copiar conteúdo com Ctrl+C/Ctrl+V. Em edições mais recentes, atalhos de colagem podem ter sido alterados; não generalize o comportamento sem verificar configuração. Pincel de formatação também transfere propriedades visuais.\n\nUma seleção com aparência igual pode esconder estilos diferentes. A próxima aula distinguirá estilos e formatação direta. Para revisão, fixe primeiro os comandos de arquivo, seleção, fonte, alinhamento e espaçamento, pois são os grupos com maior interferência entre aplicativos. Não é necessário realizar práticas repetitivas de digitação.\n\n[Elias, p. 10] Um clique no Pincel de Formatação aplica o formato uma vez; dois cliques mantêm a ferramenta ativa para várias aplicações até desativá-la. Não confunda copiar aparência com copiar conteúdo.",
       "example": ""
+    },
+    {
+      "title": "7. Régua e tabulações",
+      "text": "CONTEÚDO DO CURSO — Elias, pp. 21–23\n\nTab insere um caractere de tabulação que avança conforme as paradas do parágrafo. A régua permite definir posições e tipos: esquerda (texto começa na marca), direita (termina na marca), centralizada (centro na marca), decimal (alinha o separador decimal) e barra (traça uma linha vertical; não desloca o texto como uma parada comum). O preenchimento pode produzir pontilhados ou traços antes da parada. Na interface clássica, Formatar > Tabulação permite definir posição, alinhamento e preenchimento, remover uma parada ou limpar todas; na moderna, consulte o diálogo Parágrafo > Tabulações. O espaçamento padrão é configurável, não uma constante universal. Recuos da régua não são paradas de tabulação. Para alinhamento de preços, use tabulação decimal; para dados estruturados, considere tabela.",
+      "example": "Item [Tab] Valor\nMouse [Tab] 9,90\nMonitor [Tab] 125,50\nConfigurar parada decimal para alinhar as vírgulas."
+    },
+    {
+      "title": "8. Tipografia avançada e hifenização",
+      "text": "CONTEÚDO DO CURSO — Elias, pp. 42–46; esclarecimentos técnicos\n\nEscala horizontal (dimensão) altera a largura dos caracteres proporcionalmente; espaçamento expandido ou condensado altera a distância entre caracteres; posição elevada/rebaixada desloca a linha de base sem exigir redução do tamanho; sobrescrito/subscrito normalmente combinam deslocamento e redução. Kerning ajusta espaçamento entre pares específicos de letras, como AV. A opção Pontos e acima indica tamanho mínimo de fonte para aplicação, não um limite de distância entre letras.\n\nHifenização automática ajusta quebras de palavras ao layout; manual permite avaliar sugestões. Hífen opcional só aparece quando há quebra naquele ponto. Hífen não separável mantém as partes juntas na linha. Na interface clássica: Ferramentas > Idioma > Hifenização; na moderna, Layout > Hifenização. A escolha depende do idioma e da finalidade do documento. Não insira hífens comuns apenas para simular quebras de linha.",
+      "example": "AV: par de letras que pode receber ajuste de kerning.\nUse hífen não separável em um identificador que não deve quebrar entre linhas."
     }
   ],
   "exercises": [
@@ -509,6 +519,71 @@
       "mode": "text",
       "starter": "",
       "solution": "Ctrl+J, Ctrl+5 e diálogo Parágrafo (Alt, C, P, A no manual). Linhas dependem da largura e da fonte.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Essenciais — revisão Elias",
+      "title": "Cinco tabulações",
+      "prompt": "Descreva a função das tabulações esquerda, direita, centralizada, decimal e barra.",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "A parada de barra não funciona como avanço normal de texto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Início, fim, centro, separador decimal e linha vertical, respectivamente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "34",
+      "group": "Essenciais — revisão Elias",
+      "title": "Espaçamento fixo",
+      "prompt": "Uma fórmula alta está cortada com espaçamento Exatamente de 10 pt. Qual ajuste mantém um mínimo mas permite expansão?",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Exatamente é fixo, Pelo menos adapta-se ao conteúdo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Pelo menos, com valor apropriado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional — aplicação",
+      "title": "Kerning e escala",
+      "prompt": "Diferencie kerning, escala horizontal e espaçamento expandido.",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "São propriedades tipográficas diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Kerning ajusta pares; escala muda largura dos caracteres; espaçamento aumenta distância entre caracteres.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional — aplicação",
+      "title": "Hifenização",
+      "prompt": "Que recurso mantém juntas as partes de um código com hífen? E qual indica um ponto de quebra que só exibe hífen quando necessário?",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Não confundir com hífen comum.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Hífen não separável; hífen opcional.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional — aplicação",
+      "title": "Recuos especiais",
+      "prompt": "Diferencie medianiz, recuo deslocado e tabulação decimal.",
+      "hint": "Recupere o conceito antes de consultar a resposta.",
+      "explanation": "Cada recurso atua sobre estrutura distinta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Medianiz: espaço para encadernação; deslocado: linhas posteriores recuadas; decimal: alinhar separadores decimais.",
       "expected": null,
       "required": false
     }
