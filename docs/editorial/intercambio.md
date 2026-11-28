@@ -65,3 +65,8 @@ Registro de 28/11/2026, a partir da solicitação de ampliar o intercâmbio para
 ### Prioridade e critérios de publicação
 
 A prioridade imediata continua sendo revisão acadêmica para avaliações, análise multimídia retroativa e cobertura de lacunas. Intercâmbios não substituem apostilas nem interrompem trilhas principais. Não exigir execução em Windows ou práticas Python durante a pausa. Escolher sequências com benefício real, sem inflar material, sem dependências circulares, com separação clara entre conteúdo de curso e autoral. A decisão sobre categoria e identificadores continua condicionada ao contrato do leitor; nenhum novo módulo interdisciplinar é publicado por este registro.
+
+
+### Complemento ao projeto Do bit à imagem
+
+Após revisão do podcast A04 (28/11/2026), incluir como possibilidade opcional a comparação entre tripla RGB, três bytes, notação CSS hexadecimal e inteiro empacotado RRGGBB; demonstrar a perda de informação na soma simples e a recuperação dos campos pela representação posicional. Em Java, relacionar ao uso de int e à distinção entre RGB de 24 bits e representações com alfa. Em TI, relacionar à escolha de cores e aos limites da gama de reprodução. Pré-requisitos: 107–109, tipos Java e propriedades visuais (310); não exigir operações bit a bit nem código executável antes dos fundamentos correspondentes. Não constitui nova aula nem prática Python imediata.
