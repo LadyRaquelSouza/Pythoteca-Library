@@ -8,7 +8,7 @@ import tempfile
 import time
 import unicodedata
 
-from transcribe import run
+from transcribe import run, pcm_samples
 
 TEXT = "O computador guarda dados na memória. O teclado permite escrever palavras. A tela mostra uma imagem colorida."
 EXPECTED = {"computador", "dados", "memoria", "teclado", "escrever", "palavras", "tela", "imagem", "colorida"}
@@ -26,6 +26,16 @@ def main():
         output = root / "synthetic.json"
         subprocess.run(["espeak-ng", "-v", "pt-br", "-s", "145", "-w", str(source), TEXT], check=True)
         print("Synthetic speech generated.", flush=True)
+        # Exercise PCM reader independently with a known normalized waveform.
+        import wave
+        import struct
+        import numpy as np
+        fixture = root / "pcm-fixture.wav"
+        with wave.open(str(fixture), "wb") as wav:
+            wav.setparams((1, 2, 16000, 4, "NONE", "not compressed"))
+            wav.writeframes(struct.pack("<4h", -32768, 0, 16384, 32767))
+        assert np.allclose(pcm_samples(fixture), [-1, 0, .5, 32767/32768])
+        print("PCM normalization verified.", flush=True)
         started = time.monotonic()
         # Only the fixed generated file enters the engine. The private CLI remains disabled in CI.
         run(source, output, model="small", model_dir=root / "models")

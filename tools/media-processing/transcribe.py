@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import wave
 
 ROOT = Path(__file__).resolve().parents[2]
 SUFFIXES = {".mp3", ".mp4", ".m4a", ".wav", ".flac", ".ogg", ".opus", ".webm", ".mov", ".mkv"}
@@ -28,6 +29,17 @@ def prepare(input_path, output_path):
         raise ValueError("Output must be a new JSON file in an existing private directory")
     return source, target
 
+def pcm_samples(path):
+    """Read the exact PCM format produced by FFmpeg, bypassing PyAV decoding."""
+    import numpy as np
+    with wave.open(str(path), "rb") as audio:
+        if (audio.getnchannels(), audio.getsampwidth(), audio.getframerate(), audio.getcomptype()) != (1, 2, 16000, "NONE"):
+            raise ValueError("Unexpected normalized audio format")
+        frames = audio.readframes(audio.getnframes())
+    if not frames:
+        raise ValueError("Empty audio")
+    return np.frombuffer(frames, dtype="<i2").astype(np.float32) / np.float32(32768.0)
+
 def run(input_path, output_path, model="small", model_dir=None):
     source, target = prepare(input_path, output_path)
     if model not in MODELS:
@@ -46,7 +58,7 @@ def run(input_path, output_path, model="small", model_dir=None):
                             "-c:a", "pcm_s16le", str(audio)],
                            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             engine = WhisperModel(model, device="cpu", compute_type="int8", download_root=str(cache))
-            segments, info = engine.transcribe(str(audio), language="pt", beam_size=5, vad_filter=True)
+            segments, info = engine.transcribe(pcm_samples(audio), language="pt", beam_size=5, vad_filter=True)
             result = {"schema_version": 1, "language": "pt", "model": model,
                       "segments": [{"start": s.start, "end": s.end, "text": s.text.strip()} for s in segments]}
     # Exclusive creation; never overwrite. Restrictive permissions on POSIX.

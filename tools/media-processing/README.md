@@ -21,3 +21,7 @@ Nunca colocar mídia, transcrição, credencial, identificador privado ou inform
 Próximas etapas: teste real com fala sintética não acadêmica; validação de versões e desempenho; processamento em lote e formatos TXT/SRT; avaliação de integração autenticada ao Drive com escopo mínimo e execução privada. Não compartilhar a pasta de aulas publicamente para viabilizar download. Não inserir segredos em comandos ou arquivos versionados. Não publicar transcrições integrais.
 
 O teste sintético mede viabilidade funcional, não qualidade em podcasts reais. O tempo informado inclui carregamento/download do modelo e processamento. Python 3.12 foi escolhido para o runner de transcrição, separado do CI do catálogo (3.13). O resultado de reconhecimento ainda depende da execução efetiva do workflow.
+
+## Correção de compatibilidade
+
+A primeira execução sintética falhou porque faster-whisper 1.2.1 chamou av.open com metadata_errors, rejeitado por PyAV 19.0.2. Como FFmpeg já produz WAV PCM mono de 16 kHz e 16 bits, o motor agora lê esse formato com wave e converte amostras para NumPy float32 normalizadas, passando o vetor diretamente ao Whisper. O teste sintético verifica também os valores extremos da normalização. PyAV continua dependência transitiva; seu decodificador não é usado neste fluxo. A correção ainda requer confirmação em CI.
