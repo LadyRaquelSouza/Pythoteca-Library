@@ -5,16 +5,16 @@
   "title": "Cadastro de alunos e componentes Swing",
   "subtitle": "Leitura de campos, escolhas e eventos integrados",
   "objectives": "Interpretar componentes do cadastro, recuperar dados, distinguir escolhas exclusivas e independentes, restaurar campos e compreender os limites do botão Salvar.",
-  "source": "Aula_3_Java_Desktop_Cadastro_Aluno.pdf (https://drive.google.com/file/d/1KFyT2I0q3m797bAGlwpWQMsywBgicigC/view), texto das 19 páginas consultado; ilustrações não inspecionadas nesta etapa. Fundamentos e exemplos adaptados identificados. Outros dois PDFs recuperados, mas não utilizados como fonte deste módulo.",
+  "source": "Aula_3_Java_Desktop_Cadastro_Aluno.pdf (https://drive.google.com/file/d/1KFyT2I0q3m797bAGlwpWQMsywBgicigC/view), texto das 19 páginas consultado; 19 páginas renderizadas e inspecionadas visualmente em 28/11/2026, incluindo oito telas didáticas e captura real; complementos e divergências identificados. Fundamentos e exemplos adaptados identificados. Outros dois PDFs recuperados, mas não utilizados como fonte deste módulo.",
   "chapters": [
     {
       "title": "Formulário de cadastro",
-      "text": "[CURRICULAR, pp. 1–4] O cadastro reúne campos de identificação, curso, idade, turno, interesses e observações. O GUI Builder monta a interface; os eventos Exibir Dados, Limpar e Salvar definem o comportamento. Salvar nesta atividade não persiste dados.",
+      "text": "[CURRICULAR, pp. 1–4] O cadastro reúne campos de identificação, curso, idade, turno, interesses e observações. O GUI Builder monta a interface; os eventos Exibir Dados, Limpar e Salvar definem o comportamento. Salvar nesta atividade não persiste dados.\n\n[CONFERÊNCIA VISUAL, pp. 1–3] O infográfico identifica também JScrollPane, que envolve a área de observações e oferece rolagem quando o conteúdo excede o espaço disponível. JTextArea é o componente cujo conteúdo textual se lê; JScrollPane é o contêiner de rolagem. A captura real da p. 2 mostra o formulário anterior de junção de nomes, servindo para localizar Design, Paleta e Propriedades, não como modelo final do cadastro. As telas das pp. 8–15 são ilustrações didáticas, não comprovação de execução.",
       "example": "// Dentro do evento de um botão:\nString nome = txtNome.getText();"
     },
     {
       "title": "Nomes e propriedades",
-      "text": "[CURRICULAR, pp. 4–5] A propriedade text controla o texto visível; Alterar Nome da Variável identifica o objeto no código. A apostila utiliza txtNome, fmtCpf, fmtTelefone, cmbCurso, spnIdade, grpTurno e prefixos rdb, chk e btn. [FUNDAMENTOS] Prefixos são convenções, não requisitos da linguagem.",
+      "text": "[CURRICULAR, pp. 4–5] A propriedade text controla o texto visível; Alterar Nome da Variável identifica o objeto no código. A apostila utiliza txtNome, fmtCpf, fmtTelefone, cmbCurso, spnIdade, grpTurno e prefixos rdb, chk e btn. [FUNDAMENTOS] Prefixos são convenções, não requisitos da linguagem.\n\n[CONFERÊNCIA VISUAL, p. 8] Antes de programar, montar a interface em Design, renomear os componentes, conferir textos dos botões e salvar o projeto. O grupo deve ter o identificador grpTurno conforme a tabela textual da p. 5; a figura da p. 9 usa buttonGroupTurno. Adote um nome consistente entre o formulário e o código, não copie ambos. O nome usado nos exemplos autorais é grpTurno.",
       "example": "String nome = txtNome.getText().trim();"
     },
     {
@@ -24,7 +24,7 @@
     },
     {
       "title": "Curso e idade",
-      "text": "[CURRICULAR, p. 6] getSelectedItem recupera o item escolhido no combo; getValue recupera o valor do spinner. A apostila converte a idade por toString e parseInt, com modelo inteiro. [FUNDAMENTOS] getSelectedItem pode retornar null; a chamada toString exige item não nulo. Os exemplos pressupõem seleção e modelo inteiro válidos.",
+      "text": "[CURRICULAR, p. 6] getSelectedItem recupera o item escolhido no combo; getValue recupera o valor do spinner. A apostila converte a idade por toString e parseInt, com modelo inteiro. [FUNDAMENTOS] getSelectedItem pode retornar null; a chamada toString exige item não nulo. Os exemplos pressupõem seleção e modelo inteiro válidos.\n\n[APROFUNDAMENTO AUTORAL] O valor de JSpinner pertence ao modelo. Se o usuário editar diretamente o texto, pode existir diferença entre o texto em edição e o valor já confirmado no modelo; commitEdit() tenta confirmar a edição e pode lançar ParseException. Isso não é exigência da atividade. Para um modelo que fornece Integer, uma alternativa à conversão via texto é (Integer) spnIdade.getValue(), com unboxing para int. Não suponha que todo modelo fornece Integer. Configure as opções de curso na propriedade model, conforme p. 6.",
       "example": "String curso = cmbCurso.getSelectedItem().toString();\nint idade = Integer.parseInt(spnIdade.getValue().toString());"
     },
     {
@@ -34,27 +34,27 @@
     },
     {
       "title": "Interesses independentes",
-      "text": "[CURRICULAR, p. 7] Cada JCheckBox representa uma escolha independente. Use condições if separadas para acumular todos os interesses. Uma cadeia else if impediria incluir escolhas posteriores quando a primeira condição fosse verdadeira.",
+      "text": "[CURRICULAR, p. 7] Cada JCheckBox representa uma escolha independente. Use condições if separadas para acumular todos os interesses. Uma cadeia else if impediria incluir escolhas posteriores quando a primeira condição fosse verdadeira.\n\n[INTERCÂMBIO COM LÓGICA] A diferença entre if independentes e if/else if corresponde à diferença entre se independentes e se/senao se do Portugol. Para três interesses existem oito combinações possíveis, incluindo nenhuma e todas. A concatenação original deixa espaços finais e, se nada estiver marcado, mantém a string vazia; a apresentação de um texto explícito para ausência de interesse é melhoria opcional. Os estados booleanos podem ser combinados em condições, mas isso não substitui a necessidade de acumular todos os interesses selecionados.",
       "example": "String interesses = \"\";\nif (chkEsportes.isSelected()) interesses += \"Esportes \";\nif (chkMusica.isSelected()) interesses += \"Música \";\nif (chkTecnologia.isSelected()) interesses += \"Tecnologia \";"
     },
     {
       "title": "Exibir Dados",
-      "text": "[CURRICULAR, pp. 15–16] O evento lê os componentes e concatena seus valores em uma mensagem com quebras de linha. O import javax.swing.JOptionPane fica depois de package, se houver, e antes da classe. [FUNDAMENTOS] O trecho autoral reduzido pressupõe componentes declarados no JFrame; o resumo completo inclui também CPF, telefone, idade, turno, interesses e observações.",
+      "text": "[CURRICULAR, pp. 15–16] O evento lê os componentes e concatena seus valores em uma mensagem com quebras de linha. O import javax.swing.JOptionPane fica depois de package, se houver, e antes da classe. [FUNDAMENTOS] O trecho autoral reduzido pressupõe componentes declarados no JFrame; o resumo completo inclui também CPF, telefone, idade, turno, interesses e observações.\n\n[CONFERÊNCIA VISUAL, pp. 10–11 e 16] A figura da p. 10 lê nome sem trim, mas o código editável da p. 16 usa trim. A versão textual completa é a referência para a atividade. O resumo deve ler os valores atuais a cada clique; não confunda armazenamento em variáveis locais com gravação permanente. A figura da p. 11 orienta colocar import no início da classe; a posição sintática correta é antes da declaração da classe, após package quando existente, conforme p. 7.",
       "example": "String nome = txtNome.getText().trim();\nString curso = cmbCurso.getSelectedItem().toString();\njavax.swing.JOptionPane.showMessageDialog(this, \"Nome: \" + nome + \"\\nCurso: \" + curso);"
     },
     {
       "title": "Limpar e restaurar",
-      "text": "[CURRICULAR, pp. 16–17] Limpar restaura os valores iniciais: textos vazios, primeiro curso, idade 18, turno sem seleção e interesses desmarcados. O combo deve ter pelo menos um item e o modelo do spinner deve aceitar 18. A apostila usa requestFocus; [FUNDAMENTOS] requestFocusInWindow é uma alternativa normalmente preferível dentro da janela ativa, sem garantia de sucesso.",
+      "text": "[CURRICULAR, pp. 16–17] Limpar restaura os valores iniciais: textos vazios, primeiro curso, idade 18, turno sem seleção e interesses desmarcados. O combo deve ter pelo menos um item e o modelo do spinner deve aceitar 18. A apostila usa requestFocus; [FUNDAMENTOS] requestFocusInWindow é uma alternativa normalmente preferível dentro da janela ativa, sem garantia de sucesso.\n\n[CONFERÊNCIA VISUAL, pp. 9 e 14] As imagens do formulário continuam mostrando Manhã e interesses selecionados; o código editável de Limpar desmarca o grupo e todas as caixas. O estado esperado após executar Limpar deriva das instruções, não da ilustração. O curso volta ao primeiro item, a idade a 18 e as máscaras podem continuar visíveis. Isso é restauração de valores iniciais definidos, não necessariamente apagar tudo visualmente.",
       "example": "txtNome.setText(\"\");\nfmtCpf.setText(\"\");\nfmtTelefone.setText(\"\");\ncmbCurso.setSelectedIndex(0);\nspnIdade.setValue(18);\ngrpTurno.clearSelection();\nchkEsportes.setSelected(false);\nchkMusica.setSelected(false);\nchkTecnologia.setSelected(false);\ntxtObservacoes.setText(\"\");\ntxtNome.requestFocusInWindow();"
     },
     {
       "title": "Salvar não é persistir",
-      "text": "[CURRICULAR, pp. 7, 12, 17] O botão Salvar apenas apresenta uma mensagem de sucesso nesta atividade. Não escreve arquivo, planilha ou banco de dados. [FUNDAMENTOS] Em uma aplicação real, a mensagem de sucesso deve ocorrer após a operação de persistência bem-sucedida.",
+      "text": "[CURRICULAR, pp. 7, 12, 17] O botão Salvar apenas apresenta uma mensagem de sucesso nesta atividade. Não escreve arquivo, planilha ou banco de dados. [FUNDAMENTOS] Em uma aplicação real, a mensagem de sucesso deve ocorrer após a operação de persistência bem-sucedida.\n\n[CONFERÊNCIA VISUAL, pp. 12 e 14] A mensagem ilustrada afirma que os dados foram salvos, mas o próprio material explica que nenhum armazenamento ocorre. O código editável da p. 17 usa mensagem de conclusão de cadastro. Não interprete a confirmação como evidência de persistência ou validação. O teste após Limpar inclusive pode exibir sucesso com dados vazios. Em aplicação real, valide antes de persistir e só confirme sucesso após a operação efetiva.",
       "example": "javax.swing.JOptionPane.showMessageDialog(this, \"Cadastro concluído com sucesso!\");"
     },
     {
       "title": "Validação e testes",
-      "text": "[CURRICULAR, pp. 17–19] Teste Exibir Dados, Limpar e Salvar; confira nomes e eventos. O desafio final propõe impedir nome vazio. [FUNDAMENTOS] O exemplo autoral usa retorno antecipado no método void de evento. Teste também nenhuma seleção de turno e múltiplos interesses.",
+      "text": "[CURRICULAR, pp. 17–19] Teste Exibir Dados, Limpar e Salvar; confira nomes e eventos. O desafio final propõe impedir nome vazio. [FUNDAMENTOS] O exemplo autoral usa retorno antecipado no método void de evento. Teste também nenhuma seleção de turno e múltiplos interesses.\n\n[CONFERÊNCIA VISUAL, p. 15] O checklist de entrega inclui interface montada, componentes organizados, três botões funcionais e capturas da tela e do código dos botões. O desafio de personalizar cores ou fonte do título e o bônus de validar nome vazio também aparecem na p. 19. Para praticar, use dados fictícios, execute o projeto com F6 ou o formulário com Shift+F6 quando suportado, teste alterações sucessivas e compare cada campo após Limpar. As oito perguntas de fixação das pp. 18–19 estão conceitualmente contempladas nos exercícios atuais; não é necessário duplicá-las.",
       "example": "if (txtNome.getText().trim().isEmpty()) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Informe o nome\");\n    return;\n}\n// Continue a leitura dos demais campos."
     }
   ],
@@ -1131,6 +1131,32 @@
       "solution": "if (txtNome.getText().trim().isEmpty()) {\n    javax.swing.JOptionPane.showMessageDialog(this, \"Informe o nome\");\n    return;\n}",
       "explanation": "Trecho para evento void.",
       "hint": "Use os nomes dos componentes da apostila.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "40",
+      "group": "Revisão opcional — Integração de formulários",
+      "title": "Escolhas independentes e exclusivas",
+      "prompt": "Um formulário de oficina possui dois horários exclusivos e três recursos opcionais (projetor, áudio e rede). Planeje os componentes e condições que recuperam as escolhas. Teste nenhum recurso, dois recursos e todos. Por que uma cadeia else if não é adequada para os recursos?",
+      "hint": "Use ButtonGroup para os horários e if independentes para os recursos.",
+      "solution": "Dois JRadioButton associados ao mesmo ButtonGroup; três JCheckBox independentes. Leia isSelected e acumule os recursos com três if. Uma cadeia else if inclui no máximo um ramo.",
+      "explanation": "Integra seleção, estados booleanos e comportamento da interface.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional — Integração de formulários",
+      "title": "Restaurar e verificar",
+      "prompt": "Planeje um teste de restauração para formulário com nome, código formatado, lista de categorias, quantidade inicial 1, horário exclusivo e três recursos independentes. Preencha tudo antes de Limpar. Indique o estado esperado e como verificar que nenhum dado foi persistido apenas por mostrar sucesso.",
+      "hint": "Teste o estado de cada componente e separe apresentação de armazenamento.",
+      "solution": "Texto vazio, máscara possivelmente visível, primeira categoria, quantidade 1, nenhum horário e recursos desmarcados. Inspecione se o evento chama uma operação de armazenamento; uma mensagem não comprova gravação.",
+      "explanation": "Prática de integração e teste de estado, com contexto autoral.",
       "mode": "text",
       "starter": "",
       "expected": null,
