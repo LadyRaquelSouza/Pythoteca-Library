@@ -22,40 +22,40 @@
       "title": "Processadores, memórias e armazenamento",
       "subtitle": "CPU, desempenho, hierarquia de memória, persistência e unidades",
       "discipline": "arquitetura",
-      "sha256": "d29a4c05d120a13fd0344f6045880c85677625232735478fa9b315a737bff1c2",
-      "bytes": 72199
+      "sha256": "e482382c95e6f41207f01c64ef0d4309d16efd5aa9f645c020f708e668320cc3",
+      "bytes": 72959
     },
     {
       "id": "aula104",
       "title": "Arquitetura de von Neumann",
       "subtitle": "Programa armazenado, CPU, memória, comunicação e gargalo",
       "discipline": "arquitetura",
-      "sha256": "42c0cf905cad3ffa3f893d17cdb906c6f3f7e1fadb03aea25f481db9beb89ddd",
-      "bytes": 61383
+      "sha256": "247cbf221a9f615fb917694814574ff6abc61a42d4b3e4e13f71d63afbda3381",
+      "bytes": 62603
     },
     {
       "id": "aula105",
       "title": "CPU e ciclo de instruções",
       "subtitle": "Busca, decodificação, execução, registradores e rastreamento",
       "discipline": "arquitetura",
-      "sha256": "47656feb8fbe4e7cc6d97622a0da11cf3d8b08ee7aa80f6da836a8681b570ed1",
-      "bytes": 66980
+      "sha256": "0b1527b224735d980306606bca457cc7d45ea1b31c5e57bbabeb7fa9f7508590",
+      "bytes": 69423
     },
     {
       "id": "aula106",
       "title": "Barramentos e comunicação",
       "subtitle": "Dados, endereços, controle, interconexões e taxas de transferência",
       "discipline": "arquitetura",
-      "sha256": "e983d2c68aa2fb1075d093e778e1d8c4bba8ca57d3b91ab0d31ec8be5401857f",
-      "bytes": 75118
+      "sha256": "5ed89569def772d0e35e5658c6389f4837e2267cdfb67bb09ab517132a4f2629",
+      "bytes": 76003
     },
     {
       "id": "aula107",
       "title": "Introdução aos sistemas numéricos",
       "subtitle": "Bases, dígitos, potências e valor posicional",
       "discipline": "arquitetura",
-      "sha256": "5c917435bc7f3089eb9aa2232f2b314c11f5f50562eb48e4191c1b13a70f875e",
-      "bytes": 55254
+      "sha256": "9fd231780bf7e096b44d65c7b5d158d45df655d6cc15090263d941e706a0d87e",
+      "bytes": 57018
     },
     {
       "id": "aula108",
