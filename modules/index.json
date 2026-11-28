@@ -248,6 +248,30 @@
       "discipline": "modelagem_dados",
       "sha256": "e0991ec541735ac866352be7808d3ad3830e474d7effd24842d01e6523e07121",
       "bytes": 20225
+    },
+    {
+      "id": "aula607",
+      "title": "Chaves e identificação",
+      "subtitle": "Superchaves, candidatas, primárias, alternativas, compostas e estrangeiras",
+      "discipline": "modelagem_dados",
+      "sha256": "0552f6c8f8086e840d892ff90ddddae8f924a1efd5ae92a34143bc4deae18d3b",
+      "bytes": 19528
+    },
+    {
+      "id": "aula608",
+      "title": "Integridade dos dados",
+      "subtitle": "Domínio, entidade, referência, NULL e ações referenciais",
+      "discipline": "modelagem_dados",
+      "sha256": "89274a582dec75be7a8eee91dac4a7987cc032ad53ec2e8b92dc9ab9d816209a",
+      "bytes": 21374
+    },
+    {
+      "id": "aula609",
+      "title": "Modelagem ER avançada",
+      "subtitle": "Entidades fracas, identificação dependente, generalização e especialização",
+      "discipline": "modelagem_dados",
+      "sha256": "45c5375275ca9d3524888e069a7ca07cbe810df7cd862961639a0e9ef0db5a56",
+      "bytes": 21906
     }
   ]
 }

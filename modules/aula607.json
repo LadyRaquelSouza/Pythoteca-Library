@@ -1,0 +1,357 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula607",
+  "title": "Chaves e identificação",
+  "subtitle": "Superchaves, candidatas, primárias, alternativas, compostas e estrangeiras",
+  "objectives": "Identificar chaves pela regra do domínio; distinguir unicidade e minimalidade; selecionar identificadores; interpretar referências simples e compostas e preservar regras de negócio.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.4–2.7, 3.3–3.5; Banco de Dados Para Alunos, slides 25–29 e 38–41. Texto extraído consultado em 28/11/2026. Exemplos, diagramas textuais e atividades autorais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. Identidade não é aparência",
+      "text": "CONTEÚDO DO CURSO\n\nImagine duas pessoas chamadas Marina Lopes. O nome descreve ambas, mas não permite distinguir uma da outra. Uma chave identifica uma ocorrência segundo uma regra válida para todos os estados admitidos pelo modelo. Não basta que hoje todos os nomes sejam diferentes.\n\nEm EQUIPAMENTO, um código patrimonial pode identificar cada unidade física, enquanto a descrição 'Notebook' pode repetir. Para decidir se o número de série também identifica a unidade, precisamos saber se fabricantes distintos podem usar a mesma sequência, se o campo é obrigatório e se a regra garante unicidade.\n\nUma identidade deve permanecer compreensível mesmo quando propriedades descritivas mudam. Corrigir a descrição de um equipamento não significa necessariamente criar outro equipamento.",
+      "example": "EQUIPAMENTO: (E01, Notebook), (E02, Notebook). Os códigos distinguem ocorrências; a descrição não."
+    },
+    {
+      "title": "2. Superchaves e minimalidade",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO\n\nUma superchave é um conjunto de atributos que garante a identificação única de cada tupla. Uma chave candidata é uma superchave mínima por inclusão: retirar qualquer um de seus atributos destrói a garantia de identificação.\n\nSe codigo sozinho identifica EQUIPAMENTO, {codigo, descricao} também identifica, mas não é candidata porque descricao é dispensável. Minimalidade não significa possuir o menor número de atributos entre todas as chaves. Se codigo é único e (fabricante, serie) também identifica, sem que nenhum componente do par seja suficiente, ambos são candidatos, embora um tenha dois atributos.\n\nNão conclua que uma combinação é candidata apenas porque seus valores não repetem numa amostra. Use regras explícitas e teste possíveis contraexemplos.",
+      "example": "Candidatas hipotéticas: {codigo}; {fabricante, serie}. Superchave não mínima: {codigo, descricao}."
+    },
+    {
+      "title": "3. Chave primária e alternativas",
+      "text": "CONTEÚDO DO CURSO\n\nEntre as chaves candidatas, escolhe-se uma como chave primária (PK). As candidatas não escolhidas são alternativas. No modelo relacional lógico, continuam representando regras de unicidade, mesmo quando não são a PK.\n\nEm SQL, PRIMARY KEY exige unicidade e ausência de NULL nos componentes. Uma tabela pode ter apenas uma restrição PRIMARY KEY, que pode envolver várias colunas. Restrições UNIQUE combinadas com NOT NULL podem preservar outras chaves candidatas. UNIQUE sozinho pode admitir NULL conforme a implementação; não confunda essa restrição com uma chave candidata obrigatória.\n\nCritérios de escolha incluem estabilidade, tamanho, clareza, custo das referências e políticas de proteção dos dados. Não existe regra universal de sempre escolher um identificador numérico artificial.",
+      "example": "USUARIO(id_usuario PK, login UNIQUE NOT NULL, nome). Se id e login são candidatos, login é alternativa."
+    },
+    {
+      "title": "4. Chaves simples e compostas",
+      "text": "CONTEÚDO DO CURSO\n\nUma chave simples contém um atributo. Uma composta contém dois ou mais que, em conjunto, identificam uma tupla. Imagine SALA(predio, numero, capacidade): o número 12 pode existir nos prédios A e B. Se o número é único apenas dentro do prédio, (predio, numero) é candidato composto.\n\nA unicidade vale sobre a combinação inteira, não sobre cada componente. (A,12), (A,13) e (B,12) são compatíveis; outra ocorrência (A,12) não é. Não é necessário concatenar os campos em uma string: a estrutura mantém os atributos separados.\n\nUma referência a uma sala identificada pelo par deve carregar a combinação necessária. Usar apenas numero pode tornar a referência ambígua.",
+      "example": "SALA: PK(predio, numero)\nRESERVA: (id_reserva, predio, numero, inicio), FK(predio, numero) → SALA."
+    },
+    {
+      "title": "5. Chaves naturais e substitutas",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO\n\nUma chave natural usa atributos cujo significado já pertence ao domínio. Uma chave substituta é criada para identificar registros, sem significado de negócio necessário: um ID sequencial ou UUID, por exemplo. Ela pode facilitar referências e evitar expor identificadores sensíveis em outras estruturas.\n\nAcrescentar id_reserva não resolve automaticamente todas as regras de negócio. Se a regra exige uma única reserva por equipamento e horário inicial, IDs distintos não devem permitir duas reservas incompatíveis. Essa unicidade adicional precisa ser documentada e implementada. Se intervalos não podem se sobrepor, uma simples unicidade do horário inicial tampouco é suficiente.\n\nUm identificador artificial não é prova de autenticidade, nem substitui autorização. A aplicação deve verificar se quem solicita uma operação pode realizá-la.",
+      "example": ""
+    },
+    {
+      "title": "6. Chave estrangeira e referência",
+      "text": "CONTEÚDO DO CURSO\n\nUma chave estrangeira (FK) é um conjunto de atributos que referencia uma chave admissível de uma relação, geralmente sua PK ou outra chave única adequada. Ela expressa uma associação e permite ao SGBD verificar a existência da referência. Pode apontar para outra tabela ou para a própria tabela.\n\nFUNCIONARIO(id_funcionario, id_setor) pode ter FK id_setor para SETOR. Vários funcionários podem apontar para o mesmo setor: uma FK não precisa ser única. Se a associação for obrigatória, a nulidade deve ser restringida. Se o máximo no sentido inverso for um, poderá ser necessário impor unicidade adicional.\n\nUma FK composta precisa corresponder ao conjunto de atributos referenciado, com tipos compatíveis segundo o SGBD. A regra de correspondência vale sobre a combinação, não sobre valores isolados.",
+      "example": "SETOR: (S1, Atendimento), (S2, Estoque)\nFUNCIONARIO: (F1,S1), (F2,S1), (F3,S2)\nRepetir S1 na FK é permitido."
+    },
+    {
+      "title": "7. Uma coluna pode desempenhar vários papéis",
+      "text": "CONTEÚDO DO CURSO\n\nUma chave primária pode incluir uma ou mais chaves estrangeiras. INSCRICAO(id_estudante,id_turma,data) pode usar PK(id_estudante,id_turma), desde que a regra permita apenas uma inscrição por par. Cada atributo também referencia sua relação de origem.\n\nA PK composta impede repetir a combinação, e as FKs garantem a existência dos participantes. São restrições distintas. Se houver histórico de novas inscrições no mesmo par, o esquema precisa distinguir os eventos, por exemplo com id_inscricao e uma regra adequada para inscrições ativas.\n\nNão confunda o identificador de uma associação com um identificador de seus participantes. O estudante E1 não deixa de ser E1 quando se inscreve em outra turma.",
+      "example": "INSCRICAO: PK(id_estudante,id_turma); FK id_estudante→ESTUDANTE; FK id_turma→TURMA."
+    },
+    {
+      "title": "8. Do modelo à escolha de chaves",
+      "text": "PRÁTICA AUTORAL\n\nUma biblioteca mantém obras e exemplares. Título não identifica obra, pois títulos podem repetir. ISBN pode identificar uma edição sob regras apropriadas, mas nem toda publicação possui ISBN. Um exemplar físico precisa de identidade própria: duas cópias da mesma edição não são o mesmo objeto.\n\nProposta: EDICAO(id_edicao, titulo, isbn); EXEMPLAR(id_exemplar, id_edicao, codigo_patrimonio). Escolha IDs como PK e investigue se patrimonio é candidato alternativo obrigatório. Não declare isbn universalmente obrigatório. EMPRESTIMO precisa identificar cada evento e referenciar um exemplar.\n\nCONEXÃO COM LÓGICA E JAVA\n\nValidar o formato de um código não prova que ele seja único. Pesquisar se existe uma ocorrência e verificar se uma nova associação é permitida são operações distintas. Dois objetos Java podem representar a mesma identidade persistente em momentos diferentes; não confunda identidade no banco com identidade de referência na memória.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Identificação",
+      "title": "Amostra",
+      "prompt": "Todos os nomes do cadastro atual são distintos. Isso garante que nome seja chave?",
+      "hint": "Pense em estados futuros.",
+      "explanation": "A unicidade deve ser garantida pela regra, não pela amostra.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sim, sempre"
+        },
+        {
+          "id": "b",
+          "text": "Não, precisa de regra de unicidade"
+        },
+        {
+          "id": "c",
+          "text": "Sim, se ordenados"
+        },
+        {
+          "id": "d",
+          "text": "Sim, se forem textos"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Identificação",
+      "title": "Dois equipamentos",
+      "prompt": "Dois notebooks têm mesma descrição e códigos E01 e E02. Qual atributo pode distingui-los e sob qual hipótese?",
+      "hint": "Identificação depende da regra.",
+      "explanation": "Descrição pode repetir.",
+      "mode": "text",
+      "starter": "",
+      "solution": "codigo, se obrigatório e único no domínio.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Minimalidade",
+      "title": "Superchave",
+      "prompt": "Se codigo é único, classifique {codigo, nome}.",
+      "hint": "Retire nome.",
+      "explanation": "Minimalidade é por inclusão.",
+      "mode": "text",
+      "starter": "",
+      "solution": "É superchave, mas não candidata porque codigo basta.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Minimalidade",
+      "title": "Candidatas diferentes",
+      "prompt": "Código é único; fabricante+serie também é único, nenhum dos dois últimos isoladamente. Liste as candidatas.",
+      "hint": "Não compare apenas o tamanho.",
+      "explanation": "Ambas são mínimas por inclusão.",
+      "mode": "text",
+      "starter": "",
+      "solution": "{codigo} e {fabricante,serie}.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Primária",
+      "title": "Alternativa",
+      "prompt": "Uma candidata não escolhida como PK recebe qual nome?",
+      "hint": "Ainda identifica a ocorrência.",
+      "explanation": "É uma chave alternativa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Estrangeira"
+        },
+        {
+          "id": "b",
+          "text": "Derivada"
+        },
+        {
+          "id": "c",
+          "text": "Alternativa"
+        },
+        {
+          "id": "d",
+          "text": "Multivalorada"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Primária",
+      "title": "Preservar login",
+      "prompt": "id e login são candidatos; id é PK. Que regra precisa permanecer em login?",
+      "hint": "Não perca a segunda candidata.",
+      "explanation": "A PK não elimina as outras regras.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Login obrigatório e único; em SQL, por exemplo UNIQUE e NOT NULL.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Composta",
+      "title": "Salas",
+      "prompt": "Analise (A,12),(B,12),(A,13),(A,12) sob PK(predio,numero).",
+      "hint": "Compare pares inteiros.",
+      "explanation": "Componentes isolados podem repetir.",
+      "mode": "text",
+      "starter": "",
+      "solution": "As três primeiras são distintas; a quarta repete a primeira.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Composta",
+      "title": "Referência",
+      "prompt": "Uma sala é identificada por prédio e número. Uma reserva guarda só número. Qual é o problema?",
+      "hint": "Imagine dois prédios com sala 12.",
+      "explanation": "A FK deve identificar o alvo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A referência é ambígua; deve conter o par ou referenciar outra chave candidata apropriada.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Substituta",
+      "title": "ID não basta",
+      "prompt": "Dois registros de inscrição têm IDs distintos, mas o mesmo estudante e turma. A regra admite apenas uma inscrição por par. O que falta?",
+      "hint": "A identidade artificial não preserva toda regra.",
+      "explanation": "A PK artificial não impede duplicidade de negócio.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Restrição de unicidade do par estudante-turma.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Estrangeira",
+      "title": "Repetição",
+      "prompt": "Dois funcionários apontam para S1. Isso viola automaticamente uma FK?",
+      "hint": "O setor pode ter muitos funcionários.",
+      "explanation": "FK não exige unicidade por padrão.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, desde que S1 exista e a regra permita vários.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Estrangeira",
+      "title": "Alvo",
+      "prompt": "Uma FK pode apontar para qual alvo, em condições adequadas?",
+      "hint": "Nem sempre a PK é o único alvo.",
+      "explanation": "Uma chave única admissível também pode ser referenciada.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Qualquer descrição repetida"
+        },
+        {
+          "id": "b",
+          "text": "Apenas nome de tabela"
+        },
+        {
+          "id": "c",
+          "text": "Uma chave admissível"
+        },
+        {
+          "id": "d",
+          "text": "Qualquer coluna sem restrição"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional — Estrangeira",
+      "title": "Autorreferência",
+      "prompt": "FUNCIONARIO possui id_supervisor referindo-se a FUNCIONARIO. Explique.",
+      "hint": "Mesmo tipo, papéis distintos.",
+      "explanation": "Uma FK pode referenciar a própria tabela.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Cada referência identifica outro funcionário, ou pode ser nula se a regra permitir.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Associação",
+      "title": "Duplo papel",
+      "prompt": "Em INSCRICAO com PK(estudante,turma) e FKs para os participantes, o que cada restrição garante?",
+      "hint": "Separe existência e unicidade.",
+      "explanation": "São garantias independentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PK impede repetição do par; FKs exigem participantes existentes quando obrigatórias.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Associação",
+      "title": "Nova tentativa",
+      "prompt": "O mesmo estudante pode cursar a mesma turma em tentativas distintas registradas. O par basta?",
+      "hint": "Considere eventos repetidos.",
+      "explanation": "A chave depende do fato modelado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; identificar a tentativa por ID ou composição que a distinga.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Diagnóstico",
+      "title": "Série",
+      "prompt": "Número de série pode repetir entre fabricantes. Proponha uma candidata se a série é única dentro de cada fabricante.",
+      "hint": "Combine atributos.",
+      "explanation": "A regra precisa valer para todas as unidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(fabricante,serie), se ambos obrigatórios e nenhum isolado suficiente.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional — Diagnóstico",
+      "title": "ISBN e exemplar",
+      "prompt": "Por que ISBN não identifica uma cópia física de um livro?",
+      "hint": "Duas cópias da mesma edição.",
+      "explanation": "Entidades diferentes exigem identidades diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "ISBN identifica uma publicação/edição, não cada exemplar; usar código de exemplar.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Intercâmbio",
+      "title": "Código válido",
+      "prompt": "Um código tem formato correto, mas já pertence a outro equipamento. Qual validação falhou?",
+      "hint": "Sintaxe versus identidade.",
+      "explanation": "Validação tem múltiplas dimensões.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Unicidade, não formato.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional — Revisão",
+      "title": "Escolha argumentada",
+      "prompt": "Uma associação possui código interno estável e email obrigatório único, mas alterável. Escolha PK e preserve a alternativa.",
+      "hint": "Considere estabilidade.",
+      "explanation": "Escolha da PK é decisão justificada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Código interno como PK; email permanece único e obrigatório se essa for a regra.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Revisão",
+      "title": "Mapa de chaves",
+      "prompt": "Modele UNIDADE(id,nome) e EQUIPAMENTO(id,unidade_id,patrimonio), assumindo patrimônio único obrigatório e unidade obrigatória.",
+      "hint": "Identifique PK, FK, alternativa.",
+      "explanation": "A estrutura preserva identidade e referência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PKs id; FK unidade_id→UNIDADE, NOT NULL; patrimonio chave alternativa única e obrigatória.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

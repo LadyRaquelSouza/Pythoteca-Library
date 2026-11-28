@@ -22,3 +22,5 @@ A verificação automatizada usa os bytes reais dos arquivos. O índice legado e
 601–603: fundamentos, níveis de modelagem, entidades e atributos, com base no texto dos quatro PDFs das Aulas 01 e 02. Exemplos e atividades autorais; figuras e vídeo não examinados. Sem execução obrigatória de Python. Ver [planejamento editorial e intercâmbios](../docs/editorial/intercambio.md).
 
 604–606: relacionamentos, ER/UML, cardinalidade e teoria relacional, baseados nas Aulas 01 e 02 e nos capítulos 2 e 3 da apostila. Diagramas textuais e exercícios originais; convenções de leitura explicitadas. Álgebra relacional introdutória e diferenças práticas de SQL identificadas como complementos.
+
+607–609: identificação, chaves, integridade e ER avançado, com base nas seções 2.4–2.7 e 3.3–3.5 da apostila e slides 25–29, 38–41 da apresentação. Exemplos originais; superchaves, lógica de NULL, concorrência e estratégias de mapeamento recebem complementos explicitados. Sem práticas Python.

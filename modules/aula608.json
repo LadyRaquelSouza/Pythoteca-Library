@@ -1,0 +1,388 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula608",
+  "title": "Integridade dos dados",
+  "subtitle": "Domínio, entidade, referência, NULL e ações referenciais",
+  "objectives": "Distinguir tipos de integridade; interpretar nulidade e restrições; analisar inclusões, alterações e exclusões; escolher ações referenciais e testar estados inválidos.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.4–2.7, 3.3–3.5; Banco de Dados Para Alunos, slides 25–29 e 38–41. Texto extraído consultado em 28/11/2026. Exemplos, diagramas textuais e atividades autorais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. O que significa um estado válido",
+      "text": "CONTEÚDO DO CURSO\n\nIntegridade é a preservação das restrições que os dados precisam respeitar. Um banco pode estar tecnicamente acessível e conter fatos incompatíveis com o domínio. Um equipamento com estoque negativo, dois registros com o mesmo identificador ou uma reserva apontando para cliente inexistente exemplificam violações diferentes.\n\nIntegridade de domínio limita valores admitidos; integridade de entidade protege a identidade da tupla; integridade referencial protege as associações representadas por referências. Regras adicionais de negócio podem envolver vários atributos, registros e momentos.\n\nAs restrições garantem condições formalizadas, não a verdade de todas as informações. Uma data de nascimento possível pode estar incorreta no mundo real.",
+      "example": "Quantidade -3: domínio.\nID repetido: entidade/unicidade.\nFK para ID inexistente: referencial."
+    },
+    {
+      "title": "2. Domínio e validação",
+      "text": "CONTEÚDO DO CURSO\n\nUm tipo restringe a representação possível, mas frequentemente não toda regra de domínio. INTEGER permite números negativos; saldo de unidades disponíveis pode exigir valor >= 0. Uma situação pode aceitar somente valores definidos, e uma data de fim pode precisar ser posterior ao início.\n\nEm SQL, CHECK pode expressar condições sobre valores de uma linha, conforme o SGBD. NOT NULL impede ausência quando o valor é obrigatório. Uma condição CHECK não substitui automaticamente NOT NULL: em SQL, uma condição desconhecida por causa de NULL normalmente não viola CHECK. Para exigir quantidade, precisamos especificar obrigatoriedade e faixa.\n\nCONEXÃO COM LÓGICA\n\nUma entrada que pode ser convertida para inteiro ainda pode violar o domínio. Validação de formato, tipo, faixa e contexto são etapas diferentes.",
+      "example": "quantidade INTEGER NOT NULL CHECK (quantidade >= 0)\nExemplo conceitual de restrições, não prática obrigatória de SQL."
+    },
+    {
+      "title": "3. NULL: ausência não é zero",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO\n\nNULL marca ausência de valor conhecido ou aplicável, conforme o contexto. Não equivale ao número zero, ao texto vazio ou à palavra 'NULL'. Uma data de devolução ausente pode significar que o item ainda não foi devolvido; zero não é uma data substituta adequada.\n\nEm SQL, comparações ordinárias com NULL produzem resultado desconhecido, não necessariamente falso. Use IS NULL para testar ausência e IS NOT NULL para presença. Em uma cláusula WHERE, somente condições verdadeiras selecionam linhas; desconhecido não é selecionado. Essa lógica de três valores é uma diferença em relação à comparação booleana simples estudada inicialmente em programação.\n\nUma coluna opcional precisa ter significado claro para a ausência. Se 'não informado' e 'não se aplica' têm consequências diferentes, talvez sejam necessários estados adicionais.",
+      "example": "SELECT id FROM emprestimo WHERE devolucao IS NULL;\nConsulta ilustrativa: empréstimos sem data de devolução, segundo a regra adotada."
+    },
+    {
+      "title": "4. Integridade de entidade e unicidade",
+      "text": "CONTEÚDO DO CURSO\n\nA integridade de entidade exige que a PK identifique a tupla sem componentes nulos. A unicidade impede duas tuplas com a mesma PK. Para uma PK composta (predio,numero), nenhum componente pode ser nulo e a combinação não pode repetir.\n\nUma tabela SQL pode ter restrições UNIQUE adicionais. Se um login é obrigatório e único, UNIQUE sozinho pode não ser suficiente por causa do tratamento de NULL; combine-o com NOT NULL segundo a tecnologia escolhida. Não tente solucionar uma violação trocando arbitrariamente o ID: primeiro determine se o registro representa um fato novo ou duplicado.\n\nA existência de uma PK não impede duas linhas de representarem equivocadamente o mesmo fato com IDs diferentes. Regras de unicidade de negócio permanecem necessárias.",
+      "example": ""
+    },
+    {
+      "title": "5. Integridade referencial",
+      "text": "CONTEÚDO DO CURSO\n\nUma FK não nula simples deve corresponder a uma chave admissível existente na relação referenciada. Se RESERVA aponta para cliente C9 e C9 não existe, a referência é inválida. Se a associação é obrigatória, NULL também deve ser rejeitado; se opcional, NULL pode representar ausência de vínculo.\n\nEm uma FK composta, a correspondência depende da combinação. Se SALA contém (A,12) e (B,13), a referência (A,13) não existe, ainda que A e 13 apareçam separadamente. O tratamento de componentes nulos em FKs compostas depende da regra de correspondência e do SGBD; não assuma que todos são obrigatórios sem restrições explícitas.\n\nUma FK por si só não garante que todo cliente possua reserva. Ela protege as referências de reservas existentes, mas não obriga a existência de linhas dependentes.",
+      "example": "CLIENTE: C1,C2.\nRESERVA R1→C1: válida.\nRESERVA R2→C9: inválida.\nCLIENTE C2 sem reserva: permitido se mínimo zero."
+    },
+    {
+      "title": "6. Inclusão e atualização",
+      "text": "CONTEÚDO DO CURSO\n\nAo inserir uma reserva com referência obrigatória, o cliente referenciado precisa existir quando a restrição for verificada. Ao alterar a FK, o novo alvo também deve existir. Alterar uma chave referenciada pode afetar dependentes, exigindo uma ação configurada ou rejeição da mudança.\n\nAPROFUNDAMENTO\n\nUma transação agrupa operações que precisam ser tratadas como unidade. Algumas restrições podem ser verificadas ao final da transação, dependendo da tecnologia e da configuração. Não significa que qualquer inconsistência temporária possa ser ignorada. O estado confirmado deve respeitar as regras aplicáveis.\n\nUma interface pode verificar se o cliente existe antes de enviar a operação, mas outra operação concorrente pode mudar o estado. O banco precisa aplicar suas restrições no momento apropriado.",
+      "example": ""
+    },
+    {
+      "title": "7. Exclusão e ações referenciais",
+      "text": "CONTEÚDO DO CURSO\n\nAo excluir uma linha referenciada, o SGBD pode rejeitar a operação ou aplicar a ação configurada. RESTRICT e NO ACTION podem impedir a exclusão quando referências permanecem, embora tenham diferenças de momento de verificação em alguns SGBDs. CASCADE exclui linhas dependentes. SET NULL remove a referência se a coluna admite NULL. SET DEFAULT usa um valor padrão que ainda deve satisfazer as restrições.\n\nA escolha depende do significado da dependência. Excluir um carrinho temporário e seus itens pode ser coerente; excluir um cliente e apagar todas as compras históricas pode destruir informação necessária. Uma alternativa pode ser impedir exclusão ou marcar o cliente como inativo, observadas as regras de retenção.\n\nCASCADE não significa apagar todas as tabelas: afeta os registros alcançados pelas referências configuradas e pode propagar efeitos. Analise o impacto antes de executar qualquer exclusão.",
+      "example": "CLIENTE C1 possui pedidos P1 e P2.\nRESTRICT: exclusão de C1 rejeitada.\nCASCADE: P1 e P2 removidos.\nSET NULL: referências ficam nulas, somente se permitido."
+    },
+    {
+      "title": "8. Regras além das chaves",
+      "text": "APROFUNDAMENTO AUTORAL\n\nConsidere empréstimos com início e devolução. A regra devolucao >= inicio envolve dois atributos; a regra de que um exemplar não pode ter dois empréstimos ativos envolve vários registros. Uma PK e FKs válidas não garantem essas condições. Podem ser necessárias restrições adicionais, índices específicos, transações, procedimentos ou lógica de aplicação coordenada, conforme o SGBD.\n\nO mínimo 1 de uma associação também pode exigir mecanismos além de uma FK. Se todo projeto publicado deve ter pelo menos um participante, a ausência de participantes precisa ser avaliada no momento em que se publica o projeto. Não necessariamente durante o rascunho.\n\nEvite impor toda regra em uma única camada por hábito. O modelo especifica a condição; a implementação escolhe mecanismos capazes de garanti-la, inclusive diante de acessos simultâneos.",
+      "example": ""
+    },
+    {
+      "title": "9. Laboratório mental de integridade",
+      "text": "PRÁTICA AUTORAL\n\nUse as relações EQUIPAMENTO(id,descricao), CLIENTE(id,nome) e RESERVA(id,cliente_id,equipamento_id,inicio,fim). IDs são PK; as duas FKs são obrigatórias; fim deve ser posterior ao início. Não pode haver sobreposição de reservas confirmadas para um equipamento, mas reservas canceladas são preservadas.\n\nTeste: inserir cliente existente ou inexistente; duplicar ID; usar fim anterior ou igual; alterar referência para equipamento inexistente; excluir equipamento com reservas; confirmar duas reservas sobrepostas. Especifique o resultado esperado antes de escolher o mecanismo.\n\nCONEXÃO COM LÓGICA\n\nUm teste útil apresenta entrada, estado anterior, ação, resultado esperado e estado posterior. Verificar somente uma mensagem de erro não prova que o estado ficou intacto.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Fundamentos",
+      "title": "Estoque negativo",
+      "prompt": "Estoque -1 viola principalmente qual restrição, quando o domínio exige não negativos?",
+      "hint": "Pense no conjunto de valores.",
+      "explanation": "Viola integridade de domínio.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Referencial"
+        },
+        {
+          "id": "b",
+          "text": "Domínio"
+        },
+        {
+          "id": "c",
+          "text": "Ordenação"
+        },
+        {
+          "id": "d",
+          "text": "Grau"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Fundamentos",
+      "title": "Três violações",
+      "prompt": "Classifique PK repetida, FK para alvo inexistente e nota 12 numa escala 0–10.",
+      "hint": "Separe identidade, associação e valor.",
+      "explanation": "São dimensões independentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Entidade/unicidade; referencial; domínio.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Domínio",
+      "title": "Obrigatoriedade",
+      "prompt": "Quantidade deve ser inteira, obrigatória e não negativa. Descreva três verificações.",
+      "hint": "Tipo, presença e faixa.",
+      "explanation": "Cada condição protege uma propriedade.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Tipo inteiro; não nula; >=0.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — NULL",
+      "title": "Zero",
+      "prompt": "Qual a diferença entre saldo 0 e saldo desconhecido?",
+      "hint": "Um é quantidade conhecida.",
+      "explanation": "Não invente zero para ausência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Zero é valor conhecido; NULL pode indicar ausência de conhecimento.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — NULL",
+      "title": "Teste SQL",
+      "prompt": "Qual expressão testa ausência de valor em SQL?",
+      "hint": "Não use comparação comum.",
+      "explanation": "IS NULL testa o marcador de ausência.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "= NULL"
+        },
+        {
+          "id": "b",
+          "text": "IS NULL"
+        },
+        {
+          "id": "c",
+          "text": "= 0"
+        },
+        {
+          "id": "d",
+          "text": "= 'NULL'"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — NULL",
+      "title": "CHECK",
+      "prompt": "Por que CHECK(quantidade >= 0) pode não garantir quantidade obrigatória?",
+      "hint": "Considere resultado desconhecido.",
+      "explanation": "Faixa e obrigatoriedade são restrições distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "NULL pode produzir desconhecido e passar em CHECK; adicionar NOT NULL.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Entidade",
+      "title": "PK composta",
+      "prompt": "Analise (A,12),(A,NULL),(B,12),(A,12) como PK de sala.",
+      "hint": "Procure nulos e pares repetidos.",
+      "explanation": "PK composta exige todos os componentes presentes e combinação única.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A,NULL viola não nulidade; último A,12 repete o primeiro; B,12 é válido.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Referencial",
+      "title": "Cliente inexistente",
+      "prompt": "Clientes C1 e C2 existem. Reserva aponta para C7 obrigatório. Pode gravar?",
+      "hint": "Procure o alvo.",
+      "explanation": "A referência deve ser válida.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, a FK não possui correspondente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Referencial",
+      "title": "Par inexistente",
+      "prompt": "Salas (A,12),(B,13). Reserva referencia (A,13). É válida?",
+      "hint": "Compare o par inteiro.",
+      "explanation": "Valores individuais existentes não bastam.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, a combinação não está cadastrada.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Referencial",
+      "title": "Sem dependente",
+      "prompt": "Um cliente existe sem reservas. A FK de RESERVA para CLIENTE impede isso?",
+      "hint": "Qual tabela contém a referência?",
+      "explanation": "Obrigatoriedade inversa exige análise própria.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. A FK só verifica reservas existentes; mínimo do cliente é outra regra.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional — Referencial",
+      "title": "Opcional",
+      "prompt": "Um equipamento pode ainda não ter setor. Como representar ausência de referência sem usar código fictício?",
+      "hint": "Nulidade autorizada.",
+      "explanation": "A regra deve permitir ausência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "FK anulável, com NULL representando ausência de setor.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Ações",
+      "title": "Restringir",
+      "prompt": "Uma edição tem exemplares com histórico. Proponha política para impedir exclusão indevida.",
+      "hint": "Considere preservação do histórico.",
+      "explanation": "Preservar informação pode ser mais importante que remover cadastro.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Rejeitar exclusão referenciada; avaliar inativação conforme requisitos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Ações",
+      "title": "Cascata",
+      "prompt": "ON DELETE CASCADE na FK de ITEM para CARRINHO significa o quê ao excluir um carrinho?",
+      "hint": "A direção vai do alvo aos dependentes.",
+      "explanation": "Remove os itens que o referenciam.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Apaga todos os carrinhos"
+        },
+        {
+          "id": "b",
+          "text": "Remove itens dependentes daquele carrinho"
+        },
+        {
+          "id": "c",
+          "text": "Altera a PK de todos os itens"
+        },
+        {
+          "id": "d",
+          "text": "Não afeta itens"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Essenciais — Ações",
+      "title": "SET NULL",
+      "prompt": "Quando SET NULL é incompatível com a regra?",
+      "hint": "Pense na obrigatoriedade.",
+      "explanation": "A ação deve respeitar o domínio.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Quando o vínculo é obrigatório ou a coluna não admite NULL.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Ações",
+      "title": "Valor padrão",
+      "prompt": "SET DEFAULT pode apontar para código inexistente?",
+      "hint": "A ação não suspende integridade.",
+      "explanation": "Ação referencial não é licença para invalidar dados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não se a FK exigir alvo existente; padrão precisa satisfazer as restrições.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional — Ações",
+      "title": "Risco",
+      "prompt": "Uma exclusão em cascata remove dependentes que também são referenciados por outras tabelas. O que investigar?",
+      "hint": "Siga a cadeia de referências.",
+      "explanation": "Efeitos podem se propagar.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ações das FKs seguintes, alcance da exclusão, regras de retenção e necessidade de transação/backup.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Essenciais — Regras",
+      "title": "Datas",
+      "prompt": "Início 10h, fim 10h; a regra exige fim > início. Qual o resultado?",
+      "hint": "Igualdade não é maior.",
+      "explanation": "Teste de fronteira.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Inválido.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Regras",
+      "title": "Sobreposição",
+      "prompt": "Reservas confirmadas de 10–12h e 11–13h têm IDs diferentes e FKs corretas. São necessariamente válidas?",
+      "hint": "A regra temporal é independente.",
+      "explanation": "Chaves não garantem todas as regras.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, há sobreposição para o mesmo equipamento se proibida.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Intercâmbio",
+      "title": "Concorrência",
+      "prompt": "Dois atendentes verificam que um exemplar está disponível e tentam emprestá-lo ao mesmo tempo. Por que validação na tela não basta?",
+      "hint": "O estado pode mudar após a consulta.",
+      "explanation": "Consulta e gravação podem ocorrer em momentos diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "É preciso coordenar a gravação e garantir a regra no banco/transação.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Essenciais — Testes",
+      "title": "Estado posterior",
+      "prompt": "Proponha um teste de rejeição de reserva com cliente inexistente.",
+      "hint": "Inclua antes e depois.",
+      "explanation": "Testar estado é mais forte que observar mensagem.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estado: C9 ausente; ação: inserir R1→C9; esperado: rejeição; depois: R1 não existe e demais dados intactos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional — Revisão",
+      "title": "Diagnóstico integrado",
+      "prompt": "Uma reserva usa ID repetido, cliente ausente e fim anterior. Liste violações e explique se corrigir apenas o cliente resolve.",
+      "hint": "Analise cada regra.",
+      "explanation": "Restrições independentes precisam ser satisfeitas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Unicidade/entidade, referência e domínio temporal; corrigir cliente resolve apenas uma.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
