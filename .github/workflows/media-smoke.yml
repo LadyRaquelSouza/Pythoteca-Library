@@ -1,0 +1,32 @@
+name: Transcrição sintética
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/media-processing/**'
+      - '.github/workflows/media-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install synthetic audio and runtime dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends espeak-ng ffmpeg
+          python -m pip install -r tools/media-processing/requirements.txt
+      - name: Verify public tree and privacy tests
+        run: |
+          python scripts/validate_public_tree.py
+          python -m unittest discover -s tools/media-processing -p 'test_*.py'
+      - name: Recognize fixed synthetic speech
+        run: python tools/media-processing/smoke_synthetic.py

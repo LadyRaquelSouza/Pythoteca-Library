@@ -8,12 +8,12 @@ import sys
 
 ALLOWED = (
     r"README\.md", r"\.gitignore",
-    r"\.github/workflows/catalog\.yml",
+    r"\.github/workflows/(?:catalog|media-smoke)\.yml",
     r"(?:catalog|modules)/(?:index|aula[0-9]{2,4})\.json",
     r"modules/README\.md",
     r"docs/(?:editorial|desenvolvimento)/[A-Za-z0-9_-]+\.md",
     r"scripts/(?:validate_catalog|validate_modules|validate_online_manifest|validate_public_tree)\.py",
-    r"tools/media-processing/(?:README\.md|requirements\.txt|transcribe\.py|test_transcribe\.py|test_public_tree\.py)",
+    r"tools/media-processing/(?:README\.md|requirements\.txt|transcribe\.py|test_transcribe\.py|test_public_tree\.py|smoke_synthetic\.py)",
 )
 
 def allowed(path):
