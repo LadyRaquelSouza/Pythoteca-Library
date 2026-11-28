@@ -5,7 +5,7 @@
   "title": "Edição, formatação e configuração de páginas",
   "subtitle": "Seleção, revisão de atalhos, fontes, parágrafos e layout",
   "objectives": "Fixar comandos de edição e formatação do Word 2016 PT-BR; distinguir propriedades de caractere, parágrafo e página; identificar erros e diferenças entre fontes.",
-  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras de Fernando não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Fernando: PDF disponível tem 20 páginas físicas (capa e pp. 1–19); texto integral consultado, imagens das últimas cinco páginas conferidas na etapa anterior. Restante das figuras não certificado neste fechamento. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando: duas cópias de tamanho igual e texto extraído idêntico; pp. 20–88 anunciadas no sumário não presentes. Conteúdo posterior tratado como complemento autoral, não como procedimento consultado. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Navegar, selecionar e apagar",
@@ -29,7 +29,7 @@
     },
     {
       "title": "5. Margens, papel e estrutura",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nMargem é distância entre limite da página e área de texto; recuo é relativo à área de texto do parágrafo. Orientação retrato ou paisagem modifica disposição; tamanho do papel define dimensões. No Word 2016, Layout reúne configuração de página; versões antigas usam opções em Arquivo/Configurar página.\n\nQuebra de página inicia nova página sem preencher o restante com parágrafos vazios; Ctrl+Enter é o atalho desktop usual (complemento). Quebra de seção permite configurações diferentes de margens, orientação, colunas, cabeçalhos e numeração entre partes. Cabeçalho e rodapé pertencem à região de página; número de página deve preferencialmente usar campo automático. Alterar o layout de uma seção pode depender de vínculos entre cabeçalhos e rodapés.\n\nA fonte Fernando lista esses recursos na interface de faixa e no sumário. As figuras e procedimentos das páginas com extração indisponível não foram examinados; as distinções técnicas adicionais são complementares.\n\n[Elias, pp. 30–31] Medianiz acrescenta espaço para encadernação. Configurar Página no menu Arquivo clássico reúne Margens, Papel e Layout; na faixa moderna, procure Layout. A abrangência da configuração pode ser documento ou seção; cabeçalho e rodapé têm distâncias próprias da borda do papel.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nMargem é distância entre limite da página e área de texto; recuo é relativo à área de texto do parágrafo. Orientação retrato ou paisagem modifica disposição; tamanho do papel define dimensões. No Word 2016, Layout reúne configuração de página; versões antigas usam opções em Arquivo/Configurar página.\n\nQuebra de página inicia nova página sem preencher o restante com parágrafos vazios; Ctrl+Enter é o atalho desktop usual (complemento). Quebra de seção permite configurações diferentes de margens, orientação, colunas, cabeçalhos e numeração entre partes. Cabeçalho e rodapé pertencem à região de página; número de página deve preferencialmente usar campo automático. Alterar o layout de uma seção pode depender de vínculos entre cabeçalhos e rodapés.\n\nA fonte Fernando lista esses recursos na interface de faixa e no sumário. As figuras e procedimentos das páginas com extração indisponível não foram examinados; as distinções técnicas adicionais são complementares.\n\n[Elias, pp. 30–31] Medianiz acrescenta espaço para encadernação. Configurar Página no menu Arquivo clássico reúne Margens, Papel e Layout; na faixa moderna, procure Layout. A abrangência da configuração pode ser documento ou seção; cabeçalho e rodapé têm distâncias próprias da borda do papel.\n\n[Fernando, p. 8] Inserir > Folha de Rosto oferece modelos de capa; Página em Branco insere uma página; Quebra de Página força o conteúdo seguinte a começar em nova página. Complemento: Ctrl+Enter insere quebra de página no Word desktop; uma quebra de seção permite mudar propriedades da seção. Evite repetir Enter para alcançar outra página.",
       "example": ""
     },
     {
@@ -586,6 +586,19 @@
       "solution": "Medianiz: espaço para encadernação; deslocado: linhas posteriores recuadas; decimal: alinhar separadores decimais.",
       "expected": null,
       "required": false
+    },
+    {
+      "id": "38",
+      "group": "Essenciais — revisão TI",
+      "title": "Quebra ou página em branco",
+      "prompt": "Qual recurso usar para começar o próximo capítulo em outra página sem inserir sucessivos parágrafos vazios?",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Folha de rosto, página em branco e quebra de página não são sinônimos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Quebra de página; Ctrl+Enter no desktop.",
+      "expected": null,
+      "required": true
     }
   ]
 }

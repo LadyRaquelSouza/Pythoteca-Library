@@ -5,7 +5,7 @@
   "title": "Correspondências, proteção e gerenciamento documental",
   "subtitle": "Mala direta, cartas, impressão, exportação e revisão cumulativa",
   "objectives": "Compreender mala direta e seus componentes; reconhecer proteção e limites; preparar distribuição e impressão; consolidar atalhos e terminologia das fontes.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras de Fernando não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Fernando: PDF disponível tem 20 páginas físicas (capa e pp. 1–19); texto integral consultado, imagens das últimas cinco páginas conferidas na etapa anterior. Restante das figuras não certificado neste fechamento. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando: duas cópias de tamanho igual e texto extraído idêntico; pp. 20–88 anunciadas no sumário não presentes. Conteúdo posterior tratado como complemento autoral, não como procedimento consultado. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local. Relato da estudante confirma prática presencial de mala direta no Word 2016; roteiro e dados fictícios são autorais.",
   "chapters": [
     {
       "title": "1. Cartas e correspondências",
@@ -14,7 +14,7 @@
     },
     {
       "title": "2. Mala direta",
-      "text": "COMPLEMENTO AUTORAL ORIENTADO PELO SUMÁRIO DE FERNANDO\n\nMala direta combina um documento principal com uma fonte de dados de destinatários. O documento contém texto comum e campos variáveis; a fonte contém registros e colunas, por exemplo nome e endereço. Cada registro selecionado gera uma versão personalizada quando a mesclagem é concluída.\n\nFluxo conceitual: escolher tipo de documento (cartas, etiquetas ou envelopes); selecionar fonte e destinatários; inserir campos; visualizar resultados; concluir mesclagem. A guia Correspondências reúne os recursos. Antes de enviar ou imprimir, confira filtros, correspondência de campos e destinatários. Não confunda campo com valor: o campo Nome é marcador; Marina é valor de um registro.\n\nUse dados fictícios em treinamento. Não faça disparos reais sem revisão e autorização.",
+      "text": "CONTEÚDO RELATADO DA AULA PRESENCIAL — mala direta realizada no Word 2016; roteiro autoral, orientado também pelo sumário de Fernando. As etapas exatas da demonstração docente e a fonte de dados usada não foram informadas.\n\nMala direta combina um documento principal com uma fonte de dados de destinatários. O documento contém texto comum e campos variáveis; a fonte contém registros e colunas, por exemplo nome e endereço. Cada registro selecionado gera uma versão personalizada quando a mesclagem é concluída.\n\nFluxo conceitual: escolher tipo de documento (cartas, etiquetas ou envelopes); selecionar fonte e destinatários; inserir campos; visualizar resultados; concluir mesclagem. A guia Correspondências reúne os recursos. Antes de enviar ou imprimir, confira filtros, correspondência de campos e destinatários. Não confunda campo com valor: o campo Nome é marcador; Marina é valor de um registro.\n\nUse dados fictícios em treinamento. Não faça disparos reais sem revisão e autorização.\n\nROTEIRO DE PRÁTICA AUTORAL — Word 2016 desktop: 1) prepare documento principal; 2) Correspondências > Iniciar Mala Direta > Cartas; 3) Selecionar Destinatários > Digitar Nova Lista ou Usar Lista Existente; 4) criar/selecionar registros fictícios, conferir cabeçalhos e editar destinatários; 5) inserir campos de mesclagem no corpo; 6) Visualizar Resultados e percorrer registros; 7) Concluir e Mesclar > Editar Documentos Individuais, quando disponível, para conferir a saída sem enviar ou imprimir. Nomes podem variar por edição. Salve documento principal e resultado separadamente. Um campo de mesclagem não é texto digitado entre aspas angulares; insira-o pelo comando apropriado. INTERCÂMBIO com Modelagem de Dados e Lógica: linha é registro, coluna é campo/atributo e mesclagem repete um modelo para cada registro selecionado, como iteração conceitual, sem exigir código.",
       "example": "Documento: Prezado(a) «Nome», sua inscrição foi confirmada.\nFonte: Nome | Curso\nAna | Redes\nRui | Java\nResultado: duas cartas personalizadas."
     },
     {
@@ -24,7 +24,7 @@
     },
     {
       "title": "4. Proteção e segurança",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nRestringir edição limita alterações permitidas, mas não equivale necessariamente a criptografar conteúdo. Senha de abertura com criptografia protege acesso ao arquivo quando corretamente aplicada; senha para modificação ou restrição de edição possui finalidade diferente. Marcar como final é um aviso de estado, não garantia forte de segurança. A apostila antiga aborda proteção; opções exatas variam entre versões.\n\nNão habilite macros ou conteúdo ativo de origem desconhecida. Antes de distribuir um documento, examine comentários, alterações, propriedades e informações ocultas. Uma cópia pode ser preparada para distribuição sem remover dados do original de trabalho. Senhas esquecidas podem impedir recuperação; mantenha controle seguro das credenciais.\n\n[Elias, pp. 50–52] O caminho clássico Salvar Como > Ferramentas > Opções de Segurança distingue senha de abertura e de modificação. Somente leitura recomendada é aviso, não proteção forte. O limite de 15 caracteres citado é histórico e não deve ser aplicado a versões modernas. COMPLEMENTO DE SEGURANÇA: prefira senhas longas e únicas, armazenadas em gerenciador seguro; formatos antigos podem usar proteção fraca.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nRestringir edição limita alterações permitidas, mas não equivale necessariamente a criptografar conteúdo. Senha de abertura com criptografia protege acesso ao arquivo quando corretamente aplicada; senha para modificação ou restrição de edição possui finalidade diferente. Marcar como final é um aviso de estado, não garantia forte de segurança. A apostila antiga aborda proteção; opções exatas variam entre versões.\n\nNão habilite macros ou conteúdo ativo de origem desconhecida. Antes de distribuir um documento, examine comentários, alterações, propriedades e informações ocultas. Uma cópia pode ser preparada para distribuição sem remover dados do original de trabalho. Senhas esquecidas podem impedir recuperação; mantenha controle seguro das credenciais.\n\n[Elias, pp. 50–52] O caminho clássico Salvar Como > Ferramentas > Opções de Segurança distingue senha de abertura e de modificação. Somente leitura recomendada é aviso, não proteção forte. O limite de 15 caracteres citado é histórico e não deve ser aplicado a versões modernas. COMPLEMENTO DE SEGURANÇA: prefira senhas longas e únicas, armazenadas em gerenciador seguro; formatos antigos podem usar proteção fraca.\n\n[Fernando, p. 13] Linha de assinatura reserva local e informações de signatário. Complemento: assinatura visual ou nome digitado não equivale automaticamente a assinatura digital criptográfica; esta depende de mecanismo apropriado de autenticação e integridade.",
       "example": ""
     },
     {
@@ -374,6 +374,32 @@
       "mode": "text",
       "starter": "",
       "solution": "Não para ambas. O limite depende da versão/formato; somente leitura recomendada é aviso.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Essenciais — revisão TI",
+      "title": "Sequência de mala direta",
+      "prompt": "Ordene: visualizar resultados, selecionar destinatários, concluir mesclagem, inserir campos e iniciar mala direta.",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Sequência conceitual de criação de cartas no Word 2016.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Iniciar mala direta, selecionar destinatários, inserir campos, visualizar resultados e concluir mesclagem.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional — aplicação",
+      "title": "Prática de mala direta",
+      "prompt": "Crie ou planeje três convites personalizados usando uma lista fictícia com Nome e Evento. Insira campos, exclua um destinatário da seleção, visualize os registros restantes e gere os documentos individuais sem enviar.",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Atividade opcional inspirada na prática presencial, sem presumir dados ou procedimentos usados pela professora.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Criar documento principal; selecionar lista; inserir campos Nome e Evento; desmarcar um destinatário; visualizar dois resultados; concluir mesclagem em documentos individuais. Conferir nomes e evento e salvar separadamente.",
       "expected": null,
       "required": false
     }

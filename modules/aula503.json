@@ -5,7 +5,7 @@
   "title": "Estilos, listas, tabelas e elementos visuais",
   "subtitle": "Estrutura documental, temas, objetos e formatação consistente",
   "objectives": "Distinguir estilos e formatação direta; reconhecer listas e tabelas estruturadas; identificar recursos de Inserir e Design; retomar atalhos de formatação.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras de Fernando não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Fernando: PDF disponível tem 20 páginas físicas (capa e pp. 1–19); texto integral consultado, imagens das últimas cinco páginas conferidas na etapa anterior. Restante das figuras não certificado neste fechamento. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando: duas cópias de tamanho igual e texto extraído idêntico; pp. 20–88 anunciadas no sumário não presentes. Conteúdo posterior tratado como complemento autoral, não como procedimento consultado. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Estilos e formatação direta",
@@ -14,7 +14,7 @@
     },
     {
       "title": "2. Temas, modelos e bordas",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nA guia Design reúne temas, cores, fontes, espaçamento e recursos de plano de fundo. Um tema coordena escolhas visuais; um estilo define propriedades reutilizáveis; um modelo fornece uma base para novos documentos, podendo conter estilos, conteúdo inicial e configurações. Não são sinônimos.\n\nBorda delimita texto, parágrafo, célula ou página conforme o objeto selecionado; sombreamento preenche a área. Destaque de texto, sombreamento de parágrafo e cor da página possuem escopos distintos. O manual Bradesco, aula 5, aborda bordas e sombreamento; Fernando lista recursos da guia Design.\n\n[Bradesco, pp. 55–58] Alt, C, F, B acessa Bordas; Alt, D, B acessa Bordas da Página na interface descrita. Escolha abrangência (texto, parágrafo ou página), estilo, cor e largura da linha. Confira a seleção e a prévia.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nA guia Design reúne temas, cores, fontes, espaçamento e recursos de plano de fundo. Um tema coordena escolhas visuais; um estilo define propriedades reutilizáveis; um modelo fornece uma base para novos documentos, podendo conter estilos, conteúdo inicial e configurações. Não são sinônimos.\n\nBorda delimita texto, parágrafo, célula ou página conforme o objeto selecionado; sombreamento preenche a área. Destaque de texto, sombreamento de parágrafo e cor da página possuem escopos distintos. O manual Bradesco, aula 5, aborda bordas e sombreamento; Fernando lista recursos da guia Design.\n\n[Bradesco, pp. 55–58] Alt, C, F, B acessa Bordas; Alt, D, B acessa Bordas da Página na interface descrita. Escolha abrangência (texto, parágrafo ou página), estilo, cor e largura da linha. Confira a seleção e a prévia.\n\n[Fernando, pp. 16–19] Na guia Design, conjuntos de estilos coordenam a aparência dos estilos do documento; galerias de cores, fontes e espaçamento entre parágrafos permitem mudar propriedades relacionadas. Diferenciar tema global, conjunto de estilos e formatação direta.",
       "example": ""
     },
     {
@@ -29,12 +29,12 @@
     },
     {
       "title": "5. Imagens, formas e gráficos",
-      "text": "CONTEÚDO DO CURSO — Fernando, guia Inserir; complemento técnico\n\nImagens ilustram conteúdo; formas representam elementos gráficos; SmartArt organiza relações e processos; gráficos representam dados; WordArt aplica efeitos decorativos a texto. Caixa de texto permite posicionar conteúdo em objeto próprio. Não use um gráfico decorativo quando uma tabela comunicar melhor o fato.\n\nUma imagem alinhada com o texto comporta-se como elemento na linha; outras opções de disposição permitem que o texto contorne o objeto. Âncora vincula um objeto flutuante a um parágrafo. Recortar modifica a região exibida, enquanto redimensionar altera dimensões. Preserve proporções quando necessário. Texto alternativo descreve informação relevante para acessibilidade.\n\n[Elias, pp. 17–21] A barra Desenho clássica reúne AutoFormas, linhas, setas, retângulos, elipses, caixas de texto, diagramas, organogramas, ClipArt e WordArt. Agrupar trata vários objetos como conjunto; ordenar altera a sobreposição; girar altera ângulo; inverter espelha; distribuir ajusta espaçamento entre objetos. WordArt clássico usa galeria, edição de texto, preenchimento, contorno, forma, espaçamento e disposição do texto. A faixa moderna oferece comandos semelhantes, com nomes e galerias variáveis. INTERCÂMBIO com Arquitetura: imagens bitmap representam pixels; formas vetoriais descrevem geometria, sem implicar que todos os objetos WordArt sejam armazenados do mesmo modo.",
+      "text": "CONTEÚDO DO CURSO — Fernando, guia Inserir; complemento técnico\n\nImagens ilustram conteúdo; formas representam elementos gráficos; SmartArt organiza relações e processos; gráficos representam dados; WordArt aplica efeitos decorativos a texto. Caixa de texto permite posicionar conteúdo em objeto próprio. Não use um gráfico decorativo quando uma tabela comunicar melhor o fato.\n\nUma imagem alinhada com o texto comporta-se como elemento na linha; outras opções de disposição permitem que o texto contorne o objeto. Âncora vincula um objeto flutuante a um parágrafo. Recortar modifica a região exibida, enquanto redimensionar altera dimensões. Preserve proporções quando necessário. Texto alternativo descreve informação relevante para acessibilidade.\n\n[Elias, pp. 17–21] A barra Desenho clássica reúne AutoFormas, linhas, setas, retângulos, elipses, caixas de texto, diagramas, organogramas, ClipArt e WordArt. Agrupar trata vários objetos como conjunto; ordenar altera a sobreposição; girar altera ângulo; inverter espelha; distribuir ajusta espaçamento entre objetos. WordArt clássico usa galeria, edição de texto, preenchimento, contorno, forma, espaçamento e disposição do texto. A faixa moderna oferece comandos semelhantes, com nomes e galerias variáveis. INTERCÂMBIO com Arquitetura: imagens bitmap representam pixels; formas vetoriais descrevem geometria, sem implicar que todos os objetos WordArt sejam armazenados do mesmo modo.\n\n[Fernando, pp. 8–11] Inserir disponibiliza imagens locais, de estoque ou online, ícones, modelos 3D, Instantâneo de janela de aplicativo, suplementos e vídeo online conforme edição. Categorias SmartArt: lista, processo, ciclo, hierarquia, relação, matriz, pirâmide e imagem. Complemento: suplementos podem exigir permissões e conta; vídeo online depende de acesso ao conteúdo; verificar direitos de uso e acessibilidade. Capturas podem revelar informações privadas.",
       "example": ""
     },
     {
       "title": "6. Campos, símbolos e elementos reutilizáveis",
-      "text": "REVISÃO ACADÊMICA E COMPLEMENTO\n\nA guia Inserir inclui hiperlinks, indicadores, caixas de texto, equações, símbolos, data/hora e partes rápidas. Hiperlink aponta para destino; indicador marca posição ou trecho que pode servir de destino interno. Campo pode representar conteúdo calculado ou atualizado, como número de página. Uma data inserida como texto não se atualiza automaticamente; uma data configurada como campo pode atualizar.\n\nPartes rápidas permitem reutilizar conteúdo. Cabeçalho e rodapé pertencem à estrutura de página, não são texto repetido manualmente. Legendas e referências cruzadas serão retomadas na aula 504. Use símbolos e equações para representar conteúdo, sem confundir aparência com significado.",
+      "text": "REVISÃO ACADÊMICA E COMPLEMENTO\n\nA guia Inserir inclui hiperlinks, indicadores, caixas de texto, equações, símbolos, data/hora e partes rápidas. Hiperlink aponta para destino; indicador marca posição ou trecho que pode servir de destino interno. Campo pode representar conteúdo calculado ou atualizado, como número de página. Uma data inserida como texto não se atualiza automaticamente; uma data configurada como campo pode atualizar.\n\nPartes rápidas permitem reutilizar conteúdo. Cabeçalho e rodapé pertencem à estrutura de página, não são texto repetido manualmente. Legendas e referências cruzadas serão retomadas na aula 504. Use símbolos e equações para representar conteúdo, sem confundir aparência com significado.\n\n[Fernando, pp. 12–15] Partes rápidas podem guardar conteúdo reutilizável, propriedades do documento e campos. Letra capitular amplia a primeira letra do parágrafo como recurso editorial. Objeto permite incorporar conteúdo de outro aplicativo ou inserir texto de arquivo. Complemento: objeto incorporado mantém uma cópia dentro do documento; objeto vinculado depende da origem e pode atualizar; não confundir com imagem estática. Campos, equações e símbolos preservam funções distintas.",
       "example": ""
     }
   ],
@@ -335,6 +335,32 @@
       "mode": "text",
       "starter": "",
       "solution": "Pode associar preços aos itens errados; preservar linhas como registros.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional — aplicação",
+      "title": "SmartArt adequado",
+      "prompt": "Qual categoria de SmartArt é mais adequada para representar uma sequência de etapas e qual para representar um organograma?",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Um diagrama de processo não é necessariamente um gráfico quantitativo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Processo e hierarquia, respectivamente.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional — aplicação",
+      "title": "Objeto incorporado",
+      "prompt": "Diferencie objeto incorporado, objeto vinculado e imagem estática de uma planilha.",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Complemento técnico sobre a função Objeto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Incorporado guarda conteúdo no arquivo; vinculado depende da origem; imagem registra aparência sem estrutura editável da planilha.",
       "expected": null,
       "required": false
     }

@@ -5,11 +5,11 @@
   "title": "Fundamentos do Word e gerenciamento de documentos",
   "subtitle": "Interface, formatos, comandos de arquivo e atalhos localizados",
   "objectives": "Reconhecer interfaces clássicas e modernas; distinguir comandos de arquivo; fixar atalhos do manual Word 2016 PT-BR; interpretar divergências sem misturar configurações.",
-  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras de Fernando não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local. Relato da estudante: comando rand apresentado pela professora em aula; lorem é complemento.",
+  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Fernando: PDF disponível tem 20 páginas físicas (capa e pp. 1–19); texto integral consultado, imagens das últimas cinco páginas conferidas na etapa anterior. Restante das figuras não certificado neste fechamento. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando: duas cópias de tamanho igual e texto extraído idêntico; pp. 20–88 anunciadas no sumário não presentes. Conteúdo posterior tratado como complemento autoral, não como procedimento consultado. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local. Relato da estudante: comando rand apresentado pela professora em aula; lorem é complemento.",
   "chapters": [
     {
       "title": "1. Word, Office e versões",
-      "text": "REVISÃO ACADÊMICA\n\nWord é um processador de textos da Microsoft; Office é a suíte de aplicativos da qual ele faz parte. A apostila antiga usa os nomes de modo pouco preciso. Word permite editar conteúdo, estruturar páginas, inserir objetos e preparar documentos para distribuição.\n\nA apostila de Elias descreve menus e barras de ferramentas da geração clássica, com Assistente do Office. O manual da Fundação Bradesco descreve Word 2016 com faixa de opções. Fernando descreve recursos de interface mais recente, mas a edição exata não está confirmada. Não memorize caminhos antigos como se fossem os únicos atuais.\n\nA versão, plataforma, idioma e personalização podem alterar comandos. Nesta trilha o padrão de prova provisório é o documentado no manual da Fundação Bradesco, não uma afirmação universal sobre todas as instalações.\n\n[CONFERÊNCIA, pp. 13 e 22] O manual identificado como Word 2016 conserva referências a Word 2013. Os critérios de frequência e nota da p. 14 são do curso da Fundação Bradesco, não necessariamente do curso técnico do aluno.",
+      "text": "REVISÃO ACADÊMICA\n\nWord é um processador de textos da Microsoft; Office é a suíte de aplicativos da qual ele faz parte. A apostila antiga usa os nomes de modo pouco preciso. Word permite editar conteúdo, estruturar páginas, inserir objetos e preparar documentos para distribuição.\n\nA apostila de Elias descreve menus e barras de ferramentas da geração clássica, com Assistente do Office. O manual da Fundação Bradesco descreve Word 2016 com faixa de opções. Fernando descreve recursos de interface mais recente, mas a edição exata não está confirmada. Não memorize caminhos antigos como se fossem os únicos atuais.\n\nA versão, plataforma, idioma e personalização podem alterar comandos. Nesta trilha o padrão de prova provisório é o documentado no manual da Fundação Bradesco, não uma afirmação universal sobre todas as instalações.\n\n[CONFERÊNCIA, pp. 13 e 22] O manual identificado como Word 2016 conserva referências a Word 2013. Os critérios de frequência e nota da p. 14 são do curso da Fundação Bradesco, não necessariamente do curso técnico do aluno.\n\n[Fernando, pp. 3–4] O material distingue aplicativo instalado, Word na web e versão móvel, e assinatura Office 365. Complemento: a marca Microsoft 365 passou a ser usada para diversos planos; recursos e licenças variam. A conta Microsoft não precisa ter endereço Hotmail. Não presumir paridade de funções entre plataformas.",
       "example": ""
     },
     {
@@ -19,7 +19,7 @@
     },
     {
       "title": "3. Novo, abrir, salvar e fechar",
-      "text": "CONTEÚDO DO CURSO — MANUAL 2016 PT-BR\n\nCtrl+O: novo documento. Ctrl+A: abrir. Ctrl+B: salvar. F12: Salvar como. Ctrl+P: imprimir. Ctrl+F4: fechar documento. Alt+F4: fechar janela/aplicativo, conforme contexto do Windows. F1: ajuda.\n\nSalvar grava a edição no arquivo associado; no primeiro salvamento é necessário definir nome e destino. Salvar como permite escolher nome, local ou formato diferente. Depois de salvar como, confira qual arquivo está ativo antes de continuar editando. Fechar não significa apagar o arquivo. Um documento sem alterações salvas pode solicitar decisão.\n\nDIVERGÊNCIA DOCUMENTADA: Fernando apresenta Ctrl+S para salvar. Fundação Bradesco apresenta Ctrl+B e Ctrl+S para sublinhado. O padrão internacional EN-US usa Ctrl+S para salvar, Ctrl+N para novo e Ctrl+O para abrir. Não está confirmado qual configuração foi usada por Fernando. Nas questões essenciais, o contexto é sempre o manual 2016 PT-BR até esclarecimento docente.",
+      "text": "CONTEÚDO DO CURSO — MANUAL 2016 PT-BR\n\nCtrl+O: novo documento. Ctrl+A: abrir. Ctrl+B: salvar. F12: Salvar como. Ctrl+P: imprimir. Ctrl+F4: fechar documento. Alt+F4: fechar janela/aplicativo, conforme contexto do Windows. F1: ajuda.\n\nSalvar grava a edição no arquivo associado; no primeiro salvamento é necessário definir nome e destino. Salvar como permite escolher nome, local ou formato diferente. Depois de salvar como, confira qual arquivo está ativo antes de continuar editando. Fechar não significa apagar o arquivo. Um documento sem alterações salvas pode solicitar decisão.\n\nDIVERGÊNCIA DOCUMENTADA: Fernando apresenta Ctrl+S para salvar. Fundação Bradesco apresenta Ctrl+B e Ctrl+S para sublinhado. O padrão internacional EN-US usa Ctrl+S para salvar, Ctrl+N para novo e Ctrl+O para abrir. Não está confirmado qual configuração foi usada por Fernando. Nas questões essenciais, o contexto é sempre o manual 2016 PT-BR até esclarecimento docente.\n\n[Fernando, pp. 4–6] O Salvamento Automático apresentado depende de armazenamento compatível na nuvem e conta configurada. Salvar uma cópia mantém uma versão separada, importante antes de modificar um documento com salvamento automático ativo. A área Arquivo reúne informações, propriedades, compartilhamento, exportação e a opção histórica Transformar para Sway; disponibilidade depende da versão. Ctrl+S é a indicação de Fernando; preservar Ctrl+B como referência provisória Bradesco.",
       "example": ""
     },
     {
@@ -410,6 +410,19 @@
       "mode": "text",
       "starter": "",
       "solution": "Não, ambos mostram partes do mesmo documento.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional — aplicação",
+      "title": "Salvar cópia ou editar original",
+      "prompt": "Por que criar uma cópia antes de modificar um documento compartilhado com Salvamento Automático ativo?",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Salvamento Automático não equivale a cópia de segurança.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Para preservar o original e evitar que alterações de uma versão de trabalho sejam gravadas nele automaticamente.",
       "expected": null,
       "required": false
     }

@@ -230,40 +230,40 @@
       "title": "Fundamentos do Word e gerenciamento de documentos",
       "subtitle": "Interface, formatos, comandos de arquivo e atalhos localizados",
       "discipline": "ti",
-      "sha256": "fa14e4286616366582abd264d0cd43bb7a497373ba06d00dbd6c541ba9394de6",
-      "bytes": 25446
+      "sha256": "d861c0c4252579256161ba9e2dbd2ab4fbd496570060726501f684b805dee0a4",
+      "bytes": 27175
     },
     {
       "id": "aula502",
       "title": "Edição, formatação e configuração de páginas",
       "subtitle": "Seleção, revisão de atalhos, fontes, parágrafos e layout",
       "discipline": "ti",
-      "sha256": "24dd7f92817c44e0f56515c1cb73b553b5ab8fac47bd9b57f6a1a3f00bafc0f5",
-      "bytes": 32150
+      "sha256": "2b6669fe5a560b3c1a1f625a25a2b059b05ecc302cb71da472ea09784c42d6cd",
+      "bytes": 33325
     },
     {
       "id": "aula503",
       "title": "Estilos, listas, tabelas e elementos visuais",
       "subtitle": "Estrutura documental, temas, objetos e formatação consistente",
       "discipline": "ti",
-      "sha256": "143fc741cc1b701419d0313b3b5a556edf8273d0df934c2e99ce0e4274938b9c",
-      "bytes": 20181
+      "sha256": "24f9caacf211f800092a4f2941ed403ebfd01e4cbf09a6c3c30f6da09d19d8e0",
+      "bytes": 22923
     },
     {
       "id": "aula504",
       "title": "Referências, revisão, colaboração e acessibilidade",
       "subtitle": "Sumários, índices, citações, correção e estrutura acessível",
       "discipline": "ti",
-      "sha256": "8277a4e3e33a3dc7d7b1cee286f2713f58a3723a28e04ddcbf2d8396bcafe345",
-      "bytes": 17394
+      "sha256": "a8742bd3c54687b6c318f48402ca66f436ec9f1f51bb78373c29d814c3e4035f",
+      "bytes": 18657
     },
     {
       "id": "aula505",
       "title": "Correspondências, proteção e gerenciamento documental",
       "subtitle": "Mala direta, cartas, impressão, exportação e revisão cumulativa",
       "discipline": "ti",
-      "sha256": "639342cfa42a59ca3a9bbbefce5add6f29235e2a2d04541233de229ac52a9144",
-      "bytes": 22030
+      "sha256": "7cab5b1488383994d704917aaa9b5a75ae3a383fd1e9971503f08eb45519808f",
+      "bytes": 25314
     },
     {
       "id": "aula601",

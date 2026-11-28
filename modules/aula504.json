@@ -5,7 +5,7 @@
   "title": "Referências, revisão, colaboração e acessibilidade",
   "subtitle": "Sumários, índices, citações, correção e estrutura acessível",
   "objectives": "Reconhecer recursos de Referências e Revisão; distinguir campos automáticos e elementos manuais; interpretar correção, alterações, comentários e acessibilidade.",
-  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras de Fernando não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando Borges Vale permanece pendente de conferência aprofundada. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Fernando: PDF disponível tem 20 páginas físicas (capa e pp. 1–19); texto integral consultado, imagens das últimas cinco páginas conferidas na etapa anterior. Restante das figuras não certificado neste fechamento. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco. Fundação Bradesco, pp. 13–76: texto conferido integralmente; conferência visual registrada na revisão anterior. Elias de Souza Santana, pp. 1–56 (seções 1–32): revisão textual e visual registrada; Fernando: duas cópias de tamanho igual e texto extraído idêntico; pp. 20–88 anunciadas no sumário não presentes. Conteúdo posterior tratado como complemento autoral, não como procedimento consultado. Atalhos mantidos como referência acadêmica provisória, não testados em instalação local.",
   "chapters": [
     {
       "title": "1. Sumário e índice remissivo",
@@ -24,7 +24,7 @@
     },
     {
       "title": "4. Ortografia, gramática e idioma",
-      "text": "CONTEÚDO DO CURSO — Bradesco, aula 4\n\nAs ferramentas de revisão detectam possíveis problemas com base em dicionários, regras e idioma configurado. Uma palavra marcada pode estar correta, como nome próprio ou termo técnico. Uma frase sem marcas pode conter erro de sentido. O usuário decide se aceita sugestão, ignora ou adiciona termo ao dicionário.\n\nO manual 2016 descreve Alt+F7 para acessar correção contextual e recursos de sinônimos e contagem de palavras. F7 é atalho tradicional para iniciar verificação ortográfica/gramatical no desktop, apresentado aqui como complemento; disponibilidade e interface variam. Dicionário de sinônimos auxilia vocabulário, mas termos próximos não são intercambiáveis em todo contexto.\n\nConfigure o idioma do trecho correto, especialmente em documentos multilíngues. Contagem de palavras, caracteres e páginas mede aspectos diferentes.\n\n[Bradesco, pp. 45–48] Shift+F10 abre o menu de contexto, inclusive para sinônimos. Alt, V, N, O é a sequência indicada para Contar Palavras, que informa páginas, palavras, caracteres com e sem espaços, parágrafos e linhas. O manual descreve vermelho para ortografia e verde para gramática; cores variam conforme edição. Revisão automática não dispensa leitura final.\n\n[Elias, pp. 43–45] AutoCorreção substitui entradas reconhecidas durante a digitação; o verificador sinaliza possíveis erros e oferece sugestões, sem necessariamente alterar texto. Desfazer logo após uma substituição indesejada pode revertê-la. Dicionário personalizado altera reconhecimento de termos; não corrige significado nem justifica adicionar qualquer erro. As marcas inteligentes citadas na p. 29 são históricas e não devem ser confundidas com revisores atuais.",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 4\n\nAs ferramentas de revisão detectam possíveis problemas com base em dicionários, regras e idioma configurado. Uma palavra marcada pode estar correta, como nome próprio ou termo técnico. Uma frase sem marcas pode conter erro de sentido. O usuário decide se aceita sugestão, ignora ou adiciona termo ao dicionário.\n\nO manual 2016 descreve Alt+F7 para acessar correção contextual e recursos de sinônimos e contagem de palavras. F7 é atalho tradicional para iniciar verificação ortográfica/gramatical no desktop, apresentado aqui como complemento; disponibilidade e interface variam. Dicionário de sinônimos auxilia vocabulário, mas termos próximos não são intercambiáveis em todo contexto.\n\nConfigure o idioma do trecho correto, especialmente em documentos multilíngues. Contagem de palavras, caracteres e páginas mede aspectos diferentes.\n\n[Bradesco, pp. 45–48] Shift+F10 abre o menu de contexto, inclusive para sinônimos. Alt, V, N, O é a sequência indicada para Contar Palavras, que informa páginas, palavras, caracteres com e sem espaços, parágrafos e linhas. O manual descreve vermelho para ortografia e verde para gramática; cores variam conforme edição. Revisão automática não dispensa leitura final.\n\n[Elias, pp. 43–45] AutoCorreção substitui entradas reconhecidas durante a digitação; o verificador sinaliza possíveis erros e oferece sugestões, sem necessariamente alterar texto. Desfazer logo após uma substituição indesejada pode revertê-la. Dicionário personalizado altera reconhecimento de termos; não corrige significado nem justifica adicionar qualquer erro. As marcas inteligentes citadas na p. 29 são históricas e não devem ser confundidas com revisores atuais.\n\n[Fernando, p. 7] Ditar converte fala em texto; Editor auxilia revisão ortográfica e outras sugestões. Ler em Voz Alta, mencionado apenas no sumário (p. 70 anunciada), converte texto em fala. Complemento: disponibilidade, idioma e conexão podem variar; ditado e Editor exigem conferência humana. Não afirmar que o procedimento das páginas ausentes foi consultado.",
       "example": ""
     },
     {
@@ -296,6 +296,19 @@
       "mode": "text",
       "starter": "",
       "solution": "AutoCorreção modifica texto; o verificador sugere. Desfazer imediatamente e, se necessário, ajustar a entrada de AutoCorreção.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "21",
+      "group": "Essenciais — revisão TI",
+      "title": "Fala, texto e revisão",
+      "prompt": "Associe Ditar, Editor e Ler em Voz Alta às funções fala para texto, sugestões de revisão e texto para fala.",
+      "hint": "Recupere o conceito e compare com a resposta.",
+      "explanation": "Distinção funcional; o terceiro aparece apenas no sumário disponível.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ditar: fala para texto; Editor: revisão; Ler em Voz Alta: texto para fala.",
       "expected": null,
       "required": true
     }
