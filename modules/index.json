@@ -202,6 +202,22 @@
       "bytes": 30021
     },
     {
+      "id": "aula501",
+      "title": "Fundamentos do Word e gerenciamento de documentos",
+      "subtitle": "Interface, formatos, comandos de arquivo e atalhos localizados",
+      "discipline": "ti",
+      "sha256": "3304a1ba56ef43d45a569aee5323f148fa41ee3e77abab32b64a377c7ec2547b",
+      "bytes": 16405
+    },
+    {
+      "id": "aula502",
+      "title": "Edição, formatação e configuração de páginas",
+      "subtitle": "Seleção, revisão de atalhos, fontes, parágrafos e layout",
+      "discipline": "ti",
+      "sha256": "ac588e236f65e3975b8869e0b5edd22ae914dc9e28830d6673f078692c460586",
+      "bytes": 20450
+    },
+    {
       "id": "aula601",
       "title": "Dados, informação e bancos de dados",
       "subtitle": "Dados, contexto, metadados, SGBDs e linguagens",

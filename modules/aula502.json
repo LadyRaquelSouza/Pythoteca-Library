@@ -1,0 +1,464 @@
+{
+  "schema_version": 2,
+  "discipline": "ti",
+  "id": "aula502",
+  "title": "Edição, formatação e configuração de páginas",
+  "subtitle": "Seleção, revisão de atalhos, fontes, parágrafos e layout",
+  "objectives": "Fixar comandos de edição e formatação do Word 2016 PT-BR; distinguir propriedades de caractere, parágrafo e página; identificar erros e diferenças entre fontes.",
+  "source": "Fontes acadêmicas: Fundação Bradesco, Word 2016 — Básico para pessoas com deficiência visual (2017), aulas 1–3, 8; Elias de Souza Santana, Apostila 01 - WORD, seções 1–7, 15–24, 27–31; Fernando Borges Vale, Apostila de Word, texto disponível sobre interface, Página Inicial e Inserir. Textos e sumários consultados em 28/11/2026; extração de Fernando parcial; figuras não examinadas. Padrão provisório de atalhos: Word desktop PT-BR conforme Fundação Bradesco; confirmação docente pendente. Exemplos e exercícios originais.",
+  "chapters": [
+    {
+      "title": "1. Navegar, selecionar e apagar",
+      "text": "REVISÃO ACADÊMICA — MANUAL 2016 PT-BR\n\nSetas movem cursor; Ctrl+setas esquerda/direita desloca por palavras; Home/End deslocam ao início/fim da linha; Ctrl+Home/End ao início/fim do documento. Shift acrescentado a movimentos compatíveis estende a seleção: Shift+End até o fim da linha, Ctrl+Shift+Home até início do documento, Ctrl+Shift+seta seleciona por palavras. Ctrl+T seleciona todo o documento no padrão do manual.\n\nBackspace apaga à esquerda; Delete à direita. Ctrl+Backspace apaga por palavra à esquerda, Ctrl+Delete à direita. Com texto selecionado, apagar ou digitar substitui a seleção. Ctrl+T não é o mesmo que Ctrl+A nesse padrão localizado.",
+      "example": ""
+    },
+    {
+      "title": "2. Área de transferência e edição",
+      "text": "CONTEÚDO DO CURSO\n\nCtrl+X recorta, Ctrl+C copia e Ctrl+V cola. Recortar remove o trecho selecionado e o coloca na área de transferência; copiar mantém o original; colar insere conteúdo no destino. Ctrl+Z desfaz; Ctrl+R refaz segundo o manual 2016 PT-BR. Em Word internacional, Ctrl+Y normalmente refaz/repite e Ctrl+R alinha à direita. Não confunda os padrões.\n\nCtrl+L localiza; Ctrl+U substitui segundo Fundação Bradesco, aula 8. Substituir todas as ocorrências exige verificar o contexto: alterar uma sequência curta pode modificar palavras não pretendidas. Use a prévia ou substituição individual quando necessário. A apostila também cita Ctrl+Alt+G para ir a um ponto específico; a menção a Ctrl+U nessa mesma passagem é ambígua, pois o manual já o atribui a substituir. Não tratar essa segunda indicação como resposta inequívoca de prova.",
+      "example": ""
+    },
+    {
+      "title": "3. Caracteres e efeitos",
+      "text": "CONTEÚDO DO CURSO — MANUAL 2016 PT-BR\n\nCtrl+N negrito; Ctrl+I itálico; Ctrl+S sublinhado. Ctrl+D abre diálogo Fonte; Ctrl+Shift+F permite acessar configuração de fonte conforme contexto. Ctrl+Shift+W sublinha palavras sem espaços; Ctrl+Shift+D aplica sublinhado duplo; Ctrl+= subscrito; Ctrl+Shift++ sobrescrito; Shift+F3 alterna capitalização; Ctrl+Shift+A aplica efeito de maiúsculas. Ctrl+Espaço remove formatação direta de caracteres, retornando à definida pelo estilo; não redefine automaticamente margens ou parágrafos.\n\nCtrl+Shift+> e Ctrl+Shift+< aumentam/reduzem o tamanho pelos incrementos disponíveis, não necessariamente sempre dois pontos como afirma o manual. Tachado, versalete e outros efeitos podem ser selecionados no diálogo Fonte. Fonte, tamanho, cor e efeitos são propriedades de caracteres. Negrito não é sinônimo de cor preta.\n\nDIVERGÊNCIA: a apostila clássica de Elias indica Ctrl+F para abrir Fonte; o manual 2016 indica Ctrl+D. A causa precisa da diferença não foi confirmada. Use a referência explicitada na questão.",
+      "example": ""
+    },
+    {
+      "title": "4. Parágrafos, alinhamento e espaçamento",
+      "text": "CONTEÚDO DO CURSO\n\nAlinhamento atua sobre parágrafos: à esquerda, centralizado, à direita ou justificado. No manual 2016: Ctrl+E centraliza, Ctrl+G alinha à direita, Ctrl+J justifica. A posição do cursor dentro do parágrafo permite aplicar propriedades ao parágrafo; não é preciso selecionar cada letra. Recuos deslocam limites do texto relativamente às margens; primeira linha e deslocamento francês são configurações específicas.\n\nCtrl+1: espaçamento simples; Ctrl+2: duplo; Ctrl+5: 1,5 linha. O manual chama 1,5 de centímetros em uma passagem: tecnicamente são múltiplos da altura de linha, não uma medida fixa em centímetros. Espaço antes/depois do parágrafo é outra propriedade. Enter cria parágrafo; Shift+Enter insere quebra de linha manual dentro do parágrafo (complemento). A quebra automática ocorre pela largura disponível.\n\nTabulação organiza posições horizontais mediante marcas de tabulação, não uma quantidade fixa de espaços. A régua pode exibir marcas de recuo e tabulação. Não use várias barras de espaço para simular alinhamento.",
+      "example": ""
+    },
+    {
+      "title": "5. Margens, papel e estrutura",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nMargem é distância entre limite da página e área de texto; recuo é relativo à área de texto do parágrafo. Orientação retrato ou paisagem modifica disposição; tamanho do papel define dimensões. No Word 2016, Layout reúne configuração de página; versões antigas usam opções em Arquivo/Configurar página.\n\nQuebra de página inicia nova página sem preencher o restante com parágrafos vazios; Ctrl+Enter é o atalho desktop usual (complemento). Quebra de seção permite configurações diferentes de margens, orientação, colunas, cabeçalhos e numeração entre partes. Cabeçalho e rodapé pertencem à região de página; número de página deve preferencialmente usar campo automático. Alterar o layout de uma seção pode depender de vínculos entre cabeçalhos e rodapés.\n\nA fonte Fernando lista esses recursos na interface de faixa e no sumário. As figuras e procedimentos das páginas com extração indisponível não foram examinados; as distinções técnicas adicionais são complementares.",
+      "example": ""
+    },
+    {
+      "title": "6. Copiar formato e revisar sem confundir efeitos",
+      "text": "CONTEÚDO DO CURSO\n\nO manual 2016 apresenta Ctrl+Shift+C para copiar formatação e Ctrl+Shift+V para aplicá-la. Isso é diferente de copiar conteúdo com Ctrl+C/Ctrl+V. Em edições mais recentes, atalhos de colagem podem ter sido alterados; não generalize o comportamento sem verificar configuração. Pincel de formatação também transfere propriedades visuais.\n\nUma seleção com aparência igual pode esconder estilos diferentes. A próxima aula distinguirá estilos e formatação direta. Para revisão, fixe primeiro os comandos de arquivo, seleção, fonte, alinhamento e espaçamento, pois são os grupos com maior interferência entre aplicativos. Não é necessário realizar práticas repetitivas de digitação.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Seleção",
+      "title": "Selecionar tudo",
+      "prompt": "No manual Word 2016 PT-BR, qual atalho seleciona todo o texto?",
+      "hint": "Não é abrir.",
+      "explanation": "Ctrl+T.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ctrl+A"
+        },
+        {
+          "id": "b",
+          "text": "Ctrl+T"
+        },
+        {
+          "id": "c",
+          "text": "Ctrl+O"
+        },
+        {
+          "id": "d",
+          "text": "Ctrl+L"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Seleção",
+      "title": "Até o fim",
+      "prompt": "Qual atalho seleciona do cursor ao fim do documento?",
+      "hint": "Acrescente Shift ao movimento.",
+      "explanation": "Ctrl+End sozinho desloca o cursor.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Shift+End.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Seleção",
+      "title": "Palavras",
+      "prompt": "Como selecionar uma palavra à direita por teclado?",
+      "hint": "Ctrl desloca por palavras e Shift seleciona.",
+      "explanation": "Combina navegação e seleção.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Shift+seta direita.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Revisão opcional — Edição",
+      "title": "Apagar",
+      "prompt": "Diferencie Ctrl+Backspace e Ctrl+Delete.",
+      "hint": "Direção em relação ao cursor.",
+      "explanation": "Não confunda com movimento.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Apaga palavra à esquerda e à direita, respectivamente.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Edição",
+      "title": "Mover",
+      "prompt": "Quais atalhos movem um trecho selecionado para outro local?",
+      "hint": "Retire da origem e insira no destino.",
+      "explanation": "Copiar manteria o original.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+X, posicionar cursor, Ctrl+V.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Edição",
+      "title": "Desfazer e refazer",
+      "prompt": "No manual Bradesco, quais atalhos desfazem e refazem?",
+      "hint": "Z e R.",
+      "explanation": "Refazer varia entre padrões.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Z e Ctrl+R.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Edição",
+      "title": "Localizar",
+      "prompt": "Qual atalho localiza texto no manual 2016 PT-BR?",
+      "hint": "Compare com padrão internacional.",
+      "explanation": "Ctrl+L.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ctrl+F"
+        },
+        {
+          "id": "b",
+          "text": "Ctrl+L"
+        },
+        {
+          "id": "c",
+          "text": "Ctrl+U"
+        },
+        {
+          "id": "d",
+          "text": "Ctrl+G"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Edição",
+      "title": "Substituir",
+      "prompt": "Qual atalho para substituir segundo o manual?",
+      "hint": "Não é sublinhado internacional.",
+      "explanation": "O manual contém outra indicação ambígua para Ir para.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+U.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional — Edição",
+      "title": "Substituir tudo",
+      "prompt": "Por que conferir resultados antes de substituir todas as ocorrências?",
+      "hint": "Uma sequência pode estar dentro de outra palavra.",
+      "explanation": "A operação tem alcance amplo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Pode alterar ocorrências indesejadas; delimitar busca e revisar.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Caracteres",
+      "title": "Negrito",
+      "prompt": "Qual atalho ativa negrito no padrão Bradesco?",
+      "hint": "Ctrl+B salva nesse padrão.",
+      "explanation": "Ctrl+N.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ctrl+B"
+        },
+        {
+          "id": "b",
+          "text": "Ctrl+N"
+        },
+        {
+          "id": "c",
+          "text": "Ctrl+I"
+        },
+        {
+          "id": "d",
+          "text": "Ctrl+S"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Caracteres",
+      "title": "Sublinhado e itálico",
+      "prompt": "No manual 2016 PT-BR, quais atalhos aplicam sublinhado e itálico?",
+      "hint": "S e I.",
+      "explanation": "Não use o padrão internacional para sublinhado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+S; Ctrl+I.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Caracteres",
+      "title": "Fonte",
+      "prompt": "Qual atalho abre diálogo Fonte segundo Bradesco? Qual divergência aparece em Elias?",
+      "hint": "D e F.",
+      "explanation": "Não sabemos a configuração exata da apostila antiga.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Bradesco: Ctrl+D; Elias: Ctrl+F.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Caracteres",
+      "title": "Subscrito",
+      "prompt": "Qual efeito representa o 2 em H₂O e qual atalho no manual?",
+      "hint": "Abaixo da linha.",
+      "explanation": "Sobrescrito fica acima.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Subscrito, Ctrl+=.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Caracteres",
+      "title": "Sobrescrito",
+      "prompt": "Qual efeito representa o 2 em x² e qual atalho no manual?",
+      "hint": "Acima da linha.",
+      "explanation": "Pode depender do layout de teclado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sobrescrito, Ctrl+Shift++.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — Caracteres",
+      "title": "Capitalização",
+      "prompt": "Qual atalho alterna capitalização segundo as duas apostilas que o citam?",
+      "hint": "Tecla de função.",
+      "explanation": "Não é simplesmente manter Shift ao digitar.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Shift+F3.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Caracteres",
+      "title": "Limpar",
+      "prompt": "Ctrl+Espaço redefine margens e orientação?",
+      "hint": "Escopo de caracteres.",
+      "explanation": "Página é outro nível de formatação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; remove formatação direta de caracteres.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Caracteres",
+      "title": "Sublinhados",
+      "prompt": "Quais atalhos o manual apresenta para sublinhar somente palavras e para sublinhado duplo?",
+      "hint": "Shift combinado com W e D.",
+      "explanation": "São efeitos distintos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Shift+W; Ctrl+Shift+D.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Parágrafos",
+      "title": "Alinhamentos",
+      "prompt": "Associe Ctrl+E, Ctrl+G e Ctrl+J às funções no manual 2016.",
+      "hint": "Central, direita, justificado.",
+      "explanation": "Não confunda Ctrl+R internacional com refazer localizado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Centralizar, alinhar à direita, justificar.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Essenciais — Parágrafos",
+      "title": "Espaçamento",
+      "prompt": "Associe Ctrl+1, Ctrl+2 e Ctrl+5.",
+      "hint": "A última é uma linha e meia.",
+      "explanation": "Não são centímetros.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Simples, duplo, 1,5 linha.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "20",
+      "group": "Essenciais — Parágrafos",
+      "title": "Recuo e margem",
+      "prompt": "Diferencie recuo e margem.",
+      "hint": "Página versus parágrafo.",
+      "explanation": "Propriedades de escopo diferente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Margem limita a área de texto da página; recuo desloca limites do parágrafo dentro dessa área.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional — Parágrafos",
+      "title": "Quebras",
+      "prompt": "Qual diferença entre Enter e Shift+Enter?",
+      "hint": "Parágrafo versus linha.",
+      "explanation": "Espaçamento e estilos podem se comportar diferentemente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Enter cria parágrafo; Shift+Enter quebra linha dentro do mesmo parágrafo.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Essenciais — Layout",
+      "title": "Página nova",
+      "prompt": "Qual recurso inicia uma página sem inserir muitos parágrafos vazios?",
+      "hint": "Quebra explícita.",
+      "explanation": "É estruturalmente mais estável.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Quebra de página; Ctrl+Enter no desktop usual.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional — Layout",
+      "title": "Seção",
+      "prompt": "Que recurso permite uma página em paisagem entre páginas retrato?",
+      "hint": "Mudança de configuração por parte.",
+      "explanation": "Quebra de página simples não cria configuração independente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Quebras de seção e orientação apropriada da seção.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional — Layout",
+      "title": "Numeração",
+      "prompt": "Por que usar número de página automático em vez de digitá-lo manualmente?",
+      "hint": "Pense em inserir páginas.",
+      "explanation": "Evita manutenção manual.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Campos atualizam a numeração conforme a estrutura.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Essenciais — Formatação",
+      "title": "Transferir aparência",
+      "prompt": "Segundo o manual 2016, quais atalhos copiam e colam formatação?",
+      "hint": "Acrescente Shift aos atalhos de cópia/colagem.",
+      "explanation": "Comportamento pode variar em edições posteriores.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Shift+C e Ctrl+Shift+V.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "26",
+      "group": "Essenciais — Revisão",
+      "title": "Interferência",
+      "prompt": "No padrão Bradesco, Ctrl+S e Ctrl+B significam o quê?",
+      "hint": "Retome arquivo e fonte.",
+      "explanation": "No padrão internacional, salvar e negrito, respectivamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sublinhado e salvar.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "27",
+      "group": "Essenciais — Revisão",
+      "title": "Sequência",
+      "prompt": "No padrão Bradesco, selecione tudo, justifique, aplique 1,5 linha e salve. Quais atalhos?",
+      "hint": "T, J, 5, B.",
+      "explanation": "Revisão cumulativa de seleção, parágrafo e arquivo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+T, Ctrl+J, Ctrl+5, Ctrl+B.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional — Revisão",
+      "title": "Diagnóstico",
+      "prompt": "Um aluno tenta localizar com Ctrl+F, mas a apostila de prova é Bradesco. Como orientar?",
+      "hint": "Explicite configuração.",
+      "explanation": "Não confunda referência de prova com verificação prática.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Para a referência acadêmica usar Ctrl+L; Ctrl+F é localizar no padrão internacional e pode variar por instalação.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
