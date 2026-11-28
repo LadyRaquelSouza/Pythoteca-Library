@@ -5,7 +5,7 @@
   "title": "Cores e propriedades visuais",
   "subtitle": "Color, fundo, texto e contraste",
   "objectives": "Distinguir foreground, background e text, utilizar constantes Color e compreender estado visual, contraste e reutilização de métodos.",
-  "source": "Previa_Cor.pdf (https://drive.google.com/file/d/1SsbCzM6rKI_-Ptc3jgtBmSTW76DDAybp/view) e Cor_Favorita.pdf (https://drive.google.com/file/d/1ypkpJR-yuP7QKBcgUhkgJsokIIaW7sN5/view). Texto recuperado e consultado; imagens não examinadas. Fundamentos e aprofundamentos autorais Java 8 identificados.",
+  "source": "Previa_Cor.pdf (https://drive.google.com/file/d/1SsbCzM6rKI_-Ptc3jgtBmSTW76DDAybp/view) e Cor_Favorita.pdf (https://drive.google.com/file/d/1ypkpJR-yuP7QKBcgUhkgJsokIIaW7sN5/view). Texto recuperado e consultado; imagens não examinadas. Fundamentos e aprofundamentos autorais Java 8 identificados. Previa_Cor.pdf reconsultado integralmente em 28/11/2026, uma página com texto e figura renderizada; a inspeção visual de Cor_Favorita permanece pendente.",
   "chapters": [
     {
       "title": "A classe Color",
@@ -14,12 +14,12 @@
     },
     {
       "title": "Prévia de Cor",
-      "text": "[CURRICULAR, Previa_Cor.pdf] O projeto Previa_Cor e o JFrame telaPrincipal utilizam pnlFundo. O evento do botão AZUL altera o fundo do painel. setBackground é um método que recebe um objeto Color, não uma propriedade atribuída diretamente.",
+      "text": "[CURRICULAR, Previa_Cor.pdf] O projeto Previa_Cor e o JFrame telaPrincipal utilizam pnlFundo. O evento do botão AZUL altera o fundo do painel. setBackground é um método que recebe um objeto Color, não uma propriedade atribuída diretamente.\n\n[CONFERÊNCIA VISUAL, Previa_Cor, p. 1] A árvore mostra pnlFundo (JPanel), lblTitulo (JLabel), pnlOpcoes (JPanel) com nove JButton de cores (Amarelo, Branco, Rosa, Vermelho, Preto, Laranja, Azul, Verde e Ciano), e btnEncerrar. O painel de opções possui fundo próprio; mudar pnlFundo não implica mudar automaticamente a cor de todos os componentes filhos. O botão Encerrar está ilustrado, mas a fonte não fornece seu código. Como extensão autoral, dispose() fecha a janela atual; System.exit(0) encerra a JVM inteira, portanto não são equivalentes. A atividade não especifica qual comportamento deve ser adotado. setBackground é método, enquanto background é propriedade.",
       "example": "pnlFundo.setBackground(Color.blue);"
     },
     {
       "title": "Contraste do título",
-      "text": "[CURRICULAR, Previa_Cor.pdf] Preto exige título branco e branco exige título preto para preservar a leitura. [FUNDAMENTOS] Se outros botões não restaurarem a cor do título, ela pode permanecer da ação anterior. Planeje cada evento considerando o estado deixado por qualquer clique precedente.",
+      "text": "[CURRICULAR, Previa_Cor.pdf] Preto exige título branco e branco exige título preto para preservar a leitura. [FUNDAMENTOS] Se outros botões não restaurarem a cor do título, ela pode permanecer da ação anterior. Planeje cada evento considerando o estado deixado por qualquer clique precedente.\n\n[CONFERÊNCIA E APROFUNDAMENTO] O exemplo acadêmico define fundo azul e pares preto/branco, mas não apresenta código dos demais botões. A cor do título permanece até ser alterada: após Preto, selecionar Amarelo com mudança apenas de fundo pode deixar texto branco sobre amarelo. Defina o par de cores em cada evento ou centralize a atualização em método auxiliar. Teste transições em ambas as direções, não apenas cliques isolados. Preto e branco são exemplos, não os únicos fundos que exigem atenção ao contraste.",
       "example": "// Evento PRETO\npnlFundo.setBackground(Color.black);\nlblTitulo.setForeground(Color.white);\n// Evento BRANCO (outro método)\npnlFundo.setBackground(Color.white);\nlblTitulo.setForeground(Color.black);"
     },
     {
@@ -39,12 +39,12 @@
     },
     {
       "title": "Cores personalizadas",
-      "text": "[APROFUNDAMENTO] O construtor Color(int r, int g, int b) recebe três intensidades inteiras de 0 a 255. RGB significa vermelho, verde e azul. Fora da faixa, esse construtor lança IllegalArgumentException. O objeto pode ser reutilizado em vários componentes. Este assunto complementa as constantes da apostila.",
+      "text": "[APROFUNDAMENTO] O construtor Color(int r, int g, int b) recebe três intensidades inteiras de 0 a 255. RGB significa vermelho, verde e azul. Fora da faixa, esse construtor lança IllegalArgumentException. O objeto pode ser reutilizado em vários componentes. Este assunto complementa as constantes da apostila.\n\n[INTERCÂMBIO COM A109] As constantes de Color representam combinações de canais RGB; por exemplo Color.blue corresponde a (0,0,255). Um fundo e seu texto têm cores independentes. A intensidade numérica dos canais não é, por si só, uma medida de contraste perceptual. O modelo RGB estudado em Arquitetura ajuda a compreender as cores personalizadas; escolher texto legível sobre fundos variados é uma decisão adicional de interface.",
       "example": "Color violeta = new Color(128, 0, 255);\npnlFundo.setBackground(violeta);"
     },
     {
       "title": "Reutilização e testes",
-      "text": "[FUNDAMENTOS] Um método auxiliar pode reunir as duas alterações de uma atividade e reduzir repetição. Declare-o no corpo do JFrame, fora dos outros métodos e das regiões protegidas. Chame-o no evento de cada botão. Teste sequências de cliques, legibilidade e correspondência entre nome e cor. Não dependa exclusivamente da cor para transmitir informação.",
+      "text": "[FUNDAMENTOS] Um método auxiliar pode reunir as duas alterações de uma atividade e reduzir repetição. Declare-o no corpo do JFrame, fora dos outros métodos e das regiões protegidas. Chame-o no evento de cada botão. Teste sequências de cliques, legibilidade e correspondência entre nome e cor. Não dependa exclusivamente da cor para transmitir informação.\n\n[PRÁTICA AUTORAL] Para o painel de prévia, um método auxiliar pode receber dois objetos Color, um para fundo e outro para texto, e aplicar ambos a cada clique. Isso evita depender da cor deixada por um evento anterior. Não confunda esse método com mostrarCor, que modifica texto e primeiro plano na atividade Cor Favorita.",
       "example": "private void mostrarCor(Color cor, String nome) {\n    lblCorFavorita.setForeground(cor);\n    lblCorFavorita.setText(nome);\n}\n// Dentro do evento VERMELHO:\n// mostrarCor(Color.red, \"Vermelho\");"
     }
   ],
@@ -890,6 +890,19 @@
       "solution": "mostrarCor(Color.pink, \"Rosa\");",
       "explanation": "Passe o objeto Color e o nome textual.",
       "hint": "Considere os exemplos do capítulo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Revisão opcional — Estado visual",
+      "title": "A cor que ficou",
+      "prompt": "Um painel começa branco com título preto. Um botão Escuro muda fundo para preto e título para branco; um botão Claro muda somente fundo para amarelo. Preveja o estado depois de Escuro e Claro, depois proponha um método auxiliar que receba as duas cores. Explique por que testar Claro isoladamente não basta.",
+      "hint": "Cada chamada altera apenas a propriedade indicada.",
+      "solution": "Após Escuro: fundo preto, título branco. Após Claro: fundo amarelo, título branco. Um método com parâmetros Color fundo e Color texto deve atualizar setBackground e setForeground respectivamente; Claro deve fornecer texto escuro. Testar sequências revela estados herdados.",
+      "explanation": "Estado persistente entre eventos; prática autoral de integração com RGB.",
       "mode": "text",
       "starter": "",
       "expected": null,

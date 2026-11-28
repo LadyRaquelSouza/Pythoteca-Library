@@ -240,3 +240,8 @@ Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER
 ### Java — Aula 3, JComboBox e atividade 2
 
 28/11/2026: Aula 3 _ JComo=bobox e Alterando o nome dos objetos_atividade_2.pdf (2.267.846 bytes), nove slides sem camada textual, renderizados e examinados em quatro pares e uma página final. A309 já contempla os objetivos. Slides 1–3/5: contagem dos rótulos e segundo botão, nomenclatura e sinal decorativo; slide 4: ponte com A203 e conversão/validação A307; slides 5–6: foco, testes sucessivos e resultado antigo; slide 7: fragmento Java, modelo mutável, índice versus identidade, listener do combo versus botão; slide 8: cbCurso e cmbCurso são convenções válidas, name não renomeia variável; slide 9: quadro de componentes já coberto A308. Dois exercícios autorais opcionais A309/37–38, essenciais preservados. Sem execução Java ou republicação de imagens/código original. CI anterior 46119580910 aprovada. Cinco PDFs da pasta Aulas revisados; próxima etapa inventariar pasta Atividades de Java.
+
+
+### Java — atividade Prévia da Cor
+
+28/11/2026: pasta Atividades inventariada: Previa_Cor.pdf, Cor_Favorita.pdf e 8-Lista_de_Compras.pdf. Previa_Cor.pdf (168.730 bytes), página única, texto integral e renderização visual conferidos. A310: árvore pnlFundo, lblTitulo, pnlOpcoes, nove botões de cor e btnEncerrar; fonte fornece código azul/preto/branco, não Encerrar. Complementos autorais sobre painel filho, método versus propriedade, dispose versus System.exit, estado entre eventos, pares de cores e conexão A109. Exercício opcional 31 acrescentado; essenciais preservados. Sem execução Java nem publicação do PDF ou imagens. CI anterior 46119778184 aprovada. Próxima fonte individual: Cor_Favorita.pdf.
