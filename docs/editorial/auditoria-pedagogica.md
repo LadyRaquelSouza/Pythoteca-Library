@@ -87,3 +87,21 @@ Consultados os nove JSONs reais, agrupamentos, modalidades, essenciais, amostras
 | 109 | Conversões abundantes, exemplos RGB e pixels | Interpretar custo de imagem, canal inválido, representação versus aparência e armazenamento, conectar Java após 310 |
 
 Decisão: preservar exercícios e IDs atuais. As variantes de treino são úteis para fluência, mas não constituem competências independentes. No futuro seletor transversal, limitar concentração de uma família por sessão quando houver alternativas, sem excluir variantes para treino direcionado. Inéditos devem exigir escolha de estratégia, explicação de hipóteses, análise de erros e transferência de contexto; não apenas trocar números. A revisão deve poder alternar questões monodisciplinares e integradoras. Não depender de Python, compilador ou desmontagem física. A seleção de essenciais de 101–106 permanece; não foi auditada individualmente a correção de todas as respostas nesta passagem. Nenhum exercício novo publicado neste registro; produção do banco separado ocorrerá após diagnóstico das demais disciplinas e definição de representação editorial compatível.
+
+
+## Auditoria de exercícios — Lógica de Programação (28/11/2026)
+
+Consultados os cinco JSONs 201–205: grupos, modalidades, essenciais, amostras e padrões de repetição; leitura individual dos 145 enunciados de 204 e 205. Não se certificaram todas as soluções nem se executou Portugol. CI anterior 46163722927 aprovada.
+
+| Aula | Total | Quiz | Texto | Essenciais | Prioridade para revisão inédita |
+|---|---:|---:|---:|---:|---|
+| 201 | 50 | 40 | 10 | 4 | Planejamento de algoritmos, ordem, saídas, distinguir descrição de execução; erros em pequenos fragmentos |
+| 202 | 61 | 46 | 15 | 4 | Escolher tipos em contexto, rastrear valores e leituras, distinguir literais e variáveis, tipos versus domínios (603) |
+| 203 | 70 | 51 | 19 | 4 | Expressões diretamente na saída, precedência, atualização de estado, percentuais e testes; distinguir fórmula de atribuição |
+| 204 | 82 | 59 | 23 | 4 | Construir condições relacionais e compostas, validar entradas, testar fronteiras, negar requisitos e distinguir escolhas exclusivas de condições independentes |
+| 205 | 63 | 45 | 18 | 4 | Escolher estrutura sem indicação, rastrear casos sem pare, menu anunciado versus comportamento, proteger parâmetros antes do cálculo e distinguir tipo inválido de opção fora do domínio |
+| Total | 326 | 241 | 85 | 20 | |
+
+Os essenciais atuais são três quizzes e uma questão textual por módulo; alguns textos já pedem construção de código, não execução automatizada. Preservar obrigatoriedade até os executores de Portugol/Java estarem disponíveis e validados. O banco de revisão generalizada não deve depender deles; priorizar rastreamento manual, construção de fragmentos, justificativa, depuração e casos de teste, sem confundir análise estática com execução real.
+
+A204 já contempla todos os operadores relacionais (==, !=, >, <, >=, <=), e/ou/nao, agrupamento, inclusive/exclusive, condições impossíveis/abrangentes, estado lógico armazenado, dois se independentes versus cadeia e fronteiras. A205 já contempla seleção discreta, pare, caso contrario, tipo/domínio, ausência de repetição, simulação de consultas e três aplicações combinadas (61–63). Não acrescentar séries de reconhecimento equivalentes. Priorizar novos problemas com requisitos expressos em linguagem natural, condições construídas pelo estudante, comparação de alternativas, testes que distinguem implementações, diagnóstico de efeitos sobre estado e saídas, validação antes de cálculo, composição escolha/caso e se. A calculadora com operador textual já registrada continua como prática futura, sem tornar laços ou tratamento de exceções pré-requisitos antecipados. Intercâmbios possíveis: 101+201/203 (entrada/processamento/saída), 103+202 (valor armazenado versus capacidade real), 603+202 (tipo/domínio), 608+204 (integridade e validação sem equivalência automática), 301/307+202/204 (tipos, igualdade e conversão; sintaxe explicitamente identificada quando necessário), 505+205 (regras de seleção e documentos personalizados, sem pressupor implementação de iteração). Nenhum exercício ou módulo alterado nesta etapa; não republicar enunciados institucionais. Banco novo será construído após os demais diagnósticos.
