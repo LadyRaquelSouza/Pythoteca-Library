@@ -245,3 +245,8 @@ Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER
 ### Java — atividade Prévia da Cor
 
 28/11/2026: pasta Atividades inventariada: Previa_Cor.pdf, Cor_Favorita.pdf e 8-Lista_de_Compras.pdf. Previa_Cor.pdf (168.730 bytes), página única, texto integral e renderização visual conferidos. A310: árvore pnlFundo, lblTitulo, pnlOpcoes, nove botões de cor e btnEncerrar; fonte fornece código azul/preto/branco, não Encerrar. Complementos autorais sobre painel filho, método versus propriedade, dispose versus System.exit, estado entre eventos, pares de cores e conexão A109. Exercício opcional 31 acrescentado; essenciais preservados. Sem execução Java nem publicação do PDF ou imagens. CI anterior 46119778184 aprovada. Próxima fonte individual: Cor_Favorita.pdf.
+
+
+### Java — atividade Cor Favorita
+
+28/11/2026: Cor_Favorita.pdf (163.375 bytes), página única, texto integral e renderização visual conferidos. A310: seis botões de cores na árvore, pnlFundo, jLabel1, pnlEscolha, lblCorFavorita, btnFinalizar; fonte fornece evento Vermelho e 13 constantes, não código Finalizar. Complementos autorais sobre distinção entre método e propriedade, consistência entre texto e primeiro plano, contraste, reutilização de método e conexão A109. Exercício opcional 32 acrescentado; essenciais preservados. Sem execução Java nem publicação de imagens ou PDF original. CI anterior 46119942459 aprovada. Próxima fonte individual: 8-Lista_de_Compras.pdf.

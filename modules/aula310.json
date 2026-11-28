@@ -5,7 +5,7 @@
   "title": "Cores e propriedades visuais",
   "subtitle": "Color, fundo, texto e contraste",
   "objectives": "Distinguir foreground, background e text, utilizar constantes Color e compreender estado visual, contraste e reutilização de métodos.",
-  "source": "Previa_Cor.pdf (https://drive.google.com/file/d/1SsbCzM6rKI_-Ptc3jgtBmSTW76DDAybp/view) e Cor_Favorita.pdf (https://drive.google.com/file/d/1ypkpJR-yuP7QKBcgUhkgJsokIIaW7sN5/view). Texto recuperado e consultado; imagens não examinadas. Fundamentos e aprofundamentos autorais Java 8 identificados. Previa_Cor.pdf reconsultado integralmente em 28/11/2026, uma página com texto e figura renderizada; a inspeção visual de Cor_Favorita permanece pendente.",
+  "source": "Previa_Cor.pdf (https://drive.google.com/file/d/1SsbCzM6rKI_-Ptc3jgtBmSTW76DDAybp/view) e Cor_Favorita.pdf (https://drive.google.com/file/d/1ypkpJR-yuP7QKBcgUhkgJsokIIaW7sN5/view). Texto recuperado e consultado; imagens não examinadas. Fundamentos e aprofundamentos autorais Java 8 identificados. Previa_Cor.pdf reconsultado integralmente em 28/11/2026, uma página com texto e figura renderizada; Cor_Favorita.pdf também reconsultado integralmente em 28/11/2026, uma página com texto e figura renderizada.",
   "chapters": [
     {
       "title": "A classe Color",
@@ -24,12 +24,12 @@
     },
     {
       "title": "Cor Favorita",
-      "text": "[CURRICULAR, Cor_Favorita.pdf] No projeto Cor_Favorita, JFrame telaPrincipal, o botão VERMELHO altera a cor do texto de lblCorFavorita e substitui o texto temporário ??? pelo nome da cor. São duas alterações independentes no mesmo evento.",
+      "text": "[CURRICULAR, Cor_Favorita.pdf] No projeto Cor_Favorita, JFrame telaPrincipal, o botão VERMELHO altera a cor do texto de lblCorFavorita e substitui o texto temporário ??? pelo nome da cor. São duas alterações independentes no mesmo evento.\n\n[CONFERÊNCIA VISUAL, Cor_Favorita, p. 1] A árvore apresenta pnlFundo, jLabel1, seis botões (vermelho, verde, amarelo, azul, branco e preto), pnlEscolha com lblCorFavorita, e btnFinalizar. O texto inicial ??? é um valor temporário visível. A fonte fornece somente o evento Vermelho, não o evento Finalizar; não atribua a esse botão uma ação não especificada. setForeground é método que altera a propriedade foreground. O painel de resultado possui fundo próprio, que não muda com setForeground no rótulo.",
       "example": "lblCorFavorita.setForeground(Color.red);\nlblCorFavorita.setText(\"Vermelho\");"
     },
     {
       "title": "Constantes disponíveis",
-      "text": "[CURRICULAR, Cor_Favorita.pdf] A apostila lista black (preto), blue (azul), cyan (ciano), darkGray (cinza escuro), gray (cinza), green (verde), lightGray (cinza claro), magenta, orange (laranja), pink (rosa), red (vermelho), white (branco) e yellow (amarelo). Java distingue maiúsculas de minúsculas. [FUNDAMENTOS] Color.RED também existe como constante equivalente a Color.red.",
+      "text": "[CURRICULAR, Cor_Favorita.pdf] A apostila lista black (preto), blue (azul), cyan (ciano), darkGray (cinza escuro), gray (cinza), green (verde), lightGray (cinza claro), magenta, orange (laranja), pink (rosa), red (vermelho), white (branco) e yellow (amarelo). Java distingue maiúsculas de minúsculas. [FUNDAMENTOS] Color.RED também existe como constante equivalente a Color.red.\n\n[CONFERÊNCIA VISUAL] A lista de 13 constantes é referência de consulta, não uma exigência de criar 13 botões: a interface ilustrada possui seis. As cores dos botões na captura podem apresentar efeitos do Look and Feel; não deduza os valores RGB exatos pela aparência da captura. As constantes Color.green e Color.GREEN, por exemplo, representam (0,255,0), conforme o modelo RGB estudado no A109.",
       "example": "lblCorFavorita.setForeground(Color.magenta);\nlblCorFavorita.setText(\"Magenta\");"
     },
     {
@@ -44,7 +44,7 @@
     },
     {
       "title": "Reutilização e testes",
-      "text": "[FUNDAMENTOS] Um método auxiliar pode reunir as duas alterações de uma atividade e reduzir repetição. Declare-o no corpo do JFrame, fora dos outros métodos e das regiões protegidas. Chame-o no evento de cada botão. Teste sequências de cliques, legibilidade e correspondência entre nome e cor. Não dependa exclusivamente da cor para transmitir informação.\n\n[PRÁTICA AUTORAL] Para o painel de prévia, um método auxiliar pode receber dois objetos Color, um para fundo e outro para texto, e aplicar ambos a cada clique. Isso evita depender da cor deixada por um evento anterior. Não confunda esse método com mostrarCor, que modifica texto e primeiro plano na atividade Cor Favorita.",
+      "text": "[FUNDAMENTOS] Um método auxiliar pode reunir as duas alterações de uma atividade e reduzir repetição. Declare-o no corpo do JFrame, fora dos outros métodos e das regiões protegidas. Chame-o no evento de cada botão. Teste sequências de cliques, legibilidade e correspondência entre nome e cor. Não dependa exclusivamente da cor para transmitir informação.\n\n[PRÁTICA AUTORAL] Para o painel de prévia, um método auxiliar pode receber dois objetos Color, um para fundo e outro para texto, e aplicar ambos a cada clique. Isso evita depender da cor deixada por um evento anterior. Não confunda esse método com mostrarCor, que modifica texto e primeiro plano na atividade Cor Favorita.\n\n[APROFUNDAMENTO AUTORAL] Para Cor Favorita, mantenha texto e cor coerentes a cada evento. Se um botão atualizar somente setText, a cor anterior permanece; se atualizar apenas setForeground, o nome anterior permanece. O método mostrarCor reúne as duas alterações. Teste vermelho seguido de azul e branco seguido de preto, além do estado inicial. Texto branco ou amarelo sobre o fundo claro ilustrado pode ter baixo contraste; como extensão opcional, adapte o fundo da área de resultado ou use uma amostra de cor separada e texto legível. Não apresente essa adaptação como requisito da professora.",
       "example": "private void mostrarCor(Color cor, String nome) {\n    lblCorFavorita.setForeground(cor);\n    lblCorFavorita.setText(nome);\n}\n// Dentro do evento VERMELHO:\n// mostrarCor(Color.red, \"Vermelho\");"
     }
   ],
@@ -903,6 +903,19 @@
       "hint": "Cada chamada altera apenas a propriedade indicada.",
       "solution": "Após Escuro: fundo preto, título branco. Após Claro: fundo amarelo, título branco. Um método com parâmetros Color fundo e Color texto deve atualizar setBackground e setForeground respectivamente; Claro deve fornecer texto escuro. Testar sequências revela estados herdados.",
       "explanation": "Estado persistente entre eventos; prática autoral de integração com RGB.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Revisão opcional — Estado visual",
+      "title": "Nome e cor em desacordo",
+      "prompt": "Um rótulo começa com texto Indefinido em preto. O evento Verde altera texto e primeiro plano para Verde e Color.green. O evento Azul altera somente o texto para Azul. Preveja o estado após os dois cliques e proponha uma maneira de manter as propriedades coerentes sem repetir a mesma lógica em todos os eventos.",
+      "hint": "O texto e o primeiro plano são propriedades independentes.",
+      "solution": "Após Verde, texto Verde e cor verde; após Azul, texto Azul e cor verde. Use um método auxiliar com parâmetros String nome e Color cor para atualizar ambas as propriedades a cada evento. Teste sequências e legibilidade.",
+      "explanation": "Variação autoral sobre coerência de estado e reutilização de métodos.",
       "mode": "text",
       "starter": "",
       "expected": null,
