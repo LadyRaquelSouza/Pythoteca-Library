@@ -5,7 +5,7 @@
   "title": "Processadores, memórias e armazenamento",
   "subtitle": "CPU, desempenho, hierarquia de memória, persistência e unidades",
   "objectives": "Explicar CPU e seus recursos gerais, comparar processadores com critérios, distinguir registradores, cache, RAM, ROM e armazenamento, interpretar capacidades e taxas, formular hipóteses de diagnóstico e relacionar representação de dados à programação.",
-  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 4.4–4.5, 5–7. Conteúdo original e aprofundamentos identificados. Sem transcrição audiovisual. Conexões com módulos 101 e 102 e Python 01–02.",
+  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 4.4–4.5, 5–7. Conteúdo original e aprofundamentos identificados. Sem transcrição audiovisual. Conexões com módulos 101 e 102 e Python 01–02. Caderno didático Aula 01: 10 páginas renderizadas e inspecionadas em cinco pares em 28/11/2026; texto integral reconsultado. Apresentação, vídeo e podcast A01 ainda pendentes de revisão individual.",
   "chapters": [
     {
       "title": "CPU: execução e controle",

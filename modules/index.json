@@ -6,24 +6,24 @@
       "title": "Introdução aos sistemas computacionais",
       "subtitle": "Fundamentos, operações, integração e diagnóstico",
       "discipline": "arquitetura",
-      "sha256": "10d1234a0738a59c61edf5f38a815f22afa025a5a0563711c6b680733ee8bebe",
-      "bytes": 48989
+      "sha256": "ec1c86b067a3555798ec3cf9e4c26cb83743b3a3783723a3741de8c1dcf082c7",
+      "bytes": 49193
     },
     {
       "id": "aula102",
       "title": "Hardware, software e componentes",
       "subtitle": "Placa-mãe, interfaces, formatos, periféricos, alimentação e compatibilidade",
       "discipline": "arquitetura",
-      "sha256": "38ac8adf8f34bf86c047f8e9f74ca60260e6b8fac29a6c0ee0b691303c79cd5a",
-      "bytes": 59517
+      "sha256": "1580deeed6191efaafc43c6a1cb345facee5efb4b8874620d320eed4e50dcb74",
+      "bytes": 61763
     },
     {
       "id": "aula103",
       "title": "Processadores, memórias e armazenamento",
       "subtitle": "CPU, desempenho, hierarquia de memória, persistência e unidades",
       "discipline": "arquitetura",
-      "sha256": "d8c7847383029d9d3094eb272cfb51164b8f27c45270c54abceccc2f09534f7a",
-      "bytes": 67723
+      "sha256": "8b3b2bc61c409875f403b476ea4886529522cc38f69006329ee76c179e65c754",
+      "bytes": 67927
     },
     {
       "id": "aula104",

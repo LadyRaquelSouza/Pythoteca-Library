@@ -5,11 +5,11 @@
   "title": "Hardware, software e componentes",
   "subtitle": "Placa-mãe, interfaces, formatos, periféricos, alimentação e compatibilidade",
   "objectives": "Identificar conexões e funções da placa-mãe; distinguir soquete, chipset, DIMM, PCIe, SATA, M.2 e NVMe; reconhecer ATX, microATX e Mini-ITX; classificar periféricos; explicar alimentação e refrigeração; investigar compatibilidade com segurança.",
-  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 3.1, 4.1–4.3, 4.6–4.7 e atividades 6. Texto e exercícios originais; complementos identificados como aprofundamento. Processadores e hierarquia de memória serão aprofundados no módulo 103.",
+  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 3.1, 4.1–4.3, 4.6–4.7 e atividades 6. Texto e exercícios originais; complementos identificados como aprofundamento. Processadores e hierarquia de memória serão aprofundados no módulo 103. Caderno didático Aula 01: 10 páginas renderizadas e inspecionadas em cinco pares em 28/11/2026; texto integral reconsultado. Apresentação, vídeo e podcast A01 ainda pendentes de revisão individual.",
   "chapters": [
     {
       "title": "Placa-mãe e organização física",
-      "text": "CONTEÚDO DO CURSO\nA placa-mãe integra os principais componentes de um computador. Suas trilhas, conectores e circuitos permitem a comunicação e a distribuição de energia. Em um desktop típico, encontramos soquete da CPU, slots DIMM, slots PCIe, portas SATA, conectores M.2, portas externas e conectores de alimentação. A disposição depende do modelo.\n\nNão confunda a placa-mãe com o processador. A CPU executa instruções, enquanto a placa-mãe oferece condições de integração. Componentes instalados nela precisam ser compatíveis física, elétrica e logicamente.\n\nAPROFUNDAMENTO\nEm equipamentos móveis, muitos componentes podem estar soldados à placa em vez de encaixados em soquetes. Isso reduz espaço e pode limitar substituições. Um SoC (system on a chip) integra diferentes funções, como CPU, GPU e controladores, em um único chip. A presença de um SoC não elimina a necessidade de interconexões, memória e energia.\n\nUm mapa mental para reconhecer a placa: processamento perto do soquete ou chip principal; memória nos slots ou chips correspondentes; armazenamento nos conectores adequados; expansão nos slots; comunicação pelas portas; alimentação pelos conectores de energia. A aparência isolada não é identificação suficiente: consulte o modelo e o manual.",
+      "text": "CONTEÚDO DO CURSO\nA placa-mãe integra os principais componentes de um computador. Suas trilhas, conectores e circuitos permitem a comunicação e a distribuição de energia. Em um desktop típico, encontramos soquete da CPU, slots DIMM, slots PCIe, portas SATA, conectores M.2, portas externas e conectores de alimentação. A disposição depende do modelo.\n\nNão confunda a placa-mãe com o processador. A CPU executa instruções, enquanto a placa-mãe oferece condições de integração. Componentes instalados nela precisam ser compatíveis física, elétrica e logicamente.\n\nAPROFUNDAMENTO\nEm equipamentos móveis, muitos componentes podem estar soldados à placa em vez de encaixados em soquetes. Isso reduz espaço e pode limitar substituições. Um SoC (system on a chip) integra diferentes funções, como CPU, GPU e controladores, em um único chip. A presença de um SoC não elimina a necessidade de interconexões, memória e energia.\n\nUm mapa mental para reconhecer a placa: processamento perto do soquete ou chip principal; memória nos slots ou chips correspondentes; armazenamento nos conectores adequados; expansão nos slots; comunicação pelas portas; alimentação pelos conectores de energia. A aparência isolada não é identificação suficiente: consulte o modelo e o manual.\n\nCONFERÊNCIA VISUAL COM O CADERNO A01 — Na figura da p. 4, o soquete da CPU, os slots de memória, os slots de expansão, a região do chipset e os conectores são destacados. A posição, a cor e o formato variam entre placas; um dissipador pode ocultar o chipset. Na atividade da p. 8, o marcador 1 indica a região da placa-mãe; 2 aponta para o conjunto de refrigeração sobre a CPU; 3 indica a região dos módulos de RAM; 4 aponta para uma placa de expansão instalada, aparentemente gráfica; 5 identifica um SSD; 6 identifica a fonte. A função de permitir instalar placas adicionais corresponde ao slot, não à placa de expansão instalada. Para responder à atividade, diferencie a peça visível do componente associado à função: CPU sob o cooler executa instruções, e o slot PCIe recebe a placa adicional. A figura é didática e não permite identificar modelos ou interfaces exatas somente pela aparência. Não é necessário desmontar equipamento para esta prática.",
       "example": ""
     },
     {
@@ -1571,6 +1571,19 @@
       "starter": "",
       "solution": "O cadastro representa dados fornecidos. Diagnóstico exige dados confiáveis, regras, observações e validação. Uma decisão booleana não é evidência por si.",
       "expected": null
+    },
+    {
+      "id": "65",
+      "group": "Revisão opcional — Identificação física",
+      "title": "Componente ou conector?",
+      "prompt": "Em um desktop aberto, você observa um ventilador sobre um dissipador, módulos de memória encaixados e uma placa gráfica instalada horizontalmente. Diferencie CPU e cooler, RAM e slot DIMM, placa gráfica e slot PCIe. Qual elemento executa instruções gerais e qual permite instalar uma placa adicional?",
+      "hint": "Separe a peça instalada, a função e o ponto de conexão.",
+      "solution": "A CPU executa instruções gerais; o cooler dissipa calor. Os módulos RAM guardam dados em uso; o slot DIMM os recebe. A placa gráfica processa tarefas gráficas; o slot PCIe permite instalar uma placa compatível. Não identifique modelos apenas pela posição.",
+      "explanation": "O reconhecimento visual deve distinguir os componentes dos conectores e dos recursos de refrigeração.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
     }
   ]
 }

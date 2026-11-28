@@ -5,7 +5,7 @@
   "title": "Introdução aos sistemas computacionais",
   "subtitle": "Fundamentos, operações, integração e diagnóstico",
   "objectives": "Distinguir computador e sistema computacional; reconhecer hardware, software, dados e usuários; comparar tipos de sistemas; explicar entrada, processamento, armazenamento e saída; relacionar componentes; investigar problemas introdutórios.",
-  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 1–3 e 5–7. Explicações e exercícios originais. Complementos rotulados como aprofundamento. Não inclui transcrição audiovisual.",
+  "source": "Base acadêmica: caderno didático de Arquitetura de Computadores, Aula 01, seções 1–3 e 5–7. Explicações e exercícios originais. Complementos rotulados como aprofundamento. Não inclui transcrição audiovisual. Caderno didático Aula 01: 10 páginas renderizadas e inspecionadas em cinco pares em 28/11/2026; texto integral reconsultado. Apresentação, vídeo e podcast A01 ainda pendentes de revisão individual.",
   "chapters": [
     {
       "title": "1. Computador e sistema computacional",
