@@ -5,11 +5,11 @@
   "title": "Estruturas de seleção",
   "subtitle": "Condições, operadores relacionais e decisões encadeadas",
   "objectives": "Interpretar condições; distinguir atribuição de comparação; utilizar se, senao e senao se; rastrear decisões; testar limites e explorar condições compostas.",
-  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com comparação de seleções independentes, agrupamento lógico e testes de fronteira.",
+  "source": "Base acadêmica: Aula_4_Estruturas_Selecao.pdf, dez slides examinados visualmente. Slides 2–4: condições e operadores relacionais; 5–8: seleção simples e composta, testes; 9: seleção encadeada; 10: estoque e situação escolar. Operadores lógicos, validação, reajuste e estacionamento são aprofundamentos autorais. Exemplos não executados nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com comparação de seleções independentes, agrupamento lógico e testes de fronteira. Reinspeção visual integral em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Confirmados operadores relacionais, seleção simples, composta e encadeada, testes e atividades. Ressalvas de leitura dos diagramas e estrutura do fragmento nos slides 2, 5–7; aprofundamentos autorais de fluxo, condições e domínio. Sem execução de código nesta revisão.",
   "chapters": [
     {
       "title": "1. Condições e fluxo de execução",
-      "text": "CURSO: uma estrutura de seleção avalia uma condição verdadeira ou falsa para decidir quais instruções executar. O mesmo programa pode produzir respostas diferentes conforme a entrada. A apostila exemplifica acesso a um evento conforme a idade.",
+      "text": "CURSO: uma estrutura de seleção avalia uma condição verdadeira ou falsa para decidir quais instruções executar. O mesmo programa pode produzir respostas diferentes conforme a entrada. A apostila exemplifica acesso a um evento conforme a idade.\n\nCONFERÊNCIA VISUAL — O fluxograma do slide 2 mostra duas alternativas, A e B, para os resultados verdadeiro e falso. É uma representação de seleção composta. Na seleção simples, o caminho falso pode apenas seguir para a próxima instrução, sem executar um bloco alternativo. A decisão não implica repetição.",
       "example": "idade >= 18"
     },
     {
@@ -19,17 +19,17 @@
     },
     {
       "title": "3. Seleção simples",
-      "text": "CURSO: o bloco se executa somente quando a condição é verdadeira. Se falsa, o programa pula o bloco e continua após ele.",
+      "text": "CURSO: o bloco se executa somente quando a condição é verdadeira. Se falsa, o programa pula o bloco e continua após ele.\n\nCONFERÊNCIA VISUAL — Slide 5 demonstra idade 20 e 16, sem senao. No segundo teste, a pergunta e a leitura já ocorreram: apenas a mensagem condicional deixa de aparecer. Um bloco ignorado não significa que todo o programa foi ignorado. O fluxo segue após a seleção.",
       "example": "se (idade >= 18)\n{\n    escreva(\"Entrada liberada\")\n}\nescreva(\"\\nFim da consulta\")"
     },
     {
       "title": "4. Seleção composta",
-      "text": "CURSO: se e senao oferecem duas alternativas mutuamente exclusivas. Apenas um dos blocos executa. O senao não precisa repetir a condição.",
+      "text": "CURSO: se e senao oferecem duas alternativas mutuamente exclusivas. Apenas um dos blocos executa. O senao não precisa repetir a condição.\n\nCONFERÊNCIA VISUAL — Embora o slide 6 desenhe uma seta do quadro SE para o quadro SENAO, o texto esclarece corretamente que apenas um dos blocos executa. Leia-os como caminhos alternativos da mesma condição, que voltam a um fluxo comum após a seleção, não como instruções consecutivas. O exemplo do slide 6 também omite a última chave externa de programa; o slide 7 apresenta a estrutura completa. O exemplo autoral deste capítulo preserva todas as chaves.",
       "example": "programa\n{\n    funcao inicio()\n    {\n        inteiro idade\n        escreva(\"Idade: \")\n        leia(idade)\n        se (idade >= 18)\n        {\n            escreva(\"Acesso permitido\")\n        }\n        senao\n        {\n            escreva(\"Acesso negado\")\n        }\n    }\n}"
     },
     {
       "title": "5. Seleção encadeada",
-      "text": "CURSO: senao se permite testar condições em sequência. O exemplo escolar da apostila classifica nota >= 7 como aprovação, nota >= 5 como recuperação e as demais como reprovação. A primeira condição verdadeira determina o bloco executado.\n\nAPROFUNDAMENTO: testar nota >= 5 antes de nota >= 7 classificaria indevidamente notas altas como recuperação. O exemplo pressupõe notas válidas.",
+      "text": "CURSO: senao se permite testar condições em sequência. O exemplo escolar da apostila classifica nota >= 7 como aprovação, nota >= 5 como recuperação e as demais como reprovação. A primeira condição verdadeira determina o bloco executado.\n\nAPROFUNDAMENTO: testar nota >= 5 antes de nota >= 7 classificaria indevidamente notas altas como recuperação. O exemplo pressupõe notas válidas.\n\nAPROFUNDAMENTO — Na cadeia do slide 9, chegar ao teste nota >= 5 já implica que nota >= 7 foi falsa; portanto, não é necessário repetir nota < 7 nessa alternativa. Para notas válidas, as faixas são [7,10], [5,7) e [0,5). Dois se independentes não têm esse mesmo comportamento: com nota 8, tanto nota >= 7 quanto nota >= 5 são verdadeiras. A exclusividade decorre da estrutura encadeada, não apenas das comparações.",
       "example": "se (nota >= 7)\n{\n    escreva(\"Aprovado\")\n}\nsenao se (nota >= 5)\n{\n    escreva(\"Recuperação\")\n}\nsenao\n{\n    escreva(\"Reprovado\")\n}"
     },
     {
@@ -39,7 +39,7 @@
     },
     {
       "title": "7. Limites e testes",
-      "text": "CURSO: a apostila testa idades 20 e 16, estoque positivo e zero, e notas 8, 6 e 3.\n\nAPROFUNDAMENTO: teste também os limites exatos. Para idade >= 18, teste 17, 18 e 19. Para notas, teste 5 e 7 e valores imediatamente abaixo. Separe entradas inválidas de resultados legítimos.",
+      "text": "CURSO: a apostila testa idades 20 e 16, estoque positivo e zero, e notas 8, 6 e 3.\n\nAPROFUNDAMENTO: teste também os limites exatos. Para idade >= 18, teste 17, 18 e 19. Para notas, teste 5 e 7 e valores imediatamente abaixo. Separe entradas inválidas de resultados legítimos.\n\nCONFERÊNCIA VISUAL — Slide 10 pede testar estoque com 8 e 0 unidades, e classificação escolar com notas 8, 6 e 3. Esses testes cobrem as alternativas, mas não todas as fronteiras. A regra de estoque do material (positivo ou esgotado) pressupõe quantidade não negativa; para um sistema com validação, quantidade negativa deve ser tratada separadamente. Analogamente, a classificação escolar apresentada não valida notas fora de 0 a 10. Distinguir cobertura de alternativas, testes de fronteira e validação do domínio é aprofundamento autoral, não exigência adicional do slide.",
       "example": "se (nota < 0 ou nota > 10)\n{\n    escreva(\"Nota inválida\")\n}\nsenao se (nota >= 7)\n{\n    escreva(\"Aprovado\")\n}\nsenao se (nota >= 5)\n{\n    escreva(\"Recuperação\")\n}\nsenao\n{\n    escreva(\"Reprovado\")\n}"
     },
     {
