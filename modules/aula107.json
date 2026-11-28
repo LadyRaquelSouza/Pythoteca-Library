@@ -5,7 +5,7 @@
   "title": "Introdução aos sistemas numéricos",
   "subtitle": "Bases, dígitos, potências e valor posicional",
   "objectives": "Identificar bases e algarismos válidos; compreender valor posicional e potências; decompor numerais; relacionar representações a bits e endereçamento; preparar a conversão decimal-binária.",
-  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narração e podcasts não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narrações dos vídeos e podcast A04 ainda não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados. Podcast A03, Como funciona o sistema binário: transcrição automática integral (964 s), modelo Base, examinada editorialmente em 28/11/2026; reconhecimento sujeito a erros, sem validação humana palavra a palavra. Contribuições incorporadas como explicações e atividades originais.",
   "chapters": [
     {
       "title": "Número, numeral e base",
@@ -19,7 +19,7 @@
     },
     {
       "title": "Peso posicional e expoente zero",
-      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEm base b, começando da direita, os pesos são b⁰, b¹, b², b³... Toda base positiva elevada a zero vale 1. Em decimal, pesos 1,10,100,1000. Em binário, 1,2,4,8,16,32,64,128. Cada novo peso à esquerda é o anterior multiplicado pela base.\n\nPara 352₁₀: 3×100 + 5×10 + 2×1 = 352. Para 1011₂: 1×8 + 0×4 + 1×2 + 1×1 = 11₁₀. O zero interno continua ocupando a coluna de peso quatro.\n\nUma escrita como 10000₂ vale 16, não dez mil. Distinguir posição e símbolo é indispensável. A Mesa pode mostrar quinze potências decrescentes; comece alinhando o último bit com 2⁰.\n\nAPROFUNDAMENTO — Por que o expoente começa em zero? Uma unidade isolada vale uma vez seu próprio algarismo. Para subir uma casa, multiplicamos por b; para descer, dividimos por b. Como b¹/b = 1, b⁰ = 1. Em 406, o 4 tem peso 100, o 0 reserva a dezena e o 6 ocupa a unidade. Em 1001₂, os dois zeros reservam as posições 4 e 2. O valor é 9, não 3.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEm base b, começando da direita, os pesos são b⁰, b¹, b², b³... Toda base positiva elevada a zero vale 1. Em decimal, pesos 1,10,100,1000. Em binário, 1,2,4,8,16,32,64,128. Cada novo peso à esquerda é o anterior multiplicado pela base.\n\nPara 352₁₀: 3×100 + 5×10 + 2×1 = 352. Para 1011₂: 1×8 + 0×4 + 1×2 + 1×1 = 11₁₀. O zero interno continua ocupando a coluna de peso quatro.\n\nUma escrita como 10000₂ vale 16, não dez mil. Distinguir posição e símbolo é indispensável. A Mesa pode mostrar quinze potências decrescentes; comece alinhando o último bit com 2⁰.\n\nAPROFUNDAMENTO — Por que o expoente começa em zero? Uma unidade isolada vale uma vez seu próprio algarismo. Para subir uma casa, multiplicamos por b; para descer, dividimos por b. Como b¹/b = 1, b⁰ = 1. Em 406, o 4 tem peso 100, o 0 reserva a dezena e o 6 ocupa a unidade. Em 1001₂, os dois zeros reservam as posições 4 e 2. O valor é 9, não 3.\n\nIMAGEM MENTAL AUTORAL — Pense em uma fileira de lâmpadas, cada qual associada a um peso diferente: 16, 8, 4, 2, 1. Acender apenas a lâmpada 4 representa quatro; deslocar o único estado ligado para a coluna 16 representa dezesseis. O símbolo 1 não mudou, mas seu peso mudou. A analogia representa valores posicionais, não o funcionamento elétrico literal da memória.",
       "example": ""
     },
     {
@@ -29,12 +29,12 @@
     },
     {
       "title": "Bases usuais da computação",
-      "text": "APROFUNDAMENTO — agrupamento de bits e codificação.\n\nBinário usa 0 e 1, símbolos convenientes para representar estados lógicos digitais. Três bits formam oito padrões, que correspondem aos oito valores de um algarismo octal. Quatro bits formam dezesseis padrões, que correspondem aos dezesseis valores de um algarismo hexadecimal.\n\n1111₂ = 15₁₀ = 17₈ = F₁₆. A sequência 15₁₆, por sua vez, vale 21₁₀: o símbolo 1 ocupa o peso 16 e o símbolo 5 ocupa o peso 1. Diferenciar dígito, escrita e valor impede confusões.\n\nA existência de bits não significa que todo documento seja exibido como dígitos binários. Dados podem possuir codificações distintas; o sistema de numeração descreve a representação de números, não todas as regras de codificação de texto ou imagens.",
+      "text": "APROFUNDAMENTO — agrupamento de bits e codificação.\n\nBinário usa 0 e 1, símbolos convenientes para representar estados lógicos digitais. Três bits formam oito padrões, que correspondem aos oito valores de um algarismo octal. Quatro bits formam dezesseis padrões, que correspondem aos dezesseis valores de um algarismo hexadecimal.\n\n1111₂ = 15₁₀ = 17₈ = F₁₆. A sequência 15₁₆, por sua vez, vale 21₁₀: o símbolo 1 ocupa o peso 16 e o símbolo 5 ocupa o peso 1. Diferenciar dígito, escrita e valor impede confusões.\n\nA existência de bits não significa que todo documento seja exibido como dígitos binários. Dados podem possuir codificações distintas; o sistema de numeração descreve a representação de números, não todas as regras de codificação de texto ou imagens.\n\nCOMPLEMENTO TÉCNICO MOTIVADO PELO PODCAST A03 — Os valores lógicos 0 e 1 são abstrações. Em circuitos digitais, faixas de tensão distintas podem representar esses estados; margens entre faixas ajudam a tolerar ruído, mas não tornam o circuito imune a erros. Não é necessário que 0 corresponda à ausência absoluta de eletricidade. Dispositivos também podem empregar mais de dois níveis físicos em certos mecanismos de armazenamento ou transmissão. Distinguir sinal físico, bit lógico e interpretação evita confundir a representação com o fenômeno que a implementa.",
       "example": ""
     },
     {
       "title": "Bits, bytes e endereços",
-      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO — conexão com Arquitetura.\n\nUm bit permite dois estados no modelo lógico básico. n bits permitem 2ⁿ padrões distintos. Dois bits dão quatro padrões; três dão oito; oito dão 256. Um byte contém oito bits. Na notação de unidades, b indica bit e B indica byte: 8 b = 1 B. Uma sequência de oito bits pode representar um inteiro, parte de um texto ou um canal de cor, conforme as regras adotadas. Para números inteiros sem sinal e largura fixa de n bits, o intervalo vai de zero a 2ⁿ−1.\n\nNo módulo 106, vimos que n bits de endereço permitem 2ⁿ posições teóricas. O resultado não garante que a máquina tenha essa quantidade de memória física instalada. A unidade endereçada também importa: uma posição pode representar um byte ou outra unidade em um modelo abstrato.\n\nINTERCÂMBIO FUTURO E OPCIONAL COM PYTHON — '00101' é uma string que preserva símbolos; 5 é um inteiro que representa quantidade. Uma variável não mede automaticamente o hardware. Mais tarde usaremos recursos da linguagem para cálculos, mas primeiro precisamos dominá-los manualmente.",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO — conexão com Arquitetura.\n\nUm bit permite dois estados no modelo lógico básico. n bits permitem 2ⁿ padrões distintos. Dois bits dão quatro padrões; três dão oito; oito dão 256. Um byte contém oito bits. Na notação de unidades, b indica bit e B indica byte: 8 b = 1 B. Uma sequência de oito bits pode representar um inteiro, parte de um texto ou um canal de cor, conforme as regras adotadas. Para números inteiros sem sinal e largura fixa de n bits, o intervalo vai de zero a 2ⁿ−1.\n\nNo módulo 106, vimos que n bits de endereço permitem 2ⁿ posições teóricas. O resultado não garante que a máquina tenha essa quantidade de memória física instalada. A unidade endereçada também importa: uma posição pode representar um byte ou outra unidade em um modelo abstrato.\n\nINTERCÂMBIO FUTURO E OPCIONAL COM PYTHON — '00101' é uma string que preserva símbolos; 5 é um inteiro que representa quantidade. Uma variável não mede automaticamente o hardware. Mais tarde usaremos recursos da linguagem para cálculos, mas primeiro precisamos dominá-los manualmente.\n\nAPLICAÇÃO AUTORAL — Taxas de transmissão: Mb/s mede milhões de bits por segundo; MB/s mede milhões de bytes por segundo. Com unidades decimais, uma conexão de 120 Mb/s tem taxa teórica de 15 MB/s (120÷8). Um arquivo de 90 MB levaria idealmente 6 s nessa taxa. Cabeçalhos de protocolos, congestionamento, armazenamento e outras condições podem reduzir a taxa útil. Não confunda capacidade de armazenamento com velocidade de transmissão.",
       "example": ""
     },
     {
@@ -1331,6 +1331,32 @@
       "mode": "text",
       "starter": "",
       "solution": "4096 + 2560 + 48 + 15 = 6719₁₀. F vale 15 na posição de peso 1.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "71",
+      "group": "Revisão opcional — Bits e bytes",
+      "title": "Velocidade e tamanho",
+      "prompt": "Uma conexão anuncia 240 Mb/s. Qual a taxa ideal em MB/s? Quanto tempo levaria para transferir 150 MB nessa taxa, sem perdas?",
+      "hint": "Oito bits correspondem a um byte.",
+      "solution": "240÷8=30 MB/s; 150÷30=5 s, no cenário ideal.",
+      "explanation": "As unidades usam prefixos decimais iguais; a diferença é o fator oito. Taxa útil real pode ser menor.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "72",
+      "group": "Revisão opcional — Estados físicos",
+      "title": "Lógica não é tensão",
+      "prompt": "Um circuito interpreta tensões de 0 a 0,8 V como nível baixo e de 2 a 3,3 V como nível alto. Uma tensão de 0,4 V representa o quê? E 1,4 V? Use apenas as faixas hipotéticas informadas.",
+      "hint": "Compare cada valor com os intervalos.",
+      "solution": "0,4 V: nível baixo (0). 1,4 V: fora das faixas especificadas, interpretação não garantida.",
+      "explanation": "O zero lógico pode corresponder a tensão não nula; a tolerância não elimina todos os erros.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }

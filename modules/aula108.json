@@ -5,7 +5,7 @@
   "title": "Decimal e binário em profundidade",
   "subtitle": "Pesos, divisões sucessivas, verificação e largura fixa",
   "objectives": "Converter inteiros não negativos em ambos os sentidos; explicar os pesos binários e restos; conferir resultados; reconhecer zeros à esquerda e limites de representação sem sinal; usar a Mesa de Conversão.",
-  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narração e podcasts não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narrações dos vídeos e podcast A04 ainda não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados. Podcast A03, Como funciona o sistema binário: transcrição automática integral (964 s), modelo Base, examinada editorialmente em 28/11/2026; reconhecimento sujeito a erros, sem validação humana palavra a palavra. Contribuições incorporadas como explicações e atividades originais.",
   "chapters": [
     {
       "title": "Duas escritas para o mesmo inteiro",
@@ -29,12 +29,12 @@
     },
     {
       "title": "Divisões sucessivas por dois",
-      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nDivida o inteiro repetidamente por dois. Anote quociente inteiro e resto 0 ou 1. Continue até o quociente ser zero. Leia os restos em ordem inversa.\n\n13 ÷ 2 = 6 resto 1; 6 ÷ 2 = 3 resto 0; 3 ÷ 2 = 1 resto 1; 1 ÷ 2 = 0 resto 1. Lendo os restos de baixo para cima: 1101₂.\n\n20 ÷ 2 = 10 resto 0; 10 ÷ 2 = 5 resto 0; 5 ÷ 2 = 2 resto 1; 2 ÷ 2 = 1 resto 0; 1 ÷ 2 = 0 resto 1: 10100₂.\n\nErros comuns: ler os restos em ordem direta, parar ao encontrar um resto zero e usar quociente decimal aproximado. Para o inteiro zero, o numeral mínimo é 0₂, sem divisões.\n\nPOR QUE OS RESTOS SÃO INVERTIDOS? Toda divisão inteira de N por 2 fornece N = 2q + r, com r igual a 0 ou 1. O resto r informa se N é par ou ímpar e ocupa o peso 2⁰. Ao dividir q novamente, o novo resto ocupa 2¹ no número original, pois q já estava multiplicado por 2. Por exemplo, 19 = 2×9+1; 9 = 2×4+1; 4 = 2×2+0; 2 = 2×1+0; 1 = 2×0+1. Substituindo sucessivamente: 19 = 1×16 + 0×8 + 0×4 + 1×2 + 1. Resultado 10011₂. Não é uma regra arbitrária de leitura.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nDivida o inteiro repetidamente por dois. Anote quociente inteiro e resto 0 ou 1. Continue até o quociente ser zero. Leia os restos em ordem inversa.\n\n13 ÷ 2 = 6 resto 1; 6 ÷ 2 = 3 resto 0; 3 ÷ 2 = 1 resto 1; 1 ÷ 2 = 0 resto 1. Lendo os restos de baixo para cima: 1101₂.\n\n20 ÷ 2 = 10 resto 0; 10 ÷ 2 = 5 resto 0; 5 ÷ 2 = 2 resto 1; 2 ÷ 2 = 1 resto 0; 1 ÷ 2 = 0 resto 1: 10100₂.\n\nErros comuns: ler os restos em ordem direta, parar ao encontrar um resto zero e usar quociente decimal aproximado. Para o inteiro zero, o numeral mínimo é 0₂, sem divisões.\n\nPOR QUE OS RESTOS SÃO INVERTIDOS? Toda divisão inteira de N por 2 fornece N = 2q + r, com r igual a 0 ou 1. O resto r informa se N é par ou ímpar e ocupa o peso 2⁰. Ao dividir q novamente, o novo resto ocupa 2¹ no número original, pois q já estava multiplicado por 2. Por exemplo, 19 = 2×9+1; 9 = 2×4+1; 4 = 2×2+0; 2 = 2×1+0; 1 = 2×0+1. Substituindo sucessivamente: 19 = 1×16 + 0×8 + 0×4 + 1×2 + 1. Resultado 10011₂. Não é uma regra arbitrária de leitura.\n\nVOCABULÁRIO E DIREÇÃO — O primeiro resto corresponde ao bit menos significativo (LSB, least significant bit), de peso 1; o último resto não nulo corresponde ao bit mais significativo (MSB, most significant bit) da escrita mínima de um inteiro positivo. Na seleção de pesos, construímos o numeral do MSB ao LSB; nas divisões, descobrimos os bits do LSB ao MSB. Em largura fixa, zeros adicionais podem ocupar as posições mais altas, portanto não confunda a posição MSB com o primeiro 1.",
       "example": ""
     },
     {
       "title": "Conferência independente",
-      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nConverta por um método e revise pelo inverso. Exemplo: 73₁₀ = 1001001₂, porque 64+8+1 = 73. O procedimento de divisões sucessivas produz a mesma sequência.\n\nPara 99₁₀, 64+32+2+1=99 e o numeral é 1100011₂. Confirme pelas divisões. Essa verificação não substitui escrever as etapas, mas ajuda a detectar erros.\n\nA Mesa de Conversão é ideal para guardar pesos, bits, restos e verificação em suas quatro linhas livres, sem mostrar automaticamente a resposta.\n\nREFERÊNCIA VISUAL — O infográfico da Aula 03 compara os dois métodos usando 10₁₀: 10÷2=5 r0; 5÷2=2 r1; 2÷2=1 r0; 1÷2=0 r1. Restos invertidos: 1010₂. Pela seleção, 8+2=10. A apresentação da Aula 04 (slides 7–9) usa a mesma escrita no sentido inverso: pesos 8,4,2,1; bits 1,0,1,0; parcelas 8,0,2,0. A conferência já é praticada nos exercícios existentes.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nConverta por um método e revise pelo inverso. Exemplo: 73₁₀ = 1001001₂, porque 64+8+1 = 73. O procedimento de divisões sucessivas produz a mesma sequência.\n\nPara 99₁₀, 64+32+2+1=99 e o numeral é 1100011₂. Confirme pelas divisões. Essa verificação não substitui escrever as etapas, mas ajuda a detectar erros.\n\nA Mesa de Conversão é ideal para guardar pesos, bits, restos e verificação em suas quatro linhas livres, sem mostrar automaticamente a resposta.\n\nREFERÊNCIA VISUAL — O infográfico da Aula 03 compara os dois métodos usando 10₁₀: 10÷2=5 r0; 5÷2=2 r1; 2÷2=1 r0; 1÷2=0 r1. Restos invertidos: 1010₂. Pela seleção, 8+2=10. A apresentação da Aula 04 (slides 7–9) usa a mesma escrita no sentido inverso: pesos 8,4,2,1; bits 1,0,1,0; parcelas 8,0,2,0. A conferência já é praticada nos exercícios existentes.\n\nESTRATÉGIA DE REVISÃO — Ao discordarem dois resultados, não escolha o que parece familiar: confira a paridade pelo bit de peso 1, calcule a soma dos pesos ativos e refaça a primeira etapa inconsistente. A concordância dos métodos é evidência útil, mas não prova isolada se ambos partiram do mesmo valor errado ou se o erro foi repetido.",
       "example": ""
     },
     {
@@ -2384,6 +2384,19 @@
       "mode": "text",
       "starter": "",
       "solution": "Não: 2 é inválido em base dois. Volte ao valor original e refaça o procedimento depois de conferir os símbolos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "156",
+      "group": "Revisão opcional — Diagnóstico de métodos",
+      "title": "Resultados em conflito",
+      "prompt": "Para converter 42₁₀, uma pessoa encontrou 101010₂ pelos pesos e 010101₂ lendo os restos na ordem em que foram obtidos. Identifique o erro, use a paridade para eliminar uma resposta e confirme pela soma.",
+      "hint": "Compare o último bit com a paridade de 42; leia os restos em ordem inversa.",
+      "solution": "42 é par, portanto o último bit deve ser 0. 010101₂ vale 21; houve leitura direta dos restos. 101010₂ = 32+8+2 = 42.",
+      "explanation": "Cruzar paridade, ordem e decomposição permite diagnosticar a causa, não apenas substituir a resposta.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
