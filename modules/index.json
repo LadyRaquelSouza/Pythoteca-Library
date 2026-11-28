@@ -272,6 +272,30 @@
       "discipline": "modelagem_dados",
       "sha256": "45c5375275ca9d3524888e069a7ca07cbe810df7cd862961639a0e9ef0db5a56",
       "bytes": 21906
+    },
+    {
+      "id": "aula610",
+      "title": "Entidades associativas e transformação entre modelos",
+      "subtitle": "Mapeamento ER-relacional, identificação e preservação de regras",
+      "discipline": "modelagem_dados",
+      "sha256": "6e9305eab598f7a91390927d2f62b5a39ab1a70b980dac71885338a434e4b736",
+      "bytes": 21758
+    },
+    {
+      "id": "aula611",
+      "title": "Normalização e organização dos dados",
+      "subtitle": "Dependências funcionais, 1FN, 2FN, 3FN e decomposição",
+      "discipline": "modelagem_dados",
+      "sha256": "2216602f6f25b38cf08e50843be428feda802272174d0a24fd62c1d09459f054",
+      "bytes": 23972
+    },
+    {
+      "id": "aula612",
+      "title": "Projeto integrado: do problema ao banco de dados",
+      "subtitle": "Laboratório de biblioteca, requisitos, MER, esquema, integridade e evolução",
+      "discipline": "modelagem_dados",
+      "sha256": "fdf14526e86d92ad68fb16f52eabe9128c6c061320a69cf3ec86bcf83e70dca4",
+      "bytes": 26434
     }
   ]
 }

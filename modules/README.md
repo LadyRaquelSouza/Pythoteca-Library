@@ -24,3 +24,5 @@ A verificação automatizada usa os bytes reais dos arquivos. O índice legado e
 604–606: relacionamentos, ER/UML, cardinalidade e teoria relacional, baseados nas Aulas 01 e 02 e nos capítulos 2 e 3 da apostila. Diagramas textuais e exercícios originais; convenções de leitura explicitadas. Álgebra relacional introdutória e diferenças práticas de SQL identificadas como complementos.
 
 607–609: identificação, chaves, integridade e ER avançado, com base nas seções 2.4–2.7 e 3.3–3.5 da apostila e slides 25–29, 38–41 da apresentação. Exemplos originais; superchaves, lógica de NULL, concorrência e estratégias de mapeamento recebem complementos explicitados. Sem práticas Python.
+
+610–612: transformação ER-relacional, normalização e projeto integrado. Base nos PDFs das Aulas 01 e 02; dependências funcionais, definições formais, testes e implementação são aprofundamentos autorais. Vídeo de Modelagem: 25 quadros observados, sem transcrição sonora; reflexão sobre evolução incorporada à aula 612. Ver [metodologia e registro de cobertura](../docs/editorial/metodologia-fontes.md). Nenhuma execução Python obrigatória.

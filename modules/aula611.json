@@ -1,0 +1,400 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula611",
+  "title": "Normalização e organização dos dados",
+  "subtitle": "Dependências funcionais, 1FN, 2FN, 3FN e decomposição",
+  "objectives": "Investigar redundância e anomalias; interpretar dependências funcionais; identificar chaves e atributos primos; aplicar 1FN, 2FN e 3FN; validar decomposição sem perda e reconhecer limites da normalização.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração não transcrita. Figuras dos PDFs não examinadas nesta etapa. Exemplos, explicações detalhadas de dependências e exercícios autorais.",
+  "chapters": [
+    {
+      "title": "1. Por que normalizar",
+      "text": "CONTEÚDO DO CURSO\n\nNormalização é um processo de análise e organização das relações para reduzir redundâncias problemáticas e anomalias de atualização. Uma estrutura pode representar fatos corretamente hoje, mas tornar difícil preservá-los quando dados são inseridos, modificados ou excluídos.\n\nImagine uma relação INSCRICAO_MISTA que repete nome do aluno e descrição da turma em cada inscrição. Corrigir o nome do aluno exige alterar várias linhas. Criar turma sem aluno pode ser impossível se a chave exige inscrição. Remover a última inscrição pode apagar também a informação sobre a turma. São anomalias de atualização, inserção e exclusão.\n\nNem toda repetição é erro: a FK do aluno naturalmente aparece em várias inscrições. O problema é repetir fatos que dependem de outra identidade sem necessidade e sem mecanismo de consistência.",
+      "example": "INSCRICAO_MISTA(aluno_id,aluno_nome,turma_id,turma_descricao,data_inscricao)\nA mesma descrição da turma pode aparecer dezenas de vezes."
+    },
+    {
+      "title": "2. Dependência funcional",
+      "text": "APROFUNDAMENTO AUTORAL A PARTIR DOS OBJETIVOS DA AULA 01\n\nUma dependência funcional X → Y significa: em qualquer estado válido da relação, duas tuplas que concordam nos atributos X devem concordar nos atributos Y. X é determinante; Y é determinado. Isso não significa que Y pode identificar X, nem que existe uma operação matemática para calcular Y.\n\nSe cada aluno tem um nome cadastral em dado estado, aluno_id → aluno_nome. Alunos distintos podem ter mesmo nome, portanto o inverso não decorre. Se cada turma possui uma descrição, turma_id → turma_descricao. Se cada par aluno-turma admite uma inscrição, (aluno_id,turma_id) → data_inscricao.\n\nDependências são regras sobre todos os estados possíveis. Uma amostra pode refutar uma dependência ao mostrar mesmo X com Y diferentes, mas não prová-la de modo geral. Dependências temporais precisam definir o escopo: um nome pode mudar com o tempo sem violar a regra de um nome por aluno em cada estado.",
+      "example": "(E1,Ana,T1,Redes), (E1,Ana,T2,Java): compatível com aluno_id→aluno_nome.\n(E1,Ana,T1,Redes), (E1,Luiza,T2,Java): viola a regra, se se trata do mesmo estado cadastral."
+    },
+    {
+      "title": "3. Chaves, fechamento e atributos primos",
+      "text": "APROFUNDAMENTO AUTORAL\n\nUm conjunto de atributos é superchave quando determina todos os atributos da relação. É candidato quando nenhum subconjunto próprio ainda é superchave. O fechamento X+ reúne X e todos os atributos que podem ser obtidos aplicando repetidamente as dependências conhecidas.\n\nEm R(A,B,C,D), com A→B, B→C e A→D, comece A+={A}. A→B acrescenta B; B→C acrescenta C; A→D acrescenta D. O fechamento contém todos os atributos, então A é superchave e candidata, supondo que conjunto vazio não determine todos. Se B+ contém apenas B e C, B não é superchave.\n\nAtributo primo pertence a pelo menos uma chave candidata, não somente à PK escolhida. A distinção é importante para definições precisas de 2FN e 3FN. No exemplo de inscrição, se o único candidato é (aluno_id,turma_id), ambos são primos e os nomes e data são não primos.",
+      "example": "R(A,B,C,D); F={A→B,B→C,A→D}; A+={A,B,C,D}; B+={B,C}."
+    },
+    {
+      "title": "4. Primeira forma normal (1FN)",
+      "text": "CONTEÚDO DO CURSO\n\nNa abordagem introdutória adotada, a 1FN exige uma relação com um valor do domínio por posição e sem grupos repetidos de atributos. Um campo telefone que contém uma lista de números, quando o domínio pretendido é um telefone individual, precisa ser revisto. Campos telefone1, telefone2, telefone3 também impõem limite artificial e dificultam consultas uniformes.\n\nUma solução é separar o cadastro da relação de contatos, com uma tupla por vínculo. Uma data em um tipo DATE pode ser atômica para o modelo; não precisamos separar cada dígito. A atomicidade depende dos domínios e das operações consideradas, e não da impossibilidade física de subdividir um valor.\n\nNão confunda 1FN com ausência de redundância: INSCRICAO_MISTA pode ter valores individuais em todas as células e ainda repetir nomes e descrições desnecessariamente.",
+      "example": "ALUNO(id,nome)\nTELEFONE_ALUNO(aluno_id,telefone), PK do par se não repetir, FK para ALUNO."
+    },
+    {
+      "title": "5. Segunda forma normal (2FN)",
+      "text": "APROFUNDAMENTO AUTORAL\n\nUma relação está em 2FN se está em 1FN e nenhum atributo não primo depende funcionalmente de um subconjunto próprio de qualquer chave candidata. Quando a candidata é composta, procure dependências parciais. Se todas as candidatas são simples, não há dependência parcial não trivial de parte não vazia de uma chave; em exercícios usuais sem dependências constantes do conjunto vazio, 1FN basta para 2FN.\n\nEm INSCRICAO_MISTA(aluno_id,turma_id,aluno_nome,turma_descricao,data_inscricao), a chave é o par. aluno_id→aluno_nome e turma_id→turma_descricao são dependências parciais. data_inscricao depende da combinação completa, assumindo que o domínio não estabelece uma dependência menor.\n\nSepare ALUNO, TURMA e INSCRICAO. Preserve as referências e a identificação do vínculo. Não retire atributos porque parecem semelhantes; retire fatos cuja dependência demonstra que pertencem a outro determinante.",
+      "example": "ALUNO(aluno_id,aluno_nome)\nTURMA(turma_id,turma_descricao)\nINSCRICAO(aluno_id,turma_id,data_inscricao)\nPKs: aluno_id; turma_id; par de inscrição."
+    },
+    {
+      "title": "6. Terceira forma normal (3FN)",
+      "text": "APROFUNDAMENTO AUTORAL\n\nA definição precisa: para toda dependência funcional não trivial X→A implicada pelas regras, X deve ser superchave ou A deve ser atributo primo. Não trivial significa que A não está em X. A explicação introdutória mais frequente é evitar dependência transitiva inadequada de atributo não primo através de outro determinante não chave.\n\nConsidere EQUIPAMENTO(id,descricao,setor_id,setor_nome). id identifica equipamento; setor_id identifica setor; setor_id→setor_nome. Se id é a única chave candidata, setor_nome é não primo e setor_id não é superchave de EQUIPAMENTO. A dependência viola 3FN. Separe SETOR(setor_id,setor_nome) e EQUIPAMENTO(id,descricao,setor_id).\n\nNão confunda cadeia de referências entre tabelas com violação de 3FN. A dependência problemática estava na mesma relação. Depois da decomposição, recuperar setor_nome por junção é esperado.",
+      "example": "Antes: EQUIPAMENTO(id,descricao,setor_id,setor_nome).\nDepois: SETOR(setor_id,setor_nome), EQUIPAMENTO(id,descricao,setor_id)."
+    },
+    {
+      "title": "7. Decomposição sem perda",
+      "text": "APROFUNDAMENTO AUTORAL\n\nAo separar uma relação, devemos conseguir reconstruir os fatos originais sem inventar combinações. A decomposição binária de R em R1 e R2 é sem perda em relação às dependências funcionais quando os atributos comuns determinam todos os atributos de R1 ou todos os de R2 (no fechamento das dependências). Para exercícios com dados completos, pense em uma junção natural sobre os atributos comuns.\n\nExemplo: R(aluno_id,aluno_nome,turma_id) separada em ALUNO(aluno_id,aluno_nome) e INSCRICAO(aluno_id,turma_id). O atributo comum aluno_id determina ALUNO. A junção reconstrói os fatos. Já decompor R(A,B,C) em AB e BC sem dependências que garantam a associação pode criar fatos espúrios.\n\nConsidere (a1,b1,c1) e (a2,b1,c2). Os pares AB e BC compartilham b1; a junção também produz (a1,b1,c2) e (a2,b1,c1), que não existiam. Normalizar não significa simplesmente cortar colunas.",
+      "example": "AB={(a1,b1),(a2,b1)}; BC={(b1,c1),(b1,c2)}.\nJunção produz quatro triplas; apenas duas eram originais."
+    },
+    {
+      "title": "8. Preservação de dependências e limites",
+      "text": "APROFUNDAMENTO AUTORAL\n\nAlém de ser sem perda, uma decomposição desejável permite verificar as dependências originais sem precisar combinar relações a cada verificação. Preservação de dependências é uma propriedade distinta de reconstrução sem perda. A síntese adequada para 3FN pode garantir ambas, mas não é obtida por qualquer divisão arbitrária.\n\nA forma normal de Boyce-Codd (BCNF) é mais restritiva: todo determinante de dependência não trivial deve ser superchave. A 3FN admite a exceção de atributo primo. Não precisamos aprofundar BCNF agora; o objetivo do material introdutório é chegar à 3FN.\n\nNormalização não elimina todas as regras de negócio, nem garante desempenho ideal. Uma regra temporal, um limite de inscrições ativas ou obrigação de existência de dependente continua exigindo mecanismos apropriados. Desnormalizar para desempenho é uma decisão posterior, baseada em medições e acompanhada de garantia de consistência.",
+      "example": ""
+    },
+    {
+      "title": "9. Estudo resolvido",
+      "text": "PRÁTICA AUTORAL\n\nUma oficina registra SERVICO_MISTO(ordem_id,numero_etapa,cliente_id,cliente_nome,descricao_etapa,valor_etapa). Regras: ordem_id identifica uma ordem de um cliente; cliente_id identifica um nome cadastral; numero_etapa é único dentro da ordem; cada etapa tem descrição e valor próprios. Candidata única assumida: (ordem_id,numero_etapa).\n\nDependências: ordem_id→cliente_id; cliente_id→cliente_nome; (ordem_id,numero_etapa)→descricao_etapa,valor_etapa. Por transitividade, ordem_id determina cliente_nome. Em 2FN, separe os dados que dependem apenas de ordem_id em ORDEM_MISTA. Em 3FN, separe CLIENTE de ORDEM. ETAPA mantém os atributos que dependem do par.\n\nResultado: CLIENTE(cliente_id,cliente_nome), ORDEM(ordem_id,cliente_id), ETAPA(ordem_id,numero_etapa,descricao_etapa,valor_etapa). As junções por cliente_id e ordem_id preservam os fatos de etapas, e as dependências indicadas podem ser verificadas nas relações correspondentes. A existência de ordens sem etapas pode agora ser representada se o domínio permitir.",
+      "example": "PK CLIENTE: cliente_id.\nPK ORDEM: ordem_id; FK cliente_id→CLIENTE.\nPK ETAPA: (ordem_id,numero_etapa); FK ordem_id→ORDEM."
+    },
+    {
+      "title": "10. Método de revisão",
+      "text": "SÍNTESE AUTORAL\n\nIdentifique a granularidade de cada relação e suas candidatas. Liste dependências justificadas pelas regras. Verifique valores e grupos repetidos para 1FN; procure dependências parciais para 2FN; examine determinantes que não são superchaves e atributos não primos para 3FN. Decomponha com chaves e referências explícitas e teste reconstrução.\n\nCONEXÃO COM LÓGICA\n\nA dependência funcional pode ser lida como uma condição sobre pares de registros: se X é igual nos dois, Y deve ser igual. Esse raciocínio ajuda a elaborar testes, mas uma amostra de testes não prova todas as dependências. O modelo continua fundamentado nas regras do domínio.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Fundamentos",
+      "title": "Anomalia",
+      "prompt": "Corrigir nome de aluno em dezenas de inscrições é exemplo de qual problema?",
+      "hint": "A mesma informação aparece repetida.",
+      "explanation": "É anomalia de atualização.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Atualização"
+        },
+        {
+          "id": "b",
+          "text": "Ordenação"
+        },
+        {
+          "id": "c",
+          "text": "Grau"
+        },
+        {
+          "id": "d",
+          "text": "Projeção"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Fundamentos",
+      "title": "Inserção",
+      "prompt": "Uma tabela única de inscrição não permite cadastrar turma sem aluno. Qual anomalia?",
+      "hint": "Um fato depende indevidamente de outro.",
+      "explanation": "A estrutura impede representar fato legítimo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Anomalia de inserção.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Fundamentos",
+      "title": "Exclusão",
+      "prompt": "Apagar a última inscrição apaga a descrição única de uma turma. Qual problema?",
+      "hint": "Perda de outro fato.",
+      "explanation": "A turma tem existência independente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Anomalia de exclusão.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Dependências",
+      "title": "Significado",
+      "prompt": "Explique aluno_id→nome sem usar a ideia de que nome identifica aluno.",
+      "hint": "Leia determinante para determinado.",
+      "explanation": "A dependência não é necessariamente reversível.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Mesmo aluno_id implica mesmo nome em estado válido; nomes podem repetir entre alunos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Dependências",
+      "title": "Contraexemplo",
+      "prompt": "(A1,Ana),(A1,Bia) estão em relação cujo aluno_id determina nome. O que conclui?",
+      "hint": "Mesmo determinante, valores distintos.",
+      "explanation": "Um contraexemplo refuta a regra.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Viola a dependência, se ambos são fatos do mesmo estado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional — Dependências",
+      "title": "Amostra",
+      "prompt": "Uma amostra possui nomes distintos. Prova nome→id?",
+      "hint": "Pense em homônimos futuros.",
+      "explanation": "Amostras não estabelecem dependências.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; depende da regra de todos os estados válidos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Chaves",
+      "title": "Fechamento",
+      "prompt": "R(A,B,C,D), F={A→B,B→C,C→D}. Calcule A+ e B+.",
+      "hint": "Aplique dependências repetidamente.",
+      "explanation": "Fechamento testa superchave.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A+={A,B,C,D}; B+={B,C,D}. A é candidata se vazio não determina todos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional — Chaves",
+      "title": "Candidatas",
+      "prompt": "R(A,B,C), F={A→B,B→A,A→C}. Quais candidatas?",
+      "hint": "A e B determinam todos.",
+      "explanation": "A e B são atributos primos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "{A} e {B}; C não determina A ou B pelas regras dadas.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — 1FN",
+      "title": "Telefones",
+      "prompt": "Reorganize PESSOA(id,nome,telefone1,telefone2,telefone3) para número variável de contatos.",
+      "hint": "Uma ocorrência por telefone.",
+      "explanation": "Evita grupos repetidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PESSOA(id,nome); CONTATO(pessoa_id,telefone), par único se adequado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional — 1FN",
+      "title": "Data",
+      "prompt": "Uma data armazenada como DATE viola 1FN por conter dia, mês e ano?",
+      "hint": "Domínio e significado.",
+      "explanation": "Atomicidade depende da representação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não necessariamente; é um valor do domínio de datas.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — 2FN",
+      "title": "Par de inscrição",
+      "prompt": "Chave (aluno,turma), atributos aluno_nome e data_inscricao. aluno→aluno_nome, par→data. Qual dependência parcial?",
+      "hint": "Parte própria da chave.",
+      "explanation": "Nome é não primo e depende de parte da chave.",
+      "mode": "text",
+      "starter": "",
+      "solution": "aluno→aluno_nome.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — 2FN",
+      "title": "Decomposição",
+      "prompt": "Separe R(aluno,turma,aluno_nome,turma_nome,nota) com chave do par e nomes determinados por seus IDs.",
+      "hint": "Preserve a nota do vínculo.",
+      "explanation": "Os fatos independentes ficam separados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "ALUNO(aluno,aluno_nome); TURMA(turma,turma_nome); INSCRICAO(aluno,turma,nota).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — 3FN",
+      "title": "Determinante",
+      "prompt": "Em R(id,setor_id,setor_nome), id é única candidata e setor_id→setor_nome. Qual análise?",
+      "hint": "Setor_id não identifica toda R.",
+      "explanation": "A dependência viola 3FN.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Sempre está em 3FN"
+        },
+        {
+          "id": "b",
+          "text": "Viola 3FN"
+        },
+        {
+          "id": "c",
+          "text": "Viola apenas ordenação"
+        },
+        {
+          "id": "d",
+          "text": "Prova que setor_nome é PK"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "14",
+      "group": "Essenciais — 3FN",
+      "title": "Oficina",
+      "prompt": "R(ordem_id,cliente_id,cliente_nome), ordem_id→cliente_id e cliente_id→cliente_nome, ordem_id candidata única. Normalize.",
+      "hint": "Separe fato do cliente.",
+      "explanation": "Elimina dependência transitiva problemática.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CLIENTE(cliente_id,cliente_nome); ORDEM(ordem_id,cliente_id FK).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — 3FN",
+      "title": "Chave simples",
+      "prompt": "Uma relação com chave simples pode violar 3FN? Dê exemplo.",
+      "hint": "Procure determinante não chave.",
+      "explanation": "2FN não garante 3FN.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sim: EQUIPAMENTO(id,setor_id,setor_nome), setor_id→setor_nome.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional — 3FN",
+      "title": "Exceção",
+      "prompt": "Qual exceção a 3FN admite quando determinante não é superchave?",
+      "hint": "Pense em atributos de candidatas.",
+      "explanation": "Definição formal distingue 3FN de BCNF.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Atributo determinado é primo, para dependência não trivial com lado direito unitário.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Essenciais — Decomposição",
+      "title": "Sem perda",
+      "prompt": "R(id,nome,turma) com id→nome. Separar (id,nome) e (id,turma) é sem perda?",
+      "hint": "O atributo comum determina uma parte.",
+      "explanation": "A junção preserva os fatos sob as dependências.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sim, id determina (id,nome).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Decomposição",
+      "title": "Triplas espúrias",
+      "prompt": "R contém (a1,b,c1),(a2,b,c2). Ao separar AB e BC, quais triplas extras surgem?",
+      "hint": "Combine todos os pares com b.",
+      "explanation": "Decomposição arbitrária perde correlação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(a1,b,c2),(a2,b,c1).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Essenciais — Decomposição",
+      "title": "Referências",
+      "prompt": "Ao separar produto e categoria, por que manter categoria_id no produto?",
+      "hint": "Preserve a associação.",
+      "explanation": "Separar sem preservar vínculo perde informação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Permite recuperar a categoria correta e impor FK.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "20",
+      "group": "Essenciais — Revisão",
+      "title": "Caso completo",
+      "prompt": "R(pedido,linha,produto,produto_nome,quantidade), chave (pedido,linha), produto→produto_nome, par→produto,quantidade. Normalize até 3FN.",
+      "hint": "Verifique dependência transitiva.",
+      "explanation": "Atributos do produto não pertencem ao fato item.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PRODUTO(produto,produto_nome); ITEM(pedido,linha,produto,quantidade), PK(pedido,linha), FK produto. Se PEDIDO tiver existência própria, modele-o também.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional — Revisão",
+      "title": "Redundância legítima",
+      "prompt": "Repetir a FK de turma em diversas inscrições é sempre anomalia?",
+      "hint": "Cada vínculo tem seu próprio fato.",
+      "explanation": "Normalização não proíbe valores iguais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; a repetição de referência representa associações distintas.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional — Revisão",
+      "title": "Desnormalizar",
+      "prompt": "Alguém propõe repetir nome do setor para tornar consultas rápidas. O que deve justificar a decisão?",
+      "hint": "Meça e preserve consistência.",
+      "explanation": "Desnormalização exige propósito e controle.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Evidência de desempenho, alternativas e mecanismo de atualização coerente.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional — Intercâmbio",
+      "title": "Regra de teste",
+      "prompt": "Traduza X→Y em uma condição para duas tuplas.",
+      "hint": "Use implicação.",
+      "explanation": "Dependência pode orientar casos de teste.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Se X1=X2, então Y1=Y2; caso contrário a regra não é violada por esse par.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

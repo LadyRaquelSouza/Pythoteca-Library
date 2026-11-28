@@ -1,0 +1,337 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula610",
+  "title": "Entidades associativas e transformação entre modelos",
+  "subtitle": "Mapeamento ER-relacional, identificação e preservação de regras",
+  "objectives": "Transformar entidades, atributos e relacionamentos em estruturas relacionais; distinguir alternativas de mapeamento; preservar identidade, cardinalidade e integridade; testar se a transformação mantém os fatos.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração não transcrita. Figuras dos PDFs não examinadas nesta etapa. Exemplos, explicações detalhadas de dependências e exercícios autorais.",
+  "chapters": [
+    {
+      "title": "1. Transformar não é copiar caixas",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo conceitual descreve o significado dos dados e suas regras, sem depender de uma implementação específica. O modelo lógico relacional reorganiza essas informações em relações, atributos, chaves e referências. Transformar um modelo significa preservar seus fatos e restrições em uma representação diferente.\n\nUma entidade forte costuma originar uma relação com sua chave e seus atributos simples. Mas nem toda caixa precisa gerar uma tabela isolada e nem todo relacionamento exige uma tabela própria. A escolha depende das multiplicidades, das propriedades da associação e da identidade das ocorrências.\n\nEscreva primeiro as regras conceituais. Depois proponha relações e verifique se estados proibidos ainda poderiam ser registrados. Uma transformação estruturalmente bonita pode perder uma restrição importante.",
+      "example": "CLIENTE(codigo, nome), PK codigo.\nO identificador e as propriedades foram preservados; domínio e obrigatoriedade ainda precisam ser documentados."
+    },
+    {
+      "title": "2. Atributos compostos, derivados e multivalorados",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO AUTORAL\n\nUm atributo composto pode ser transformado em componentes quando eles possuem significado independente para as consultas e regras. Uma data pode permanecer um valor de domínio DATE. Não separe dados apenas porque sua apresentação possui partes.\n\nUm atributo multivalorado, como contatos de um fornecedor, pode originar uma relação CONTATO com referência ao fornecedor e uma identificação adequada. Se o mesmo telefone pode pertencer a várias pessoas, telefone sozinho não identifica o vínculo. Se houver tipos de contato ou histórico, esses fatos também precisam ser representados.\n\nUm atributo derivado, como duração calculada de início e fim, pode ser obtido quando necessário. Armazenar a duração junto aos valores de origem cria uma obrigação de consistência. Às vezes há requisito histórico ou de desempenho que justifica materialização, mas isso deve ser explícito.",
+      "example": "FORNECEDOR(id, nome)\nCONTATO(id_fornecedor, telefone), PK(id_fornecedor,telefone), FK id_fornecedor→FORNECEDOR, se o par não puder repetir."
+    },
+    {
+      "title": "3. Relacionamentos 1:N",
+      "text": "CONTEÚDO DO CURSO\n\nCada RESERVA pertence a exatamente um CLIENTE; um cliente pode possuir zero ou muitas reservas. O mapeamento mais comum coloca a FK do lado N: RESERVA inclui id_cliente. Uma FK obrigatória para cliente existente preserva a direção reserva→cliente. Não coloque uma lista de reservas na linha de cliente.\n\nSe o vínculo é opcional para a reserva, a FK pode admitir NULL. Se a regra exige que todo cliente tenha ao menos uma reserva, a FK sozinha não garante esse mínimo. Uma tabela própria para o relacionamento também é possível em certos cenários, desde que a unicidade do participante do lado N seja preservada.\n\nAtributos do vínculo podem ficar do lado N se o vínculo só ocorre uma vez por ocorrência desse lado. Se for necessário guardar mudanças de cliente ou histórico temporal, pode ser necessário representar os vínculos como eventos separados.",
+      "example": "CLIENTE(id_cliente,nome)\nRESERVA(id_reserva,id_cliente,inicio), FK id_cliente→CLIENTE, obrigatória.\nCLIENTE→RESERVA 0..N; RESERVA→CLIENTE 1..1."
+    },
+    {
+      "title": "4. Relacionamentos 1:1",
+      "text": "CONTEÚDO DO CURSO\n\nSe cada EQUIPAMENTO possui no máximo um CONTRATO vigente e cada contrato corresponde a exatamente um equipamento, podemos colocar id_equipamento em CONTRATO como FK obrigatória e única. A FK exige equipamento existente; UNIQUE impede que dois contratos vigentes apontem ao mesmo equipamento.\n\nA escolha do lado da FK pode evitar muitos valores ausentes, sobretudo quando um lado tem participação obrigatória e o outro opcional. Uma tabela de associação com duas referências únicas também é alternativa. Fundir as relações pode ser apropriado quando suas identidades, ciclos de vida e obrigatoriedades são compatíveis, mas não é regra universal.\n\nSe ambos os lados são obrigatórios, uma FK única em apenas um sentido não garante que toda ocorrência do lado referenciado esteja vinculada. Registre a necessidade de verificação complementar. Se o exemplo passa a guardar contratos históricos, a relação deixa de ser necessariamente 1:1; o limite de vigência torna-se uma regra temporal.",
+      "example": "CONTRATO_VIGENTE(id_contrato,id_equipamento,data_inicio)\nid_equipamento: FK, NOT NULL e UNIQUE."
+    },
+    {
+      "title": "5. Relacionamentos N:M e entidade associativa",
+      "text": "CONTEÚDO DO CURSO\n\nPESSOA pode participar de muitos PROJETOS e um projeto pode receber muitas pessoas. Para representar essa relação em um banco relacional, crie PARTICIPACAO com referências aos dois participantes. Cada linha registra um vínculo específico. A data de entrada e a função desempenhada podem pertencer à associação.\n\nSe há no máximo uma participação por pessoa e projeto, a combinação (id_pessoa,id_projeto) pode ser PK. Se a mesma pessoa pode sair e retornar, o par não identifica cada período. Nesse caso, id_participacao ou outra identificação validada distingue os eventos; outras restrições podem impedir dois vínculos ativos simultâneos.\n\nUma entidade associativa no modelo conceitual pode representar um relacionamento que precisa participar de outra associação, como CONSULTA relacionada a medicamentos prescritos. No modelo lógico, uma relação associativa também resolve a representação de N:M. Esses usos são relacionados, mas não idênticos: nem todo N:M precisa ser desenhado como entidade no conceitual.",
+      "example": "PESSOA(id,nome)\nPROJETO(id,titulo)\nPARTICIPACAO(id_pessoa,id_projeto,funcao,data_inicio)\nPK(id_pessoa,id_projeto), duas FKs obrigatórias, se o par for único."
+    },
+    {
+      "title": "6. Associações ternárias",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO\n\nFORNECIMENTO associa fornecedor, peça e projeto. Uma relação com as três referências preserva o fato conjunto. Se cada combinação admite apenas um fornecimento, a tripla pode ser chave. Se para cada par (peça, projeto) existe no máximo um fornecedor, esse par pode identificar o fornecimento, conforme as demais regras.\n\nNão escolha automaticamente a tripla como chave. A cardinalidade e os fatos repetidos determinam quais conjuntos são candidatos. Se são registrados fornecimentos sucessivos para a mesma combinação, a identidade precisa distinguir eventos.\n\nDecompor o relacionamento em três pares pode perder a correlação entre os participantes, como demonstrado na aula 604. A relação conjunta evita inventar combinações que nunca ocorreram.",
+      "example": "FORNECIMENTO(id_fornecedor,id_peca,id_projeto,quantidade)\nSe houver exclusividade por peça/projeto e um único fato por par, PK(id_peca,id_projeto); as três referências continuam necessárias."
+    },
+    {
+      "title": "7. Entidades fracas e especialização",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO AUTORAL\n\nUma entidade fraca identificada pela proprietária e por um número local pode originar relação cuja PK inclui a FK da proprietária. ITEM(id_pedido,numero,quantidade) preserva esse vínculo identificador com PK(id_pedido,numero). Uma chave substituta é possível se a unicidade de negócio e a referência obrigatória permanecerem.\n\nPara especialização, uma opção é manter uma tabela geral e uma por subtipo, usando no subtipo a mesma identificação como PK e FK. Outra é uma tabela única com atributos específicos opcionais e um discriminador de tipo; nesse caso, restrições devem controlar quais campos se aplicam. Um único discriminador simples não representa especialização compartilhada sem adaptação.\n\nA escolha depende de totalidade, exclusividade, consultas, atributos e evolução. Não presuma que a estrutura de tabelas garante sozinha todas as restrições de subtipo.",
+      "example": "EQUIPAMENTO(id,descricao)\nCOMPUTADOR(id,memoria_gb), PK e FK id→EQUIPAMENTO\nPROJETOR(id,luminosidade), PK e FK id→EQUIPAMENTO"
+    },
+    {
+      "title": "8. Verificação de preservação",
+      "text": "PRÁTICA AUTORAL\n\nPara cada transformação, faça cinco perguntas: qual fato uma tupla representa? Como se identifica esse fato? Quais participantes precisam existir? Quais combinações são permitidas? Que regras não são garantidas por PK, FK, NOT NULL ou UNIQUE?\n\nConsidere PEDIDO, PRODUTO e ITEM_PEDIDO. Se a regra permite que o mesmo produto apareça em duas linhas do pedido, PK(id_pedido,id_produto) perde fatos legítimos. Use id_pedido e numero_item, ou ID próprio, e mantenha id_produto como FK. Preço efetivamente cobrado pertence ao item, pois preço de catálogo pode mudar.\n\nA transformação é correta quando preserva tanto fatos permitidos quanto restrições, ou registra claramente quais mecanismos adicionais são necessários. Não é suficiente obter tabelas que aceitem o exemplo feliz.",
+      "example": "PEDIDO(id,data)\nPRODUTO(id,descricao,preco_atual)\nITEM_PEDIDO(id_pedido,numero_item,id_produto,quantidade,preco_cobrado)\nPK(id_pedido,numero_item); FKs para PEDIDO e PRODUTO; quantidade positiva."
+    },
+    {
+      "title": "9. Roteiro de trabalho",
+      "text": "SÍNTESE AUTORAL\n\nComece pelo MER validado. Transforme entidades e atributos; mapeie associações de acordo com suas regras; examine chaves candidatas e alternativas; documente referências, nulidade e unicidade; preserve identificação dependente e restrições de especialização; analise dependências funcionais; teste estados válidos e inválidos.\n\nO resultado é um esquema lógico acompanhado de regras que orientará a implementação física. A próxima aula trata da normalização, uma forma sistemática de investigar dependências e redundâncias. A normalização não substitui o levantamento de requisitos: depende deles.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Transformação",
+      "title": "Finalidade",
+      "prompt": "Qual objetivo da transformação do MER em modelo relacional?",
+      "hint": "Pense no significado.",
+      "explanation": "Preservar fatos e regras em estruturas relacionais.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Copiar todas as caixas sem análise"
+        },
+        {
+          "id": "b",
+          "text": "Preservar fatos e restrições"
+        },
+        {
+          "id": "c",
+          "text": "Eliminar todas as relações"
+        },
+        {
+          "id": "d",
+          "text": "Escolher a cor da interface"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Atributos",
+      "title": "Contatos",
+      "prompt": "Fornecedor possui vários telefones; o mesmo telefone pode ser compartilhado. Modele os contatos supondo par único.",
+      "hint": "Não use telefone sozinho como PK.",
+      "explanation": "A identidade é do vínculo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "FORNECEDOR(id,nome); CONTATO(id_fornecedor,telefone), PK do par e FK obrigatória.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Atributos",
+      "title": "Duração",
+      "prompt": "Por que armazenar duração e início/fim pode exigir regra adicional?",
+      "hint": "Um valor depende dos outros.",
+      "explanation": "Derivação cria dependência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A duração pode ficar inconsistente; calcular ou garantir atualização coerente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — 1:N",
+      "title": "Pedidos",
+      "prompt": "Cada pedido pertence a exatamente um cliente e cliente pode ter muitos pedidos. Escreva esquema e restrições básicas.",
+      "hint": "FK no lado muitos.",
+      "explanation": "A FK preserva referência de cada pedido.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CLIENTE(id); PEDIDO(id,cliente_id), PKs id, FK cliente_id obrigatória.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — 1:N",
+      "title": "Mínimo",
+      "prompt": "A FK de PEDIDO para CLIENTE garante que todo cliente tem pedido?",
+      "hint": "Leia a direção contrária.",
+      "explanation": "Referência não obriga dependentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; mínimo inverso necessita regra adicional.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — 1:1",
+      "title": "Armário",
+      "prompt": "Cada armário atribuído corresponde a exatamente uma pessoa; pessoa pode ter no máximo um armário. Modele apenas atribuições existentes.",
+      "hint": "FK com limite inverso.",
+      "explanation": "Unicidade limita ambos os sentidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "ATRIBUICAO(id_armario PK, id_pessoa FK UNIQUE NOT NULL), com FK de id_armario para ARMARIO.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — 1:1",
+      "title": "Sem UNIQUE",
+      "prompt": "Dois contratos vigentes referenciam o mesmo equipamento. FK válida basta para impedir?",
+      "hint": "FK pode repetir.",
+      "explanation": "Cardinalidade máxima requer restrição adicional.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; impor unicidade sobre id_equipamento para o escopo vigente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — N:M",
+      "title": "Projeto",
+      "prompt": "Pessoa participa de projeto com função específica. Crie relação associativa se o par é único.",
+      "hint": "A função pertence ao vínculo.",
+      "explanation": "Preserva identidade e propriedade da associação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PARTICIPACAO(pessoa_id,projeto_id,funcao), PK do par, FKs para participantes.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — N:M",
+      "title": "Retorno",
+      "prompt": "A pessoa pode retornar ao mesmo projeto após sair. Por que o par deixa de identificar cada participação?",
+      "hint": "Eventos podem repetir.",
+      "explanation": "A identidade depende da granularidade do fato.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O par é igual em períodos distintos; usar ID do evento ou chave temporal garantida.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional — N:M",
+      "title": "Atributo indevido",
+      "prompt": "Função de participante varia por projeto. Guardá-la em PESSOA é suficiente?",
+      "hint": "Pense em dois projetos.",
+      "explanation": "Evita sobrescrever informação de outro projeto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; a função depende do vínculo.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Ternário",
+      "title": "Exclusividade",
+      "prompt": "Cada par peça-projeto possui um único fornecedor, e um único fornecimento é registrado por par. Qual candidata decorre da regra?",
+      "hint": "Fixe peça e projeto.",
+      "explanation": "A tripla não seria mínima se o par basta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(id_peca,id_projeto), assumindo minimalidade; fornecedor continua como FK.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional — Ternário",
+      "title": "Histórico",
+      "prompt": "A tripla fornecedor-peça-projeto repete em remessas diferentes. Como distingui-las?",
+      "hint": "O fato é uma remessa.",
+      "explanation": "A tripla não basta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Identificador de remessa ou combinação validada de atributos do evento.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Fraca",
+      "title": "Item",
+      "prompt": "Item numerado localmente em pedido. Escreva PK e FK.",
+      "hint": "Inclua identificação do dono.",
+      "explanation": "Preserva identificação dependente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PK(id_pedido,numero); FK id_pedido→PEDIDO.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Essenciais — Especialização",
+      "title": "Subtipo",
+      "prompt": "Em COMPUTADOR(id,memoria), id é PK e FK para EQUIPAMENTO. Isso garante que todo equipamento é computador?",
+      "hint": "A FK vai do subtipo ao geral.",
+      "explanation": "Totalidade exige regra adicional.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; garante apenas que todo computador corresponde a equipamento existente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Especialização",
+      "title": "Discriminador",
+      "prompt": "Uma pessoa pode ser estudante e funcionária simultaneamente. Um campo tipo com apenas um valor basta?",
+      "hint": "Considere compartilhamento.",
+      "explanation": "A representação deve preservar sobreposição.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, sem adaptação; usar papéis/subtipos que permitam ambos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Validação",
+      "title": "Pedido repetido",
+      "prompt": "Um pedido aceita o mesmo produto em linhas diferentes. Qual problema com PK(pedido,produto)?",
+      "hint": "A chave rejeitaria um fato permitido.",
+      "explanation": "Não imponha unicidade indevida.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Impede linhas repetidas do produto; usar número de linha por pedido ou ID próprio.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Validação",
+      "title": "Preço histórico",
+      "prompt": "O preço atual de produto muda depois da compra. Onde manter o preço cobrado?",
+      "hint": "Distinga catálogo de evento.",
+      "explanation": "Dependência é do item.",
+      "mode": "text",
+      "starter": "",
+      "solution": "No item de pedido, como fato histórico.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Validação",
+      "title": "Estado inválido",
+      "prompt": "Proponha dois testes para uma participação com duas FKs obrigatórias e par único.",
+      "hint": "Teste existência e duplicação.",
+      "explanation": "Testar restrições de natureza distinta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Inserir vínculo com pessoa inexistente deve falhar; repetir par existente deve falhar.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Revisão",
+      "title": "Mapa completo",
+      "prompt": "Modele escola, turma, estudante e inscrição com turma de uma escola, estudante em várias turmas, par de inscrição único.",
+      "hint": "Identifique PKs e FKs.",
+      "explanation": "Preserva 1:N e N:M.",
+      "mode": "text",
+      "starter": "",
+      "solution": "ESCOLA(id), TURMA(id,escola_id), ESTUDANTE(id), INSCRICAO(estudante_id,turma_id), PK do par e respectivas FKs; escola_id obrigatório se turma exige escola.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional — Revisão",
+      "title": "Regra residual",
+      "prompt": "Todo projeto publicado precisa de pelo menos um participante. As duas FKs de PARTICIPACAO garantem isso?",
+      "hint": "Teste projeto sem linhas de vínculo.",
+      "explanation": "Documente o momento em que o mínimo vale.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; validar no ato de publicação ou outro mecanismo apropriado.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
