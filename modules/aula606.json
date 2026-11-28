@@ -1,0 +1,351 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula606",
+  "title": "Fundamentos do modelo relacional",
+  "subtitle": "Relações, tuplas, atributos, domínios, esquema e consultas",
+  "objectives": "Compreender o modelo relacional e suas propriedades; distinguir relações matemáticas de tabelas SQL; interpretar esquemas e estados; reconhecer seleção, projeção e combinação; preparar chaves e integridade.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras originais e vídeo não examinados. Complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. Da realidade à relação",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo relacional, proposto por E. F. Codd em 1970, representa fatos em relações. Uma relação possui atributos nomeados e tuplas que atribuem valores a esses atributos. Cada atributo tem um domínio. Em uma representação tabular, as colunas exibem atributos e as linhas exibem tuplas.\n\nNo conceitual identificamos conceitos e regras; no lógico relacional escolhemos estruturas que representam esses fatos. Uma relação pode representar uma entidade ou uma associação, por exemplo uma inscrição. Nem toda relação nasce de uma entidade independente.\n\nUm atributo chamado codigo e seu valor 17 não são a mesma coisa. Um esquema define a estrutura; o estado indica as tuplas existentes.",
+      "example": "EQUIPAMENTO(codigo, descricao, quantidade)\n(E07, Projetor, 2)\n(E12, Tripé, 4)"
+    },
+    {
+      "title": "2. Relação, tupla, atributo e domínio",
+      "text": "CONTEÚDO DO CURSO\n\nUma tupla reúne valores relativos a uma ocorrência ou fato. O domínio de quantidade pode ser o conjunto de inteiros não negativos; o de descricao, textos não vazios conforme as regras do domínio. Dois atributos podem compartilhar um tipo de dado e possuir significados diferentes.\n\nO grau (aridade) de uma relação é o número de atributos. A cardinalidade de uma relação é o número de tuplas em seu estado. Esses termos não têm o mesmo sentido que grau e cardinalidade de relacionamentos no MER. Uma relação com três atributos e dois registros tem grau 3 e cardinalidade 2.\n\nUm esquema pode permanecer com a mesma aridade quando seu estado passa de duas tuplas para vinte. Inserir registros não acrescenta atributos.",
+      "example": "PECAS(codigo, nome, estoque)\n(P01, Parafuso, 120)\n(P02, Porca, 80)\nGrau: 3. Cardinalidade do estado: 2."
+    },
+    {
+      "title": "3. Propriedades de relações e tabelas SQL",
+      "text": "CONTEÚDO DO CURSO\n\nNa teoria relacional, uma relação é um conjunto de tuplas distintas. Não há ordem intrínseca entre tuplas. A apresentação visual de linhas pode mudar sem alterar os fatos. Atributos são identificados por nomes, não pela ordem visual em que aparecem.\n\nEm SQL, uma tabela sem restrições de unicidade pode aceitar linhas duplicadas, e uma consulta pode retornar resultados duplicados. SQL não reproduz automaticamente todas as propriedades matemáticas das relações. Uma chave ou outra restrição apropriada pode impedir duplicação conforme a regra pretendida. SELECT DISTINCT elimina duplicatas do resultado, não corrige a estrutura ou os dados armazenados.\n\nSem ORDER BY, SQL não garante uma ordenação de saída. Isso vale mesmo quando as linhas parecem sair na ordem de inserção. Para desempates determinísticos, inclua critérios suficientes de ordenação.",
+      "example": "Estado exibido como (P02,Porca,80), (P01,Parafuso,120) ou na ordem inversa representa o mesmo conjunto de fatos."
+    },
+    {
+      "title": "4. Um valor de domínio por posição",
+      "text": "CONTEÚDO DO CURSO\n\nEm uma representação relacional em primeira forma normal, cada posição de uma tupla contém um valor do domínio daquele atributo. Uma lista de três telefones colocada num campo destinado a um único telefone dificulta identificar e consultar contatos. Um modelo possível é separar FORNECEDOR de TELEFONE_FORNECEDOR, com uma ocorrência por contato.\n\nAtomicidade depende do domínio e das operações requeridas. Uma data pode ser um único valor DATE, mesmo que possua componentes dia, mês e ano. Uma descrição textual pode conter espaços sem deixar de ser um valor. Não é necessário dividir toda informação em seus caracteres.\n\nAPROFUNDAMENTO\n\nAlguns SGBDs SQL oferecem arrays, JSON e tipos compostos. A existência desses tipos não significa que sejam sempre apropriados para representar listas relacionais. A decisão exige analisar restrições e consultas. As formas normais serão estudadas posteriormente.",
+      "example": "FORNECEDOR(F01, Oficina Alfa)\nTELEFONE_FORNECEDOR(F01, contato A)\nTELEFONE_FORNECEDOR(F01, contato B)"
+    },
+    {
+      "title": "5. Esquema e estados possíveis",
+      "text": "CONTEÚDO DO CURSO\n\nUm esquema relacional define nome, atributos e restrições. O banco pode conter várias relações. Um estado é uma coleção de fatos naquele momento. A regra estoque não negativo define estados aceitáveis; estoque −1 viola essa regra mesmo se o tipo inteiro permitir.\n\nUma relação sem tuplas pode estar perfeitamente definida. Inserir uma tupla altera seu estado; adicionar uma coluna altera seu esquema. Uma mudança de esquema pode exigir migrar os dados antigos, revisar consultas e verificar regras.\n\nUm esquema textual, como PRODUTO(codigo, descricao, estoque), não informa sozinho a unicidade nem os domínios: documente-os. As chaves serão tratadas na aula 607.",
+      "example": "PRODUTO(codigo, descricao, estoque)\nRegra: estoque ∈ inteiros não negativos.\nEstado válido: (P01, Parafuso, 0).\nEstado inválido: (P01, Parafuso, −1)."
+    },
+    {
+      "title": "6. Seleção e projeção",
+      "text": "INTRODUÇÃO AUTORAL À ÁLGEBRA RELACIONAL\n\nA seleção restringe tuplas segundo uma condição; a projeção escolhe atributos. Considere PRODUTO com (P01, Parafuso, 120), (P02, Porca, 80), (P03, Arruela, 0). Selecionar estoque > 0 mantém as duas primeiras tuplas. Projetar apenas nome retorna os nomes.\n\nA palavra SELECT em SQL não é uma tradução exclusiva do operador seleção: a lista após SELECT especifica colunas (aproximando projeção) e WHERE filtra linhas (aproximando seleção). Na álgebra relacional, a projeção produz um conjunto e elimina tuplas repetidas; SQL pode precisar de DISTINCT para reproduzir esse comportamento.\n\nNão precisamos executar SQL ainda. O objetivo é acompanhar manualmente as entradas, condições e resultados.",
+      "example": "SELECT nome FROM produto WHERE estoque > 0;\nResultado esperado neste estado: Parafuso; Porca (ordem não garantida)."
+    },
+    {
+      "title": "7. Combinar relações sem repetir cadastros",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO AUTORAL\n\nConsidere CATEGORIA(codigo_categoria, nome) e PRODUTO(codigo_produto, nome, codigo_categoria). Em cada produto, codigo_categoria permite encontrar a categoria correspondente. Uma junção combina tuplas compatíveis de duas relações, por exemplo quando os códigos de categoria são iguais.\n\nSe P01 e P02 apontam para C1, ambos podem recuperar o nome da categoria sem armazenar duas cópias dele no cadastro de produto. Se um código não possui correspondência, uma junção interna não retorna aquela combinação. Isso não comprova integridade: para impedir referência inválida, precisaremos de uma restrição de chave estrangeira.\n\nNão confunda unir conjuntos de linhas com associar colunas a partir de uma condição. Junção e união são operações distintas.",
+      "example": "CATEGORIA: (C1, Ferragens), (C2, Elétrica)\nPRODUTO: (P01, Parafuso, C1), (P02, Porca, C1), (P03, Cabo, C2)\nJunção por codigo_categoria: P01/Ferragens, P02/Ferragens, P03/Elétrica."
+    },
+    {
+      "title": "8. Relações associativas: uma prévia",
+      "text": "CONTEÚDO DO CURSO\n\nUm relacionamento N:M entre ESTUDANTE e TURMA pode ser representado por uma relação INSCRICAO que registra os identificadores de ambos e a data. Um estudante pode aparecer em várias tuplas de INSCRICAO; uma turma também. Cada tupla representa um vínculo específico, não um novo estudante ou turma.\n\nSe a regra permite apenas uma inscrição por par estudante-turma, o par deve ser único. Se houver tentativas repetidas ou histórico de rematrículas, talvez o par não seja suficiente. A estrutura deve refletir o fato que se pretende preservar.\n\nCONEXÃO COM LÓGICA E JAVA\n\nUma lista de objetos em memória pode representar registros temporários, mas não possui automaticamente restrições relacionais. Um formulário pode mostrar dados de várias relações. A modelagem independe do componente de tela que os apresenta.",
+      "example": "ESTUDANTE(id_estudante, nome)\nTURMA(id_turma, descricao)\nINSCRICAO(id_estudante, id_turma, data)\nRegras de identificação e referência: próximas aulas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Fundamentos",
+      "title": "Tupla",
+      "prompt": "No modelo relacional, o que corresponde a uma tupla?",
+      "hint": "Pense em um fato registrado.",
+      "explanation": "Uma tupla atribui valores aos atributos da relação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Uma coluna"
+        },
+        {
+          "id": "b",
+          "text": "Uma linha de fatos"
+        },
+        {
+          "id": "c",
+          "text": "Uma condição de filtro"
+        },
+        {
+          "id": "d",
+          "text": "Um índice"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Fundamentos",
+      "title": "Grau e cardinalidade",
+      "prompt": "Uma relação com quatro atributos e sete tuplas possui qual grau e cardinalidade?",
+      "hint": "Aqui os termos se referem à relação, não ao MER.",
+      "explanation": "O grau conta atributos e a cardinalidade conta tuplas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Grau 4, cardinalidade 7.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Fundamentos",
+      "title": "Dois sentidos",
+      "prompt": "Cardinalidade de um relacionamento 1:N e cardinalidade de uma relação de 20 tuplas têm o mesmo significado?",
+      "hint": "Compare regra com contagem.",
+      "explanation": "O contexto define o termo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. A primeira limita associações; a segunda conta tuplas de um estado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Propriedades",
+      "title": "Ordem",
+      "prompt": "O que garante a ordem de saída de uma consulta SQL?",
+      "hint": "Pense em uma cláusula explícita.",
+      "explanation": "ORDER BY estabelece critérios de ordenação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "A ordem de cadastro"
+        },
+        {
+          "id": "b",
+          "text": "A existência de qualquer PK"
+        },
+        {
+          "id": "c",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "d",
+          "text": "O nome da tabela"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Propriedades",
+      "title": "Duplicatas",
+      "prompt": "Uma tabela SQL aceita duas linhas idênticas sem restrição de unicidade. Isso corresponde à definição matemática de relação?",
+      "hint": "Conjunto versus coleção com repetição.",
+      "explanation": "A implementação SQL não garante todas as propriedades por si só.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; uma relação matemática não contém tuplas duplicadas. SQL permite duplicatas sem restrições adequadas.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Revisão opcional — Propriedades",
+      "title": "DISTINCT",
+      "prompt": "SELECT DISTINCT elimina duplicatas armazenadas na tabela?",
+      "hint": "A consulta não é uma exclusão.",
+      "explanation": "Corrigir armazenamento exige outra operação e regras.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Elimina duplicatas do resultado daquela consulta.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Domínios",
+      "title": "Estoque",
+      "prompt": "O tipo INTEGER permite −8. Se o domínio de estoque é não negativo, a tupla com −8 é válida?",
+      "hint": "Tipo não equivale a domínio.",
+      "explanation": "As restrições especificam estados válidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. −8 é inteiro, mas viola a restrição de domínio.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Domínios",
+      "title": "Telefone",
+      "prompt": "Um fornecedor tem três contatos. Proponha uma organização relacional sem lista dentro de campo de telefone único.",
+      "hint": "Separe cadastro e contatos.",
+      "explanation": "A estrutura representa múltiplos valores sem grupos repetidos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "FORNECEDOR(id,nome); CONTATO(id_fornecedor,telefone), com uma tupla por contato e regras de identificação.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional — Domínios",
+      "title": "Data atômica",
+      "prompt": "Uma data exibida como dia/mês/ano precisa sempre virar três atributos?",
+      "hint": "Considere DATE.",
+      "explanation": "Atomicidade é contextual.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; uma data pode ser um único valor de domínio; decomposição depende de requisitos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Esquema",
+      "title": "Vazio",
+      "prompt": "PRODUTO possui esquema com três atributos e nenhum registro. Qual é a cardinalidade atual e o grau?",
+      "hint": "Conte tuplas e atributos.",
+      "explanation": "Relação vazia ainda tem esquema.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Cardinalidade 0 e grau 3.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Esquema",
+      "title": "Alterações",
+      "prompt": "Classifique acrescentar um produto, alterar o estoque e adicionar coluna de peso.",
+      "hint": "Conteúdo ou estrutura.",
+      "explanation": "A definição da estrutura é distinta do conteúdo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Acrescentar produto e alterar estoque mudam estado; adicionar coluna muda esquema.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Operações",
+      "title": "Seleção",
+      "prompt": "PRODUTO contém (A,4), (B,0), (C,9), (D,2), na ordem código, estoque. Selecione estoque >= 4.",
+      "hint": "Mantenha apenas tuplas que satisfazem a condição.",
+      "explanation": "A seleção filtra tuplas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(A,4), (C,9).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Operações",
+      "title": "Projeção",
+      "prompt": "Em PRODUTO(codigo,nome,estoque), quais atributos restam ao projetar nome e estoque?",
+      "hint": "Escolha colunas.",
+      "explanation": "Projeção escolhe atributos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "nome e estoque; codigo fica fora do resultado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Operações",
+      "title": "Projeção repetida",
+      "prompt": "A relação contém (P1, Azul), (P2, Azul), (P3, Verde). Qual a projeção relacional apenas da cor? E SELECT cor sem DISTINCT?",
+      "hint": "Compare conjunto com SQL.",
+      "explanation": "A projeção matemática elimina duplicatas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Projeção: Azul, Verde. SQL sem DISTINCT pode retornar Azul, Azul, Verde.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — Operações",
+      "title": "Consulta manual",
+      "prompt": "PRODUTO contém (P1, Fita, 2), (P2, Cola, 0), (P3, Papel, 8). Qual resultado de SELECT nome FROM produto WHERE estoque > 0?",
+      "hint": "Filtre antes de ler o nome.",
+      "explanation": "WHERE filtra linhas; lista SELECT escolhe colunas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Fita e Papel, sem ordem garantida.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Junção",
+      "title": "Categorias",
+      "prompt": "CATEGORIA tem (C1,Ferragens),(C2,Elétrica); PRODUTO tem (P1,C2),(P2,C1),(P3,C1). Combine código de produto e nome de categoria.",
+      "hint": "Iguale os códigos.",
+      "explanation": "A junção combina ocorrências compatíveis.",
+      "mode": "text",
+      "starter": "",
+      "solution": "P1/Elétrica, P2/Ferragens, P3/Ferragens.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Junção",
+      "title": "Referência ausente",
+      "prompt": "PRODUTO P4 aponta para C9, inexistente. Uma junção interna com CATEGORIA mostra P4? Isso impede que ele seja cadastrado?",
+      "hint": "Consulta e restrição são distintas.",
+      "explanation": "Integridade referencial será necessária.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não mostra P4 nessa junção; não impede cadastro sem restrição apropriada.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Associação",
+      "title": "Inscrição",
+      "prompt": "O estudante E1 está em T1 e T2; E2 está em T1. Liste as três inscrições como pares.",
+      "hint": "Uma tupla por vínculo.",
+      "explanation": "Repetição individual de identificadores é normal em uma associação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(E1,T1), (E1,T2), (E2,T1).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Associação",
+      "title": "Histórico",
+      "prompt": "E1 se inscreve novamente em T1 em outro período. O par identifica os dois eventos?",
+      "hint": "Pense no que se deseja preservar.",
+      "explanation": "A estrutura depende da definição do fato.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, se ambos precisam existir no histórico. Acrescente identificação do evento ou período segundo a regra.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional — Revisão",
+      "title": "Modelo de materiais",
+      "prompt": "Proponha relações para material, unidade de medida e saldo, identificando uma possível referência sem escrever SQL.",
+      "hint": "Não repita a descrição da unidade por material.",
+      "explanation": "Separar assuntos facilita consistência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "UNIDADE(codigo,descricao); MATERIAL(codigo,nome,codigo_unidade,saldo). Confirmar domínio de saldo e regra de unidade.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

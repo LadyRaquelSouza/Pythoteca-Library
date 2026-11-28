@@ -1,0 +1,351 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula605",
+  "title": "Cardinalidade e participação",
+  "subtitle": "Mínimos, máximos, relações 1:1, 1:N e N:M, convenções de leitura",
+  "objectives": "Interpretar cardinalidade nos dois sentidos; distinguir mínimo e máximo; representar regras em ER e UML; diagnosticar ambiguidades e validar casos-limite.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras originais e vídeo não examinados. Complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. A pergunta certa em cada direção",
+      "text": "CONTEÚDO DO CURSO\n\nEscolha uma ocorrência de A e pergunte quantas ocorrências de B podem estar associadas a ela. Depois escolha uma ocorrência de B e pergunte quantas de A podem estar associadas. As respostas podem ser diferentes.\n\nExemplo: cada reserva pertence exatamente a um cliente. Um cliente pode ter zero ou muitas reservas. Partindo de CLIENTE para RESERVA, a faixa é 0..N; partindo de RESERVA para CLIENTE, é 1..1. Não troque a direção da pergunta.\n\nCardinalidade descreve regras para todos os estados admitidos, não uma contagem de registros atual. Se hoje há apenas uma reserva, a regra ainda pode permitir muitas amanhã.",
+      "example": "CLIENTE → RESERVA: 0..N\nRESERVA → CLIENTE: 1..1"
+    },
+    {
+      "title": "2. Mínimo e máximo",
+      "text": "CONTEÚDO DO CURSO\n\nO mínimo indica a menor quantidade permitida; 0 permite ausência de vínculo, 1 exige pelo menos um. O máximo indica o maior número permitido; 1 restringe a uma ocorrência, N ou * representa muitos sem limite numérico específico no modelo.\n\n0..1 significa opcional e no máximo um; 1..1, exatamente um; 0..N, nenhum ou vários; 1..N, pelo menos um. A expressão 'pode ter vários' não informa necessariamente se pode ter nenhum. Pergunte pelo mínimo.\n\nAPROFUNDAMENTO\n\nPodem existir limites específicos, como 2..5 participantes. UML permite multiplicidades numéricas; uma notação ER didática pode exigir anotação complementar. Um limite máximo não é uma quantidade que precisa ser atingida.",
+      "example": "Uma equipe precisa de 2 a 5 integrantes: mínimo 2, máximo 5. Não basta dizer N."
+    },
+    {
+      "title": "3. Tipos 1:1, 1:N e N:M",
+      "text": "CONTEÚDO DO CURSO\n\nA classificação tradicional utiliza os máximos dos dois lados. 1:1 significa no máximo um em cada direção; a participação pode ser opcional ou obrigatória de cada lado. 1:N significa um elemento do lado 1 pode se associar a muitos do lado N, e cada elemento do lado N se associa a no máximo um do lado 1. N:M significa que ambas as direções permitem muitos.\n\nUm armário pode ser atribuído a no máximo uma pessoa, e a pessoa pode ter no máximo um armário: 1:1. Uma unidade pode reunir vários setores, e cada setor pertence a uma única unidade: 1:N. Um projeto pode envolver várias pessoas e uma pessoa pode participar de vários projetos: N:M.\n\nOs mínimos precisam ser declarados separadamente. Dizer 1:N não informa se uma unidade recém-criada pode existir sem setores.",
+      "example": ""
+    },
+    {
+      "title": "4. Duas convenções e a mesma regra",
+      "text": "CONTEÚDO DO CURSO\n\nNa convenção de multiplicidades nas extremidades (UML, pé de galinha e a leitura binária da apostila), o número junto de B responde quantos B podem se associar a um A. O número junto de A responde quantos A podem se associar a um B. Assim, para cada cliente zero ou muitas reservas e para cada reserva exatamente um cliente, escreva 1 junto de CLIENTE e 0..* junto de RESERVA.\n\nNa convenção min–máx por participação, o par ao lado de A informa quantas vezes uma ocorrência de A participa do relacionamento. Nesse caso, (0,N) fica junto de CLIENTE e (1,1) junto de RESERVA. A posição muda, mas a regra não.\n\nA apresentação Banco de Dados Para Alunos explicita essa diferença no slide 37. Identifique a legenda antes de responder; nunca inverta números apenas por hábito. Os exemplos seguintes usam a leitura textual por direção como referência.",
+      "example": "Extremidades: [CLIENTE] 1 ─── realiza ─── 0..* [RESERVA]\nParticipação: [CLIENTE] (0,N) ─ <REALIZA> ─ (1,1) [RESERVA]\nAmbos: CLIENTE→RESERVA 0..N; RESERVA→CLIENTE 1..1."
+    },
+    {
+      "title": "5. Testar participação com ocorrências",
+      "text": "CONTEÚDO DO CURSO E PRÁTICA AUTORAL\n\nSuponha que cada equipamento tenha zero ou um contrato de manutenção vigente; cada contrato vigente corresponda a exatamente um equipamento. Para testar, imagine E1 sem contrato, E2 com C1 e E3 com C2. Esses fatos respeitam as regras. Se C1 também for associado a E3, viola-se o máximo de contratos por equipamento e o máximo de equipamentos por contrato.\n\nUma regra obrigatória também precisa ser verificada: um contrato vigente sem equipamento é inválido. Um equipamento sem contrato não viola a regra porque seu mínimo é zero.\n\nO escopo temporal importa. Se guardarmos contratos passados, um equipamento pode ter muitos ao longo do tempo, embora no máximo um esteja vigente. A cardinalidade estática e uma restrição temporal podem precisar coexistir.",
+      "example": "Equipamento→contrato vigente: 0..1.\nContrato vigente→equipamento: 1..1.\nContrato histórico: regra distinta."
+    },
+    {
+      "title": "6. Muitos para muitos e propriedades do vínculo",
+      "text": "CONTEÚDO DO CURSO\n\nEm PESSOA participa de PROJETO, permita zero ou muitos projetos por pessoa e uma ou muitas pessoas por projeto. A associação é N:M com mínimos diferentes. Cada ocorrência de participação envolve uma pessoa e um projeto. Se o vínculo guarda função e data de entrada, esses dados dependem da associação.\n\nMais adiante, uma relação associativa guardará os vínculos no modelo relacional. Não elimine N:M do modelo conceitual só porque o banco relacional exigirá outra estrutura.\n\nO mínimo 1 do lado dos participantes do projeto não é automaticamente garantido apenas pela existência de referências válidas. Será preciso validar que todo projeto tem pelo menos uma participação. Isso será retomado na integridade.",
+      "example": ""
+    },
+    {
+      "title": "7. Cardinalidades ternárias",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO\n\nEm uma associação ternária, a cardinalidade máxima junto a um participante pode limitar quantas ocorrências dele correspondem a uma combinação fixa dos outros dois, conforme a convenção da apostila. Exemplo: para cada par (produto, região), há no máximo um distribuidor responsável. Isso não significa que um distribuidor só atende uma região nem que um produto só tem um distribuidor globalmente.\n\nA mesma combinação pode ter no máximo um distribuidor mesmo quando um distribuidor fornece muitos produtos em várias regiões. Não interprete a marca 1 como se fosse um relacionamento binário separado.\n\nOs mínimos e restrições sobre combinações possíveis exigem atenção à definição da notação. Não conclua que todo par imaginável de produto e região precisa ter distribuidor apenas pela presença de um máximo 1. Documente essa obrigação separadamente se existir.",
+      "example": ""
+    },
+    {
+      "title": "8. Do enunciado à regra verificável",
+      "text": "PRÁTICA AUTORAL\n\nCenário: um curso possui turmas; cada turma pertence a um curso; um estudante pode se inscrever em várias turmas; toda inscrição pertence a um estudante e a uma turma. Pergunte se curso pode existir sem turma e turma sem inscrição. Suponha explicitamente que ambos podem. Agora escreva as faixas por direção e traduza em ER e UML.\n\nCURSO→TURMA 0..N; TURMA→CURSO 1..1. ESTUDANTE→INSCRICAO 0..N; INSCRICAO→ESTUDANTE 1..1. TURMA→INSCRICAO 0..N; INSCRICAO→TURMA 1..1. A associação conceitual entre estudante e turma, vista através de inscrições, é muitos para muitos.\n\nCONEXÃO COM LÓGICA\n\nUma regra de máximo 1 pode ser expressa como uma verificação de contagem <= 1. Uma regra de mínimo 1 exige contagem >= 1 no estado em que deve valer. Validar apenas o máximo não garante o mínimo; o momento da validação importa.",
+      "example": "Regra: cada turma pertence a exatamente um curso.\nCasos: 0 cursos → inválido; 1 → válido; 2 → inválido."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Direção",
+      "title": "Cliente e pedido",
+      "prompt": "Um comprador pode fazer zero ou muitos pedidos e cada pedido tem exatamente um comprador. Escreva as duas faixas por direção.",
+      "hint": "Escolha uma ocorrência de cada lado.",
+      "explanation": "As duas perguntas têm respostas independentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "COMPRADOR→PEDIDO 0..N; PEDIDO→COMPRADOR 1..1.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Mínimos",
+      "title": "Participação",
+      "prompt": "Qual faixa permite ausência e no máximo uma ocorrência?",
+      "hint": "Mínimo zero e máximo um.",
+      "explanation": "0..1 permite zero ou uma.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "1..N"
+        },
+        {
+          "id": "b",
+          "text": "1..1"
+        },
+        {
+          "id": "c",
+          "text": "0..N"
+        },
+        {
+          "id": "d",
+          "text": "0..1"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Máximos",
+      "title": "Classificação",
+      "prompt": "Se ambos os lados admitem muitos, qual é a classificação pelos máximos?",
+      "hint": "Ignore os mínimos apenas para classificar.",
+      "explanation": "Os dois máximos são muitos.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "1:1"
+        },
+        {
+          "id": "b",
+          "text": "N:M"
+        },
+        {
+          "id": "c",
+          "text": "1:N"
+        },
+        {
+          "id": "d",
+          "text": "Unário"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Notações",
+      "title": "Extremidades",
+      "prompt": "Escreva UML textual para comprador e pedido do primeiro exercício, com multiplicidades junto às entidades.",
+      "hint": "Junto de PEDIDO, coloque quantos pedidos por comprador.",
+      "explanation": "A multiplicidade descreve a extremidade em relação à ocorrência oposta.",
+      "mode": "text",
+      "starter": "",
+      "solution": "[COMPRADOR] 1 ─── 0..* [PEDIDO].",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Notações",
+      "title": "Participação",
+      "prompt": "Reescreva comprador-pedido usando min–máx por participação.",
+      "hint": "Junto de COMPRADOR, quantas vezes ele participa.",
+      "explanation": "As posições se invertem em relação à notação por extremidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "[COMPRADOR] (0,N) ─ <FAZ> ─ (1,1) [PEDIDO].",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Notações",
+      "title": "Leitura inversa",
+      "prompt": "Em UML, [SETOR] 1 ─── 0..* [FUNCIONARIO]. Explique as duas regras.",
+      "hint": "Fixe primeiro um funcionário.",
+      "explanation": "A legenda define a leitura.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Cada funcionário pertence a um setor; cada setor pode ter zero ou muitos funcionários.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Participação",
+      "title": "Vazio permitido",
+      "prompt": "Uma equipe pode não ter membros durante a criação, mas cada membro deve pertencer a uma equipe. Escreva faixas.",
+      "hint": "Pergunte a partir da equipe.",
+      "explanation": "O mínimo depende do estado em que a regra vale.",
+      "mode": "text",
+      "starter": "",
+      "solution": "EQUIPE→MEMBRO 0..N; MEMBRO→EQUIPE 1..1, se vários membros forem permitidos (hipótese explícita).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Ambiguidade",
+      "title": "Pode ter vários",
+      "prompt": "A frase 'um departamento pode ter vários funcionários' informa o mínimo e a regra inversa?",
+      "hint": "O verbo pode não resolve tudo.",
+      "explanation": "Não invente o lado inverso.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Perguntar se pode ter zero e quantos departamentos por funcionário.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Revisão opcional — 1:1",
+      "title": "Armários",
+      "prompt": "Um estudante pode ter no máximo um armário; um armário pode ficar vazio ou ser atribuído a um estudante. O enunciado exige que todo estudante tenha armário?",
+      "hint": "Máximo não implica mínimo.",
+      "explanation": "O mínimo do estudante precisa ser esclarecido.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Máximos 1:1; armário→estudante 0..1; estudante→armário 0..1 se ausência for permitida, confirmar mínimo.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — N:M",
+      "title": "Oficinas",
+      "prompt": "Cada oficina exige pelo menos um instrutor e um instrutor pode ministrar zero ou muitas oficinas. Oficinas podem ter vários instrutores. Dê as duas faixas.",
+      "hint": "Fixe uma oficina.",
+      "explanation": "N:M com mínimos diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "OFICINA→INSTRUTOR 1..N; INSTRUTOR→OFICINA 0..N.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Validação",
+      "title": "Estado inválido",
+      "prompt": "A regra exige um curso por turma. T1 está ligada a C1 e C2, T2 a nenhum, T3 a C1. Quais violam?",
+      "hint": "Teste mínimo e máximo.",
+      "explanation": "Obrigatoriedade e exclusividade são distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "T1 viola máximo; T2 viola mínimo; T3 válida.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional — Validação",
+      "title": "Amostra",
+      "prompt": "Hoje cada cliente tem apenas um pedido. Isso prova cardinalidade 1:1?",
+      "hint": "Diferencie regra de dados.",
+      "explanation": "Cardinalidade vem dos requisitos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Os dados atuais não demonstram o máximo permitido nem a regra inversa.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Modelagem",
+      "title": "Universidade",
+      "prompt": "Assuma: cada centro pertence a uma universidade; toda universidade possui um ou mais centros; cada departamento pertence a um centro; todo centro possui um ou mais departamentos. Modele em UML textual.",
+      "hint": "Escreva a multiplicidade da extremidade.",
+      "explanation": "As regras são explicitadas neste cenário.",
+      "mode": "text",
+      "starter": "",
+      "solution": "[UNIVERSIDADE] 1 ─ 1..* [CENTRO] 1 ─ 1..* [DEPARTAMENTO].",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Modelagem",
+      "title": "Cidade",
+      "prompt": "Assuma que todo bairro pertence a exatamente uma cidade; uma cidade tem pelo menos um bairro. Um logradouro pode atravessar vários bairros, e cada bairro contém pelo menos um logradouro. Assuma que todo logradouro cadastrado está em pelo menos um bairro. Escreva faixas.",
+      "hint": "Considere o logradouro compartilhado.",
+      "explanation": "A segunda associação é N:M sob as hipóteses.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CIDADE→BAIRRO 1..N; BAIRRO→CIDADE 1..1; BAIRRO→LOGRADOURO 1..N; LOGRADOURO→BAIRRO 1..N.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Ternário",
+      "title": "Distribuição",
+      "prompt": "Para cada par produto-região existe no máximo um distribuidor. O mesmo produto pode ter distribuidores diferentes em regiões distintas?",
+      "hint": "Fixe o par, não só produto.",
+      "explanation": "A leitura ternária não equivale a uma restrição binária.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sim. O limite aplica-se à combinação produto-região.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional — Ternário",
+      "title": "Obrigação",
+      "prompt": "O máximo um distribuidor por par produto-região obriga a cadastrar distribuidor para toda combinação possível?",
+      "hint": "Máximo não é mínimo.",
+      "explanation": "Combinações possíveis e existentes são distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. A obrigação de cobertura deve ser especificada.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Intercâmbio",
+      "title": "Limite numérico",
+      "prompt": "Uma turma deve ter de 2 a 5 monitores. Quais contagens 0,1,2,5,6 são válidas?",
+      "hint": "Teste as fronteiras.",
+      "explanation": "Intervalo inclusivo [2,5].",
+      "mode": "text",
+      "starter": "",
+      "solution": "2 e 5 válidas; 0,1,6 inválidas.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Temporalidade",
+      "title": "Histórico",
+      "prompt": "Uma máquina pode ter um contrato vigente e muitos contratos passados. Por que 1:1 entre máquina e contrato histórico seria insuficiente?",
+      "hint": "Separe presente e histórico.",
+      "explanation": "O escopo da associação muda a cardinalidade.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Impediria múltiplos contratos ao longo do tempo; modelar histórico 1:N e restringir vigência por regra temporal.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Revisão",
+      "title": "Leitura dupla",
+      "prompt": "Represente DEPARTAMENTO e FUNCIONARIO quando departamento pode ter zero ou muitos e funcionário precisa de um. Use as duas notações.",
+      "hint": "Converta a direção em posição.",
+      "explanation": "A regra permanece igual.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Extremidades: [DEPARTAMENTO] 1 ─ 0..* [FUNCIONARIO]; participação: [DEPARTAMENTO] (0,N) ─ <REUNE> ─ (1,1) [FUNCIONARIO].",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional — Intercâmbio",
+      "title": "Condição",
+      "prompt": "A regra permite até três reservas ativas por cliente. Que condição deve ser verdadeira após nova reserva?",
+      "hint": "Considere a contagem após a operação.",
+      "explanation": "A operação precisa preservar o estado válido.",
+      "mode": "text",
+      "starter": "",
+      "solution": "contagem_ativa <= 3; antes de adicionar uma ativa, contagem_ativa < 3 se não houver concorrência.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula604",
+  "title": "Relacionamentos e diagramas",
+  "subtitle": "MER, DER, notações ER e UML, grau e papéis",
+  "objectives": "Distinguir modelo e diagrama; identificar associações e seus atributos; interpretar grau, papéis e notações; elaborar modelos conceituais e explicitar ambiguidades.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras originais e vídeo não examinados. Complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. Do elemento isolado à associação",
+      "text": "CONTEÚDO DO CURSO\n\nUma entidade descreve um tipo de elemento; um relacionamento descreve uma associação significativa entre ocorrências. CLIENTE e RESERVA podem existir no mesmo domínio, mas é a regra 'cliente realiza reserva' que explica como estão ligados. Não basta listar entidades: precisamos saber quais fatos as unem.\n\nDistinga tipo de relacionamento e ocorrência de relacionamento. REALIZA é o tipo; o vínculo entre o cliente C07 e a reserva R12 é uma ocorrência. Nomeie associações com verbos claros, como realiza, contém ou supervisiona. Leia nos dois sentidos: cliente realiza reserva; reserva é realizada por cliente. O verbo inverso não cria automaticamente outro relacionamento.\n\nUma associação pode ser desnecessária se reproduz exatamente uma informação já derivável de outras regras. Investigue se representa um fato independente.",
+      "example": "CLIENTE C07 — realiza — RESERVA R12"
+    },
+    {
+      "title": "2. MER e DER",
+      "text": "CONTEÚDO DO CURSO\n\nO Modelo Entidade-Relacionamento (MER) representa entidades, atributos, associações e restrições do domínio. O Diagrama Entidade-Relacionamento (DER) é uma expressão gráfica desse modelo. Uma descrição textual, um dicionário e regras complementares também podem integrar a especificação.\n\nO desenho não é a totalidade do modelo. Um diagrama pode indicar que uma reserva pertence a um equipamento, mas a regra de que reservas confirmadas não podem se sobrepor depende também dos horários e da situação. Anote a restrição separadamente quando a notação não a expressar.\n\nNão confunda MER com uma tabela SQL. Estamos decidindo o que o sistema deve representar, não ainda como armazenar.",
+      "example": "MER: regras + entidades + associações + propriedades.\nDER: representação visual de parte ou de todo esse modelo."
+    },
+    {
+      "title": "3. Notação ER e legenda",
+      "text": "CONTEÚDO DO CURSO\n\nNa notação clássica de Chen, retângulos representam entidades, losangos representam relacionamentos e elipses representam atributos. Na convenção da apostila Modelagem de Dados I, atributos são desenhados como pequenos círculos, preenchidos quando identificadores; relacionamentos usam losangos. Outras convenções usam caixas com atributos dentro e símbolos nas extremidades.\n\nA legenda é essencial: o mesmo desenho pode usar símbolos com significados diferentes. A aula seguinte detalhará a posição das cardinalidades. Por ora, identifique tipos de elementos, associações e nomes.\n\nOs esquemas em texto desta aula são aproximações autorais para leitura no aplicativo, não reprodução das figuras da apostila. Ao desenhar no papel, substitua as caixas e losangos textuais pelos símbolos da convenção escolhida.",
+      "example": "[CLIENTE] ── <REALIZA> ── [RESERVA]\nCLIENTE: (codigo), (nome)\nLegenda: [ ] entidade; < > relacionamento; ( ) atributo."
+    },
+    {
+      "title": "4. UML aplicada à estrutura dos dados",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO AUTORAL\n\nA Aula 02 solicita representação conceitual em ER e UML. A UML é uma linguagem de modelagem mais ampla; um diagrama de classes pode expressar conceitos, propriedades e associações. Uma classe conceitual pode representar um tipo de elemento do domínio sem que se esteja escrevendo código Java.\n\nEm uma caixa UML, o nome da classe aparece no primeiro compartimento e propriedades podem aparecer no segundo. Associações são linhas entre caixas, nomeadas quando necessário. Não precisamos definir métodos ou visibilidade para este exercício conceitual. Multiplicidades como 1 e 0..* serão estudadas na aula 605.\n\nAtenção: uma associação UML comum não implica composição, dependência de existência ou exclusividade. O losango preenchido de composição UML tem semântica própria; não é o losango central que nomeia um relacionamento em Chen.",
+      "example": "┌────────────┐             ┌────────────┐\n│ Cliente    │  realiza    │ Reserva    │\n│ codigo     │─────────────│ inicio     │\n│ nome       │             │ fim        │\n└────────────┘             └────────────┘"
+    },
+    {
+      "title": "5. Grau e papéis",
+      "text": "CONTEÚDO DO CURSO\n\nO grau descreve quantos participantes de um tipo de associação são considerados, não quantas ocorrências existem no banco. Na classificação didática, um relacionamento recursivo em um único tipo de entidade é chamado unário. Um relacionamento entre dois tipos é binário; um entre três é ternário. A terminologia formal de grau por papéis pode variar, especialmente em associações recursivas.\n\nEm FUNCIONARIO supervisiona FUNCIONARIO, a mesma entidade participa em papéis diferentes: supervisor e subordinado. Não crie duas entidades apenas porque existem dois papéis. Em CLIENTE realiza RESERVA, a associação é binária mesmo que existam milhares de clientes e reservas.\n\nUma associação ternária descreve um fato que depende dos três participantes juntos. Sua decomposição em associações binárias não é automaticamente equivalente.",
+      "example": "Unário: FUNCIONARIO (supervisor) → supervisiona → FUNCIONARIO (subordinado).\nBinário: CLIENTE — realiza — RESERVA.\nTernário: FORNECEDOR — fornece — PECA — para PROJETO (um fato envolvendo os três)."
+    },
+    {
+      "title": "6. O fato ternário e a perda de significado",
+      "text": "APROFUNDAMENTO AUTORAL\n\nConsidere os fatos: F1 fornece P1 ao projeto J1; F1 fornece P2 ao projeto J2; F2 fornece P1 ao projeto J2. Se guardarmos apenas pares fornecedor-peça, fornecedor-projeto e peça-projeto, todos os pares de (F1,P1,J2) aparecem: F1/P1 no primeiro fato, F1/J2 no segundo, P1/J2 no terceiro. Entretanto essa tripla nunca foi registrada.\n\nCombinar os pares gera uma associação espúria. Isso mostra por que algumas regras precisam manter a combinação dos três participantes. Uma entidade representando o fornecimento pode ser uma solução posterior, desde que preserve a identificação e as restrições do fato original.\n\nNão conclua que toda associação envolvendo três conceitos é ternária. Se um pedido já identifica seu cliente, talvez relacionar item, pedido e cliente repita uma informação conhecida. Analise a dependência.",
+      "example": "Fatos originais: (F1,P1,J1), (F1,P2,J2), (F2,P1,J2).\nTripla não autorizada pelos fatos: (F1,P1,J2)."
+    },
+    {
+      "title": "7. Atributos de relacionamento",
+      "text": "CONTEÚDO DO CURSO\n\nUma propriedade pode pertencer ao vínculo e não a uma entidade isolada. Em PESSOA participa de PROJETO, a função desempenhada depende de pessoa e projeto. A mesma pessoa pode coordenar um projeto e executar tarefas em outro. Guardar apenas uma função em PESSOA perde essa diferença.\n\nEm PRODUTO integra PEDIDO, a quantidade solicitada depende do item associado ao pedido. O preço praticado naquela venda pode também precisar ser registrado no vínculo para preservar histórico. O preço atual de catálogo e o preço cobrado são fatos distintos.\n\nSe a associação pode repetir entre os mesmos participantes, o par pode não ser suficiente para identificar cada ocorrência. Por exemplo, um leitor pode devolver e tomar novamente o mesmo exemplar. Será necessário um identificador do empréstimo ou outra combinação garantidamente única.",
+      "example": "PESSOA — <PARTICIPA (funcao)> — PROJETO\nP01 participa de J01 como revisora; P01 participa de J02 como coordenadora."
+    },
+    {
+      "title": "8. Construindo um modelo a partir de texto",
+      "text": "PRÁTICA AUTORAL BASEADA NOS OBJETIVOS DA AULA 02\n\nLeia: uma instituição mantém unidades acadêmicas; cada unidade reúne setores; cada setor pertence a uma única unidade. Identifique INSTITUICAO, UNIDADE e SETOR. Nomeie MANTEM e REUNE. Pergunte se toda unidade pertence a uma única instituição e se unidades e instituições podem existir sem componentes. Não suponha respostas não dadas.\n\nRepresente em ER e UML. Compare as duas representações: preservam as mesmas associações? Registre as perguntas restantes. O modelo pode ser discutido antes de definir identificadores SQL.\n\nEm uma cidade, um bairro pode conter logradouros. Na realidade, um logradouro pode atravessar bairros; se o cenário didático exige composição exclusiva, registre essa hipótese. O modelo representa o domínio escolhido, não toda a geografia real.",
+      "example": "[INSTITUICAO] — <MANTEM> — [UNIDADE] — <REUNE> — [SETOR]\nUML textual: Instituicao ── mantém ── Unidade ── reúne ── Setor"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Fundamentos",
+      "title": "Modelo e diagrama",
+      "prompt": "Qual afirmação distingue MER de DER?",
+      "hint": "Pense na representação gráfica.",
+      "explanation": "MER é o modelo; DER é sua representação gráfica.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "São dois SGBDs"
+        },
+        {
+          "id": "b",
+          "text": "MER é o modelo e DER o diagrama"
+        },
+        {
+          "id": "c",
+          "text": "DER é o banco físico"
+        },
+        {
+          "id": "d",
+          "text": "MER é apenas uma tabela"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Fundamentos",
+      "title": "Ocorrência",
+      "prompt": "Diferencie a associação REALIZA e o fato C07 realiza R12.",
+      "hint": "Tipo versus caso individual.",
+      "explanation": "O modelo distingue a associação geral dos fatos registrados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "REALIZA é o tipo de relacionamento; C07–R12 é uma ocorrência dele.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Notações",
+      "title": "Legenda",
+      "prompt": "Descreva os símbolos de entidade, relacionamento e atributo em Chen e a diferença de atributo na apostila.",
+      "hint": "Consulte o capítulo 3.",
+      "explanation": "Uma legenda evita interpretar símbolos de convenções diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Chen: retângulo, losango, elipse; apostila: pequenos círculos, preenchidos para identificadores.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Notações",
+      "title": "Dois desenhos",
+      "prompt": "Represente PROFESSOR orienta PROJETO em ER textual e UML textual, sem acrescentar regras.",
+      "hint": "Use caixas e associação nomeada.",
+      "explanation": "As notações representam o mesmo conceito.",
+      "mode": "text",
+      "starter": "",
+      "solution": "ER: [PROFESSOR] — <ORIENTA> — [PROJETO]. UML: Professor ─ orienta ─ Projeto.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Grau",
+      "title": "Binário",
+      "prompt": "CLIENTE realiza RESERVA possui 500 clientes e 900 reservas. Qual a classificação didática do grau?",
+      "hint": "Conte tipos de entidade.",
+      "explanation": "Dois tipos participam da associação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Unário"
+        },
+        {
+          "id": "b",
+          "text": "Ternário"
+        },
+        {
+          "id": "c",
+          "text": "Binário"
+        },
+        {
+          "id": "d",
+          "text": "900-ário"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Grau",
+      "title": "Recursividade",
+      "prompt": "Modele uma pessoa que indica outra pessoa para um programa. Nomeie os papéis.",
+      "hint": "Um tipo pode participar duas vezes.",
+      "explanation": "A entidade é a mesma, os papéis são diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "PESSOA indica PESSOA; papéis indicador e indicado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Grau",
+      "title": "Três participantes",
+      "prompt": "Um distribuidor oferece um produto em uma região. Qual fato precisaria de uma associação ternária?",
+      "hint": "O fato depende de quem, do quê e de onde.",
+      "explanation": "Não basta saber que o distribuidor atende uma região e vende um produto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Uma oferta específica combina distribuidor, produto e região; se a região varia por par, os três precisam ser preservados.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Revisão opcional — Grau",
+      "title": "Associação espúria",
+      "prompt": "Com fatos (A,X,1), (A,Y,2), (B,X,2), mostre uma tripla falsa que passaria na verificação dos três pares.",
+      "hint": "Procure A,X,2.",
+      "explanation": "A decomposição pode perder a correlação ternária.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(A,X,2): A/X existe no primeiro, A/2 no segundo, X/2 no terceiro; a tripla não consta dos fatos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Atributos",
+      "title": "Função",
+      "prompt": "Uma pessoa tem funções diferentes por projeto. Onde guardar a função?",
+      "hint": "Depende de quais elementos?",
+      "explanation": "A função não é propriedade única da pessoa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Na associação pessoa-projeto ou em entidade que representa a participação.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Atributos",
+      "title": "Quantidade",
+      "prompt": "Um produto aparece em pedidos distintos com quantidades diferentes. Onde pertence a quantidade comprada?",
+      "hint": "Diferencie estoque e compra.",
+      "explanation": "É uma propriedade da compra, não do cadastro do produto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ao vínculo produto-pedido, normalmente ao item do pedido.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Modelagem",
+      "title": "Universidade",
+      "prompt": "Uma instituição possui unidades e cada unidade possui setores. Identifique entidades e dois relacionamentos, sem inferir mínimos ainda.",
+      "hint": "Separe os três tipos.",
+      "explanation": "A cardinalidade precisa ser definida por regras adicionais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "INSTITUICAO mantém UNIDADE; UNIDADE reúne SETOR.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional — Modelagem",
+      "title": "Geografia",
+      "prompt": "Modele região, município e bairro. Diga uma regra que precisa confirmar antes de fixar cardinalidades.",
+      "hint": "Pergunte sobre pertencimento e existência.",
+      "explanation": "Não confunda hipótese de exercício com realidade.",
+      "mode": "text",
+      "starter": "",
+      "solution": "REGIAO agrupa MUNICIPIO; MUNICIPIO contém BAIRRO; confirmar se bairro pertence a um único município no recorte.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Modelagem",
+      "title": "Evento repetido",
+      "prompt": "Um mesmo leitor pode pegar o mesmo exemplar mais de uma vez. Por que leitor+exemplar não identifica cada empréstimo?",
+      "hint": "Pense no tempo.",
+      "explanation": "A identificação deve distinguir ocorrências repetidas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O par repete; identificar cada empréstimo por ID ou combinação temporal validada.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Notações",
+      "title": "Composição",
+      "prompt": "O losango de Chen e o losango preenchido da UML têm o mesmo significado?",
+      "hint": "Observe a legenda.",
+      "explanation": "Não transplante símbolos sem verificar a notação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Chen nomeia o relacionamento; composição UML indica uma relação todo-parte com semântica específica.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — Modelagem",
+      "title": "Regra fora do desenho",
+      "prompt": "Uma reserva não pode se sobrepor a outra confirmada do mesmo equipamento. Um simples vínculo RESERVA-EQUIPAMENTO expressa toda a regra?",
+      "hint": "Considere datas e situação.",
+      "explanation": "O DER não substitui a especificação completa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; documentar a condição temporal e a situação em regra adicional.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional — Revisão",
+      "title": "Inversão",
+      "prompt": "Cliente realiza reserva e reserva é realizada por cliente são duas associações independentes?",
+      "hint": "Leia o mesmo fato nos dois sentidos.",
+      "explanation": "Um verbo inverso não cria outro fato.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não necessariamente; são duas leituras da mesma associação.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Revisão",
+      "title": "Modelo próprio",
+      "prompt": "Modele uma oficina com clientes, equipamentos e reparos, incluindo uma propriedade que pertença ao reparo.",
+      "hint": "Identifique o evento.",
+      "explanation": "O evento pode ser entidade com identidade própria.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CLIENTE possui EQUIPAMENTO (se essa regra for confirmada); EQUIPAMENTO recebe REPARO; REPARO registra data e descrição. Confirmar múltiplos proprietários.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional — Intercâmbio",
+      "title": "Java e UML",
+      "prompt": "Uma caixa UML chamada Reserva obriga a criar imediatamente uma classe Java com os mesmos campos?",
+      "hint": "Nível conceitual versus implementação.",
+      "explanation": "A correspondência não é automática.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. A caixa descreve um conceito; classes de implementação podem ser organizadas de outro modo.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}
