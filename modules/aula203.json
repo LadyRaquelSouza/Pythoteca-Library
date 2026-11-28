@@ -5,7 +5,7 @@
   "title": "Soma de dois números e processamento de dados",
   "subtitle": "Entrada, processamento, saída, atribuição e operações aritméticas",
   "objectives": "Identificar entrada, processamento e saída; declarar e ler inteiros; calcular e armazenar uma soma; rastrear e testar programas; explorar outras operações como aprofundamento.",
-  "source": "Base acadêmica: Aula_3_Soma_de_Dois_Numeros_Portugol_Webstudio_Widescreen.pdf, dez slides examinados visualmente. Slides 2–9: declaração, leitura, soma, atribuição, saída e programa completo; slide 10: estoque e inscrições. Exemplos e exercícios autorais; demais operações, precedência e testes de fronteira são aprofundamentos. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com porcentagens como aprofundamento complementar e rastreamento de expressões.",
+  "source": "Base acadêmica: Aula_3_Soma_de_Dois_Numeros_Portugol_Webstudio_Widescreen.pdf, dez slides examinados visualmente. Slides 2–9: declaração, leitura, soma, atribuição, saída e programa completo; slide 10: estoque e inscrições. Exemplos e exercícios autorais; demais operações, precedência e testes de fronteira são aprofundamentos. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos oito capítulos, com porcentagens como aprofundamento complementar e rastreamento de expressões. Reinspeção visual integral em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Confirmados objetivos, exemplos de declaração, leituras, atribuição, saída, programa completo e dois desafios. Complementos autorais nos capítulos 2, 4, 6 e 8. Nenhuma execução de código nesta revisão.",
   "chapters": [
     {
       "title": "1. Entrada, processamento e saída",
@@ -14,7 +14,7 @@
     },
     {
       "title": "2. Preparar as variáveis",
-      "text": "CONTEÚDO DO CURSO\nA apostila usa numero1, numero2 e soma, todos do tipo inteiro. As duas primeiras variáveis recebem os dados; a terceira guarda o resultado. Podemos declarar variáveis do mesmo tipo separadas por vírgulas.\n\nAPROFUNDAMENTO\nO nome soma descreve a finalidade da variável, não executa uma operação automaticamente.",
+      "text": "CONTEÚDO DO CURSO\nA apostila usa numero1, numero2 e soma, todos do tipo inteiro. As duas primeiras variáveis recebem os dados; a terceira guarda o resultado. Podemos declarar variáveis do mesmo tipo separadas por vírgulas.\n\nAPROFUNDAMENTO\nO nome soma descreve a finalidade da variável, não executa uma operação automaticamente.\n\nCONFERÊNCIA VISUAL — Slide 5 apresenta três declarações separadas; slides 6, 8 e 9 agrupam os identificadores do mesmo tipo em uma linha. As duas formas declaram três variáveis distintas. A imagem das caixas com valores representa um estado após o preenchimento, não uma consequência automática da declaração.",
       "example": "inteiro numero1, numero2, soma"
     },
     {
@@ -24,7 +24,7 @@
     },
     {
       "title": "4. Adição e atribuição",
-      "text": "CONTEÚDO DO CURSO\nO operador + realiza a adição. O sinal = atribui à variável à esquerda o resultado da expressão à direita. Em soma = numero1 + numero2, primeiro são consultados os valores das duas variáveis e calculada a adição; depois o resultado é armazenado em soma.\n\nAPROFUNDAMENTO\nA atribuição não estabelece uma igualdade matemática permanente. Se numero1 mudar depois, soma não é recalculada automaticamente.",
+      "text": "CONTEÚDO DO CURSO\nO operador + realiza a adição. O sinal = atribui à variável à esquerda o resultado da expressão à direita. Em soma = numero1 + numero2, primeiro são consultados os valores das duas variáveis e calculada a adição; depois o resultado é armazenado em soma.\n\nAPROFUNDAMENTO\nA atribuição não estabelece uma igualdade matemática permanente. Se numero1 mudar depois, soma não é recalculada automaticamente.\n\nCONFERÊNCIA VISUAL E APROFUNDAMENTO — Slide 7 separa a variável de destino, o sinal de atribuição e o operador de adição. A instrução n = n + 1 não é uma igualdade algébrica: lê o valor anterior de n, calcula a expressão e substitui o valor armazenado. Se n começa em 4, termina em 5. O operador de comparação == será retomado nas estruturas de seleção. Não confunda o caractere textual '+' com o operador aritmético +; a seleção de operações a partir de um símbolo recebido é uma prática futura, após as aulas de seleção.",
       "example": "numero1 = 6\nnumero2 = 11\nsoma = numero1 + numero2\nnumero1 = 20\n// soma continua 17"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "title": "6. Programa completo e testes",
-      "text": "CONTEÚDO DO CURSO\nA apostila reúne declaração, duas leituras, soma e saída, e propõe executar com valores diferentes. O exemplo autoral abaixo segue a mesma estrutura.\n\nAPROFUNDAMENTO\nTeste positivos, zero e negativos quando o problema permitir. Para quantidades de estoque, números negativos podem ser inválidos no contexto, mesmo que sejam inteiros válidos. A validação será estudada posteriormente. Não há interpretador Portugol na Pythoteca; execute externamente.",
+      "text": "CONTEÚDO DO CURSO\nA apostila reúne declaração, duas leituras, soma e saída, e propõe executar com valores diferentes. O exemplo autoral abaixo segue a mesma estrutura.\n\nAPROFUNDAMENTO\nTeste positivos, zero e negativos quando o problema permitir. Para quantidades de estoque, números negativos podem ser inválidos no contexto, mesmo que sejam inteiros válidos. A validação será estudada posteriormente. Não há interpretador Portugol na Pythoteca; execute externamente.\n\nCONFERÊNCIA VISUAL — O slide 8 usa valores fixos para isolar a etapa de saída; o slide 9 reúne as leituras e o cálculo em um programa completo. Ambos são úteis, mas possuem objetivos distintos. Um teste com constantes verifica um caso; a versão interativa deve aceitar outros pares dentro dos limites do tipo, inclusive quando a soma é representável. O requisito do slide 3 de funcionar para qualquer par deve ser entendido no domínio de inteiros representáveis e sem extrapolar o limite do resultado. Não confunda teste de execução com prova de correção universal.",
       "example": "programa\n{\n    funcao inicio()\n    {\n        inteiro primeiro, segundo, total\n        escreva(\"Primeiro inteiro: \")\n        leia(primeiro)\n        escreva(\"Segundo inteiro: \")\n        leia(segundo)\n        total = primeiro + segundo\n        escreva(\"Total: \", total, \"\\n\")\n    }\n}"
     },
     {
@@ -44,7 +44,7 @@
     },
     {
       "title": "8. Aplicações e rastreamento",
-      "text": "CONTEÚDO DO CURSO\nOs desafios da apostila aplicam a soma a estoque de materiais e inscrições em dois turnos. Ambos recebem duas quantidades e exibem o total.\n\nAPROFUNDAMENTO\nPara elaborar uma solução semelhante, escolha nomes que representem o problema, rastreie os valores e compare a saída com um cálculo manual. Um resultado correto em um único teste não garante que o programa funcione em todos os casos.",
+      "text": "CONTEÚDO DO CURSO\nOs desafios da apostila aplicam a soma a estoque de materiais e inscrições em dois turnos. Ambos recebem duas quantidades e exibem o total.\n\nAPROFUNDAMENTO\nPara elaborar uma solução semelhante, escolha nomes que representem o problema, rastreie os valores e compare a saída com um cálculo manual. Um resultado correto em um único teste não garante que o programa funcione em todos os casos.\n\nCONFERÊNCIA VISUAL — Os desafios do slide 10 exigem inteiro, leia(), + e escreva(). O primeiro fornece quantidades de referência para estoque; o segundo solicita os totais de dois turnos. Em ambos, a solução deve ler valores em vez de fixar os números do exemplo. As atividades existentes já cobrem esses objetivos. Faça primeiro uma previsão e depois escreva o programa por conta própria; consulte a solução somente quando necessário.",
       "example": "Exemplo autoral: uma biblioteca recebe 13 livros de uma doação e 21 de outra. Entrada: 13, 21. Processamento: 13 + 21. Saída: 34 livros."
     }
   ],
