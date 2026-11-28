@@ -5,7 +5,7 @@
   "title": "Decimal e binário em profundidade",
   "subtitle": "Pesos, divisões sucessivas, verificação e largura fixa",
   "objectives": "Converter inteiros não negativos em ambos os sentidos; explicar os pesos binários e restos; conferir resultados; reconhecer zeros à esquerda e limites de representação sem sinal; usar a Mesa de Conversão.",
-  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narrações dos vídeos e podcast A04 ainda não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados. Podcast A03, Como funciona o sistema binário: transcrição automática integral (964 s), modelo Base, examinada editorialmente em 28/11/2026; reconhecimento sujeito a erros, sem validação humana palavra a palavra. Contribuições incorporadas como explicações e atividades originais.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narração do vídeo A04 e podcast A04 ainda não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados. Podcast A03, Como funciona o sistema binário: transcrição automática integral (964 s), modelo Base, examinada editorialmente em 28/11/2026; reconhecimento sujeito a erros, sem validação humana palavra a palavra. Contribuições incorporadas como explicações e atividades originais. Vídeo A03, A Regra do Valor Posicional: narração submetida integralmente a reconhecimento offline em sete trechos (409 s), texto resultante examinado em 28/11/2026; não validado palavra a palavra. A divergência hexadecimal consta também do reconhecimento da narração, além da sobreposição visual.",
   "chapters": [
     {
       "title": "Duas escritas para o mesmo inteiro",
@@ -24,7 +24,7 @@
     },
     {
       "title": "Decimal para binário pelos pesos",
-      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEscolha a maior potência de dois que não ultrapasse o inteiro. Marque 1 e subtraia. Para cada potência menor, marque 1 se couber no restante, senão marque 0. Prossiga até o peso 1.\n\nExemplo 45: 32 cabe, resta 13; 16 não cabe; 8 cabe, resta 5; 4 cabe, resta 1; 2 não cabe; 1 cabe. Os bits são 101101₂. Exemplo 18: 16 cabe; 8 e 4 não; 2 cabe; 1 não: 10010₂.\n\nZero tem representação mínima 0₂. Não elimine colunas internas. A soma dos pesos escolhidos deve reproduzir o número original.\n\nPOR QUE FUNCIONA? Se o peso p cabe no restante, subtraí-lo deixa um restante menor que p (desde que o restante anterior seja menor que 2p). Se não cabe, o restante já é menor que p. O próximo peso é p/2; repetimos até 1. Ao terminar, o restante inteiro é menor que 1, logo é zero. Assim, cada posição precisa de apenas um bit. O método da seleção não significa escolher apenas os maiores pesos: é preciso verificar cada posição, inclusive as que recebem zero.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEscolha a maior potência de dois que não ultrapasse o inteiro. Marque 1 e subtraia. Para cada potência menor, marque 1 se couber no restante, senão marque 0. Prossiga até o peso 1.\n\nExemplo 45: 32 cabe, resta 13; 16 não cabe; 8 cabe, resta 5; 4 cabe, resta 1; 2 não cabe; 1 cabe. Os bits são 101101₂. Exemplo 18: 16 cabe; 8 e 4 não; 2 cabe; 1 não: 10010₂.\n\nZero tem representação mínima 0₂. Não elimine colunas internas. A soma dos pesos escolhidos deve reproduzir o número original.\n\nPOR QUE FUNCIONA? Se o peso p cabe no restante, subtraí-lo deixa um restante menor que p (desde que o restante anterior seja menor que 2p). Se não cabe, o restante já é menor que p. O próximo peso é p/2; repetimos até 1. Ao terminar, o restante inteiro é menor que 1, logo é zero. Assim, cada posição precisa de apenas um bit. O método da seleção não significa escolher apenas os maiores pesos: é preciso verificar cada posição, inclusive as que recebem zero.\n\nCONFERÊNCIA COM A NARRAÇÃO A03 — O vídeo usa 36 como exemplo de seleção. Em uma escrita mínima, alinhamos os pesos 32, 16, 8, 4, 2, 1. Selecionamos 32 (restam 4), rejeitamos 16 e 8, selecionamos 4 (resta 0), e mantemos 2 e 1 zerados. Resultado: 100100₂ = 32+4 = 36. Em oito bits: 00100100₂. Este exemplo reforça que alcançar resto zero não autoriza apagar as posições restantes.",
       "example": ""
     },
     {
@@ -2395,6 +2395,19 @@
       "hint": "Compare o último bit com a paridade de 42; leia os restos em ordem inversa.",
       "solution": "42 é par, portanto o último bit deve ser 0. 010101₂ vale 21; houve leitura direta dos restos. 101010₂ = 32+8+2 = 42.",
       "explanation": "Cruzar paridade, ordem e decomposição permite diagnosticar a causa, não apenas substituir a resposta.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "157",
+      "group": "Revisão opcional — Diagnóstico de métodos",
+      "title": "Restante zero não encerra a escrita",
+      "prompt": "Na seleção de pesos para 36₁₀, uma pessoa marcou 1, 0, 0, 1 nas colunas 32, 16, 8, 4 e parou porque o restante ficou zero. Por que 1001₂ não é a resposta? Complete a escrita mínima e a de oito bits.",
+      "hint": "Os pesos das colunas 2 e 1 continuam existindo.",
+      "solution": "1001₂ vale 9 porque os pesos mudam se as duas últimas colunas forem omitidas. A escrita mínima é 100100₂ (32+4); em oito bits, 00100100₂.",
+      "explanation": "A seleção de pesos precisa registrar os zeros das posições inferiores mesmo quando não há mais valor a distribuir.",
       "mode": "text",
       "starter": "",
       "expected": null,
