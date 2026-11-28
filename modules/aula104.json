@@ -73,7 +73,8 @@
           "text": "Apenas ULA e teclado"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "02",
@@ -104,7 +105,8 @@
           "text": "Instruções são representadas e mantidas em memória acessível à execução."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "03",
@@ -135,7 +137,8 @@
           "text": "Sim, para todos os aparelhos."
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "04",
@@ -166,7 +169,8 @@
           "text": "Somente energia e calor"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "05",
@@ -197,7 +201,8 @@
           "text": "Não, porque programas nunca usam memória."
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "06",
@@ -228,7 +233,8 @@
           "text": "Não; o significado depende de como é interpretado."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "07",
@@ -259,7 +265,8 @@
           "text": "Endereços obrigatórios da memória"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "08",
@@ -290,7 +297,8 @@
           "text": "Não, dados determinam tudo sem instruções."
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "09",
@@ -321,7 +329,8 @@
           "text": "Nenhum valor"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "10",
@@ -352,7 +361,8 @@
           "text": "Não, busca instruções conforme a execução e acessa dados conforme operações."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "11",
@@ -383,7 +393,8 @@
           "text": "Realizar exclusivamente armazenamento permanente"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "12",
@@ -414,7 +425,8 @@
           "text": "Administrar toda rede do computador"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "13",
@@ -445,7 +457,8 @@
           "text": "Exclusivamente no monitor"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "14",
@@ -476,7 +489,8 @@
           "text": "Manter instruções e dados disponíveis"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "15",
@@ -507,7 +521,8 @@
           "text": "Somente soma de operandos"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "16",
@@ -538,7 +553,8 @@
           "text": "Sim, porque a UC não tem função."
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "17",
@@ -569,7 +585,8 @@
           "text": "Capacidade total da RAM"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "18",
@@ -600,7 +617,8 @@
           "text": "Dados"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "19",
@@ -631,7 +649,8 @@
           "text": "Capacidade do SSD"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "20",
@@ -662,7 +681,8 @@
           "text": "Somente nome do programa"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "21",
@@ -693,7 +713,8 @@
           "text": "Somente capacidade do disco"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "22",
@@ -724,7 +745,8 @@
           "text": "Não; implementações podem compartilhar recursos e usar protocolos."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "23",
@@ -755,7 +777,8 @@
           "text": "13 e 5"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "24",
@@ -786,7 +809,8 @@
           "text": "3"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "25",
@@ -817,7 +841,8 @@
           "text": "Somente após desligamento"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "26",
@@ -848,7 +873,8 @@
           "text": "Não; também é necessário realizar a operação de saída."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "27",
@@ -879,7 +905,8 @@
           "text": "Sim, todo registrador é SSD."
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "28",
@@ -910,7 +937,8 @@
           "text": "Sim, inclusive quando não há registrador."
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "29",
@@ -941,7 +969,8 @@
           "text": "Todo periférico é exclusivamente de saída."
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "30",
@@ -972,7 +1001,8 @@
           "text": "Não; o caminho e a latência de acesso podem continuar limitantes."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "31",
@@ -1003,7 +1033,8 @@
           "text": "Eliminar a necessidade de instruções."
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "32",
@@ -1034,7 +1065,8 @@
           "text": "Uso obrigatório de SSD para registradores"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "33",
@@ -1065,7 +1097,8 @@
           "text": "Não, porque caches não guardam instruções."
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "34",
@@ -1096,7 +1129,8 @@
           "text": "Não; continuam existindo limites de comunicação, capacidade e latência."
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "35",
@@ -1127,7 +1161,8 @@
           "text": "Sim, nomes determinam endereços físicos."
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "36",
@@ -1158,7 +1193,8 @@
           "text": "A quantidade de ciclos da soma"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "37",
@@ -1189,7 +1225,8 @@
           "text": "Pen drive"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "38",
@@ -1220,7 +1257,8 @@
           "text": "Placa-mãe"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "39",
@@ -1232,7 +1270,8 @@
       "mode": "text",
       "starter": "",
       "solution": "A memória guarda instruções e dados; CPU executa instruções, comunica-se com memória e E/S; programa armazenado permite mudar tarefas por instruções mantidas em memória.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "40",
@@ -1244,7 +1283,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Permite executar tarefas diferentes a partir de instruções armazenadas, sem reconstruir circuitos para cada tarefa.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "41",
@@ -1256,7 +1296,8 @@
       "mode": "text",
       "starter": "",
       "solution": "É uma abstração de funções e relações; máquinas modernas integram circuitos, controladores e interconexões diversas.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "42",
@@ -1268,7 +1309,8 @@
       "mode": "text",
       "starter": "",
       "solution": "O significado depende do contexto e das operações; instruções são buscadas conforme o estado de execução, enquanto dados são lidos como operandos ou conteúdos.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "43",
@@ -1280,7 +1322,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Endereços 40 e 41; conteúdos 12 e 40 respectivamente. 40 pode ser endereço em um contexto e conteúdo em outro.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "44",
@@ -1292,7 +1335,8 @@
       "mode": "text",
       "starter": "",
       "solution": "UC coordena execução; ULA faz operações aritméticas e lógicas; registradores mantêm valores internos utilizados durante a execução.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "45",
@@ -1304,7 +1348,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Operandos precisam ser obtidos, operações coordenadas, resultado armazenado e enviado à saída. UC, registradores, memória e E/S cooperam.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "46",
@@ -1316,7 +1361,8 @@
       "mode": "text",
       "starter": "",
       "solution": "CPU contém os três recursos destacados; memória mantém instruções/dados; interconexões ligam CPU, memória e E/S. E/S comunica com exterior.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "47",
@@ -1328,7 +1374,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Endereço indica posição; controle coordena leitura; dados são o conteúdo retornado, que pode representar instrução ou operando.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "48",
@@ -1340,7 +1387,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Indicar endereço 60, disponibilizar dado 13 e coordenar operação de escrita. O conteúdo anterior é substituído conforme a operação.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "49",
@@ -1352,7 +1400,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Solicitar leitura do endereço 12; memória retorna 7; endereço e conteúdo possuem papéis distintos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "50",
@@ -1364,7 +1413,8 @@
       "mode": "text",
       "starter": "",
       "solution": "São papéis informacionais; protocolos e multiplexação podem compartilhar conexões físicas.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "51",
@@ -1376,7 +1426,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Após carregar 8: R1=8; depois R2=5; soma produz 13 ainda sem alteração de R3 no modelo; guardar estabelece R3=13; mostrar apresenta 13. Valores anteriores não especificados não precisam ser inventados.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "52",
@@ -1388,7 +1439,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Carregar 6 em R1, 9 em R2, somar na ULA para obter 15, guardar 15 em R3, apresentar a saída.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "53",
@@ -1400,7 +1452,8 @@
       "mode": "text",
       "starter": "",
       "solution": "O primeiro mantém resultado no estado interno da execução; o segundo requer escrita em armazenamento persistente.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "54",
@@ -1412,7 +1465,8 @@
       "mode": "text",
       "starter": "",
       "solution": "A tabela é pedagógica; arquiteturas oferecem instruções distintas e uma soma pode escrever diretamente no registrador de destino.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "55",
@@ -1424,7 +1478,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Instruções e dados demandam acesso à memória pela via compartilhada; capacidade e latência limitam fornecimento de informações, e CPU pode esperar.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "56",
@@ -1436,7 +1491,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Se a CPU já espera informações, aumentar capacidade de execução não reduz necessariamente latência ou aumenta a transferência de memória.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "57",
@@ -1448,7 +1504,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Cache mantém dados/instruções úteis perto da execução; caminhos separados reduzem disputa; sobreposição pode esconder parte da espera. Duas explicações bastam.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "58",
@@ -1460,7 +1517,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Von Neumann clássico utiliza memória e caminho compartilhados para instruções e dados; Harvard clássico separa memórias e caminhos. Máquinas reais podem combinar soluções.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "59",
@@ -1472,7 +1530,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Os caminhos de acesso podem ser separados em níveis próximos à CPU e convergir para memória principal compartilhada; a organização combina características dos modelos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "60",
@@ -1484,7 +1543,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Cache pode atender acessos com menor latência e reduzir demanda de memória principal; faltas ainda exigem outros acessos, e o efeito depende da tarefa.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "61",
@@ -1496,7 +1556,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Representa valores, soma e saída; não revela registradores físicos, instruções reais, ciclos, endereços ou cache.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "62",
@@ -1508,7 +1569,8 @@
       "mode": "text",
       "starter": "",
       "solution": "A tarefa pode estar limitada por comunicação, latência, memória, armazenamento ou processamento; é preciso observar recursos e comportamento.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "63",
@@ -1520,7 +1582,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Toque fornece entrada; software interpreta pedido; CPU executa instruções usando memória e recursos internos; resultado é encaminhado à saída visual; hardware viabiliza as operações.",
-      "expected": null
+      "expected": null,
+      "required": false
     }
   ]
 }

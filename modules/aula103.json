@@ -78,7 +78,8 @@
           "text": "Substituir todos os periféricos"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "02",
@@ -109,7 +110,8 @@
           "text": "Não; pode exigir muitas instruções executadas pelo ambiente"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "03",
@@ -140,7 +142,8 @@
           "text": "Discos externos de backup"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "04",
@@ -171,7 +174,8 @@
           "text": "SSD"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "05",
@@ -202,7 +206,8 @@
           "text": "Substituir a RAM inteira"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "06",
@@ -233,7 +238,8 @@
           "text": "Não; geração, modelo e tarefa importam"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "07",
@@ -264,7 +270,8 @@
           "text": "Sim, inclusive em programas estritamente sequenciais"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "08",
@@ -295,7 +302,8 @@
           "text": "Três bilhões de instruções necessariamente concluídas por segundo"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "09",
@@ -326,7 +334,8 @@
           "text": "Considerar somente capacidade do SSD"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "10",
@@ -357,7 +366,8 @@
           "text": "Não; são contextos de execução que podem compartilhar recursos"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "11",
@@ -388,7 +398,8 @@
           "text": "Porque toda memória precisa ser magnética"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "12",
@@ -419,7 +430,8 @@
           "text": "Quantidade de núcleos"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "13",
@@ -450,7 +462,8 @@
           "text": "Tamanho físico do gabinete"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "14",
@@ -481,7 +494,8 @@
           "text": "Registradores do processador"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "15",
@@ -512,7 +526,8 @@
           "text": "Conserva arquivos indefinidamente"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "16",
@@ -543,7 +558,8 @@
           "text": "Sim, sem alterar nenhum arquivo"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "17",
@@ -574,7 +590,8 @@
           "text": "É protocolo de rede"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "18",
@@ -605,7 +622,8 @@
           "text": "Espaço de armazenamento usado pelo sistema no gerenciamento de páginas"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "19",
@@ -636,7 +654,8 @@
           "text": "Sim, qualquer ocupação acima de zero é falha"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "20",
@@ -667,7 +686,8 @@
           "text": "Uma caixa de RAM externa obrigatória"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "21",
@@ -698,7 +718,8 @@
           "text": "Gravar backups externos"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "22",
@@ -729,7 +750,8 @@
           "text": "O dado solicitado está no nível de cache consultado"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "23",
@@ -760,7 +782,8 @@
           "text": "Ler aleatoriamente um endereço nunca usado"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "24",
@@ -791,7 +814,8 @@
           "text": "Salvar em um disco desconectado"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "25",
@@ -822,7 +846,8 @@
           "text": "Conector de vídeo"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "26",
@@ -853,7 +878,8 @@
           "text": "Não; pode estar em memória flash regravável"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "27",
@@ -884,7 +910,8 @@
           "text": "Sim, aumenta os registradores"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "28",
@@ -915,7 +942,8 @@
           "text": "Memória DRAM principal"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "29",
@@ -946,7 +974,8 @@
           "text": "Memória DRAM volátil sem persistência"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "30",
@@ -977,7 +1006,8 @@
           "text": "Não exigem posicionar cabeças mecânicas sobre pratos"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "31",
@@ -1008,7 +1038,8 @@
           "text": "É indestrutível por não ter cabeças"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "32",
@@ -1039,7 +1070,8 @@
           "text": "Renomear o arquivo"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "33",
@@ -1070,7 +1102,8 @@
           "text": "Sim, porque M.2 significa memória de dois gigabytes"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "34",
@@ -1101,7 +1134,8 @@
           "text": "8"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "35",
@@ -1132,7 +1166,8 @@
           "text": "1024"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "36",
@@ -1163,7 +1198,8 @@
           "text": "128"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "37",
@@ -1194,7 +1230,8 @@
           "text": "8 MB/s"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": true
     },
     {
       "id": "38",
@@ -1225,7 +1262,8 @@
           "text": "Processamento e características da tarefa"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "39",
@@ -1256,7 +1294,8 @@
           "text": "Falha confirmada do teclado"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "40",
@@ -1287,7 +1326,8 @@
           "text": "Somente portas de áudio"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "41",
@@ -1318,7 +1358,8 @@
           "text": "Não, porque variáveis nunca usam memória"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "42",
@@ -1349,7 +1390,8 @@
           "text": "None"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "43",
@@ -1361,7 +1403,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Precisa de instruções e dados acessíveis, memória, energia e interconexões; coopera com sistema operacional e dispositivos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "44",
@@ -1373,7 +1416,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Python expressa operações em alto nível; o ambiente realiza operações por instruções de máquina reconhecidas pela CPU. Uma linha pode exigir muitas instruções.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "45",
@@ -1385,7 +1429,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Registradores mantêm valores internos usados na execução; controle coordena operações; ULA realiza aritmética e lógica.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "46",
@@ -1397,7 +1442,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Segmentos não garantem desempenho entre gerações ou tarefas; modelo, arquitetura, núcleos, testes, consumo e compatibilidade importam.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "47",
@@ -1409,7 +1455,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Clock mede ciclos; quantidade de instruções concluídas por ciclo varia com arquitetura, dependências e tarefa.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "48",
@@ -1421,7 +1468,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Trechos sequenciais não se dividem livremente; só partes paralelizáveis aproveitam núcleos adicionais e outros gargalos podem limitar.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "49",
@@ -1433,7 +1481,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Registradores e cache auxiliam execução com baixa latência e menor capacidade; RAM conserva estado de trabalho; armazenamento é persistente e geralmente mais lento.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "50",
@@ -1445,7 +1494,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Latência é demora para atender uma solicitação; taxa é volume por tempo. Dispositivo pode transferir arquivo grande rapidamente mas demorar a iniciar acessos dispersos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "51",
@@ -1457,7 +1507,8 @@
       "mode": "text",
       "starter": "",
       "solution": "RAM mantém informações em uso; SSD conserva versões gravadas. Sem energia, parte do estado não salvo pode desaparecer.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "52",
@@ -1469,7 +1520,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Swap utiliza armazenamento para gerenciamento de páginas. Pode aliviar pressão, mas apresenta latência maior e não amplia RAM física.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "53",
@@ -1481,7 +1533,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Disponibilidade, pressão, aplicações, cache, swap e relação com lentidão; comparar com uso normal.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "54",
@@ -1493,7 +1546,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Temporal: reutilizar valor recente. Espacial: acessar endereços próximos, como elementos consecutivos. Caches aproveitam padrões de acesso.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "55",
@@ -1505,7 +1559,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Acerto obtém informação do nível consultado; falta exige procurar outro nível e pode atualizar cache conforme política.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "56",
@@ -1517,7 +1572,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Firmware é software; pode ser armazenado em flash atualizável, ao contrário da ROM tradicional somente leitura.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "57",
@@ -1529,7 +1585,8 @@
       "mode": "text",
       "starter": "",
       "solution": "HD usa pratos magnéticos e movimento mecânico; SSD usa flash e controlador, costuma ter menor latência em muitos acessos. Ambos podem falhar.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "58",
@@ -1541,7 +1598,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Falha física ou corrupção da unidade pode atingir original e cópia. Backup independente e verificado reduz risco.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "59",
@@ -1553,7 +1611,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Interface, formato físico, alimentação, suporte da placa, capacidade, espaço e proteção/migração de dados.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "60",
@@ -1565,7 +1624,8 @@
       "mode": "text",
       "starter": "",
       "solution": "1 TB decimal = 10^12 bytes; dividir por 1024^3 resulta em cerca de 931,32 GiB. Não significa perda física da diferença.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "61",
@@ -1577,7 +1637,8 @@
       "mode": "text",
       "starter": "",
       "solution": "16 × 8 = 128 bits.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "62",
@@ -1589,7 +1650,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Investigar processamento, pressão de memória e armazenamento respectivamente; confirmar com evidências e não presumir defeito.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "63",
@@ -1601,7 +1663,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Verificar capacidade e ocupação, identificar arquivos, proteger dados, avaliar limpeza/migração ou expansão. Não formatar sem backup.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "64",
@@ -1613,7 +1676,8 @@
       "mode": "text",
       "starter": "",
       "solution": "str, int, float e bool respectivamente; None se um valor estiver desconhecido.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "65",
@@ -1625,7 +1689,8 @@
       "mode": "text",
       "starter": "",
       "solution": "O nome apenas referencia o valor atribuído. Medição depende de dados obtidos do sistema por mecanismos apropriados.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "66",
@@ -1637,7 +1702,8 @@
       "mode": "text",
       "starter": "",
       "solution": "3072 bytes. Use potências de 1024 conforme o prefixo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "67",
@@ -1649,7 +1715,8 @@
       "mode": "text",
       "starter": "",
       "solution": "5242880 bytes. Use potências de 1024 conforme o prefixo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "68",
@@ -1661,7 +1728,8 @@
       "mode": "text",
       "starter": "",
       "solution": "8589934592 bytes. Use potências de 1024 conforme o prefixo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "69",
@@ -1673,7 +1741,8 @@
       "mode": "text",
       "starter": "",
       "solution": "7000 bytes. Use potências de 1000 conforme o prefixo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "70",
@@ -1685,7 +1754,8 @@
       "mode": "text",
       "starter": "",
       "solution": "12000000 bytes. Use potências de 1000 conforme o prefixo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "71",
@@ -1697,7 +1767,8 @@
       "mode": "text",
       "starter": "",
       "solution": "4000000000 bytes. Use potências de 1000 conforme o prefixo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "72",
@@ -1709,7 +1780,8 @@
       "mode": "text",
       "starter": "",
       "solution": "24 ÷ 8 = 3 MB/s.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "73",
@@ -1721,7 +1793,8 @@
       "mode": "text",
       "starter": "",
       "solution": "64 ÷ 8 = 8 MB/s.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "74",
@@ -1733,7 +1806,8 @@
       "mode": "text",
       "starter": "",
       "solution": "120 ÷ 8 = 15 MB/s.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "75",
@@ -1745,7 +1819,8 @@
       "mode": "text",
       "starter": "",
       "solution": "240 ÷ 8 = 30 MB/s.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "76",

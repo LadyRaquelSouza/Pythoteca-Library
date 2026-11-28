@@ -6,48 +6,48 @@
       "title": "Introdução aos sistemas computacionais",
       "subtitle": "Fundamentos, operações, integração e diagnóstico",
       "discipline": "arquitetura",
-      "sha256": "b7e633adfcfc02e46781f0c74ee17ea3f52189f26c4e48736091b0b13500007e",
-      "bytes": 51623
+      "sha256": "6bf16925a6aaad419836b75c756d8d78fea5711202fc337bf03a79aed8b2adf4",
+      "bytes": 52940
     },
     {
       "id": "aula102",
       "title": "Hardware, software e componentes",
       "subtitle": "Placa-mãe, interfaces, formatos, periféricos, alimentação e compatibilidade",
       "discipline": "arquitetura",
-      "sha256": "43d19569bf4619a82078487a9cfc968d07232fbf125abc816f910690536c9860",
-      "bytes": 67941
+      "sha256": "7e3ba56175eb1df9688633972ad9e00523b1d0535b805b321ac660aed0e56e9a",
+      "bytes": 69531
     },
     {
       "id": "aula103",
       "title": "Processadores, memórias e armazenamento",
       "subtitle": "CPU, desempenho, hierarquia de memória, persistência e unidades",
       "discipline": "arquitetura",
-      "sha256": "e482382c95e6f41207f01c64ef0d4309d16efd5aa9f645c020f708e668320cc3",
-      "bytes": 72959
+      "sha256": "41b1f84a5d7fcb2250c7af6a2ceb71031f54a177a6519e29ae55a702fc3d5a0a",
+      "bytes": 74823
     },
     {
       "id": "aula104",
       "title": "Arquitetura de von Neumann",
       "subtitle": "Programa armazenado, CPU, memória, comunicação e gargalo",
       "discipline": "arquitetura",
-      "sha256": "247cbf221a9f615fb917694814574ff6abc61a42d4b3e4e13f71d63afbda3381",
-      "bytes": 62603
+      "sha256": "2f2c9f99944e88ff66342cd241f6d4d23128f3cb6e746eb491e4c0b56e0566ad",
+      "bytes": 64169
     },
     {
       "id": "aula105",
       "title": "CPU e ciclo de instruções",
       "subtitle": "Busca, decodificação, execução, registradores e rastreamento",
       "discipline": "arquitetura",
-      "sha256": "0b1527b224735d980306606bca457cc7d45ea1b31c5e57bbabeb7fa9f7508590",
-      "bytes": 69423
+      "sha256": "77d6caf21a54ad7467ecf2b4721d07ae1a0a96783609a02d1dfce3254087a38d",
+      "bytes": 71263
     },
     {
       "id": "aula106",
       "title": "Barramentos e comunicação",
       "subtitle": "Dados, endereços, controle, interconexões e taxas de transferência",
       "discipline": "arquitetura",
-      "sha256": "5ed89569def772d0e35e5658c6389f4837e2267cdfb67bb09ab517132a4f2629",
-      "bytes": 76003
+      "sha256": "831553a0107830d109e37fcf480c8ab894851224789f86f9df4fbe81fa3e3542",
+      "bytes": 78092
     },
     {
       "id": "aula107",

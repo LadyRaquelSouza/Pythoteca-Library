@@ -73,7 +73,8 @@
           "text": "Converter sozinha toda energia da rede"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "02",
@@ -104,7 +105,8 @@
           "text": "Integra várias funções de processamento e controle em um chip"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "03",
@@ -135,7 +137,8 @@
           "text": "A RAM passa a ser armazenamento persistente"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "04",
@@ -166,7 +169,8 @@
           "text": "Examinar apenas a cor"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "05",
@@ -197,7 +201,8 @@
           "text": "Conector de rede"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "06",
@@ -228,7 +233,8 @@
           "text": "Recursos de comunicação e controle da plataforma"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "07",
@@ -259,7 +265,8 @@
           "text": "Ambas sempre funcionam em qualquer placa desse soquete"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "08",
@@ -290,7 +297,8 @@
           "text": "Direct Interface Memory Machine"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "09",
@@ -321,7 +329,8 @@
           "text": "Sim, sempre que a CPU for rápida"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "10",
@@ -352,7 +361,8 @@
           "text": "Formato compacto de módulo de memória"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "11",
@@ -383,7 +393,8 @@
           "text": "Somente marca do monitor"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "12",
@@ -414,7 +425,8 @@
           "text": "Dissipador passivo sem circuito"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "13",
@@ -445,7 +457,8 @@
           "text": "Conexão de módulo DIMM"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "14",
@@ -476,7 +489,8 @@
           "text": "M.2 é formato/conexão; NVMe é protocolo"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "15",
@@ -507,7 +521,8 @@
           "text": "2280 GB obrigatórios"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "16",
@@ -538,7 +553,8 @@
           "text": "Sim; basta ter a mesma capacidade"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "17",
@@ -569,7 +585,8 @@
           "text": "Sim, mas somente sem CPU"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "18",
@@ -600,7 +617,8 @@
           "text": "Manual sobre compartilhamento de pistas e portas"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "19",
@@ -631,7 +649,8 @@
           "text": "DIMM DDR4"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "20",
@@ -662,7 +681,8 @@
           "text": "22 × 80 mm"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "21",
@@ -693,7 +713,8 @@
           "text": "22 × 80 mm"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "22",
@@ -724,7 +745,8 @@
           "text": "170 × 170 mm"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "23",
@@ -755,7 +777,8 @@
           "text": "Sim, pois centímetros equivalem a frequência"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "24",
@@ -786,7 +809,8 @@
           "text": "Presumir que todo gabinete grande aceita qualquer placa"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "25",
@@ -817,7 +841,8 @@
           "text": "Converter SATA em NVMe"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "26",
@@ -848,7 +873,8 @@
           "text": "Entrada"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "27",
@@ -879,7 +905,8 @@
           "text": "Entrada"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "28",
@@ -910,7 +937,8 @@
           "text": "Somente saída"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "29",
@@ -941,7 +969,8 @@
           "text": "Porque não realiza comunicação"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "30",
@@ -972,7 +1001,8 @@
           "text": "Não; dependem das funções e padrões implementados"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "31",
@@ -1003,7 +1033,8 @@
           "text": "Aumentar fisicamente o tamanho do gabinete"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "32",
@@ -1034,7 +1065,8 @@
           "text": "Guarda permanentemente arquivos"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "33",
@@ -1065,7 +1097,8 @@
           "text": "Não, porque fontes não consomem energia"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "34",
@@ -1096,7 +1129,8 @@
           "text": "Não garante sozinho qualidade elétrica e proteções"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "35",
@@ -1127,7 +1161,8 @@
           "text": "Sim, encaixe garante pinagem"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "36",
@@ -1158,7 +1193,8 @@
           "text": "Executar algoritmos"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": true
     },
     {
       "id": "37",
@@ -1189,7 +1225,8 @@
           "text": "Sim, se o cabo USB estiver removido"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "38",
@@ -1220,7 +1257,8 @@
           "text": "Encaixe não garante compatibilidade lógica ou elétrica"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "39",
@@ -1251,7 +1289,8 @@
           "text": "Formatar imediatamente qualquer unidade"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "40",
@@ -1282,7 +1321,8 @@
           "text": "Sim, se estiver em Python"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "41",
@@ -1294,7 +1334,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Soquete CPU, DIMM, PCIe, SATA, M.2 e alimentação: respectivamente processador, RAM, expansão, armazenamento, dispositivos compactos e energia. Outros conectores válidos podem ser citados.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "42",
@@ -1306,7 +1347,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Integração e componentes soldados economizam espaço, mas limitam substituição. Verificar modelo e manual.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "43",
@@ -1318,7 +1360,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Pode não ser suportada pelo chipset/plataforma ou firmware. Verificar lista de CPUs e versão mínima antes de comprar.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "44",
@@ -1330,7 +1373,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Capacidade não supera incompatibilidade de geração. DDR4 e DDR5 têm diferenças físicas e elétricas. É necessário módulo apropriado.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "45",
@@ -1342,7 +1386,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Modelo exato, memória soldada ou removível, tipo, capacidade máxima e slots disponíveis.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "46",
@@ -1354,7 +1399,8 @@
       "mode": "text",
       "starter": "",
       "solution": "PCIe é interconexão; SATA é interface de armazenamento; M.2 formato/conexão; NVMe protocolo de armazenamento normalmente sobre PCIe nesse contexto.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "47",
@@ -1366,7 +1412,8 @@
       "mode": "text",
       "starter": "",
       "solution": "22 mm de largura, 80 mm de comprimento, comunicação PCIe e protocolo NVMe. Verificar suporte do slot.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "48",
@@ -1378,7 +1425,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Ambos podem usar formato M.2, mas interfaces/protocolos diferem. O slot deve suportar o tipo, dimensões e chave correspondentes.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "49",
@@ -1390,7 +1438,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Verificar manual sobre compartilhamento, portas afetadas, conexão e reconhecimento; proteger dados e não formatar.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "50",
@@ -1402,7 +1451,8 @@
       "mode": "text",
       "starter": "",
       "solution": "O tamanho físico pode ser x16 enquanto a ligação elétrica dispõe de menos pistas. Manual esclarece largura e geração.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "51",
@@ -1414,7 +1464,8 @@
       "mode": "text",
       "starter": "",
       "solution": "305×244, até 244×244, 170×170 mm, respectivamente; espaço, fixação, expansão e refrigeração. Não determina desempenho sozinho.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "52",
@@ -1426,7 +1477,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Evitar contato indevido com gabinete e interferência física. Confirmar instruções e dimensões.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "53",
@@ -1438,7 +1490,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Compatibilidade física; dimensões e espaço do conjunto precisam ser verificados além de conector e alimentação.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "54",
@@ -1450,7 +1503,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Teclado entrada; monitor saída; pen drive E/S; tela sensível ao toque E/S. Justificar direções.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "55",
@@ -1462,7 +1516,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Formato físico não garante todos os modos e recursos. Conferir implementação da porta, cabo e dispositivo.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "56",
@@ -1474,7 +1529,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Conferir alimentação e conexão, reconhecimento, driver, fila e configuração do aplicativo; testar com arquivo simples.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "57",
@@ -1486,7 +1542,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Nominal é capacidade de saída especificada; consumo varia com carga e eficiência. Parte da energia vira calor.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "58",
@@ -1498,7 +1555,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Conectores compatíveis, qualidade, proteções, eficiência, formato, requisitos da carga e documentação.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "59",
@@ -1510,7 +1568,8 @@
       "mode": "text",
       "starter": "",
       "solution": "O conector pode parecer igual e ter pinagem diferente. Usar apenas cabos confirmados pelo fabricante.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "60",
@@ -1522,7 +1581,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Pode envolver temperatura, energia, componentes, configuração ou outras causas. Observar condições, temperaturas e avaliação segura; não abrir fonte.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "61",
@@ -1534,7 +1594,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Físico: não cabe; elétrico: alimentação incompatível; lógico: protocolo/firmware não suporta; operacional: driver ausente.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "62",
@@ -1546,7 +1607,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Modelo e manual, soquete, lista de CPU e firmware, geração/formato/capacidade RAM, interfaces e dimensões SSD, espaço e alimentação.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "63",
@@ -1558,7 +1620,8 @@
       "mode": "text",
       "starter": "",
       "solution": "str para modelo; int para slots e capacidade inteira; bool para suporte, caso conhecido. Ausência de informação não deve virar False automaticamente.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "64",
@@ -1570,7 +1633,8 @@
       "mode": "text",
       "starter": "",
       "solution": "O cadastro representa dados fornecidos. Diagnóstico exige dados confiáveis, regras, observações e validação. Uma decisão booleana não é evidência por si.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "65",
