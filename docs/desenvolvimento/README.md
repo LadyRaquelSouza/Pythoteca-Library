@@ -31,7 +31,13 @@ Prática: compare uma interface declarativa com um formulário Java Swing; expli
 
 ### ARCH-002 — Experimento
 
-Pendente de implementação e testes. O objetivo é demonstrar compilação e comunicação entre APKs independentes no Android 15, antes de desenvolver funcionalidades pedagógicas. O Moto G05 é o dispositivo físico de referência. Os resultados e explicações de código serão acrescentados conforme evidências reais.
+Experimentos a–e2 aprovados em CI; homologação física no Moto G05 e revisão complementar e3 pendentes.
+
+- [Compilação](ARCH-002a.md)
+- [IPC autenticado](ARCH-002b.md)
+- [Runtime Python](ARCH-002c.md)
+- [Segurança e recuperação](ARCH-002d.md)
+- [Páginas de memória e investigação experimental](ARCH-002e.md)
 
 ## Referência de engenharia
 
