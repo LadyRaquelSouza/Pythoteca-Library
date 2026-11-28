@@ -1,0 +1,287 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula602",
+  "title": "Fundamentos da modelagem de dados",
+  "subtitle": "Requisitos, regras de negócio e níveis conceitual, lógico e físico",
+  "objectives": "Explicar a finalidade da modelagem; levantar requisitos; diferenciar níveis de abstração; validar regras e documentar decisões.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. Modelar é escolher uma representação",
+      "text": "CONTEÚDO DO CURSO\n\nModelos são representações seletivas de uma realidade. Um mapa de uma cidade não precisa mostrar o interior de cada casa para ajudar a localizar ruas. Um modelo de dados seleciona os elementos relevantes e explicita suas propriedades e associações.\n\nO objetivo é facilitar a compreensão, comunicar decisões, orientar a implementação e validar requisitos. Um sistema pequeno pode parecer fácil de construir sem planejamento, mas mesmo um cadastro simples pode conter regras mal compreendidas. Sistemas complexos exigem decomposição e colaboração.\n\nUm modelo não é a realidade: pode estar incorreto ou incompleto. Sua qualidade depende de corresponder à finalidade e às regras verificadas.",
+      "example": ""
+    },
+    {
+      "title": "2. Domínio e requisitos",
+      "text": "CONTEÚDO DO CURSO\n\nDomínio de aplicação é o recorte da realidade que será estudado. Em uma locadora de equipamentos, pode envolver clientes, equipamentos, reservas e retiradas. Pergunte quais fatos devem ser guardados, quem os usa, quais operações são permitidas e quais situações devem ser proibidas.\n\nUma regra de negócio descreve uma condição do domínio. Exemplo: uma reserva pertence a um cliente e a um equipamento; o equipamento não pode ter duas reservas confirmadas com horários sobrepostos. Já um requisito de desempenho pode exigir resposta em até dois segundos. O primeiro afeta a estrutura e a consistência; o segundo orienta decisões técnicas.\n\nAPROFUNDAMENTO\n\nAs regras precisam ser verificadas com pessoas que conhecem o domínio. Não transforme uma preferência do projetista em regra institucional.",
+      "example": "Pergunta: equipamentos podem ser reservados antes de estarem disponíveis? Resposta: depende da política de reservas; documentar antes de modelar."
+    },
+    {
+      "title": "3. Modelo conceitual",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo conceitual expressa os dados relevantes e as associações sem depender de tecnologia específica. Identifica entidades, propriedades e regras. Usuários do domínio devem conseguir discutir esse modelo mesmo sem conhecer SQL.\n\nExemplo: CLIENTE realiza RESERVA; RESERVA refere-se a EQUIPAMENTO. Uma reserva registra início, fim e situação. Ainda não escolhemos tipos SQL, índices ou servidor. Se o cliente puder fazer várias reservas, isso é uma regra do domínio, não uma limitação de um banco.\n\nUm DER pode representar o modelo. Mas o modelo também precisa de descrições textuais para regras que o desenho não expressa suficientemente.",
+      "example": ""
+    },
+    {
+      "title": "4. Modelo lógico",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo lógico organiza o conceito segundo uma família de tecnologia, por exemplo o modelo relacional. Aqui definimos relações, atributos, chaves e referências. Um relacionamento muitos para muitos frequentemente exige uma relação associativa.\n\nCLIENTE(id_cliente, nome), EQUIPAMENTO(id_equipamento, descricao) e RESERVA(id_reserva, id_cliente, id_equipamento, inicio, fim, situacao) representam um possível esquema relacional. A identificação e as referências devem preservar as regras conceituais.\n\nA Aula 01 inclui normalização até a terceira forma normal como objetivo do projeto lógico. Estudaremos as dependências em módulo próprio; não basta dividir tabelas arbitrariamente.",
+      "example": "RESERVA: PK id_reserva; FK id_cliente → CLIENTE; FK id_equipamento → EQUIPAMENTO."
+    },
+    {
+      "title": "5. Modelo físico",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo físico concretiza o projeto em um SGBD escolhido, considerando tipos disponíveis, restrições, índices e características de acesso e armazenamento. Uma implementação PostgreSQL pode usar tipos e recursos diferentes de uma implementação SQLite. O modelo conceitual pode continuar válido mesmo com mudança de tecnologia.\n\nUm índice pode acelerar a busca por reservas de um equipamento, mas custa espaço e trabalho de manutenção. Escolher um índice sem conhecer a consulta é uma decisão prematura.\n\nAPROFUNDAMENTO\n\nAs fronteiras entre lógico e físico variam na literatura; seguiremos a convenção das apostilas: chaves e estrutura relacional no lógico; tipos SQL e detalhes específicos do SGBD no físico.",
+      "example": ""
+    },
+    {
+      "title": "6. Esquema e estado",
+      "text": "CONTEÚDO DO CURSO\n\nEsquema é a definição da estrutura e das restrições. Estado ou instância do banco é o conjunto de valores armazenados em um momento. Inserir uma reserva modifica o estado; acrescentar um atributo ao esquema muda a definição.\n\nUma estrutura pode existir sem nenhuma ocorrência. Uma tabela RESERVA vazia não significa que o conceito de reserva foi removido. O termo schema também possui significados técnicos específicos em SGBDs, como um espaço de nomes no PostgreSQL.",
+      "example": "Esquema: EQUIPAMENTO(id, descricao).\nEstado A: nenhum registro.\nEstado B: (1, Projetor)."
+    },
+    {
+      "title": "7. Validar e revisar",
+      "text": "CONTEÚDO DO CURSO\n\nO projeto passa por levantamento, modelo conceitual, modelo lógico, implementação física e testes. Não é uma sequência irreversível: ao descobrir uma regra nova, revisamos os níveis afetados.\n\nTeste o modelo com casos normais e limites. Um cliente sem reservas é permitido? Uma reserva cancelada permanece no histórico? Um equipamento pode ser removido quando há reservas futuras? As respostas afetam o projeto. O desenho pode parecer correto e ainda falhar nesses casos.\n\nCONEXÃO COM LÓGICA\n\nPara a regra fim > inicio, imagine horários iguais, fim anterior e fim posterior. Testar condições de fronteira é uma habilidade compartilhada pela lógica e pela modelagem.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Requisitos",
+      "title": "Recorte",
+      "prompt": "Uma escola quer controlar empréstimos de notebooks. Defina um recorte de domínio e três informações relevantes.",
+      "hint": "Pense no que precisa ser registrado.",
+      "explanation": "O modelo não precisa representar toda a escola.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Empréstimos de notebooks; estudante, equipamento, data de retirada e devolução são relevantes.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Níveis",
+      "title": "Conceitual",
+      "prompt": "Em qual nível se discute se um cliente pode fazer mais de uma reserva sem escolher um SGBD?",
+      "hint": "Pense na regra do domínio.",
+      "explanation": "O conceitual descreve as regras independentemente da implementação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Físico"
+        },
+        {
+          "id": "b",
+          "text": "Conceitual"
+        },
+        {
+          "id": "c",
+          "text": "Índice"
+        },
+        {
+          "id": "d",
+          "text": "Estado"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Níveis",
+      "title": "Lógico",
+      "prompt": "Qual decisão pertence ao modelo lógico relacional?",
+      "hint": "Pense na estrutura de relações.",
+      "explanation": "Definir as relações e chaves pertence ao lógico.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Escolher cor da interface"
+        },
+        {
+          "id": "b",
+          "text": "Escolher um índice específico"
+        },
+        {
+          "id": "c",
+          "text": "Definir relações e chaves"
+        },
+        {
+          "id": "d",
+          "text": "Registrar uma nova reserva"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Níveis",
+      "title": "Físico",
+      "prompt": "Qual decisão é típica do modelo físico segundo a apostila?",
+      "hint": "Pense no SGBD escolhido.",
+      "explanation": "Tipos e índices específicos são decisões de implementação.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Determinar o significado de cliente"
+        },
+        {
+          "id": "b",
+          "text": "Levantar a regra de reserva"
+        },
+        {
+          "id": "c",
+          "text": "Escolher nome de usuário final"
+        },
+        {
+          "id": "d",
+          "text": "Definir tipo SQL e índice"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Requisitos",
+      "title": "Ambiguidade",
+      "prompt": "A frase 'um cliente tem reservas' permite concluir que todo cliente tem pelo menos uma?",
+      "hint": "Distinga possibilidade e obrigação.",
+      "explanation": "Não invente cardinalidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Pergunte se um cliente recém-cadastrado pode existir sem reserva.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Requisitos",
+      "title": "Negócio e desempenho",
+      "prompt": "Classifique 'fim deve ser posterior ao início' e 'consulta deve responder em dois segundos'.",
+      "hint": "Separe consistência de qualidade de serviço.",
+      "explanation": "Ambas influenciam o projeto de modos distintos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Primeira: regra de negócio; segunda: requisito de desempenho.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Níveis",
+      "title": "Mesmo problema",
+      "prompt": "Dê uma decisão conceitual, uma lógica e uma física para o cadastro de ferramentas.",
+      "hint": "Use os três níveis.",
+      "explanation": "As decisões acrescentam detalhes progressivamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Conceitual: ferramenta tem código; lógico: relação FERRAMENTA com código PK; físico: tipo e restrições no SGBD escolhido.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Esquema",
+      "title": "Estado",
+      "prompt": "Inserir uma ferramenta muda o esquema? E acrescentar um campo de peso?",
+      "hint": "Estrutura versus conteúdo.",
+      "explanation": "As mudanças são diferentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Inserção muda o estado; acrescentar campo muda o esquema.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Validação",
+      "title": "Limites",
+      "prompt": "Proponha três testes para a regra fim > inicio.",
+      "hint": "Teste menor, igual e maior.",
+      "explanation": "Casos de fronteira revelam erros.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Fim anterior: inválido; igual: inválido; posterior: válido.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional — Validação",
+      "title": "Histórico",
+      "prompt": "Uma reserva cancelada deve ser apagada? Que pergunta faria ao usuário?",
+      "hint": "Pense na finalidade do histórico.",
+      "explanation": "Não presumir que cancelar equivale a excluir.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Perguntar se cancelamentos precisam de auditoria ou relatórios; decidir conforme requisitos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional — Níveis",
+      "title": "Mudança tecnológica",
+      "prompt": "Trocar PostgreSQL por SQLite exige necessariamente redefinir o significado de cliente?",
+      "hint": "Separe domínio e implementação.",
+      "explanation": "Abstração reduz dependência tecnológica.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; o conceitual pode permanecer, embora detalhes físicos e eventualmente lógicos precisem de adaptação.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional — Requisitos",
+      "title": "Dados supérfluos",
+      "prompt": "Um cadastro de ferramentas inclui o aniversário do fornecedor sem finalidade definida. Avalie.",
+      "hint": "Pense em relevância e privacidade.",
+      "explanation": "O modelo deve guardar o necessário.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O atributo deve ser justificado por requisito; caso contrário, não coletar.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional — Validação",
+      "title": "Modelo revisável",
+      "prompt": "Uma regra nova permite reservas coletivas. O que fazer com o modelo já criado?",
+      "hint": "Pense nos níveis afetados.",
+      "explanation": "O processo é iterativo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Revisar requisitos, entidades e associações, depois chaves e implementação; testar novamente.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Níveis",
+      "title": "Sem registros",
+      "prompt": "Uma tabela vazia deixou de existir? Justifique.",
+      "hint": "Distinguir estado e esquema.",
+      "explanation": "Uma relação pode ser vazia.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. A estrutura permanece mesmo sem tuplas.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula601",
+  "title": "Dados, informação e bancos de dados",
+  "subtitle": "Dados, contexto, metadados, SGBDs e linguagens",
+  "objectives": "Distinguir dado, informação, metadado, banco e SGBD; compreender responsabilidades, modelos de dados e operações de definição e manipulação.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. Dados e contexto",
+      "text": "CONTEÚDO DO CURSO\n\nUm dado é um valor registrado: 42, um código ou uma data. Para interpretar 42, precisamos saber se representa uma quantidade de livros, uma idade ou um identificador. Informação é o significado que os dados adquirem em determinado contexto. A mesma sequência pode ter interpretações diferentes sem mudar seus símbolos.\n\nUm sistema registra fatos considerados relevantes para uma finalidade. Uma oficina pode precisar do código de uma peça, da quantidade em estoque e do preço, mas não da cor da camisa de quem a cadastrou. Escolher o que guardar já é uma decisão de modelagem.\n\nAPROFUNDAMENTO\n\nDados incorretos não se tornam confiáveis só porque estão organizados. Um registro de estoque de 42 unidades pode estar desatualizado. Precisamos distinguir significado, qualidade, origem e momento da informação.",
+      "example": "42 | quantidade de exemplares disponíveis | acervo A | conferência às 10h"
+    },
+    {
+      "title": "2. Metadados e significado",
+      "text": "CONTEÚDO DO CURSO\n\nMetadados descrevem dados: nome de um campo, tipo, formato, unidade, restrições ou significado. Um campo peso pode ser decimal e expresso em quilogramas. Sem essa definição, uma aplicação pode interpretar 250 como gramas quando a outra espera quilogramas.\n\nO catálogo de um SGBD registra descrições técnicas dos objetos do banco. O dicionário de dados também documenta significados e regras de negócio que não são necessariamente compreendidos apenas pelo catálogo.\n\nNão confunda valor e definição: 9,5 é um valor; nota_final, decimal entre 0 e 10, é uma descrição do atributo.",
+      "example": "Campo: estoque_atual\nTipo: inteiro\nUnidade: peças\nRegra: não negativo"
+    },
+    {
+      "title": "3. Banco de dados, SGBD e aplicação",
+      "text": "CONTEÚDO DO CURSO\n\nUm banco de dados reúne dados organizados para uma finalidade. O SGBD é o software que oferece mecanismos para definir, consultar, modificar e administrar esses dados. Uma aplicação oferece funções aos usuários e pode pedir ao SGBD que leia ou grave informações.\n\nImagine uma biblioteca: a interface permite registrar um empréstimo; o SGBD verifica restrições e executa as operações; o banco mantém o cadastro e o histórico. Uma falha da interface não prova que os dados foram perdidos. A separação ajuda no diagnóstico.\n\nAPROFUNDAMENTO\n\nUm arquivo CSV também armazena dados estruturados, mas por si só não fornece todos os mecanismos de um SGBD. SQLite é um SGBD que funciona como biblioteca incorporada à aplicação, sem exigir um servidor separado.",
+      "example": "Usuário → aplicação → SGBD → banco de dados"
+    },
+    {
+      "title": "4. Serviços e responsabilidades",
+      "text": "CONTEÚDO DO CURSO\n\nSGBDs podem oferecer controle de acesso, integridade, coordenação de operações simultâneas, recuperação e visões. Autenticação identifica quem acessa; autorização limita o que essa identidade pode fazer. Backup cria uma cópia recuperável; restauração usa essa cópia. Ter um backup nunca testado não garante recuperação.\n\nUm projetista identifica dados e regras; um desenvolvedor constrói funções; um administrador de banco cuida da operação e da segurança; usuários registram ou consultam dados. Uma pessoa pode assumir vários papéis.\n\nAPROFUNDAMENTO\n\nDuas pessoas tentando reservar o último exemplar simultaneamente exigem coordenação. Validar na interface é útil, mas não basta para impedir conflitos concorrentes. Voltaremos a isso em estudos futuros.",
+      "example": ""
+    },
+    {
+      "title": "5. Famílias de modelos",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo hierárquico organiza dados em estruturas de árvore; o modelo em rede permite ligações mais gerais entre registros; o relacional organiza dados em relações; o orientado a objetos representa objetos e suas propriedades. Bancos não relacionais incluem documentos, grafos e chave-valor, entre outras famílias.\n\nPostgreSQL, MySQL e SQLite são exemplos relacionais; MongoDB é orientado a documentos. A escolha depende das consultas, das regras, da consistência exigida e da operação. Flexibilidade estrutural não significa ausência de regras.\n\nNão confunda família de modelo com nível de modelagem: conceitual, lógico e físico são níveis de abstração que estudaremos a seguir.",
+      "example": ""
+    },
+    {
+      "title": "6. DDL, DML e operações",
+      "text": "CONTEÚDO DO CURSO\n\nDDL (Data Definition Language) define ou modifica estruturas: criar tabela, acrescentar coluna, definir restrição. DML (Data Manipulation Language) atua sobre dados: inserir, modificar, excluir e, na classificação ampla adotada na Aula 01, recuperar informações. Alguns materiais classificam SELECT separadamente como DQL; essa é uma diferença de convenção.\n\nCriar um cadastro vazio não é cadastrar uma pessoa. A primeira ação define uma estrutura; a segunda acrescenta uma ocorrência. Não é necessário executar SQL agora.\n\nCONEXÃO COM LÓGICA\n\nUma condição como quantidade >= 0 expressa uma regra de validação. O modelo descreve a regra; a aplicação e o banco podem implementá-la em camadas distintas.",
+      "example": "DDL: CREATE TABLE ...\nDML: INSERT INTO ...\nConsulta: SELECT ..."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Fundamentos",
+      "title": "Dado e contexto",
+      "prompt": "O valor 42 foi registrado sem unidade ou descrição. O que falta para interpretá-lo?",
+      "hint": "Pense no significado.",
+      "explanation": "É necessário contexto para saber o que o número representa.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Um índice físico"
+        },
+        {
+          "id": "b",
+          "text": "Contexto e significado"
+        },
+        {
+          "id": "c",
+          "text": "Uma chave estrangeira"
+        },
+        {
+          "id": "d",
+          "text": "Um arquivo maior"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Fundamentos",
+      "title": "Dois significados",
+      "prompt": "Dê duas interpretações diferentes para o dado 18 e os respectivos metadados.",
+      "hint": "Use situações distintas.",
+      "explanation": "O número permanece igual; o significado muda.",
+      "mode": "text",
+      "starter": "",
+      "solution": "18 peças em estoque (quantidade, unidade peças); 18 horas de duração (tempo, unidade horas).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Metadados",
+      "title": "Campo de preço",
+      "prompt": "Defina significado, tipo, unidade e uma restrição para preco_unitario de uma loja.",
+      "hint": "Inclua moeda e limite.",
+      "explanation": "A regra documenta valores admissíveis.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Preço de uma unidade, decimal monetário, reais, não negativo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — SGBD",
+      "title": "Papéis",
+      "prompt": "Qual elemento é o software que administra o acesso ao banco?",
+      "hint": "Diferencie conteúdo e ferramenta.",
+      "explanation": "O SGBD administra o banco.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Banco de dados"
+        },
+        {
+          "id": "b",
+          "text": "SGBD"
+        },
+        {
+          "id": "c",
+          "text": "Registro"
+        },
+        {
+          "id": "d",
+          "text": "Atributo"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — SGBD",
+      "title": "Fluxo de cadastro",
+      "prompt": "Descreva as responsabilidades da interface, do SGBD e do banco ao registrar um produto.",
+      "hint": "Separe pedido, operação e conteúdo.",
+      "explanation": "A separação permite localizar falhas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Interface recebe dados; SGBD executa e valida restrições; banco mantém os registros.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Serviços",
+      "title": "Permissões",
+      "prompt": "Um atendente pode consultar o estoque, mas não alterar preços. Qual serviço ajuda a garantir isso?",
+      "hint": "Identificação não é permissão.",
+      "explanation": "As duas funções são distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Autorização e controle de acesso; autenticação identifica o atendente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional — Serviços",
+      "title": "Backup",
+      "prompt": "Explique por que criar uma cópia não garante que seja possível restaurar o banco.",
+      "hint": "Pense em testes e integridade.",
+      "explanation": "Recuperabilidade precisa de evidência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "A cópia pode estar incompleta, corrompida ou incompatível; restauração deve ser testada.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Linguagens",
+      "title": "Estrutura",
+      "prompt": "Acrescentar uma coluna a uma tabela é uma operação de qual categoria?",
+      "hint": "A estrutura será alterada.",
+      "explanation": "DDL modifica a definição.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "DML"
+        },
+        {
+          "id": "b",
+          "text": "DDL"
+        },
+        {
+          "id": "c",
+          "text": "RGB"
+        },
+        {
+          "id": "d",
+          "text": "DER"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Linguagens",
+      "title": "Classificação",
+      "prompt": "Classifique criar tabela, inserir produto, atualizar estoque e consultar preços segundo a convenção da Aula 01.",
+      "hint": "Distinguir definição de manipulação.",
+      "explanation": "A classificação de SELECT varia.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Criar: DDL; inserir, atualizar e consultar: DML em sentido amplo (consulta também pode ser chamada DQL).",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional — Modelos",
+      "title": "Escolha",
+      "prompt": "Por que não se deve escolher um banco apenas porque ele aceita documentos flexíveis?",
+      "hint": "Considere regras e acesso.",
+      "explanation": "Estrutura flexível não elimina requisitos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Consultas, integridade, consistência, operação e requisitos devem orientar a escolha.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional — Diagnóstico",
+      "title": "Tela vazia",
+      "prompt": "Uma tela não apresenta produtos. Cite três causas possíveis sem concluir que o banco foi apagado.",
+      "hint": "Pense nas camadas.",
+      "explanation": "Investigue evidências em cada camada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Filtro incorreto, erro de conexão/permissão, falha na interface ou banco sem registros.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Intercâmbio",
+      "title": "Estoque",
+      "prompt": "Uma aplicação recusa estoque negativo. Escreva a condição de aceitação em linguagem natural e explique onde documentá-la.",
+      "hint": "Compare a quantidade a zero.",
+      "explanation": "A validação deriva da modelagem.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Aceitar se quantidade >= 0; documentar no domínio/regra do atributo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional — Fundamentos",
+      "title": "Relevância",
+      "prompt": "Uma loja deve registrar a cor da roupa de quem cadastrou um produto? Justifique.",
+      "hint": "Considere a finalidade.",
+      "explanation": "Modelar inclui selecionar informações relevantes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não, salvo requisito legítimo específico; não contribui para o controle de produtos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Serviços",
+      "title": "Concorrência",
+      "prompt": "Duas pessoas consultam o último exemplar e ambas tentam reservá-lo. Qual problema precisa ser evitado?",
+      "hint": "A consulta não garante que o estado permaneça igual.",
+      "explanation": "Uma validação anterior à gravação não é suficiente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Reserva duplicada; o sistema precisa coordenar operações e preservar a regra de disponibilidade.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

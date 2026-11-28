@@ -1,0 +1,325 @@
+{
+  "schema_version": 2,
+  "discipline": "modelagem_dados",
+  "id": "aula603",
+  "title": "Entidades, atributos e domínios",
+  "subtitle": "Ocorrências, propriedades, identificadores e dicionário de dados",
+  "objectives": "Reconhecer entidades e ocorrências; classificar atributos; definir domínios e identificadores; construir dicionários de dados e distinguir regras de decisões de implementação.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "chapters": [
+    {
+      "title": "1. Entidade e ocorrência",
+      "text": "CONTEÚDO DO CURSO\n\nUma entidade representa um tipo de elemento concreto ou abstrato sobre o qual precisamos manter informações. EQUIPAMENTO pode representar ferramentas físicas; RESERVA pode representar um compromisso. Uma ocorrência é um elemento específico daquele tipo, como o projetor identificado por EQ07.\n\nUma entidade não é necessariamente uma tabela no modelo conceitual. A tabela é uma maneira de implementá-la em um modelo relacional. Uma entidade pode originar mais de uma tabela ou ser representada de outra forma dependendo do projeto.\n\nA escolha depende do domínio. Se uma categoria precisa de descrição, código e associação com vários produtos, pode merecer entidade própria; se é apenas uma classificação fixa simples, um atributo pode ser suficiente.",
+      "example": "Entidade EQUIPAMENTO; ocorrência EQ07, projetor portátil."
+    },
+    {
+      "title": "2. Atributos e valores",
+      "text": "CONTEÚDO DO CURSO\n\nAtributo descreve uma propriedade relevante de uma entidade ou de uma associação. Nome, data de aquisição e número de série são possíveis atributos de EQUIPAMENTO. Cada ocorrência possui valores de acordo com as regras definidas.\n\nO atributo não é seu valor: nome é a propriedade; 'Projetor portátil' é um valor. O rótulo de uma tela não define sozinho o significado do dado. Dois campos chamados codigo em entidades diferentes podem ter domínios e propósitos diferentes.\n\nUse nomes claros, evitando abreviações ambíguas. A apresentação recomenda singular para entidades e snake_case para nomes SQL; são convenções, não leis universais.",
+      "example": ""
+    },
+    {
+      "title": "3. Tipos de atributos",
+      "text": "CONTEÚDO DO CURSO\n\nUm atributo simples é tratado como indivisível para a finalidade do modelo. Um composto pode ser dividido em partes significativas: endereço em logradouro, número e bairro. Um multivalorado admite vários valores para uma ocorrência, como contatos de um fornecedor. Um derivado pode ser calculado de outros dados, como idade a partir da data de nascimento e data de referência.\n\nA classificação depende dos requisitos. Uma data pode ser um único valor do tipo DATE no modelo relacional, embora seja composta por dia, mês e ano em sua apresentação. Separar cada parte não é automaticamente melhor.\n\nAPROFUNDAMENTO\n\nUm atributo multivalorado pode exigir uma entidade ou relação própria no modelo relacional. Não confunda vários valores em uma ocorrência com um atributo que possui partes.",
+      "example": "Fornecedor: nome (simples), endereco (composto), telefones (multivalorado), tempo_de_cadastro (derivado)."
+    },
+    {
+      "title": "4. Domínio, tipo e formato",
+      "text": "CONTEÚDO DO CURSO\n\nDomínio é o conjunto de valores admitidos por um atributo. Um tipo de dado é uma forma de representação e operação; o domínio pode impor restrições adicionais. Um inteiro permite valores negativos, mas o domínio quantidade_disponivel pode admitir apenas inteiros não negativos.\n\nFormato é a apresentação do valor. Um identificador de texto como EQ007 não é um número para realizar cálculos; zeros iniciais podem ser significativos. Uma data exibida como 28/11/2026 pode estar armazenada em um tipo de data, sem guardar barras como parte do valor.\n\nCONEXÃO COM LÓGICA\n\nEscolher uma variável inteira não valida automaticamente o intervalo. A condição quantidade >= 0 complementa a escolha do tipo. A regra também precisa ser preservada em outras interfaces e no banco.",
+      "example": ""
+    },
+    {
+      "title": "5. Obrigatoriedade e multiplicidade",
+      "text": "CONTEÚDO DO CURSO\n\nUm atributo pode ser obrigatório ou opcional. Pode admitir exatamente um valor, nenhum ou um, ou vários valores, conforme a regra. Um equipamento pode exigir código e permitir ausência de observação. Um fornecedor pode ter zero ou vários contatos.\n\nAusência de valor não equivale a zero nem a texto vazio. Um peso desconhecido não é peso zero. No modelo SQL, NULL é um marcador de ausência; seu uso precisa ser compatível com as restrições. A integridade será aprofundada depois.\n\nNão use um valor fictício para preencher um campo obrigatório apenas para evitar uma mensagem de erro. Isso transforma ausência em informação falsa.",
+      "example": ""
+    },
+    {
+      "title": "6. Identificação das ocorrências",
+      "text": "CONTEÚDO DO CURSO\n\nUm identificador deve distinguir ocorrências segundo uma regra válida para todo o domínio, não apenas para os exemplos de hoje. Nome de equipamento pode repetir; um código de patrimônio pode ser único e obrigatório. Se o código sozinho identifica, acrescentar descrição não torna o identificador mínimo.\n\nUm identificador composto usa mais de um atributo quando a combinação é necessária. Uma sala pode ser identificada por prédio e número, se números se repetem em prédios diferentes. O par precisa ser único; nenhum dos componentes precisa ser único sozinho.\n\nA seleção de chaves primárias, alternativas e estrangeiras será aprofundada no modelo relacional.",
+      "example": "SALA (predio, numero): (A, 101) e (B, 101) são ocorrências diferentes."
+    },
+    {
+      "title": "7. Dicionário de dados",
+      "text": "CONTEÚDO DO CURSO\n\nO dicionário de dados documenta o significado dos elementos, reduz ambiguidades e ajuda usuários e desenvolvedores a compartilhar uma linguagem. Pode registrar nome, descrição, domínio, obrigatoriedade, multiplicidade, origem e regras. Não existe um único formato obrigatório.\n\nPara EQUIPAMENTO, codigo_patrimonio identifica uma ocorrência; descricao informa o nome usado no inventário; situacao aceita disponível, em manutenção ou baixado, conforme o caso. A regra de unicidade é diferente da regra de conjunto permitido.\n\nAPROFUNDAMENTO\n\nUm dicionário deve ser atualizado quando as regras mudam. Se a situação reservada passar a existir, decida se ela é propriedade do equipamento ou derivada de reservas. A resposta depende de como o domínio trata disponibilidade e histórico.",
+      "example": "codigo_patrimonio | texto não vazio | obrigatório | único\nsituacao | conjunto de estados documentado | obrigatório\nobservacao | texto | opcional"
+    },
+    {
+      "title": "8. Diagnóstico de um modelo inicial",
+      "text": "CONTEÚDO DO CURSO E PRÁTICA AUTORAL\n\nConsidere um cadastro de materiais com código, descrição, unidade, quantidade e fornecedor. Pergunte se o mesmo material pode ser adquirido de vários fornecedores; se sim, um campo fornecedor único talvez não represente todas as relações. Pergunte também se quantidade é estoque atual ou quantidade de uma compra. São fatos diferentes.\n\nIdentifique primeiro o conceito e depois a estrutura. Evite começar pelo formulário: uma tela pode agrupar informações de várias entidades. Um campo no formulário pode ser derivado, temporário ou apenas um filtro.\n\nCONEXÃO COM JAVA\n\nUm JTextField pode receber texto para um atributo numérico. O componente de interface não determina o domínio do atributo. A aplicação precisa interpretar a entrada e validar a regra.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Entidades",
+      "title": "Ocorrência",
+      "prompt": "Qual opção representa uma ocorrência de EQUIPAMENTO?",
+      "hint": "Procure um elemento específico.",
+      "explanation": "EQ07 é um equipamento individual.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "O tipo EQUIPAMENTO"
+        },
+        {
+          "id": "b",
+          "text": "O atributo descrição"
+        },
+        {
+          "id": "c",
+          "text": "O projetor EQ07"
+        },
+        {
+          "id": "d",
+          "text": "O domínio dos códigos"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Entidades",
+      "title": "Identifique",
+      "prompt": "Para uma oficina que controla reparos, proponha três entidades e uma ocorrência fictícia de cada.",
+      "hint": "Pense em objetos e eventos.",
+      "explanation": "Entidades representam tipos; ocorrências são elementos específicos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "CLIENTE C01; EQUIPAMENTO E04; REPARO R12.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Atributos",
+      "title": "Propriedade e valor",
+      "prompt": "Em EQUIPAMENTO EQ07, descricao = Projetor, qual é o atributo e qual é o valor?",
+      "hint": "Nome do campo versus conteúdo.",
+      "explanation": "O valor pertence à ocorrência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "descricao é atributo; Projetor é valor.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Atributos",
+      "title": "Multivalorado",
+      "prompt": "Um fornecedor pode possuir três telefones. Como classificar telefone no modelo conceitual?",
+      "hint": "Conte valores por ocorrência.",
+      "explanation": "Multivalorado admite mais de um valor.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Derivado"
+        },
+        {
+          "id": "b",
+          "text": "Multivalorado"
+        },
+        {
+          "id": "c",
+          "text": "Identificador obrigatório"
+        },
+        {
+          "id": "d",
+          "text": "Composto necessariamente"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Atributos",
+      "title": "Classificação",
+      "prompt": "Classifique endereco dividido em rua e número, idade calculada, código e contatos múltiplos.",
+      "hint": "Pense em partes, cálculo e multiplicidade.",
+      "explanation": "A classificação depende do uso.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Endereço composto; idade derivada; código simples no contexto; contatos multivalorados.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Domínios",
+      "title": "Tipo e regra",
+      "prompt": "Defina o domínio de quantidade_disponivel e explique por que inteiro não basta.",
+      "hint": "Inclua restrição de faixa.",
+      "explanation": "Domínio pode restringir um tipo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Inteiros >= 0; o tipo inteiro também admite negativos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional — Domínios",
+      "title": "Código textual",
+      "prompt": "Por que EQ007 não deve ser tratado como número para operações aritméticas?",
+      "hint": "Considere significado e zeros.",
+      "explanation": "Escolha de tipo depende do significado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "É identificador textual, não medida; os zeros podem ser relevantes.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Domínios",
+      "title": "Ausência",
+      "prompt": "Peso desconhecido e peso zero são equivalentes?",
+      "hint": "Pense na informação registrada.",
+      "explanation": "Não invente valores para substituir ausência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Ausência significa que não sabemos ou não se aplica; zero é um valor conhecido.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Identificação",
+      "title": "Homônimos",
+      "prompt": "Uma lista atual não tem nomes repetidos. Isso prova que nome é um identificador válido?",
+      "hint": "Considere futuras ocorrências.",
+      "explanation": "A amostra não comprova a regra.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. A regra precisa garantir unicidade em todos os estados permitidos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Identificação",
+      "title": "Sala composta",
+      "prompt": "O prédio A e o prédio B possuem sala 12. Como identificar uma sala se o número só é único dentro do prédio?",
+      "hint": "Combine os dois atributos.",
+      "explanation": "A chave composta usa os valores em conjunto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "(predio, numero); a combinação distingue as salas.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Identificação",
+      "title": "Minimalidade",
+      "prompt": "Se código já identifica o produto, (código, descrição) é um identificador mínimo?",
+      "hint": "Retire a descrição.",
+      "explanation": "Minimalidade exige que nenhum componente seja dispensável.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; código permanece suficiente.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Dicionário",
+      "title": "Documente",
+      "prompt": "Crie uma entrada de dicionário para situacao_reparo com três estados e obrigatoriedade.",
+      "hint": "Informe significado e domínio.",
+      "explanation": "As regras devem ser verificadas com o domínio.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Estado do reparo; domínio {aberto, em andamento, concluído}; obrigatório, um valor.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional — Atributos",
+      "title": "Data",
+      "prompt": "Dividir data em dia, mês e ano é sempre obrigatório?",
+      "hint": "Considere o tipo DATE e o requisito.",
+      "explanation": "Formato e representação lógica não são a mesma coisa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Uma data pode ser um valor único; separar partes depende da finalidade.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Diagnóstico",
+      "title": "Formulário",
+      "prompt": "Uma tela mostra nome do fornecedor e descrição do equipamento. Isso prova que os dois são atributos da mesma entidade?",
+      "hint": "A tela pode combinar informações.",
+      "explanation": "Interface não determina modelo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; podem vir de entidades relacionadas.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Dicionário",
+      "title": "Contatos",
+      "prompt": "Documente um atributo de telefone opcional e multivalorado.",
+      "hint": "Indique cardinalidade e domínio.",
+      "explanation": "Multiplicidade precisa ser explícita.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Telefone de contato; texto em formato aceito; zero ou vários valores por fornecedor.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Intercâmbio",
+      "title": "Validação",
+      "prompt": "Um campo Swing contém '-3' para quantidade. Que duas verificações são necessárias?",
+      "hint": "Tipo e domínio.",
+      "explanation": "Sintaxe válida não implica valor admissível.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Converter texto em inteiro e verificar quantidade >= 0; -3 passa na conversão, mas falha na regra.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Atributos",
+      "title": "Derivação",
+      "prompt": "Idade deve ser atualizada diariamente em todos os cadastros? Proponha alternativa.",
+      "hint": "Use data de nascimento.",
+      "explanation": "Dados derivados podem ficar desatualizados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Calcular idade com data de nascimento e data de referência; guardar idade apenas se houver requisito histórico específico.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional — Diagnóstico",
+      "title": "Categoria",
+      "prompt": "Quando categoria de equipamento pode ser entidade própria?",
+      "hint": "Pense em atributos e relacionamentos próprios.",
+      "explanation": "Não há regra universal de que toda classificação vira entidade.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Quando precisa de código, descrição, regras próprias ou associações relevantes; depende do domínio.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

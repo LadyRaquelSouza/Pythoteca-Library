@@ -16,3 +16,7 @@ Não incluir material institucional privado no repositório público. Preservar 
 O arquivo [index.json](index.json) é um manifesto JSON de schema 2 com ID, disciplina, título, subtítulo, tamanho exato e SHA-256 de cada aula. O leitor futuro poderá obter o índice e depois buscar apenas a aula aberta pela estudante, validando tamanho, hash e formato antes de renderizar. A ação **Guardar offline** deve permanecer separada do carregamento temporário.
 
 A verificação automatizada usa os bytes reais dos arquivos. O índice legado em `catalog/index.json` (schema 1) não foi alterado e continua servindo versões antigas. A Pythoteca 0.8 ainda não lê este novo índice: é necessário atualizar o aplicativo para navegação online multidisciplinar.
+
+## Modelagem de Dados
+
+601–603: fundamentos, níveis de modelagem, entidades e atributos, com base no texto dos quatro PDFs das Aulas 01 e 02. Exemplos e atividades autorais; figuras e vídeo não examinados. Sem execução obrigatória de Python. Ver [planejamento editorial e intercâmbios](../docs/editorial/intercambio.md).

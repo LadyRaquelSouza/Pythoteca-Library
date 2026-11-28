@@ -200,6 +200,30 @@
       "discipline": "java",
       "sha256": "e9a832dd9ce6323adc80dcc2a24f60dd03de2a3825350cc45b3746accc1910a5",
       "bytes": 30021
+    },
+    {
+      "id": "aula601",
+      "title": "Dados, informação e bancos de dados",
+      "subtitle": "Dados, contexto, metadados, SGBDs e linguagens",
+      "discipline": "modelagem_dados",
+      "sha256": "3c127b2280c0d135128c7fae48e821819552cc7c44bcae53c775875f65cb8341",
+      "bytes": 14353
+    },
+    {
+      "id": "aula602",
+      "title": "Fundamentos da modelagem de dados",
+      "subtitle": "Requisitos, regras de negócio e níveis conceitual, lógico e físico",
+      "discipline": "modelagem_dados",
+      "sha256": "38985c727527cf7f3007e57d478d88696e3099c4cc5364cadcfd9a7089fe868e",
+      "bytes": 14813
+    },
+    {
+      "id": "aula603",
+      "title": "Entidades, atributos e domínios",
+      "subtitle": "Ocorrências, propriedades, identificadores e dicionário de dados",
+      "discipline": "modelagem_dados",
+      "sha256": "fade3665bb935a9f782ea76d3e14060510562fa8d635fb31cf104e853467745f",
+      "bytes": 17966
     }
   ]
 }
