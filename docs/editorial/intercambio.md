@@ -70,3 +70,8 @@ A prioridade imediata continua sendo revisão acadêmica para avaliações, aná
 ### Complemento ao projeto Do bit à imagem
 
 Após revisão do podcast A04 (28/11/2026), incluir como possibilidade opcional a comparação entre tripla RGB, três bytes, notação CSS hexadecimal e inteiro empacotado RRGGBB; demonstrar a perda de informação na soma simples e a recuperação dos campos pela representação posicional. Em Java, relacionar ao uso de int e à distinção entre RGB de 24 bits e representações com alfa. Em TI, relacionar à escolha de cores e aos limites da gama de reprodução. Pré-requisitos: 107–109, tipos Java e propriedades visuais (310); não exigir operações bit a bit nem código executável antes dos fundamentos correspondentes. Não constitui nova aula nem prática Python imediata.
+
+
+### Candidato Arquitetura + Sistemas Operacionais: diagnóstico sem adivinhação
+
+Motivado pelo podcast A01, 28/11/2026. Trilha opcional futura: descrever sintomas, distinguir capacidade persistente, pressão de memória, atividade de CPU, espera de E/S e temperatura; observar indicadores durante uma tarefa cotidiana e comparar após uma mudança reversível; formular hipótese e justificar eventual upgrade somente com evidências e compatibilidade. Usar Gerenciador de Tarefas ou Monitor do Sistema KDE conforme disponibilidade, ou dados fictícios. Não exigir Windows, desmontagem, compra, teste de estresse ou comandos destrutivos. Pré-requisitos: 101–103, 106 e fundamentos de processos e memória de SO quando disponíveis; separar conteúdo acadêmico e prática autoral. Não atribuir ID ou categoria nova antes do contrato do leitor.
