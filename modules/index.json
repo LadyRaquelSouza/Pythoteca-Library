@@ -218,6 +218,30 @@
       "bytes": 20450
     },
     {
+      "id": "aula503",
+      "title": "Estilos, listas, tabelas e elementos visuais",
+      "subtitle": "Estrutura documental, temas, objetos e formatação consistente",
+      "discipline": "ti",
+      "sha256": "fc7053a7da11785c6fbbd2c039776300e976ed43d9bdbb378229203ed3df49da",
+      "bytes": 13669
+    },
+    {
+      "id": "aula504",
+      "title": "Referências, revisão, colaboração e acessibilidade",
+      "subtitle": "Sumários, índices, citações, correção e estrutura acessível",
+      "discipline": "ti",
+      "sha256": "5ddb4802188b1d31b0453ad3df4a3e1d0921b04c0634404789d25bf6479c5905",
+      "bytes": 14549
+    },
+    {
+      "id": "aula505",
+      "title": "Correspondências, proteção e gerenciamento documental",
+      "subtitle": "Mala direta, cartas, impressão, exportação e revisão cumulativa",
+      "discipline": "ti",
+      "sha256": "d43b75c6e8db6310a9ac9285f27d3c76d5999cfffe129b496074c0f2981cf2f9",
+      "bytes": 16889
+    },
+    {
       "id": "aula601",
       "title": "Dados, informação e bancos de dados",
       "subtitle": "Dados, contexto, metadados, SGBDs e linguagens",

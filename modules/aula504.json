@@ -1,0 +1,277 @@
+{
+  "schema_version": 2,
+  "discipline": "ti",
+  "id": "aula504",
+  "title": "Referências, revisão, colaboração e acessibilidade",
+  "subtitle": "Sumários, índices, citações, correção e estrutura acessível",
+  "objectives": "Reconhecer recursos de Referências e Revisão; distinguir campos automáticos e elementos manuais; interpretar correção, alterações, comentários e acessibilidade.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco.",
+  "chapters": [
+    {
+      "title": "1. Sumário e índice remissivo",
+      "text": "COMPLEMENTO AUTORAL ORIENTADO PELO SUMÁRIO DE FERNANDO\n\nSumário apresenta a estrutura de seções e páginas, geralmente a partir de estilos de título ou níveis estruturais. Índice remissivo organiza termos marcados e suas ocorrências, normalmente em ordem alfabética. Um sumário responde onde começa um capítulo; índice remissivo ajuda a encontrar menções a um assunto.\n\nO Word oferece sumário automático na guia Referências. Atualize-o após mudar títulos ou paginação. Atualizar somente números de página não incorpora necessariamente alterações de títulos. Uma lista digitada manualmente não acompanha mudanças automaticamente. A apostila Fernando lista também índice de autoridades, recurso especializado para referências jurídicas; não confundir com índice remissivo.",
+      "example": ""
+    },
+    {
+      "title": "2. Notas, citações e bibliografia",
+      "text": "COMPLEMENTO AUTORAL ORIENTADO PELO SUMÁRIO DE FERNANDO\n\nNota de rodapé aparece na região inferior da página; nota de fim é reunida ao final de documento ou seção conforme configuração. A numeração automática vincula marca e conteúdo. Citação identifica a fonte de uma informação; bibliografia reúne referências segundo o estilo adotado. Uma citação não é necessariamente nota de rodapé.\n\nO gerenciamento de fontes do Word pode gerar citações e bibliografia, mas não garante automaticamente conformidade com todas as normas institucionais. Confira autoria, título, data e padrão solicitado. Não invente referências. A estrutura deve permitir ao leitor identificar e localizar a fonte.",
+      "example": ""
+    },
+    {
+      "title": "3. Legendas e referências cruzadas",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nLegenda identifica uma figura, tabela ou equação, podendo usar numeração automática. Referência cruzada aponta para elemento identificado, por exemplo Figura 2, uma seção ou uma nota. Após inserir nova figura, atualizar os campos evita manter numeração antiga em referências.\n\nUma legenda não substitui texto alternativo: legenda é informação visível para o leitor; texto alternativo comunica conteúdo relevante a quem não percebe a imagem. Um índice de figuras pode ser gerado com base em legendas. Não confunda essa lista com sumário de capítulos.",
+      "example": ""
+    },
+    {
+      "title": "4. Ortografia, gramática e idioma",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 4\n\nAs ferramentas de revisão detectam possíveis problemas com base em dicionários, regras e idioma configurado. Uma palavra marcada pode estar correta, como nome próprio ou termo técnico. Uma frase sem marcas pode conter erro de sentido. O usuário decide se aceita sugestão, ignora ou adiciona termo ao dicionário.\n\nO manual 2016 descreve Alt+F7 para acessar correção contextual e recursos de sinônimos e contagem de palavras. F7 é atalho tradicional para iniciar verificação ortográfica/gramatical no desktop, apresentado aqui como complemento; disponibilidade e interface variam. Dicionário de sinônimos auxilia vocabulário, mas termos próximos não são intercambiáveis em todo contexto.\n\nConfigure o idioma do trecho correto, especialmente em documentos multilíngues. Contagem de palavras, caracteres e páginas mede aspectos diferentes.",
+      "example": ""
+    },
+    {
+      "title": "5. Comentários, alterações e comparação",
+      "text": "COMPLEMENTO AUTORAL ORIENTADO PELO SUMÁRIO DE FERNANDO\n\nComentário registra observação associada a trecho sem necessariamente modificar seu conteúdo. Controle de alterações registra edições para revisão, permitindo aceitar ou rejeitar cada mudança. Ocultar marcações na visualização não significa aceitar ou remover alterações. Comparar documentos identifica diferenças entre versões; não é sinônimo de ativar controle de alterações para edições futuras.\n\nAntes de distribuir versão final, examine comentários, alterações pendentes e metadados. Aceitar todas as mudanças sem ler pode consolidar erros. Uma cópia destinada ao público pode exigir remoção de informações de revisão conforme a finalidade. Preserve o original quando precisar do histórico.",
+      "example": ""
+    },
+    {
+      "title": "6. Acessibilidade e leitura",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nO manual Bradesco emprega navegação por teclado e Virtual Vision; seus comandos numéricos de leitura dependem desse leitor de tela. A apostila Fernando lista leitura em voz alta e verificação de acessibilidade na guia Revisão. São recursos diferentes: ler em voz alta sintetiza texto; verificar acessibilidade identifica potenciais barreiras.\n\nUse títulos estruturados, texto alternativo relevante, contraste suficiente, links descritivos, tabelas com cabeçalho e ordem de leitura coerente. Não dependa apenas da cor para indicar significado. Um verificador automático não comprova acessibilidade completa; combine inspeção e teste de leitura quando necessário. Não é exigido instalar leitor de tela para realizar a revisão conceitual.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Referências",
+      "title": "Sumário",
+      "prompt": "Qual recurso apresenta capítulos e suas páginas a partir da estrutura de títulos?",
+      "hint": "Não é índice de termos.",
+      "explanation": "Estilos de títulos permitem gerar estrutura.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sumário automático.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Referências",
+      "title": "Índice",
+      "prompt": "Qual recurso ajuda a encontrar menções a um termo em páginas diferentes?",
+      "hint": "Ordem de termos.",
+      "explanation": "Organiza entradas marcadas e páginas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Índice remissivo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Referências",
+      "title": "Atualizar",
+      "prompt": "Após mudar título de capítulo, atualizar apenas números de páginas é suficiente?",
+      "hint": "Mudou conteúdo do sumário.",
+      "explanation": "A atualização precisa refletir títulos e paginação.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não necessariamente; atualizar o sumário inteiro.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Referências",
+      "title": "Notas",
+      "prompt": "Diferencie nota de rodapé e nota de fim.",
+      "hint": "Local de apresentação.",
+      "explanation": "Ambas podem ter numeração automática.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Rodapé na parte inferior da página; fim no final de documento ou seção conforme configuração.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Revisão opcional — Referências",
+      "title": "Citação",
+      "prompt": "Citação e bibliografia são sinônimos?",
+      "hint": "Referência pontual versus lista.",
+      "explanation": "Devem manter coerência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; citação indica fonte no contexto, bibliografia reúne referências.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Referências",
+      "title": "Legenda",
+      "prompt": "Inserir nova figura antes de Figura 2 exige ajustar referências digitadas manualmente? Qual alternativa?",
+      "hint": "Campos automáticos.",
+      "explanation": "Evita inconsistência.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sim, se manuais; usar legendas numeradas e referências cruzadas, atualizando campos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional — Referências",
+      "title": "Índice de figuras",
+      "prompt": "É o mesmo que sumário de capítulos?",
+      "hint": "Origem dos itens.",
+      "explanation": "Listas atendem objetivos distintos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; índice/lista de figuras usa legendas, sumário usa estrutura de títulos.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Revisão",
+      "title": "Corretor",
+      "prompt": "Uma palavra marcada como incorreta necessariamente está errada?",
+      "hint": "Nomes próprios e termos técnicos.",
+      "explanation": "Correção automática tem limites.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; verificar idioma e contexto antes de aceitar sugestão.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Revisão",
+      "title": "Idioma",
+      "prompt": "Por que um parágrafo em inglês dentro de texto português pode gerar falsos alertas?",
+      "hint": "Dicionário selecionado.",
+      "explanation": "Configuração afeta sugestões.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Idioma de revisão inadequado ao trecho.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Revisão",
+      "title": "Atalho",
+      "prompt": "Que combinação o manual Bradesco descreve para correção contextual?",
+      "hint": "Alt mais tecla de função.",
+      "explanation": "Não confundir com comandos do Virtual Vision.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Alt+F7.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional — Revisão",
+      "title": "Sinônimos",
+      "prompt": "Substituir toda palavra por um sinônimo sugerido garante sentido igual?",
+      "hint": "Contexto semântico.",
+      "explanation": "Revisão requer julgamento.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; nuances e uso variam.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Colaboração",
+      "title": "Comentários",
+      "prompt": "Diferencie comentário e alteração controlada.",
+      "hint": "Observação versus edição.",
+      "explanation": "São mecanismos distintos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Comentário anota; alteração controlada registra modificação para aceitar/rejeitar.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Colaboração",
+      "title": "Ocultar",
+      "prompt": "Ocultar marcações elimina as alterações pendentes?",
+      "hint": "Visualização não é aceitação.",
+      "explanation": "Marcas podem permanecer no arquivo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; é preciso aceitar/rejeitar mudanças conforme desejado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Essenciais — Colaboração",
+      "title": "Comparar",
+      "prompt": "Qual recurso identifica diferenças entre dois documentos existentes?",
+      "hint": "Não exige que revisão estivesse ativa.",
+      "explanation": "Controle de alterações registra edições futuras quando ativado.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Comparar documentos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — Acessibilidade",
+      "title": "Imagem",
+      "prompt": "Legenda visível substitui automaticamente texto alternativo?",
+      "hint": "Funções diferentes.",
+      "explanation": "Podem ser complementares.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; legenda identifica, texto alternativo descreve informação visual relevante.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Acessibilidade",
+      "title": "Verificador",
+      "prompt": "Um documento sem alertas automáticos é comprovadamente acessível?",
+      "hint": "Limites da automação.",
+      "explanation": "Verificação automática não cobre tudo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; testes de estrutura e leitura ainda podem ser necessários.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Acessibilidade",
+      "title": "Comando",
+      "prompt": "Ctrl+vírgula numérica para ler texto é comando universal Word?",
+      "hint": "Retome manual adaptado.",
+      "explanation": "Separe tecnologia assistiva e editor.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; apresentado no contexto de Virtual Vision.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Essenciais — Revisão",
+      "title": "Busca",
+      "prompt": "No padrão Bradesco, quais atalhos localizam e substituem?",
+      "hint": "L e U.",
+      "explanation": "Recuperação cumulativa.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+L e Ctrl+U.",
+      "expected": null,
+      "required": true
+    }
+  ]
+}

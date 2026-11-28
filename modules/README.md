@@ -30,3 +30,5 @@ A verificação automatizada usa os bytes reais dos arquivos. O índice legado e
 ## Tecnologia da Informação
 
 501–502: revisão acadêmica de Word, com foco em atalhos do manual Fundação Bradesco (Word 2016 PT-BR), provisoriamente até confirmação docente. Apostilas de Elias de Souza Santana e Fernando Borges Vale como fontes complementares, divergências explicitadas. Texto de Fernando extraído parcialmente; figuras não examinadas. Sem prática obrigatória em LibreOffice. Próximos módulos: 503 estilos/listas/tabelas/visuais; 504 referências/revisão/colaboração/acessibilidade; 505 correspondências/proteção/impressão/gerenciamento.
+
+503–505: estilos, listas, tabelas, referências, revisão, acessibilidade, correspondências e gerenciamento documental. Revisão cumulativa de atalhos baseada em Bradesco 2016 PT-BR, confirmação docente pendente. Tópicos conhecidos apenas pelo sumário de Fernando são identificados como complementos autorais; figuras e páginas sem extração continuam pendentes. Cinco módulos publicados, sem práticas obrigatórias em Writer.

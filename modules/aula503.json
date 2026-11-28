@@ -1,0 +1,264 @@
+{
+  "schema_version": 2,
+  "discipline": "ti",
+  "id": "aula503",
+  "title": "Estilos, listas, tabelas e elementos visuais",
+  "subtitle": "Estrutura documental, temas, objetos e formatação consistente",
+  "objectives": "Distinguir estilos e formatação direta; reconhecer listas e tabelas estruturadas; identificar recursos de Inserir e Design; retomar atalhos de formatação.",
+  "source": "Fontes: Fundação Bradesco, Word 2016 Básico (2017), aulas 4–9; Elias de Souza Santana, Apostila 01 - WORD, seções 8–12, 25–30; Fernando Borges Vale, Apostila de Word, texto disponível e sumário das guias Inserir, Design, Referências, Correspondências, Revisão e Exibir. Extração de Fernando parcial; figuras não examinadas. Conceitos das seções disponíveis apenas no sumário desenvolvidos como complementos autorais, não como transcrição de procedimentos. Padrão provisório: Word 2016 desktop PT-BR conforme Bradesco.",
+  "chapters": [
+    {
+      "title": "1. Estilos e formatação direta",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 6\n\nUm estilo reúne propriedades de formatação reutilizáveis. Estilos de parágrafo podem definir fonte, alinhamento, espaçamento e nível de estrutura; estilos de caractere atuam sobre trechos. A formatação direta modifica propriedades localmente, sem necessariamente alterar o estilo. Aplicar negrito e fonte grande a um título não o torna automaticamente um título estrutural.\n\nTítulo 1, Título 2 e Título 3 expressam hierarquia. Alterar a definição de um estilo permite atualizar os parágrafos que o utilizam, respeitando eventuais substituições diretas. O grupo Estilos fica na Página Inicial. Ctrl+Espaço remove formatação direta de caracteres no padrão estudado; não é comando para remover toda estrutura do documento.",
+      "example": "Título 1: Relatório\nTítulo 2: Metodologia\nTítulo 2: Resultados"
+    },
+    {
+      "title": "2. Temas, modelos e bordas",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nA guia Design reúne temas, cores, fontes, espaçamento e recursos de plano de fundo. Um tema coordena escolhas visuais; um estilo define propriedades reutilizáveis; um modelo fornece uma base para novos documentos, podendo conter estilos, conteúdo inicial e configurações. Não são sinônimos.\n\nBorda delimita texto, parágrafo, célula ou página conforme o objeto selecionado; sombreamento preenche a área. Destaque de texto, sombreamento de parágrafo e cor da página possuem escopos distintos. O manual Bradesco, aula 5, aborda bordas e sombreamento; Fernando lista recursos da guia Design.",
+      "example": ""
+    },
+    {
+      "title": "3. Marcadores, numeração e listas multinível",
+      "text": "CONTEÚDO DO CURSO — Bradesco, aula 5\n\nMarcadores representam itens sem ordem numérica obrigatória; numeração indica sequência; listas multinível representam hierarquia. Use os recursos de lista do grupo Parágrafo, em vez de digitar símbolos e números manualmente. Inserir ou excluir itens permite atualizar a numeração automaticamente. Reiniciar ou continuar numeração é uma decisão estrutural.\n\nListas multinível podem se associar a estilos de títulos para numeração de capítulos. Não confunda nível de lista com simples recuo visual. Uma lista de requisitos sem ordem pode usar marcadores; um procedimento sequencial pode usar numeração.",
+      "example": ""
+    },
+    {
+      "title": "4. Tabelas",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO\n\nUma tabela organiza informações em linhas, colunas e células. Inserir tabela é diferente de alinhar texto com espaços ou tabulações. Mesclar células une regiões; dividir células separa uma região; inserir ou excluir linha altera a estrutura. Bordas podem ser invisíveis mesmo quando a tabela existe; linhas de grade auxiliares podem aparecer apenas na tela.\n\nAjuste largura, altura, alinhamento e repetição de cabeçalho quando apropriado. Uma tabela para dados deve ter cabeçalhos claros e evitar mesclagens desnecessárias que dificultem leitura. Tabelas do Word podem ter fórmulas simples, mas não substituem uma planilha para cálculos extensos.",
+      "example": ""
+    },
+    {
+      "title": "5. Imagens, formas e gráficos",
+      "text": "CONTEÚDO DO CURSO — Fernando, guia Inserir; complemento técnico\n\nImagens ilustram conteúdo; formas representam elementos gráficos; SmartArt organiza relações e processos; gráficos representam dados; WordArt aplica efeitos decorativos a texto. Caixa de texto permite posicionar conteúdo em objeto próprio. Não use um gráfico decorativo quando uma tabela comunicar melhor o fato.\n\nUma imagem alinhada com o texto comporta-se como elemento na linha; outras opções de disposição permitem que o texto contorne o objeto. Âncora vincula um objeto flutuante a um parágrafo. Recortar modifica a região exibida, enquanto redimensionar altera dimensões. Preserve proporções quando necessário. Texto alternativo descreve informação relevante para acessibilidade.",
+      "example": ""
+    },
+    {
+      "title": "6. Campos, símbolos e elementos reutilizáveis",
+      "text": "REVISÃO ACADÊMICA E COMPLEMENTO\n\nA guia Inserir inclui hiperlinks, indicadores, caixas de texto, equações, símbolos, data/hora e partes rápidas. Hiperlink aponta para destino; indicador marca posição ou trecho que pode servir de destino interno. Campo pode representar conteúdo calculado ou atualizado, como número de página. Uma data inserida como texto não se atualiza automaticamente; uma data configurada como campo pode atualizar.\n\nPartes rápidas permitem reutilizar conteúdo. Cabeçalho e rodapé pertencem à estrutura de página, não são texto repetido manualmente. Legendas e referências cruzadas serão retomadas na aula 504. Use símbolos e equações para representar conteúdo, sem confundir aparência com significado.",
+      "example": ""
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Estilos",
+      "title": "Título estrutural",
+      "prompt": "Aplicar negrito e tamanho 18 transforma automaticamente um parágrafo em Título 1?",
+      "hint": "Aparência e estrutura.",
+      "explanation": "A aparência sozinha não define hierarquia.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; aplicar o estilo ou nível estrutural apropriado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Estilos",
+      "title": "Alteração global",
+      "prompt": "Como alterar a aparência de todos os Títulos 2 sem editar cada um?",
+      "hint": "Definição compartilhada.",
+      "explanation": "Estilos centralizam propriedades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Modificar o estilo Título 2.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Estilos",
+      "title": "Limpar",
+      "prompt": "No manual Bradesco, qual atalho remove formatação direta de caracteres?",
+      "hint": "Retome aula 502.",
+      "explanation": "Não remove todas as propriedades do parágrafo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Espaço.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Estilos",
+      "title": "Tema e modelo",
+      "prompt": "Diferencie tema, estilo e modelo.",
+      "hint": "Visual, propriedades, base.",
+      "explanation": "São recursos relacionados, não equivalentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Tema coordena visual; estilo reúne propriedades; modelo é base para novos documentos.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Listas",
+      "title": "Sequência",
+      "prompt": "Qual recurso usar para passos que precisam manter numeração após inserir um novo passo?",
+      "hint": "Estrutura automática.",
+      "explanation": "Evita renumerar manualmente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Lista numerada.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Listas",
+      "title": "Hierarquia",
+      "prompt": "Que recurso representa capítulos 1, 1.1 e 1.2?",
+      "hint": "Mais de um nível.",
+      "explanation": "A hierarquia pode alimentar estrutura e numeração.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Lista multinível, idealmente vinculada a estilos de título.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "07",
+      "group": "Revisão opcional — Listas",
+      "title": "Escolha",
+      "prompt": "Use marcador ou numeração para lista de materiais sem ordem obrigatória?",
+      "hint": "Não há sequência.",
+      "explanation": "Numeração pode sugerir ordem.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Marcadores.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Tabelas",
+      "title": "Células",
+      "prompt": "Diferencie mesclar e dividir células.",
+      "hint": "Uma região ou várias.",
+      "explanation": "Altera estrutura da tabela.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Mesclar une células; dividir separa uma célula em regiões.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Tabelas",
+      "title": "Bordas",
+      "prompt": "Tabela sem bordas deixa de ser tabela?",
+      "hint": "Aparência versus estrutura.",
+      "explanation": "Bordas são propriedades visuais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Linhas, colunas e células continuam existindo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Revisão opcional — Tabelas",
+      "title": "Dados",
+      "prompt": "Por que não usar uma sequência de espaços para montar uma tabela de preços?",
+      "hint": "Fontes e alterações.",
+      "explanation": "Estrutura facilita edição.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Espaços não preservam alinhamento e estrutura de células; usar tabela.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "11",
+      "group": "Essenciais — Visuais",
+      "title": "Disposição",
+      "prompt": "Qual diferença entre imagem alinhada com texto e objeto flutuante?",
+      "hint": "Linha versus posicionamento.",
+      "explanation": "O posicionamento depende da opção.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Alinhada ocupa posição na linha; flutuante permite outras disposições e ancoragem.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "12",
+      "group": "Revisão opcional — Visuais",
+      "title": "Recorte",
+      "prompt": "Recortar imagem é o mesmo que reduzir seu tamanho exibido?",
+      "hint": "Região versus dimensão.",
+      "explanation": "São operações distintas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não; recorte muda região visível, redimensionar muda dimensões.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "13",
+      "group": "Essenciais — Visuais",
+      "title": "Recursos",
+      "prompt": "Associe SmartArt, gráfico e WordArt a diagrama, dados quantitativos e efeito decorativo.",
+      "hint": "Finalidades diferentes.",
+      "explanation": "Escolher pelo objetivo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "SmartArt: diagrama; gráfico: dados; WordArt: efeito decorativo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Campos",
+      "title": "Data",
+      "prompt": "Por que uma data fixa e um campo de data atualizável podem produzir resultados diferentes?",
+      "hint": "Atualização.",
+      "explanation": "Escolha depende de data histórica ou atual.",
+      "mode": "text",
+      "starter": "",
+      "solution": "O texto permanece igual; campo pode recalcular conforme configuração.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Essenciais — Campos",
+      "title": "Indicador",
+      "prompt": "Qual diferença entre indicador e hiperlink?",
+      "hint": "Destino versus ligação.",
+      "explanation": "Podem ser usados em conjunto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Indicador marca posição; hiperlink aponta a destino.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "16",
+      "group": "Essenciais — Revisão",
+      "title": "Atalhos",
+      "prompt": "No padrão Bradesco, quais atalhos copiam e aplicam formatação?",
+      "hint": "Shift mais C e V.",
+      "explanation": "Referência 2016; versões posteriores podem divergir.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+Shift+C e Ctrl+Shift+V.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "17",
+      "group": "Essenciais — Revisão",
+      "title": "Formatação",
+      "prompt": "No padrão Bradesco, aplique negrito, centralize e salve. Liste os atalhos.",
+      "hint": "N, E, B.",
+      "explanation": "Retoma caracteres, parágrafo e arquivo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Ctrl+N, Ctrl+E, Ctrl+B.",
+      "expected": null,
+      "required": true
+    }
+  ]
+}
