@@ -54,24 +54,24 @@
       "title": "Introdução aos sistemas numéricos",
       "subtitle": "Bases, dígitos, potências e valor posicional",
       "discipline": "arquitetura",
-      "sha256": "7089bf8b035b986437d0922b718313d9200d132c351ddd0483115afebb3a8ec9",
-      "bytes": 54375
+      "sha256": "f2a711eb791ce0b509030832cd7bfda9f966f1ff801db32599388d73b0e010b7",
+      "bytes": 54690
     },
     {
       "id": "aula108",
       "title": "Decimal e binário em profundidade",
       "subtitle": "Pesos, divisões sucessivas, verificação e largura fixa",
       "discipline": "arquitetura",
-      "sha256": "6461e42a7d9e1a6481f9f502d40b37406308dcc4523f5f60e242882987abbad3",
-      "bytes": 109030
+      "sha256": "7643be132c51898f980fb5eb2f23637ef9fcd281905ccf1c4edf5c7ff477a8f5",
+      "bytes": 109798
     },
     {
       "id": "aula109",
       "title": "Representação digital das cores",
       "subtitle": "Bits, canais RGB, pixels, Paint, CSS e interfaces Java",
       "discipline": "arquitetura",
-      "sha256": "080bb1fe6ae9b50775717a7f1a603078b2843cd1f3d81e9cb86c4bc38c15afa4",
-      "bytes": 34600
+      "sha256": "31935481e8358cf2677518f326473cb6c2de8ef96d33f7c84e33a3a82c43bbc2",
+      "bytes": 35582
     },
     {
       "id": "aula201",
