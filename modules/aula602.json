@@ -5,7 +5,7 @@
   "title": "Fundamentos da modelagem de dados",
   "subtitle": "Requisitos, regras de negócio e níveis conceitual, lógico e físico",
   "objectives": "Explicar a finalidade da modelagem; levantar requisitos; diferenciar níveis de abstração; validar regras e documentar decisões.",
-  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais dos PDFs ainda não examinadas sistematicamente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente.",
   "chapters": [
     {
       "title": "1. Modelar é escolher uma representação",
@@ -29,7 +29,7 @@
     },
     {
       "title": "5. Modelo físico",
-      "text": "CONTEÚDO DO CURSO\n\nO modelo físico concretiza o projeto em um SGBD escolhido, considerando tipos disponíveis, restrições, índices e características de acesso e armazenamento. Uma implementação PostgreSQL pode usar tipos e recursos diferentes de uma implementação SQLite. O modelo conceitual pode continuar válido mesmo com mudança de tecnologia.\n\nUm índice pode acelerar a busca por reservas de um equipamento, mas custa espaço e trabalho de manutenção. Escolher um índice sem conhecer a consulta é uma decisão prematura.\n\nAPROFUNDAMENTO\n\nAs fronteiras entre lógico e físico variam na literatura; seguiremos a convenção das apostilas: chaves e estrutura relacional no lógico; tipos SQL e detalhes específicos do SGBD no físico.",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo físico concretiza o projeto em um SGBD escolhido, considerando tipos disponíveis, restrições, índices e características de acesso e armazenamento. Uma implementação PostgreSQL pode usar tipos e recursos diferentes de uma implementação SQLite. O modelo conceitual pode continuar válido mesmo com mudança de tecnologia.\n\nUm índice pode acelerar a busca por reservas de um equipamento, mas custa espaço e trabalho de manutenção. Escolher um índice sem conhecer a consulta é uma decisão prematura.\n\nAPROFUNDAMENTO\n\nAs fronteiras entre lógico e físico variam na literatura; seguiremos a convenção das apostilas: chaves e estrutura relacional no lógico; tipos SQL e detalhes específicos do SGBD no físico.\n\nCOMPLEMENTO MOTIVADO PELA NARRAÇÃO — Os diferentes níveis também favorecem conversas com públicos distintos. O conceitual permite validar regras com especialistas do domínio e usuários; o lógico facilita discutir estruturas e restrições com analistas e desenvolvedores; o físico envolve escolhas do SGBD, desempenho e administração. Essa divisão é de ênfase, não de exclusividade: profissionais técnicos participam do conceitual e usuários podem precisar validar decisões posteriores. O modelo lógico relacional usa relações e chaves; outros modelos lógicos podem adotar estruturas distintas. Os detalhes físicos não se limitam à localização dos dados em disco.",
       "example": ""
     },
     {

@@ -5,7 +5,7 @@
   "title": "Projeto integrado: do problema ao banco de dados",
   "subtitle": "Laboratório de biblioteca, requisitos, MER, esquema, integridade e evolução",
   "objectives": "Consolidar o percurso completo da modelagem; levantar requisitos; construir DER textual e dicionário; transformar para esquema relacional; analisar normalização; especificar testes e avaliar mudanças de requisitos.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração não transcrita. Figuras dos PDFs não examinadas nesta etapa. Exemplos, explicações detalhadas de dependências e exercícios autorais.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Figuras dos PDFs não examinadas nesta etapa. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente.",
   "chapters": [
     {
       "title": "1. O cenário e o recorte",
@@ -49,7 +49,7 @@
     },
     {
       "title": "9. Evolução do modelo",
-      "text": "CONEXÃO COM O ENCERRAMENTO VISUAL DO VÍDEO MODELAGEM DE DADOS E APROFUNDAMENTO AUTORAL\n\nOs quadros finais do vídeo levantam a questão de prever necessidades futuras de dados. Não existe forma de antecipar todas as mudanças. Um bom modelo registra decisões e permite revisões sem confundir fatos existentes com novos requisitos.\n\nSuponha que a biblioteca passe a permitir reservas de edições, mesmo quando todos os exemplares estão emprestados. Isso acrescenta RESERVA com leitor, edição, data, situação e política de fila. Não reutilize EMPRESTIMO para representar uma reserva que ainda não houve retirada. Os eventos têm significados e regras diferentes. Investigue validade, cancelamento e conversão em empréstimo, além da relação entre edição reservada e exemplar retirado.\n\nOutro requisito: preservar histórico de alterações de situação do exemplar. Um atributo situacao atual não responde quando a baixa ocorreu ou quem autorizou. Pode ser necessário EVENTO_SITUACAO com datas e tipos. Reavalie domínios, identidade, referências, normalização, migração e testes; não altere o significado de campos antigos silenciosamente.",
+      "text": "CONEXÃO COM O ENCERRAMENTO VISUAL DO VÍDEO MODELAGEM DE DADOS E APROFUNDAMENTO AUTORAL\n\nOs quadros finais do vídeo levantam a questão de prever necessidades futuras de dados. Não existe forma de antecipar todas as mudanças. Um bom modelo registra decisões e permite revisões sem confundir fatos existentes com novos requisitos.\n\nSuponha que a biblioteca passe a permitir reservas de edições, mesmo quando todos os exemplares estão emprestados. Isso acrescenta RESERVA com leitor, edição, data, situação e política de fila. Não reutilize EMPRESTIMO para representar uma reserva que ainda não houve retirada. Os eventos têm significados e regras diferentes. Investigue validade, cancelamento e conversão em empréstimo, além da relação entre edição reservada e exemplar retirado.\n\nOutro requisito: preservar histórico de alterações de situação do exemplar. Um atributo situacao atual não responde quando a baixa ocorreu ou quem autorizou. Pode ser necessário EVENTO_SITUACAO com datas e tipos. Reavalie domínios, identidade, referências, normalização, migração e testes; não altere o significado de campos antigos silenciosamente.\n\nCOMPLEMENTO AUTORAL — A narração destaca o custo de alterar esquemas. A frequência real de mudanças varia: aplicações evoluem, e migrações planejadas podem ser comuns. Exemplo: acrescentar um campo opcional geralmente tem riscos diferentes de remover um campo usado por aplicações antigas. Planeje a transição, teste com dados fictícios ou cópia autorizada, mantenha backup verificável e estratégia de recuperação; avalie compatibilidade de versões, preenchimento de dados existentes e validação de restrições antes de tornar um campo obrigatório. Nem toda migração pode ser desfeita sem perda; um script inverso não substitui um backup. Não executar mudanças destrutivas em produção durante esta prática.",
       "example": ""
     },
     {
@@ -394,6 +394,19 @@
       "mode": "text",
       "starter": "",
       "solution": "Exemplo: USUARIO, EQUIPAMENTO, RETIRADA; regras de identidade, referência, disponibilidade, datas e histórico; testar retirada válida, alvo ausente, equipamento ocupado e devolução anterior.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional — Evolução",
+      "title": "Novo campo obrigatório",
+      "prompt": "Uma biblioteca quer exigir um e-mail para cada leitor, mas muitos cadastros antigos não têm esse dado. Descreva uma migração sem inventar endereços nem apagar leitores.",
+      "hint": "Separe mudança de estrutura, coleta de dados e validação.",
+      "solution": "Adicionar campo opcional se ainda não existir; atualizar aplicações para coletar valores reais; identificar pendências e decidir regra de transição; testar e só impor obrigatoriedade quando os dados e requisitos permitirem. Planejar backup e recuperação.",
+      "explanation": "Alterar restrições exige considerar dados existentes, compatibilidade e significado; não preencher informação desconhecida com valores fictícios.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }

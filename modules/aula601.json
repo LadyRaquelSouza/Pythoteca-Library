@@ -5,7 +5,7 @@
   "title": "Dados, informação e bancos de dados",
   "subtitle": "Dados, contexto, metadados, SGBDs e linguagens",
   "objectives": "Distinguir dado, informação, metadado, banco e SGBD; compreender responsabilidades, modelos de dados e operações de definição e manipulação.",
-  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais e vídeo não examinados; complementos identificados.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras originais dos PDFs ainda não examinadas sistematicamente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente.",
   "chapters": [
     {
       "title": "1. Dados e contexto",

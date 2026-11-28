@@ -5,7 +5,7 @@
   "title": "Cardinalidade e participação",
   "subtitle": "Mínimos, máximos, relações 1:1, 1:N e N:M, convenções de leitura",
   "objectives": "Interpretar cardinalidade nos dois sentidos; distinguir mínimo e máximo; representar regras em ER e UML; diagnosticar ambiguidades e validar casos-limite.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras originais e vídeo não examinados. Complementos identificados.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; figuras originais e vídeo não examinados. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente.",
   "chapters": [
     {
       "title": "1. A pergunta certa em cada direção",
