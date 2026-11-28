@@ -5,7 +5,7 @@
   "title": "Estrutura escolha/caso",
   "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
   "objectives": "Interpretar escolha/caso; usar pare e caso contrario; distinguir valores discretos de intervalos; elaborar menus e testar alternativas.",
-  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos sete capítulos, com rastreamento de casos, diagnóstico de menus e critérios de seleção. Reinspeção visual integral do PDF A05 em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Ressalvas sobre critérios de seleção, fragmentos de código, pare e caso contrario; exemplos autorais. Arquivo .por reconsultado integralmente em 28/11/2026 (929 bytes), análise estática concluída; sem teste em interpretador. Sem execução de Portugol.",
+  "source": "Base acadêmica: Aula_5_Escolha_Caso.pdf, dez slides examinados visualmente, e Aula_5_Exemplo_Menu_Escolar_Escolha_Caso.por, conteúdo consultado. Slides 2–5: conceito e sintaxe; 6–8: menus, fluxo e dias úteis; 9–10: erros e atividades. Exemplos e exercícios autorais; distinções adicionais identificadas. Código não executado nesta etapa. Atividades adicionais autorais inspiradas em Atividades_Portugol.pdf, dez páginas examinadas visualmente; valores e contextos adaptados. Expansão autoral de revisão teórica dos sete capítulos, com rastreamento de casos, diagnóstico de menus e critérios de seleção. Reinspeção visual integral do PDF A05 em 28/11/2026: dez páginas sem camada textual, renderizadas e examinadas em cinco pares. Ressalvas sobre critérios de seleção, fragmentos de código, pare e caso contrario; exemplos autorais. Arquivo .por reconsultado integralmente em 28/11/2026 (929 bytes), análise estática concluída; sem teste em interpretador. Sem execução de Portugol. Atividades_Portugol.pdf (01–10) reexaminado integralmente em 28/11/2026, dez páginas sem camada textual, cinco pares renderizados. Exercícios correspondentes ampliados de cálculo/fragmento para construção de programa, com parâmetros autorais diferenciados dos acadêmicos. Sem execução de Portugol.",
   "chapters": [
     {
       "title": "1. Seleção múltipla",
@@ -39,7 +39,7 @@
     },
     {
       "title": "7. Construção e interpretação",
-      "text": "CURSO: os desafios finais envolvem cantina e sistema escolar. APROFUNDAMENTO: planeje opções, mensagens, tratamento padrão e testes antes de escrever o código. A Pythoteca permite rastreamento manual; execute os exemplos no Portugol Studio ou Webstudio. Em Python, a comparação futura incluirá if/elif e match/case, sem presumir equivalência exata.\n\nCONFERÊNCIA VISUAL — As duas propostas do slide 10 exigem selecionar um item de cantina ou uma opção escolar e comunicar a seleção, com tratamento de valores não previstos. Não exigem pagamento, consulta real, banco de dados ou repetição automática. A atividade escolar em .por será analisada separadamente. Os exercícios atuais já cobrem construção, rastreamento e validação de menus; nenhuma duplicação necessária.",
+      "text": "CURSO: os desafios finais envolvem cantina e sistema escolar. APROFUNDAMENTO: planeje opções, mensagens, tratamento padrão e testes antes de escrever o código. A Pythoteca permite rastreamento manual; execute os exemplos no Portugol Studio ou Webstudio. Em Python, a comparação futura incluirá if/elif e match/case, sem presumir equivalência exata.\n\nCONFERÊNCIA VISUAL — As duas propostas do slide 10 exigem selecionar um item de cantina ou uma opção escolar e comunicar a seleção, com tratamento de valores não previstos. Não exigem pagamento, consulta real, banco de dados ou repetição automática. A atividade escolar em .por será analisada separadamente. Os exercícios atuais já cobrem construção, rastreamento e validação de menus; nenhuma duplicação necessária.\n\nLISTA ACADÊMICA 10 — O objetivo é anunciar três opções antes de ler e apresentar nome, velocidade e mensalidade do plano escolhido, com tratamento de opção inválida. Não requer cálculo ou contratação. A lista aceita escolha/caso ou se/senao. Os planos acadêmicos são Básico (50 Mbps, R$ 69,90), Intermediário (200 Mbps, R$ 99,90) e Premium (500 Mbps, R$ 139,90). O exercício 21 usa planos autorais distintos para praticar o mesmo objetivo.",
       "example": "Menu autoral de oficina: 1 = Inscrição; 2 = Calendário; 3 = Materiais; demais = opção inválida."
     }
   ],
@@ -555,10 +555,10 @@
       "id": "21",
       "group": "Revisão opcional",
       "title": "Planos de internet",
-      "prompt": "Crie uma seleção para 1: 100 Mbps por 70 reais; 2: 300 Mbps por 100 reais; 3: 600 Mbps por 140 reais; demais: inválida.",
-      "hint": "Identifique as entradas, regras e saída.",
-      "solution": "escolha (opcao)\n{\n caso 1:\n escreva(\"100 Mbps, R$ 70\")\n pare\n caso 2:\n escreva(\"300 Mbps, R$ 100\")\n pare\n caso 3:\n escreva(\"600 Mbps, R$ 140\")\n pare\n caso contrario:\n escreva(\"Inválida\")\n}",
-      "explanation": "Use casos fixos e pare.",
+      "prompt": "Crie um programa de escolha de internet que anuncie três opções antes de ler: Inicial (100 Mbps, R$ 70), Avançado (300 Mbps, R$ 100) e Ultra (600 Mbps, R$ 140). Leia opção inteira, mostre nome, velocidade e mensalidade; trate demais números como inválidos. Teste 1, 2, 3 e 4.",
+      "hint": "Imprima o menu antes de leia; use escolha/caso ou se/senao se.",
+      "solution": "1: Inicial, 100 Mbps, 70; 2: Avançado, 300 Mbps, 100; 3: Ultra, 600 Mbps, 140; 4: inválida. Não há cálculo nem contratação real.",
+      "explanation": "Prática autoral de construção em Portugol, com valores adaptados quando indicado. O roteiro e os testes ajudam a conferir a solução; não constituem execução automática. Escreva e teste no ambiente externo.",
       "mode": "text",
       "starter": "",
       "expected": null,

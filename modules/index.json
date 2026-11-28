@@ -94,24 +94,24 @@
       "title": "Soma de dois números e processamento de dados",
       "subtitle": "Entrada, processamento, saída, atribuição e operações aritméticas",
       "discipline": "portugol",
-      "sha256": "6c21c7ae74d276fb2fae16a374b14925eda9cc821d25bd777038fa50a005092c",
-      "bytes": 55697
+      "sha256": "636ad665d155e76e5158660c6418769fb4f9db9aa907ab6541fdff2df19448df",
+      "bytes": 58346
     },
     {
       "id": "aula204",
       "title": "Estruturas de seleção",
       "subtitle": "Condições, operadores relacionais e decisões encadeadas",
       "discipline": "portugol",
-      "sha256": "c1739b219684fa7a473e80680286fa593921fe5fdbe23c52a33c01a854cc20a6",
-      "bytes": 62575
+      "sha256": "0e156114ccfc4453e44f1476721b8b34842aeff9f12c30ffaf170d98f607807c",
+      "bytes": 64718
     },
     {
       "id": "aula205",
       "title": "Estrutura escolha/caso",
       "subtitle": "Seleção múltipla, menus e rastreamento de alternativas",
       "discipline": "portugol",
-      "sha256": "a45737212b4bd0efa93e28f51a475e6c74cad92d52f4ce080c2587c2cad6918a",
-      "bytes": 54530
+      "sha256": "c335228ce72531e59034819647b5e3593bd629c2af5060aeb149f8fcb917b15b",
+      "bytes": 55599
     },
     {
       "id": "aula301",
