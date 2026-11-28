@@ -5,53 +5,53 @@
   "title": "Decimal e binário em profundidade",
   "subtitle": "Pesos, divisões sucessivas, verificação e largura fixa",
   "objectives": "Converter inteiros não negativos em ambos os sentidos; explicar os pesos binários e restos; conferir resultados; reconhecer zeros à esquerda e limites de representação sem sinal; usar a Mesa de Conversão.",
-  "source": "CONTEÚDO AUTORAL PROVISÓRIO. A professora ainda não disponibilizou material da aula presencial sobre sistemas numéricos. Os únicos temas delimitados pelo relato da estudante são decimal e binário (estudados), octal e hexadecimal (mencionados). Nenhum exemplo, método específico, exercício ou formulação desta lição é atribuído à professora. Revisar a correspondência acadêmica quando o material chegar.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (sistemas de numeração e conversão decimal para binário, pp. 3–15) e Aula 04 (leitura e conversão de números binários, pp. 3–10), texto consultado em 28/11/2026. Explicações, exemplos e exercícios autorais; complementos identificados. Apresentações sem texto extraível, imagens e mídias não examinadas nesta revisão.",
   "chapters": [
     {
       "title": "Duas escritas para o mesmo inteiro",
-      "text": "ESTUDO AUTORAL PROVISÓRIO, SEM APOSTILA DA PROFESSORA.\n\n13₁₀ = 1101₂. Decimal usa dez algarismos com pesos de potências de dez; binário usa dois símbolos com pesos de potências de dois. Não é uma diferença na quantidade representada, mas na escrita. O símbolo 10₂ vale dois, e 10₁₀ vale dez.\n\nAprofundaremos inteiros não negativos. Não atribuímos estes métodos ou exemplos à professora, pois o material acadêmico ainda não chegou. A sequência didática é nossa: pesos, binário→decimal, decimal→binário pelos pesos, divisões sucessivas e conferência.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\n13₁₀ = 1101₂. Decimal usa dez algarismos com pesos de potências de dez; binário usa dois símbolos com pesos de potências de dois. Não é uma diferença na quantidade representada, mas na escrita. O símbolo 10₂ vale dois, e 10₁₀ vale dez.\n\nAprofundaremos inteiros não negativos. Os cadernos das aulas 03 e 04 apresentam divisões sucessivas, método da seleção e conversão inversa. Organizamos a sequência pelos conceitos necessários a cada método; os exemplos são autorais.",
       "example": ""
     },
     {
       "title": "Potências de dois",
-      "text": "ESTUDO AUTORAL.\n\nOs pesos, da direita para a esquerda, são: 1,2,4,8,16,32,64,128,256,512,1024. Cada nova coluna duplica o peso anterior. Em 101101₂, as posições valem 32,16,8,4,2,1: a soma dos pesos ligados é 32+8+4+1=45.\n\nZero interno indica um peso ausente da soma, sem eliminar a posição. 10010₂ = 16+2 = 18. O numeral de n dígitos todos iguais a 1 vale 2ⁿ−1. Não confunda largura do numeral matemático com bytes de armazenamento.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nOs pesos, da direita para a esquerda, são: 1,2,4,8,16,32,64,128,256,512,1024. Cada nova coluna duplica o peso anterior. Em 101101₂, as posições valem 32,16,8,4,2,1: a soma dos pesos ligados é 32+8+4+1=45.\n\nZero interno indica um peso ausente da soma, sem eliminar a posição. 10010₂ = 16+2 = 18. O numeral de n dígitos todos iguais a 1 vale 2ⁿ−1. Não confunda largura do numeral matemático com bytes de armazenamento.",
       "example": ""
     },
     {
       "title": "Binário para decimal",
-      "text": "ESTUDO AUTORAL.\n\nPassos: (1) confirme que somente 0 e 1 aparecem; (2) alinhe a direita ao peso 1; (3) marque os pesos das posições cujo bit é 1; (4) some e confira.\n\n110010₂ = 32+16+2=50₁₀. 10000001₂=128+1=129₁₀. 000101₂=4+1=5₁₀.\n\nPara uma resposta discursiva, não basta informar o valor: mostre o alinhamento e as parcelas. Se houver discrepância, verifique a posição que primeiro divergiu. A Mesa permite registrar os pesos e os bits em linhas distintas.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nPassos: (1) confirme que somente 0 e 1 aparecem; (2) alinhe a direita ao peso 1; (3) marque os pesos das posições cujo bit é 1; (4) some e confira.\n\n110010₂ = 32+16+2=50₁₀. 10000001₂=128+1=129₁₀. 000101₂=4+1=5₁₀.\n\nPara uma resposta discursiva, não basta informar o valor: mostre o alinhamento e as parcelas. Se houver discrepância, verifique a posição que primeiro divergiu. A Mesa permite registrar os pesos e os bits em linhas distintas.",
       "example": ""
     },
     {
       "title": "Decimal para binário pelos pesos",
-      "text": "ESTUDO AUTORAL.\n\nEscolha a maior potência de dois que não ultrapasse o inteiro. Marque 1 e subtraia. Para cada potência menor, marque 1 se couber no restante, senão marque 0. Prossiga até o peso 1.\n\nExemplo 45: 32 cabe, resta 13; 16 não cabe; 8 cabe, resta 5; 4 cabe, resta 1; 2 não cabe; 1 cabe. Os bits são 101101₂. Exemplo 18: 16 cabe; 8 e 4 não; 2 cabe; 1 não: 10010₂.\n\nZero tem representação mínima 0₂. Não elimine colunas internas. A soma dos pesos escolhidos deve reproduzir o número original.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEscolha a maior potência de dois que não ultrapasse o inteiro. Marque 1 e subtraia. Para cada potência menor, marque 1 se couber no restante, senão marque 0. Prossiga até o peso 1.\n\nExemplo 45: 32 cabe, resta 13; 16 não cabe; 8 cabe, resta 5; 4 cabe, resta 1; 2 não cabe; 1 cabe. Os bits são 101101₂. Exemplo 18: 16 cabe; 8 e 4 não; 2 cabe; 1 não: 10010₂.\n\nZero tem representação mínima 0₂. Não elimine colunas internas. A soma dos pesos escolhidos deve reproduzir o número original.\n\nPOR QUE FUNCIONA? Se o peso p cabe no restante, subtraí-lo deixa um restante menor que p (desde que o restante anterior seja menor que 2p). Se não cabe, o restante já é menor que p. O próximo peso é p/2; repetimos até 1. Ao terminar, o restante inteiro é menor que 1, logo é zero. Assim, cada posição precisa de apenas um bit. O método da seleção não significa escolher apenas os maiores pesos: é preciso verificar cada posição, inclusive as que recebem zero.",
       "example": ""
     },
     {
       "title": "Divisões sucessivas por dois",
-      "text": "ESTUDO AUTORAL.\n\nDivida o inteiro repetidamente por dois. Anote quociente inteiro e resto 0 ou 1. Continue até o quociente ser zero. Leia os restos em ordem inversa.\n\n13 ÷ 2 = 6 resto 1; 6 ÷ 2 = 3 resto 0; 3 ÷ 2 = 1 resto 1; 1 ÷ 2 = 0 resto 1. Lendo os restos de baixo para cima: 1101₂.\n\n20 ÷ 2 = 10 resto 0; 10 ÷ 2 = 5 resto 0; 5 ÷ 2 = 2 resto 1; 2 ÷ 2 = 1 resto 0; 1 ÷ 2 = 0 resto 1: 10100₂.\n\nErros comuns: ler os restos em ordem direta, parar ao encontrar um resto zero e usar quociente decimal aproximado. Para o inteiro zero, o numeral mínimo é 0₂, sem divisões.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nDivida o inteiro repetidamente por dois. Anote quociente inteiro e resto 0 ou 1. Continue até o quociente ser zero. Leia os restos em ordem inversa.\n\n13 ÷ 2 = 6 resto 1; 6 ÷ 2 = 3 resto 0; 3 ÷ 2 = 1 resto 1; 1 ÷ 2 = 0 resto 1. Lendo os restos de baixo para cima: 1101₂.\n\n20 ÷ 2 = 10 resto 0; 10 ÷ 2 = 5 resto 0; 5 ÷ 2 = 2 resto 1; 2 ÷ 2 = 1 resto 0; 1 ÷ 2 = 0 resto 1: 10100₂.\n\nErros comuns: ler os restos em ordem direta, parar ao encontrar um resto zero e usar quociente decimal aproximado. Para o inteiro zero, o numeral mínimo é 0₂, sem divisões.\n\nPOR QUE OS RESTOS SÃO INVERTIDOS? Toda divisão inteira de N por 2 fornece N = 2q + r, com r igual a 0 ou 1. O resto r informa se N é par ou ímpar e ocupa o peso 2⁰. Ao dividir q novamente, o novo resto ocupa 2¹ no número original, pois q já estava multiplicado por 2. Por exemplo, 19 = 2×9+1; 9 = 2×4+1; 4 = 2×2+0; 2 = 2×1+0; 1 = 2×0+1. Substituindo sucessivamente: 19 = 1×16 + 0×8 + 0×4 + 1×2 + 1. Resultado 10011₂. Não é uma regra arbitrária de leitura.",
       "example": ""
     },
     {
       "title": "Conferência independente",
-      "text": "ESTUDO AUTORAL.\n\nConverta por um método e revise pelo inverso. Exemplo: 73₁₀ = 1001001₂, porque 64+8+1 = 73. O procedimento de divisões sucessivas produz a mesma sequência.\n\nPara 99₁₀, 64+32+2+1=99 e o numeral é 1100011₂. Confirme pelas divisões. Essa verificação não substitui escrever as etapas, mas ajuda a detectar erros.\n\nA Mesa de Conversão é ideal para guardar pesos, bits, restos e verificação em suas quatro linhas livres, sem mostrar automaticamente a resposta.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nConverta por um método e revise pelo inverso. Exemplo: 73₁₀ = 1001001₂, porque 64+8+1 = 73. O procedimento de divisões sucessivas produz a mesma sequência.\n\nPara 99₁₀, 64+32+2+1=99 e o numeral é 1100011₂. Confirme pelas divisões. Essa verificação não substitui escrever as etapas, mas ajuda a detectar erros.\n\nA Mesa de Conversão é ideal para guardar pesos, bits, restos e verificação em suas quatro linhas livres, sem mostrar automaticamente a resposta.",
       "example": ""
     },
     {
       "title": "Zeros à esquerda e largura fixa",
-      "text": "ESTUDO AUTORAL.\n\nZeros à esquerda não mudam o valor: 00001101₂ e 1101₂ valem 13. Em representações de largura fixa, os zeros podem completar a quantidade exigida de bits.\n\nCom n bits sem sinal, cabem 2ⁿ valores de 0 a 2ⁿ−1. Quatro bits representam 0 a 15; oito bits, 0 a 255. O número 256 não cabe em oito bits sem sinal: precisa pelo menos de nove. Para 0, a escrita mínima é 0.\n\nA aula não trata de números negativos nem complemento de dois. Não aplique o limite sem sinal a valores com sinal. Um inteiro Python também não está necessariamente limitado a oito bits.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nZeros à esquerda não mudam o valor: 00001101₂ e 1101₂ valem 13. Em representações de largura fixa, os zeros podem completar a quantidade exigida de bits.\n\nCom n bits sem sinal, cabem 2ⁿ valores de 0 a 2ⁿ−1. Quatro bits representam 0 a 15; oito bits, 0 a 255. O número 256 não cabe em oito bits sem sinal: precisa pelo menos de nove. Para 0, a escrita mínima é 0.\n\nA aula não trata de números negativos nem complemento de dois. Não aplique o limite sem sinal a valores com sinal. Um inteiro Python também não está necessariamente limitado a oito bits.\n\nAPROFUNDAMENTO — 2⁸ = 256 conta os padrões, não o maior valor. Como todos os bits zero representam 0, o último padrão é 255. A soma 128+64+32+16+8+4+2+1 confirma. Essa distinção é indispensável para o modelo RGB da próxima aula.",
       "example": ""
     },
     {
       "title": "Intercâmbio e revisão cumulativa",
-      "text": "CONEXÃO COM ARQUITETURA — n bits identificam 2ⁿ padrões. O mesmo expoente explica os pesos de um numeral binário e a contagem teórica de endereços, mas essas são aplicações diferentes. Espaço endereçável não é necessariamente RAM física.\n\nCONEXÃO COM PYTHON — Uma string como '001101' preserva a forma, enquanto um inteiro como 13 representa quantidade. A conversão automática e o tratamento de entradas serão estudados mais adiante, não como atalho para esta prática.\n\nPara cada exercício, identifique a base, registre os pesos ou divisões, confira por método independente e explique os zeros. Ao errar, encontre o passo incorreto em vez de substituir apenas a resposta.",
+      "text": "CONEXÃO COM ARQUITETURA — n bits identificam 2ⁿ padrões. O mesmo expoente explica os pesos de um numeral binário e a contagem teórica de endereços, mas essas são aplicações diferentes. Espaço endereçável não é necessariamente RAM física.\n\nCONEXÃO FUTURA E OPCIONAL COM PYTHON — Uma string como '001101' preserva a forma, enquanto um inteiro como 13 representa quantidade. A conversão automática e o tratamento de entradas serão estudados mais adiante, não como atalho para esta prática.\n\nPara cada exercício, identifique a base, registre os pesos ou divisões, confira por método independente e explique os zeros. Ao errar, encontre o passo incorreto em vez de substituir apenas a resposta.",
       "example": ""
     }
   ],
   "exercises": [
     {
       "id": "01",
-      "group": "Fundamentos",
+      "group": "Revisão opcional — Fundamentos",
       "title": "Dez decimal",
       "prompt": "Qual é o binário de 10₁₀?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -78,11 +78,12 @@
           "text": "1111"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "02",
-      "group": "Fundamentos",
+      "group": "Revisão opcional — Fundamentos",
       "title": "Dez binário",
       "prompt": "Quanto vale 10₂ em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -109,11 +110,12 @@
           "text": "2"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "03",
-      "group": "Pesos",
+      "group": "Revisão opcional — Pesos",
       "title": "Quinta posição",
       "prompt": "Qual é o peso da quinta posição binária da direita?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -140,11 +142,12 @@
           "text": "8"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "04",
-      "group": "Pesos",
+      "group": "Essenciais — Pesos",
       "title": "Oitava posição",
       "prompt": "Qual é o peso da oitava posição binária da direita?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -171,11 +174,12 @@
           "text": "64"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": true
     },
     {
       "id": "05",
-      "group": "Conversões",
+      "group": "Revisão opcional — Conversões",
       "title": "10010₂",
       "prompt": "Quanto vale 10010₂ em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -202,11 +206,12 @@
           "text": "20"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "06",
-      "group": "Conversões",
+      "group": "Revisão opcional — Conversões",
       "title": "1111₂",
       "prompt": "Quanto vale 1111₂ em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -233,11 +238,12 @@
           "text": "15"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "07",
-      "group": "Métodos",
+      "group": "Essenciais — Métodos",
       "title": "Resto",
       "prompt": "Quais restos são possíveis na divisão inteira por dois?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -264,11 +270,12 @@
           "text": "0 a 9"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": true
     },
     {
       "id": "08",
-      "group": "Métodos",
+      "group": "Essenciais — Métodos",
       "title": "Ordem",
       "prompt": "Em que ordem ler os restos das divisões sucessivas?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -295,11 +302,12 @@
           "text": "Somente os restos iguais a um"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": true
     },
     {
       "id": "09",
-      "group": "Métodos",
+      "group": "Essenciais — Métodos",
       "title": "Interrupção",
       "prompt": "Quando parar o algoritmo de divisões sucessivas?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -326,11 +334,12 @@
           "text": "Quando aparece resto um"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": true
     },
     {
       "id": "10",
-      "group": "Métodos",
+      "group": "Revisão opcional — Métodos",
       "title": "Verificação",
       "prompt": "Como conferir um binário obtido?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -357,11 +366,12 @@
           "text": "Somar os pesos correspondentes aos bits 1"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "11",
-      "group": "Largura",
+      "group": "Revisão opcional — Largura",
       "title": "Quatro bits",
       "prompt": "Qual é o máximo de quatro bits sem sinal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -388,11 +398,12 @@
           "text": "16"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "12",
-      "group": "Largura",
+      "group": "Essenciais — Largura",
       "title": "Oito bits",
       "prompt": "Qual é o máximo de oito bits sem sinal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -419,11 +430,12 @@
           "text": "128"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": true
     },
     {
       "id": "13",
-      "group": "Largura",
+      "group": "Essenciais — Largura",
       "title": "256 decimal",
       "prompt": "Quantos bits mínimos são necessários para 256 sem sinal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -450,11 +462,12 @@
           "text": "16"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": true
     },
     {
       "id": "14",
-      "group": "Largura",
+      "group": "Essenciais — Largura",
       "title": "Zeros iniciais",
       "prompt": "00001101₂ e 1101₂ valem o mesmo?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -481,11 +494,12 @@
           "text": "Sim"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": true
     },
     {
       "id": "15",
-      "group": "Largura",
+      "group": "Revisão opcional — Largura",
       "title": "Sinal",
       "prompt": "O intervalo 0 a 255 é garantido em todas as representações de oito bits com sinal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -512,11 +526,12 @@
           "text": "Sim"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "16",
-      "group": "Arquitetura",
+      "group": "Revisão opcional — Arquitetura",
       "title": "Oito bits",
       "prompt": "Quantos endereços teóricos distintos há com oito bits de endereço?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -543,11 +558,12 @@
           "text": "128"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "17",
-      "group": "Arquitetura",
+      "group": "Revisão opcional — Arquitetura",
       "title": "Endereço e RAM",
       "prompt": "Espaço de endereços de 256 bytes implica necessariamente 256 bytes de RAM instalada?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -574,11 +590,12 @@
           "text": "Sim, desde que existam oito bits"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "18",
-      "group": "Decimal → binário por pesos",
+      "group": "Essenciais — Decimal → binário por pesos",
       "title": "0 decimal",
       "prompt": "Converta 0₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -586,11 +603,12 @@
       "mode": "text",
       "starter": "",
       "solution": "0₁₀ = 0₂. Pesos marcados: 0 = 0.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "19",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "1 decimal",
       "prompt": "Converta 1₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -598,11 +616,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1₁₀ = 1₂. Pesos marcados: 1 = 1.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "20",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "2 decimal",
       "prompt": "Converta 2₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -610,11 +629,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2₁₀ = 10₂. Pesos marcados: 2 = 2.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "21",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "3 decimal",
       "prompt": "Converta 3₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -622,11 +642,12 @@
       "mode": "text",
       "starter": "",
       "solution": "3₁₀ = 11₂. Pesos marcados: 2 + 1 = 3.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "22",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "4 decimal",
       "prompt": "Converta 4₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -634,11 +655,12 @@
       "mode": "text",
       "starter": "",
       "solution": "4₁₀ = 100₂. Pesos marcados: 4 = 4.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "23",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "5 decimal",
       "prompt": "Converta 5₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -646,11 +668,12 @@
       "mode": "text",
       "starter": "",
       "solution": "5₁₀ = 101₂. Pesos marcados: 4 + 1 = 5.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "24",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "6 decimal",
       "prompt": "Converta 6₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -658,11 +681,12 @@
       "mode": "text",
       "starter": "",
       "solution": "6₁₀ = 110₂. Pesos marcados: 4 + 2 = 6.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "25",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "7 decimal",
       "prompt": "Converta 7₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -670,11 +694,12 @@
       "mode": "text",
       "starter": "",
       "solution": "7₁₀ = 111₂. Pesos marcados: 4 + 2 + 1 = 7.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "26",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "8 decimal",
       "prompt": "Converta 8₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -682,11 +707,12 @@
       "mode": "text",
       "starter": "",
       "solution": "8₁₀ = 1000₂. Pesos marcados: 8 = 8.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "27",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "9 decimal",
       "prompt": "Converta 9₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -694,11 +720,12 @@
       "mode": "text",
       "starter": "",
       "solution": "9₁₀ = 1001₂. Pesos marcados: 8 + 1 = 9.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "28",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "10 decimal",
       "prompt": "Converta 10₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -706,11 +733,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10₁₀ = 1010₂. Pesos marcados: 8 + 2 = 10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "29",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "11 decimal",
       "prompt": "Converta 11₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -718,11 +746,12 @@
       "mode": "text",
       "starter": "",
       "solution": "11₁₀ = 1011₂. Pesos marcados: 8 + 2 + 1 = 11.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "30",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "12 decimal",
       "prompt": "Converta 12₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -730,11 +759,12 @@
       "mode": "text",
       "starter": "",
       "solution": "12₁₀ = 1100₂. Pesos marcados: 8 + 4 = 12.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "31",
-      "group": "Decimal → binário por pesos",
+      "group": "Essenciais — Decimal → binário por pesos",
       "title": "13 decimal",
       "prompt": "Converta 13₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -742,11 +772,12 @@
       "mode": "text",
       "starter": "",
       "solution": "13₁₀ = 1101₂. Pesos marcados: 8 + 4 + 1 = 13.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "32",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "14 decimal",
       "prompt": "Converta 14₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -754,11 +785,12 @@
       "mode": "text",
       "starter": "",
       "solution": "14₁₀ = 1110₂. Pesos marcados: 8 + 4 + 2 = 14.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "33",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "15 decimal",
       "prompt": "Converta 15₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -766,11 +798,12 @@
       "mode": "text",
       "starter": "",
       "solution": "15₁₀ = 1111₂. Pesos marcados: 8 + 4 + 2 + 1 = 15.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "34",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "16 decimal",
       "prompt": "Converta 16₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -778,11 +811,12 @@
       "mode": "text",
       "starter": "",
       "solution": "16₁₀ = 10000₂. Pesos marcados: 16 = 16.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "35",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "17 decimal",
       "prompt": "Converta 17₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -790,11 +824,12 @@
       "mode": "text",
       "starter": "",
       "solution": "17₁₀ = 10001₂. Pesos marcados: 16 + 1 = 17.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "36",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "18 decimal",
       "prompt": "Converta 18₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -802,11 +837,12 @@
       "mode": "text",
       "starter": "",
       "solution": "18₁₀ = 10010₂. Pesos marcados: 16 + 2 = 18.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "37",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "19 decimal",
       "prompt": "Converta 19₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -814,11 +850,12 @@
       "mode": "text",
       "starter": "",
       "solution": "19₁₀ = 10011₂. Pesos marcados: 16 + 2 + 1 = 19.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "38",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "20 decimal",
       "prompt": "Converta 20₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -826,11 +863,12 @@
       "mode": "text",
       "starter": "",
       "solution": "20₁₀ = 10100₂. Pesos marcados: 16 + 4 = 20.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "39",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "23 decimal",
       "prompt": "Converta 23₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -838,11 +876,12 @@
       "mode": "text",
       "starter": "",
       "solution": "23₁₀ = 10111₂. Pesos marcados: 16 + 4 + 2 + 1 = 23.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "40",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "25 decimal",
       "prompt": "Converta 25₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -850,11 +889,12 @@
       "mode": "text",
       "starter": "",
       "solution": "25₁₀ = 11001₂. Pesos marcados: 16 + 8 + 1 = 25.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "41",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "31 decimal",
       "prompt": "Converta 31₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -862,11 +902,12 @@
       "mode": "text",
       "starter": "",
       "solution": "31₁₀ = 11111₂. Pesos marcados: 16 + 8 + 4 + 2 + 1 = 31.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "42",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "32 decimal",
       "prompt": "Converta 32₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -874,11 +915,12 @@
       "mode": "text",
       "starter": "",
       "solution": "32₁₀ = 100000₂. Pesos marcados: 32 = 32.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "43",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "33 decimal",
       "prompt": "Converta 33₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -886,11 +928,12 @@
       "mode": "text",
       "starter": "",
       "solution": "33₁₀ = 100001₂. Pesos marcados: 32 + 1 = 33.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "44",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "37 decimal",
       "prompt": "Converta 37₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -898,11 +941,12 @@
       "mode": "text",
       "starter": "",
       "solution": "37₁₀ = 100101₂. Pesos marcados: 32 + 4 + 1 = 37.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "45",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "42 decimal",
       "prompt": "Converta 42₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -910,11 +954,12 @@
       "mode": "text",
       "starter": "",
       "solution": "42₁₀ = 101010₂. Pesos marcados: 32 + 8 + 2 = 42.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "46",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "45 decimal",
       "prompt": "Converta 45₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -922,11 +967,12 @@
       "mode": "text",
       "starter": "",
       "solution": "45₁₀ = 101101₂. Pesos marcados: 32 + 8 + 4 + 1 = 45.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "47",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "47 decimal",
       "prompt": "Converta 47₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -934,11 +980,12 @@
       "mode": "text",
       "starter": "",
       "solution": "47₁₀ = 101111₂. Pesos marcados: 32 + 8 + 4 + 2 + 1 = 47.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "48",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "50 decimal",
       "prompt": "Converta 50₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -946,11 +993,12 @@
       "mode": "text",
       "starter": "",
       "solution": "50₁₀ = 110010₂. Pesos marcados: 32 + 16 + 2 = 50.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "49",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "63 decimal",
       "prompt": "Converta 63₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -958,11 +1006,12 @@
       "mode": "text",
       "starter": "",
       "solution": "63₁₀ = 111111₂. Pesos marcados: 32 + 16 + 8 + 4 + 2 + 1 = 63.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "50",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "64 decimal",
       "prompt": "Converta 64₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -970,11 +1019,12 @@
       "mode": "text",
       "starter": "",
       "solution": "64₁₀ = 1000000₂. Pesos marcados: 64 = 64.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "51",
-      "group": "Decimal → binário por pesos",
+      "group": "Essenciais — Decimal → binário por pesos",
       "title": "65 decimal",
       "prompt": "Converta 65₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -982,11 +1032,12 @@
       "mode": "text",
       "starter": "",
       "solution": "65₁₀ = 1000001₂. Pesos marcados: 64 + 1 = 65.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "52",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "73 decimal",
       "prompt": "Converta 73₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -994,11 +1045,12 @@
       "mode": "text",
       "starter": "",
       "solution": "73₁₀ = 1001001₂. Pesos marcados: 64 + 8 + 1 = 73.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "53",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "85 decimal",
       "prompt": "Converta 85₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1006,11 +1058,12 @@
       "mode": "text",
       "starter": "",
       "solution": "85₁₀ = 1010101₂. Pesos marcados: 64 + 16 + 4 + 1 = 85.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "54",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "99 decimal",
       "prompt": "Converta 99₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1018,11 +1071,12 @@
       "mode": "text",
       "starter": "",
       "solution": "99₁₀ = 1100011₂. Pesos marcados: 64 + 32 + 2 + 1 = 99.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "55",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "100 decimal",
       "prompt": "Converta 100₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1030,11 +1084,12 @@
       "mode": "text",
       "starter": "",
       "solution": "100₁₀ = 1100100₂. Pesos marcados: 64 + 32 + 4 = 100.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "56",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "127 decimal",
       "prompt": "Converta 127₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1042,11 +1097,12 @@
       "mode": "text",
       "starter": "",
       "solution": "127₁₀ = 1111111₂. Pesos marcados: 64 + 32 + 16 + 8 + 4 + 2 + 1 = 127.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "57",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "128 decimal",
       "prompt": "Converta 128₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1054,11 +1110,12 @@
       "mode": "text",
       "starter": "",
       "solution": "128₁₀ = 10000000₂. Pesos marcados: 128 = 128.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "58",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "129 decimal",
       "prompt": "Converta 129₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1066,11 +1123,12 @@
       "mode": "text",
       "starter": "",
       "solution": "129₁₀ = 10000001₂. Pesos marcados: 128 + 1 = 129.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "59",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "170 decimal",
       "prompt": "Converta 170₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1078,11 +1136,12 @@
       "mode": "text",
       "starter": "",
       "solution": "170₁₀ = 10101010₂. Pesos marcados: 128 + 32 + 8 + 2 = 170.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "60",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "200 decimal",
       "prompt": "Converta 200₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1090,11 +1149,12 @@
       "mode": "text",
       "starter": "",
       "solution": "200₁₀ = 11001000₂. Pesos marcados: 128 + 64 + 8 = 200.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "61",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "255 decimal",
       "prompt": "Converta 255₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1102,11 +1162,12 @@
       "mode": "text",
       "starter": "",
       "solution": "255₁₀ = 11111111₂. Pesos marcados: 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "62",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "256 decimal",
       "prompt": "Converta 256₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1114,11 +1175,12 @@
       "mode": "text",
       "starter": "",
       "solution": "256₁₀ = 100000000₂. Pesos marcados: 256 = 256.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "63",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "257 decimal",
       "prompt": "Converta 257₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1126,11 +1188,12 @@
       "mode": "text",
       "starter": "",
       "solution": "257₁₀ = 100000001₂. Pesos marcados: 256 + 1 = 257.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "64",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "300 decimal",
       "prompt": "Converta 300₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1138,11 +1201,12 @@
       "mode": "text",
       "starter": "",
       "solution": "300₁₀ = 100101100₂. Pesos marcados: 256 + 32 + 8 + 4 = 300.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "65",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "511 decimal",
       "prompt": "Converta 511₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1150,11 +1214,12 @@
       "mode": "text",
       "starter": "",
       "solution": "511₁₀ = 111111111₂. Pesos marcados: 256 + 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 511.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "66",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "512 decimal",
       "prompt": "Converta 512₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1162,11 +1227,12 @@
       "mode": "text",
       "starter": "",
       "solution": "512₁₀ = 1000000000₂. Pesos marcados: 512 = 512.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "67",
-      "group": "Decimal → binário por pesos",
+      "group": "Revisão opcional — Decimal → binário por pesos",
       "title": "513 decimal",
       "prompt": "Converta 513₁₀ para binário selecionando potências de dois. Registre zeros internos e confira pela soma dos pesos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1174,11 +1240,12 @@
       "mode": "text",
       "starter": "",
       "solution": "513₁₀ = 1000000001₂. Pesos marcados: 512 + 1 = 513.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "68",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "0 por divisões",
       "prompt": "Converta 0₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1186,11 +1253,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Para zero não são necessárias divisões. Resultado 0₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "69",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "1 por divisões",
       "prompt": "Converta 1₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1198,11 +1266,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1 ÷ 2 = 0, resto 1. Resultado 1₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "70",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "3 por divisões",
       "prompt": "Converta 3₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1210,11 +1279,12 @@
       "mode": "text",
       "starter": "",
       "solution": "3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 11₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "71",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "5 por divisões",
       "prompt": "Converta 5₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1222,11 +1292,12 @@
       "mode": "text",
       "starter": "",
       "solution": "5 ÷ 2 = 2, resto 1; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "72",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "7 por divisões",
       "prompt": "Converta 7₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1234,11 +1305,12 @@
       "mode": "text",
       "starter": "",
       "solution": "7 ÷ 2 = 3, resto 1; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "73",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "10 por divisões",
       "prompt": "Converta 10₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1246,11 +1318,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10 ÷ 2 = 5, resto 0; 5 ÷ 2 = 2, resto 1; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 1010₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "74",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "13 por divisões",
       "prompt": "Converta 13₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1258,11 +1331,12 @@
       "mode": "text",
       "starter": "",
       "solution": "13 ÷ 2 = 6, resto 1; 6 ÷ 2 = 3, resto 0; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 1101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "75",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "18 por divisões",
       "prompt": "Converta 18₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1270,11 +1344,12 @@
       "mode": "text",
       "starter": "",
       "solution": "18 ÷ 2 = 9, resto 0; 9 ÷ 2 = 4, resto 1; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 10010₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "76",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "20 por divisões",
       "prompt": "Converta 20₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1282,11 +1357,12 @@
       "mode": "text",
       "starter": "",
       "solution": "20 ÷ 2 = 10, resto 0; 10 ÷ 2 = 5, resto 0; 5 ÷ 2 = 2, resto 1; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 10100₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "77",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "26 por divisões",
       "prompt": "Converta 26₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1294,11 +1370,12 @@
       "mode": "text",
       "starter": "",
       "solution": "26 ÷ 2 = 13, resto 0; 13 ÷ 2 = 6, resto 1; 6 ÷ 2 = 3, resto 0; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 11010₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "78",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "31 por divisões",
       "prompt": "Converta 31₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1306,11 +1383,12 @@
       "mode": "text",
       "starter": "",
       "solution": "31 ÷ 2 = 15, resto 1; 15 ÷ 2 = 7, resto 1; 7 ÷ 2 = 3, resto 1; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 11111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "79",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "37 por divisões",
       "prompt": "Converta 37₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1318,11 +1396,12 @@
       "mode": "text",
       "starter": "",
       "solution": "37 ÷ 2 = 18, resto 1; 18 ÷ 2 = 9, resto 0; 9 ÷ 2 = 4, resto 1; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 100101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "80",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "45 por divisões",
       "prompt": "Converta 45₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1330,11 +1409,12 @@
       "mode": "text",
       "starter": "",
       "solution": "45 ÷ 2 = 22, resto 1; 22 ÷ 2 = 11, resto 0; 11 ÷ 2 = 5, resto 1; 5 ÷ 2 = 2, resto 1; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 101101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "81",
-      "group": "Decimal → binário por divisões",
+      "group": "Essenciais — Decimal → binário por divisões",
       "title": "50 por divisões",
       "prompt": "Converta 50₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1342,11 +1422,12 @@
       "mode": "text",
       "starter": "",
       "solution": "50 ÷ 2 = 25, resto 0; 25 ÷ 2 = 12, resto 1; 12 ÷ 2 = 6, resto 0; 6 ÷ 2 = 3, resto 0; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 110010₂.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "82",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "64 por divisões",
       "prompt": "Converta 64₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1354,11 +1435,12 @@
       "mode": "text",
       "starter": "",
       "solution": "64 ÷ 2 = 32, resto 0; 32 ÷ 2 = 16, resto 0; 16 ÷ 2 = 8, resto 0; 8 ÷ 2 = 4, resto 0; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 1000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "83",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "73 por divisões",
       "prompt": "Converta 73₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1366,11 +1448,12 @@
       "mode": "text",
       "starter": "",
       "solution": "73 ÷ 2 = 36, resto 1; 36 ÷ 2 = 18, resto 0; 18 ÷ 2 = 9, resto 0; 9 ÷ 2 = 4, resto 1; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 1001001₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "84",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "85 por divisões",
       "prompt": "Converta 85₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1378,11 +1461,12 @@
       "mode": "text",
       "starter": "",
       "solution": "85 ÷ 2 = 42, resto 1; 42 ÷ 2 = 21, resto 0; 21 ÷ 2 = 10, resto 1; 10 ÷ 2 = 5, resto 0; 5 ÷ 2 = 2, resto 1; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 1010101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "85",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "99 por divisões",
       "prompt": "Converta 99₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1390,11 +1474,12 @@
       "mode": "text",
       "starter": "",
       "solution": "99 ÷ 2 = 49, resto 1; 49 ÷ 2 = 24, resto 1; 24 ÷ 2 = 12, resto 0; 12 ÷ 2 = 6, resto 0; 6 ÷ 2 = 3, resto 0; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 1100011₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "86",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "100 por divisões",
       "prompt": "Converta 100₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1402,11 +1487,12 @@
       "mode": "text",
       "starter": "",
       "solution": "100 ÷ 2 = 50, resto 0; 50 ÷ 2 = 25, resto 0; 25 ÷ 2 = 12, resto 1; 12 ÷ 2 = 6, resto 0; 6 ÷ 2 = 3, resto 0; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 1100100₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "87",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "127 por divisões",
       "prompt": "Converta 127₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1414,11 +1500,12 @@
       "mode": "text",
       "starter": "",
       "solution": "127 ÷ 2 = 63, resto 1; 63 ÷ 2 = 31, resto 1; 31 ÷ 2 = 15, resto 1; 15 ÷ 2 = 7, resto 1; 7 ÷ 2 = 3, resto 1; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 1111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "88",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "128 por divisões",
       "prompt": "Converta 128₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1426,11 +1513,12 @@
       "mode": "text",
       "starter": "",
       "solution": "128 ÷ 2 = 64, resto 0; 64 ÷ 2 = 32, resto 0; 32 ÷ 2 = 16, resto 0; 16 ÷ 2 = 8, resto 0; 8 ÷ 2 = 4, resto 0; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 10000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "89",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "170 por divisões",
       "prompt": "Converta 170₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1438,11 +1526,12 @@
       "mode": "text",
       "starter": "",
       "solution": "170 ÷ 2 = 85, resto 0; 85 ÷ 2 = 42, resto 1; 42 ÷ 2 = 21, resto 0; 21 ÷ 2 = 10, resto 1; 10 ÷ 2 = 5, resto 0; 5 ÷ 2 = 2, resto 1; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 10101010₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "90",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "200 por divisões",
       "prompt": "Converta 200₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1450,11 +1539,12 @@
       "mode": "text",
       "starter": "",
       "solution": "200 ÷ 2 = 100, resto 0; 100 ÷ 2 = 50, resto 0; 50 ÷ 2 = 25, resto 0; 25 ÷ 2 = 12, resto 1; 12 ÷ 2 = 6, resto 0; 6 ÷ 2 = 3, resto 0; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 11001000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "91",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "255 por divisões",
       "prompt": "Converta 255₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1462,11 +1552,12 @@
       "mode": "text",
       "starter": "",
       "solution": "255 ÷ 2 = 127, resto 1; 127 ÷ 2 = 63, resto 1; 63 ÷ 2 = 31, resto 1; 31 ÷ 2 = 15, resto 1; 15 ÷ 2 = 7, resto 1; 7 ÷ 2 = 3, resto 1; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 11111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "92",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "256 por divisões",
       "prompt": "Converta 256₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1474,11 +1565,12 @@
       "mode": "text",
       "starter": "",
       "solution": "256 ÷ 2 = 128, resto 0; 128 ÷ 2 = 64, resto 0; 64 ÷ 2 = 32, resto 0; 32 ÷ 2 = 16, resto 0; 16 ÷ 2 = 8, resto 0; 8 ÷ 2 = 4, resto 0; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 100000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "93",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "300 por divisões",
       "prompt": "Converta 300₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1486,11 +1578,12 @@
       "mode": "text",
       "starter": "",
       "solution": "300 ÷ 2 = 150, resto 0; 150 ÷ 2 = 75, resto 0; 75 ÷ 2 = 37, resto 1; 37 ÷ 2 = 18, resto 1; 18 ÷ 2 = 9, resto 0; 9 ÷ 2 = 4, resto 1; 4 ÷ 2 = 2, resto 0; 2 ÷ 2 = 1, resto 0; 1 ÷ 2 = 0, resto 1. Resultado 100101100₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "94",
-      "group": "Decimal → binário por divisões",
+      "group": "Revisão opcional — Decimal → binário por divisões",
       "title": "511 por divisões",
       "prompt": "Converta 511₁₀ por divisões sucessivas por dois. Registre todos os quocientes e restos. Leia-os na ordem correta.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1498,11 +1591,12 @@
       "mode": "text",
       "starter": "",
       "solution": "511 ÷ 2 = 255, resto 1; 255 ÷ 2 = 127, resto 1; 127 ÷ 2 = 63, resto 1; 63 ÷ 2 = 31, resto 1; 31 ÷ 2 = 15, resto 1; 15 ÷ 2 = 7, resto 1; 7 ÷ 2 = 3, resto 1; 3 ÷ 2 = 1, resto 1; 1 ÷ 2 = 0, resto 1. Resultado 111111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "95",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "0 binário",
       "prompt": "Converta 0₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1510,11 +1604,12 @@
       "mode": "text",
       "starter": "",
       "solution": "0₂ = 0 = 0₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "96",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1 binário",
       "prompt": "Converta 1₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1522,11 +1617,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1₂ = 1 = 1₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "97",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10 binário",
       "prompt": "Converta 10₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1534,11 +1630,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10₂ = 2 = 2₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "98",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "11 binário",
       "prompt": "Converta 11₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1546,11 +1643,12 @@
       "mode": "text",
       "starter": "",
       "solution": "11₂ = 2 + 1 = 3₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "99",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "101 binário",
       "prompt": "Converta 101₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1558,11 +1656,12 @@
       "mode": "text",
       "starter": "",
       "solution": "101₂ = 4 + 1 = 5₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "100",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "111 binário",
       "prompt": "Converta 111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1570,11 +1669,12 @@
       "mode": "text",
       "starter": "",
       "solution": "111₂ = 4 + 2 + 1 = 7₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "101",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1000 binário",
       "prompt": "Converta 1000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1582,11 +1682,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1000₂ = 8 = 8₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "102",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1001 binário",
       "prompt": "Converta 1001₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1594,11 +1695,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1001₂ = 8 + 1 = 9₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "103",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1010 binário",
       "prompt": "Converta 1010₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1606,11 +1708,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1010₂ = 8 + 2 = 10₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "104",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1101 binário",
       "prompt": "Converta 1101₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1618,11 +1721,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1101₂ = 8 + 4 + 1 = 13₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "105",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1111 binário",
       "prompt": "Converta 1111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1630,11 +1734,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1111₂ = 8 + 4 + 2 + 1 = 15₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "106",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10000 binário",
       "prompt": "Converta 10000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1642,11 +1747,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10000₂ = 16 = 16₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "107",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10010 binário",
       "prompt": "Converta 10010₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1654,11 +1760,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10010₂ = 16 + 2 = 18₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "108",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10101 binário",
       "prompt": "Converta 10101₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1666,11 +1773,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10101₂ = 16 + 4 + 1 = 21₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "109",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "11001 binário",
       "prompt": "Converta 11001₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1678,11 +1786,12 @@
       "mode": "text",
       "starter": "",
       "solution": "11001₂ = 16 + 8 + 1 = 25₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "110",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "11111 binário",
       "prompt": "Converta 11111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1690,11 +1799,12 @@
       "mode": "text",
       "starter": "",
       "solution": "11111₂ = 16 + 8 + 4 + 2 + 1 = 31₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "111",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "100000 binário",
       "prompt": "Converta 100000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1702,11 +1812,12 @@
       "mode": "text",
       "starter": "",
       "solution": "100000₂ = 32 = 32₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "112",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "100101 binário",
       "prompt": "Converta 100101₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1714,11 +1825,12 @@
       "mode": "text",
       "starter": "",
       "solution": "100101₂ = 32 + 4 + 1 = 37₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "113",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "101010 binário",
       "prompt": "Converta 101010₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1726,11 +1838,12 @@
       "mode": "text",
       "starter": "",
       "solution": "101010₂ = 32 + 8 + 2 = 42₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "114",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "101101 binário",
       "prompt": "Converta 101101₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1738,11 +1851,12 @@
       "mode": "text",
       "starter": "",
       "solution": "101101₂ = 32 + 8 + 4 + 1 = 45₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "115",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "110010 binário",
       "prompt": "Converta 110010₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1750,11 +1864,12 @@
       "mode": "text",
       "starter": "",
       "solution": "110010₂ = 32 + 16 + 2 = 50₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "116",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "111111 binário",
       "prompt": "Converta 111111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1762,11 +1877,12 @@
       "mode": "text",
       "starter": "",
       "solution": "111111₂ = 32 + 16 + 8 + 4 + 2 + 1 = 63₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "117",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1000000 binário",
       "prompt": "Converta 1000000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1774,11 +1890,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1000000₂ = 64 = 64₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "118",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1000001 binário",
       "prompt": "Converta 1000001₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1786,11 +1903,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1000001₂ = 64 + 1 = 65₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "119",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1001001 binário",
       "prompt": "Converta 1001001₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1798,11 +1916,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1001001₂ = 64 + 8 + 1 = 73₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "120",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1010101 binário",
       "prompt": "Converta 1010101₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1810,11 +1929,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1010101₂ = 64 + 16 + 4 + 1 = 85₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "121",
-      "group": "Binário → decimal",
+      "group": "Essenciais — Binário → decimal",
       "title": "1100011 binário",
       "prompt": "Converta 1100011₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1822,11 +1942,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1100011₂ = 64 + 32 + 2 + 1 = 99₁₀.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "122",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1100100 binário",
       "prompt": "Converta 1100100₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1834,11 +1955,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1100100₂ = 64 + 32 + 4 = 100₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "123",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1111111 binário",
       "prompt": "Converta 1111111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1846,11 +1968,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1111111₂ = 64 + 32 + 16 + 8 + 4 + 2 + 1 = 127₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "124",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10000000 binário",
       "prompt": "Converta 10000000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1858,11 +1981,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10000000₂ = 128 = 128₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "125",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10000001 binário",
       "prompt": "Converta 10000001₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1870,11 +1994,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10000001₂ = 128 + 1 = 129₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "126",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "10101010 binário",
       "prompt": "Converta 10101010₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1882,11 +2007,12 @@
       "mode": "text",
       "starter": "",
       "solution": "10101010₂ = 128 + 32 + 8 + 2 = 170₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "127",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "11001000 binário",
       "prompt": "Converta 11001000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1894,11 +2020,12 @@
       "mode": "text",
       "starter": "",
       "solution": "11001000₂ = 128 + 64 + 8 = 200₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "128",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "11111111 binário",
       "prompt": "Converta 11111111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1906,11 +2033,12 @@
       "mode": "text",
       "starter": "",
       "solution": "11111111₂ = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "129",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "100000000 binário",
       "prompt": "Converta 100000000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1918,11 +2046,12 @@
       "mode": "text",
       "starter": "",
       "solution": "100000000₂ = 256 = 256₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "130",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "100101100 binário",
       "prompt": "Converta 100101100₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1930,11 +2059,12 @@
       "mode": "text",
       "starter": "",
       "solution": "100101100₂ = 256 + 32 + 8 + 4 = 300₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "131",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "111111111 binário",
       "prompt": "Converta 111111111₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1942,11 +2072,12 @@
       "mode": "text",
       "starter": "",
       "solution": "111111111₂ = 256 + 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 511₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "132",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1000000000 binário",
       "prompt": "Converta 1000000000₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1954,11 +2085,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1000000000₂ = 512 = 512₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "133",
-      "group": "Binário → decimal",
+      "group": "Revisão opcional — Binário → decimal",
       "title": "1000000001 binário",
       "prompt": "Converta 1000000001₂ para decimal pelos pesos posicionais. Mostre as parcelas.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1966,11 +2098,12 @@
       "mode": "text",
       "starter": "",
       "solution": "1000000001₂ = 512 + 1 = 513₁₀.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "134",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "5 em 4 bits",
       "prompt": "O inteiro 5 cabe em 4 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1978,11 +2111,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 15. Cabe: 0101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "135",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "13 em 8 bits",
       "prompt": "O inteiro 13 cabe em 8 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1990,11 +2124,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 255. Cabe: 00001101₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "136",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "15 em 4 bits",
       "prompt": "O inteiro 15 cabe em 4 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2002,11 +2137,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 15. Cabe: 1111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "137",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "16 em 4 bits",
       "prompt": "O inteiro 16 cabe em 4 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2014,11 +2150,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 15. Não cabe; exige 5 bits: 10000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "138",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "31 em 5 bits",
       "prompt": "O inteiro 31 cabe em 5 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2026,11 +2163,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 31. Cabe: 11111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "139",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "32 em 5 bits",
       "prompt": "O inteiro 32 cabe em 5 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2038,11 +2176,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 31. Não cabe; exige 6 bits: 100000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "140",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "63 em 6 bits",
       "prompt": "O inteiro 63 cabe em 6 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2050,11 +2189,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 63. Cabe: 111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "141",
-      "group": "Largura fixa",
+      "group": "Essenciais — Largura fixa",
       "title": "64 em 6 bits",
       "prompt": "O inteiro 64 cabe em 6 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2062,11 +2202,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 63. Não cabe; exige 7 bits: 1000000₂.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "142",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "100 em 8 bits",
       "prompt": "O inteiro 100 cabe em 8 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2074,11 +2215,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 255. Cabe: 01100100₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "143",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "127 em 7 bits",
       "prompt": "O inteiro 127 cabe em 7 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2086,11 +2228,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 127. Cabe: 1111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "144",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "128 em 7 bits",
       "prompt": "O inteiro 128 cabe em 7 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2098,11 +2241,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 127. Não cabe; exige 8 bits: 10000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "145",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "200 em 8 bits",
       "prompt": "O inteiro 200 cabe em 8 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2110,11 +2254,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 255. Cabe: 11001000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "146",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "255 em 8 bits",
       "prompt": "O inteiro 255 cabe em 8 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2122,11 +2267,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 255. Cabe: 11111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "147",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "256 em 8 bits",
       "prompt": "O inteiro 256 cabe em 8 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2134,11 +2280,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 255. Não cabe; exige 9 bits: 100000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "148",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "256 em 9 bits",
       "prompt": "O inteiro 256 cabe em 9 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2146,11 +2293,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 511. Cabe: 100000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "149",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "300 em 9 bits",
       "prompt": "O inteiro 300 cabe em 9 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2158,11 +2306,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 511. Cabe: 100101100₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "150",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "511 em 9 bits",
       "prompt": "O inteiro 511 cabe em 9 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2170,11 +2319,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 511. Cabe: 111111111₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "151",
-      "group": "Largura fixa",
+      "group": "Revisão opcional — Largura fixa",
       "title": "512 em 9 bits",
       "prompt": "O inteiro 512 cabe em 9 bits sem sinal? Escreva a forma completa se couber; caso contrário informe o mínimo de bits necessários.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2182,11 +2332,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Faixa de 0 a 511. Não cabe; exige 10 bits: 1000000000₂.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "152",
-      "group": "Detectar erros",
+      "group": "Revisão opcional — Detectar erros",
       "title": "Avalie 10201",
       "prompt": "Um colega declarou 10201 como numeral binário. Explique se é válido e como revisar.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2194,11 +2345,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não: 2 é inválido em base dois. Volte ao valor original e refaça o procedimento depois de conferir os símbolos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "153",
-      "group": "Detectar erros",
+      "group": "Revisão opcional — Detectar erros",
       "title": "Avalie 201",
       "prompt": "Um colega declarou 201 como numeral binário. Explique se é válido e como revisar.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2206,11 +2358,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não: 2 é inválido em base dois. Volte ao valor original e refaça o procedimento depois de conferir os símbolos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "154",
-      "group": "Detectar erros",
+      "group": "Revisão opcional — Detectar erros",
       "title": "Avalie 10A1",
       "prompt": "Um colega declarou 10A1 como numeral binário. Explique se é válido e como revisar.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2218,11 +2371,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não: A é inválido em base dois. Volte ao valor original e refaça o procedimento depois de conferir os símbolos.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "155",
-      "group": "Detectar erros",
+      "group": "Revisão opcional — Detectar erros",
       "title": "Avalie 00102",
       "prompt": "Um colega declarou 00102 como numeral binário. Explique se é válido e como revisar.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -2230,7 +2384,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Não: 2 é inválido em base dois. Volte ao valor original e refaça o procedimento depois de conferir os símbolos.",
-      "expected": null
+      "expected": null,
+      "required": false
     }
   ]
 }

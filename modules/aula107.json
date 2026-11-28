@@ -5,48 +5,48 @@
   "title": "Introdução aos sistemas numéricos",
   "subtitle": "Bases, dígitos, potências e valor posicional",
   "objectives": "Identificar bases e algarismos válidos; compreender valor posicional e potências; decompor numerais; relacionar representações a bits e endereçamento; preparar a conversão decimal-binária.",
-  "source": "CONTEÚDO AUTORAL PROVISÓRIO. A professora ainda não disponibilizou material da aula presencial sobre sistemas numéricos. Os únicos temas delimitados pelo relato da estudante são decimal e binário (estudados), octal e hexadecimal (mencionados). Nenhum exemplo, método específico, exercício ou formulação desta lição é atribuído à professora. Revisar a correspondência acadêmica quando o material chegar.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (sistemas de numeração e conversão decimal para binário, pp. 3–15) e Aula 04 (leitura e conversão de números binários, pp. 3–10), texto consultado em 28/11/2026. Explicações, exemplos e exercícios autorais; complementos identificados. Apresentações sem texto extraível, imagens e mídias não examinadas nesta revisão.",
   "chapters": [
     {
       "title": "Número, numeral e base",
-      "text": "ESTUDO AUTORAL PROVISÓRIO, SEM APOSTILA DA PROFESSORA.\n\nNúmero é um conceito matemático que pode representar quantidades. Numeral é sua escrita em determinado sistema; algarismos são os símbolos usados. Em sistemas posicionais, o valor de um algarismo depende tanto de seu símbolo como de sua posição. Por exemplo, o valor treze pode ser escrito 13 em decimal e 1101 em binário.\n\nA base informa quantos símbolos são usados. Uma sequência sem base indicada pode ser ambígua: 101₂ vale cinco, enquanto 101₁₀ vale cento e um. A escrita 10 na base b representa b em decimal. A base dois não possui símbolo para o algarismo dois.\n\nNeste curso, escrevemos 101₂, 101₁₀ ou, em texto simples, 101_2 e 101_10. Trabalhamos inteiros não negativos antes de estudar números com sinal e frações. A Mesa de Conversão é um espaço para registrar passos, e não uma calculadora que substitui o raciocínio.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nNúmero é um conceito matemático que pode representar quantidades. Numeral é sua escrita em determinado sistema; algarismos são os símbolos usados. Em sistemas posicionais, o valor de um algarismo depende tanto de seu símbolo como de sua posição. Por exemplo, o valor treze pode ser escrito 13 em decimal e 1101 em binário.\n\nA base informa quantos símbolos são usados. Uma sequência sem base indicada pode ser ambígua: 101₂ vale cinco, enquanto 101₁₀ vale cento e um. A escrita 10 na base b representa b em decimal. A base dois não possui símbolo para o algarismo dois.\n\nNeste curso, escrevemos 101₂, 101₁₀ ou, em texto simples, 101_2 e 101_10. Trabalhamos inteiros não negativos antes de estudar números com sinal e frações. A Mesa de Conversão é um espaço para registrar passos, e não uma calculadora que substitui o raciocínio.",
       "example": ""
     },
     {
       "title": "Símbolos permitidos em cada base",
-      "text": "ESTUDO AUTORAL.\n\nEm bases inteiras positivas b≥2, os dígitos permitidos têm valores de zero até b−1. Decimal: 0 a 9; binário: 0 e 1; octal: 0 a 7; hexadecimal: 0 a 9 e A a F, que valem 10,11,12,13,14,15.\n\n102 não é numeral válido em binário; 18 não é válido em octal; 2G não é hexadecimal válido. Os zeros iniciais podem ser mantidos para largura fixa, e zeros internos não podem ser omitidos sem alterar os pesos.\n\nA aula presencial relatada tratou decimal e binário; octal e hexadecimal foram mencionados. Sua inclusão aqui é apenas uma introdução complementar. Não vamos antecipar conversões extensas entre quatro bases antes de dominar os pesos e os métodos binários.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEm bases inteiras positivas b≥2, os dígitos permitidos têm valores de zero até b−1. Decimal: 0 a 9; binário: 0 e 1; octal: 0 a 7; hexadecimal: 0 a 9 e A a F, que valem 10,11,12,13,14,15.\n\n102 não é numeral válido em binário; 18 não é válido em octal; 2G não é hexadecimal válido. Os zeros iniciais podem ser mantidos para largura fixa, e zeros internos não podem ser omitidos sem alterar os pesos.\n\nO caderno da Aula 03 apresenta as quatro bases, mas reserva as conversões envolvendo octal e hexadecimal para outro momento. Reconhecer seus símbolos é conteúdo do curso; realizar conversões nessas bases aqui é aprofundamento opcional. Não vamos antecipar conversões extensas entre quatro bases antes de dominar os pesos e os métodos binários.",
       "example": ""
     },
     {
       "title": "Peso posicional e expoente zero",
-      "text": "ESTUDO AUTORAL.\n\nEm base b, começando da direita, os pesos são b⁰, b¹, b², b³... Toda base positiva elevada a zero vale 1. Em decimal, pesos 1,10,100,1000. Em binário, 1,2,4,8,16,32,64,128. Cada novo peso à esquerda é o anterior multiplicado pela base.\n\nPara 352₁₀: 3×100 + 5×10 + 2×1 = 352. Para 1011₂: 1×8 + 0×4 + 1×2 + 1×1 = 11₁₀. O zero interno continua ocupando a coluna de peso quatro.\n\nUma escrita como 10000₂ vale 16, não dez mil. Distinguir posição e símbolo é indispensável. A Mesa pode mostrar quinze potências decrescentes; comece alinhando o último bit com 2⁰.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nEm base b, começando da direita, os pesos são b⁰, b¹, b², b³... Toda base positiva elevada a zero vale 1. Em decimal, pesos 1,10,100,1000. Em binário, 1,2,4,8,16,32,64,128. Cada novo peso à esquerda é o anterior multiplicado pela base.\n\nPara 352₁₀: 3×100 + 5×10 + 2×1 = 352. Para 1011₂: 1×8 + 0×4 + 1×2 + 1×1 = 11₁₀. O zero interno continua ocupando a coluna de peso quatro.\n\nUma escrita como 10000₂ vale 16, não dez mil. Distinguir posição e símbolo é indispensável. A Mesa pode mostrar quinze potências decrescentes; comece alinhando o último bit com 2⁰.\n\nAPROFUNDAMENTO — Por que o expoente começa em zero? Uma unidade isolada vale uma vez seu próprio algarismo. Para subir uma casa, multiplicamos por b; para descer, dividimos por b. Como b¹/b = 1, b⁰ = 1. Em 406, o 4 tem peso 100, o 0 reserva a dezena e o 6 ocupa a unidade. Em 1001₂, os dois zeros reservam as posições 4 e 2. O valor é 9, não 3.",
       "example": ""
     },
     {
       "title": "Decomposição de um numeral",
-      "text": "ESTUDO AUTORAL.\n\nPara converter de uma base posicional para decimal: verifique se os algarismos são válidos; escreva os pesos da direita para a esquerda; multiplique cada algarismo pelo peso correspondente; some os produtos.\n\nExemplo: 11001₂ = 1×16 + 1×8 + 0×4 + 0×2 + 1×1 = 25₁₀.\nExemplo complementar: 157₈ = 1×64 + 5×8 + 7×1 = 111₁₀.\nExemplo complementar: 2A₁₆ = 2×16 + 10×1 = 42₁₀.\n\nNão inverta os expoentes. Se a soma divergir, confira as colunas antes de abandonar o método. O conteúdo sobre conversões sucessivas de decimal para binário ficará no módulo 108.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nPara converter de uma base posicional para decimal: verifique se os algarismos são válidos; escreva os pesos da direita para a esquerda; multiplique cada algarismo pelo peso correspondente; some os produtos.\n\nExemplo: 11001₂ = 1×16 + 1×8 + 0×4 + 0×2 + 1×1 = 25₁₀.\nAPROFUNDAMENTO OPCIONAL — conversões em outras bases.\nExemplo complementar: 157₈ = 1×64 + 5×8 + 7×1 = 111₁₀.\nExemplo complementar: 2A₁₆ = 2×16 + 10×1 = 42₁₀.\n\nNão inverta os expoentes. Se a soma divergir, confira as colunas antes de abandonar o método. O conteúdo sobre conversões sucessivas de decimal para binário ficará no módulo 108.",
       "example": ""
     },
     {
       "title": "Bases usuais da computação",
-      "text": "ESTUDO AUTORAL.\n\nBinário usa 0 e 1, símbolos convenientes para representar estados lógicos digitais. Três bits formam oito padrões, que correspondem aos oito valores de um algarismo octal. Quatro bits formam dezesseis padrões, que correspondem aos dezesseis valores de um algarismo hexadecimal.\n\n1111₂ = 15₁₀ = 17₈ = F₁₆. A sequência 15₁₆, por sua vez, vale 21₁₀: o símbolo 1 ocupa o peso 16 e o símbolo 5 ocupa o peso 1. Diferenciar dígito, escrita e valor impede confusões.\n\nA existência de bits não significa que todo documento seja exibido como dígitos binários. Dados podem possuir codificações distintas; o sistema de numeração descreve a representação de números, não todas as regras de codificação de texto ou imagens.",
+      "text": "APROFUNDAMENTO — agrupamento de bits e codificação.\n\nBinário usa 0 e 1, símbolos convenientes para representar estados lógicos digitais. Três bits formam oito padrões, que correspondem aos oito valores de um algarismo octal. Quatro bits formam dezesseis padrões, que correspondem aos dezesseis valores de um algarismo hexadecimal.\n\n1111₂ = 15₁₀ = 17₈ = F₁₆. A sequência 15₁₆, por sua vez, vale 21₁₀: o símbolo 1 ocupa o peso 16 e o símbolo 5 ocupa o peso 1. Diferenciar dígito, escrita e valor impede confusões.\n\nA existência de bits não significa que todo documento seja exibido como dígitos binários. Dados podem possuir codificações distintas; o sistema de numeração descreve a representação de números, não todas as regras de codificação de texto ou imagens.",
       "example": ""
     },
     {
       "title": "Bits, bytes e endereços",
-      "text": "ESTUDO AUTORAL. CONEXÃO COM ARQUITETURA.\n\nUm bit permite dois estados no modelo lógico básico. n bits permitem 2ⁿ padrões distintos. Dois bits dão quatro padrões; três dão oito; oito dão 256. Um byte contém oito bits. Para números inteiros sem sinal e largura fixa de n bits, o intervalo vai de zero a 2ⁿ−1.\n\nNo módulo 106, vimos que n bits de endereço permitem 2ⁿ posições teóricas. O resultado não garante que a máquina tenha essa quantidade de memória física instalada. A unidade endereçada também importa: uma posição pode representar um byte ou outra unidade em um modelo abstrato.\n\nINTERCÂMBIO COM PYTHON — '00101' é uma string que preserva símbolos; 5 é um inteiro que representa quantidade. Uma variável não mede automaticamente o hardware. Mais tarde usaremos recursos da linguagem para cálculos, mas primeiro precisamos dominá-los manualmente.",
+      "text": "CONTEÚDO DO CURSO E APROFUNDAMENTO — conexão com Arquitetura.\n\nUm bit permite dois estados no modelo lógico básico. n bits permitem 2ⁿ padrões distintos. Dois bits dão quatro padrões; três dão oito; oito dão 256. Um byte contém oito bits. Na notação de unidades, b indica bit e B indica byte: 8 b = 1 B. Uma sequência de oito bits pode representar um inteiro, parte de um texto ou um canal de cor, conforme as regras adotadas. Para números inteiros sem sinal e largura fixa de n bits, o intervalo vai de zero a 2ⁿ−1.\n\nNo módulo 106, vimos que n bits de endereço permitem 2ⁿ posições teóricas. O resultado não garante que a máquina tenha essa quantidade de memória física instalada. A unidade endereçada também importa: uma posição pode representar um byte ou outra unidade em um modelo abstrato.\n\nINTERCÂMBIO FUTURO E OPCIONAL COM PYTHON — '00101' é uma string que preserva símbolos; 5 é um inteiro que representa quantidade. Uma variável não mede automaticamente o hardware. Mais tarde usaremos recursos da linguagem para cálculos, mas primeiro precisamos dominá-los manualmente.",
       "example": ""
     },
     {
       "title": "Síntese e prática na Mesa",
-      "text": "ESTUDO AUTORAL.\n\nAo resolver exercícios, escreva a base de origem; valide os dígitos; associe pesos; multiplique e some. Explique por que 10₂ vale dois, 10₈ vale oito, 10₁₀ vale dez e 10₁₆ vale dezesseis.\n\nErros comuns são esquecer b⁰=1, alinhar pesos pela esquerda, remover zeros internos e tratar uma sequência como se sempre estivesse em decimal. Na Mesa de Conversão, use linhas diferentes para pesos, dígitos e parcelas.\n\nO módulo 108 aprofundará decimal↔binário, divisões sucessivas, zeros à esquerda, conferência por método inverso e limites de largura. Todas as tarefas desta aula são independentes de saber programar.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nAo resolver exercícios, escreva a base de origem; valide os dígitos; associe pesos; multiplique e some. Explique por que 10₂ vale dois, 10₈ vale oito, 10₁₀ vale dez e 10₁₆ vale dezesseis.\n\nErros comuns são esquecer b⁰=1, alinhar pesos pela esquerda, remover zeros internos e tratar uma sequência como se sempre estivesse em decimal. Na Mesa de Conversão, use linhas diferentes para pesos, dígitos e parcelas.\n\nO módulo 108 aprofundará decimal↔binário, divisões sucessivas, zeros à esquerda, conferência por método inverso e limites de largura. Todas as tarefas desta aula são independentes de saber programar.",
       "example": ""
     }
   ],
   "exercises": [
     {
       "id": "01",
-      "group": "Conceitos",
+      "group": "Essenciais — Conceitos",
       "title": "Numeral",
       "prompt": "O que é um numeral?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -73,11 +73,12 @@
           "text": "Um barramento de controle"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": true
     },
     {
       "id": "02",
-      "group": "Conceitos",
+      "group": "Essenciais — Conceitos",
       "title": "Dígitos binários",
       "prompt": "Quais dígitos são permitidos em binário?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -104,11 +105,12 @@
           "text": "0 e 1"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": true
     },
     {
       "id": "03",
-      "group": "Conceitos",
+      "group": "Revisão opcional — Conceitos",
       "title": "Base decimal",
       "prompt": "Quantos algarismos distintos são admitidos em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -135,11 +137,12 @@
           "text": "2"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "04",
-      "group": "Conceitos",
+      "group": "Essenciais — Conceitos",
       "title": "Base explícita",
       "prompt": "101₂ tem a mesma quantidade que 101₁₀?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -166,11 +169,12 @@
           "text": "Sim, se houver zero"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": true
     },
     {
       "id": "05",
-      "group": "Validade",
+      "group": "Revisão opcional — Validade",
       "title": "Binário inválido",
       "prompt": "Qual sequência não é válida em binário?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -197,11 +201,12 @@
           "text": "100"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "06",
-      "group": "Validade",
+      "group": "Revisão opcional — Validade",
       "title": "Octal inválido",
       "prompt": "Qual sequência não é válida em octal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -228,11 +233,12 @@
           "text": "18"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "07",
-      "group": "Validade",
+      "group": "Essenciais — Validade",
       "title": "Hexadecimal",
       "prompt": "Qual é o dígito de valor quinze em hexadecimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -259,11 +265,12 @@
           "text": "A"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": true
     },
     {
       "id": "08",
-      "group": "Posições",
+      "group": "Essenciais — Posições",
       "title": "Unidade",
       "prompt": "Qual é o peso da última posição à direita?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -290,11 +297,12 @@
           "text": "b²"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": true
     },
     {
       "id": "09",
-      "group": "Posições",
+      "group": "Revisão opcional — Posições",
       "title": "Potência binária",
       "prompt": "Quanto vale 2⁰?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -321,11 +329,12 @@
           "text": "4"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "10",
-      "group": "Posições",
+      "group": "Essenciais — Posições",
       "title": "Quarta posição",
       "prompt": "Qual o peso da quarta posição binária pela direita?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -352,11 +361,12 @@
           "text": "8"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": true
     },
     {
       "id": "11",
-      "group": "Posições",
+      "group": "Essenciais — Posições",
       "title": "Zero interno",
       "prompt": "É possível remover o zero de 101₂ sem mudar o valor?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -383,11 +393,12 @@
           "text": "Sim, resultando em 11₂ do mesmo valor"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": true
     },
     {
       "id": "12",
-      "group": "Bases usuais",
+      "group": "Revisão opcional — Bases usuais",
       "title": "10₂",
       "prompt": "Quanto vale 10₂ em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -414,11 +425,12 @@
           "text": "1"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "13",
-      "group": "Bases usuais",
+      "group": "Revisão opcional — Bases usuais",
       "title": "10₈",
       "prompt": "Quanto vale 10₈ em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -445,11 +457,12 @@
           "text": "16"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "14",
-      "group": "Bases usuais",
+      "group": "Revisão opcional — Bases usuais",
       "title": "10₁₆",
       "prompt": "Quanto vale 10₁₆ em decimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -476,11 +489,12 @@
           "text": "16"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": false
     },
     {
       "id": "15",
-      "group": "Bases usuais",
+      "group": "Revisão opcional — Bases usuais",
       "title": "Hexadecimal em bits",
       "prompt": "Quantos bits correspondem a um dígito hexadecimal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -507,11 +521,12 @@
           "text": "2"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": false
     },
     {
       "id": "16",
-      "group": "Bases usuais",
+      "group": "Revisão opcional — Bases usuais",
       "title": "Octal em bits",
       "prompt": "Quantos bits correspondem a um dígito octal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -538,11 +553,12 @@
           "text": "4"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "17",
-      "group": "Arquitetura",
+      "group": "Revisão opcional — Arquitetura",
       "title": "Bit",
       "prompt": "Quantos estados possui um bit no modelo binário básico?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -569,11 +585,12 @@
           "text": "16"
         }
       ],
-      "answer": "a"
+      "answer": "a",
+      "required": false
     },
     {
       "id": "18",
-      "group": "Arquitetura",
+      "group": "Essenciais — Arquitetura",
       "title": "Byte",
       "prompt": "Quantos bits há em um byte?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -600,11 +617,12 @@
           "text": "8"
         }
       ],
-      "answer": "d"
+      "answer": "d",
+      "required": true
     },
     {
       "id": "19",
-      "group": "Arquitetura",
+      "group": "Essenciais — Arquitetura",
       "title": "Três bits",
       "prompt": "Quantos padrões distintos existem com três bits?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -631,11 +649,12 @@
           "text": "3"
         }
       ],
-      "answer": "c"
+      "answer": "c",
+      "required": true
     },
     {
       "id": "20",
-      "group": "Arquitetura",
+      "group": "Revisão opcional — Arquitetura",
       "title": "Quatro bits",
       "prompt": "Qual o maior valor em quatro bits sem sinal?",
       "hint": "Verifique os símbolos e pesos antes de escolher.",
@@ -662,11 +681,12 @@
           "text": "8"
         }
       ],
-      "answer": "b"
+      "answer": "b",
+      "required": false
     },
     {
       "id": "21",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "11 na base 2",
       "prompt": "Converta (11)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -674,11 +694,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(11)_2 = 1×2 + 1×1 = 3_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "22",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "101 na base 2",
       "prompt": "Converta (101)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -686,11 +707,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(101)_2 = 1×4 + 0×2 + 1×1 = 5_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "23",
-      "group": "Valor posicional",
+      "group": "Essenciais — Valor posicional",
       "title": "1001 na base 2",
       "prompt": "Converta (1001)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -698,11 +720,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1001)_2 = 1×8 + 0×4 + 0×2 + 1×1 = 9_10.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "24",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "1101 na base 2",
       "prompt": "Converta (1101)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -710,11 +733,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1101)_2 = 1×8 + 1×4 + 0×2 + 1×1 = 13_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "25",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "10010 na base 2",
       "prompt": "Converta (10010)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -722,11 +746,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(10010)_2 = 1×16 + 0×8 + 0×4 + 1×2 + 0×1 = 18_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "26",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "11001 na base 2",
       "prompt": "Converta (11001)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -734,11 +759,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(11001)_2 = 1×16 + 1×8 + 0×4 + 0×2 + 1×1 = 25_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "27",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "101010 na base 2",
       "prompt": "Converta (101010)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -746,11 +772,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(101010)_2 = 1×32 + 0×16 + 1×8 + 0×4 + 1×2 + 0×1 = 42_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "28",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "111111 na base 2",
       "prompt": "Converta (111111)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -758,11 +785,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(111111)_2 = 1×32 + 1×16 + 1×8 + 1×4 + 1×2 + 1×1 = 63_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "29",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "1001001 na base 2",
       "prompt": "Converta (1001001)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -770,11 +798,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1001001)_2 = 1×64 + 0×32 + 0×16 + 1×8 + 0×4 + 0×2 + 1×1 = 73_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "30",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "1100011 na base 2",
       "prompt": "Converta (1100011)_2 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -782,11 +811,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1100011)_2 = 1×64 + 1×32 + 0×16 + 0×8 + 0×4 + 1×2 + 1×1 = 99_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "31",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "10 na base 8",
       "prompt": "Converta (10)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -794,11 +824,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(10)_8 = 1×8 + 0×1 = 8_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "32",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "17 na base 8",
       "prompt": "Converta (17)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -806,11 +837,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(17)_8 = 1×8 + 7×1 = 15_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "33",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "37 na base 8",
       "prompt": "Converta (37)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -818,11 +850,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(37)_8 = 3×8 + 7×1 = 31_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "34",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "52 na base 8",
       "prompt": "Converta (52)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -830,11 +863,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(52)_8 = 5×8 + 2×1 = 42_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "35",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "100 na base 8",
       "prompt": "Converta (100)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -842,11 +876,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(100)_8 = 1×64 + 0×8 + 0×1 = 64_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "36",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "111 na base 8",
       "prompt": "Converta (111)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -854,11 +889,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(111)_8 = 1×64 + 1×8 + 1×1 = 73_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "37",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "157 na base 8",
       "prompt": "Converta (157)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -866,11 +902,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(157)_8 = 1×64 + 5×8 + 7×1 = 111_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "38",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "177 na base 8",
       "prompt": "Converta (177)_8 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -878,11 +915,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(177)_8 = 1×64 + 7×8 + 7×1 = 127_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "39",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "A na base 16",
       "prompt": "Converta (A)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -890,11 +928,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(A)_16 = 10×1 = 10_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "40",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "F na base 16",
       "prompt": "Converta (F)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -902,11 +941,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(F)_16 = 15×1 = 15_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "41",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "1A na base 16",
       "prompt": "Converta (1A)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -914,11 +954,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1A)_16 = 1×16 + 10×1 = 26_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "42",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "2A na base 16",
       "prompt": "Converta (2A)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -926,11 +967,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(2A)_16 = 2×16 + 10×1 = 42_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "43",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "7F na base 16",
       "prompt": "Converta (7F)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -938,11 +980,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(7F)_16 = 7×16 + 15×1 = 127_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "44",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "FF na base 16",
       "prompt": "Converta (FF)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -950,11 +993,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(FF)_16 = 15×16 + 15×1 = 255_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "45",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "100 na base 16",
       "prompt": "Converta (100)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -962,11 +1006,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(100)_16 = 1×256 + 0×16 + 0×1 = 256_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "46",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "1FF na base 16",
       "prompt": "Converta (1FF)_16 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -974,11 +1019,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1FF)_16 = 1×256 + 15×16 + 15×1 = 511_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "47",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "101 na base 10",
       "prompt": "Converta (101)_10 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -986,11 +1032,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(101)_10 = 1×100 + 0×10 + 1×1 = 101_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "48",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "204 na base 10",
       "prompt": "Converta (204)_10 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -998,11 +1045,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(204)_10 = 2×100 + 0×10 + 4×1 = 204_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "49",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "352 na base 10",
       "prompt": "Converta (352)_10 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1010,11 +1058,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(352)_10 = 3×100 + 5×10 + 2×1 = 352_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "50",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "507 na base 10",
       "prompt": "Converta (507)_10 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1022,11 +1071,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(507)_10 = 5×100 + 0×10 + 7×1 = 507_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "51",
-      "group": "Valor posicional",
+      "group": "Essenciais — Valor posicional",
       "title": "1002 na base 10",
       "prompt": "Converta (1002)_10 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1034,11 +1084,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1002)_10 = 1×1000 + 0×100 + 0×10 + 2×1 = 1002_10.",
-      "expected": null
+      "expected": null,
+      "required": true
     },
     {
       "id": "52",
-      "group": "Valor posicional",
+      "group": "Revisão opcional — Valor posicional",
       "title": "1204 na base 10",
       "prompt": "Converta (1204)_10 para decimal, mostrando cada peso e a soma dos produtos.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1046,11 +1097,12 @@
       "mode": "text",
       "starter": "",
       "solution": "(1204)_10 = 1×1000 + 2×100 + 0×10 + 4×1 = 1204_10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "53",
-      "group": "Validação",
+      "group": "Revisão opcional — Validação",
       "title": "Símbolos de 102",
       "prompt": "A sequência 102 é válida na base 2? Justifique.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1058,11 +1110,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não. 2 é inválido na base 2.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "54",
-      "group": "Validação",
+      "group": "Revisão opcional — Validação",
       "title": "Símbolos de 201",
       "prompt": "A sequência 201 é válida na base 2? Justifique.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1070,11 +1123,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não. 2 é inválido na base 2.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "55",
-      "group": "Validação",
+      "group": "Revisão opcional — Validação",
       "title": "Símbolos de 18",
       "prompt": "A sequência 18 é válida na base 8? Justifique.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1082,11 +1136,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não. 8 é inválido na base 8.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "56",
-      "group": "Validação",
+      "group": "Revisão opcional — Validação",
       "title": "Símbolos de 79",
       "prompt": "A sequência 79 é válida na base 8? Justifique.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1094,11 +1149,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não. 9 é inválido na base 8.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "57",
-      "group": "Validação",
+      "group": "Revisão opcional — Validação",
       "title": "Símbolos de 2G",
       "prompt": "A sequência 2G é válida na base 16? Justifique.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1106,11 +1162,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não. G é inválido na base 16.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "58",
-      "group": "Validação",
+      "group": "Revisão opcional — Validação",
       "title": "Símbolos de 12A",
       "prompt": "A sequência 12A é válida na base 10? Justifique.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1118,11 +1175,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Não. A é inválido na base 10.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "59",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "2 bits",
       "prompt": "Quantos padrões podem ser formados por 2 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1130,11 +1188,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^2 = 4 padrões, de 0 a 3.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "60",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "3 bits",
       "prompt": "Quantos padrões podem ser formados por 3 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1142,11 +1201,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^3 = 8 padrões, de 0 a 7.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "61",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "4 bits",
       "prompt": "Quantos padrões podem ser formados por 4 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1154,11 +1214,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^4 = 16 padrões, de 0 a 15.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "62",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "5 bits",
       "prompt": "Quantos padrões podem ser formados por 5 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1166,11 +1227,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^5 = 32 padrões, de 0 a 31.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "63",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "6 bits",
       "prompt": "Quantos padrões podem ser formados por 6 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1178,11 +1240,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^6 = 64 padrões, de 0 a 63.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "64",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "8 bits",
       "prompt": "Quantos padrões podem ser formados por 8 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1190,11 +1253,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^8 = 256 padrões, de 0 a 255.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "65",
-      "group": "Bits e combinações",
+      "group": "Revisão opcional — Bits e combinações",
       "title": "10 bits",
       "prompt": "Quantos padrões podem ser formados por 10 bits? Qual o menor e o maior inteiro sem sinal nessa largura?",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1202,11 +1266,12 @@
       "mode": "text",
       "starter": "",
       "solution": "2^10 = 1024 padrões, de 0 a 1023.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "66",
-      "group": "Explicações",
+      "group": "Revisão opcional — Explicações",
       "title": "Compare bases 2 e 8",
       "prompt": "Compare símbolos permitidos e pesos das três primeiras posições nas bases 2 e 8.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1214,11 +1279,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Base 2: valores 0 a 1; pesos 1, 2, 4. Base 8: valores 0 a 7; pesos 1, 8, 64.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "67",
-      "group": "Explicações",
+      "group": "Revisão opcional — Explicações",
       "title": "Compare bases 2 e 10",
       "prompt": "Compare símbolos permitidos e pesos das três primeiras posições nas bases 2 e 10.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1226,11 +1292,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Base 2: valores 0 a 1; pesos 1, 2, 4. Base 10: valores 0 a 9; pesos 1, 10, 100.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "68",
-      "group": "Explicações",
+      "group": "Revisão opcional — Explicações",
       "title": "Compare bases 8 e 16",
       "prompt": "Compare símbolos permitidos e pesos das três primeiras posições nas bases 8 e 16.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1238,11 +1305,12 @@
       "mode": "text",
       "starter": "",
       "solution": "Base 8: valores 0 a 7; pesos 1, 8, 64. Base 16: valores 0 a 15; pesos 1, 16, 256.",
-      "expected": null
+      "expected": null,
+      "required": false
     },
     {
       "id": "69",
-      "group": "Explicações",
+      "group": "Revisão opcional — Explicações",
       "title": "Compare bases 10 e 16",
       "prompt": "Compare símbolos permitidos e pesos das três primeiras posições nas bases 10 e 16.",
       "hint": "Registre pesos, operações e interpretação antes de comparar com a referência.",
@@ -1250,7 +1318,8 @@
       "mode": "text",
       "starter": "",
       "solution": "Base 10: valores 0 a 9; pesos 1, 10, 100. Base 16: valores 0 a 15; pesos 1, 16, 256.",
-      "expected": null
+      "expected": null,
+      "required": false
     }
   ]
 }

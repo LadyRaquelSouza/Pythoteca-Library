@@ -1,0 +1,623 @@
+{
+  "schema_version": 2,
+  "discipline": "arquitetura",
+  "id": "aula109",
+  "title": "Representação digital das cores",
+  "subtitle": "Bits, canais RGB, pixels, Paint, CSS e interfaces Java",
+  "objectives": "Relacionar valores binários de oito bits a canais RGB; distinguir quantidade de combinações e valor máximo; interpretar e converter triplas RGB; explicar a composição aditiva e o papel de pixels; investigar cores em editores e interfaces; distinguir a representação de cor do armazenamento real de imagens.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (sistemas de numeração e conversão decimal para binário, pp. 3–15) e Aula 04 (leitura e conversão de números binários, pp. 3–10), texto consultado em 28/11/2026. Explicações, exemplos e exercícios autorais; complementos identificados. Apresentações sem texto extraível, imagens e mídias não examinadas nesta revisão.",
+  "chapters": [
+    {
+      "title": "1. Bits precisam de interpretação",
+      "text": "CONTEÚDO DO CURSO\n\nUma sequência de bits não traz por si só uma etiqueta dizendo o que significa. 01010101₂ vale 85 se lida como inteiro sem sinal. Num formato de imagem, os mesmos oito bits podem expressar o valor de um canal de cor. A regra usada para interpretar os dados faz parte de sua codificação.\n\nUm canal de oito bits admite 256 padrões, de 00000000 a 11111111. Interpretados como inteiros sem sinal, representam 0 a 255. O número 256 conta as possibilidades, mas não cabe como valor nesse canal. Se cada um dos três canais usa um byte, podemos associar três bytes a uma cor.\n\nAPROFUNDAMENTO\n\nNem todo byte representa um inteiro sem sinal na linguagem usada. Em Java, byte é um tipo com sinal de −128 a 127. A classe Color trabalha com argumentos int entre 0 e 255. Não confunda o tipo da variável com a quantidade de bits usada para representar uma intensidade.",
+      "example": "01010101₂ = 64 + 16 + 4 + 1 = 85₁₀."
+    },
+    {
+      "title": "2. RGB e mistura aditiva",
+      "text": "CONTEÚDO DO CURSO\n\nRGB significa Red, Green e Blue: vermelho, verde e azul. Uma tripla (R, G, B) descreve três componentes independentes. No RGB comum de oito bits por canal, cada componente vai de 0 a 255. A ordem importa. (220, 30, 0) e (0, 30, 220) têm os mesmos números em posições diferentes e produzem cores diferentes.\n\nEm uma tela, a composição é aditiva: contribuições de luz vermelha, verde e azul produzem a aparência percebida. Com os canais no mínimo, obtemos preto ideal; com todos no máximo, branco. Vermelho e verde máximos produzem amarelo, verde e azul produzem ciano, vermelho e azul produzem magenta. Isso é diferente de misturar tintas, que absorvem parte da luz.\n\nAPROFUNDAMENTO\n\nOs valores numéricos de canais não precisam ser diretamente proporcionais à luz emitida. No espaço sRGB, os valores codificados seguem uma curva não linear. Portanto 128 é aproximadamente metade da escala numérica 0–255, não necessariamente metade da luminância. Perfis de cor e características da tela também influenciam a aparência.",
+      "example": "(0,0,0) preto; (255,255,255) branco; (255,0,255) magenta; (0,255,255) ciano."
+    },
+    {
+      "title": "3. Um byte por canal",
+      "text": "CONTEÚDO DO CURSO\n\nConverta cada componente separadamente. Se uma cor tem R=192, G=64 e B=16, os pesos do vermelho são 128+64; o verde tem apenas 64 e o azul apenas 16. Escreva cada resultado com oito bits, acrescentando zeros à esquerda. Preserve a ordem R, G, B.\n\nNão some os canais para encontrar a cor. (255,0,0) e (0,255,0) têm a mesma soma, 255, mas representam vermelho e verde. A tripla guarda informações que uma soma não preserva.\n\nEm sentido inverso, se o canal verde é 00110010, seus pesos ativos são 32, 16 e 2: o valor a digitar em um editor é 50. Repita o método para os demais canais.",
+      "example": "R 192 = 11000000₂\nG  64 = 01000000₂\nB  16 = 00010000₂\nRGB (192,64,16)"
+    },
+    {
+      "title": "4. Pixels e profundidade de cor",
+      "text": "CONTEÚDO DO CURSO\n\nUm pixel é uma unidade elementar de uma imagem digital rasterizada. Em RGB de 24 bits, sua cor pode ser representada por três canais de oito bits. São 8+8+8 = 24 bits de informação de cor, ou três bytes nesse modelo.\n\nAPROFUNDAMENTO\n\nPara contar as triplas disponíveis, multiplique as escolhas independentes: 256 × 256 × 256 = 16.777.216, isto é, 2²⁴. Isso conta combinações codificadas, não garante que o olho ou qualquer tela consiga distinguir todas elas.\n\nUma imagem de 100 × 50 pixels tem 5.000 pixels. Se cada pixel ocupa exatamente três bytes, sem compressão, preenchimento de linhas nem metadados, são 15.000 bytes de dados de cor. O tamanho real de um arquivo depende do formato e da compressão. Alguns formatos mantêm um canal alfa para opacidade, que pode acrescentar oito bits; nem todo formato de 32 bits usa alfa. Tampouco todo pixel físico de uma tela tem exatamente três subpixels.",
+      "example": "RGB de 24 bits: 3 bytes por pixel no modelo simples.\nRGBA de 32 bits: 4 bytes por pixel quando há quatro canais de 8 bits."
+    },
+    {
+      "title": "5. Investigar em um editor de imagens",
+      "text": "CONTEÚDO DO CURSO\n\nO Paint permite escolher uma cor por meio de campos RGB. O valor decimal é uma interface conveniente para a pessoa; internamente a cor pode ser representada por componentes binários. A opção e a aparência dos controles dependem da versão do programa.\n\nPRÁTICA AUTORAL ADAPTADA AO LINUX\n\nUse um seletor de cores de um editor disponível no seu sistema, por exemplo Krita ou GIMP, caso instalado. Não é necessário instalar nada para resolver os exercícios desta aula. Escolha R=240, B=0 e compare G=0, G=80 e G=240. Anote as três triplas, converta o verde para oito bits e observe a passagem aproximada do vermelho para o amarelo. Mantenha os demais canais constantes para isolar a variável investigada.\n\nNão é necessário acertar um nome comercial de tonalidade: descreva a mudança observada. As respostas de cálculo podem ser resolvidas sem abrir o editor.",
+      "example": "(240,0,0) → (240,80,0) → (240,240,0)"
+    },
+    {
+      "title": "6. HTML, CSS e hexadecimal",
+      "text": "CONTEÚDO DO CURSO\n\nHTML descreve a estrutura de uma página; CSS controla sua apresentação. Uma declaração background-color: rgb(192, 64, 16); define uma cor de fundo. A notação usa três componentes na ordem RGB. Não é necessário criar uma página para compreender a representação.\n\nAPROFUNDAMENTO OPCIONAL\n\nComo 16 = 2⁴, cada grupo de quatro bits corresponde a um dígito hexadecimal. O byte 11000000₂ separa-se em 1100 e 0000: C e 0, ou C0₁₆. Os valores 64 e 16 são 40₁₆ e 10₁₆. A cor pode ser escrita em CSS como #C04010. O primeiro par é R, o segundo G e o terceiro B. Preserve dois dígitos por canal, inclusive zeros iniciais. Este complemento não antecipa uma prova sobre conversão hexadecimal completa.",
+      "example": ".caixa { background-color: rgb(192, 64, 16); }\n/* equivalente */\n.caixa { background-color: #C04010; }"
+    },
+    {
+      "title": "7. A mesma cor em Java",
+      "text": "INTERCÂMBIO COM JAVA — APROFUNDAMENTO\n\nNa aula 310, estudamos a classe java.awt.Color e as propriedades visuais de componentes Swing. O construtor Color(int r, int g, int b) aceita valores de 0 a 255 para cada canal. Informar 256 viola esse intervalo e provoca IllegalArgumentException. O tipo int consegue representar 256, mas a operação impõe um limite mais estreito.\n\nO método setBackground de um componente altera a propriedade de fundo. A efetiva pintura depende do componente e de sua configuração; um JLabel, por exemplo, normalmente precisa de setOpaque(true) para pintar o fundo. Isso mostra a diferença entre guardar uma cor e desenhá-la na interface.\n\nA leitura do exemplo basta. Não é obrigatório abrir o NetBeans nem executar código.",
+      "example": "java.awt.Color cor = new java.awt.Color(192, 64, 16);\nlabel.setOpaque(true);\nlabel.setBackground(cor);"
+    },
+    {
+      "title": "8. Do valor informado à cor exibida",
+      "text": "CONTEÚDO DO CURSO\n\nA entrada é a escolha de três valores; o software valida e registra os componentes; o sistema gráfico usa a informação para compor a imagem; a tela produz a saída visual. Esse fluxo recupera os conceitos da aula 101 sobre entrada, processamento, armazenamento e saída.\n\nAPROFUNDAMENTO\n\nUm arquivo pode armazenar cores em outra ordem, em uma paleta ou em um modelo diferente de RGB. O software interpreta o formato e prepara os dados para exibição. A representação conceitual R, G, B não exige que os bytes de todo arquivo estejam fisicamente nessa ordem. Uma cor na tela não é uma soma aritmética simples dos valores dos canais.\n\nIDEIA PARA PYTHON, SOMENTE NO FUTURO\n\nUm conversor de triplas poderia validar a faixa de cada canal e gerar as três escritas binárias de oito bits. Por ora, faça os cálculos manualmente. Não há prática executável nem pré-requisito de Python.",
+      "example": "Entrada: RGB (12, 128, 255).\nRepresentação por canal: 00001100 | 10000000 | 11111111.\nSaída: composição gráfica dos três canais."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "01",
+      "group": "Essenciais — Bits",
+      "title": "Quantidade e máximo",
+      "prompt": "Qual afirmação descreve um canal RGB de 8 bits sem sinal?",
+      "hint": "Distinga número de padrões do último valor.",
+      "explanation": "Há 256 padrões numerados de 0 a 255.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "256 valores de 1 a 256"
+        },
+        {
+          "id": "b",
+          "text": "256 valores de 0 a 255"
+        },
+        {
+          "id": "c",
+          "text": "255 valores de 0 a 254"
+        },
+        {
+          "id": "d",
+          "text": "8 valores de 0 a 7"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "02",
+      "group": "Essenciais — Bits",
+      "title": "Interpretação",
+      "prompt": "O byte 00100001 significa sempre uma cor?",
+      "hint": "Pense na regra de interpretação.",
+      "explanation": "O padrão é o dado; a codificação estabelece como interpretá-lo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Como inteiro sem sinal vale 33; em um canal RGB pode indicar intensidade 33. Outros contextos podem dar outro significado.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "03",
+      "group": "Essenciais — Conversões",
+      "title": "Canal verde",
+      "prompt": "Converta 01100100₂ para decimal, indicando os pesos ativos.",
+      "hint": "Use os pesos 128,64,32,16,8,4,2,1.",
+      "explanation": "Os pesos de posições com bit 1 são somados.",
+      "mode": "text",
+      "starter": "",
+      "solution": "64+32+4 = 100.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "04",
+      "group": "Essenciais — Conversões",
+      "title": "Três canais",
+      "prompt": "Represente RGB (170, 32, 5) em três grupos de oito bits.",
+      "hint": "Converta cada componente e complete os zeros à esquerda.",
+      "explanation": "A ordem R,G,B e a largura de oito bits são preservadas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "170=128+32+8+2=10101010; 32=00100000; 5=00000101.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "05",
+      "group": "Essenciais — Conversões",
+      "title": "Leitura de tripla",
+      "prompt": "Encontre a tripla decimal para 11110000 | 00001111 | 01010101.",
+      "hint": "Some os pesos separadamente.",
+      "explanation": "Não some os canais entre si.",
+      "mode": "text",
+      "starter": "",
+      "solution": "R=240, G=15, B=85.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "06",
+      "group": "Essenciais — Bits",
+      "title": "Limite de canal",
+      "prompt": "Qual valor não pode ser usado como canal RGB de oito bits sem sinal?",
+      "hint": "Observe o limite superior.",
+      "explanation": "256 exige nove bits.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "127"
+        },
+        {
+          "id": "c",
+          "text": "255"
+        },
+        {
+          "id": "d",
+          "text": "256"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "07",
+      "group": "Essenciais — Composição",
+      "title": "Ordem de canais",
+      "prompt": "Por que (200,0,0) não equivale a (0,200,0), embora a soma seja igual?",
+      "hint": "Identifique qual canal está ativo.",
+      "explanation": "A cor é determinada por componentes independentes.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Na primeira tripla, o vermelho é 200; na segunda, o verde é 200. A soma perde a identidade dos canais.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "08",
+      "group": "Essenciais — Composição",
+      "title": "Mistura aditiva",
+      "prompt": "Que cor ideal resulta de vermelho e azul no máximo e verde no mínimo?",
+      "hint": "Considere a composição da luz.",
+      "explanation": "Vermelho e azul compõem magenta.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Ciano"
+        },
+        {
+          "id": "b",
+          "text": "Magenta"
+        },
+        {
+          "id": "c",
+          "text": "Amarelo"
+        },
+        {
+          "id": "d",
+          "text": "Verde"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "09",
+      "group": "Essenciais — Composição",
+      "title": "Todos os canais",
+      "prompt": "Explique a diferença entre (0,0,0), (128,128,128) e (255,255,255).",
+      "hint": "Canais iguais representam tons neutros no modelo sRGB.",
+      "explanation": "Valor 128 não implica metade da luminância.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Preto, cinza intermediário na escala numérica e branco; os canais têm valores iguais em cada tripla.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "10",
+      "group": "Essenciais — Pixels",
+      "title": "Combinações",
+      "prompt": "Por que RGB de 24 bits admite 16.777.216 triplas?",
+      "hint": "Multiplique as escolhas independentes.",
+      "explanation": "Cada canal tem 256 possibilidades.",
+      "mode": "text",
+      "starter": "",
+      "solution": "2⁸ × 2⁸ × 2⁸ = 2²⁴ = 16.777.216.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "11",
+      "group": "Revisão opcional — Pixels",
+      "title": "Tamanho de imagem",
+      "prompt": "Uma imagem de 80×60 pixels usa exatamente 3 bytes por pixel. Quantos bytes de dados de cor, sem cabeçalho ou compressão?",
+      "hint": "Multiplique largura, altura e bytes por pixel.",
+      "explanation": "Esse é o tamanho dos dados no modelo indicado, não necessariamente do arquivo.",
+      "mode": "text",
+      "starter": "",
+      "solution": "80×60×3 = 14.400 bytes.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "12",
+      "group": "Essenciais — Editor",
+      "title": "Investigação controlada",
+      "prompt": "Compare RGB (240,0,0), (240,80,0) e (240,240,0). Qual canal varia? Escreva os valores desse canal em binário.",
+      "hint": "Mantenha R e B constantes.",
+      "explanation": "Variar um canal isoladamente permite atribuir a ele a mudança observada.",
+      "mode": "text",
+      "starter": "",
+      "solution": "G varia: 00000000, 01010000, 11110000. A aparência tende do vermelho ao amarelo.",
+      "expected": null,
+      "required": true
+    },
+    {
+      "id": "13",
+      "group": "Revisão opcional — Interfaces",
+      "title": "CSS",
+      "prompt": "Escreva uma declaração CSS que define o fundo RGB (30, 90, 180).",
+      "hint": "Use background-color e rgb.",
+      "explanation": "A tripla mantém a ordem R, G, B.",
+      "mode": "text",
+      "starter": "",
+      "solution": "background-color: rgb(30, 90, 180);",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "14",
+      "group": "Revisão opcional — Interfaces",
+      "title": "Hexadecimal por pares",
+      "prompt": "Converta RGB (16, 32, 255) para a notação #RRGGBB.",
+      "hint": "16=10₁₆, 32=20₁₆, 255=FF₁₆.",
+      "explanation": "Cada canal tem exatamente dois dígitos hexadecimais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "#1020FF",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "15",
+      "group": "Revisão opcional — Interfaces",
+      "title": "Java: faixa válida",
+      "prompt": "Qual argumento é inválido em new java.awt.Color(0, 256, 120)?",
+      "hint": "O tipo int não define sozinho a faixa permitida.",
+      "explanation": "O segundo argumento, 256, excede o limite do canal.",
+      "mode": "quiz",
+      "starter": "",
+      "solution": "",
+      "expected": null,
+      "required": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "256"
+        },
+        {
+          "id": "c",
+          "text": "120"
+        },
+        {
+          "id": "d",
+          "text": "Todos"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "16",
+      "group": "Revisão opcional — Pixels",
+      "title": "Arquivo e dados",
+      "prompt": "Uma imagem RGB com três bytes por pixel sempre ocupa exatamente largura × altura × 3 bytes no disco? Justifique.",
+      "hint": "Considere formatos e compressão.",
+      "explanation": "A fórmula vale para dados brutos sob hipóteses explícitas.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não. Cabeçalhos, metadados, preenchimento e compressão podem alterar o tamanho final.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "17",
+      "group": "Revisão opcional — Composição",
+      "title": "Brilho e números",
+      "prompt": "O valor 128 implica exatamente metade da luz emitida pelo canal 255?",
+      "hint": "Distinga escala codificada de luz física.",
+      "explanation": "Uma metade numérica não equivale automaticamente à metade da luminância.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Não necessariamente; em sRGB a relação é não linear e a tela também influencia a saída.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "18",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 0",
+      "prompt": "Converta o valor decimal 0 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00000000₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 1",
+      "prompt": "Converta o valor decimal 1 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00000001₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 7",
+      "prompt": "Converta o valor decimal 7 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00000111₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "21",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 15",
+      "prompt": "Converta o valor decimal 15 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00001111₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "22",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 31",
+      "prompt": "Converta o valor decimal 31 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00011111₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "23",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 63",
+      "prompt": "Converta o valor decimal 63 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00111111₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "24",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 64",
+      "prompt": "Converta o valor decimal 64 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "01000000₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "25",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 127",
+      "prompt": "Converta o valor decimal 127 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "01111111₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "26",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 128",
+      "prompt": "Converta o valor decimal 128 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "10000000₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "27",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 129",
+      "prompt": "Converta o valor decimal 129 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "10000001₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "28",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 200",
+      "prompt": "Converta o valor decimal 200 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "11001000₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "29",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 254",
+      "prompt": "Converta o valor decimal 254 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "11111110₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "30",
+      "group": "Revisão opcional — Conversões",
+      "title": "Canal 255",
+      "prompt": "Converta o valor decimal 255 para oito bits.",
+      "hint": "Use seleção de pesos ou divisões sucessivas.",
+      "explanation": "Confira pela soma dos pesos ativos.",
+      "mode": "text",
+      "starter": "",
+      "solution": "11111111₂",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "31",
+      "group": "Revisão opcional — Conversões",
+      "title": "Tripla 12, 45, 99",
+      "prompt": "Escreva RGB (12, 45, 99) em binário com oito bits por canal.",
+      "hint": "Mantenha os canais separados.",
+      "explanation": "Cada componente é convertido separadamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00001100 | 00101101 | 01100011",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "32",
+      "group": "Revisão opcional — Conversões",
+      "title": "Tripla 255, 128, 1",
+      "prompt": "Escreva RGB (255, 128, 1) em binário com oito bits por canal.",
+      "hint": "Mantenha os canais separados.",
+      "explanation": "Cada componente é convertido separadamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "11111111 | 10000000 | 00000001",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "33",
+      "group": "Revisão opcional — Conversões",
+      "title": "Tripla 17, 34, 51",
+      "prompt": "Escreva RGB (17, 34, 51) em binário com oito bits por canal.",
+      "hint": "Mantenha os canais separados.",
+      "explanation": "Cada componente é convertido separadamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00010001 | 00100010 | 00110011",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "34",
+      "group": "Revisão opcional — Conversões",
+      "title": "Tripla 0, 127, 255",
+      "prompt": "Escreva RGB (0, 127, 255) em binário com oito bits por canal.",
+      "hint": "Mantenha os canais separados.",
+      "explanation": "Cada componente é convertido separadamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "00000000 | 01111111 | 11111111",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "35",
+      "group": "Revisão opcional — Conversões",
+      "title": "Tripla 65, 130, 195",
+      "prompt": "Escreva RGB (65, 130, 195) em binário com oito bits por canal.",
+      "hint": "Mantenha os canais separados.",
+      "explanation": "Cada componente é convertido separadamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "01000001 | 10000010 | 11000011",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional — Conversões",
+      "title": "Tripla 250, 5, 10",
+      "prompt": "Escreva RGB (250, 5, 10) em binário com oito bits por canal.",
+      "hint": "Mantenha os canais separados.",
+      "explanation": "Cada componente é convertido separadamente.",
+      "mode": "text",
+      "starter": "",
+      "solution": "11111010 | 00000101 | 00001010",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional — Conversões",
+      "title": "Diagnóstico de largura",
+      "prompt": "Uma pessoa escreveu RGB (8,16,32) como 1000 | 10000 | 100000. O valor dos canais está correto? O formato de 24 bits está completo?",
+      "hint": "Distinga quantidade e largura.",
+      "explanation": "Largura fixa permite identificar os limites dos canais.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Sim, os valores estão corretos, mas faltam zeros à esquerda: 00001000 | 00010000 | 00100000.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional — Arquitetura",
+      "title": "Fluxo de informação",
+      "prompt": "Descreva entrada, processamento e saída ao selecionar uma cor num editor.",
+      "hint": "Pense no que o usuário informa e no que o computador faz.",
+      "explanation": "O mesmo modelo de operações fundamentais explica a atividade.",
+      "mode": "text",
+      "starter": "",
+      "solution": "Entrada: valores RGB; processamento: validação e composição gráfica; saída: cor apresentada na tela.",
+      "expected": null,
+      "required": false
+    }
+  ]
+}

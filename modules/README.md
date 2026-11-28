@@ -6,7 +6,8 @@ Arquivos JSON de formato 2, importáveis manualmente na Pythoteca 0.8. Permanece
 
 - 101–103: baseadas no caderno didático da Aula 01, com aprofundamento autoral rotulado.
 - 104–106: baseadas nos quadros observados do vídeo da Aula 02, com aprofundamento rotulado; não houve transcrição da narração nem do áudio complementar.
-- **107–108: conteúdo AUTORAL e PROVISÓRIO, sem base em apostila ou transcrição da professora**, ainda não disponibilizada. O relato da estudante delimita apenas os tópicos: decimal e binário estudados; octal e hexadecimal mencionados. Exemplos, métodos e questões são independentes. Revisar alinhamento quando o material acadêmico chegar.
+- 107–108: revisadas com base nos cadernos didáticos das Aulas 03 e 04 (texto consultado em 28/11/2026). IDs e banco original preservados; atividades essenciais e opcionais identificadas. Conversões octais e hexadecimais e intercâmbios com outras disciplinas são aprofundamentos.
+- 109: representação digital das cores, baseada no caderno da Aula 04, com exemplos e atividades autorais. Complementos sobre sRGB, pixels, hexadecimal, Java e tamanho de imagens rotulados. Apresentações sem texto extraível, infográficos e mídias não examinados nesta revisão. Nenhuma prática Python requerida.
 
 Não incluir material institucional privado no repositório público. Preservar os IDs dos módulos em futuras revisões para manter o progresso local.
 
