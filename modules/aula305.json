@@ -5,7 +5,7 @@
   "title": "Eventos e código gerado",
   "subtitle": "ActionListener, métodos de tratamento e EDT",
   "objectives": "Interpretar o registro e despacho de eventos, compreender classes anônimas e implementar conceitualmente os comportamentos Cadastrar e Limpar.",
-  "source": "Aula 1 - Apostila de NetBeans.pdf, texto consultado na etapa anterior: geração de código e exemplos Cadastrar e Limpar. https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view. Fundamentos de interfaces, ouvintes, classes anônimas, Override e EDT são complementares; exemplos autorais Java 8, não transcrições de imagens. Infográficos da página 5 conferidos visualmente em 28/11/2026: práticas de personalização, eventos e divergência entre chamadas de foco.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf, texto consultado na etapa anterior: geração de código e exemplos Cadastrar e Limpar. https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view. Fundamentos de interfaces, ouvintes, classes anônimas, Override e EDT são complementares; exemplos autorais Java 8, não transcrições de imagens. Infográficos da página 5 conferidos visualmente em 28/11/2026: práticas de personalização, eventos e divergência entre chamadas de foco. Atividade 1.pdf, duas páginas conferidas visualmente em 28/11/2026; montagem, evento Juntar e teste. A prática autoral usa outro contexto.",
   "chapters": [
     {
       "title": "Programação orientada a eventos",
@@ -49,7 +49,7 @@
     },
     {
       "title": "Diagnóstico e integração",
-      "text": "[FUNDAMENTOS] Se o botão aparece mas não realiza a ação esperada, verifique o registro do ouvinte, o método chamado, o componente consultado e as mensagens de erro. Teste com entradas diferentes e repita ações. Os trechos anteriores pressupõem os campos e métodos de uma classe JFrame; não são programas independentes. Preserve o código protegido do GUI Builder.\n\n[PRÁTICA DA APOSTILA, p. 5] A seção de fixação propõe personalizar a mensagem, alterar cor ou tamanho dos botões, definir título da janela e testar os dois eventos. Pratique no editor visual e nos métodos de evento apropriados. Compare o texto no campo antes e depois de Limpar; confirme que Cadastrar usa o valor atual, não um valor fixo. As mudanças de aparência não substituem os testes de comportamento.",
+      "text": "[FUNDAMENTOS] Se o botão aparece mas não realiza a ação esperada, verifique o registro do ouvinte, o método chamado, o componente consultado e as mensagens de erro. Teste com entradas diferentes e repita ações. Os trechos anteriores pressupõem os campos e métodos de uma classe JFrame; não são programas independentes. Preserve o código protegido do GUI Builder.\n\n[PRÁTICA DA APOSTILA, p. 5] A seção de fixação propõe personalizar a mensagem, alterar cor ou tamanho dos botões, definir título da janela e testar os dois eventos. Pratique no editor visual e nos métodos de evento apropriados. Compare o texto no campo antes e depois de Limpar; confirme que Cadastrar usa o valor atual, não um valor fixo. As mudanças de aparência não substituem os testes de comportamento.\n\n[CURRICULAR, Atividade 1, pp. 1–2] A atividade monta três rótulos, três campos de texto e um botão Juntar no formulário TelaCadastro. O evento lê nome e sobrenome com getText().trim(), concatena os valores separados por um espaço e atualiza o terceiro campo com setText. A orientação é editar apenas o corpo do método gerado para o evento, sem alterar seu nome, e executar o arquivo com Shift+F6. O terceiro campo é habilitado, mas não editável. [FUNDAMENTOS] A atualização acontece a cada acionamento, não automaticamente enquanto se digita. Os identificadores gerados na figura dependem da ordem de criação; confirme a associação de cada campo no seu formulário. O exemplo acadêmico pressupõe entradas preenchidas e não contém validação de campos vazios. Testar duas combinações sucessivas permite detectar a leitura do componente errado ou resultado desatualizado. Validação e atualização automática são extensões, não requisitos acadêmicos.",
       "example": "// Dentro do tratamento, para diagnóstico:\nSystem.out.println(\"Evento recebido: \" + evt.getActionCommand());"
     }
   ],
@@ -1030,6 +1030,19 @@
       "hint": "Use as propriedades visuais e os métodos de evento, sem editar a região protegida.",
       "solution": "O título e a aparência mudam pelo editor visual; Cadastrar lê o campo atual e apresenta a mensagem; Limpar esvazia o campo e solicita foco. Verifique ambos os nomes, campo vazio e foco quando possível.",
       "explanation": "Prática autoral de integração, sem exigir execução automática nem fornecer o formulário completo.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional — Formulários e texto",
+      "title": "Montar etiqueta de identificação",
+      "prompt": "Crie em uma cópia de seu projeto um formulário Swing com dois campos de entrada (setor e código), um campo de resultado habilitado e não editável e um botão Gerar. Ao acionar o botão, obtenha os textos atuais, remova espaços das extremidades e monte uma etiqueta separada por hífen. Teste A e 07, depois B e 12. Não converta o código em número.",
+      "hint": "Confirme os nomes dos componentes e use getText, trim e setText no método de evento.",
+      "solution": "Resultados A-07 e B-12. O campo de resultado é atualizado a cada acionamento; use concatenação de strings, preservando zeros iniciais. Confira propriedades e nomes no editor visual.",
+      "explanation": "Variação autoral que integra montagem, evento e processamento sem entregar o formulário completo.",
       "mode": "text",
       "starter": "",
       "expected": null,

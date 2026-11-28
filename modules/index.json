@@ -142,16 +142,16 @@
       "title": "JFrame e componentes Swing",
       "subtitle": "Janelas, componentes, propriedades e código gerado",
       "discipline": "java",
-      "sha256": "681dfd864c6044bf2497f0440d2ec4b00312b2192f372bbaed423305771c6b94",
-      "bytes": 37340
+      "sha256": "8b6d18e70dc1927fcbdb5dbffd36250940359fc47c35b4aa72dc393b7478d3ee",
+      "bytes": 39166
     },
     {
       "id": "aula305",
       "title": "Eventos e código gerado",
       "subtitle": "ActionListener, métodos de tratamento e EDT",
       "discipline": "java",
-      "sha256": "765fc3ed68d61af8ea4999f397731db72e62ee0ea19bf1ae85aaa5774fdf0cff",
-      "bytes": 34437
+      "sha256": "ae6d6173e9d63cb692e649eb38dfc9b6a16a331b4e9d343ccf1ed70de121b47b",
+      "bytes": 36613
     },
     {
       "id": "aula306",
@@ -166,8 +166,8 @@
       "title": "Tipos, conversões e tratamento de dados",
       "subtitle": "Entradas, validação, exceções e formatação",
       "discipline": "java",
-      "sha256": "65db069a3267c8f0534599956de5eead91f3a056ef10053735fae70b8ac44671",
-      "bytes": 35203
+      "sha256": "41a11ecc7657cd14a07479f621235caeeb3b4baa3408c42e10e6f8948c3897ec",
+      "bytes": 37148
     },
     {
       "id": "aula308",

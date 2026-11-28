@@ -5,7 +5,7 @@
   "title": "JFrame e componentes Swing",
   "subtitle": "Janelas, componentes, propriedades e código gerado",
   "objectives": "Reconhecer componentes Swing, interpretar sua instanciação e configuração, compreender initComponents e distinguir layout de comportamento.",
-  "source": "Aula 1 - Apostila de NetBeans.pdf (https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view), texto consultado nesta etapa: Adicionando objetos a tela; Como e onde o NetBeans gera o código dos componentes Swing; O que é Swing. Capítulos distinguem conteúdo curricular de fundamentos autorais. Infográficos das páginas 3–4 reconsultados visualmente em 28/11/2026; catálogo de componentes e árvore do Navegador incorporados. Exemplos complementares Java 8.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf (https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view), texto consultado nesta etapa: Adicionando objetos a tela; Como e onde o NetBeans gera o código dos componentes Swing; O que é Swing. Capítulos distinguem conteúdo curricular de fundamentos autorais. Infográficos das páginas 3–4 reconsultados visualmente em 28/11/2026; catálogo de componentes e árvore do Navegador incorporados. Exemplos complementares Java 8. Atividade 1.pdf, duas páginas sem camada textual, renderizadas e examinadas integralmente em 28/11/2026; propriedades editable/enabled e campo de resultado.",
   "chapters": [
     {
       "title": "Swing e JFC",
@@ -24,8 +24,8 @@
     },
     {
       "title": "Propriedades e identificadores",
-      "text": "[CURRICULAR] Alterar propriedades visuais no GUI Builder atualiza o código correspondente. setText define o texto exibido. [FUNDAMENTOS] O identificador jButton1 é um nome Java, enquanto Cadastrar é texto apresentado ao usuário. Renomear a variável e alterar a propriedade text são operações diferentes. getText lê o texto de componentes que oferecem esse método.",
-      "example": "jButton1.setText(\"Cadastrar\");\nString nome = jTextField1.getText();"
+      "text": "[CURRICULAR] Alterar propriedades visuais no GUI Builder atualiza o código correspondente. setText define o texto exibido. [FUNDAMENTOS] O identificador jButton1 é um nome Java, enquanto Cadastrar é texto apresentado ao usuário. Renomear a variável e alterar a propriedade text são operações diferentes. getText lê o texto de componentes que oferecem esse método.\n\n[CURRICULAR, Atividade 1, p. 2, etapa 6] O campo de resultado deve permanecer enabled = true e editable = false. Configure editable na aba Propriedades do JTextField escolhido, sem desmarcar enabled. [FUNDAMENTOS] setEditable(false) impede a edição direta do texto pelo usuário, mas permite que o programa altere o conteúdo com setText; normalmente o campo habilitado continua permitindo selecionar e copiar texto. setEnabled(false) desabilita o componente para interação normal e pode modificar sua aparência, conforme o Look and Feel. As duas propriedades são independentes. Um resultado não editável não é, por isso, um dado protegido contra alterações pelo próprio programa.",
+      "example": "jButton1.setText(\"Cadastrar\");\nString nome = jTextField1.getText();\n// Campo de resultado já criado no formulário:\ncampoResultado.setEditable(false);\ncampoResultado.setEnabled(true);\ncampoResultado.setText(\"Resultado calculado\");"
     },
     {
       "title": "Instanciação e campos",
@@ -1099,6 +1099,19 @@
       "hint": "Distinga texto, alternativa exclusiva e caixa independente.",
       "solution": "JTextField, JTextArea, dois JRadioButton associados ao mesmo ButtonGroup e JCheckBox. JLabel pode identificar os campos.",
       "explanation": "ButtonGroup coordena os estados dos botões; não aparece como controle visual.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Revisão opcional — Formulários e texto",
+      "title": "Resultado não editável",
+      "prompt": "Um formulário calcula uma etiqueta em um JTextField. O usuário deve poder consultar e copiar a etiqueta, mas não digitá-la; o botão deve poder atualizar o conteúdo. Quais propriedades configurar e qual método usar na atualização?",
+      "hint": "Diferencie edição e habilitação.",
+      "solution": "editable = false, enabled = true; atualize com setText no evento. A seleção e cópia normalmente continuam disponíveis.",
+      "explanation": "A propriedade editable restringe a edição pelo usuário, não a atualização programática.",
       "mode": "text",
       "starter": "",
       "expected": null,

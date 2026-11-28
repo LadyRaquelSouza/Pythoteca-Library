@@ -5,7 +5,7 @@
   "title": "Tipos, conversões e tratamento de dados",
   "subtitle": "Entradas, validação, exceções e formatação",
   "objectives": "Distinguir tipos, converter entradas, comparar textos, validar dados e tratar falhas em aplicações Java 8.",
-  "source": "Módulo autoral de fundamentos complementares Java 8, articulado aos módulos 301–306. Não representa transcrição nem conteúdo atribuído às apostilas. Complementos autorais articulados à revisão visual da Aula 2 - JOptionPane.pdf em 28/11/2026, especialmente slide 3 e slide 9.",
+  "source": "Módulo autoral de fundamentos complementares Java 8, articulado aos módulos 301–306. Não representa transcrição nem conteúdo atribuído às apostilas. Complementos autorais articulados à revisão visual da Aula 2 - JOptionPane.pdf em 28/11/2026, especialmente slide 3 e slide 9. Atividade 1.pdf (pp. 1–2) consultada visualmente em 28/11/2026 para contextualizar concatenação e trim; exemplos adicionais autorais.",
   "chapters": [
     {
       "title": "Tipos primitivos e referências",
@@ -24,8 +24,8 @@
     },
     {
       "title": "Texto e operações",
-      "text": "O operador + soma números ou concatena quando um operando é String. A avaliação de operadores + consecutivos ocorre da esquerda para a direita. Parênteses permitem calcular antes de concatenar.",
-      "example": "String a = \"10\";\nString b = \"20\";\nSystem.out.println(a + b); // 1020\nSystem.out.println(10 + 20); // 30\nSystem.out.println(\"Total: \" + (10 + 20));"
+      "text": "O operador + soma números ou concatena quando um operando é String. A avaliação de operadores + consecutivos ocorre da esquerda para a direita. Parênteses permitem calcular antes de concatenar.\n\n[CURRICULAR, Atividade 1, etapa 7] A concatenação de dois textos lidos do formulário usa o operador + com um literal de espaço entre eles. O método trim() retorna um texto com remoção de caracteres nas extremidades segundo a regra do Java 8; não altera o texto de origem nem o conteúdo do JTextField sozinho. [FUNDAMENTOS] Se um campo estiver vazio, concatenar com um separador fixo ainda inclui o espaço. Exigir os dois campos preenchidos ou aceitar somente um deles são decisões de requisitos. Para a prática acadêmica, não acrescente automaticamente essa exigência; em uma extensão autoral, valide os campos com isEmpty e operadores lógicos antes de formar o resultado. O exemplo abaixo usa etiquetas de identificação de uma oficina, em vez de reproduzir a atividade.",
+      "example": "String a = \"10\";\nString b = \"20\";\nSystem.out.println(a + b); // 1020\nSystem.out.println(10 + 20); // 30\nSystem.out.println(\"Total: \" + (10 + 20));\nString setor = \"  A \".trim();\nString identificador = \"  07 \".trim();\nString etiqueta = setor + \"-\" + identificador;\nSystem.out.println(etiqueta); // A-07"
     },
     {
       "title": "Conversão de entradas",
@@ -1144,6 +1144,19 @@
       "hint": "&& não avalia o lado direito quando o esquerdo é falso.",
       "solution": "A primeira é segura: false, false, true. A segunda lança NullPointerException para null e retorna false e true nos demais casos.",
       "explanation": "A ordem de avaliação importa quando uma expressão depende da validade de outra.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "41",
+      "group": "Revisão opcional — Formulários e texto",
+      "title": "Espaço não é removido automaticamente",
+      "prompt": "Considere String a = \"  A  \"; String b = \"\"; String resultado = a.trim() + \"-\" + b.trim();. Qual é o resultado? O valor de a mudou? Como impedir gerar uma etiqueta quando um dos campos está vazio?",
+      "hint": "trim retorna texto; teste a ausência de conteúdo com isEmpty.",
+      "solution": "Resultado A-; a mantém os espaços originais. Teste a.trim().isEmpty() || b.trim().isEmpty() e não gere a etiqueta se verdadeiro.",
+      "explanation": "Separar normalização, validação e concatenação evita confundir transformação de texto com alteração do componente.",
       "mode": "text",
       "starter": "",
       "expected": null,
