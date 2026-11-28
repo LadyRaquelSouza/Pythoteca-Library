@@ -68,3 +68,22 @@ Decisão da estudante: preservar nesta fase os essenciais de Lógica e Java. A r
 ## Proposta de percurso guiado — verificação inicial
 
 A proposta de sete etapas, sequência completa e matriz de dependências está em [percurso-guiado.md](percurso-guiado.md). Conferência programática contra manifesto: 45 aulas únicas, ordem interna preservada, dependências propostas e conexões recomendadas sem inversões. Preferência editorial por blocos intercalados. Ainda não é conclusão oficial; revisar após auditoria dos exercícios e definição das revisões generalizadas. Nenhum módulo ou exercício alterado neste commit.
+
+
+## Auditoria de exercícios — Arquitetura (28/11/2026)
+
+Consultados os nove JSONs reais, agrupamentos, modalidades, essenciais, amostras de enunciados por grupo e repetição de modelos por normalização dos dígitos. A heurística identifica famílias de variantes, não duplicidade semântica comprovada nem avaliação de todas as soluções. 690 exercícios, 94 essenciais, 596 opcionais. CI do percurso proposto 46163615752 aprovada.
+
+| Aula | Diagnóstico | Prioridade de revisão inédita |
+|---|---|---|
+| 101 | Grupos variados, operações, camadas, diagnóstico; cinco intercâmbios, alguns em Python | Distinguir sintomas e evidências, fluxo dado/arquivo/saída; conectar SO e TI |
+| 102 | Interfaces e compatibilidade bem cobertas; quatro essenciais em fonte/térmica | Interpretar ficha técnica fictícia, múltiplas restrições, diferenciar conector/protocolo e investigar sem desmontar |
+| 103 | Hierarquia e diagnóstico cobertos; quatro variantes de taxa, seis de capacidade | Interpretar indicadores simultâneos, escolher hipótese e teste, comparar unidade/taxa/latência |
+| 104 | Conceitos e jornada de soma; comunicação e gargalos | Explicar caminho de instrução e dado em cenário novo, distinguir modelo abstrato de implementação |
+| 105 | 22 rastreamentos em quatro famílias (8+6+4+4) | Detectar estado inconsistente, explicar efeito de desvio e escrita, integrar lógica sem equiparar pseudoinstruções a CPU real |
+| 106 | 28 cálculos/rastreamentos em quatro famílias (8+8+8+4) | Escolher cálculo adequado sem fórmula anunciada, identificar hipóteses e limites, combinar endereçamento e binário após 108 |
+| 107 | Muitas variantes de decomposição e validação | Resolver ambiguidade de base, justificar erro, interpretar notação em contexto |
+| 108 | 134 questões em quatro famílias: 50 pesos, 27 divisões, 39 binário-decimal, 18 largura fixa | Escolher método sem indicação, conferir resposta, diagnosticar erro, combinar representação e capacidade |
+| 109 | Conversões abundantes, exemplos RGB e pixels | Interpretar custo de imagem, canal inválido, representação versus aparência e armazenamento, conectar Java após 310 |
+
+Decisão: preservar exercícios e IDs atuais. As variantes de treino são úteis para fluência, mas não constituem competências independentes. No futuro seletor transversal, limitar concentração de uma família por sessão quando houver alternativas, sem excluir variantes para treino direcionado. Inéditos devem exigir escolha de estratégia, explicação de hipóteses, análise de erros e transferência de contexto; não apenas trocar números. A revisão deve poder alternar questões monodisciplinares e integradoras. Não depender de Python, compilador ou desmontagem física. A seleção de essenciais de 101–106 permanece; não foi auditada individualmente a correção de todas as respostas nesta passagem. Nenhum exercício novo publicado neste registro; produção do banco separado ocorrerá após diagnóstico das demais disciplinas e definição de representação editorial compatível.
