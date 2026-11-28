@@ -1,19 +1,15 @@
 # Pythoteca Library
 
-Catálogo público de aulas para a Pythoteca, aplicativo educacional de Python para Android.
+Catálogo público de aulas autorais para a Pythoteca.
 
-## Estado atual
+## Catálogos
 
-Biblioteca experimental. Apenas o módulo de demonstração (Aula 99) está disponível. Ele não faz parte de nenhum curso e não contém material acadêmico privado.
+- catalog/index.json: catálogo legado v1, com aulas de Python e demonstração.
+- modules/index.json: catálogo multidisciplinar v2, com 45 aulas de Arquitetura, Lógica, Java, Sistemas Operacionais, TI e Modelagem de Dados.
+- Identificadores permanentes; tamanho e SHA-256 no manifesto. Exemplos não são executados automaticamente.
 
-## Formato
+## Privacidade e autoria
 
-- `catalog/index.json`: índice JSON de versão 1, com identificador, título, subtítulo, tamanho em bytes e SHA-256 de cada aula.
-- `catalog/aula99.json`: módulo demonstrativo.
-- Os identificadores são permanentes. O catálogo referencia apenas arquivos no próprio diretório.
-- Um arquivo é verificado antes de ser adicionado à biblioteca local. Exemplos não são executados automaticamente.
-- Material novo só será publicado após revisão de autoria, direitos de uso, qualidade e ausência de dados pessoais.
+O repositório público contém somente conteúdo didático elaborado e revisado, código, testes e documentação. Materiais acadêmicos originais e transcrições integrais permanecem em armazenamento privado. Não há dados de estudo, contas ou analytics neste repositório. A visibilidade pública não equivale a licença de reutilização irrestrita.
 
-O catálogo é público para permitir consultas sem autenticação. Não armazena dados de estudo e não recebe envios de estudantes. Não há contas, analytics ou serviço de execução de código neste repositório.
-
-A publicação de uma licença de conteúdo será decidida separadamente; a visibilidade pública não equivale a uma licença de reutilização irrestrita.
+A ferramenta experimental de transcrição local está em [tools/media-processing](tools/media-processing/README.md). Não processa mídias privadas no CI público. O validador de caminhos reduz inclusões acidentais; não substitui revisão editorial ou proteção prévia à publicação.
