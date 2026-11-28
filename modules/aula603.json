@@ -5,7 +5,7 @@
   "title": "Entidades, atributos e domínios",
   "subtitle": "Ocorrências, propriedades, identificadores e dicionário de dados",
   "objectives": "Reconhecer entidades e ocorrências; classificar atributos; definir domínios e identificadores; construir dicionários de dados e distinguir regras de decisões de implementação.",
-  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras dos dois PDFs restantes ainda pendentes de inspeção; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDFs das aulas 01 e 02 ainda pendentes de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
   "chapters": [
     {
       "title": "1. Entidade e ocorrência",
@@ -39,7 +39,7 @@
     },
     {
       "title": "7. Dicionário de dados",
-      "text": "CONTEÚDO DO CURSO\n\nO dicionário de dados documenta o significado dos elementos, reduz ambiguidades e ajuda usuários e desenvolvedores a compartilhar uma linguagem. Pode registrar nome, descrição, domínio, obrigatoriedade, multiplicidade, origem e regras. Não existe um único formato obrigatório.\n\nPara EQUIPAMENTO, codigo_patrimonio identifica uma ocorrência; descricao informa o nome usado no inventário; situacao aceita disponível, em manutenção ou baixado, conforme o caso. A regra de unicidade é diferente da regra de conjunto permitido.\n\nAPROFUNDAMENTO\n\nUm dicionário deve ser atualizado quando as regras mudam. Se a situação reservada passar a existir, decida se ela é propriedade do equipamento ou derivada de reservas. A resposta depende de como o domínio trata disponibilidade e histórico.",
+      "text": "CONTEÚDO DO CURSO\n\nO dicionário de dados documenta o significado dos elementos, reduz ambiguidades e ajuda usuários e desenvolvedores a compartilhar uma linguagem. Pode registrar nome, descrição, domínio, obrigatoriedade, multiplicidade, origem e regras. Não existe um único formato obrigatório.\n\nPara EQUIPAMENTO, codigo_patrimonio identifica uma ocorrência; descricao informa o nome usado no inventário; situacao aceita disponível, em manutenção ou baixado, conforme o caso. A regra de unicidade é diferente da regra de conjunto permitido.\n\nAPROFUNDAMENTO\n\nUm dicionário deve ser atualizado quando as regras mudam. Se a situação reservada passar a existir, decida se ela é propriedade do equipamento ou derivada de reservas. A resposta depende de como o domínio trata disponibilidade e histórico.\n\nPRÁTICA AUTORAL MOTIVADA PELA AULA 01 — A apostila propõe identificar atributos de PESSOA, sem especificar uma finalidade ou fornecer uma solução completa. Para tornar a decisão verificável, suponha um cadastro fictício de participantes de oficinas: id_pessoa identifica cada participante, nome é o nome usado no cadastro, email_contato permite enviar avisos quando informado. Documente domínio, obrigatoriedade, significado e unicidade. Não inclua CPF, endereço ou nascimento sem necessidade demonstrada. Outro domínio pode exigir outros atributos; não existe uma lista universal de propriedades de PESSOA.",
       "example": "codigo_patrimonio | texto não vazio | obrigatório | único\nsituacao | conjunto de estados documentado | obrigatório\nobservacao | texto | opcional"
     },
     {
@@ -329,6 +329,19 @@
       "hint": "Considere 25,50 e NULL.",
       "solution": "O tipo aceita 25,50, fora do intervalo. Usar CHECK (nota BETWEEN 0 AND 10) e NOT NULL. O tipo determina precisão/escala, não a regra completa.",
       "explanation": "CHECK e obrigatoriedade são restrições distintas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "20",
+      "group": "Revisão opcional — Dicionário de dados",
+      "title": "Cadastro de participantes",
+      "prompt": "Uma oficina precisa identificar participantes e enviar avisos quando houver e-mail de contato. Proponha três atributos de PESSOA e documente significado, domínio, obrigatoriedade e unicidade. Explique por que não incluiria automaticamente CPF.",
+      "hint": "Separe necessidade de identificação interna, nome e canal de contato.",
+      "solution": "Exemplo: id_pessoa, inteiro positivo, obrigatório e único; nome, texto não vazio, obrigatório e não necessariamente único; email_contato, texto conforme formato adotado, opcional e sem unicidade presumida. CPF só deve ser coletado se houver finalidade e regra justificadas.",
+      "explanation": "O dicionário depende das necessidades do domínio e registra regras que não se deduzem do nome do campo.",
       "mode": "text",
       "starter": "",
       "expected": null,

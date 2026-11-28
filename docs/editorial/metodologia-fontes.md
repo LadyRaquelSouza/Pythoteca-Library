@@ -84,3 +84,8 @@ Regra editorial permanente: fechar análise, confronto, decisão, implementaçã
 ### Banco de Dados Para Alunos — fechamento visual
 
 28/11/2026: 45 páginas presentes, com rodapés que declaram 47 slides; não presumir conteúdo ausente. Revisão visual realizada na etapa anterior e texto reconsultado neste fechamento. Diagramas de cardinalidade e exemplo de biblioteca já cobertos; slide 4 (tipo NUMERIC(4,2) versus domínio) incorporado a 603; slide 42 (índice, visão, procedimento, gatilho) a 602; slides 38–40 (matrícula, PK composta e FKs) a 610, com SQL autoral adaptado e explicação das restrições. Três exercícios opcionais, nenhum módulo ou capítulo novo. Metadados atualizados nos doze módulos. Figuras originais não republicadas. Próximo documento: Conceitos Básicos de Modelagem de Dados — Aula 01; depois Aula 02. Cópia durável privada de transcrições ainda pendente.
+
+
+### Conceitos Básicos de Modelagem de Dados — Aula 01
+
+28/11/2026: duas páginas originais renderizadas e inspecionadas integralmente, texto reconsultado. Não há diagramas ou exemplos visuais omitidos pela extração. A601 já respeita a classificação ampla de DML, incluindo consulta; A611 já desenvolve a meta de 3FN explicitada na fonte. A602 reforça finalidades, nomenclatura e documentação do modelo lógico e contextualiza estruturas físicas auxiliares; o termo 'lider' não definido na fonte não recebe interpretação inventada. A603 desenvolve exercício autoral de dicionário de PESSOA com finalidade explícita, pois o enunciado acadêmico não fornece atributos nem solução. Um exercício opcional novo; nenhum módulo ou capítulo novo. Metadados atualizados; nenhuma página original republicada. Próximo documento: Aula 02.
