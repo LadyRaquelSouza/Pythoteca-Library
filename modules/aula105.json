@@ -5,11 +5,11 @@
   "title": "CPU e ciclo de instruções",
   "subtitle": "Busca, decodificação, execução, registradores e rastreamento",
   "objectives": "Explicar as quatro fases do ciclo, interpretar registradores e estado, distinguir dados, endereços e instruções, acompanhar o modelo 8 + 5 do vídeo, rastrear programas fictícios, compreender controle de fluxo e introdução a pipeline.",
-  "source": "Base acadêmica audiovisual: A Jornada de um Cálculo, Aula 02 de Arquitetura. Quadros consultados do ciclo de quatro etapas, UC/ULA/registradores e tabela da soma 8 + 5. Narração e áudio complementar não transcritos. Aprofundamentos autorais: PC, IR, MAR/MDR conceituais, ISA, modelo fictício, fluxo e pipeline.",
+  "source": "Base acadêmica audiovisual: A Jornada de um Cálculo, Aula 02 de Arquitetura. Quadros consultados do ciclo de quatro etapas, UC/ULA/registradores e tabela da soma 8 + 5. Áudio complementar A02 ainda pendente. Aprofundamentos autorais: PC, IR, MAR/MDR conceituais, ISA, modelo fictício, fluxo e pipeline. Vídeo A Jornada de um Cálculo: 412,6418125 s processados offline em sete trechos, Whisper Base, 115 segmentos, 1161 palavras por espaços; texto examinado em 28/11/2026, sem validação humana palavra a palavra. 14 quadros amostrados a cada 30 s e examinados. Ressalvas técnicas identificadas.",
   "chapters": [
     {
       "title": "O ciclo de instrução",
-      "text": "BASE AUDIOVISUAL\nO vídeo A Jornada de um Cálculo apresenta quatro etapas principais: busca, decodificação, execução e resultado. Na busca, a instrução é obtida da memória; na decodificação, a UC interpreta a instrução e sua operação; na execução, a ULA realiza o cálculo quando necessário; na etapa de resultado, o valor é armazenado ou encaminhado à saída. O esquema usa a operação 8 + 5 para mostrar a cooperação entre os componentes.\n\nUma instrução é uma operação elementar reconhecida pelo processador. Um programa reúne instruções organizadas para realizar uma tarefa. A sequência completa que resolve a soma no vídeo não deve ser confundida com um único ciclo de instrução: carregar os operandos, somar, guardar e apresentar são operações distintas, e cada instrução exige sua própria execução.\n\nAPROFUNDAMENTO\nUsaremos quatro fases conceituais, também conhecidas como fetch, decode, execute e write-back (quando há escrita de resultado). Nem toda instrução realiza uma operação aritmética ou produz um valor a escrever em registrador. A divisão das fases varia entre arquiteturas. Uma instrução de desvio pode alterar a próxima instrução; uma operação de escrita pode modificar a memória; uma instrução de saída pode interagir com mecanismos de E/S.\n\nO ciclo de instrução não é sinônimo de ciclo de clock. Um ciclo de clock é uma unidade temporal ligada à frequência; uma instrução pode exigir vários ciclos, ou várias instruções podem avançar em paralelo. O modelo introdutório descreve dependências lógicas, não uma temporização universal.",
+      "text": "BASE AUDIOVISUAL\nO vídeo A Jornada de um Cálculo apresenta quatro etapas principais: busca, decodificação, execução e resultado. Na busca, a instrução é obtida da memória; na decodificação, a UC interpreta a instrução e sua operação; na execução, a ULA realiza o cálculo quando necessário; na etapa de resultado, o valor é armazenado ou encaminhado à saída. O esquema usa a operação 8 + 5 para mostrar a cooperação entre os componentes.\n\nUma instrução é uma operação elementar reconhecida pelo processador. Um programa reúne instruções organizadas para realizar uma tarefa. A sequência completa que resolve a soma no vídeo não deve ser confundida com um único ciclo de instrução: carregar os operandos, somar, guardar e apresentar são operações distintas, e cada instrução exige sua própria execução.\n\nAPROFUNDAMENTO\nUsaremos quatro fases conceituais, também conhecidas como fetch, decode, execute e write-back (quando há escrita de resultado). Nem toda instrução realiza uma operação aritmética ou produz um valor a escrever em registrador. A divisão das fases varia entre arquiteturas. Uma instrução de desvio pode alterar a próxima instrução; uma operação de escrita pode modificar a memória; uma instrução de saída pode interagir com mecanismos de E/S.\n\nO ciclo de instrução não é sinônimo de ciclo de clock. Um ciclo de clock é uma unidade temporal ligada à frequência; uma instrução pode exigir vários ciclos, ou várias instruções podem avançar em paralelo. O modelo introdutório descreve dependências lógicas, não uma temporização universal.\n\nRESSALVA À NARRAÇÃO A02 — O exemplo de 3 GHz precisa ser interpretado como três bilhões de ciclos de clock por segundo, sob frequência constante, não três bilhões de instruções completas nem três bilhões de repetições das quatro fases. Em um modelo hipotético sem sobreposição que gasta três ciclos por instrução, 3 GHz permitiria idealmente um bilhão de instruções por segundo. Uma implementação que conclui em média duas instruções por ciclo poderia atingir seis bilhões por segundo nas condições assumidas. São exemplos matemáticos, não medições de uma CPU real. O clock também pode variar ou ser interrompido em partes do processador; não é correto afirmar que a execução de instruções nunca para.",
       "example": ""
     },
     {
@@ -1615,6 +1615,19 @@
       "starter": "",
       "solution": "Posições 100, 101, 104 e 105. R1=14; posições 102 e 103 não executadas. Saída única 14.",
       "expected": null
+    },
+    {
+      "id": "75",
+      "group": "Revisão opcional — Clock e instruções",
+      "title": "Ciclos não são instruções",
+      "prompt": "Uma CPU hipotética opera a 2 GHz constantes e conclui uma instrução a cada quatro ciclos, sem sobreposição. Quantas instruções conclui por segundo no modelo ideal? Por que a frequência sozinha não determina esse número em CPUs reais?",
+      "hint": "Divida ciclos por segundo pelos ciclos por instrução.",
+      "solution": "2.000.000.000 / 4 = 500.000.000 instruções por segundo. O desempenho real depende de instruções, sobreposição, dependências, memória e frequência efetiva.",
+      "explanation": "Clock é uma referência temporal; a taxa de conclusão de instruções depende da organização e da tarefa.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
     }
   ]
 }

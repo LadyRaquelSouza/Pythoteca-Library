@@ -30,24 +30,24 @@
       "title": "Arquitetura de von Neumann",
       "subtitle": "Programa armazenado, CPU, memória, comunicação e gargalo",
       "discipline": "arquitetura",
-      "sha256": "4f27410f90717862504c0f4f3813cc20dc9b342fece63847fb82b065b5ab16ca",
-      "bytes": 60287
+      "sha256": "42c0cf905cad3ffa3f893d17cdb906c6f3f7e1fadb03aea25f481db9beb89ddd",
+      "bytes": 61383
     },
     {
       "id": "aula105",
       "title": "CPU e ciclo de instruções",
       "subtitle": "Busca, decodificação, execução, registradores e rastreamento",
       "discipline": "arquitetura",
-      "sha256": "cd9c8d6ec69648f5b328e83e500177d793eff8fb8beee6ca98cd294d1bda5621",
-      "bytes": 65057
+      "sha256": "47656feb8fbe4e7cc6d97622a0da11cf3d8b08ee7aa80f6da836a8681b570ed1",
+      "bytes": 66980
     },
     {
       "id": "aula106",
       "title": "Barramentos e comunicação",
       "subtitle": "Dados, endereços, controle, interconexões e taxas de transferência",
       "discipline": "arquitetura",
-      "sha256": "363f6ba2c941f06734bf06e651b29df5974068eed5e3ac14d9755366ce90e0fc",
-      "bytes": 74361
+      "sha256": "e983d2c68aa2fb1075d093e778e1d8c4bba8ca57d3b91ab0d31ec8be5401857f",
+      "bytes": 75118
     },
     {
       "id": "aula107",
