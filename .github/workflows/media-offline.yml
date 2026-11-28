@@ -1,0 +1,57 @@
+name: Preparar runtime offline
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/media-offline.yml'
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Download public runtime and model
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_public_tree.py
+          mkdir -p "$RUNNER_TEMP/offline-runtime/wheels"
+          python -m pip download --only-binary=:all: -r tools/media-processing/requirements.txt -d "$RUNNER_TEMP/offline-runtime/wheels"
+          python -m pip install --no-index --find-links "$RUNNER_TEMP/offline-runtime/wheels" -r tools/media-processing/requirements.txt
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from huggingface_hub import snapshot_download
+          root = Path(os.environ["RUNNER_TEMP"])/"offline-runtime"
+          snapshot_download("Systran/faster-whisper-base", revision="ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66", local_dir=root/"model", allow_patterns=["*.json","*.txt","model.bin","README.md","LICENSE*"])
+          PY
+          rm -rf "$RUNNER_TEMP/offline-runtime/model/.cache"
+      - name: Verify offline load
+        env:
+          HF_HUB_OFFLINE: '1'
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from faster_whisper import WhisperModel
+          root = Path(os.environ["RUNNER_TEMP"])/"offline-runtime"
+          WhisperModel(str(root/"model"), device="cpu", compute_type="int8", local_files_only=True)
+          print("Offline model loaded.")
+          PY
+          cd "$RUNNER_TEMP/offline-runtime"
+          find wheels model -type f -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: whisper-base-offline-cp313-linux-x64
+          path: ${{ runner.temp }}/offline-runtime/
+          compression-level: 0
+          retention-days: 3
+          if-no-files-found: error

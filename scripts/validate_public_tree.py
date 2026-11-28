@@ -8,7 +8,7 @@ import sys
 
 ALLOWED = (
     r"README\.md", r"\.gitignore",
-    r"\.github/workflows/(?:catalog|media-smoke)\.yml",
+    r"\.github/workflows/(?:catalog|media-smoke|media-offline)\.yml",
     r"(?:catalog|modules)/(?:index|aula[0-9]{2,4})\.json",
     r"modules/README\.md",
     r"docs/(?:editorial|desenvolvimento)/[A-Za-z0-9_-]+\.md",
