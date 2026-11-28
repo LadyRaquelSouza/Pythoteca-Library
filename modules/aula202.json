@@ -5,7 +5,7 @@
   "title": "Variáveis e entrada de dados",
   "subtitle": "Tipos, declarações, leitura, saída e rastreamento",
   "objectives": "Escolher tipos de dados; declarar variáveis; distinguir entrada e saída; interpretar valores literais e armazenados; rastrear leituras e elaborar um cadastro simples.",
-  "source": "Base acadêmica: Aula_2_Variaveis_Entrada_Dados_Widescreen-1.pdf, nove slides examinados visualmente em 23/11/2026. Slides 2–9: variáveis, cinco tipos, leia e escreva, declaração, cadastro e saída. Exemplos e exercícios autorais; aprofundamentos identificados. Estrutura programa restaurada nos exemplos completos; sintaxe não executada nesta etapa. Expansão autoral de revisão teórica baseada nos sete capítulos existentes, incluindo atribuição, cópia de valores e diagnóstico de tipos.",
+  "source": "Base acadêmica: Aula_2_Variaveis_Entrada_Dados_Widescreen-1.pdf, nove slides examinados visualmente em 23/11/2026. Slides 2–9: variáveis, cinco tipos, leia e escreva, declaração, cadastro e saída. Exemplos e exercícios autorais; aprofundamentos identificados. Estrutura programa restaurada nos exemplos completos; sintaxe não executada nesta etapa. Expansão autoral de revisão teórica baseada nos sete capítulos existentes, incluindo atribuição, cópia de valores e diagnóstico de tipos. Reinspeção visual integral em 28/11/2026: nove slides sem camada textual, renderizados em três conjuntos de três e conferidos. Ressalvas de sintaxe e estrutura nos slides 3, 5, 6 e 9; distinção entre entrada digitada e literal, rastreamento e conexão com A107 acrescentadas. Nenhuma execução de Portugol nesta revisão.",
   "chapters": [
     {
       "title": "1. Variáveis: nome, tipo e valor",
@@ -14,17 +14,17 @@
     },
     {
       "title": "2. Os cinco tipos básicos",
-      "text": "A apostila distingue cadeia (texto), inteiro (número sem parte fracionária), real (número que admite parte fracionária), caracter (um caractere) e logico (verdadeiro ou falso).\n\nAPROFUNDAMENTO: escolha o tipo pelo significado e pelas operações necessárias. Um CEP é melhor representado por texto, pois zeros iniciais importam. Um número inteiro também pode ser negativo. Um real pode representar valores inteiros, mas sua representação computacional tem precisão limitada. No código Portugol, use aspas duplas para cadeia e simples para caracter; a tabela ilustrada da apostila não distingue essas aspas.",
+      "text": "A apostila distingue cadeia (texto), inteiro (número sem parte fracionária), real (número que admite parte fracionária), caracter (um caractere) e logico (verdadeiro ou falso).\n\nAPROFUNDAMENTO: escolha o tipo pelo significado e pelas operações necessárias. Um CEP é melhor representado por texto, pois zeros iniciais importam. Um número inteiro também pode ser negativo. Um real pode representar valores inteiros, mas sua representação computacional tem precisão limitada. No código Portugol, use aspas duplas para cadeia e simples para caracter; a tabela ilustrada da apostila não distingue essas aspas.\n\nCONFERÊNCIA VISUAL — Slide 3 apresenta o exemplo de caracter entre aspas duplas. Para escrever um literal no código Portugol, use caracter inicial = 'S'; cadeia inicial_textual = \"S\" representa texto de comprimento um, mas possui outro tipo. O valor lógico verdadeiro não precisa de aspas no código; \"verdadeiro\" é uma cadeia.\n\nINTERCÂMBIO COM ARQUITETURA (A107) — O tipo caracter representa um elemento textual segundo as regras da linguagem e de sua implementação; não significa um bit nem necessariamente um byte. Cadeia representa texto, podendo conter vários caracteres. Uma cadeia contendo somente A não se torna automaticamente um caracter. Em UTF-8, A ocupa um byte e á precomposto dois, mas essa codificação externa não estabelece a representação interna das variáveis do Portugol. Não presuma que todo símbolo visual, inclusive emoji composto, cabe no tipo caracter. Para os exemplos iniciais, use letras simples.",
       "example": "cadeia cep = \"01234-567\"\ninteiro saldo = -2\nreal comprimento = 2.75\ncaracter turno = 'N'\nlogico matriculado = verdadeiro"
     },
     {
       "title": "3. Declarar antes de utilizar",
-      "text": "A declaração informa o tipo e o identificador antes de usar a variável em leia(). A apostila declara cinco variáveis para um cadastro.\n\nAPROFUNDAMENTO: use nomes significativos, sem espaços, e evite palavras reservadas. Uma declaração pode incluir um valor inicial. Não dependa de valores iniciais implícitos: atribua ou leia um valor antes de utilizá-lo. Os exemplos a seguir usam declarações dentro de inicio() e não exigem ponto e vírgula.",
+      "text": "A declaração informa o tipo e o identificador antes de usar a variável em leia(). A apostila declara cinco variáveis para um cadastro.\n\nAPROFUNDAMENTO: use nomes significativos, sem espaços, e evite palavras reservadas. Uma declaração pode incluir um valor inicial. Não dependa de valores iniciais implícitos: atribua ou leia um valor antes de utilizá-lo. Os exemplos a seguir usam declarações dentro de inicio() e não exigem ponto e vírgula.\n\nCONFERÊNCIA VISUAL — Slide 5 apresenta declarações terminadas com ponto e vírgula; os exemplos autorais adotam a forma sem ponto e vírgula. O slide 6 ilustra leituras dentro de programa, porém não mostra funcao inicio() nem as declarações. Leia esse fragmento como demonstração de entrada, não como programa completo a copiar. O slide 9 mostra as declarações antes de inicio(), sem o bloco externo programa. Uma estrutura completa precisa reunir as partes e delimitar os blocos; as declarações locais dentro de inicio() são suficientes para o cadastro desta aula. Não confunda escopo de uma variável com o tipo de seu valor.",
       "example": "programa\n{\n    funcao inicio()\n    {\n        cadeia produto\n        inteiro unidades\n        real peso\n    }\n}"
     },
     {
       "title": "4. Entrada de dados com leia()",
-      "text": "O comando leia() recebe o valor digitado e o guarda na variável indicada. A apostila combina uma pergunta exibida com escreva() e a leitura da resposta.\n\nAPROFUNDAMENTO: a pergunta não realiza a leitura. O tipo declarado determina a categoria de dado esperada. Uma leitura incompatível pode produzir erro; o comportamento específico depende do ambiente. A validação de valores será aprofundada em aulas posteriores.",
+      "text": "O comando leia() recebe o valor digitado e o guarda na variável indicada. A apostila combina uma pergunta exibida com escreva() e a leitura da resposta.\n\nAPROFUNDAMENTO: a pergunta não realiza a leitura. O tipo declarado determina a categoria de dado esperada. Uma leitura incompatível pode produzir erro; o comportamento específico depende do ambiente. A validação de valores será aprofundada em aulas posteriores.\n\nCONFERÊNCIA VISUAL — Slides 7–9 mostram o usuário digitando uma letra e verdadeiro ou falso sem aspas. Diferencie a sintaxe de um literal no editor da entrada digitada durante a execução: não acrescente aspas automaticamente à resposta solicitada por leia(). Use uma letra simples para caracter e o valor lógico pedido no enunciado. A apostila mostra altura com ponto decimal (1.65); o tratamento de formatos de entrada e mensagens de erro pode variar entre ambientes. A escolha do tipo não valida sozinha regras como idade positiva, turma permitida ou intervalo de altura.",
       "example": "escreva(\"Quantidade de livros: \")\nleia(unidades)\n// unidades deve ter sido declarada como inteiro"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "title": "6. Rastreamento e alteração de valores",
-      "text": "A sequência de perguntas e leituras da apostila permite acompanhar o estado das variáveis durante a execução.\n\nAPROFUNDAMENTO: rastrear significa registrar os valores após cada instrução relevante. Uma segunda leitura na mesma variável substitui seu valor anterior. A ordem das leituras deve corresponder à ordem das perguntas.",
+      "text": "A sequência de perguntas e leituras da apostila permite acompanhar o estado das variáveis durante a execução.\n\nAPROFUNDAMENTO: rastrear significa registrar os valores após cada instrução relevante. Uma segunda leitura na mesma variável substitui seu valor anterior. A ordem das leituras deve corresponder à ordem das perguntas.\n\nCONFERÊNCIA E PRÁTICA AUTORAL — O cadastro dos slides 8 e 9 permite separar três coisas: a pergunta emitida pelo programa, a resposta digitada e o resumo emitido ao final. O eco da entrada pelo terminal não é necessariamente uma segunda chamada de escreva(). Para rastrear um cadastro com nome fictício, idade, altura, inicial e valor lógico, registre o valor após cada leia(), depois preveja a saída final sem consultar a resposta. O ambiente pode exibir informações próprias além dessa saída.",
       "example": "inteiro quantidade\nleia(quantidade) // entrada 4\nescreva(quantidade, \"\\n\")\nleia(quantidade) // entrada 9\nescreva(quantidade)\n// Saídas: 4 e 9"
     },
     {
@@ -1693,6 +1693,19 @@
       "hint": "Rastreie os valores e explique a regra envolvida.",
       "solution": "O tipo real admite valores negativos e zero; positividade é uma regra adicional.",
       "explanation": "Tipo e validade de negócio são conceitos distintos.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "61",
+      "group": "Revisão opcional — Tipos textuais e representação",
+      "title": "Uma letra, dois tipos",
+      "prompt": "Compare caracter inicial = 'A' e cadeia texto = \"A\". Os dois podem mostrar A na saída? São necessariamente do mesmo tipo? É correto concluir que inicial ocupa um bit?",
+      "hint": "Separe o valor exibido, o tipo declarado e a representação física.",
+      "solution": "Ambos podem exibir A, mas inicial é caracter e texto é cadeia. Não é correto deduzir um bit nem uma quantidade universal de bytes do tipo caracter. A codificação e a implementação determinam a representação.",
+      "explanation": "A aparência da saída não determina o tipo nem a quantidade de memória usada.",
       "mode": "text",
       "starter": "",
       "expected": null,

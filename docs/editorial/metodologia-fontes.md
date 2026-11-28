@@ -156,3 +156,8 @@ Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER
 ### Lógica — inventário e revisão visual da Aula 01
 
 28/11/2026: pasta Aulas contém cinco PDFs (A01–A05) e exemplo .por da A05; pasta Atividades contém Atividades_Portugol.pdf, Atividades_Portugol_11_a_15.pdf e uma imagem JPG de atividade. Instalador excluído do inventário acadêmico. A01: nove páginas sem texto extraível, renderizadas e inspecionadas em três conjuntos de três, confrontadas com A201. Slides 5, 7–9: comentários, escape de nova linha, diagnósticos, distinção de mensagens do ambiente e atividade de personalização; complementos autorais em capítulos 4–6. Exercícios existentes suficientes (50, quatro essenciais), sem alterações de obrigatoriedade. Nenhuma figura original publicada; prática externa não executada nesta revisão. Próxima fonte: PDF Aula 02, variáveis e entrada de dados.
+
+
+### Lógica — revisão visual da Aula 02
+
+28/11/2026: PDF Aula_2_Variaveis_Entrada_Dados_Widescreen-1.pdf, nove páginas sem camada textual, renderizadas e examinadas em três conjuntos de três. A202 já contempla cinco tipos, declaração, leia(), escreva() e cadastro. Slide 3 ilustra caracter com aspas duplas; slide 5 apresenta ponto e vírgula; slide 6 não mostra inicio() nem declarações; slide 9 denominado programa completo omite o bloco programa. Complementos autorais em capítulos 2, 3, 4 e 6: literal versus entrada digitada, fragmento versus programa completo, eco da entrada e rastreamento, conexão com bit/byte/caractere em A107. Exercício opcional 61 acrescentado; quatro essenciais preservados. Nenhum código executado nesta revisão, nenhuma imagem original publicada. CI anterior 46115407347 aprovada. Próxima fonte: Aula 03, soma de dois números.
