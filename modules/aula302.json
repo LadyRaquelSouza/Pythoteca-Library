@@ -5,7 +5,7 @@
   "title": "NetBeans, projetos e execução",
   "subtitle": "IDE 8.2, organização de fontes, compilação e diagnóstico",
   "objectives": "Compreender as ferramentas do NetBeans, criar e organizar projetos Java, selecionar a classe principal e distinguir construção, execução e testes.",
-  "source": "Aula 1 - Apostila de NetBeans.pdf, seis páginas, texto e visão geral das imagens consultados. Conteúdo curricular concentrado nas páginas 1–3, com conexão à página 4. Fundamentos complementares e correção técnica identificados nos capítulos; Swing, eventos e JOptionPane serão aprofundados em módulos posteriores.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf, seis páginas, texto e visão geral das imagens consultados. Conteúdo curricular concentrado nas páginas 1–3, com conexão à página 4. Fundamentos complementares e correção técnica identificados nos capítulos; Swing, eventos e JOptionPane serão aprofundados em módulos posteriores. Reinspeção visual da Aula 1 em 28/11/2026, especialmente páginas 2–3: barra de ferramentas, criação do projeto e configuração de classe principal. Distinção entre texto e infográfico da própria fonte.",
   "chapters": [
     {
       "title": "O ambiente integrado",
@@ -19,7 +19,7 @@
     },
     {
       "title": "Criar um projeto",
-      "text": "[CURRICULAR] A apostila orienta criar uma Aplicação Java pelo botão Novo Projeto, nomear o projeto e depois adicionar um formulário JFrame. O exemplo utiliza CadastroAlunos e TelaCadastro. [FUNDAMENTOS] Projeto é uma unidade de organização e construção, não apenas um arquivo. A opção de criar uma classe principal pode ser desmarcada quando se pretende definir outra entrada.",
+      "text": "[CURRICULAR] A apostila orienta criar uma Aplicação Java pelo botão Novo Projeto, nomear o projeto e depois adicionar um formulário JFrame. O exemplo utiliza CadastroAlunos e TelaCadastro. [FUNDAMENTOS] Projeto é uma unidade de organização e construção, não apenas um arquivo. A opção de criar uma classe principal pode ser desmarcada quando se pretende definir outra entrada.\n\n[CONFERÊNCIA VISUAL, p. 2] O assistente ilustrado seleciona Java > Aplicação Java, configura nome e localização e desmarca Criar Classe Principal. Em seguida, Novo > Formulário JFrame cria a tela no pacote escolhido. O caminho C:\\Projetos mostrado é um exemplo Windows, não requisito; em Linux use uma pasta de trabalho própria. A categoria e os nomes dependem da instalação e idioma do NetBeans 8.2.",
       "example": "Projeto: CadastroAlunos\nClasse de formulário: TelaCadastro"
     },
     {
@@ -29,12 +29,12 @@
     },
     {
       "title": "Classe principal",
-      "text": "[CURRICULAR] A apostila mostra duas classes com indicador de execução e orienta remover a classe inicial para usar TelaCadastro. [CORREÇÃO TÉCNICA] Um projeto pode conter várias classes com main. A configuração de execução escolhe uma classe principal; não é obrigatório excluir as demais. Em Arquivo > Propriedades do Projeto, consulte a configuração de execução (Run/Executar). Só remova uma classe se ela for realmente desnecessária.",
+      "text": "[CURRICULAR] A apostila mostra duas classes com indicador de execução e orienta remover a classe inicial para usar TelaCadastro. [CORREÇÃO TÉCNICA] Um projeto pode conter várias classes com main. A configuração de execução escolhe uma classe principal; não é obrigatório excluir as demais. Em Arquivo > Propriedades do Projeto, consulte a configuração de execução (Run/Executar). Só remova uma classe se ela for realmente desnecessária.\n\n[CONFERÊNCIA VISUAL, p. 3] A dica do próprio infográfico oferece manter o arquivo inicial e alterar a Classe Principal nas propriedades de execução. Isso corrige a afirmação absoluta da p. 2. O indicador verde identifica classes com entrada executável; não obriga excluir uma delas. Configure a classe JFrame desejada pelo nome qualificado (pacote e classe), sem apagar fontes úteis.",
       "example": "public class Inicio {\n    public static void main(String[] args) {\n        System.out.println(\"Início\");\n    }\n}"
     },
     {
       "title": "Construir e executar",
-      "text": "[FUNDAMENTOS] Construir verifica e compila os fontes necessários e pode gerar um JAR. Executar inicia a aplicação configurada. No NetBeans 8.2, F6 normalmente executa o projeto e Shift+F6 executa o arquivo selecionado quando suportado. Salvar não equivale a compilar. O painel Saída apresenta mensagens de construção e execução.",
+      "text": "[FUNDAMENTOS] Construir verifica e compila os fontes necessários e pode gerar um JAR. Executar inicia a aplicação configurada. No NetBeans 8.2, F6 normalmente executa o projeto e Shift+F6 executa o arquivo selecionado quando suportado. Salvar não equivale a compilar. O painel Saída apresenta mensagens de construção e execução.\n\n[CONFERÊNCIA VISUAL, p. 2] A barra apresenta 13 controles: novo arquivo, novo projeto, abrir projeto, salvar tudo, desfazer, refazer, configuração, navegador, construir, limpar e construir, executar, depurar e analisar desempenho. Novo arquivo pertence a um projeto; novo projeto cria uma unidade de trabalho. Salvar tudo não executa o programa. Limpar e construir remove saídas de construção e recompila, não apaga os fontes em um projeto padrão. Depurar permite investigar estados; analisar desempenho ajuda a investigar uso de recursos. Configuração e navegador não são comandos de compilação. Ícones e disponibilidade variam com contexto e plugins.",
       "example": "BUILD SUCCESSFUL\n// Mensagem ilustrativa de construção, não código Java."
     },
     {
@@ -1114,6 +1114,19 @@
       "solution": "Erro lógico: substituir + por *; resultado esperado 15.",
       "explanation": "O operador errado pode ser sintaticamente válido.",
       "hint": "Explique a diferença entre as etapas ou responsabilidades envolvidas.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional — Prática de NetBeans e Swing",
+      "title": "Construir ou executar?",
+      "prompt": "Você modificou um JFrame e quer primeiro reconstruir as saídas do projeto, depois verificar o comportamento da janela. Quais ações da barra de ferramentas escolher? Uma segunda classe com main precisa ser apagada?",
+      "hint": "Separe configuração, construção e execução.",
+      "solution": "Use Limpar e Construir e depois Executar; configure a classe principal nas propriedades. A segunda classe pode permanecer.",
+      "explanation": "A escolha da entrada não depende de haver apenas um método main no projeto.",
       "mode": "text",
       "starter": "",
       "expected": null,

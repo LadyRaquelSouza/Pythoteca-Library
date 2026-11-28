@@ -5,7 +5,7 @@
   "title": "JFrame e componentes Swing",
   "subtitle": "Janelas, componentes, propriedades e código gerado",
   "objectives": "Reconhecer componentes Swing, interpretar sua instanciação e configuração, compreender initComponents e distinguir layout de comportamento.",
-  "source": "Aula 1 - Apostila de NetBeans.pdf (https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view), texto consultado nesta etapa: Adicionando objetos a tela; Como e onde o NetBeans gera o código dos componentes Swing; O que é Swing. Capítulos distinguem conteúdo curricular de fundamentos autorais. Imagens não inspecionadas nesta etapa. Exemplos complementares Java 8.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf (https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view), texto consultado nesta etapa: Adicionando objetos a tela; Como e onde o NetBeans gera o código dos componentes Swing; O que é Swing. Capítulos distinguem conteúdo curricular de fundamentos autorais. Infográficos das páginas 3–4 reconsultados visualmente em 28/11/2026; catálogo de componentes e árvore do Navegador incorporados. Exemplos complementares Java 8.",
   "chapters": [
     {
       "title": "Swing e JFC",
@@ -19,7 +19,7 @@
     },
     {
       "title": "Rótulos, campos e botões",
-      "text": "[CURRICULAR] JLabel apresenta um rótulo, JTextField oferece um campo de digitação e JButton representa um botão. O NetBeans gera instruções de criação quando esses componentes são adicionados ao formulário. [FUNDAMENTOS] Um campo de texto de uma linha guarda texto, mesmo quando o usuário digita algarismos.",
+      "text": "[CURRICULAR] JLabel apresenta um rótulo, JTextField oferece um campo de digitação e JButton representa um botão. O NetBeans gera instruções de criação quando esses componentes são adicionados ao formulário. [FUNDAMENTOS] Um campo de texto de uma linha guarda texto, mesmo quando o usuário digita algarismos.\n\n[CONFERÊNCIA VISUAL, p. 3] A árvore do Navegador distingue o formulário, a janela JFrame, os componentes nela inseridos e Outros Componentes, onde aparecem itens não visuais. Selecionar um item na árvore ajuda a localizar o componente sem depender de sua posição na tela. O rótulo Nome, o identificador jLabel1 e o tipo JLabel representam coisas distintas.",
       "example": "JLabel rotulo = new JLabel(\"Nome:\");\nJTextField campo = new JTextField(15);\nJButton botao = new JButton(\"Cadastrar\");"
     },
     {
@@ -51,6 +51,11 @@
       "title": "Uma janela completa para leitura",
       "text": "[FUNDAMENTOS] Este exemplo autoral Java 8 não reproduz o código gerado. Mostra uma janela, três componentes, um painel, layout e exibição. invokeLater agenda a criação na thread de eventos Swing; sua estrutura será aprofundada posteriormente. O botão ainda não possui comportamento de cadastro.",
       "example": "import javax.swing.*;\nimport java.awt.FlowLayout;\n\npublic class Tela {\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(new Runnable() {\n            public void run() {\n                JFrame janela = new JFrame(\"Cadastro\");\n                janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n                JPanel painel = new JPanel(new FlowLayout());\n                painel.add(new JLabel(\"Nome:\"));\n                painel.add(new JTextField(15));\n                painel.add(new JButton(\"Cadastrar\"));\n                janela.setContentPane(painel);\n                janela.pack();\n                janela.setVisible(true);\n            }\n        });\n    }\n}"
+    },
+    {
+      "title": "10. Mapa de componentes da paleta Swing",
+      "text": "[CURRICULAR, p. 3] A paleta ilustrada enumera 21 itens. A lista autoral abaixo organiza suas funções para consulta, sem exigir domínio imediato de todos.\n\nTexto e edição: JLabel (rótulo), JTextField (linha de texto), JTextArea (várias linhas), JPasswordField (entrada visualmente mascarada), JFormattedTextField (entrada com formato), JTextPane (texto estilizado), JEditorPane (edição e exibição de conteúdo conforme o tipo).\n\nAções e escolhas: JButton (ação), JToggleButton (estado alternável), JCheckBox (marcação), JRadioButton (alternativa), ButtonGroup (agrupamento lógico de botões), JComboBox (lista suspensa), JList (lista de itens).\n\nControles: JScrollBar (barra de rolagem), JSlider (seleção em escala), JProgressBar (indicação de progresso), JSpinner (valor ajustável por passos), JSeparator (separação visual).\n\nDados estruturados: JTree (hierarquia), JTable (linhas e colunas).\n\n[FUNDAMENTOS] ButtonGroup não é um componente visual: coordena seleção exclusiva entre botões associados, como botões de rádio. Mascarar uma senha não equivale a criptografá-la. A escolha de um componente depende da informação e interação desejadas. A aparência depende do Look and Feel.",
+      "example": "// Em um método de instância do formulário:\nsetTitle(\"Oficina de estudos\");\n// Para um JLabel já criado:\njLabel1.setText(\"Participante:\");"
     }
   ],
   "exercises": [
@@ -1081,6 +1086,19 @@
       "solution": "Criar painel; adicionar componentes; instalar painel; dimensionar; exibir.",
       "explanation": "A montagem precede a exibição inicial.",
       "hint": "Relacione a operação visual com a estrutura Java correspondente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional — Prática de NetBeans e Swing",
+      "title": "Escolher componentes",
+      "prompt": "Planeje um formulário de inscrição com nome, observações em várias linhas, seleção exclusiva entre dois turnos e aceite de um termo. Indique os componentes e explique o papel de ButtonGroup.",
+      "hint": "Distinga texto, alternativa exclusiva e caixa independente.",
+      "solution": "JTextField, JTextArea, dois JRadioButton associados ao mesmo ButtonGroup e JCheckBox. JLabel pode identificar os campos.",
+      "explanation": "ButtonGroup coordena os estados dos botões; não aparece como controle visual.",
       "mode": "text",
       "starter": "",
       "expected": null,

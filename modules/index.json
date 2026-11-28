@@ -126,8 +126,8 @@
       "title": "NetBeans, projetos e execução",
       "subtitle": "IDE 8.2, organização de fontes, compilação e diagnóstico",
       "discipline": "java",
-      "sha256": "4edae4915b9f10e72f5bf5e74f88b4cf9563c0669b9fcce66a18d5dca7fe3d75",
-      "bytes": 33812
+      "sha256": "957609d805432770035815b14b2ca57d4369d1295abee24c5acb0957c33221bf",
+      "bytes": 36293
     },
     {
       "id": "aula303",
@@ -142,24 +142,24 @@
       "title": "JFrame e componentes Swing",
       "subtitle": "Janelas, componentes, propriedades e código gerado",
       "discipline": "java",
-      "sha256": "45c3e4e00fcce8a50d62ccf66a4d8520a4d2f764e2dd56bbeea0d8963b442399",
-      "bytes": 34616
+      "sha256": "681dfd864c6044bf2497f0440d2ec4b00312b2192f372bbaed423305771c6b94",
+      "bytes": 37340
     },
     {
       "id": "aula305",
       "title": "Eventos e código gerado",
       "subtitle": "ActionListener, métodos de tratamento e EDT",
       "discipline": "java",
-      "sha256": "3243ef6299430125916380a1437bd4128d5af5d8afa24cf683a5e79c3f4900b9",
-      "bytes": 32487
+      "sha256": "765fc3ed68d61af8ea4999f397731db72e62ee0ea19bf1ae85aaa5774fdf0cff",
+      "bytes": 34437
     },
     {
       "id": "aula306",
       "title": "JOptionPane e caixas de diálogo",
       "subtitle": "Mensagens, entradas, confirmações e opções",
       "discipline": "java",
-      "sha256": "020d9da3ceb03f3c12cc42e0a8b59b5c70741e3db42b187ab55a5405e22949d0",
-      "bytes": 35239
+      "sha256": "69966e1402a6e17304e0eac80e4b48994ae68d1dffb5d882b27d5360c3404269",
+      "bytes": 35873
     },
     {
       "id": "aula307",

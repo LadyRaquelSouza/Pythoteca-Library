@@ -5,7 +5,7 @@
   "title": "JOptionPane e caixas de diálogo",
   "subtitle": "Mensagens, entradas, confirmações e opções",
   "objectives": "Interpretar os quatro métodos principais, constantes e retornos, tratar cancelamentos e aplicar validação e confirmação em formulários Swing.",
-  "source": "Aula 2 - JOptionPane.pdf, dez slides examinados visualmente nesta etapa, https://drive.google.com/file/d/1Bzmx7wOOCKt9L8310hXt6tpJeIHUIfXU/view. Capítulos seguem a ordem dos slides; exemplos autorais Java 8 e fundamentos complementares identificados.",
+  "source": "Aula 2 - JOptionPane.pdf, dez slides examinados visualmente nesta etapa, https://drive.google.com/file/d/1Bzmx7wOOCKt9L8310hXt6tpJeIHUIfXU/view. Capítulos seguem a ordem dos slides; exemplos autorais Java 8 e fundamentos complementares identificados. A Aula 1 - Apostila de NetBeans.pdf, p. 6, também apresenta os quatro métodos e os cinco tipos de mensagem; infográfico reconsultado em 28/11/2026.",
   "chapters": [
     {
       "title": "Visão geral do JOptionPane",
@@ -34,7 +34,7 @@
     },
     {
       "title": "Tipos de mensagem",
-      "text": "[CURRICULAR, slide 6] INFORMATION_MESSAGE informa; WARNING_MESSAGE alerta; ERROR_MESSAGE sinaliza erro; QUESTION_MESSAGE apresenta pergunta; PLAIN_MESSAGE não solicita ícone padrão. A aparência varia conforme o Look and Feel. [FUNDAMENTOS] O tipo de mensagem não determina sozinho os botões nem valida dados.",
+      "text": "[CURRICULAR, slide 6] INFORMATION_MESSAGE informa; WARNING_MESSAGE alerta; ERROR_MESSAGE sinaliza erro; QUESTION_MESSAGE apresenta pergunta; PLAIN_MESSAGE não solicita ícone padrão. A aparência varia conforme o Look and Feel. [FUNDAMENTOS] O tipo de mensagem não determina sozinho os botões nem valida dados.\n\n[CONFERÊNCIA VISUAL, Aula 1, p. 6] O infográfico usa showMessageDialog para ilustrar inclusive QUESTION_MESSAGE e WARNING_MESSAGE. Apesar da frase sugerir uma decisão, uma caixa de mensagem com botão OK não coleta confirmação. Para decidir se deve prosseguir ou excluir, use showConfirmDialog e trate seu retorno; o ícone QUESTION_MESSAGE sozinho não transforma a chamada em pergunta com resposta. A própria figura observa que os ícones mudam conforme o Look and Feel.",
       "example": "JOptionPane.showMessageDialog(this, \"Informe o nome\", \"Atenção\", JOptionPane.WARNING_MESSAGE);"
     },
     {

@@ -5,7 +5,7 @@
   "title": "Eventos e código gerado",
   "subtitle": "ActionListener, métodos de tratamento e EDT",
   "objectives": "Interpretar o registro e despacho de eventos, compreender classes anônimas e implementar conceitualmente os comportamentos Cadastrar e Limpar.",
-  "source": "Aula 1 - Apostila de NetBeans.pdf, texto consultado na etapa anterior: geração de código e exemplos Cadastrar e Limpar. https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view. Fundamentos de interfaces, ouvintes, classes anônimas, Override e EDT são complementares; exemplos autorais Java 8, não transcrições de imagens.",
+  "source": "Aula 1 - Apostila de NetBeans.pdf, texto consultado na etapa anterior: geração de código e exemplos Cadastrar e Limpar. https://drive.google.com/file/d/1xUIcyCjxLmhZDdq1H0sAr7x1K0L8vzXC/view. Fundamentos de interfaces, ouvintes, classes anônimas, Override e EDT são complementares; exemplos autorais Java 8, não transcrições de imagens. Infográficos da página 5 conferidos visualmente em 28/11/2026: práticas de personalização, eventos e divergência entre chamadas de foco.",
   "chapters": [
     {
       "title": "Programação orientada a eventos",
@@ -39,7 +39,7 @@
     },
     {
       "title": "Botão Limpar",
-      "text": "[CURRICULAR] A apostila orienta dar dois cliques no botão Limpar no editor visual e inserir as chamadas abaixo no método de evento. setText com string vazia remove o conteúdo; requestFocusInWindow solicita foco para nova digitação. [FUNDAMENTOS] A solicitação de foco não garante sucesso: depende do estado da janela e do componente.",
+      "text": "[CURRICULAR] A apostila orienta dar dois cliques no botão Limpar no editor visual e inserir as chamadas abaixo no método de evento. setText com string vazia remove o conteúdo; requestFocusInWindow solicita foco para nova digitação. [FUNDAMENTOS] A solicitação de foco não garante sucesso: depende do estado da janela e do componente.\n\n[CONFERÊNCIA VISUAL, p. 5] O infográfico do botão Limpar usa requestFocus(), enquanto o texto abaixo recomenda requestFocusInWindow(). A versão autoral adota requestFocusInWindow(), normalmente mais apropriado para solicitar foco dentro da janela já ativa; nenhuma das chamadas deve ser tratada como garantia absoluta. O campo vazio é produzido por setText(\"\"); solicitar foco é uma ação separada.",
       "example": "jTextField1.setText(\"\");\njTextField1.requestFocusInWindow();"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "title": "Diagnóstico e integração",
-      "text": "[FUNDAMENTOS] Se o botão aparece mas não realiza a ação esperada, verifique o registro do ouvinte, o método chamado, o componente consultado e as mensagens de erro. Teste com entradas diferentes e repita ações. Os trechos anteriores pressupõem os campos e métodos de uma classe JFrame; não são programas independentes. Preserve o código protegido do GUI Builder.",
+      "text": "[FUNDAMENTOS] Se o botão aparece mas não realiza a ação esperada, verifique o registro do ouvinte, o método chamado, o componente consultado e as mensagens de erro. Teste com entradas diferentes e repita ações. Os trechos anteriores pressupõem os campos e métodos de uma classe JFrame; não são programas independentes. Preserve o código protegido do GUI Builder.\n\n[PRÁTICA DA APOSTILA, p. 5] A seção de fixação propõe personalizar a mensagem, alterar cor ou tamanho dos botões, definir título da janela e testar os dois eventos. Pratique no editor visual e nos métodos de evento apropriados. Compare o texto no campo antes e depois de Limpar; confirme que Cadastrar usa o valor atual, não um valor fixo. As mudanças de aparência não substituem os testes de comportamento.",
       "example": "// Dentro do tratamento, para diagnóstico:\nSystem.out.println(\"Evento recebido: \" + evt.getActionCommand());"
     }
   ],
@@ -1017,6 +1017,19 @@
       "solution": "Digite Ana, acione Cadastrar e confira a mensagem. Feche a mensagem, acione Limpar e confira o campo vazio. Repita com outro nome e observe o foco.",
       "explanation": "Testes verificam estado e comportamento.",
       "hint": "Relacione o código à ação observável.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "36",
+      "group": "Revisão opcional — Prática de NetBeans e Swing",
+      "title": "Personalizar e testar o formulário",
+      "prompt": "Em uma cópia de seu formulário de estudos, configure título, aparência de dois botões e mensagem de cadastro com o nome atual. Teste Cadastrar com dois nomes diferentes e Limpar após cada um. Registre as saídas esperadas e o estado do campo.",
+      "hint": "Use as propriedades visuais e os métodos de evento, sem editar a região protegida.",
+      "solution": "O título e a aparência mudam pelo editor visual; Cadastrar lê o campo atual e apresenta a mensagem; Limpar esvazia o campo e solicita foco. Verifique ambos os nomes, campo vazio e foco quando possível.",
+      "explanation": "Prática autoral de integração, sem exigir execução automática nem fornecer o formulário completo.",
       "mode": "text",
       "starter": "",
       "expected": null,
