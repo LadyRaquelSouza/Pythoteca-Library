@@ -5,7 +5,7 @@
   "title": "JComboBox e aplicações práticas",
   "subtitle": "Concatenação, soma, seleção e propriedades",
   "objectives": "Construir o raciocínio dos eventos de junção e soma, distinguir propriedades Swing e manipular modelos e seleções de JComboBox.",
-  "source": "Atividade 1.pdf (https://drive.google.com/file/d/1AG9X5pu-MGjjpiHv1sa7mZJ1bXPNQQG4/view), dois slides; Aula 3 _ JComo=bobox e Alterando o nome dos objetos_atividade_2.pdf (https://drive.google.com/file/d/16jFmjcQWmnhXtLIYWKdMfk-raZS0hmh7/view), nove slides. Todos os onze slides examinados visualmente. Complementos Java 8 identificados.",
+  "source": "Atividade 1.pdf (https://drive.google.com/file/d/1AG9X5pu-MGjjpiHv1sa7mZJ1bXPNQQG4/view), dois slides; Aula 3 _ JComo=bobox e Alterando o nome dos objetos_atividade_2.pdf (https://drive.google.com/file/d/16jFmjcQWmnhXtLIYWKdMfk-raZS0hmh7/view), nove slides. Todos os onze slides examinados visualmente. Complementos Java 8 identificados. Reinspeção integral em 28/11/2026: PDF Aula 3, nove páginas sem camada textual, renderizadas e examinadas em quatro pares e uma página final. Complementos autorais de conversão, modelo mutável, eventos e nomenclatura; sem execução Java.",
   "chapters": [
     {
       "title": "Juntando nome e sobrenome",
@@ -19,37 +19,37 @@
     },
     {
       "title": "Montagem da soma",
-      "text": "[CURRICULAR, Aula 3, slides 1–3] O formulário Soma Número utiliza três campos, dois botões e rótulos. O slide 1 indica três JLabel, mas o slide 2 inclui quatro (título, Número 1, Número 2, Resultado). Use os rótulos necessários. Os nomes sugeridos são txtNumero1, txtNumero2, txtResultado, btnSomar e btnLimpar. text não é o identificador Java.",
+      "text": "[CURRICULAR, Aula 3, slides 1–3] O formulário Soma Número utiliza três campos, dois botões e rótulos. O slide 1 indica três JLabel, mas o slide 2 inclui quatro (título, Número 1, Número 2, Resultado). Use os rótulos necessários. Os nomes sugeridos são txtNumero1, txtNumero2, txtResultado, btnSomar e btnLimpar. text não é o identificador Java.\n\n[CONFERÊNCIA VISUAL, slides 1–3 e 5] O primeiro slide pede dois botões, mas o quinto também orienta adicionar o segundo. Se Limpar já existir, configure-o em vez de criar outro. A lista de nomes da p. 3 inclui lblTitulo, lblNumero1, lblNumero2 e lblResultado, além dos campos e botões. O sinal + ilustrado também pode ser um rótulo decorativo, sem executar cálculo. Os prefixos txt, btn e lbl são convenções.",
       "example": "txtResultado.setEditable(false); // melhoria complementar"
     },
     {
       "title": "Do texto à soma",
-      "text": "[CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. [FUNDAMENTOS] A soma de int pode transbordar; Math.addExact detecta esse caso em Java 8.",
+      "text": "[CURRICULAR, Aula 3, slide 4] Leia os dois campos, converta com Integer.parseInt, some os int e converta o resultado em texto com String.valueOf. O exemplo pressupõe entradas válidas. [FUNDAMENTOS] A soma de int pode transbordar; Math.addExact detecta esse caso em Java 8.\n\n[INTERCÂMBIO COM PORTUGOL] A203 e esta prática compartilham entrada, processamento e saída. Em Portugol, leia recebe valores para variáveis tipadas; aqui getText devolve String, parseInt interpreta texto decimal como int, + soma os valores numéricos e String.valueOf representa o resultado em texto para setText. Não confunda concatenação de duas strings com adição. O slide 4 alerta sobre letras, mas campos vazios, espaços não removidos, decimais e valores fora da faixa de int também podem falhar na conversão. Validação e tratamento de NumberFormatException são complementos do A307, não requisitos extras da atividade original.",
       "example": "int numero1 = Integer.parseInt(txtNumero1.getText());\nint numero2 = Integer.parseInt(txtNumero2.getText());\nint resultado = numero1 + numero2;\ntxtResultado.setText(String.valueOf(resultado));"
     },
     {
       "title": "Limpar e testar a soma",
-      "text": "[CURRICULAR, Aula 3, slides 5–6] Limpe os três campos e solicite foco no primeiro. Execute com F6 se o projeto estiver configurado. Testes sugeridos: 5+8=13, 10+20=30, 100+50=150. [FUNDAMENTOS] Teste também texto inválido e valores negativos; o tratamento da aula 307 pode ser aplicado.",
+      "text": "[CURRICULAR, Aula 3, slides 5–6] Limpe os três campos e solicite foco no primeiro. Execute com F6 se o projeto estiver configurado. Testes sugeridos: 5+8=13, 10+20=30, 100+50=150. [FUNDAMENTOS] Teste também texto inválido e valores negativos; o tratamento da aula 307 pode ser aplicado.\n\n[CONFERÊNCIA VISUAL, slides 5–6] O código acadêmico usa requestFocus(), que solicita foco sem garantia de sucesso. requestFocusInWindow() é alternativa autoral em janela ativa. A imagem com resultado na área de Design é ilustrativa, não evidência de execução. Teste cálculos sucessivos sem limpar entre todos eles; confirme que uma entrada inválida não é apresentada como resultado novo. Decida se a versão ampliada limpará o resultado anterior ou o identificará como desatualizado após falha.",
       "example": "txtNumero1.setText(\"\");\ntxtNumero2.setText(\"\");\ntxtResultado.setText(\"\");\ntxtNumero1.requestFocus();"
     },
     {
       "title": "Modelo do JComboBox",
-      "text": "[CURRICULAR, Aula 3, slide 7] O combo oferece uma lista de opções. No Design, selecione o componente, abra Propriedades e edite model/Modelo. A apostila também mostra criação por código com array de cursos. [FUNDAMENTOS] JComboBox<String> usa um parâmetro de tipo para os itens; getSelectedItem ainda retorna Object.",
+      "text": "[CURRICULAR, Aula 3, slide 7] O combo oferece uma lista de opções. No Design, selecione o componente, abra Propriedades e edite model/Modelo. A apostila também mostra criação por código com array de cursos. [FUNDAMENTOS] JComboBox<String> usa um parâmetro de tipo para os itens; getSelectedItem ainda retorna Object.\n\n[CONFERÊNCIA VISUAL, slide 7] O exemplo Java mostra declarações de array, combo e botão e registro de listener, mas não constitui uma classe executável completa. O import pertence à seção de imports; as instruções de registro devem estar em contexto executável, por exemplo no construtor após a inicialização dos componentes. No GUI Builder, configure o modelo pelo editor ou por código deliberadamente, sem recriar acidentalmente outro combo separado daquele exibido.",
       "example": "String[] cursos = {\"Informática\", \"Administração\", \"Enfermagem\"};\njavax.swing.JComboBox<String> cbCurso = new javax.swing.JComboBox<>(cursos);"
     },
     {
       "title": "Itens e índices",
-      "text": "[CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. [FUNDAMENTOS] O primeiro índice é zero; -1 representa ausência de seleção. Não acesse toString sobre null. Os exemplos seguintes pressupõem cbCurso declarado.",
+      "text": "[CURRICULAR, Aula 3, slide 7] addItem acrescenta, removeItem remove um item, removeAllItems esvazia o modelo, getSelectedItem recupera a seleção e setSelectedIndex seleciona por posição. [FUNDAMENTOS] O primeiro índice é zero; -1 representa ausência de seleção. Não acesse toString sobre null. Os exemplos seguintes pressupõem cbCurso declarado.\n\n[APROFUNDAMENTO AUTORAL] Adicionar ou remover itens pressupõe um modelo mutável, como DefaultComboBoxModel usado pelo exemplo com array. Índice representa posição, não identificador permanente: remover um item anterior pode mudar a posição dos restantes. O item selecionado pode mudar ou ficar ausente. Verifique getItemCount antes de selecionar índice zero e trate null antes de toString. Em combo editável, o valor digitado pode não corresponder a um item listado; os exercícios iniciais pressupõem combo não editável.",
       "example": "cbCurso.addItem(\"Design\");\ncbCurso.removeItem(\"Design\");\nif (cbCurso.getItemCount() > 0) cbCurso.setSelectedIndex(0);\nObject item = cbCurso.getSelectedItem();"
     },
     {
       "title": "Eventos de seleção",
-      "text": "[CURRICULAR, Aula 3, slide 7] A apostila apresenta addActionListener e uma expressão lambda, disponível em Java 8. O listener pode reagir à seleção; mudanças por código também podem disparar eventos. O botão Mostrar seleção pode consultar o item atual. [FUNDAMENTOS] O exemplo autoral pressupõe cbCurso e btnMostrar declarados em método de instância do JFrame.",
+      "text": "[CURRICULAR, Aula 3, slide 7] A apostila apresenta addActionListener e uma expressão lambda, disponível em Java 8. O listener pode reagir à seleção; mudanças por código também podem disparar eventos. O botão Mostrar seleção pode consultar o item atual. [FUNDAMENTOS] O exemplo autoral pressupõe cbCurso e btnMostrar declarados em método de instância do JFrame.\n\n[CONFERÊNCIA VISUAL, slide 7] A tabela ilustra listener no próprio combo e o exemplo de código registra listener em um botão separado. São dois comportamentos distintos: reagir a ações do combo ou consultar sua seleção quando Mostrar é acionado. Uma expressão lambda pode implementar ActionListener porque é interface funcional; a variável e representa ActionEvent. Se o evento já estiver conectado pelo GUI Builder, não registre um segundo ouvinte equivalente sem necessidade. Mudanças de modelo ou seleção por código também podem disparar ações; não presuma que toda ação vem de clique humano.",
       "example": "btnMostrar.addActionListener(e -> {\n    Object item = cbCurso.getSelectedItem();\n    if (item != null) {\n        javax.swing.JOptionPane.showMessageDialog(this, \"Curso escolhido: \" + item);\n    }\n});"
     },
     {
       "title": "Propriedades e identificação",
-      "text": "[CURRICULAR, Aula 3, slide 8] Alterar Nome da Variável pelo menu de contexto muda o identificador no código. text é texto visível, model contém itens, title é título do JFrame, toolTipText fornece dica e name é propriedade interna distinta do identificador. Exemplos: jComboBox1 para cbCurso, jLabel1 para lblCurso e jButton1 para btnMostrar.",
+      "text": "[CURRICULAR, Aula 3, slide 8] Alterar Nome da Variável pelo menu de contexto muda o identificador no código. text é texto visível, model contém itens, title é título do JFrame, toolTipText fornece dica e name é propriedade interna distinta do identificador. Exemplos: jComboBox1 para cbCurso, jLabel1 para lblCurso e jButton1 para btnMostrar.\n\n[CONFERÊNCIA VISUAL, slide 8] O objeto pode ser selecionado no formulário ou no Navegador, e a guia Código identifica a variável. cbCurso nesta fonte e cmbCurso no cadastro anterior são convenções diferentes para JComboBox; ambos são válidos. Use o identificador efetivo no código, sem trocar a propriedade name ou o texto visível esperando renomear a variável.",
       "example": "cbCurso.setToolTipText(\"Selecione um curso\");\ncbCurso.setName(\"curso\");"
     },
     {
@@ -1054,6 +1054,32 @@
       "solution": "JTextArea contém texto; JScrollPane oferece visualização rolável.",
       "explanation": "JTextArea contém texto; JScrollPane oferece visualização rolável.",
       "hint": "Relacione o código à finalidade do componente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "37",
+      "group": "Revisão opcional — Integração e diagnóstico",
+      "title": "Índice não é identidade",
+      "prompt": "Um combo não editável com modelo mutável possui Oficina A, Oficina B e Oficina C, nessa ordem. Selecione B, remova A e consulte a posição de B. Depois remova todos os itens. Explique por que não se deve confiar em um índice antigo nem chamar toString sem verificar a seleção.",
+      "hint": "Posições começam em zero e dependem do modelo atual.",
+      "solution": "B passa do índice 1 ao 0; após esvaziar, não há seleção, índice -1 e item null. Verifique o modelo e o item atual.",
+      "explanation": "O índice representa posição, não identidade permanente.",
+      "mode": "text",
+      "starter": "",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "38",
+      "group": "Revisão opcional — Integração e diagnóstico",
+      "title": "Quando calcular?",
+      "prompt": "Projete um formulário com dois campos de quantidade, um botão Total e um campo de saída. Compare o cálculo no evento do botão com uma eventual atualização automática. Proponha testes para 7 e 08, -2 e 5, campo vazio e texto abc; explique como evitar mostrar resultado antigo como novo após erro.",
+      "hint": "Os campos devolvem texto. Separe leitura, conversão, cálculo e apresentação.",
+      "solution": "Resultados 15 e 3 para entradas inteiras válidas; vazio e abc falham na conversão. Trate a falha e limpe ou sinalize a saída anterior. O botão calcula no acionamento; atualização automática exigiria outros eventos.",
+      "explanation": "Variação autoral da soma, integrando A203 e A307.",
       "mode": "text",
       "starter": "",
       "expected": null,
