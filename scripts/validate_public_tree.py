@@ -13,7 +13,7 @@ ALLOWED = (
     r"modules/README\.md",
     r"docs/(?:editorial|desenvolvimento)/[A-Za-z0-9_-]+\.md",
     r"scripts/(?:validate_catalog|validate_modules|validate_online_manifest|validate_public_tree)\.py",
-    r"tools/media-processing/(?:README\.md|requirements\.txt|transcribe\.py|test_transcribe\.py|test_public_tree\.py|smoke_synthetic\.py|batch\.py|test_batch\.py)",
+    r"tools/media-processing/(?:README\.md|requirements\.txt|transcribe\.py|test_transcribe\.py|test_public_tree\.py|smoke_synthetic\.py|batch\.py|test_batch\.py|drive_io\.py|test_drive_io\.py)",
 )
 
 def allowed(path):
