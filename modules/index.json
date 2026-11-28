@@ -270,96 +270,96 @@
       "title": "Dados, informação e bancos de dados",
       "subtitle": "Dados, contexto, metadados, SGBDs e linguagens",
       "discipline": "modelagem_dados",
-      "sha256": "40273b2f18ddc48fb92c41f6db949185ccfa6499e2fec6323698553fe67c43a8",
-      "bytes": 14846
+      "sha256": "c4380675b18fa587ed695b317c9eb0d3171c5484a0c360b53084adeb816b838f",
+      "bytes": 15048
     },
     {
       "id": "aula602",
       "title": "Fundamentos da modelagem de dados",
       "subtitle": "Requisitos, regras de negócio e níveis conceitual, lógico e físico",
       "discipline": "modelagem_dados",
-      "sha256": "5cdedf477864abcd8f753b559c40879f9682e83490c5e2c38b851b6f24dee5c7",
-      "bytes": 16002
+      "sha256": "bc42d1408e71f4185726f22e66762459a435e363a5f8ad0854d8755d789c8902",
+      "bytes": 18059
     },
     {
       "id": "aula603",
       "title": "Entidades, atributos e domínios",
       "subtitle": "Ocorrências, propriedades, identificadores e dicionário de dados",
       "discipline": "modelagem_dados",
-      "sha256": "82ef36a32e79dbf0723c0e3dbf6836e3b10643ad8b9b10d84a80748af16fd7d6",
-      "bytes": 18459
+      "sha256": "c274bfbd94002c72638ea708903b854f7648203b32c4693b95af74b1c983578c",
+      "bytes": 19998
     },
     {
       "id": "aula604",
       "title": "Relacionamentos e diagramas",
       "subtitle": "MER, DER, notações ER e UML, grau e papéis",
       "discipline": "modelagem_dados",
-      "sha256": "9122a8c27b7603f5caa30531ad6307b34be2fa00804e8b6b1ad3f401a6225295",
-      "bytes": 21806
+      "sha256": "17e60f9cb6c1c10dbea801748b0cfc25c7265fd0932cb5f8d66f3a284e8536db",
+      "bytes": 22008
     },
     {
       "id": "aula605",
       "title": "Cardinalidade e participação",
       "subtitle": "Mínimos, máximos, relações 1:1, 1:N e N:M, convenções de leitura",
       "discipline": "modelagem_dados",
-      "sha256": "e3d6b9d5860a0376be85887f322314c1fa248ebffba330335741ff7265e1ee19",
-      "bytes": 22071
+      "sha256": "1247d650ca5aea4a4dc9eaa95f61d9b861fa19aa47313f8ab160e67793120351",
+      "bytes": 22273
     },
     {
       "id": "aula606",
       "title": "Fundamentos do modelo relacional",
       "subtitle": "Relações, tuplas, atributos, domínios, esquema e consultas",
       "discipline": "modelagem_dados",
-      "sha256": "ae6f881b12d90c9155e982578271019a4398a82cff4dcf9c9038d669f5dfd647",
-      "bytes": 20718
+      "sha256": "0965aab42e898a268e2797a5bf83a14544472c91fc9131ef517e139bba12683e",
+      "bytes": 20920
     },
     {
       "id": "aula607",
       "title": "Chaves e identificação",
       "subtitle": "Superchaves, candidatas, primárias, alternativas, compostas e estrangeiras",
       "discipline": "modelagem_dados",
-      "sha256": "bf60b7a85e16f82666b0c4ed20221b3a81cbccd90085eb25b2323918a0dcd87e",
-      "bytes": 20021
+      "sha256": "505652ab68c297ecdb3d6d4fd52d46488025e0a4363887104036d403c3ed1660",
+      "bytes": 20223
     },
     {
       "id": "aula608",
       "title": "Integridade dos dados",
       "subtitle": "Domínio, entidade, referência, NULL e ações referenciais",
       "discipline": "modelagem_dados",
-      "sha256": "2ae02a1ff47b71f5d58b2535ff38e257712bbcd761d1ef8e4a874b18f1f6064c",
-      "bytes": 23582
+      "sha256": "4223b92f21055bbcdcedc41a3a4e5b5ad53198f08c674cd6127a124e89ec7b52",
+      "bytes": 23784
     },
     {
       "id": "aula609",
       "title": "Modelagem ER avançada",
       "subtitle": "Entidades fracas, identificação dependente, generalização e especialização",
       "discipline": "modelagem_dados",
-      "sha256": "13ee4e3132a35188a4b28f0defbf63ebd238ccc495a3c761f799c673bc2aad69",
-      "bytes": 22399
+      "sha256": "fda5f6b345ddc19ada3eb1088b74dd61b06d7a3a4c53c5173be03f7f4e0ea145",
+      "bytes": 22601
     },
     {
       "id": "aula610",
       "title": "Entidades associativas e transformação entre modelos",
       "subtitle": "Mapeamento ER-relacional, identificação e preservação de regras",
       "discipline": "modelagem_dados",
-      "sha256": "29fa5236da77a975f98f42665e17bec98fe8cbbb53cea827527a53a5ee7e58b4",
-      "bytes": 27041
+      "sha256": "ae4c3fbc96e7da795ec70457b10221214b36534fea84b9b37981bf05bf78e816",
+      "bytes": 29217
     },
     {
       "id": "aula611",
       "title": "Normalização e organização dos dados",
       "subtitle": "Dependências funcionais, 1FN, 2FN, 3FN e decomposição",
       "discipline": "modelagem_dados",
-      "sha256": "8688fca94e145664754cfb1972a72fa2fb413172aae92291fa776a0f7b528a32",
-      "bytes": 24488
+      "sha256": "4b72846059d64400823f560a673eb32a5c3c38b6e6fff4c3690cb2b3fb057a83",
+      "bytes": 24690
     },
     {
       "id": "aula612",
       "title": "Projeto integrado: do problema ao banco de dados",
       "subtitle": "Laboratório de biblioteca, requisitos, MER, esquema, integridade e evolução",
       "discipline": "modelagem_dados",
-      "sha256": "303aed598fdf1db40c7a53609d220a00eab2ec4af5fe2106492927e2013d5595",
-      "bytes": 28640
+      "sha256": "149df508550cab390e6013b1baf9eff16391e1961e3aa28923be8f87c78b4b82",
+      "bytes": 28842
     }
   ]
 }

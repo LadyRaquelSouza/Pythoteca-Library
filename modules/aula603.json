@@ -5,7 +5,7 @@
   "title": "Entidades, atributos e domínios",
   "subtitle": "Ocorrências, propriedades, identificadores e dicionário de dados",
   "objectives": "Reconhecer entidades e ocorrências; classificar atributos; definir domínios e identificadores; construir dicionários de dados e distinguir regras de decisões de implementação.",
-  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras dos demais PDFs ainda pendentes de inspeção; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. Demais PDFs ainda pendentes de revisão visual completa.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Figuras dos dois PDFs restantes ainda pendentes de inspeção; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDFs das aulas 01 e 02 ainda pendentes de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610.",
   "chapters": [
     {
       "title": "1. Entidade e ocorrência",
@@ -24,7 +24,7 @@
     },
     {
       "title": "4. Domínio, tipo e formato",
-      "text": "CONTEÚDO DO CURSO\n\nDomínio é o conjunto de valores admitidos por um atributo. Um tipo de dado é uma forma de representação e operação; o domínio pode impor restrições adicionais. Um inteiro permite valores negativos, mas o domínio quantidade_disponivel pode admitir apenas inteiros não negativos.\n\nFormato é a apresentação do valor. Um identificador de texto como EQ007 não é um número para realizar cálculos; zeros iniciais podem ser significativos. Uma data exibida como 28/11/2026 pode estar armazenada em um tipo de data, sem guardar barras como parte do valor.\n\nCONEXÃO COM LÓGICA\n\nEscolher uma variável inteira não valida automaticamente o intervalo. A condição quantidade >= 0 complementa a escolha do tipo. A regra também precisa ser preservada em outras interfaces e no banco.",
+      "text": "CONTEÚDO DO CURSO\n\nDomínio é o conjunto de valores admitidos por um atributo. Um tipo de dado é uma forma de representação e operação; o domínio pode impor restrições adicionais. Um inteiro permite valores negativos, mas o domínio quantidade_disponivel pode admitir apenas inteiros não negativos.\n\nFormato é a apresentação do valor. Um identificador de texto como EQ007 não é um número para realizar cálculos; zeros iniciais podem ser significativos. Uma data exibida como 28/11/2026 pode estar armazenada em um tipo de data, sem guardar barras como parte do valor.\n\nCONEXÃO COM LÓGICA\n\nEscolher uma variável inteira não valida automaticamente o intervalo. A condição quantidade >= 0 complementa a escolha do tipo. A regra também precisa ser preservada em outras interfaces e no banco.\n\nCONFERÊNCIA COM O MATERIAL — O slide 4 de Banco de Dados Para Alunos apresenta nota NUMERIC(4,2), com domínio de 0 a 10. Em PostgreSQL, a precisão 4 indica quatro dígitos significativos e a escala 2 indica duas casas decimais; o tipo admite, por exemplo, 25,50 e -1,00, que violam o domínio da nota. Uma restrição CHECK (nota BETWEEN 0 AND 10) limita o intervalo; NOT NULL é necessário adicionalmente se a nota for obrigatória, porque CHECK não rejeita por si só NULL. O SGBD pode arredondar valores à escala declarada antes de avaliar a restrição. Não confunda precisão, formato de exibição, nulidade e regra de negócio.",
       "example": ""
     },
     {
@@ -318,6 +318,19 @@
       "mode": "text",
       "starter": "",
       "solution": "Quando precisa de código, descrição, regras próprias ou associações relevantes; depende do domínio.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "19",
+      "group": "Revisão opcional — Domínios",
+      "title": "Tipo não é validação",
+      "prompt": "Uma coluna de nota usa NUMERIC(4,2) no PostgreSQL, mas a regra admite apenas 0 a 10 e exige preenchimento. Por que o tipo não basta? Indique as restrições necessárias.",
+      "hint": "Considere 25,50 e NULL.",
+      "solution": "O tipo aceita 25,50, fora do intervalo. Usar CHECK (nota BETWEEN 0 AND 10) e NOT NULL. O tipo determina precisão/escala, não a regra completa.",
+      "explanation": "CHECK e obrigatoriedade são restrições distintas.",
+      "mode": "text",
+      "starter": "",
       "expected": null,
       "required": false
     }
