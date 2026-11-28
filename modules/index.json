@@ -54,8 +54,8 @@
       "title": "Introdução aos sistemas numéricos",
       "subtitle": "Bases, dígitos, potências e valor posicional",
       "discipline": "arquitetura",
-      "sha256": "9fd231780bf7e096b44d65c7b5d158d45df655d6cc15090263d941e706a0d87e",
-      "bytes": 57018
+      "sha256": "70d58a30e005451ada1c84aed8aa6642d64d066c24e6ff5c694acd6aae781688",
+      "bytes": 57775
     },
     {
       "id": "aula108",
@@ -78,8 +78,8 @@
       "title": "Introdução à lógica de programação",
       "subtitle": "Algoritmos, sequência de passos e primeiro contato com Portugol",
       "discipline": "portugol",
-      "sha256": "52dd126d612b0740d15015af9f21e4321ada8ce33d179d62194ad8831dfda755",
-      "bytes": 45762
+      "sha256": "2c432e25b8112c4cb3b2177f7d8380069ba6fa64a112a0e69e57ae7e77421807",
+      "bytes": 47393
     },
     {
       "id": "aula202",
