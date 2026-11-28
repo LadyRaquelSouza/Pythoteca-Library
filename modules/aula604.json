@@ -5,12 +5,12 @@
   "title": "Relacionamentos e diagramas",
   "subtitle": "MER, DER, notações ER e UML, grau e papéis",
   "objectives": "Distinguir modelo e diagrama; identificar associações e seus atributos; interpretar grau, papéis e notações; elaborar modelos conceituais e explicitar ambiguidades.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; Revisão visual da Aula 02 ainda pendente. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; Revisão visual da Aula 02 ainda pendente. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. Do elemento isolado à associação",
-      "text": "CONTEÚDO DO CURSO\n\nUma entidade descreve um tipo de elemento; um relacionamento descreve uma associação significativa entre ocorrências. CLIENTE e RESERVA podem existir no mesmo domínio, mas é a regra 'cliente realiza reserva' que explica como estão ligados. Não basta listar entidades: precisamos saber quais fatos as unem.\n\nDistinga tipo de relacionamento e ocorrência de relacionamento. REALIZA é o tipo; o vínculo entre o cliente C07 e a reserva R12 é uma ocorrência. Nomeie associações com verbos claros, como realiza, contém ou supervisiona. Leia nos dois sentidos: cliente realiza reserva; reserva é realizada por cliente. O verbo inverso não cria automaticamente outro relacionamento.\n\nUma associação pode ser desnecessária se reproduz exatamente uma informação já derivável de outras regras. Investigue se representa um fato independente.",
-      "example": "CLIENTE C07 — realiza — RESERVA R12"
+      "text": "CONTEÚDO DO CURSO\n\nUma entidade descreve um tipo de elemento; um relacionamento descreve uma associação significativa entre ocorrências. Cliente e Reserva podem existir no mesmo domínio, mas é a regra 'cliente realiza reserva' que explica como estão ligados. Não basta listar entidades: precisamos saber quais fatos as unem.\n\nDistinga tipo de relacionamento e ocorrência de relacionamento. realiza é o tipo; o vínculo entre o cliente C07 e a reserva R12 é uma ocorrência. Nomeie associações com verbos claros, como realiza, contém ou supervisiona. Leia nos dois sentidos: cliente realiza reserva; reserva é realizada por cliente. O verbo inverso não cria automaticamente outro relacionamento.\n\nUma associação pode ser desnecessária se reproduz exatamente uma informação já derivável de outras regras. Investigue se representa um fato independente.\n\nCONVENÇÃO ACADÊMICA VIGENTE — Conforme orientação da professora relatada pela estudante, use substantivos no singular com inicial maiúscula para entidades e verbos na terceira pessoa do singular do presente do indicativo, em minúsculas, para relacionamentos. Exemplo: Cliente realiza Pedido. Trata-se da convenção adotada nos módulos atuais, não de uma regra universal. Uma entidade associativa, como Matrícula ou Consulta, permanece substantivo; o relacionamento que a conecta a outra entidade recebe verbo.",
+      "example": "Cliente C07 — realiza — Reserva R12"
     },
     {
       "title": "2. MER e DER",
@@ -19,8 +19,8 @@
     },
     {
       "title": "3. Notação ER e legenda",
-      "text": "CONTEÚDO DO CURSO\n\nNa notação clássica de Chen, retângulos representam entidades, losangos representam relacionamentos e elipses representam atributos. Na convenção da apostila Modelagem de Dados I, atributos são desenhados como pequenos círculos, preenchidos quando identificadores; relacionamentos usam losangos. Outras convenções usam caixas com atributos dentro e símbolos nas extremidades.\n\nA legenda é essencial: o mesmo desenho pode usar símbolos com significados diferentes. A aula seguinte detalhará a posição das cardinalidades. Por ora, identifique tipos de elementos, associações e nomes.\n\nOs esquemas em texto desta aula são aproximações autorais para leitura no aplicativo, não reprodução das figuras da apostila. Ao desenhar no papel, substitua as caixas e losangos textuais pelos símbolos da convenção escolhida.",
-      "example": "[CLIENTE] ── <REALIZA> ── [RESERVA]\nCLIENTE: (codigo), (nome)\nLegenda: [ ] entidade; < > relacionamento; ( ) atributo."
+      "text": "CONTEÚDO DO CURSO\n\nNa notação clássica de Chen, retângulos representam entidades, losangos representam relacionamentos e elipses representam atributos. Na convenção da apostila Modelagem de Dados I, atributos são desenhados como pequenos círculos, preenchidos quando identificadores; relacionamentos usam losangos. Outras convenções usam caixas com atributos dentro e símbolos nas extremidades.\n\nA legenda é essencial: o mesmo desenho pode usar símbolos com significados diferentes. A aula seguinte detalhará a posição das cardinalidades. Por ora, identifique tipos de elementos, associações e nomes.\n\nOs esquemas em texto desta aula são aproximações autorais para leitura no aplicativo, não reprodução das figuras da apostila. Ao desenhar no papel, substitua as caixas e losangos textuais pelos símbolos da convenção escolhida.\n\nNos exemplos conceituais destes módulos, a grafia segue a convenção acadêmica vigente mesmo quando outra fonte utiliza caixa alta ou nomes nominais para relacionamentos. Os símbolos gráficos e sua interpretação não mudam.",
+      "example": "[Cliente] ── <realiza> ── [Reserva]\nCliente: (codigo), (nome)\nLegenda: [ ] entidade; < > relacionamento; ( ) atributo."
     },
     {
       "title": "4. UML aplicada à estrutura dos dados",
@@ -29,23 +29,23 @@
     },
     {
       "title": "5. Grau e papéis",
-      "text": "CONTEÚDO DO CURSO\n\nO grau descreve quantos participantes de um tipo de associação são considerados, não quantas ocorrências existem no banco. Na classificação didática, um relacionamento recursivo em um único tipo de entidade é chamado unário. Um relacionamento entre dois tipos é binário; um entre três é ternário. A terminologia formal de grau por papéis pode variar, especialmente em associações recursivas.\n\nEm FUNCIONARIO supervisiona FUNCIONARIO, a mesma entidade participa em papéis diferentes: supervisor e subordinado. Não crie duas entidades apenas porque existem dois papéis. Em CLIENTE realiza RESERVA, a associação é binária mesmo que existam milhares de clientes e reservas.\n\nUma associação ternária descreve um fato que depende dos três participantes juntos. Sua decomposição em associações binárias não é automaticamente equivalente.",
-      "example": "Unário: FUNCIONARIO (supervisor) → supervisiona → FUNCIONARIO (subordinado).\nBinário: CLIENTE — realiza — RESERVA.\nTernário: FORNECEDOR — fornece — PECA — para PROJETO (um fato envolvendo os três)."
+      "text": "CONTEÚDO DO CURSO\n\nO grau descreve quantos participantes de um tipo de associação são considerados, não quantas ocorrências existem no banco. Na classificação didática, um relacionamento recursivo em um único tipo de entidade é chamado unário. Um relacionamento entre dois tipos é binário; um entre três é ternário. A terminologia formal de grau por papéis pode variar, especialmente em associações recursivas.\n\nEm Funcionário supervisiona Funcionário, a mesma entidade participa em papéis diferentes: supervisor e subordinado. Não crie duas entidades apenas porque existem dois papéis. Em Cliente realiza Reserva, a associação é binária mesmo que existam milhares de clientes e reservas.\n\nUma associação ternária descreve um fato que depende dos três participantes juntos. Sua decomposição em associações binárias não é automaticamente equivalente.",
+      "example": "Unário: Funcionário (supervisor) → supervisiona → Funcionário (subordinado).\nBinário: Cliente — realiza — Reserva.\nTernário: Fornecedor — fornece — Peça — para Projeto (um fato envolvendo os três)."
     },
     {
       "title": "6. O fato ternário e a perda de significado",
-      "text": "APROFUNDAMENTO AUTORAL\n\nConsidere os fatos: F1 fornece P1 ao projeto J1; F1 fornece P2 ao projeto J2; F2 fornece P1 ao projeto J2. Se guardarmos apenas pares fornecedor-peça, fornecedor-projeto e peça-projeto, todos os pares de (F1,P1,J2) aparecem: F1/P1 no primeiro fato, F1/J2 no segundo, P1/J2 no terceiro. Entretanto essa tripla nunca foi registrada.\n\nCombinar os pares gera uma associação espúria. Isso mostra por que algumas regras precisam manter a combinação dos três participantes. Uma entidade representando o fornecimento pode ser uma solução posterior, desde que preserve a identificação e as restrições do fato original.\n\nNão conclua que toda associação envolvendo três conceitos é ternária. Se um pedido já identifica seu cliente, talvez relacionar item, pedido e cliente repita uma informação conhecida. Analise a dependência.\n\nEXEMPLO ACADÊMICO REVISITADO — A narração utiliza a prescrição de medicamento por médico a paciente para ilustrar um fato com três participantes. É preciso preservar quem prescreveu o quê e para quem. Se houver prescrições repetidas para a mesma tripla, é necessário distinguir eventos; uma data ou identificador pode fazer parte do modelo conforme as regras. Uma entidade PRESCRICAO com referências ao médico e paciente e itens de medicamento é outra solução possível quando a prescrição constitui um documento ou evento com vários itens. A escolha depende do domínio, não apenas da quantidade de substantivos.",
+      "text": "APROFUNDAMENTO AUTORAL\n\nConsidere os fatos: F1 fornece P1 ao projeto J1; F1 fornece P2 ao projeto J2; F2 fornece P1 ao projeto J2. Se guardarmos apenas pares fornecedor-peça, fornecedor-projeto e peça-projeto, todos os pares de (F1,P1,J2) aparecem: F1/P1 no primeiro fato, F1/J2 no segundo, P1/J2 no terceiro. Entretanto essa tripla nunca foi registrada.\n\nCombinar os pares gera uma associação espúria. Isso mostra por que algumas regras precisam manter a combinação dos três participantes. Uma entidade representando o fornecimento pode ser uma solução posterior, desde que preserve a identificação e as restrições do fato original.\n\nNão conclua que toda associação envolvendo três conceitos é ternária. Se um pedido já identifica seu cliente, talvez relacionar item, pedido e cliente repita uma informação conhecida. Analise a dependência.\n\nEXEMPLO ACADÊMICO REVISITADO — A narração utiliza a prescrição de medicamento por médico a paciente para ilustrar um fato com três participantes. É preciso preservar quem prescreveu o quê e para quem. Se houver prescrições repetidas para a mesma tripla, é necessário distinguir eventos; uma data ou identificador pode fazer parte do modelo conforme as regras. Uma entidade Prescrição com referências ao médico e paciente e itens de medicamento é outra solução possível quando a prescrição constitui um documento ou evento com vários itens. A escolha depende do domínio, não apenas da quantidade de substantivos.",
       "example": "Fatos originais: (F1,P1,J1), (F1,P2,J2), (F2,P1,J2).\nTripla não autorizada pelos fatos: (F1,P1,J2)."
     },
     {
       "title": "7. Atributos de relacionamento",
-      "text": "CONTEÚDO DO CURSO\n\nUma propriedade pode pertencer ao vínculo e não a uma entidade isolada. Em PESSOA participa de PROJETO, a função desempenhada depende de pessoa e projeto. A mesma pessoa pode coordenar um projeto e executar tarefas em outro. Guardar apenas uma função em PESSOA perde essa diferença.\n\nEm PRODUTO integra PEDIDO, a quantidade solicitada depende do item associado ao pedido. O preço praticado naquela venda pode também precisar ser registrado no vínculo para preservar histórico. O preço atual de catálogo e o preço cobrado são fatos distintos.\n\nSe a associação pode repetir entre os mesmos participantes, o par pode não ser suficiente para identificar cada ocorrência. Por exemplo, um leitor pode devolver e tomar novamente o mesmo exemplar. Será necessário um identificador do empréstimo ou outra combinação garantidamente única.\n\nCONFERÊNCIA COM A APOSTILA — Figuras 28–29, p. 25: uma alocação pode ser identificada pelo par engenheiro/projeto se só houver um vínculo por par. Consultas repetidas entre médico e paciente, por outro lado, exigem distinguir cada evento. O material acrescenta data e hora à identificação, sob a hipótese explícita de unicidade dessa combinação. Se a resolução temporal ou a regra não garantir unicidade, um identificador próprio pode ser necessário. Um atributo de relacionamento não é automaticamente componente de sua identificação.",
-      "example": "PESSOA — <PARTICIPA (funcao)> — PROJETO\nP01 participa de J01 como revisora; P01 participa de J02 como coordenadora."
+      "text": "CONTEÚDO DO CURSO\n\nUma propriedade pode pertencer ao vínculo e não a uma entidade isolada. Em Pessoa participa de Projeto, a função desempenhada depende de pessoa e projeto. A mesma pessoa pode coordenar um projeto e executar tarefas em outro. Guardar apenas uma função em Pessoa perde essa diferença.\n\nEm Produto integra Pedido, a quantidade solicitada depende do item associado ao pedido. O preço praticado naquela venda pode também precisar ser registrado no vínculo para preservar histórico. O preço atual de catálogo e o preço cobrado são fatos distintos.\n\nSe a associação pode repetir entre os mesmos participantes, o par pode não ser suficiente para identificar cada ocorrência. Por exemplo, um leitor pode devolver e tomar novamente o mesmo exemplar. Será necessário um identificador do empréstimo ou outra combinação garantidamente única.\n\nCONFERÊNCIA COM A APOSTILA — Figuras 28–29, p. 25: uma alocação pode ser identificada pelo par engenheiro/projeto se só houver um vínculo por par. Consultas repetidas entre médico e paciente, por outro lado, exigem distinguir cada evento. O material acrescenta data e hora à identificação, sob a hipótese explícita de unicidade dessa combinação. Se a resolução temporal ou a regra não garantir unicidade, um identificador próprio pode ser necessário. Um atributo de relacionamento não é automaticamente componente de sua identificação.",
+      "example": "Pessoa — <participa (funcao)> — Projeto\nP01 participa de J01 como revisora; P01 participa de J02 como coordenadora."
     },
     {
       "title": "8. Construindo um modelo a partir de texto",
-      "text": "PRÁTICA AUTORAL BASEADA NOS OBJETIVOS DA AULA 02\n\nLeia: uma instituição mantém unidades acadêmicas; cada unidade reúne setores; cada setor pertence a uma única unidade. Identifique INSTITUICAO, UNIDADE e SETOR. Nomeie MANTEM e REUNE. Pergunte se toda unidade pertence a uma única instituição e se unidades e instituições podem existir sem componentes. Não suponha respostas não dadas.\n\nRepresente em ER e UML. Compare as duas representações: preservam as mesmas associações? Registre as perguntas restantes. O modelo pode ser discutido antes de definir identificadores SQL.\n\nEm uma cidade, um bairro pode conter logradouros. Na realidade, um logradouro pode atravessar bairros; se o cenário didático exige composição exclusiva, registre essa hipótese. O modelo representa o domínio escolhido, não toda a geografia real.",
-      "example": "[INSTITUICAO] — <MANTEM> — [UNIDADE] — <REUNE> — [SETOR]\nUML textual: Instituicao ── mantém ── Unidade ── reúne ── Setor"
+      "text": "PRÁTICA AUTORAL BASEADA NOS OBJETIVOS DA AULA 02\n\nLeia: uma instituição mantém unidades acadêmicas; cada unidade reúne setores; cada setor pertence a uma única unidade. Identifique Instituição, Unidade e Setor. Nomeie mantém e reúne. Pergunte se toda unidade pertence a uma única instituição e se unidades e instituições podem existir sem componentes. Não suponha respostas não dadas.\n\nRepresente em ER e UML. Compare as duas representações: preservam as mesmas associações? Registre as perguntas restantes. O modelo pode ser discutido antes de definir identificadores SQL.\n\nEm uma cidade, um bairro pode conter logradouros. Na realidade, um logradouro pode atravessar bairros; se o cenário didático exige composição exclusiva, registre essa hipótese. O modelo representa o domínio escolhido, não toda a geografia real.",
+      "example": "[Instituição] — <mantém> — [Unidade] — <reúne> — [Setor]\nUML textual: Instituição ── mantém ── Unidade ── reúne ── Setor"
     }
   ],
   "exercises": [
@@ -85,12 +85,12 @@
       "id": "02",
       "group": "Essenciais — Fundamentos",
       "title": "Ocorrência",
-      "prompt": "Diferencie a associação REALIZA e o fato C07 realiza R12.",
+      "prompt": "Diferencie a associação realiza e o fato C07 realiza R12.",
       "hint": "Tipo versus caso individual.",
       "explanation": "O modelo distingue a associação geral dos fatos registrados.",
       "mode": "text",
       "starter": "",
-      "solution": "REALIZA é o tipo de relacionamento; C07–R12 é uma ocorrência dele.",
+      "solution": "realiza é o tipo de relacionamento; C07–R12 é uma ocorrência dele.",
       "expected": null,
       "required": true
     },
@@ -111,12 +111,12 @@
       "id": "04",
       "group": "Essenciais — Notações",
       "title": "Dois desenhos",
-      "prompt": "Represente PROFESSOR orienta PROJETO em ER textual e UML textual, sem acrescentar regras.",
+      "prompt": "Represente Professor orienta Projeto em ER textual e UML textual, sem acrescentar regras.",
       "hint": "Use caixas e associação nomeada.",
       "explanation": "As notações representam o mesmo conceito.",
       "mode": "text",
       "starter": "",
-      "solution": "ER: [PROFESSOR] — <ORIENTA> — [PROJETO]. UML: Professor ─ orienta ─ Projeto.",
+      "solution": "ER: [Professor] — <orienta> — [Projeto]. UML: Professor ─ orienta ─ Projeto.",
       "expected": null,
       "required": true
     },
@@ -124,7 +124,7 @@
       "id": "05",
       "group": "Essenciais — Grau",
       "title": "Binário",
-      "prompt": "CLIENTE realiza RESERVA possui 500 clientes e 900 reservas. Qual a classificação didática do grau?",
+      "prompt": "Cliente realiza Reserva possui 500 clientes e 900 reservas. Qual a classificação didática do grau?",
       "hint": "Conte tipos de entidade.",
       "explanation": "Dois tipos participam da associação.",
       "mode": "quiz",
@@ -161,7 +161,7 @@
       "explanation": "A entidade é a mesma, os papéis são diferentes.",
       "mode": "text",
       "starter": "",
-      "solution": "PESSOA indica PESSOA; papéis indicador e indicado.",
+      "solution": "Pessoa indica Pessoa; papéis indicador e indicado.",
       "expected": null,
       "required": true
     },
@@ -226,7 +226,7 @@
       "explanation": "A cardinalidade precisa ser definida por regras adicionais.",
       "mode": "text",
       "starter": "",
-      "solution": "INSTITUICAO mantém UNIDADE; UNIDADE reúne SETOR.",
+      "solution": "Instituição mantém Unidade; Unidade reúne Setor.",
       "expected": null,
       "required": true
     },
@@ -239,7 +239,7 @@
       "explanation": "Não confunda hipótese de exercício com realidade.",
       "mode": "text",
       "starter": "",
-      "solution": "REGIAO agrupa MUNICIPIO; MUNICIPIO contém BAIRRO; confirmar se bairro pertence a um único município no recorte.",
+      "solution": "Região agrupa Município; Município contém Bairro; confirmar se bairro pertence a um único município no recorte.",
       "expected": null,
       "required": false
     },
@@ -273,7 +273,7 @@
       "id": "15",
       "group": "Essenciais — Modelagem",
       "title": "Regra fora do desenho",
-      "prompt": "Uma reserva não pode se sobrepor a outra confirmada do mesmo equipamento. Um simples vínculo RESERVA-EQUIPAMENTO expressa toda a regra?",
+      "prompt": "Uma reserva não pode se sobrepor a outra confirmada do mesmo equipamento. Um simples vínculo Reserva-Equipamento expressa toda a regra?",
       "hint": "Considere datas e situação.",
       "explanation": "O DER não substitui a especificação completa.",
       "mode": "text",
@@ -304,7 +304,7 @@
       "explanation": "O evento pode ser entidade com identidade própria.",
       "mode": "text",
       "starter": "",
-      "solution": "CLIENTE possui EQUIPAMENTO (se essa regra for confirmada); EQUIPAMENTO recebe REPARO; REPARO registra data e descrição. Confirmar múltiplos proprietários.",
+      "solution": "Cliente possui Equipamento (se essa regra for confirmada); Equipamento recebe Reparo; Reparo registra data e descrição. Confirmar múltiplos proprietários.",
       "expected": null,
       "required": false
     },

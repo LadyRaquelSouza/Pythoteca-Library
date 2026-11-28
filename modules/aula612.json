@@ -5,11 +5,11 @@
   "title": "Projeto integrado: do problema ao banco de dados",
   "subtitle": "Laboratório de biblioteca, requisitos, MER, esquema, integridade e evolução",
   "objectives": "Consolidar o percurso completo da modelagem; levantar requisitos; construir DER textual e dicionário; transformar para esquema relacional; analisar normalização; especificar testes e avaliar mudanças de requisitos.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Revisão visual da Aula 02 ainda pendente. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Revisão visual da Aula 02 ainda pendente. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. O cenário e o recorte",
-      "text": "PRÁTICA AUTORAL INTEGRADORA INSPIRADA NO MATERIAL DE BIBLIOTECA\n\nUma biblioteca comunitária precisa controlar leitores, obras, edições, exemplares físicos e empréstimos. O objetivo inicial é saber quais exemplares existem, quem os tomou emprestado e quando devem retornar. Não vamos controlar compras, multas financeiras, conteúdo digital ou reservas nesta primeira versão.\n\nAntes de modelar, faça perguntas: uma obra pode ter várias edições? A mesma edição pode ter vários exemplares? Um leitor pode estar cadastrado sem empréstimo? Um exemplar pode ser emprestado diversas vezes ao longo do tempo? É permitido excluir um leitor com histórico? Quais informações são realmente necessárias?\n\nO projeto adotará hipóteses fictícias explícitas, não regras universais de bibliotecas. Não use dados pessoais reais nas atividades.",
+      "text": "PRÁTICA AUTORAL INTEGRADORA INSPIRADA NO Material DE Biblioteca\n\nUma biblioteca comunitária precisa controlar leitores, obras, edições, exemplares físicos e empréstimos. O objetivo inicial é saber quais exemplares existem, quem os tomou emprestado e quando devem retornar. Não vamos controlar compras, multas financeiras, conteúdo digital ou reservas nesta primeira versão.\n\nAntes de modelar, faça perguntas: uma obra pode ter várias edições? A mesma edição pode ter vários exemplares? Um leitor pode estar cadastrado sem empréstimo? Um exemplar pode ser emprestado diversas vezes ao longo do tempo? É permitido excluir um leitor com histórico? Quais informações são realmente necessárias?\n\nO projeto adotará hipóteses fictícias explícitas, não regras universais de bibliotecas. Não use dados pessoais reais nas atividades.",
       "example": ""
     },
     {
@@ -19,27 +19,27 @@
     },
     {
       "title": "3. Modelo conceitual e cardinalidades",
-      "text": "PRÁTICA AUTORAL\n\nEntidades: OBRA, EDICAO, EXEMPLAR, LEITOR, EMPRESTIMO. EMPRESTIMO representa evento identificado, não apenas associação única leitor-exemplar, pois o par pode repetir ao longo do tempo. Seus atributos temporais pertencem ao evento.\n\nUse as duas direções de cada associação. OBRA→EDICAO 0..N; EDICAO→OBRA 1..1. EDICAO→EXEMPLAR 0..N; EXEMPLAR→EDICAO 1..1. LEITOR→EMPRESTIMO 0..N; EMPRESTIMO→LEITOR 1..1. EXEMPLAR→EMPRESTIMO 0..N; EMPRESTIMO→EXEMPLAR 1..1.\n\nA cardinalidade histórica exemplar→empréstimo é muitos. O máximo de um ativo é uma restrição adicional sobre o subconjunto de empréstimos sem devolução. Não desenhe 1:1 para todos os empréstimos.",
-      "example": "UML textual, multiplicidade nas extremidades:\n[OBRA] 1 ─ 0..* [EDICAO] 1 ─ 0..* [EXEMPLAR]\n[LEITOR] 1 ─ 0..* [EMPRESTIMO] 0..* ─ 1 [EXEMPLAR]\nER por participação, por exemplo: [LEITOR] (0,N) ─ <REALIZA> ─ (1,1) [EMPRESTIMO]."
+      "text": "PRÁTICA AUTORAL\n\nEntidades: Obra, Edição, Exemplar, Leitor, Empréstimo. Empréstimo representa evento identificado, não apenas associação única leitor-exemplar, pois o par pode repetir ao longo do tempo. Seus atributos temporais pertencem ao evento.\n\nUse as duas direções de cada associação. Obra→Edição 0..N; Edição→Obra 1..1. Edição→Exemplar 0..N; Exemplar→Edição 1..1. Leitor→Empréstimo 0..N; Empréstimo→Leitor 1..1. Exemplar→Empréstimo 0..N; Empréstimo→Exemplar 1..1.\n\nA cardinalidade histórica exemplar→empréstimo é muitos. O máximo de um ativo é uma restrição adicional sobre o subconjunto de empréstimos sem devolução. Não desenhe 1:1 para todos os empréstimos.",
+      "example": "UML textual, multiplicidade nas extremidades:\n[Obra] 1 ─ 0..* [Edição] 1 ─ 0..* [Exemplar]\n[Leitor] 1 ─ 0..* [Empréstimo] 0..* ─ 1 [Exemplar]\nER por participação, por exemplo: [Leitor] (0,N) ─ <realiza> ─ (1,1) [Empréstimo]."
     },
     {
       "title": "4. Dicionário e domínios",
-      "text": "PRÁTICA AUTORAL\n\nOBRA: id_obra identifica, titulo é texto não vazio e pode repetir. EDICAO: id_edicao identifica, id_obra referencia a obra, ano_publicacao é inteiro opcional sob política documentada, descricao_edicao é texto que distingue características da edição, não necessariamente único. ISBN não será obrigatório, pois nem toda edição possui ISBN.\n\nEXEMPLAR: id_exemplar identifica, id_edicao obrigatório, patrimonio texto único não vazio, situacao aceita em_acervo ou baixado. LEITOR: id_leitor identifica, nome texto não vazio, ativo lógico obrigatório. Não coletamos endereço, documento ou data de nascimento sem requisito específico.\n\nEMPRESTIMO: id_emprestimo identifica evento; id_leitor e id_exemplar obrigatórios; retirada e prevista são datas obrigatórias; devolucao é data opcional; valores devem respeitar R7. A regra de ativo é derivada: devolucao ausente. Atrasado significa ativo e prevista anterior à data de referência. Especifique a data de referência para testar atraso.",
+      "text": "PRÁTICA AUTORAL\n\nObra: id_obra identifica, titulo é texto não vazio e pode repetir. Edição: id_edicao identifica, id_obra referencia a obra, ano_publicacao é inteiro opcional sob política documentada, descricao_edicao é texto que distingue características da edição, não necessariamente único. ISBN não será obrigatório, pois nem toda edição possui ISBN.\n\nExemplar: id_exemplar identifica, id_edicao obrigatório, patrimonio texto único não vazio, situacao aceita em_acervo ou baixado. Leitor: id_leitor identifica, nome texto não vazio, ativo lógico obrigatório. Não coletamos endereço, documento ou data de nascimento sem requisito específico.\n\nEmpréstimo: id_emprestimo identifica evento; id_leitor e id_exemplar obrigatórios; retirada e prevista são datas obrigatórias; devolucao é data opcional; valores devem respeitar R7. A regra de ativo é derivada: devolucao ausente. Atrasado significa ativo e prevista anterior à data de referência. Especifique a data de referência para testar atraso.",
       "example": "patrimonio | identificador de inventário | texto não vazio | obrigatório | único\nprevista | data limite para devolver | data | obrigatória | >= retirada\ndevolucao | data de retorno efetivo | data | opcional | >= retirada quando presente"
     },
     {
       "title": "5. Esquema lógico",
-      "text": "PRÁTICA AUTORAL\n\nOBRA(id_obra,titulo); EDICAO(id_edicao,id_obra,ano_publicacao,descricao_edicao); EXEMPLAR(id_exemplar,id_edicao,patrimonio,situacao); LEITOR(id_leitor,nome,ativo); EMPRESTIMO(id_emprestimo,id_leitor,id_exemplar,retirada,prevista,devolucao).\n\nCada id da própria relação é PK. EDICAO.id_obra referencia OBRA; EXEMPLAR.id_edicao referencia EDICAO; EMPRESTIMO.id_leitor referencia LEITOR; EMPRESTIMO.id_exemplar referencia EXEMPLAR. Todas são obrigatórias. patrimonio é candidata alternativa se R11 garante unicidade e obrigatoriedade.\n\nO par (id_leitor,id_exemplar) não é chave de EMPRESTIMO, pois R6 permite repetição histórica. Não imponha unicidade sobre esse par. A regra de um empréstimo ativo por exemplar é diferente de proibir múltiplos empréstimos históricos.\n\nPolítica inicial de exclusão: rejeitar exclusões que destruam referências ou histórico; inativar leitores e baixar exemplares quando permitido. A política deve ser validada com responsáveis e requisitos de retenção.",
-      "example": "OBRA ← EDICAO ← EXEMPLAR ← EMPRESTIMO → LEITOR\nSetas indicam referência lógica ao alvo; cada FK obrigatória é documentada."
+      "text": "PRÁTICA AUTORAL\n\nObra(id_obra,titulo); Edição(id_edicao,id_obra,ano_publicacao,descricao_edicao); Exemplar(id_exemplar,id_edicao,patrimonio,situacao); Leitor(id_leitor,nome,ativo); Empréstimo(id_emprestimo,id_leitor,id_exemplar,retirada,prevista,devolucao).\n\nCada id da própria relação é PK. Edição.id_obra referencia Obra; Exemplar.id_edicao referencia Edição; Empréstimo.id_leitor referencia Leitor; Empréstimo.id_exemplar referencia Exemplar. Todas são obrigatórias. patrimonio é candidata alternativa se R11 garante unicidade e obrigatoriedade.\n\nO par (id_leitor,id_exemplar) não é chave de Empréstimo, pois R6 permite repetição histórica. Não imponha unicidade sobre esse par. A regra de um empréstimo ativo por exemplar é diferente de proibir múltiplos empréstimos históricos.\n\nPolítica inicial de exclusão: rejeitar exclusões que destruam referências ou histórico; inativar leitores e baixar exemplares quando permitido. A política deve ser validada com responsáveis e requisitos de retenção.",
+      "example": "Obra ← Edição ← Exemplar ← Empréstimo → Leitor\nSetas indicam referência lógica ao alvo; cada FK obrigatória é documentada."
     },
     {
       "title": "6. Dependências e normalização",
-      "text": "PRÁTICA AUTORAL\n\nImagine a tabela inicial EMPRESTIMO_MISTO(id_emprestimo,id_leitor,nome_leitor,id_exemplar,patrimonio,id_edicao,titulo_obra,retirada,prevista,devolucao). Repetir nome e dados de exemplar em cada empréstimo cria dependências por identificadores que não identificam o empréstimo inteiro.\n\nid_leitor determina nome_leitor; id_exemplar determina patrimonio e id_edicao; id_edicao determina id_obra, que determina titulo_obra, considerando o cadastro atual. Separar as entidades preserva os fatos independentes. Se título ou nome precisam ser preservados exatamente como no momento de um evento, isso é outro requisito histórico e pode justificar atributos próprios do evento.\n\nNo esquema proposto, assumimos que os atributos descritivos de cada relação dependem de suas candidatas, sem outras dependências não triviais relevantes além das implicadas por essas chaves. Com essas hipóteses, as relações satisfazem 3FN. Em EXEMPLAR, patrimonio também determina os demais atributos porque é candidata alternativa. Novos requisitos podem revelar dependências adicionais; a análise não é uma prova independente das regras declaradas.",
+      "text": "PRÁTICA AUTORAL\n\nImagine a tabela inicial Empréstimo_misto(id_emprestimo,id_leitor,nome_leitor,id_exemplar,patrimonio,id_edicao,titulo_obra,retirada,prevista,devolucao). Repetir nome e dados de exemplar em cada empréstimo cria dependências por identificadores que não identificam o empréstimo inteiro.\n\nid_leitor determina nome_leitor; id_exemplar determina patrimonio e id_edicao; id_edicao determina id_obra, que determina titulo_obra, considerando o cadastro atual. Separar as entidades preserva os fatos independentes. Se título ou nome precisam ser preservados exatamente como no momento de um evento, isso é outro requisito histórico e pode justificar atributos próprios do evento.\n\nNo esquema proposto, assumimos que os atributos descritivos de cada relação dependem de suas candidatas, sem outras dependências não triviais relevantes além das implicadas por essas chaves. Com essas hipóteses, as relações satisfazem 3FN. Em Exemplar, patrimonio também determina os demais atributos porque é candidata alternativa. Novos requisitos podem revelar dependências adicionais; a análise não é uma prova independente das regras declaradas.",
       "example": ""
     },
     {
       "title": "7. Prévia de implementação física",
-      "text": "COMPLEMENTO AUTORAL — LEITURA, NÃO EXECUÇÃO OBRIGATÓRIA\n\nEm PostgreSQL ou outro SGBD relacional, tipos de data, inteiros, booleanos e textos representam os domínios básicos. PRIMARY KEY, REFERENCES, NOT NULL, UNIQUE e CHECK implementam várias restrições. O exemplo abaixo mostra apenas a tabela de empréstimos, assumindo LEITOR e EXEMPLAR já existentes com PK id_leitor e id_exemplar do tipo INTEGER.\n\nA restrição CHECK compara datas; NULL em devolucao é permitido. A regra de um ativo por exemplar pode ser implementada em PostgreSQL por índice único parcial. Esse recurso depende do SGBD e é apresentado apenas para compreender a tradução de uma regra. Outras tecnologias exigem alternativa apropriada. As regras de inatividade e baixa exigem validação coordenada do estado dos registros referenciados; o trecho não implementa tudo.\n\nNão execute o trecho isoladamente esperando criar um sistema completo. Não há prática de programação obrigatória nesta aula.",
+      "text": "COMPLEMENTO AUTORAL — LEITURA, NÃO EXECUÇÃO OBRIGATÓRIA\n\nEm PostgreSQL ou outro SGBD relacional, tipos de data, inteiros, booleanos e textos representam os domínios básicos. PRIMARY KEY, REFERENCES, NOT NULL, UNIQUE e CHECK implementam várias restrições. O exemplo abaixo mostra apenas a tabela de empréstimos, assumindo Leitor e Exemplar já existentes com PK id_leitor e id_exemplar do tipo INTEGER.\n\nA restrição CHECK compara datas; NULL em devolucao é permitido. A regra de um ativo por exemplar pode ser implementada em PostgreSQL por índice único parcial. Esse recurso depende do SGBD e é apresentado apenas para compreender a tradução de uma regra. Outras tecnologias exigem alternativa apropriada. As regras de inatividade e baixa exigem validação coordenada do estado dos registros referenciados; o trecho não implementa tudo.\n\nNão execute o trecho isoladamente esperando criar um sistema completo. Não há prática de programação obrigatória nesta aula.",
       "example": "CREATE TABLE emprestimo (\n  id_emprestimo INTEGER PRIMARY KEY,\n  id_leitor INTEGER NOT NULL REFERENCES leitor(id_leitor),\n  id_exemplar INTEGER NOT NULL REFERENCES exemplar(id_exemplar),\n  retirada DATE NOT NULL,\n  prevista DATE NOT NULL CHECK (prevista >= retirada),\n  devolucao DATE CHECK (devolucao >= retirada)\n);\nCREATE UNIQUE INDEX um_ativo_por_exemplar\nON emprestimo(id_exemplar) WHERE devolucao IS NULL;"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "title": "9. Evolução do modelo",
-      "text": "CONEXÃO COM O ENCERRAMENTO VISUAL DO VÍDEO MODELAGEM DE DADOS E APROFUNDAMENTO AUTORAL\n\nOs quadros finais do vídeo levantam a questão de prever necessidades futuras de dados. Não existe forma de antecipar todas as mudanças. Um bom modelo registra decisões e permite revisões sem confundir fatos existentes com novos requisitos.\n\nSuponha que a biblioteca passe a permitir reservas de edições, mesmo quando todos os exemplares estão emprestados. Isso acrescenta RESERVA com leitor, edição, data, situação e política de fila. Não reutilize EMPRESTIMO para representar uma reserva que ainda não houve retirada. Os eventos têm significados e regras diferentes. Investigue validade, cancelamento e conversão em empréstimo, além da relação entre edição reservada e exemplar retirado.\n\nOutro requisito: preservar histórico de alterações de situação do exemplar. Um atributo situacao atual não responde quando a baixa ocorreu ou quem autorizou. Pode ser necessário EVENTO_SITUACAO com datas e tipos. Reavalie domínios, identidade, referências, normalização, migração e testes; não altere o significado de campos antigos silenciosamente.\n\nCOMPLEMENTO AUTORAL — A narração destaca o custo de alterar esquemas. A frequência real de mudanças varia: aplicações evoluem, e migrações planejadas podem ser comuns. Exemplo: acrescentar um campo opcional geralmente tem riscos diferentes de remover um campo usado por aplicações antigas. Planeje a transição, teste com dados fictícios ou cópia autorizada, mantenha backup verificável e estratégia de recuperação; avalie compatibilidade de versões, preenchimento de dados existentes e validação de restrições antes de tornar um campo obrigatório. Nem toda migração pode ser desfeita sem perda; um script inverso não substitui um backup. Não executar mudanças destrutivas em produção durante esta prática.",
+      "text": "CONEXÃO COM O ENCERRAMENTO VISUAL DO VÍDEO MODELAGEM DE DADOS E APROFUNDAMENTO AUTORAL\n\nOs quadros finais do vídeo levantam a questão de prever necessidades futuras de dados. Não existe forma de antecipar todas as mudanças. Um bom modelo registra decisões e permite revisões sem confundir fatos existentes com novos requisitos.\n\nSuponha que a biblioteca passe a permitir reservas de edições, mesmo quando todos os exemplares estão emprestados. Isso acrescenta Reserva com leitor, edição, data, situação e política de fila. Não reutilize Empréstimo para representar uma reserva que ainda não houve retirada. Os eventos têm significados e regras diferentes. Investigue validade, cancelamento e conversão em empréstimo, além da relação entre edição reservada e exemplar retirado.\n\nOutro requisito: preservar histórico de alterações de situação do exemplar. Um atributo situacao atual não responde quando a baixa ocorreu ou quem autorizou. Pode ser necessário Evento_situação com datas e tipos. Reavalie domínios, identidade, referências, normalização, migração e testes; não altere o significado de campos antigos silenciosamente.\n\nCOMPLEMENTO AUTORAL — A narração destaca o custo de alterar esquemas. A frequência real de mudanças varia: aplicações evoluem, e migrações planejadas podem ser comuns. Exemplo: acrescentar um campo opcional geralmente tem riscos diferentes de remover um campo usado por aplicações antigas. Planeje a transição, teste com dados fictícios ou cópia autorizada, mantenha backup verificável e estratégia de recuperação; avalie compatibilidade de versões, preenchimento de dados existentes e validação de restrições antes de tornar um campo obrigatório. Nem toda migração pode ser desfeita sem perda; um script inverso não substitui um backup. Não executar mudanças destrutivas em produção durante esta prática.",
       "example": ""
     },
     {
@@ -102,7 +102,7 @@
       "id": "04",
       "group": "Essenciais — Conceitual",
       "title": "Evento",
-      "prompt": "Por que EMPRESTIMO precisa de identidade própria neste cenário?",
+      "prompt": "Por que Empréstimo precisa de identidade própria neste cenário?",
       "hint": "O mesmo par pode repetir.",
       "explanation": "Identidade distingue ocorrências.",
       "mode": "text",
@@ -115,12 +115,12 @@
       "id": "05",
       "group": "Essenciais — Cardinalidade",
       "title": "Edição",
-      "prompt": "Escreva as duas direções de OBRA-EDICAO.",
+      "prompt": "Escreva as duas direções de Obra-Edição.",
       "hint": "R2.",
       "explanation": "A regra permite obra sem edição cadastrada.",
       "mode": "text",
       "starter": "",
-      "solution": "OBRA→EDICAO 0..N; EDICAO→OBRA 1..1.",
+      "solution": "Obra→Edição 0..N; Edição→Obra 1..1.",
       "expected": null,
       "required": true
     },
@@ -167,12 +167,12 @@
       "id": "09",
       "group": "Essenciais — Lógico",
       "title": "Chaves",
-      "prompt": "Especifique PK e FKs de EMPRESTIMO.",
+      "prompt": "Especifique PK e FKs de Empréstimo.",
       "hint": "Identidade do evento.",
       "explanation": "Preserva identidade e referências.",
       "mode": "text",
       "starter": "",
-      "solution": "PK id_emprestimo; FK id_leitor→LEITOR; FK id_exemplar→EXEMPLAR; ambas obrigatórias.",
+      "solution": "PK id_emprestimo; FK id_leitor→Leitor; FK id_exemplar→Exemplar; ambas obrigatórias.",
       "expected": null,
       "required": true
     },
@@ -211,7 +211,7 @@
       "explanation": "Evita repetir título nos eventos.",
       "mode": "text",
       "starter": "",
-      "solution": "OBRA; edição referencia obra e exemplar referencia edição.",
+      "solution": "Obra; edição referencia obra e exemplar referencia edição.",
       "expected": null,
       "required": false
     },
@@ -336,7 +336,7 @@
       "id": "22",
       "group": "Essenciais — Evolução",
       "title": "Reservas",
-      "prompt": "Por que RESERVA não deve ser confundida com EMPRESTIMO?",
+      "prompt": "Por que Reserva não deve ser confundida com Empréstimo?",
       "hint": "A retirada já aconteceu?",
       "explanation": "Eventos têm ciclos de vida diferentes.",
       "mode": "text",
@@ -393,7 +393,7 @@
       "explanation": "Transferir método a outro problema demonstra compreensão.",
       "mode": "text",
       "starter": "",
-      "solution": "Exemplo: USUARIO, EQUIPAMENTO, RETIRADA; regras de identidade, referência, disponibilidade, datas e histórico; testar retirada válida, alvo ausente, equipamento ocupado e devolução anterior.",
+      "solution": "Exemplo: Usuário, Equipamento, Retirada; regras de identidade, referência, disponibilidade, datas e histórico; testar retirada válida, alvo ausente, equipamento ocupado e devolução anterior.",
       "expected": null,
       "required": false
     },

@@ -89,3 +89,12 @@ Regra editorial permanente: fechar análise, confronto, decisão, implementaçã
 ### Conceitos Básicos de Modelagem de Dados — Aula 01
 
 28/11/2026: duas páginas originais renderizadas e inspecionadas integralmente, texto reconsultado. Não há diagramas ou exemplos visuais omitidos pela extração. A601 já respeita a classificação ampla de DML, incluindo consulta; A611 já desenvolve a meta de 3FN explicitada na fonte. A602 reforça finalidades, nomenclatura e documentação do modelo lógico e contextualiza estruturas físicas auxiliares; o termo 'lider' não definido na fonte não recebe interpretação inventada. A603 desenvolve exercício autoral de dicionário de PESSOA com finalidade explícita, pois o enunciado acadêmico não fornece atributos nem solução. Um exercício opcional novo; nenhum módulo ou capítulo novo. Metadados atualizados; nenhuma página original republicada. Próximo documento: Aula 02.
+
+
+### Convenção de nomenclatura — escopo acadêmico atual
+
+28/11/2026: orientação docente relatada pela estudante: entidade com inicial maiúscula, substantivo no singular; relacionamento em minúsculas, verbo na terceira pessoa do singular do presente do indicativo (possui, realiza, recebe). Aplicada retroativamente aos módulos 601–612, incluindo textos, exemplos e exercícios. Nomes de entidades associativas continuam substantivos. Rótulos de esquemas relacionais textuais são legíveis; comandos SQL, siglas e identificadores técnicos não são submetidos à regra conceitual. Outras notações podem ser explicadas como complemento. A orientação não é automaticamente obrigatória em módulos futuros ou intercâmbios: reavaliar conforme o material e as instruções docentes relatadas pela estudante.
+
+### Aula 02 — confronto textual e nomenclatura
+
+Reconsulta do texto original e confronto com 604–605: objetivos, entidades, ER/UML e exercícios de universidade/centro/departamento e cidade/bairro/logradouro já contemplados. A605 passa a comparar as duas notações nos exemplos e nas questões 13–14, preservando hipóteses inversas explícitas; A604 registra convenção acadêmica. Nenhum exercício ou módulo novo. A inspeção visual integral das 16 páginas ainda não está confirmada nesta etapa; não fechar a fonte até conferir os diagramas originais.

@@ -5,51 +5,51 @@
   "title": "Modelagem ER avançada",
   "subtitle": "Entidades fracas, identificação dependente, generalização e especialização",
   "objectives": "Distinguir dependência de existência e de identificação; modelar entidades fracas; interpretar especializações totais, parciais, exclusivas e compartilhadas; avaliar alternativas de representação.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.4–2.7, 3.3–3.5; Banco de Dados Para Alunos, slides 25–29 e 38–41. Texto extraído consultado em 28/11/2026. Exemplos, diagramas textuais e atividades autorais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.4–2.7, 3.3–3.5; Banco de Dados Para Alunos, slides 25–29 e 38–41. Texto extraído consultado em 28/11/2026. Exemplos, diagramas textuais e atividades autorais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. Dependência de existência e identificação",
       "text": "CONTEÚDO DO CURSO\n\nAlgumas entidades não fazem sentido sem outra entidade. Um item de pedido depende do pedido para existir no domínio. Mas dependência de existência não implica necessariamente dependência de identificação. Se o item possui id_item globalmente único, sua identidade pode ser independente apesar de sua existência depender do pedido.\n\nUma entidade fraca, na abordagem estudada, precisa da identificação da entidade proprietária para distinguir suas ocorrências. Um número de item que reinicia a cada pedido não identifica o item sozinho. O proprietário e o identificador parcial formam a identidade.\n\nPergunte separadamente: a ocorrência pode existir sem a proprietária? Pode ser identificada sem a proprietária? As respostas determinam a modelagem.",
-      "example": "ITEM com (id_pedido,numero_item): identificação dependente.\nITEM com id_item global: existência pode depender de PEDIDO, identificação não necessariamente."
+      "example": "Item com (id_pedido,numero_item): identificação dependente.\nItem com id_item global: existência pode depender de Pedido, identificação não necessariamente."
     },
     {
       "title": "2. Identificador parcial e relacionamento identificador",
       "text": "CONTEÚDO DO CURSO\n\nUm identificador parcial distingue ocorrências fracas dentro de uma proprietária, mas não em todo o domínio. Pedido P1 pode ter itens 1 e 2; pedido P2 também pode ter item 1. O número 1 é insuficiente sozinho. O par (P1,1) identifica uma ocorrência específica.\n\nO relacionamento identificador participa da identidade da entidade fraca. Cada item deste exemplo pertence a exatamente um pedido. O pedido pode ter zero ou muitos itens durante a criação, ou um ou muitos se estiver confirmado; isso depende da regra do estado. A obrigatoriedade do item em relação ao pedido não determina automaticamente o mínimo inverso.\n\nA apostila indica relacionamento identificador por linha mais espessa na convenção adotada. Em Chen clássico são comuns retângulo duplo para entidade fraca e losango duplo para relacionamento identificador. Não misture legendas.",
-      "example": "[PEDIDO] ══ <CONTEM> ══ [[ITEM]]\nLegenda textual autoral: [[ ]] entidade fraca; ═ relacionamento identificador.\nIdentidade de ITEM: (pedido, numero_item)."
+      "example": "[Pedido] ══ <contém> ══ [[Item]]\nLegenda textual autoral: [[ ]] entidade fraca; ═ relacionamento identificador.\nIdentidade de Item: (pedido, numero_item)."
     },
     {
       "title": "3. Dependências em cadeia",
       "text": "CONTEÚDO DO CURSO\n\nImagine um centro de documentação com armários numerados por unidade, gavetas numeradas dentro de armários e posições numeradas dentro de gavetas. Se a identidade de cada nível depende do anterior, a identidade de uma posição inclui unidade, armário, gaveta e número da posição.\n\nIsso não obriga a usar uma PK composta longa na implementação física. Podemos selecionar identificadores substitutos e preservar a unicidade das combinações locais. Porém, o significado da identificação dependente deve permanecer representado, por exemplo com uma referência obrigatória e UNIQUE(proprietario,numero_local).\n\nMover uma ocorrência entre proprietárias pode alterar sua identidade no modelo original. Investigue se isso representa mudança de localização de um objeto persistente ou criação de uma ocorrência distinta.",
-      "example": "ARMARIO(unidade,numero_armario)\nGAVETA(unidade,numero_armario,numero_gaveta)\nPOSICAO(unidade,numero_armario,numero_gaveta,numero_posicao)"
+      "example": "Armário(unidade,numero_armario)\nGAVETA(unidade,numero_armario,numero_gaveta)\nPOSICAO(unidade,numero_armario,numero_gaveta,numero_posicao)"
     },
     {
       "title": "4. Generalização e especialização",
-      "text": "CONTEÚDO DO CURSO\n\nGeneralização identifica características compartilhadas por vários conceitos e as reúne em um tipo mais geral. Especialização distingue subconjuntos que possuem propriedades ou associações próprias. EQUIPAMENTO pode ser especializado em COMPUTADOR e PROJETOR; ambos possuem código patrimonial, mas computador pode ter memória e projetor pode ter luminosidade especificada.\n\nUma ocorrência de COMPUTADOR também é uma ocorrência de EQUIPAMENTO, preservando identidade e propriedades do tipo geral. Não se trata de criar um segundo objeto físico independente. O teste semântico é 'é um tipo de': um computador é equipamento; um teclado faz parte de um computador, mas isso não o torna uma especialização de computador.\n\nA notação da apostila usa um triângulo entre tipo geral e tipos especializados. UML usa uma linha com ponta triangular vazada apontando para a classe geral. Os exemplos textuais expressam a relação sem depender de desenho.",
-      "example": "EQUIPAMENTO (codigo, descricao)\n  ├─ COMPUTADOR (memoria)\n  └─ PROJETOR (luminosidade)\nLeitura: cada computador é um equipamento."
+      "text": "CONTEÚDO DO CURSO\n\nGeneralização identifica características compartilhadas por vários conceitos e as reúne em um tipo mais geral. Especialização distingue subconjuntos que possuem propriedades ou associações próprias. Equipamento pode ser especializado em Computador e Projetor; ambos possuem código patrimonial, mas computador pode ter memória e projetor pode ter luminosidade especificada.\n\nUma ocorrência de Computador também é uma ocorrência de Equipamento, preservando identidade e propriedades do tipo geral. Não se trata de criar um segundo objeto físico independente. O teste semântico é 'é um tipo de': um computador é equipamento; um teclado faz parte de um computador, mas isso não o torna uma especialização de computador.\n\nA notação da apostila usa um triângulo entre tipo geral e tipos especializados. UML usa uma linha com ponta triangular vazada apontando para a classe geral. Os exemplos textuais expressam a relação sem depender de desenho.",
+      "example": "Equipamento (codigo, descricao)\n  ├─ Computador (memoria)\n  └─ Projetor (luminosidade)\nLeitura: cada computador é um equipamento."
     },
     {
       "title": "5. Totalidade e parcialidade",
-      "text": "CONTEÚDO DO CURSO\n\nUma especialização total exige que toda ocorrência do tipo geral pertença a pelo menos um dos tipos especializados desse conjunto. Uma especialização parcial admite ocorrências que não pertençam a nenhum deles.\n\nSe toda CONTA cadastrada deve ser POUPANCA ou CORRENTE, a especialização é total sob essa regra. Se EQUIPAMENTO pode ser COMPUTADOR, PROJETOR ou outro equipamento não detalhado, a especialização em computador e projetor é parcial.\n\nA totalidade não diz se uma ocorrência pode pertencer simultaneamente a dois subtipos. Essa é outra dimensão. Não deduza totalidade pela aparência da figura ou pela ausência de exemplos de outros tipos.",
+      "text": "CONTEÚDO DO CURSO\n\nUma especialização total exige que toda ocorrência do tipo geral pertença a pelo menos um dos tipos especializados desse conjunto. Uma especialização parcial admite ocorrências que não pertençam a nenhum deles.\n\nSe toda Conta cadastrada deve ser Poupança ou Corrente, a especialização é total sob essa regra. Se Equipamento pode ser Computador, Projetor ou outro equipamento não detalhado, a especialização em computador e projetor é parcial.\n\nA totalidade não diz se uma ocorrência pode pertencer simultaneamente a dois subtipos. Essa é outra dimensão. Não deduza totalidade pela aparência da figura ou pela ausência de exemplos de outros tipos.",
       "example": "Total: todo elemento geral está em algum subtipo.\nParcial: pode estar em nenhum subtipo."
     },
     {
       "title": "6. Exclusividade e compartilhamento",
-      "text": "CONTEÚDO DO CURSO\n\nUma especialização exclusiva (disjunta) impede que a mesma ocorrência pertença simultaneamente a mais de um subtipo daquele conjunto. Uma especialização compartilhada (sobreposta) permite essa participação simultânea. A regra depende do domínio, não de uma propriedade universal dos conceitos.\n\nEm uma instituição, PESSOA pode ser ESTUDANTE e FUNCIONARIO simultaneamente. Se houver pessoas externas, a especialização nesses dois tipos pode ser parcial e compartilhada. Se todo cadastrado deve exercer pelo menos um dos papéis, pode ser total e compartilhada.\n\nCombine as dimensões: total exclusiva (exatamente um subtipo); total compartilhada (pelo menos um, podendo vários); parcial exclusiva (zero ou um); parcial compartilhada (zero ou vários). A apostila apresenta as marcas t/p e x/c; verifique a legenda utilizada.",
-      "example": "PESSOA→ESTUDANTE/FUNCIONARIO, com possibilidade de ambos e de visitante: parcial compartilhada (pc)."
+      "text": "CONTEÚDO DO CURSO\n\nUma especialização exclusiva (disjunta) impede que a mesma ocorrência pertença simultaneamente a mais de um subtipo daquele conjunto. Uma especialização compartilhada (sobreposta) permite essa participação simultânea. A regra depende do domínio, não de uma propriedade universal dos conceitos.\n\nEm uma instituição, Pessoa pode ser Estudante e Funcionário simultaneamente. Se houver pessoas externas, a especialização nesses dois tipos pode ser parcial e compartilhada. Se todo cadastrado deve exercer pelo menos um dos papéis, pode ser total e compartilhada.\n\nCombine as dimensões: total exclusiva (exatamente um subtipo); total compartilhada (pelo menos um, podendo vários); parcial exclusiva (zero ou um); parcial compartilhada (zero ou vários). A apostila apresenta as marcas t/p e x/c; verifique a legenda utilizada.",
+      "example": "Pessoa→Estudante/Funcionário, com possibilidade de ambos e de visitante: parcial compartilhada (pc)."
     },
     {
       "title": "7. Herança de propriedades e associações",
-      "text": "CONTEÚDO DO CURSO\n\nUma especialização herda a identidade e as propriedades do tipo geral. Se PESSOA possui id e nome, ESTUDANTE não precisa redefinir um nome independente. Pode acrescentar matrícula acadêmica e associação com curso. Uma entidade especializada pode também ser tipo geral de outra especialização: COMPUTADOR pode ter NOTEBOOK como subtipo.\n\nA apostila contempla herança múltipla conceitual. Uma ocorrência pode ser classificada em mais de um tipo geral quando a semântica permite. Isso não significa que toda linguagem de programação permita herdar implementação de múltiplas classes.\n\nCONEXÃO COM JAVA\n\nJava não permite que uma classe estenda duas classes diretamente. Interfaces e composição podem representar outras características. O modelo conceitual descreve o domínio; não precisa copiar a hierarquia de código. Uma pessoa que é estudante e funcionária pode ser melhor representada por papéis associados do que por duas subclasses de implementação.",
+      "text": "CONTEÚDO DO CURSO\n\nUma especialização herda a identidade e as propriedades do tipo geral. Se Pessoa possui id e nome, Estudante não precisa redefinir um nome independente. Pode acrescentar matrícula acadêmica e associação com curso. Uma entidade especializada pode também ser tipo geral de outra especialização: Computador pode ter Notebook como subtipo.\n\nA apostila contempla herança múltipla conceitual. Uma ocorrência pode ser classificada em mais de um tipo geral quando a semântica permite. Isso não significa que toda linguagem de programação permita herdar implementação de múltiplas classes.\n\nCONEXÃO COM JAVA\n\nJava não permite que uma classe estenda duas classes diretamente. Interfaces e composição podem representar outras características. O modelo conceitual descreve o domínio; não precisa copiar a hierarquia de código. Uma pessoa que é estudante e funcionária pode ser melhor representada por papéis associados do que por duas subclasses de implementação.",
       "example": ""
     },
     {
       "title": "8. Especialização, papéis ou atributo?",
-      "text": "APROFUNDAMENTO AUTORAL\n\nSe tipos diferem apenas por um rótulo e não possuem propriedades, relações ou regras distintas, um atributo de classificação pode bastar. Se cada tipo tem dados obrigatórios próprios, a especialização pode esclarecer as restrições. Se os papéis mudam ao longo do tempo, possuem início e fim ou podem ocorrer várias vezes, uma entidade PAPEL_VINCULO pode representar melhor o histórico.\n\nExemplo: PESSOA pode exercer papel de monitor em diferentes turmas, com datas e carga horária. Tratar MONITOR somente como subtipo de PESSOA pode perder a associação com cada turma. O fato relevante é o vínculo. Não force todas as diferenças a virarem subclasses.\n\nA escolha deve resultar das perguntas que o sistema precisa responder e das regras que precisa validar.",
+      "text": "APROFUNDAMENTO AUTORAL\n\nSe tipos diferem apenas por um rótulo e não possuem propriedades, relações ou regras distintas, um atributo de classificação pode bastar. Se cada tipo tem dados obrigatórios próprios, a especialização pode esclarecer as restrições. Se os papéis mudam ao longo do tempo, possuem início e fim ou podem ocorrer várias vezes, uma entidade Papel_vínculo pode representar melhor o histórico.\n\nExemplo: Pessoa pode exercer papel de monitor em diferentes turmas, com datas e carga horária. Tratar Monitor somente como subtipo de Pessoa pode perder a associação com cada turma. O fato relevante é o vínculo. Não force todas as diferenças a virarem subclasses.\n\nA escolha deve resultar das perguntas que o sistema precisa responder e das regras que precisa validar.",
       "example": ""
     },
     {
       "title": "9. Prévia do mapeamento relacional",
-      "text": "CONTEÚDO DO CURSO E COMPLEMENTO AUTORAL\n\nPara entidade fraca ITEM, uma relação ITEM(id_pedido,numero,quantidade) pode ter PK(id_pedido,numero) e FK id_pedido→PEDIDO. A alternativa de ID artificial exige preservar a unicidade do par se a regra permanecer. A FK obrigatória preserva o vínculo, mas o ciclo de vida também depende da política de exclusão.\n\nPara especialização, uma opção é criar EQUIPAMENTO(id,descricao), COMPUTADOR(id,memoria) e PROJETOR(id,luminosidade), com id de cada subtipo simultaneamente PK e FK para EQUIPAMENTO. Isso preserva identidade e impede subtipo sem tipo geral. Entretanto as FKs sozinhas não garantem exclusividade nem totalidade; essas regras exigem mecanismos adicionais.\n\nExistem outras estratégias, como tabela única com discriminador. A escolha será retomada quando transformarmos modelos. Não confunda estrutura possível com garantia automática de todas as restrições.",
+      "text": "CONTEÚDO DO CURSO E COMPLEMENTO AUTORAL\n\nPara entidade fraca Item, uma relação Item(id_pedido,numero,quantidade) pode ter PK(id_pedido,numero) e FK id_pedido→Pedido. A alternativa de ID artificial exige preservar a unicidade do par se a regra permanecer. A FK obrigatória preserva o vínculo, mas o ciclo de vida também depende da política de exclusão.\n\nPara especialização, uma opção é criar Equipamento(id,descricao), Computador(id,memoria) e Projetor(id,luminosidade), com id de cada subtipo simultaneamente PK e FK para Equipamento. Isso preserva identidade e impede subtipo sem tipo geral. Entretanto as FKs sozinhas não garantem exclusividade nem totalidade; essas regras exigem mecanismos adicionais.\n\nExistem outras estratégias, como tabela única com discriminador. A escolha será retomada quando transformarmos modelos. Não confunda estrutura possível com garantia automática de todas as restrições.",
       "example": ""
     }
   ],
@@ -90,7 +90,7 @@
       "id": "02",
       "group": "Essenciais — Dependência",
       "title": "Existência independente?",
-      "prompt": "ITEM possui ID global, mas só pode existir em um pedido. É necessariamente fraca pela identificação?",
+      "prompt": "Item possui ID global, mas só pode existir em um pedido. É necessariamente fraca pela identificação?",
       "hint": "As duas dependências são diferentes.",
       "explanation": "Dependência existencial não implica identificadora.",
       "mode": "text",
@@ -200,7 +200,7 @@
       "id": "09",
       "group": "Essenciais — Especialização",
       "title": "Herança",
-      "prompt": "EQUIPAMENTO possui código e descrição. COMPUTADOR especializado acrescenta memória. Precisa repetir conceitualmente código e descrição?",
+      "prompt": "Equipamento possui código e descrição. Computador especializado acrescenta memória. Precisa repetir conceitualmente código e descrição?",
       "hint": "Propriedades herdadas.",
       "explanation": "Não são duas ocorrências independentes.",
       "mode": "text",
@@ -278,7 +278,7 @@
       "id": "15",
       "group": "Essenciais — Diagnóstico",
       "title": "Parte versus tipo",
-      "prompt": "Um motor pertence a um veículo. Isso faz MOTOR subtipo de VEICULO?",
+      "prompt": "Um motor pertence a um veículo. Isso faz Motor subtipo de Veículo?",
       "hint": "É um ou faz parte?",
       "explanation": "Semânticas diferentes.",
       "mode": "text",
@@ -330,12 +330,12 @@
       "id": "19",
       "group": "Essenciais — Mapeamento",
       "title": "Fraca",
-      "prompt": "Escreva PK e FK para ITEM identificado por pedido e número local.",
+      "prompt": "Escreva PK e FK para Item identificado por pedido e número local.",
       "hint": "Combine proprietário e número.",
       "explanation": "Identidade e vínculo são preservados.",
       "mode": "text",
       "starter": "",
-      "solution": "PK(id_pedido,numero); FK id_pedido→PEDIDO, obrigatória.",
+      "solution": "PK(id_pedido,numero); FK id_pedido→Pedido, obrigatória.",
       "expected": null,
       "required": true
     },
@@ -343,7 +343,7 @@
       "id": "20",
       "group": "Essenciais — Mapeamento",
       "title": "Subtipo",
-      "prompt": "COMPUTADOR.id é PK e FK para EQUIPAMENTO.id. O que isso impede? O que não garante?",
+      "prompt": "Computador.id é PK e FK para Equipamento.id. O que isso impede? O que não garante?",
       "hint": "Pense na direção da FK.",
       "explanation": "Regras adicionais são necessárias.",
       "mode": "text",
@@ -356,12 +356,12 @@
       "id": "21",
       "group": "Revisão opcional — Revisão",
       "title": "Caso completo",
-      "prompt": "Modele uma oficina com ORDENS numeradas globalmente, ETAPAS numeradas por ordem e EQUIPAMENTO especializado em tipos opcionais que não podem coexistir. Identifique dependências e especialização.",
+      "prompt": "Modele uma oficina com Ordem numeradas globalmente, Etapa numeradas por ordem e Equipamento especializado em tipos opcionais que não podem coexistir. Identifique dependências e especialização.",
       "hint": "Use duas dimensões e chave local.",
       "explanation": "Cada decisão deriva das regras explícitas.",
       "mode": "text",
       "starter": "",
-      "solution": "ORDEM forte; ETAPA fraca identificada por (ordem,numero); especialização de EQUIPAMENTO parcial exclusiva.",
+      "solution": "Ordem forte; Etapa fraca identificada por (ordem,numero); especialização de Equipamento parcial exclusiva.",
       "expected": null,
       "required": false
     }

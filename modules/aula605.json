@@ -5,16 +5,16 @@
   "title": "Cardinalidade e participação",
   "subtitle": "Mínimos, máximos, relações 1:1, 1:N e N:M, convenções de leitura",
   "objectives": "Interpretar cardinalidade nos dois sentidos; distinguir mínimo e máximo; representar regras em ER e UML; diagnosticar ambiguidades e validar casos-limite.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; Revisão visual da Aula 02 ainda pendente. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, capítulos 2 e 3; Banco de Dados Para Alunos, slides 11–13, 19, 23, 30–38; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Diagramas textuais, exemplos e exercícios autorais; Revisão visual da Aula 02 ainda pendente. Complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. A pergunta certa em cada direção",
-      "text": "CONTEÚDO DO CURSO\n\nEscolha uma ocorrência de A e pergunte quantas ocorrências de B podem estar associadas a ela. Depois escolha uma ocorrência de B e pergunte quantas de A podem estar associadas. As respostas podem ser diferentes.\n\nExemplo: cada reserva pertence exatamente a um cliente. Um cliente pode ter zero ou muitas reservas. Partindo de CLIENTE para RESERVA, a faixa é 0..N; partindo de RESERVA para CLIENTE, é 1..1. Não troque a direção da pergunta.\n\nCardinalidade descreve regras para todos os estados admitidos, não uma contagem de registros atual. Se hoje há apenas uma reserva, a regra ainda pode permitir muitas amanhã.",
-      "example": "CLIENTE → RESERVA: 0..N\nRESERVA → CLIENTE: 1..1"
+      "text": "CONTEÚDO DO CURSO\n\nEscolha uma ocorrência de A e pergunte quantas ocorrências de B podem estar associadas a ela. Depois escolha uma ocorrência de B e pergunte quantas de A podem estar associadas. As respostas podem ser diferentes.\n\nExemplo: cada reserva pertence exatamente a um cliente. Um cliente pode ter zero ou muitas reservas. Partindo de Cliente para Reserva, a faixa é 0..N; partindo de Reserva para Cliente, é 1..1. Não troque a direção da pergunta.\n\nCardinalidade descreve regras para todos os estados admitidos, não uma contagem de registros atual. Se hoje há apenas uma reserva, a regra ainda pode permitir muitas amanhã.",
+      "example": "Cliente → Reserva: 0..N\nReserva → Cliente: 1..1"
     },
     {
       "title": "2. Mínimo e máximo",
-      "text": "CONTEÚDO DO CURSO\n\nO mínimo indica a menor quantidade permitida; 0 permite ausência de vínculo, 1 exige pelo menos um. O máximo indica o maior número permitido; 1 restringe a uma ocorrência, N ou * representa muitos sem limite numérico específico no modelo.\n\n0..1 significa opcional e no máximo um; 1..1, exatamente um; 0..N, nenhum ou vários; 1..N, pelo menos um. A expressão 'pode ter vários' não informa necessariamente se pode ter nenhum. Pergunte pelo mínimo.\n\nAPROFUNDAMENTO\n\nPodem existir limites específicos, como 2..5 participantes. UML permite multiplicidades numéricas; uma notação ER didática pode exigir anotação complementar. Um limite máximo não é uma quantidade que precisa ser atingida.\n\nCONFERÊNCIA COM A APOSTILA — Figura 5, p. 18: um departamento pode reunir até 120 empregados, e um empregado pode estar lotado em no máximo um departamento. Na convenção de extremidades adotada, 120 fica junto de EMPREGADO e 1 junto de DEPARTAMENTO. A classificação 1:N abstrai esse limite específico; não o elimina da regra de negócio. A figura informa máximos, não mínimos. Uma FK para departamento pode impedir referência inexistente, mas não garante, por si só, que o total de empregados por departamento seja menor ou igual a 120. Essa restrição exige validação adicional, inclusive quando operações concorrentes podem alterar a contagem.",
+      "text": "CONTEÚDO DO CURSO\n\nO mínimo indica a menor quantidade permitida; 0 permite ausência de vínculo, 1 exige pelo menos um. O máximo indica o maior número permitido; 1 restringe a uma ocorrência, N ou * representa muitos sem limite numérico específico no modelo.\n\n0..1 significa opcional e no máximo um; 1..1, exatamente um; 0..N, nenhum ou vários; 1..N, pelo menos um. A expressão 'pode ter vários' não informa necessariamente se pode ter nenhum. Pergunte pelo mínimo.\n\nAPROFUNDAMENTO\n\nPodem existir limites específicos, como 2..5 participantes. UML permite multiplicidades numéricas; uma notação ER didática pode exigir anotação complementar. Um limite máximo não é uma quantidade que precisa ser atingida.\n\nCONFERÊNCIA COM A APOSTILA — Figura 5, p. 18: um departamento pode reunir até 120 empregados, e um empregado pode estar lotado em no máximo um departamento. Na convenção de extremidades adotada, 120 fica junto de Empregado e 1 junto de Departamento. A classificação 1:N abstrai esse limite específico; não o elimina da regra de negócio. A figura informa máximos, não mínimos. Uma FK para departamento pode impedir referência inexistente, mas não garante, por si só, que o total de empregados por departamento seja menor ou igual a 120. Essa restrição exige validação adicional, inclusive quando operações concorrentes podem alterar a contagem.",
       "example": "Uma equipe precisa de 2 a 5 integrantes: mínimo 2, máximo 5. Não basta dizer N."
     },
     {
@@ -24,8 +24,8 @@
     },
     {
       "title": "4. Duas convenções e a mesma regra",
-      "text": "CONTEÚDO DO CURSO\n\nNa convenção de multiplicidades nas extremidades (UML, pé de galinha e a leitura binária da apostila), o número junto de B responde quantos B podem se associar a um A. O número junto de A responde quantos A podem se associar a um B. Assim, para cada cliente zero ou muitas reservas e para cada reserva exatamente um cliente, escreva 1 junto de CLIENTE e 0..* junto de RESERVA.\n\nNa convenção min–máx por participação, o par ao lado de A informa quantas vezes uma ocorrência de A participa do relacionamento. Nesse caso, (0,N) fica junto de CLIENTE e (1,1) junto de RESERVA. A posição muda, mas a regra não.\n\nA apresentação Banco de Dados Para Alunos explicita essa diferença no slide 37. Identifique a legenda antes de responder; nunca inverta números apenas por hábito. Os exemplos seguintes usam a leitura textual por direção como referência.",
-      "example": "Extremidades: [CLIENTE] 1 ─── realiza ─── 0..* [RESERVA]\nParticipação: [CLIENTE] (0,N) ─ <REALIZA> ─ (1,1) [RESERVA]\nAmbos: CLIENTE→RESERVA 0..N; RESERVA→CLIENTE 1..1."
+      "text": "CONTEÚDO DO CURSO\n\nNa convenção de multiplicidades nas extremidades (UML, pé de galinha e a leitura binária da apostila), o número junto de B responde quantos B podem se associar a um A. O número junto de A responde quantos A podem se associar a um B. Assim, para cada cliente zero ou muitas reservas e para cada reserva exatamente um cliente, escreva 1 junto de Cliente e 0..* junto de Reserva.\n\nNa convenção min–máx por participação, o par ao lado de A informa quantas vezes uma ocorrência de A participa do relacionamento. Nesse caso, (0,N) fica junto de Cliente e (1,1) junto de Reserva. A posição muda, mas a regra não.\n\nA apresentação Banco de Dados Para Alunos explicita essa diferença no slide 37. Identifique a legenda antes de responder; nunca inverta números apenas por hábito. Os exemplos seguintes usam a leitura textual por direção como referência.",
+      "example": "Extremidades: [Cliente] 1 ─── realiza ─── 0..* [Reserva]\nParticipação: [Cliente] (0,N) ─ <realiza> ─ (1,1) [Reserva]\nAmbos: Cliente→Reserva 0..N; Reserva→Cliente 1..1."
     },
     {
       "title": "5. Testar participação com ocorrências",
@@ -34,7 +34,7 @@
     },
     {
       "title": "6. Muitos para muitos e propriedades do vínculo",
-      "text": "CONTEÚDO DO CURSO\n\nEm PESSOA participa de PROJETO, permita zero ou muitos projetos por pessoa e uma ou muitas pessoas por projeto. A associação é N:M com mínimos diferentes. Cada ocorrência de participação envolve uma pessoa e um projeto. Se o vínculo guarda função e data de entrada, esses dados dependem da associação.\n\nMais adiante, uma relação associativa guardará os vínculos no modelo relacional. Não elimine N:M do modelo conceitual só porque o banco relacional exigirá outra estrutura.\n\nO mínimo 1 do lado dos participantes do projeto não é automaticamente garantido apenas pela existência de referências válidas. Será preciso validar que todo projeto tem pelo menos uma participação. Isso será retomado na integridade.",
+      "text": "CONTEÚDO DO CURSO\n\nEm Pessoa participa de Projeto, permita zero ou muitos projetos por pessoa e uma ou muitas pessoas por projeto. A associação é N:M com mínimos diferentes. Cada ocorrência de participação envolve uma pessoa e um projeto. Se o vínculo guarda função e data de entrada, esses dados dependem da associação.\n\nMais adiante, uma relação associativa guardará os vínculos no modelo relacional. Não elimine N:M do modelo conceitual só porque o banco relacional exigirá outra estrutura.\n\nO mínimo 1 do lado dos participantes do projeto não é automaticamente garantido apenas pela existência de referências válidas. Será preciso validar que todo projeto tem pelo menos uma participação. Isso será retomado na integridade.",
       "example": ""
     },
     {
@@ -44,8 +44,8 @@
     },
     {
       "title": "8. Do enunciado à regra verificável",
-      "text": "PRÁTICA AUTORAL\n\nCenário: um curso possui turmas; cada turma pertence a um curso; um estudante pode se inscrever em várias turmas; toda inscrição pertence a um estudante e a uma turma. Pergunte se curso pode existir sem turma e turma sem inscrição. Suponha explicitamente que ambos podem. Agora escreva as faixas por direção e traduza em ER e UML.\n\nCURSO→TURMA 0..N; TURMA→CURSO 1..1. ESTUDANTE→INSCRICAO 0..N; INSCRICAO→ESTUDANTE 1..1. TURMA→INSCRICAO 0..N; INSCRICAO→TURMA 1..1. A associação conceitual entre estudante e turma, vista através de inscrições, é muitos para muitos.\n\nCONEXÃO COM LÓGICA\n\nUma regra de máximo 1 pode ser expressa como uma verificação de contagem <= 1. Uma regra de mínimo 1 exige contagem >= 1 no estado em que deve valer. Validar apenas o máximo não garante o mínimo; o momento da validação importa.",
-      "example": "Regra: cada turma pertence a exatamente um curso.\nCasos: 0 cursos → inválido; 1 → válido; 2 → inválido."
+      "text": "PRÁTICA AUTORAL\n\nCenário: um curso possui turmas; cada turma pertence a um curso; um estudante pode se inscrever em várias turmas; toda inscrição pertence a um estudante e a uma turma. Pergunte se curso pode existir sem turma e turma sem inscrição. Suponha explicitamente que ambos podem. Agora escreva as faixas por direção e traduza em ER e UML.\n\nCURSO→Turma 0..N; Turma→CURSO 1..1. Estudante→Inscrição 0..N; Inscrição→Estudante 1..1. Turma→Inscrição 0..N; Inscrição→Turma 1..1. A associação conceitual entre estudante e turma, vista através de inscrições, é muitos para muitos.\n\nCONEXÃO COM LÓGICA\n\nUma regra de máximo 1 pode ser expressa como uma verificação de contagem <= 1. Uma regra de mínimo 1 exige contagem >= 1 no estado em que deve valer. Validar apenas o máximo não garante o mínimo; o momento da validação importa.\n\nCONFERÊNCIA COM A AULA 02 — No exercício acadêmico de universidades, centros e departamentos, os mínimos de centros por universidade e departamentos por centro são 1; os máximos são N. As regras inversas não são expressas numericamente no enunciado. Se assumirmos que cada centro pertence a exatamente uma universidade e cada departamento a exatamente um centro, a representação ER por extremidades e a UML abaixo preservam as mesmas regras. Na questão de cidades, bairros e logradouros, não confunda a hipótese didática de pertencimento exclusivo com a realidade de logradouros que atravessam bairros.",
+      "example": "Regra: cada turma pertence a exatamente um curso.\nCasos: 0 cursos → inválido; 1 → válido; 2 → inválido.\n\nER por extremidades: [Universidade] (1,1) ─ <possui> ─ (1,N) [Centro] (1,1) ─ <possui> ─ (1,N) [Departamento].\nUML: [Universidade] 1 ─ possui ─ 1..* [Centro] 1 ─ possui ─ 1..* [Departamento].\nHipótese adicional: pertencimento exclusivo e obrigatório no sentido inverso."
     }
   ],
   "exercises": [
@@ -58,7 +58,7 @@
       "explanation": "As duas perguntas têm respostas independentes.",
       "mode": "text",
       "starter": "",
-      "solution": "COMPRADOR→PEDIDO 0..N; PEDIDO→COMPRADOR 1..1.",
+      "solution": "Comprador→Pedido 0..N; Pedido→Comprador 1..1.",
       "expected": null,
       "required": true
     },
@@ -131,11 +131,11 @@
       "group": "Essenciais — Notações",
       "title": "Extremidades",
       "prompt": "Escreva UML textual para comprador e pedido do primeiro exercício, com multiplicidades junto às entidades.",
-      "hint": "Junto de PEDIDO, coloque quantos pedidos por comprador.",
+      "hint": "Junto de Pedido, coloque quantos pedidos por comprador.",
       "explanation": "A multiplicidade descreve a extremidade em relação à ocorrência oposta.",
       "mode": "text",
       "starter": "",
-      "solution": "[COMPRADOR] 1 ─── 0..* [PEDIDO].",
+      "solution": "[Comprador] 1 ─── 0..* [Pedido].",
       "expected": null,
       "required": true
     },
@@ -144,11 +144,11 @@
       "group": "Essenciais — Notações",
       "title": "Participação",
       "prompt": "Reescreva comprador-pedido usando min–máx por participação.",
-      "hint": "Junto de COMPRADOR, quantas vezes ele participa.",
+      "hint": "Junto de Comprador, quantas vezes ele participa.",
       "explanation": "As posições se invertem em relação à notação por extremidades.",
       "mode": "text",
       "starter": "",
-      "solution": "[COMPRADOR] (0,N) ─ <FAZ> ─ (1,1) [PEDIDO].",
+      "solution": "[Comprador] (0,N) ─ <faz> ─ (1,1) [Pedido].",
       "expected": null,
       "required": true
     },
@@ -156,7 +156,7 @@
       "id": "06",
       "group": "Essenciais — Notações",
       "title": "Leitura inversa",
-      "prompt": "Em UML, [SETOR] 1 ─── 0..* [FUNCIONARIO]. Explique as duas regras.",
+      "prompt": "Em UML, [Setor] 1 ─── 0..* [Funcionário]. Explique as duas regras.",
       "hint": "Fixe primeiro um funcionário.",
       "explanation": "A legenda define a leitura.",
       "mode": "text",
@@ -174,7 +174,7 @@
       "explanation": "O mínimo depende do estado em que a regra vale.",
       "mode": "text",
       "starter": "",
-      "solution": "EQUIPE→MEMBRO 0..N; MEMBRO→EQUIPE 1..1, se vários membros forem permitidos (hipótese explícita).",
+      "solution": "Equipe→Membro 0..N; Membro→Equipe 1..1, se vários membros forem permitidos (hipótese explícita).",
       "expected": null,
       "required": true
     },
@@ -213,7 +213,7 @@
       "explanation": "N:M com mínimos diferentes.",
       "mode": "text",
       "starter": "",
-      "solution": "OFICINA→INSTRUTOR 1..N; INSTRUTOR→OFICINA 0..N.",
+      "solution": "Oficina→Instrutor 1..N; Instrutor→Oficina 0..N.",
       "expected": null,
       "required": true
     },
@@ -247,12 +247,12 @@
       "id": "13",
       "group": "Essenciais — Modelagem",
       "title": "Universidade",
-      "prompt": "Assuma: cada centro pertence a uma universidade; toda universidade possui um ou mais centros; cada departamento pertence a um centro; todo centro possui um ou mais departamentos. Modele em UML textual.",
+      "prompt": "Assuma: cada centro pertence a uma universidade; toda universidade possui um ou mais centros; cada departamento pertence a um centro; todo centro possui um ou mais departamentos. Modele em ER por extremidades e UML textual, usando nomes conforme a convenção acadêmica.",
       "hint": "Escreva a multiplicidade da extremidade.",
       "explanation": "As regras são explicitadas neste cenário.",
       "mode": "text",
       "starter": "",
-      "solution": "[UNIVERSIDADE] 1 ─ 1..* [CENTRO] 1 ─ 1..* [DEPARTAMENTO].",
+      "solution": "ER: [Universidade] (1,1) ─ <possui> ─ (1,N) [Centro] (1,1) ─ <possui> ─ (1,N) [Departamento]. UML: [Universidade] 1 ─ possui ─ 1..* [Centro] 1 ─ possui ─ 1..* [Departamento]. As regras inversas foram assumidas no enunciado do exercício.",
       "expected": null,
       "required": true
     },
@@ -260,12 +260,12 @@
       "id": "14",
       "group": "Revisão opcional — Modelagem",
       "title": "Cidade",
-      "prompt": "Assuma que todo bairro pertence a exatamente uma cidade; uma cidade tem pelo menos um bairro. Um logradouro pode atravessar vários bairros, e cada bairro contém pelo menos um logradouro. Assuma que todo logradouro cadastrado está em pelo menos um bairro. Escreva faixas.",
+      "prompt": "Assuma que todo bairro pertence a exatamente uma cidade; uma cidade tem pelo menos um bairro. Um logradouro pode atravessar vários bairros, e cada bairro contém pelo menos um logradouro. Assuma que todo logradouro cadastrado está em pelo menos um bairro. Escreva faixas por direção e represente em ER por extremidades e UML textual.",
       "hint": "Considere o logradouro compartilhado.",
       "explanation": "A segunda associação é N:M sob as hipóteses.",
       "mode": "text",
       "starter": "",
-      "solution": "CIDADE→BAIRRO 1..N; BAIRRO→CIDADE 1..1; BAIRRO→LOGRADOURO 1..N; LOGRADOURO→BAIRRO 1..N.",
+      "solution": "Cidade→Bairro 1..N; Bairro→Cidade 1..1; Bairro→Logradouro 1..N; Logradouro→Bairro 1..N. ER: [Cidade] (1,1) ─ <possui> ─ (1,N) [Bairro] (1,N) ─ <contém> ─ (1,N) [Logradouro]. UML: [Cidade] 1 ─ possui ─ 1..* [Bairro] 1..* ─ contém ─ 1..* [Logradouro]. O cenário permite compartilhamento de logradouros.",
       "expected": null,
       "required": false
     },
@@ -325,12 +325,12 @@
       "id": "19",
       "group": "Revisão opcional — Revisão",
       "title": "Leitura dupla",
-      "prompt": "Represente DEPARTAMENTO e FUNCIONARIO quando departamento pode ter zero ou muitos e funcionário precisa de um. Use as duas notações.",
+      "prompt": "Represente Departamento e Funcionário quando departamento pode ter zero ou muitos e funcionário precisa de um. Use as duas notações.",
       "hint": "Converta a direção em posição.",
       "explanation": "A regra permanece igual.",
       "mode": "text",
       "starter": "",
-      "solution": "Extremidades: [DEPARTAMENTO] 1 ─ 0..* [FUNCIONARIO]; participação: [DEPARTAMENTO] (0,N) ─ <REUNE> ─ (1,1) [FUNCIONARIO].",
+      "solution": "Extremidades: [Departamento] 1 ─ 0..* [Funcionário]; participação: [Departamento] (0,N) ─ <reúne> ─ (1,1) [Funcionário].",
       "expected": null,
       "required": false
     },
@@ -353,7 +353,7 @@
       "title": "Capacidade de um setor",
       "prompt": "Um setor admite no máximo 12 técnicos; cada técnico pertence a no máximo um setor. Escreva os máximos por direção e classifique o relacionamento. É possível concluir que todo técnico está lotado?",
       "hint": "Separe máximo de mínimo.",
-      "solution": "SETOR→TECNICO: máximo 12; TECNICO→SETOR: máximo 1. Classificação 1:N. Não: os mínimos não foram informados.",
+      "solution": "Setor→Técnico: máximo 12; Técnico→Setor: máximo 1. Classificação 1:N. Não: os mínimos não foram informados.",
       "explanation": "N abstrai o limite 12; a restrição numérica continua válida.",
       "mode": "text",
       "starter": "",

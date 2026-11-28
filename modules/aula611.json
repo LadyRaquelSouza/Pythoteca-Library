@@ -5,12 +5,12 @@
   "title": "Normalização e organização dos dados",
   "subtitle": "Dependências funcionais, 1FN, 2FN, 3FN e decomposição",
   "objectives": "Investigar redundância e anomalias; interpretar dependências funcionais; identificar chaves e atributos primos; aplicar 1FN, 2FN e 3FN; validar decomposição sem perda e reconhecer limites da normalização.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Revisão visual da Aula 02 ainda pendente. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.2, 3.5–3.6; Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos, slides 38–47. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 segundos, consultados em 28/11/2026; narração examinada por reconhecimento automático. Revisão visual da Aula 02 ainda pendente. Exemplos, explicações detalhadas de dependências e exercícios autorais. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. Por que normalizar",
-      "text": "CONTEÚDO DO CURSO\n\nNormalização é um processo de análise e organização das relações para reduzir redundâncias problemáticas e anomalias de atualização. Uma estrutura pode representar fatos corretamente hoje, mas tornar difícil preservá-los quando dados são inseridos, modificados ou excluídos.\n\nImagine uma relação INSCRICAO_MISTA que repete nome do aluno e descrição da turma em cada inscrição. Corrigir o nome do aluno exige alterar várias linhas. Criar turma sem aluno pode ser impossível se a chave exige inscrição. Remover a última inscrição pode apagar também a informação sobre a turma. São anomalias de atualização, inserção e exclusão.\n\nNem toda repetição é erro: a FK do aluno naturalmente aparece em várias inscrições. O problema é repetir fatos que dependem de outra identidade sem necessidade e sem mecanismo de consistência.",
-      "example": "INSCRICAO_MISTA(aluno_id,aluno_nome,turma_id,turma_descricao,data_inscricao)\nA mesma descrição da turma pode aparecer dezenas de vezes."
+      "text": "CONTEÚDO DO CURSO\n\nNormalização é um processo de análise e organização das relações para reduzir redundâncias problemáticas e anomalias de atualização. Uma estrutura pode representar fatos corretamente hoje, mas tornar difícil preservá-los quando dados são inseridos, modificados ou excluídos.\n\nImagine uma relação Inscrição_mista que repete nome do aluno e descrição da turma em cada inscrição. Corrigir o nome do aluno exige alterar várias linhas. Criar turma sem aluno pode ser impossível se a chave exige inscrição. Remover a última inscrição pode apagar também a informação sobre a turma. São anomalias de atualização, inserção e exclusão.\n\nNem toda repetição é erro: a FK do aluno naturalmente aparece em várias inscrições. O problema é repetir fatos que dependem de outra identidade sem necessidade e sem mecanismo de consistência.",
+      "example": "Inscrição_mista(aluno_id,aluno_nome,turma_id,turma_descricao,data_inscricao)\nA mesma descrição da turma pode aparecer dezenas de vezes."
     },
     {
       "title": "2. Dependência funcional",
@@ -24,22 +24,22 @@
     },
     {
       "title": "4. Primeira forma normal (1FN)",
-      "text": "CONTEÚDO DO CURSO\n\nNa abordagem introdutória adotada, a 1FN exige uma relação com um valor do domínio por posição e sem grupos repetidos de atributos. Um campo telefone que contém uma lista de números, quando o domínio pretendido é um telefone individual, precisa ser revisto. Campos telefone1, telefone2, telefone3 também impõem limite artificial e dificultam consultas uniformes.\n\nUma solução é separar o cadastro da relação de contatos, com uma tupla por vínculo. Uma data em um tipo DATE pode ser atômica para o modelo; não precisamos separar cada dígito. A atomicidade depende dos domínios e das operações consideradas, e não da impossibilidade física de subdividir um valor.\n\nNão confunda 1FN com ausência de redundância: INSCRICAO_MISTA pode ter valores individuais em todas as células e ainda repetir nomes e descrições desnecessariamente.",
-      "example": "ALUNO(id,nome)\nTELEFONE_ALUNO(aluno_id,telefone), PK do par se não repetir, FK para ALUNO."
+      "text": "CONTEÚDO DO CURSO\n\nNa abordagem introdutória adotada, a 1FN exige uma relação com um valor do domínio por posição e sem grupos repetidos de atributos. Um campo telefone que contém uma lista de números, quando o domínio pretendido é um telefone individual, precisa ser revisto. Campos telefone1, telefone2, telefone3 também impõem limite artificial e dificultam consultas uniformes.\n\nUma solução é separar o cadastro da relação de contatos, com uma tupla por vínculo. Uma data em um tipo DATE pode ser atômica para o modelo; não precisamos separar cada dígito. A atomicidade depende dos domínios e das operações consideradas, e não da impossibilidade física de subdividir um valor.\n\nNão confunda 1FN com ausência de redundância: Inscrição_mista pode ter valores individuais em todas as células e ainda repetir nomes e descrições desnecessariamente.",
+      "example": "Aluno(id,nome)\nTELEFONE_ALUNO(aluno_id,telefone), PK do par se não repetir, FK para Aluno."
     },
     {
       "title": "5. Segunda forma normal (2FN)",
-      "text": "APROFUNDAMENTO AUTORAL\n\nUma relação está em 2FN se está em 1FN e nenhum atributo não primo depende funcionalmente de um subconjunto próprio de qualquer chave candidata. Quando a candidata é composta, procure dependências parciais. Se todas as candidatas são simples, não há dependência parcial não trivial de parte não vazia de uma chave; em exercícios usuais sem dependências constantes do conjunto vazio, 1FN basta para 2FN.\n\nEm INSCRICAO_MISTA(aluno_id,turma_id,aluno_nome,turma_descricao,data_inscricao), a chave é o par. aluno_id→aluno_nome e turma_id→turma_descricao são dependências parciais. data_inscricao depende da combinação completa, assumindo que o domínio não estabelece uma dependência menor.\n\nSepare ALUNO, TURMA e INSCRICAO. Preserve as referências e a identificação do vínculo. Não retire atributos porque parecem semelhantes; retire fatos cuja dependência demonstra que pertencem a outro determinante.",
-      "example": "ALUNO(aluno_id,aluno_nome)\nTURMA(turma_id,turma_descricao)\nINSCRICAO(aluno_id,turma_id,data_inscricao)\nPKs: aluno_id; turma_id; par de inscrição."
+      "text": "APROFUNDAMENTO AUTORAL\n\nUma relação está em 2FN se está em 1FN e nenhum atributo não primo depende funcionalmente de um subconjunto próprio de qualquer chave candidata. Quando a candidata é composta, procure dependências parciais. Se todas as candidatas são simples, não há dependência parcial não trivial de parte não vazia de uma chave; em exercícios usuais sem dependências constantes do conjunto vazio, 1FN basta para 2FN.\n\nEm Inscrição_mista(aluno_id,turma_id,aluno_nome,turma_descricao,data_inscricao), a chave é o par. aluno_id→aluno_nome e turma_id→turma_descricao são dependências parciais. data_inscricao depende da combinação completa, assumindo que o domínio não estabelece uma dependência menor.\n\nSepare Aluno, Turma e Inscrição. Preserve as referências e a identificação do vínculo. Não retire atributos porque parecem semelhantes; retire fatos cuja dependência demonstra que pertencem a outro determinante.",
+      "example": "Aluno(aluno_id,aluno_nome)\nTurma(turma_id,turma_descricao)\nInscrição(aluno_id,turma_id,data_inscricao)\nPKs: aluno_id; turma_id; par de inscrição."
     },
     {
       "title": "6. Terceira forma normal (3FN)",
-      "text": "APROFUNDAMENTO AUTORAL\n\nA definição precisa: para toda dependência funcional não trivial X→A implicada pelas regras, X deve ser superchave ou A deve ser atributo primo. Não trivial significa que A não está em X. A explicação introdutória mais frequente é evitar dependência transitiva inadequada de atributo não primo através de outro determinante não chave.\n\nConsidere EQUIPAMENTO(id,descricao,setor_id,setor_nome). id identifica equipamento; setor_id identifica setor; setor_id→setor_nome. Se id é a única chave candidata, setor_nome é não primo e setor_id não é superchave de EQUIPAMENTO. A dependência viola 3FN. Separe SETOR(setor_id,setor_nome) e EQUIPAMENTO(id,descricao,setor_id).\n\nNão confunda cadeia de referências entre tabelas com violação de 3FN. A dependência problemática estava na mesma relação. Depois da decomposição, recuperar setor_nome por junção é esperado.",
-      "example": "Antes: EQUIPAMENTO(id,descricao,setor_id,setor_nome).\nDepois: SETOR(setor_id,setor_nome), EQUIPAMENTO(id,descricao,setor_id)."
+      "text": "APROFUNDAMENTO AUTORAL\n\nA definição precisa: para toda dependência funcional não trivial X→A implicada pelas regras, X deve ser superchave ou A deve ser atributo primo. Não trivial significa que A não está em X. A explicação introdutória mais frequente é evitar dependência transitiva inadequada de atributo não primo através de outro determinante não chave.\n\nConsidere Equipamento(id,descricao,setor_id,setor_nome). id identifica equipamento; setor_id identifica setor; setor_id→setor_nome. Se id é a única chave candidata, setor_nome é não primo e setor_id não é superchave de Equipamento. A dependência viola 3FN. Separe Setor(setor_id,setor_nome) e Equipamento(id,descricao,setor_id).\n\nNão confunda cadeia de referências entre tabelas com violação de 3FN. A dependência problemática estava na mesma relação. Depois da decomposição, recuperar setor_nome por junção é esperado.",
+      "example": "Antes: Equipamento(id,descricao,setor_id,setor_nome).\nDepois: Setor(setor_id,setor_nome), Equipamento(id,descricao,setor_id)."
     },
     {
       "title": "7. Decomposição sem perda",
-      "text": "APROFUNDAMENTO AUTORAL\n\nAo separar uma relação, devemos conseguir reconstruir os fatos originais sem inventar combinações. A decomposição binária de R em R1 e R2 é sem perda em relação às dependências funcionais quando os atributos comuns determinam todos os atributos de R1 ou todos os de R2 (no fechamento das dependências). Para exercícios com dados completos, pense em uma junção natural sobre os atributos comuns.\n\nExemplo: R(aluno_id,aluno_nome,turma_id) separada em ALUNO(aluno_id,aluno_nome) e INSCRICAO(aluno_id,turma_id). O atributo comum aluno_id determina ALUNO. A junção reconstrói os fatos. Já decompor R(A,B,C) em AB e BC sem dependências que garantam a associação pode criar fatos espúrios.\n\nConsidere (a1,b1,c1) e (a2,b1,c2). Os pares AB e BC compartilham b1; a junção também produz (a1,b1,c2) e (a2,b1,c1), que não existiam. Normalizar não significa simplesmente cortar colunas.",
+      "text": "APROFUNDAMENTO AUTORAL\n\nAo separar uma relação, devemos conseguir reconstruir os fatos originais sem inventar combinações. A decomposição binária de R em R1 e R2 é sem perda em relação às dependências funcionais quando os atributos comuns determinam todos os atributos de R1 ou todos os de R2 (no fechamento das dependências). Para exercícios com dados completos, pense em uma junção natural sobre os atributos comuns.\n\nExemplo: R(aluno_id,aluno_nome,turma_id) separada em Aluno(aluno_id,aluno_nome) e Inscrição(aluno_id,turma_id). O atributo comum aluno_id determina Aluno. A junção reconstrói os fatos. Já decompor R(A,B,C) em AB e BC sem dependências que garantam a associação pode criar fatos espúrios.\n\nConsidere (a1,b1,c1) e (a2,b1,c2). Os pares AB e BC compartilham b1; a junção também produz (a1,b1,c2) e (a2,b1,c1), que não existiam. Normalizar não significa simplesmente cortar colunas.",
       "example": "AB={(a1,b1),(a2,b1)}; BC={(b1,c1),(b1,c2)}.\nJunção produz quatro triplas; apenas duas eram originais."
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "title": "9. Estudo resolvido",
-      "text": "PRÁTICA AUTORAL\n\nUma oficina registra SERVICO_MISTO(ordem_id,numero_etapa,cliente_id,cliente_nome,descricao_etapa,valor_etapa). Regras: ordem_id identifica uma ordem de um cliente; cliente_id identifica um nome cadastral; numero_etapa é único dentro da ordem; cada etapa tem descrição e valor próprios. Candidata única assumida: (ordem_id,numero_etapa).\n\nDependências: ordem_id→cliente_id; cliente_id→cliente_nome; (ordem_id,numero_etapa)→descricao_etapa,valor_etapa. Por transitividade, ordem_id determina cliente_nome. Em 2FN, separe os dados que dependem apenas de ordem_id em ORDEM_MISTA. Em 3FN, separe CLIENTE de ORDEM. ETAPA mantém os atributos que dependem do par.\n\nResultado: CLIENTE(cliente_id,cliente_nome), ORDEM(ordem_id,cliente_id), ETAPA(ordem_id,numero_etapa,descricao_etapa,valor_etapa). As junções por cliente_id e ordem_id preservam os fatos de etapas, e as dependências indicadas podem ser verificadas nas relações correspondentes. A existência de ordens sem etapas pode agora ser representada se o domínio permitir.",
-      "example": "PK CLIENTE: cliente_id.\nPK ORDEM: ordem_id; FK cliente_id→CLIENTE.\nPK ETAPA: (ordem_id,numero_etapa); FK ordem_id→ORDEM."
+      "text": "PRÁTICA AUTORAL\n\nUma oficina registra Serviço_misto(ordem_id,numero_etapa,cliente_id,cliente_nome,descricao_etapa,valor_etapa). Regras: ordem_id identifica uma ordem de um cliente; cliente_id identifica um nome cadastral; numero_etapa é único dentro da ordem; cada etapa tem descrição e valor próprios. Candidata única assumida: (ordem_id,numero_etapa).\n\nDependências: ordem_id→cliente_id; cliente_id→cliente_nome; (ordem_id,numero_etapa)→descricao_etapa,valor_etapa. Por transitividade, ordem_id determina cliente_nome. Em 2FN, separe os dados que dependem apenas de ordem_id em Ordem_mista. Em 3FN, separe Cliente de Ordem. Etapa mantém os atributos que dependem do par.\n\nResultado: Cliente(cliente_id,cliente_nome), Ordem(ordem_id,cliente_id), Etapa(ordem_id,numero_etapa,descricao_etapa,valor_etapa). As junções por cliente_id e ordem_id preservam os fatos de etapas, e as dependências indicadas podem ser verificadas nas relações correspondentes. A existência de ordens sem etapas pode agora ser representada se o domínio permitir.",
+      "example": "PK Cliente: cliente_id.\nPK Ordem: ordem_id; FK cliente_id→Cliente.\nPK Etapa: (ordem_id,numero_etapa); FK ordem_id→Ordem."
     },
     {
       "title": "10. Método de revisão",
@@ -186,12 +186,12 @@
       "id": "09",
       "group": "Essenciais — 1FN",
       "title": "Telefones",
-      "prompt": "Reorganize PESSOA(id,nome,telefone1,telefone2,telefone3) para número variável de contatos.",
+      "prompt": "Reorganize Pessoa(id,nome,telefone1,telefone2,telefone3) para número variável de contatos.",
       "hint": "Uma ocorrência por telefone.",
       "explanation": "Evita grupos repetidos.",
       "mode": "text",
       "starter": "",
-      "solution": "PESSOA(id,nome); CONTATO(pessoa_id,telefone), par único se adequado.",
+      "solution": "Pessoa(id,nome); Contato(pessoa_id,telefone), par único se adequado.",
       "expected": null,
       "required": true
     },
@@ -230,7 +230,7 @@
       "explanation": "Os fatos independentes ficam separados.",
       "mode": "text",
       "starter": "",
-      "solution": "ALUNO(aluno,aluno_nome); TURMA(turma,turma_nome); INSCRICAO(aluno,turma,nota).",
+      "solution": "Aluno(aluno,aluno_nome); Turma(turma,turma_nome); Inscrição(aluno,turma,nota).",
       "expected": null,
       "required": true
     },
@@ -275,7 +275,7 @@
       "explanation": "Elimina dependência transitiva problemática.",
       "mode": "text",
       "starter": "",
-      "solution": "CLIENTE(cliente_id,cliente_nome); ORDEM(ordem_id,cliente_id FK).",
+      "solution": "Cliente(cliente_id,cliente_nome); Ordem(ordem_id,cliente_id FK).",
       "expected": null,
       "required": true
     },
@@ -288,7 +288,7 @@
       "explanation": "2FN não garante 3FN.",
       "mode": "text",
       "starter": "",
-      "solution": "Sim: EQUIPAMENTO(id,setor_id,setor_nome), setor_id→setor_nome.",
+      "solution": "Sim: Equipamento(id,setor_id,setor_nome), setor_id→setor_nome.",
       "expected": null,
       "required": true
     },
@@ -353,7 +353,7 @@
       "explanation": "Atributos do produto não pertencem ao fato item.",
       "mode": "text",
       "starter": "",
-      "solution": "PRODUTO(produto,produto_nome); ITEM(pedido,linha,produto,quantidade), PK(pedido,linha), FK produto. Se PEDIDO tiver existência própria, modele-o também.",
+      "solution": "Produto(produto,produto_nome); Item(pedido,linha,produto,quantidade), PK(pedido,linha), FK produto. Se Pedido tiver existência própria, modele-o também.",
       "expected": null,
       "required": true
     },

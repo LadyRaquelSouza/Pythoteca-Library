@@ -5,7 +5,7 @@
   "title": "Integridade dos dados",
   "subtitle": "Domínio, entidade, referência, NULL e ações referenciais",
   "objectives": "Distinguir tipos de integridade; interpretar nulidade e restrições; analisar inclusões, alterações e exclusões; escolher ações referenciais e testar estados inválidos.",
-  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.4–2.7, 3.3–3.5; Banco de Dados Para Alunos, slides 25–29 e 38–41. Texto extraído consultado em 28/11/2026. Exemplos, diagramas textuais e atividades autorais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Apostila Modelagem de Dados I, seções 2.4–2.7, 3.3–3.5; Banco de Dados Para Alunos, slides 25–29 e 38–41. Texto extraído consultado em 28/11/2026. Exemplos, diagramas textuais e atividades autorais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. O que significa um estado válido",
@@ -29,8 +29,8 @@
     },
     {
       "title": "5. Integridade referencial",
-      "text": "CONTEÚDO DO CURSO\n\nUma FK não nula simples deve corresponder a uma chave admissível existente na relação referenciada. Se RESERVA aponta para cliente C9 e C9 não existe, a referência é inválida. Se a associação é obrigatória, NULL também deve ser rejeitado; se opcional, NULL pode representar ausência de vínculo.\n\nEm uma FK composta, a correspondência depende da combinação. Se SALA contém (A,12) e (B,13), a referência (A,13) não existe, ainda que A e 13 apareçam separadamente. O tratamento de componentes nulos em FKs compostas depende da regra de correspondência e do SGBD; não assuma que todos são obrigatórios sem restrições explícitas.\n\nUma FK por si só não garante que todo cliente possua reserva. Ela protege as referências de reservas existentes, mas não obriga a existência de linhas dependentes.",
-      "example": "CLIENTE: C1,C2.\nRESERVA R1→C1: válida.\nRESERVA R2→C9: inválida.\nCLIENTE C2 sem reserva: permitido se mínimo zero."
+      "text": "CONTEÚDO DO CURSO\n\nUma FK não nula simples deve corresponder a uma chave admissível existente na relação referenciada. Se Reserva aponta para cliente C9 e C9 não existe, a referência é inválida. Se a associação é obrigatória, NULL também deve ser rejeitado; se opcional, NULL pode representar ausência de vínculo.\n\nEm uma FK composta, a correspondência depende da combinação. Se Sala contém (A,12) e (B,13), a referência (A,13) não existe, ainda que A e 13 apareçam separadamente. O tratamento de componentes nulos em FKs compostas depende da regra de correspondência e do SGBD; não assuma que todos são obrigatórios sem restrições explícitas.\n\nUma FK por si só não garante que todo cliente possua reserva. Ela protege as referências de reservas existentes, mas não obriga a existência de linhas dependentes.",
+      "example": "Cliente: C1,C2.\nReserva R1→C1: válida.\nReserva R2→C9: inválida.\nCliente C2 sem reserva: permitido se mínimo zero."
     },
     {
       "title": "6. Inclusão e atualização",
@@ -40,7 +40,7 @@
     {
       "title": "7. Exclusão e ações referenciais",
       "text": "CONTEÚDO DO CURSO\n\nAo excluir uma linha referenciada, o SGBD pode rejeitar a operação ou aplicar a ação configurada. RESTRICT e NO ACTION podem impedir a exclusão quando referências permanecem, embora tenham diferenças de momento de verificação em alguns SGBDs. CASCADE exclui linhas dependentes. SET NULL remove a referência se a coluna admite NULL. SET DEFAULT usa um valor padrão que ainda deve satisfazer as restrições.\n\nA escolha depende do significado da dependência. Excluir um carrinho temporário e seus itens pode ser coerente; excluir um cliente e apagar todas as compras históricas pode destruir informação necessária. Uma alternativa pode ser impedir exclusão ou marcar o cliente como inativo, observadas as regras de retenção.\n\nCASCADE não significa apagar todas as tabelas: afeta os registros alcançados pelas referências configuradas e pode propagar efeitos. Analise o impacto antes de executar qualquer exclusão.\n\nCONFERÊNCIA DA NARRAÇÃO — O exemplo de fechamento de departamento associa a cascata a apagar ou atualizar registros dependentes. É necessário distinguir as ações: ON DELETE CASCADE exclui as linhas que referenciam a linha excluída; ON UPDATE CASCADE propaga mudanças na chave referenciada. ON DELETE SET NULL pode desvincular a referência, se admitido. Fechar um departamento não precisa significar apagar sua linha: pode ser uma alteração de situação, acompanhada de transferência de funcionários e preservação do histórico. Integridade referencial não garante sozinha que todas as regras de folha de pagamento sejam respeitadas. Escolha a ação pela regra de negócio, não pela conveniência de automatizar exclusões.",
-      "example": "CLIENTE C1 possui pedidos P1 e P2.\nRESTRICT: exclusão de C1 rejeitada.\nCASCADE: P1 e P2 removidos.\nSET NULL: referências ficam nulas, somente se permitido."
+      "example": "Cliente C1 possui pedidos P1 e P2.\nRESTRICT: exclusão de C1 rejeitada.\nCASCADE: P1 e P2 removidos.\nSET NULL: referências ficam nulas, somente se permitido."
     },
     {
       "title": "8. Regras além das chaves",
@@ -49,7 +49,7 @@
     },
     {
       "title": "9. Laboratório mental de integridade",
-      "text": "PRÁTICA AUTORAL\n\nUse as relações EQUIPAMENTO(id,descricao), CLIENTE(id,nome) e RESERVA(id,cliente_id,equipamento_id,inicio,fim). IDs são PK; as duas FKs são obrigatórias; fim deve ser posterior ao início. Não pode haver sobreposição de reservas confirmadas para um equipamento, mas reservas canceladas são preservadas.\n\nTeste: inserir cliente existente ou inexistente; duplicar ID; usar fim anterior ou igual; alterar referência para equipamento inexistente; excluir equipamento com reservas; confirmar duas reservas sobrepostas. Especifique o resultado esperado antes de escolher o mecanismo.\n\nCONEXÃO COM LÓGICA\n\nUm teste útil apresenta entrada, estado anterior, ação, resultado esperado e estado posterior. Verificar somente uma mensagem de erro não prova que o estado ficou intacto.",
+      "text": "PRÁTICA AUTORAL\n\nUse as relações Equipamento(id,descricao), Cliente(id,nome) e Reserva(id,cliente_id,equipamento_id,inicio,fim). IDs são PK; as duas FKs são obrigatórias; fim deve ser posterior ao início. Não pode haver sobreposição de reservas confirmadas para um equipamento, mas reservas canceladas são preservadas.\n\nTeste: inserir cliente existente ou inexistente; duplicar ID; usar fim anterior ou igual; alterar referência para equipamento inexistente; excluir equipamento com reservas; confirmar duas reservas sobrepostas. Especifique o resultado esperado antes de escolher o mecanismo.\n\nCONEXÃO COM LÓGICA\n\nUm teste útil apresenta entrada, estado anterior, ação, resultado esperado e estado posterior. Verificar somente uma mensagem de erro não prova que o estado ficou intacto.",
       "example": ""
     }
   ],
@@ -213,7 +213,7 @@
       "id": "10",
       "group": "Essenciais — Referencial",
       "title": "Sem dependente",
-      "prompt": "Um cliente existe sem reservas. A FK de RESERVA para CLIENTE impede isso?",
+      "prompt": "Um cliente existe sem reservas. A FK de Reserva para Cliente impede isso?",
       "hint": "Qual tabela contém a referência?",
       "explanation": "Obrigatoriedade inversa exige análise própria.",
       "mode": "text",
@@ -252,7 +252,7 @@
       "id": "13",
       "group": "Essenciais — Ações",
       "title": "Cascata",
-      "prompt": "ON DELETE CASCADE na FK de ITEM para CARRINHO significa o quê ao excluir um carrinho?",
+      "prompt": "ON DELETE CASCADE na FK de Item para Carrinho significa o quê ao excluir um carrinho?",
       "hint": "A direção vai do alvo aos dependentes.",
       "explanation": "Remove os itens que o referenciam.",
       "mode": "quiz",
@@ -388,7 +388,7 @@
       "id": "22",
       "group": "Revisão opcional — Ações referenciais",
       "title": "Departamento encerrado",
-      "prompt": "Uma empresa encerra um departamento, mas precisa conservar funcionários e histórico de lotação. É adequado usar ON DELETE CASCADE na FK FUNCIONARIO para DEPARTAMENTO? Proponha uma alternativa.",
+      "prompt": "Uma empresa encerra um departamento, mas precisa conservar funcionários e histórico de lotação. É adequado usar ON DELETE CASCADE na FK Funcionário para Departamento? Proponha uma alternativa.",
       "hint": "Separe encerramento administrativo de exclusão de registro.",
       "solution": "Não como solução automática: excluir o departamento com essa ação apagaria funcionários dependentes. Manter o departamento com situação encerrada, registrar transferências e histórico; impedir exclusão indevida com restrição apropriada.",
       "explanation": "A ação referencial deve preservar fatos exigidos pelo negócio; a integridade referencial não é suficiente para garantir preservação histórica.",

@@ -5,7 +5,7 @@
   "title": "Fundamentos da modelagem de dados",
   "subtitle": "Requisitos, regras de negócio e níveis conceitual, lógico e físico",
   "objectives": "Explicar a finalidade da modelagem; levantar requisitos; diferenciar níveis de abstração; validar regras e documentar decisões.",
-  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. Modelar é escolher uma representação",
@@ -19,13 +19,13 @@
     },
     {
       "title": "3. Modelo conceitual",
-      "text": "CONTEÚDO DO CURSO\n\nO modelo conceitual expressa os dados relevantes e as associações sem depender de tecnologia específica. Identifica entidades, propriedades e regras. Usuários do domínio devem conseguir discutir esse modelo mesmo sem conhecer SQL.\n\nExemplo: CLIENTE realiza RESERVA; RESERVA refere-se a EQUIPAMENTO. Uma reserva registra início, fim e situação. Ainda não escolhemos tipos SQL, índices ou servidor. Se o cliente puder fazer várias reservas, isso é uma regra do domínio, não uma limitação de um banco.\n\nUm DER pode representar o modelo. Mas o modelo também precisa de descrições textuais para regras que o desenho não expressa suficientemente.",
+      "text": "CONTEÚDO DO CURSO\n\nO modelo conceitual expressa os dados relevantes e as associações sem depender de tecnologia específica. Identifica entidades, propriedades e regras. Usuários do domínio devem conseguir discutir esse modelo mesmo sem conhecer SQL.\n\nExemplo: Cliente realiza Reserva; Reserva refere-se a Equipamento. Uma reserva registra início, fim e situação. Ainda não escolhemos tipos SQL, índices ou servidor. Se o cliente puder fazer várias reservas, isso é uma regra do domínio, não uma limitação de um banco.\n\nUm DER pode representar o modelo. Mas o modelo também precisa de descrições textuais para regras que o desenho não expressa suficientemente.",
       "example": ""
     },
     {
       "title": "4. Modelo lógico",
-      "text": "CONTEÚDO DO CURSO\n\nO modelo lógico organiza o conceito segundo uma família de tecnologia, por exemplo o modelo relacional. Aqui definimos relações, atributos, chaves e referências. Um relacionamento muitos para muitos frequentemente exige uma relação associativa.\n\nCLIENTE(id_cliente, nome), EQUIPAMENTO(id_equipamento, descricao) e RESERVA(id_reserva, id_cliente, id_equipamento, inicio, fim, situacao) representam um possível esquema relacional. A identificação e as referências devem preservar as regras conceituais.\n\nA Aula 01 inclui normalização até a terceira forma normal como objetivo do projeto lógico. Estudaremos as dependências em módulo próprio; não basta dividir tabelas arbitrariamente.\n\nNa Aula 01, também são características do projeto lógico a padronização dos nomes e a documentação de entidades e atributos. Exemplo autoral: escolher id_equipamento e id_reserva de modo consistente e registrar o significado de cada campo no dicionário. A convenção de nomes não substitui as restrições do modelo.",
-      "example": "RESERVA: PK id_reserva; FK id_cliente → CLIENTE; FK id_equipamento → EQUIPAMENTO."
+      "text": "CONTEÚDO DO CURSO\n\nO modelo lógico organiza o conceito segundo uma família de tecnologia, por exemplo o modelo relacional. Aqui definimos relações, atributos, chaves e referências. Um relacionamento muitos para muitos frequentemente exige uma relação associativa.\n\nCliente(id_cliente, nome), Equipamento(id_equipamento, descricao) e Reserva(id_reserva, id_cliente, id_equipamento, inicio, fim, situacao) representam um possível esquema relacional. A identificação e as referências devem preservar as regras conceituais.\n\nA Aula 01 inclui normalização até a terceira forma normal como objetivo do projeto lógico. Estudaremos as dependências em módulo próprio; não basta dividir tabelas arbitrariamente.\n\nNa Aula 01, também são características do projeto lógico a padronização dos nomes e a documentação de entidades e atributos. Exemplo autoral: escolher id_equipamento e id_reserva de modo consistente e registrar o significado de cada campo no dicionário. A convenção de nomes não substitui as restrições do modelo.",
+      "example": "Reserva: PK id_reserva; FK id_cliente → Cliente; FK id_equipamento → Equipamento."
     },
     {
       "title": "5. Modelo físico",
@@ -34,8 +34,8 @@
     },
     {
       "title": "6. Esquema e estado",
-      "text": "CONTEÚDO DO CURSO\n\nEsquema é a definição da estrutura e das restrições. Estado ou instância do banco é o conjunto de valores armazenados em um momento. Inserir uma reserva modifica o estado; acrescentar um atributo ao esquema muda a definição.\n\nUma estrutura pode existir sem nenhuma ocorrência. Uma tabela RESERVA vazia não significa que o conceito de reserva foi removido. O termo schema também possui significados técnicos específicos em SGBDs, como um espaço de nomes no PostgreSQL.",
-      "example": "Esquema: EQUIPAMENTO(id, descricao).\nEstado A: nenhum registro.\nEstado B: (1, Projetor)."
+      "text": "CONTEÚDO DO CURSO\n\nEsquema é a definição da estrutura e das restrições. Estado ou instância do banco é o conjunto de valores armazenados em um momento. Inserir uma reserva modifica o estado; acrescentar um atributo ao esquema muda a definição.\n\nUma estrutura pode existir sem nenhuma ocorrência. Uma tabela Reserva vazia não significa que o conceito de reserva foi removido. O termo schema também possui significados técnicos específicos em SGBDs, como um espaço de nomes no PostgreSQL.",
+      "example": "Esquema: Equipamento(id, descricao).\nEstado A: nenhum registro.\nEstado B: (1, Projetor)."
     },
     {
       "title": "7. Validar e revisar",
@@ -188,7 +188,7 @@
       "explanation": "As decisões acrescentam detalhes progressivamente.",
       "mode": "text",
       "starter": "",
-      "solution": "Conceitual: ferramenta tem código; lógico: relação FERRAMENTA com código PK; físico: tipo e restrições no SGBD escolhido.",
+      "solution": "Conceitual: ferramenta tem código; lógico: relação Ferramenta com código PK; físico: tipo e restrições no SGBD escolhido.",
       "expected": null,
       "required": true
     },

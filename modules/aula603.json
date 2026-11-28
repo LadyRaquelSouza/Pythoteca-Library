@@ -5,16 +5,16 @@
   "title": "Entidades, atributos e domínios",
   "subtitle": "Ocorrências, propriedades, identificadores e dicionário de dados",
   "objectives": "Reconhecer entidades e ocorrências; classificar atributos; definir domínios e identificadores; construir dicionários de dados e distinguir regras de decisões de implementação.",
-  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603.",
+  "source": "Base acadêmica: Conceitos Básicos de Modelagem de Dados — Aula 01; Banco de Dados Para Alunos; Apostila Modelagem de Dados I; Modelagem de Dados — Aula 02. Texto extraído consultado em 28/11/2026. Exemplos e exercícios originais. Revisão visual da Aula 02 ainda pendente; complementos identificados. Vídeo Modelagem de Dados: 25 quadros amostrados a cada 20 s e reconhecimento offline de toda a faixa sonora (496,7 s; nove trechos; Whisper Base), texto examinado em 28/11/2026, sem revisão humana palavra a palavra. Contribuições e ressalvas técnicas registradas editorialmente. Apostila Modelagem de Dados I: revisão visual das 31 páginas e confronto com texto, tabelas e diagramas; revisão editorial em 28/11/2026. PDF da Aula 02 ainda pendente de revisão visual completa. Banco de Dados Para Alunos: revisão visual das 45 páginas presentes, confrontadas com o texto, em 28/11/2026; numeração interna declara 47 slides. Complementos em 602, 603 e 610. Conceitos Básicos de Modelagem de Dados — Aula 01: duas páginas inspecionadas visualmente e texto conferido em 28/11/2026; sem figuras adicionais. Complementos em 602 e 603. Convenção conceitual informada pela estudante em 28/11/2026, aplicável ao conteúdo atual (601–612): entidades com inicial maiúscula e substantivo no singular; relacionamentos com verbos na terceira pessoa do singular do presente do indicativo, em minúsculas. Esquemas lógicos textuais podem usar rótulos legíveis; SQL conserva seus identificadores técnicos. Não extrapolar a orientação para aulas futuras sem confirmação.",
   "chapters": [
     {
       "title": "1. Entidade e ocorrência",
-      "text": "CONTEÚDO DO CURSO\n\nUma entidade representa um tipo de elemento concreto ou abstrato sobre o qual precisamos manter informações. EQUIPAMENTO pode representar ferramentas físicas; RESERVA pode representar um compromisso. Uma ocorrência é um elemento específico daquele tipo, como o projetor identificado por EQ07.\n\nUma entidade não é necessariamente uma tabela no modelo conceitual. A tabela é uma maneira de implementá-la em um modelo relacional. Uma entidade pode originar mais de uma tabela ou ser representada de outra forma dependendo do projeto.\n\nA escolha depende do domínio. Se uma categoria precisa de descrição, código e associação com vários produtos, pode merecer entidade própria; se é apenas uma classificação fixa simples, um atributo pode ser suficiente.",
-      "example": "Entidade EQUIPAMENTO; ocorrência EQ07, projetor portátil."
+      "text": "CONTEÚDO DO CURSO\n\nUma entidade representa um tipo de elemento concreto ou abstrato sobre o qual precisamos manter informações. Equipamento pode representar ferramentas físicas; Reserva pode representar um compromisso. Uma ocorrência é um elemento específico daquele tipo, como o projetor identificado por EQ07.\n\nUma entidade não é necessariamente uma tabela no modelo conceitual. A tabela é uma maneira de implementá-la em um modelo relacional. Uma entidade pode originar mais de uma tabela ou ser representada de outra forma dependendo do projeto.\n\nA escolha depende do domínio. Se uma categoria precisa de descrição, código e associação com vários produtos, pode merecer entidade própria; se é apenas uma classificação fixa simples, um atributo pode ser suficiente.",
+      "example": "Entidade Equipamento; ocorrência EQ07, projetor portátil."
     },
     {
       "title": "2. Atributos e valores",
-      "text": "CONTEÚDO DO CURSO\n\nAtributo descreve uma propriedade relevante de uma entidade ou de uma associação. Nome, data de aquisição e número de série são possíveis atributos de EQUIPAMENTO. Cada ocorrência possui valores de acordo com as regras definidas.\n\nO atributo não é seu valor: nome é a propriedade; 'Projetor portátil' é um valor. O rótulo de uma tela não define sozinho o significado do dado. Dois campos chamados codigo em entidades diferentes podem ter domínios e propósitos diferentes.\n\nUse nomes claros, evitando abreviações ambíguas. A apresentação recomenda singular para entidades e snake_case para nomes SQL; são convenções, não leis universais.",
+      "text": "CONTEÚDO DO CURSO\n\nAtributo descreve uma propriedade relevante de uma entidade ou de uma associação. Nome, data de aquisição e número de série são possíveis atributos de Equipamento. Cada ocorrência possui valores de acordo com as regras definidas.\n\nO atributo não é seu valor: nome é a propriedade; 'Projetor portátil' é um valor. O rótulo de uma tela não define sozinho o significado do dado. Dois campos chamados codigo em entidades diferentes podem ter domínios e propósitos diferentes.\n\nUse nomes claros, evitando abreviações ambíguas. A apresentação recomenda singular para entidades e snake_case para nomes SQL; são convenções, não leis universais.",
       "example": ""
     },
     {
@@ -24,7 +24,7 @@
     },
     {
       "title": "4. Domínio, tipo e formato",
-      "text": "CONTEÚDO DO CURSO\n\nDomínio é o conjunto de valores admitidos por um atributo. Um tipo de dado é uma forma de representação e operação; o domínio pode impor restrições adicionais. Um inteiro permite valores negativos, mas o domínio quantidade_disponivel pode admitir apenas inteiros não negativos.\n\nFormato é a apresentação do valor. Um identificador de texto como EQ007 não é um número para realizar cálculos; zeros iniciais podem ser significativos. Uma data exibida como 28/11/2026 pode estar armazenada em um tipo de data, sem guardar barras como parte do valor.\n\nCONEXÃO COM LÓGICA\n\nEscolher uma variável inteira não valida automaticamente o intervalo. A condição quantidade >= 0 complementa a escolha do tipo. A regra também precisa ser preservada em outras interfaces e no banco.\n\nCONFERÊNCIA COM O MATERIAL — O slide 4 de Banco de Dados Para Alunos apresenta nota NUMERIC(4,2), com domínio de 0 a 10. Em PostgreSQL, a precisão 4 indica quatro dígitos significativos e a escala 2 indica duas casas decimais; o tipo admite, por exemplo, 25,50 e -1,00, que violam o domínio da nota. Uma restrição CHECK (nota BETWEEN 0 AND 10) limita o intervalo; NOT NULL é necessário adicionalmente se a nota for obrigatória, porque CHECK não rejeita por si só NULL. O SGBD pode arredondar valores à escala declarada antes de avaliar a restrição. Não confunda precisão, formato de exibição, nulidade e regra de negócio.",
+      "text": "CONTEÚDO DO CURSO\n\nDomínio é o conjunto de valores admitidos por um atributo. Um tipo de dado é uma forma de representação e operação; o domínio pode impor restrições adicionais. Um inteiro permite valores negativos, mas o domínio quantidade_disponivel pode admitir apenas inteiros não negativos.\n\nFormato é a apresentação do valor. Um identificador de texto como EQ007 não é um número para realizar cálculos; zeros iniciais podem ser significativos. Uma data exibida como 28/11/2026 pode estar armazenada em um tipo de data, sem guardar barras como parte do valor.\n\nCONEXÃO COM LÓGICA\n\nEscolher uma variável inteira não valida automaticamente o intervalo. A condição quantidade >= 0 complementa a escolha do tipo. A regra também precisa ser preservada em outras interfaces e no banco.\n\nCONFERÊNCIA COM O Material — O slide 4 de Banco de Dados Para Alunos apresenta nota NUMERIC(4,2), com domínio de 0 a 10. Em PostgreSQL, a precisão 4 indica quatro dígitos significativos e a escala 2 indica duas casas decimais; o tipo admite, por exemplo, 25,50 e -1,00, que violam o domínio da nota. Uma restrição CHECK (nota BETWEEN 0 AND 10) limita o intervalo; NOT NULL é necessário adicionalmente se a nota for obrigatória, porque CHECK não rejeita por si só NULL. O SGBD pode arredondar valores à escala declarada antes de avaliar a restrição. Não confunda precisão, formato de exibição, nulidade e regra de negócio.",
       "example": ""
     },
     {
@@ -35,11 +35,11 @@
     {
       "title": "6. Identificação das ocorrências",
       "text": "CONTEÚDO DO CURSO\n\nUm identificador deve distinguir ocorrências segundo uma regra válida para todo o domínio, não apenas para os exemplos de hoje. Nome de equipamento pode repetir; um código de patrimônio pode ser único e obrigatório. Se o código sozinho identifica, acrescentar descrição não torna o identificador mínimo.\n\nUm identificador composto usa mais de um atributo quando a combinação é necessária. Uma sala pode ser identificada por prédio e número, se números se repetem em prédios diferentes. O par precisa ser único; nenhum dos componentes precisa ser único sozinho.\n\nA seleção de chaves primárias, alternativas e estrangeiras será aprofundada no modelo relacional.",
-      "example": "SALA (predio, numero): (A, 101) e (B, 101) são ocorrências diferentes."
+      "example": "Sala (predio, numero): (A, 101) e (B, 101) são ocorrências diferentes."
     },
     {
       "title": "7. Dicionário de dados",
-      "text": "CONTEÚDO DO CURSO\n\nO dicionário de dados documenta o significado dos elementos, reduz ambiguidades e ajuda usuários e desenvolvedores a compartilhar uma linguagem. Pode registrar nome, descrição, domínio, obrigatoriedade, multiplicidade, origem e regras. Não existe um único formato obrigatório.\n\nPara EQUIPAMENTO, codigo_patrimonio identifica uma ocorrência; descricao informa o nome usado no inventário; situacao aceita disponível, em manutenção ou baixado, conforme o caso. A regra de unicidade é diferente da regra de conjunto permitido.\n\nAPROFUNDAMENTO\n\nUm dicionário deve ser atualizado quando as regras mudam. Se a situação reservada passar a existir, decida se ela é propriedade do equipamento ou derivada de reservas. A resposta depende de como o domínio trata disponibilidade e histórico.\n\nPRÁTICA AUTORAL MOTIVADA PELA AULA 01 — A apostila propõe identificar atributos de PESSOA, sem especificar uma finalidade ou fornecer uma solução completa. Para tornar a decisão verificável, suponha um cadastro fictício de participantes de oficinas: id_pessoa identifica cada participante, nome é o nome usado no cadastro, email_contato permite enviar avisos quando informado. Documente domínio, obrigatoriedade, significado e unicidade. Não inclua CPF, endereço ou nascimento sem necessidade demonstrada. Outro domínio pode exigir outros atributos; não existe uma lista universal de propriedades de PESSOA.",
+      "text": "CONTEÚDO DO CURSO\n\nO dicionário de dados documenta o significado dos elementos, reduz ambiguidades e ajuda usuários e desenvolvedores a compartilhar uma linguagem. Pode registrar nome, descrição, domínio, obrigatoriedade, multiplicidade, origem e regras. Não existe um único formato obrigatório.\n\nPara Equipamento, codigo_patrimonio identifica uma ocorrência; descricao informa o nome usado no inventário; situacao aceita disponível, em manutenção ou baixado, conforme o caso. A regra de unicidade é diferente da regra de conjunto permitido.\n\nAPROFUNDAMENTO\n\nUm dicionário deve ser atualizado quando as regras mudam. Se a situação reservada passar a existir, decida se ela é propriedade do equipamento ou derivada de reservas. A resposta depende de como o domínio trata disponibilidade e histórico.\n\nPRÁTICA AUTORAL MOTIVADA PELA AULA 01 — A apostila propõe identificar atributos de Pessoa, sem especificar uma finalidade ou fornecer uma solução completa. Para tornar a decisão verificável, suponha um cadastro fictício de participantes de oficinas: id_pessoa identifica cada participante, nome é o nome usado no cadastro, email_contato permite enviar avisos quando informado. Documente domínio, obrigatoriedade, significado e unicidade. Não inclua CPF, endereço ou nascimento sem necessidade demonstrada. Outro domínio pode exigir outros atributos; não existe uma lista universal de propriedades de Pessoa.",
       "example": "codigo_patrimonio | texto não vazio | obrigatório | único\nsituacao | conjunto de estados documentado | obrigatório\nobservacao | texto | opcional"
     },
     {
@@ -53,7 +53,7 @@
       "id": "01",
       "group": "Essenciais — Entidades",
       "title": "Ocorrência",
-      "prompt": "Qual opção representa uma ocorrência de EQUIPAMENTO?",
+      "prompt": "Qual opção representa uma ocorrência de Equipamento?",
       "hint": "Procure um elemento específico.",
       "explanation": "EQ07 é um equipamento individual.",
       "mode": "quiz",
@@ -64,7 +64,7 @@
       "options": [
         {
           "id": "a",
-          "text": "O tipo EQUIPAMENTO"
+          "text": "O tipo Equipamento"
         },
         {
           "id": "b",
@@ -90,7 +90,7 @@
       "explanation": "Entidades representam tipos; ocorrências são elementos específicos.",
       "mode": "text",
       "starter": "",
-      "solution": "CLIENTE C01; EQUIPAMENTO E04; REPARO R12.",
+      "solution": "Cliente C01; Equipamento E04; Reparo R12.",
       "expected": null,
       "required": true
     },
@@ -98,7 +98,7 @@
       "id": "03",
       "group": "Essenciais — Atributos",
       "title": "Propriedade e valor",
-      "prompt": "Em EQUIPAMENTO EQ07, descricao = Projetor, qual é o atributo e qual é o valor?",
+      "prompt": "Em Equipamento EQ07, descricao = Projetor, qual é o atributo e qual é o valor?",
       "hint": "Nome do campo versus conteúdo.",
       "explanation": "O valor pertence à ocorrência.",
       "mode": "text",
@@ -338,7 +338,7 @@
       "id": "20",
       "group": "Revisão opcional — Dicionário de dados",
       "title": "Cadastro de participantes",
-      "prompt": "Uma oficina precisa identificar participantes e enviar avisos quando houver e-mail de contato. Proponha três atributos de PESSOA e documente significado, domínio, obrigatoriedade e unicidade. Explique por que não incluiria automaticamente CPF.",
+      "prompt": "Uma oficina precisa identificar participantes e enviar avisos quando houver e-mail de contato. Proponha três atributos de Pessoa e documente significado, domínio, obrigatoriedade e unicidade. Explique por que não incluiria automaticamente CPF.",
       "hint": "Separe necessidade de identificação interna, nome e canal de contato.",
       "solution": "Exemplo: id_pessoa, inteiro positivo, obrigatório e único; nome, texto não vazio, obrigatório e não necessariamente único; email_contato, texto conforme formato adotado, opcional e sem unicidade presumida. CPF só deve ser coletado se houver finalidade e regra justificadas.",
       "explanation": "O dicionário depende das necessidades do domínio e registra regras que não se deduzem do nome do campo.",
