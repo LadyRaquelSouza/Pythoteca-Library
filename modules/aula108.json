@@ -5,7 +5,7 @@
   "title": "Decimal e binário em profundidade",
   "subtitle": "Pesos, divisões sucessivas, verificação e largura fixa",
   "objectives": "Converter inteiros não negativos em ambos os sentidos; explicar os pesos binários e restos; conferir resultados; reconhecer zeros à esquerda e limites de representação sem sinal; usar a Mesa de Conversão.",
-  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (sistemas de numeração e conversão decimal para binário, pp. 3–15) e Aula 04 (leitura e conversão de números binários, pp. 3–10), texto consultado em 28/11/2026. Explicações, exemplos e exercícios autorais; complementos identificados. Apresentações sem texto extraível, imagens e mídias não examinadas nesta revisão.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narração e podcasts não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados.",
   "chapters": [
     {
       "title": "Duas escritas para o mesmo inteiro",
@@ -34,7 +34,7 @@
     },
     {
       "title": "Conferência independente",
-      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nConverta por um método e revise pelo inverso. Exemplo: 73₁₀ = 1001001₂, porque 64+8+1 = 73. O procedimento de divisões sucessivas produz a mesma sequência.\n\nPara 99₁₀, 64+32+2+1=99 e o numeral é 1100011₂. Confirme pelas divisões. Essa verificação não substitui escrever as etapas, mas ajuda a detectar erros.\n\nA Mesa de Conversão é ideal para guardar pesos, bits, restos e verificação em suas quatro linhas livres, sem mostrar automaticamente a resposta.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nConverta por um método e revise pelo inverso. Exemplo: 73₁₀ = 1001001₂, porque 64+8+1 = 73. O procedimento de divisões sucessivas produz a mesma sequência.\n\nPara 99₁₀, 64+32+2+1=99 e o numeral é 1100011₂. Confirme pelas divisões. Essa verificação não substitui escrever as etapas, mas ajuda a detectar erros.\n\nA Mesa de Conversão é ideal para guardar pesos, bits, restos e verificação em suas quatro linhas livres, sem mostrar automaticamente a resposta.\n\nREFERÊNCIA VISUAL — O infográfico da Aula 03 compara os dois métodos usando 10₁₀: 10÷2=5 r0; 5÷2=2 r1; 2÷2=1 r0; 1÷2=0 r1. Restos invertidos: 1010₂. Pela seleção, 8+2=10. A apresentação da Aula 04 (slides 7–9) usa a mesma escrita no sentido inverso: pesos 8,4,2,1; bits 1,0,1,0; parcelas 8,0,2,0. A conferência já é praticada nos exercícios existentes.",
       "example": ""
     },
     {

@@ -5,7 +5,7 @@
   "title": "Introdução aos sistemas numéricos",
   "subtitle": "Bases, dígitos, potências e valor posicional",
   "objectives": "Identificar bases e algarismos válidos; compreender valor posicional e potências; decompor numerais; relacionar representações a bits e endereçamento; preparar a conversão decimal-binária.",
-  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (sistemas de numeração e conversão decimal para binário, pp. 3–15) e Aula 04 (leitura e conversão de números binários, pp. 3–10), texto consultado em 28/11/2026. Explicações, exemplos e exercícios autorais; complementos identificados. Apresentações sem texto extraível, imagens e mídias não examinadas nesta revisão.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narração e podcasts não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados.",
   "chapters": [
     {
       "title": "Número, numeral e base",
@@ -24,7 +24,7 @@
     },
     {
       "title": "Decomposição de um numeral",
-      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nPara converter de uma base posicional para decimal: verifique se os algarismos são válidos; escreva os pesos da direita para a esquerda; multiplique cada algarismo pelo peso correspondente; some os produtos.\n\nExemplo: 11001₂ = 1×16 + 1×8 + 0×4 + 0×2 + 1×1 = 25₁₀.\nAPROFUNDAMENTO OPCIONAL — conversões em outras bases.\nExemplo complementar: 157₈ = 1×64 + 5×8 + 7×1 = 111₁₀.\nExemplo complementar: 2A₁₆ = 2×16 + 10×1 = 42₁₀.\n\nNão inverta os expoentes. Se a soma divergir, confira as colunas antes de abandonar o método. O conteúdo sobre conversões sucessivas de decimal para binário ficará no módulo 108.",
+      "text": "CONTEÚDO DO CURSO — explicação autoral.\n\nPara converter de uma base posicional para decimal: verifique se os algarismos são válidos; escreva os pesos da direita para a esquerda; multiplique cada algarismo pelo peso correspondente; some os produtos.\n\nExemplo: 11001₂ = 1×16 + 1×8 + 0×4 + 0×2 + 1×1 = 25₁₀.\nAPROFUNDAMENTO OPCIONAL — conversões em outras bases.\nExemplo complementar: 157₈ = 1×64 + 5×8 + 7×1 = 111₁₀.\nExemplo complementar: 2A₁₆ = 2×16 + 10×1 = 42₁₀.\n\nNão inverta os expoentes. Se a soma divergir, confira as colunas antes de abandonar o método. O conteúdo sobre conversões sucessivas de decimal para binário ficará no módulo 108.\n\nCONFERÊNCIA MULTIMÍDIA — Aula presencial 03, slide 8: 1A3F₁₆ = 1×4096 + 10×256 + 3×16 + 15×1 = 6719₁₀. A sobreposição visual no vídeo A Regra do Valor Posicional mostra 6704, que omite o valor 15 da última posição. O slide original está correto. Verifique pelos pesos, em vez de memorizar o resultado do vídeo.",
       "example": ""
     },
     {
@@ -1318,6 +1318,19 @@
       "mode": "text",
       "starter": "",
       "solution": "Base 10: valores 0 a 9; pesos 1, 10, 100. Base 16: valores 0 a 15; pesos 1, 16, 256.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "70",
+      "group": "Revisão opcional — Conferência multimídia",
+      "title": "Conferência de hexadecimal",
+      "prompt": "Uma sobreposição do vídeo associa 1A3F₁₆ a 6704₁₀. Confira o cálculo e identifique o peso omitido.",
+      "hint": "Compare o valor posicional e confira as parcelas.",
+      "explanation": "A diferença é 15; o slide 8 da apresentação traz o resultado correto.",
+      "mode": "text",
+      "starter": "",
+      "solution": "4096 + 2560 + 48 + 15 = 6719₁₀. F vale 15 na posição de peso 1.",
       "expected": null,
       "required": false
     }

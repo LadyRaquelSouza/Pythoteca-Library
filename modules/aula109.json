@@ -5,7 +5,7 @@
   "title": "Representação digital das cores",
   "subtitle": "Bits, canais RGB, pixels, Paint, CSS e interfaces Java",
   "objectives": "Relacionar valores binários de oito bits a canais RGB; distinguir quantidade de combinações e valor máximo; interpretar e converter triplas RGB; explicar a composição aditiva e o papel de pixels; investigar cores em editores e interfaces; distinguir a representação de cor do armazenamento real de imagens.",
-  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (sistemas de numeração e conversão decimal para binário, pp. 3–15) e Aula 04 (leitura e conversão de números binários, pp. 3–10), texto consultado em 28/11/2026. Explicações, exemplos e exercícios autorais; complementos identificados. Apresentações sem texto extraível, imagens e mídias não examinadas nesta revisão.",
+  "source": "Base acadêmica: cadernos didáticos de Arquitetura de Computadores, Aula 03 (pp. 3–15) e Aula 04 (pp. 3–10), texto consultado; apresentações A03 (27 páginas) e A04 (23 páginas), inspecionadas visualmente; dois infográficos completos; vídeos A Regra do Valor Posicional e Desvendando o Sistema Binário, amostragem visual em intervalos de 25 s. Revisão em 28/11/2026. Narração e podcasts não transcritos; figuras dos cadernos não revisadas integralmente. Explicações e exercícios autorais, complementos e divergências identificados.",
   "chapters": [
     {
       "title": "1. Bits precisam de interpretação",
@@ -29,7 +29,7 @@
     },
     {
       "title": "5. Investigar em um editor de imagens",
-      "text": "CONTEÚDO DO CURSO\n\nO Paint permite escolher uma cor por meio de campos RGB. O valor decimal é uma interface conveniente para a pessoa; internamente a cor pode ser representada por componentes binários. A opção e a aparência dos controles dependem da versão do programa.\n\nPRÁTICA AUTORAL ADAPTADA AO LINUX\n\nUse um seletor de cores de um editor disponível no seu sistema, por exemplo Krita ou GIMP, caso instalado. Não é necessário instalar nada para resolver os exercícios desta aula. Escolha R=240, B=0 e compare G=0, G=80 e G=240. Anote as três triplas, converta o verde para oito bits e observe a passagem aproximada do vermelho para o amarelo. Mantenha os demais canais constantes para isolar a variável investigada.\n\nNão é necessário acertar um nome comercial de tonalidade: descreva a mudança observada. As respostas de cálculo podem ser resolvidas sem abrir o editor.",
+      "text": "CONTEÚDO DO CURSO\n\nO Paint permite escolher uma cor por meio de campos RGB. O valor decimal é uma interface conveniente para a pessoa; internamente a cor pode ser representada por componentes binários. A opção e a aparência dos controles dependem da versão do programa.\n\nPRÁTICA AUTORAL ADAPTADA AO LINUX\n\nUse um seletor de cores de um editor disponível no seu sistema, por exemplo Krita ou GIMP, caso instalado. Não é necessário instalar nada para resolver os exercícios desta aula. Escolha R=240, B=0 e compare G=0, G=80 e G=240. Anote as três triplas, converta o verde para oito bits e observe a passagem aproximada do vermelho para o amarelo. Mantenha os demais canais constantes para isolar a variável investigada.\n\nNão é necessário acertar um nome comercial de tonalidade: descreva a mudança observada. As respostas de cálculo podem ser resolvidas sem abrir o editor.\n\nATIVIDADE ACADÊMICA — Aula presencial 04, slides 19–20 e infográfico: compare (255,128,0), (255,255,0) e (255,0,0). Em RGB usual, as cores correspondem a laranja, amarelo e vermelho. R permanece 11111111₂; B permanece 00000000₂; G varia entre 10000000₂, 11111111₂ e 00000000₂. Não é preciso abrir o Paint para explicar a variação. O slide 21–22 propõe G=01000000₂ mantendo R=255 e B=0: o campo verde deve receber 64, independentemente da aparência ilustrativa do seletor.",
       "example": "(240,0,0) → (240,80,0) → (240,240,0)"
     },
     {
@@ -616,6 +616,19 @@
       "mode": "text",
       "starter": "",
       "solution": "Entrada: valores RGB; processamento: validação e composição gráfica; saída: cor apresentada na tela.",
+      "expected": null,
+      "required": false
+    },
+    {
+      "id": "39",
+      "group": "Revisão opcional — Conferência multimídia",
+      "title": "Experimento RGB da apresentação",
+      "prompt": "Compare RGB (255,128,0), (255,255,0) e (255,0,0). Identifique o canal alterado, escreva os três valores desse canal em oito bits e explique a mudança de cor.",
+      "hint": "Compare o valor posicional e confira as parcelas.",
+      "explanation": "As combinações preservam R e B e variam apenas G; atividade baseada nos valores da apresentação, sem execução obrigatória.",
+      "mode": "text",
+      "starter": "",
+      "solution": "G: 128=10000000₂; 255=11111111₂; 0=00000000₂. Com R=255 e B=0 fixos, obtêm-se laranja, amarelo e vermelho, respectivamente.",
       "expected": null,
       "required": false
     }
