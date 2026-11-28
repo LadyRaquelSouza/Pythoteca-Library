@@ -40,8 +40,10 @@ def pcm_samples(path):
         raise ValueError("Empty audio")
     return np.frombuffer(frames, dtype="<i2").astype(np.float32) / np.float32(32768.0)
 
-def run(input_path, output_path, model="small", model_dir=None):
-    source, target = prepare(input_path, output_path)
+def recognize(source, model="small", model_dir=None, engine=None):
+    source = outside(source)
+    if not source.is_file() or source.suffix.lower() not in SUFFIXES:
+        raise ValueError("Unsupported input")
     if model not in MODELS:
         raise ValueError("Unsupported model")
     if not shutil.which("ffmpeg"):
@@ -57,10 +59,16 @@ def run(input_path, output_path, model="small", model_dir=None):
                             "-i", str(source), "-vn", "-ac", "1", "-ar", "16000",
                             "-c:a", "pcm_s16le", str(audio)],
                            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            engine = WhisperModel(model, device="cpu", compute_type="int8", download_root=str(cache))
+            if engine is None:
+                engine = WhisperModel(model, device="cpu", compute_type="int8", download_root=str(cache))
             segments, info = engine.transcribe(pcm_samples(audio), language="pt", beam_size=5, vad_filter=True)
             result = {"schema_version": 1, "language": "pt", "model": model,
                       "segments": [{"start": s.start, "end": s.end, "text": s.text.strip()} for s in segments]}
+    return result, engine
+
+def run(input_path, output_path, model="small", model_dir=None):
+    source, target = prepare(input_path, output_path)
+    result, _ = recognize(source, model, model_dir)
     # Exclusive creation; never overwrite. Restrictive permissions on POSIX.
     fd = os.open(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
     try:

@@ -25,3 +25,14 @@ O teste sintético mede viabilidade funcional, não qualidade em podcasts reais.
 ## Correção de compatibilidade
 
 A primeira execução sintética falhou porque faster-whisper 1.2.1 chamou av.open com metadata_errors, rejeitado por PyAV 19.0.2. Como FFmpeg já produz WAV PCM mono de 16 kHz e 16 bits, o motor agora lê esse formato com wave e converte amostras para NumPy float32 normalizadas, passando o vetor diretamente ao Whisper. O teste sintético verifica também os valores extremos da normalização. PyAV continua dependência transitiva; seu decodificador não é usado neste fluxo. A correção ainda requer confirmação em CI.
+
+## Processamento em lote (experimental)
+
+A CLI privada aceita diretórios separados fora do checkout. Crie o destino com chmod 700. Exemplo:
+
+    mkdir -m 700 ~/pythoteca-resultados
+    ~/.local/share/pythoteca-media/venv/bin/python tools/media-processing/batch.py ~/pythoteca-privado ~/pythoteca-resultados
+
+Percorre subpastas sem seguir links simbólicos; reconhece mídias suportadas, identifica conteúdo por SHA-256 + modelo + versão do pipeline, reutiliza o motor na mesma execução, valida hashes dos três resultados e ignora duplicatas/conteúdos já concluídos. Cada conjunto contém transcript.json, transcript.txt, transcript.srt e manifest.json. Nomes de saída são hashes, não nomes privados; o hash da fonte identifica o original. Não sobrescreve resultados incompletos ou corrompidos; inspecione-os localmente antes de remover ou mover. Arquivos alterados criam novo conjunto. Execute um lote por vez. Erros de mídia são isolados; o resumo contém apenas contagens e retorna código 1 se houver falhas. Não é um inventário de nomes nem um log de diagnóstico individual. A publicação do conjunto usa diretório de staging e renomeação; interrupção abrupta pode deixar staging privado. O áudio integral é carregado em memória após normalização; arquivos muito longos podem requerer segmentação futura.
+
+O CI sintético cobre duas falas geradas, duplicata, mídia inválida e retomada, sem dados externos. A CLI de lote permanece bloqueada em CI; somente o script fixo de teste chama a função interna. Integração Drive e transcrição acadêmica ainda não implementadas. A execução anterior de reconhecimento único passou com 8/9 palavras-chave; o novo lote aguarda validação.

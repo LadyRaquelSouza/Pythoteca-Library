@@ -9,6 +9,7 @@ import time
 import unicodedata
 
 from transcribe import run, pcm_samples
+from batch import process
 
 TEXT = "O computador guarda dados na memória. O teclado permite escrever palavras. A tela mostra uma imagem colorida."
 EXPECTED = {"computador", "dados", "memoria", "teclado", "escrever", "palavras", "tela", "imagem", "colorida"}
@@ -51,6 +52,24 @@ def main():
         if matched < 6:
             raise SystemExit("Synthetic speech recognition below smoke-test threshold.")
         print("Synthetic transcription smoke test passed.")
+        inputs = root / "batch-input"
+        inputs.mkdir()
+        results = root / "batch-results"
+        import shutil
+        shutil.copyfile(source, inputs / "a.wav")
+        shutil.copyfile(source, inputs / "duplicate.wav")
+        subprocess.run(["espeak-ng", "-v", "pt-br", "-s", "145", "-w", str(inputs / "b.wav"), "Um programa pode organizar arquivos e pastas."], check=True)
+        (inputs / "invalid.wav").write_bytes(b"invalid synthetic audio")
+        first = process(inputs, results, model="small", model_dir=root/"models")
+        second = process(inputs, results, model="small", model_dir=root/"models")
+        assert first == {"processed":2,"skipped":1,"failed":1}, first
+        assert second == {"processed":0,"skipped":3,"failed":1}, second
+        for folder in results.iterdir():
+            assert (folder/"transcript.txt").read_text().strip()
+            assert "-->" in (folder/"transcript.srt").read_text()
+            assert json.loads((folder/"transcript.json").read_text())["segments"]
+        print(f"Batch initial: {first}; resumed: {second}", flush=True)
+        print("Synthetic batch smoke test passed.")
 
 if __name__ == "__main__":
     main()
