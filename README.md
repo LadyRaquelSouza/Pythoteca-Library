@@ -13,3 +13,7 @@ Catálogo público de aulas autorais para a Pythoteca.
 O repositório público contém somente conteúdo didático elaborado e revisado, código, testes e documentação. Materiais acadêmicos originais e transcrições integrais permanecem em armazenamento privado. Não há dados de estudo, contas ou analytics neste repositório. A visibilidade pública não equivale a licença de reutilização irrestrita.
 
 A ferramenta experimental de transcrição local está em [tools/media-processing](tools/media-processing/README.md). Não processa mídias privadas no CI público. O validador de caminhos reduz inclusões acidentais; não substitui revisão editorial ou proteção prévia à publicação.
+
+## Auditoria pedagógica
+
+Ver [percurso guiado e revisão intercalada](docs/editorial/auditoria-pedagogica.md) para critérios, decisões e futura conclusão oficial da auditoria transversal.
